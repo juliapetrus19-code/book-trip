@@ -1,0 +1,21 @@
+{
+  "name": "book-trip",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BookTrip — step inside any book: retelling, terms, 3D voxel characters, similar books and a mini-film.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node tests/dev-server.mjs",
+    "test": "node --test tests/",
+    "build:catalog": "node tests/build-catalog.mjs",
+    "build:three": "esbuild tools/three-entry.js --bundle --minify --format=esm --outfile=vendor/three.min.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "three": "^0.186.1"
+  }
+}

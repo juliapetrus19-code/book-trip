@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BookTrip — путешествие внутрь любой книги</title>
+<meta name="description" content="Введите название книги — и войдите внутрь: пересказ, важные термины, персонажи в 3D, похожие книги и мини-фильм о путешествии в историю.">
+<meta name="theme-color" content="#04050b">
+<meta property="og:title" content="BookTrip — путешествие внутрь любой книги">
+<meta property="og:description" content="Пересказ, термины, персонажи в 3D и мини-фильм по любой книге.">
+<meta property="og:type" content="website">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.min.js" } }
+</script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/book.css">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+<canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
+
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Перейти к содержимому</a>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#/" aria-label="BookTrip">
+    <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="bm-g" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#9ef6ff"/><stop offset=".5" stop-color="#39d6ff"/><stop offset="1" stop-color="#1a7fe0"/>
+        </linearGradient>
+      </defs>
+      <g transform="rotate(-24 24 24)">
+        <ellipse cx="24" cy="24" rx="20" ry="9" fill="none" stroke="url(#bm-g)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="62 28" stroke-dashoffset="16" opacity=".9"/>
+        <circle cx="43" cy="21" r="2.6" fill="#c9f8ff"/>
+      </g>
+      <path d="M13 16.5c3.6-1.4 7.4-1.2 11 .8v15.2c-3.6-2-7.4-2.2-11-.8z" fill="url(#bm-g)"/>
+      <path d="M35 16.5c-3.6-1.4-7.4-1.2-11 .8v15.2c3.6-2 7.4-2.2 11-.8z" fill="#bff6ff" opacity=".85"/>
+    </svg>
+    <span class="brand-word"><b>BOOK</b>TRIP</span>
+  </a>
+
+  <nav class="nav-links" id="nav-links" aria-label="Main">
+    <a href="#/how" data-i18n="nav.how">Как это работает</a>
+    <a href="#/library" data-i18n="nav.library">Библиотека</a>
+    <a href="#/premium" data-i18n="nav.premium">Премиум</a>
+  </nav>
+
+  <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria="nav.lang">
+      <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+      <button type="button" data-lang="uk" aria-pressed="false">UA</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn-glow btn-sm nav-cta" href="#/" data-action="focus-search"><span data-i18n="nav.cta">Начать путешествие</span></a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HOME: hero with search + 3D ring of book covers -->
+  <section class="view view-home" id="view-home" aria-labelledby="home-title">
+    <div class="hero">
+      <p class="badge" id="home-badge">
+        <i aria-hidden="true">
+          <svg viewBox="5 1 14 22" preserveAspectRatio="none"><path d="M13.9 1.6 5.5 13.6a.7.7 0 0 0 .6 1.1h4.2l-1 7.7a.7.7 0 0 0 1.25.55l8.3-12.1a.7.7 0 0 0-.6-1.1h-4.2l1-7.7a.7.7 0 0 0-1.25-.55Z"/></svg>
+        </i>
+        <b data-i18n="home.badge">AI-пересказ · персонажи в 3D · мини-фильм</b>
+      </p>
+      <h1 class="hero-title" id="home-title">
+        <span class="l1" data-i18n="home.h1a">Войди внутрь</span>
+        <span class="l2" data-i18n="home.h1b">любой книги</span>
+      </h1>
+      <p class="hero-sub" data-i18n="home.sub">Пересказ, важные термины, персонажи и мини-фильм — за минуту.</p>
+
+      <form class="search" id="search-form" role="search" autocomplete="off">
+        <label class="sr-only" for="search-input" data-i18n="home.searchLabel">Название книги</label>
+        <svg class="search-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+        <input id="search-input" name="q" type="search" enterkeyhint="search" spellcheck="false"
+               placeholder="Например, «Маленький принц»" data-i18n-ph="home.placeholder"
+               aria-autocomplete="list" aria-controls="search-suggest" aria-expanded="false">
+        <button class="btn-glow search-go" type="submit"><span data-i18n="home.go">Войти в книгу</span></button>
+        <ul class="suggest" id="search-suggest" role="listbox" hidden></ul>
+      </form>
+      <p class="hero-hint" data-i18n="home.hint">Нажмите на обложку — или крутаните полку пальцем.</p>
+    </div>
+
+    <div class="ring-stage" id="ring" aria-label="Книги" data-i18n-aria="home.ringLabel"></div>
+  </section>
+
+  <!-- BOOK PAGE: filled by js/book-view.js -->
+  <section class="view view-book" id="view-book" hidden aria-live="polite"></section>
+
+</main>
+
+<div id="modal-root"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript><p class="noscript">BookTrip работает с включённым JavaScript.</p></noscript>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
