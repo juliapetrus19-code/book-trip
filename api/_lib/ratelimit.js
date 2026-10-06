@@ -7,11 +7,12 @@ const MIN = 60 * 1000;
 
 export const BUCKETS = {
   text: { limit: 30, windowMs: 10 * MIN },      // resolve / overview / characters / film
-  portrait: { limit: 10, windowMs: 10 * MIN },  // image generation
+  portrait: { limit: 10, windowMs: 10 * MIN },  // image generation for live books
+  portrait_demo: { limit: 40, windowMs: 10 * MIN }, // demo portraits: fixed, CDN-cached URL set
   video: { limit: 3, windowMs: 60 * MIN },      // starting a premium video (3 clips each)
   premium_fail: { limit: 10, windowMs: 60 * MIN }, // wrong premium codes (brute-force guard)
   poll: { limit: 300, windowMs: 10 * MIN },     // polling video operations
-  file: { limit: 60, windowMs: 10 * MIN },      // streaming finished videos (incl. range requests)
+  file: { limit: 120, windowMs: 10 * MIN },     // streaming finished videos (incl. range requests)
 };
 
 const MAX_KEYS = 20000;
@@ -57,13 +58,17 @@ export function hit(bucket, ip, now = Date.now()) {
   return { ok: true };
 }
 
-/** Peek without counting (used to block brute force before comparing a premium code). */
+/**
+ * Peek without counting (used to block brute force before comparing a premium code).
+ * Returns false, or the number of seconds until the next attempt is allowed.
+ */
 export function isLimited(bucket, ip, now = Date.now()) {
   const conf = BUCKETS[bucket];
   const list = hits.get(`${bucket}|${ip}`);
   if (!list) return false;
   prune(list, now, conf.windowMs);
-  return list.length >= conf.limit;
+  if (list.length < conf.limit) return false;
+  return Math.max(1, Math.ceil((list[0] + conf.windowMs - now) / 1000));
 }
 
 export function tooManyError(retryAfter) {

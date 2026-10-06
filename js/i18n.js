@@ -52,6 +52,9 @@ export const STRINGS = {
     "search.demoText": "Попробуйте одну из этих книг — они открыты полностью: пересказ, герои в 3D и мини-фильм.",
     "search.demoQuery": "Книгу «{q}» мы найдём, как только подключим ИИ. А пока — загляните в одну из этих:",
     "search.allBooks": "Вся библиотека",
+    "search.popular": "Попробуйте эти книги",
+    "search.aiTag": "ИИ",
+    "search.dymText": "Книгу «{q}» найти не удалось. Может быть, одна из этих?",
 
     "loading.kicker": "Открываем книгу",
     "loading.label": "Открываем книгу «{q}»",
@@ -59,6 +62,7 @@ export const STRINGS = {
     "loading.slow": "ИИ читает внимательно — это может занять до минуты.",
     "loading.cancel": "Отменить",
     "loading.cancelled": "Поиск отменён",
+    "loading.found": "Книга найдена — входим!",
 
     "errors.network": "Нет связи с сервером. Проверьте интернет и попробуйте ещё раз.",
     "errors.timeout": "ИИ думает слишком долго. Попробуйте ещё раз чуть позже.",
@@ -75,6 +79,8 @@ export const STRINGS = {
     "errors.retry": "Повторить",
     "errors.needsCharacters": "Фильм появится, когда загрузятся персонажи.",
     "errors.bookMissing": "Такой книги нет в библиотеке.",
+    "errors.needs_characters": "Фильм появится, когда загрузятся персонажи.",
+    "errors.server": "На сервере что-то сломалось. Попробуйте ещё раз чуть позже.",
 
     "modal.close": "Закрыть",
 
@@ -91,6 +97,7 @@ export const STRINGS = {
     "how.s4.text": "Книга раскрывается, камера ныряет внутрь — и вы проживаете ключевые сцены вместе с героями под голос рассказчика.",
     "how.note": "А в конце — подборка похожих книг, чтобы путешествие продолжалось.",
     "how.cta": "Попробовать",
+    "how.step": "Шаг {n}",
 
     "library.title": "Библиотека",
     "library.lead": "Книги, которые открыты полностью прямо сейчас: пересказ, герои в 3D и мини-фильм.",
@@ -100,22 +107,23 @@ export const STRINGS = {
     "library.demoNote": "Скоро здесь можно будет открыть любую книгу — мы подключаем ИИ.",
     "library.open": "Открыть «{title}»",
     "library.loading": "Расставляем книги по полкам…",
+    "library.empty": "Книги вот-вот появятся на полках. Загляните чуть позже!",
 
     "premium.kicker": "BookTrip Премиум",
     "premium.title": "Оживите любимых героев",
-    "premium.lead": "Всё главное в BookTrip — бесплатно. Премиум добавляет то, что умеют только самые сильные визуальные модели: портреты героев и настоящие видеоролики по книге.",
+    "premium.lead": "Само путешествие по книге бесплатно — всегда. Премиум — это ИИ-студия: самые сильные модели изображений и видео пишут портреты героев и снимают настоящие клипы по сценам книги.",
     "premium.portraits.title": "ИИ-портреты героев",
-    "premium.portraits.text": "Одно нажатие — и рядом с воксельной фигуркой появляется живописный портрет персонажа, написанный по описанию из книги.",
+    "premium.portraits.text": "Нажмите на персонажа — и рядом с воксельной фигуркой появится живописный портрет, написанный по описанию из книги. Каждый герой — таким, каким вы его себе представляли.",
     "premium.video.title": "ИИ-видеоклипы",
-    "premium.video.text": "Три кинематографичных 8-секундных клипа по ключевым сценам, снятых видеомоделью, — словно короткий трейлер к книге.",
-    "premium.free.title": "Бесплатно навсегда",
+    "premium.video.text": "Три кинематографичных клипа по 8 секунд по ключевым сценам. Их снимает настоящая видеомодель — получается маленький трейлер к книге.",
+    "premium.free.title": "Всегда бесплатно",
     "premium.free.text": "Пересказ, термины, герои в 3D, похожие книги и мини-фильм — для всех и без регистрации.",
     "premium.pricing.title": "Как устроена оплата",
     "premium.pricing.items": [
-      "Путешествие по любой книге — бесплатно.",
-      "Портреты — тоже бесплатно, с честным лимитом в несколько штук в час.",
-      "Видео — по коду премиум-доступа: каждый ролик рендерит настоящая видеомодель, поэтому это платная опция.",
-      "Код вводится прямо на странице книги — без аккаунта и подписки.",
+      "Путешествие по любой книге — бесплатно и без регистрации.",
+      "ИИ-портреты можно попробовать бесплатно — несколько штук в час для каждого.",
+      "ИИ-видео открывается кодом премиум-доступа: каждый клип рендерит настоящая видеомодель, поэтому это платная опция.",
+      "Код выдаёт владелец сайта после оплаты. Вводите его прямо на странице книги — ни аккаунта, ни подписки.",
     ],
     "premium.status": "Сейчас на сайте",
     "premium.on": "доступно",
@@ -125,8 +133,11 @@ export const STRINGS = {
 
     "footer.note": "Пересказы и образы создаёт ИИ — они не заменяют чтение, а зовут к нему.",
     "footer.rights": "© {year} BookTrip",
+    "footer.made": "Сделано для тех, кто любит истории",
+    "footer.label": "Ссылки внизу страницы",
 
     "toast.offline": "Похоже, пропал интернет.",
+    "toast.online": "Связь восстановлена.",
     "toast.partFailed": "Не удалось загрузить: {part}",
 
     "part.overview": "пересказ",
@@ -138,13 +149,16 @@ export const STRINGS = {
     "book.summary": "Пересказ",
     "book.characters": "Персонажи",
     "book.film": "Мини-фильм",
+    "book.terms": "Термины",
+    "book.similar": "Похожие книги",
+    "book.themes": "Темы",
     "year.bc": "{y} до н. э.",
   },
 
   uk: {
     "brand.tagline": "Подорож усередину будь-якої книги",
     "meta.title": "BookTrip — подорож усередину будь-якої книги",
-    "meta.description": "Введіть назву книги — і увійдіть усередину: переказ, ключові терміни, персонажі в 3D, схожі книги та мініфільм про подорож в історію.",
+    "meta.description": "Введіть назву книги й увійдіть усередину: переказ, ключові терміни, персонажі в 3D, схожі книги та мініфільм про подорож в історію.",
     "a11y.skip": "Перейти до вмісту",
 
     "nav.how": "Як це працює",
@@ -155,7 +169,7 @@ export const STRINGS = {
     "nav.menu": "Меню",
     "nav.home": "На головну",
 
-    "mode.demo": "Демо-режим",
+    "mode.demo": "Деморежим",
     "mode.live": "ШІ під'єднано",
 
     "home.badge": "AI-переказ · персонажі в 3D · мініфільм",
@@ -185,6 +199,9 @@ export const STRINGS = {
     "search.demoText": "Спробуйте одну з цих книг — вони відкриті повністю: переказ, герої в 3D і мініфільм.",
     "search.demoQuery": "Книгу «{q}» ми знайдемо, щойно під'єднаємо ШІ. А поки — зазирніть до однієї з цих:",
     "search.allBooks": "Уся бібліотека",
+    "search.popular": "Спробуйте ці книги",
+    "search.aiTag": "ШІ",
+    "search.dymText": "Книгу «{q}» знайти не вдалося. Можливо, одна з цих?",
 
     "loading.kicker": "Відкриваємо книгу",
     "loading.label": "Відкриваємо книгу «{q}»",
@@ -192,6 +209,7 @@ export const STRINGS = {
     "loading.slow": "ШІ читає уважно — це може тривати до хвилини.",
     "loading.cancel": "Скасувати",
     "loading.cancelled": "Пошук скасовано",
+    "loading.found": "Книгу знайдено — заходимо!",
 
     "errors.network": "Немає зв'язку із сервером. Перевірте інтернет і спробуйте ще раз.",
     "errors.timeout": "ШІ думає надто довго. Спробуйте ще раз трохи згодом.",
@@ -208,6 +226,8 @@ export const STRINGS = {
     "errors.retry": "Повторити",
     "errors.needsCharacters": "Фільм з'явиться, щойно завантажаться персонажі.",
     "errors.bookMissing": "Такої книги немає в бібліотеці.",
+    "errors.needs_characters": "Фільм з'явиться, щойно завантажаться персонажі.",
+    "errors.server": "На сервері щось зламалося. Спробуйте ще раз трохи згодом.",
 
     "modal.close": "Закрити",
 
@@ -224,31 +244,33 @@ export const STRINGS = {
     "how.s4.text": "Книга розгортається, камера пірнає всередину — і ви проживаєте ключові сцени разом із героями під голос оповідача.",
     "how.note": "А наприкінці — добірка схожих книг, щоб подорож тривала.",
     "how.cta": "Спробувати",
+    "how.step": "Крок {n}",
 
     "library.title": "Бібліотека",
-    "library.lead": "Книги, відкриті повністю просто зараз: переказ, герої в 3D і мініфільм.",
+    "library.lead": "Книги, які вже зараз відкриті повністю: переказ, герої в 3D і мініфільм.",
     "library.count": { one: "{n} книга", few: "{n} книги", many: "{n} книг", other: "{n} книги" },
     "library.recent": "Ви нещодавно відкривали",
     "library.liveNote": "Не знайшли потрібної? Введіть будь-яку назву в пошуку — ШІ відкриє і її.",
     "library.demoNote": "Незабаром тут можна буде відкрити будь-яку книгу — ми під'єднуємо ШІ.",
     "library.open": "Відкрити «{title}»",
     "library.loading": "Розставляємо книги на полицях…",
+    "library.empty": "Книги ось-ось з'являться на полицях. Зазирніть трохи згодом!",
 
     "premium.kicker": "BookTrip Преміум",
     "premium.title": "Оживіть улюблених героїв",
-    "premium.lead": "Усе головне в BookTrip — безкоштовно. Преміум додає те, що вміють лише найсильніші візуальні моделі: портрети героїв і справжні відеокліпи за книгою.",
+    "premium.lead": "Сама подорож книгою безкоштовна — завжди. Преміум — це ШІ-студія: найсильніші моделі зображень і відео малюють портрети героїв і знімають справжні кліпи за сценами книги.",
     "premium.portraits.title": "ШІ-портрети героїв",
-    "premium.portraits.text": "Один дотик — і поруч із воксельною фігуркою з'являється мальовничий портрет персонажа, написаний за описом із книги.",
+    "premium.portraits.text": "Натисніть на персонажа — і поруч із воксельною фігуркою з'явиться мальовничий портрет, написаний за описом із книги. Кожен герой — саме такий, яким ви його уявляли.",
     "premium.video.title": "ШІ-відеокліпи",
-    "premium.video.text": "Три кінематографічні восьмисекундні кліпи за ключовими сценами, зняті відеомоделлю, — наче короткий трейлер до книги.",
-    "premium.free.title": "Безкоштовно назавжди",
+    "premium.video.text": "Три кінематографічні кліпи по 8 секунд за ключовими сценами. Їх знімає справжня відеомодель — виходить маленький трейлер до книги.",
+    "premium.free.title": "Завжди безкоштовно",
     "premium.free.text": "Переказ, терміни, герої в 3D, схожі книги та мініфільм — для всіх і без реєстрації.",
-    "premium.pricing.title": "Як влаштована оплата",
+    "premium.pricing.title": "Як улаштована оплата",
     "premium.pricing.items": [
-      "Подорож будь-якою книгою — безкоштовна.",
-      "Портрети — теж безкоштовно, з чесним лімітом у кілька штук на годину.",
-      "Відео — за кодом преміум-доступу: кожен кліп рендерить справжня відеомодель, тож це платна опція.",
-      "Код вводиться просто на сторінці книги — без акаунта й підписки.",
+      "Подорож будь-якою книгою — безкоштовна й без реєстрації.",
+      "ШІ-портрети можна спробувати безкоштовно — кілька на годину для кожного.",
+      "ШІ-відео відкривається кодом преміум-доступу: кожен кліп рендерить справжня відеомодель, тому це платна опція.",
+      "Код надає власник сайту після оплати. Вводьте його просто на сторінці книги — ні акаунта, ні підписки.",
     ],
     "premium.status": "Зараз на сайті",
     "premium.on": "доступно",
@@ -258,8 +280,11 @@ export const STRINGS = {
 
     "footer.note": "Перекази й образи створює ШІ — вони не замінюють читання, а кличуть до нього.",
     "footer.rights": "© {year} BookTrip",
+    "footer.made": "Зроблено для тих, хто любить історії",
+    "footer.label": "Посилання внизу сторінки",
 
     "toast.offline": "Схоже, зник інтернет.",
+    "toast.online": "Зв'язок відновлено.",
     "toast.partFailed": "Не вдалося завантажити: {part}",
 
     "part.overview": "переказ",
@@ -271,6 +296,9 @@ export const STRINGS = {
     "book.summary": "Переказ",
     "book.characters": "Персонажі",
     "book.film": "Мініфільм",
+    "book.terms": "Терміни",
+    "book.similar": "Схожі книги",
+    "book.themes": "Теми",
     "year.bc": "{y} р. до н. е.",
   },
 
@@ -318,6 +346,9 @@ export const STRINGS = {
     "search.demoText": "Try one of these books — they're fully open: retelling, 3D characters and a mini-film.",
     "search.demoQuery": "We'll find “{q}” as soon as AI is connected. Meanwhile, step inside one of these:",
     "search.allBooks": "The whole library",
+    "search.popular": "Try one of these",
+    "search.aiTag": "AI",
+    "search.dymText": "We couldn't find “{q}”. Perhaps one of these?",
 
     "loading.kicker": "Opening the book",
     "loading.label": "Opening “{q}”",
@@ -325,6 +356,7 @@ export const STRINGS = {
     "loading.slow": "AI is reading carefully — this can take up to a minute.",
     "loading.cancel": "Cancel",
     "loading.cancelled": "Search cancelled",
+    "loading.found": "Found it — stepping inside!",
 
     "errors.network": "Can't reach the server. Check your connection and try again.",
     "errors.timeout": "AI is taking too long. Please try again in a moment.",
@@ -341,6 +373,8 @@ export const STRINGS = {
     "errors.retry": "Retry",
     "errors.needsCharacters": "The film appears once the characters have loaded.",
     "errors.bookMissing": "This book isn't in the library.",
+    "errors.needs_characters": "The film appears once the characters have loaded.",
+    "errors.server": "Something broke on the server. Please try again a bit later.",
 
     "modal.close": "Close",
 
@@ -357,6 +391,7 @@ export const STRINGS = {
     "how.s4.text": "The book opens, the camera dives in — and you live through the key scenes with the characters, told by a narrator.",
     "how.note": "And at the end — a shelf of similar books, so the journey goes on.",
     "how.cta": "Try it",
+    "how.step": "Step {n}",
 
     "library.title": "Library",
     "library.lead": "Books that are fully open right now: retelling, 3D characters and a mini-film.",
@@ -366,22 +401,23 @@ export const STRINGS = {
     "library.demoNote": "Soon you'll be able to open any book here — we're connecting the AI.",
     "library.open": "Open “{title}”",
     "library.loading": "Putting the books on the shelves…",
+    "library.empty": "The shelves are about to fill up. Check back soon!",
 
     "premium.kicker": "BookTrip Premium",
     "premium.title": "Bring the characters to life",
-    "premium.lead": "Everything essential in BookTrip is free. Premium adds what only the most capable visual models can create — character portraits and real video clips of the book.",
+    "premium.lead": "The trip through a book is free — always. Premium is the AI studio: the strongest image and video models paint the characters' portraits and shoot real clips of the book's scenes.",
     "premium.portraits.title": "AI character portraits",
-    "premium.portraits.text": "One tap — and a painterly portrait appears next to the voxel figure, drawn from the book's own description.",
+    "premium.portraits.text": "Tap a character — and a painterly portrait appears next to the voxel figure, drawn from the book's own description. Every hero, just as you imagined them.",
     "premium.video.title": "AI video clips",
-    "premium.video.text": "Three cinematic 8-second clips of key scenes, shot by a video model — like a short trailer for the book.",
-    "premium.free.title": "Free forever",
+    "premium.video.text": "Three cinematic 8-second clips of key scenes, shot by a real video model — a tiny trailer for the book.",
+    "premium.free.title": "Always free",
     "premium.free.text": "Retelling, terms, 3D characters, similar books and the mini-film — for everyone, no sign-up.",
     "premium.pricing.title": "How pricing works",
     "premium.pricing.items": [
-      "A trip through any book is free.",
-      "Portraits are free too, with a fair limit of a few per hour.",
-      "Video is unlocked with a premium access code: every clip is rendered by a real video model, so it's a paid extra.",
-      "You enter the code right on the book page — no account, no subscription.",
+      "A trip through any book is free — no sign-up.",
+      "AI portraits are free to try — a few per hour for everyone.",
+      "AI video unlocks with a premium access code: every clip is rendered by a real video model, so it's a paid extra.",
+      "The site owner issues the code after payment. Enter it right on the book page — no account, no subscription.",
     ],
     "premium.status": "Right now",
     "premium.on": "available",
@@ -391,8 +427,11 @@ export const STRINGS = {
 
     "footer.note": "Retellings and images are made by AI — not a replacement for reading, but an invitation to it.",
     "footer.rights": "© {year} BookTrip",
+    "footer.made": "Made for people who love stories",
+    "footer.label": "Footer links",
 
     "toast.offline": "Looks like you're offline.",
+    "toast.online": "Back online.",
     "toast.partFailed": "Couldn't load: {part}",
 
     "part.overview": "retelling",
@@ -404,6 +443,9 @@ export const STRINGS = {
     "book.summary": "Retelling",
     "book.characters": "Characters",
     "book.film": "Mini-film",
+    "book.terms": "Key terms",
+    "book.similar": "Similar books",
+    "book.themes": "Themes",
     "year.bc": "{y} BC",
   },
 };

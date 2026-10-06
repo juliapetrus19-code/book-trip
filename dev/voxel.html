@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voxel characters — dev gallery</title>
+<script type="importmap">{ "imports": { "three": "../vendor/three.min.js" } }</script>
+<style>
+  :root { color-scheme: dark; --bg: #07080f; --panel: #12141f; --line: #23263a; --text: #e9ecf6; --muted: #8d93ad; --cyan: #39d6ff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.45 Inter, system-ui, sans-serif; }
+  header { padding: 20px 16px 8px; max-width: 1400px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  p { margin: 0; color: var(--muted); }
+  main { max-width: 1400px; margin: 0 auto; padding: 8px 16px 40px; }
+  .top { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 20px; }
+  @media (min-width: 900px) { .top { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); } }
+  .viewer { aspect-ratio: 4 / 3; border-radius: 18px; overflow: hidden; background: #ddd8d1; }
+  .controls { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; }
+  button, select { font: inherit; color: var(--text); background: #1b1e2d; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; min-height: 44px; cursor: pointer; }
+  button[aria-pressed="true"] { border-color: var(--cyan); color: #fff; box-shadow: inset 0 -2px 0 var(--cyan); }
+  select { width: 100%; }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 12px/1.5 ui-monospace, monospace; color: #b9c0dc; background: #0c0e17; border-radius: 10px; padding: 10px; min-height: 60px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+  figure { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; cursor: pointer; }
+  figure img { display: block; width: 100%; aspect-ratio: 1; background: #e3dfd9; }
+  figcaption { padding: 8px 10px; font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  figcaption b { color: var(--text); font-weight: 600; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Voxel character engine</h1>
+  <p>Gallery of <span id="count"></span> portraits rendered with <code>renderPortrait</code> through one shared offscreen renderer. Click a card to load it into the interactive viewer.</p>
+</header>
+<main>
+  <section class="top">
+    <div class="viewer" id="viewer"></div>
+    <div class="controls">
+      <label for="pick">Character</label>
+      <select id="pick"></select>
+      <div class="row" id="actions" role="group" aria-label="Action"></div>
+      <div class="row">
+        <button type="button" id="stress">Render 30 in a row</button>
+        <button type="button" id="leak">Viewer leak test</button>
+        <button type="button" id="transparent">Transparent + wave</button>
+      </div>
+      <pre id="log" aria-live="polite"></pre>
+    </div>
+  </section>
+  <section class="grid" id="grid"></section>
+</main>
+<script type="module">
+import { renderPortrait, createViewer, ACTIONS, portraitStats, clearPortraitCache, normalizeAppearance, buildCharacter, animateCharacter, disposeCharacter } from "../js/voxel.js";
+
+const A = (o) => o;
+const CHARACTERS = [
+  ["Boy wizard", A({ creature: "human", gender: "male", age: "child", build: "slim", skin: "#f2c9a8", hair: { style: "messy", color: "#1f1a17" }, eyes: "#3f8a4a", top: { kind: "robe", color: "#25232b", accent: "#9b2335", pattern: "plain" }, bottom: { kind: "pants", color: "#2b2b35" }, shoes: "#1f1c1c", headwear: "none", accessory: "round_glasses", accessoryColor: "#1c1a1a", holding: "wand" })],
+  ["Old wizard", A({ creature: "human", gender: "male", age: "elder", skin: "#efc6a6", hair: { style: "long", color: "#d9d6d2" }, facialHair: "long_beard", eyes: "#3a5a8a", top: { kind: "robe", color: "#5a6fb0", accent: "#d9dde8", pattern: "embroidery" }, shoes: "#4a3a30", headwear: "wizard_hat", headwearColor: "#46549a", holding: "staff", accessoryColor: "#9ad8ff" })],
+  ["Lady with tiara", A({ creature: "human", gender: "female", age: "adult", build: "slim", skin: "#f3d0b5", hair: { style: "bun", color: "#8a3b1e" }, eyes: "#3e6b9a", top: { kind: "gown", color: "#c94f7c", accent: "#f7d9e3", pattern: "embroidery" }, shoes: "#c94f7c", headwear: "tiara", headwearColor: "#e9e4f0", accessory: "necklace", accessoryColor: "#3fa7d6", holding: "rose" })],
+  ["Musketeer", A({ creature: "human", gender: "male", skin: "#e9b892", hair: { style: "wavy", color: "#5a3520" }, facialHair: "mustache", eyes: "#4a3426", top: { kind: "tunic", color: "#2c4a9a", accent: "#e8c45a", pattern: "embroidery" }, bottom: { kind: "pants", color: "#2a2730" }, shoes: "#3a2a20", headwear: "feather_hat", headwearColor: "#2a2f45", accessory: "cape", accessoryColor: "#2c4a9a", holding: "rapier" })],
+  ["Pirate", A({ creature: "human", gender: "male", build: "broad", skin: "#d9a07a", hair: { style: "long", color: "#3a2418" }, facialHair: "beard", eyes: "#3a2a20", top: { kind: "coat", color: "#7a2430", accent: "#e8c45a", pattern: "plain" }, bottom: { kind: "pants", color: "#e8e2d4" }, shoes: "#231c18", headwear: "tricorn", headwearColor: "#1f1c22", accessory: "eyepatch", accessoryColor: "#111111", holding: "pistol" })],
+  ["Detective", A({ creature: "human", gender: "male", build: "tall", skin: "#efc8a8", hair: { style: "short", color: "#3a2a1e" }, eyes: "#3a4a5a", top: { kind: "coat", color: "#9a7f55", accent: "#f0ebe0", pattern: "checks" }, bottom: { kind: "pants", color: "#3a3530" }, shoes: "#2a2020", headwear: "cap", headwearColor: "#7a6a4a", holding: "magnifier" })],
+  ["Detective with pipe", A({ creature: "human", gender: "male", age: "adult", skin: "#f0caa9", hair: { style: "short", color: "#2a211b" }, eyes: "#2f3a4a", top: { kind: "suit", color: "#4a4038", accent: "#f2efe8", pattern: "checks" }, bottom: { kind: "pants", color: "#3a332e" }, shoes: "#1f1a18", headwear: "top_hat", headwearColor: "#2a2422", accessory: "tie", accessoryColor: "#8a2a2a", holding: "pipe" })],
+  ["Fox", A({ creature: "fox", gender: "male", skin: "#e07a2e", hair: { style: "none", color: "#e07a2e" }, eyes: "#2a1d14", top: { kind: "tunic", color: "#e07a2e", accent: "#ffffff", pattern: "plain" }, bottom: { kind: "none", color: "#e07a2e" }, shoes: "#3b2a24" })],
+  ["Dragon", A({ creature: "dragon", gender: "neutral", skin: "#5fae4e", hair: { style: "none", color: "#2f6a2a" }, eyes: "#3a2a10", top: { kind: "tunic", color: "#5fae4e", accent: "#f7e3a1" }, holding: "none" })],
+  ["Little prince", A({ creature: "human", gender: "male", age: "child", skin: "#f6d7bd", hair: { style: "spiky", color: "#f2cf62" }, eyes: "#3c6aa0", top: { kind: "coat", color: "#3f8a5c", accent: "#f2d06b", pattern: "plain" }, bottom: { kind: "pants", color: "#3f8a5c" }, shoes: "#6b4a2a", accessory: "scarf", accessoryColor: "#f2c84b", holding: "sword" })],
+  ["Alice", A({ creature: "human", gender: "female", age: "child", skin: "#f7d8c2", hair: { style: "long", color: "#f0cf6a" }, eyes: "#4a7ac0", top: { kind: "dress", color: "#7fb3e6", accent: "#ffffff", pattern: "plain" }, shoes: "#1f1c1c", headwear: "bow", headwearColor: "#1f1f26", holding: "cup", accessoryColor: "#3a7bd5" })],
+  ["White rabbit", A({ creature: "rabbit", gender: "male", skin: "#f4f1ec", eyes: "#c0304a", top: { kind: "vest", color: "#c8414a", accent: "#f2d06b", pattern: "plain" }, bottom: { kind: "pants", color: "#4a4a6a" }, accessory: "bowtie", accessoryColor: "#2a2a6a", holding: "key" })],
+  ["Cheshire cat", A({ creature: "cat", gender: "neutral", skin: "#9b6bc4", eyes: "#2a6a3a", top: { kind: "tshirt", color: "#9b6bc4", accent: "#f08ac0" }, bottom: { kind: "none", color: "#9b6bc4" } })],
+  ["Owl professor", A({ creature: "owl", skin: "#8b6a4a", eyes: "#f2b83a", accessory: "round_glasses", accessoryColor: "#2a2020", holding: "book" })],
+  ["Robot", A({ creature: "robot", skin: "#a9b4c2", eyes: "#6ff0ff", top: { kind: "armor", color: "#3c8bd9", accent: "#ffcf4a" }, shoes: "#4a5260", holding: "none" })],
+  ["Ghost king", A({ creature: "ghost", gender: "male", age: "elder", skin: "#e9edf2", hair: { style: "short", color: "#cfd6de" }, facialHair: "beard", eyes: "#2a3550", top: { kind: "armor", color: "#a7b4c4", accent: "#d9c46a" }, headwear: "crown", headwearColor: "#e3c14a", holding: "spear" })],
+  ["Snake", A({ creature: "snake", skin: "#6aa84f", eyes: "#2a1a10", headwear: "top_hat", headwearColor: "#2a2433" })],
+  ["Horse", A({ creature: "horse", skin: "#9a6236", hair: { style: "long", color: "#3a2418" }, eyes: "#2a1a10", top: { kind: "tunic", color: "#b8323c", accent: "#e8c45a" }, shoes: "#2c2420" })],
+  ["Elf archer", A({ creature: "elf", gender: "female", build: "tall", skin: "#f4dcc8", hair: { style: "long", color: "#f3e0a0" }, eyes: "#3f8a5a", top: { kind: "tunic", color: "#3f7a3a", accent: "#c9a85a", pattern: "embroidery" }, bottom: { kind: "pants", color: "#5a4a32" }, shoes: "#5a3a22", headwear: "flower_wreath", headwearColor: "#f6a8c0", accessory: "backpack", accessoryColor: "#7a5a3a", holding: "bow_weapon" })],
+  ["Dwarf warrior", A({ creature: "dwarf", gender: "male", skin: "#e3ae8a", hair: { style: "braids", color: "#b5532a" }, eyes: "#3a2a20", top: { kind: "armor", color: "#9aa4b0", accent: "#d8b04a" }, bottom: { kind: "pants", color: "#5a3a2a" }, shoes: "#3a2a20", headwear: "helmet", headwearColor: "#a5afba", holding: "shield" })],
+  ["Hobbit", A({ creature: "hobbit", gender: "male", skin: "#f0c8a4", hair: { style: "curly", color: "#6a4024" }, eyes: "#3a5a8a", top: { kind: "vest", color: "#c48a3a", accent: "#f2ead8", pattern: "plain" }, bottom: { kind: "pants", color: "#5a6b3a" }, accessory: "backpack", accessoryColor: "#8a6a42", holding: "map" })],
+  ["Knight", A({ creature: "human", gender: "male", build: "tall", skin: "#e8b896", hair: { style: "short", color: "#6a4a2a" }, eyes: "#3a5a8a", top: { kind: "armor", color: "#c0c7cf", accent: "#c8a040" }, bottom: { kind: "pants", color: "#7a828c" }, shoes: "#5a5f66", accessory: "cape", accessoryColor: "#b8323c", holding: "sword" })],
+  ["Queen of hearts", A({ creature: "human", gender: "female", build: "broad", skin: "#f1c7a6", hair: { style: "bun", color: "#1d1a1a" }, eyes: "#2a2a2a", top: { kind: "gown", color: "#c0283a", accent: "#f6efe4", pattern: "dots" }, shoes: "#1a1a1a", headwear: "crown", headwearColor: "#e6b440", accessory: "cape", accessoryColor: "#1d1a2a", holding: "rose" })],
+  ["Lantern girl", A({ creature: "human", gender: "female", age: "child", skin: "#f6d3b8", hair: { style: "braids", color: "#c4552a" }, eyes: "#3a6a4a", top: { kind: "sweater", color: "#e8a33c", accent: "#f6efe4", pattern: "stripes" }, bottom: { kind: "skirt", color: "#4a5a8a" }, shoes: "#6a3a2a", headwear: "beanie", headwearColor: "#c0392b", accessory: "scarf", accessoryColor: "#2f6fb0", holding: "lantern" })],
+  ["Pop singer", A({ creature: "human", gender: "female", age: "teen", skin: "#c98d64", hair: { style: "ponytail", color: "#6a3fa0" }, eyes: "#2a1d14", top: { kind: "tshirt", color: "#ffffff", accent: "#1d1d2a", pattern: "stripes" }, bottom: { kind: "shorts", color: "#2f6fb0" }, shoes: "#f2f2f2", headwear: "cap", headwearColor: "#e2364f", holding: "microphone" })],
+  ["Explorer", A({ creature: "human", gender: "male", skin: "#d39a6e", hair: { style: "short", color: "#4a3020" }, facialHair: "stubble", eyes: "#3a2a1a", top: { kind: "shirt", color: "#e9e0c8", accent: "#7a5a3a" }, bottom: { kind: "shorts", color: "#8a7a52" }, shoes: "#5a3a22", headwear: "straw_hat", headwearColor: "#e2c275", accessory: "backpack", accessoryColor: "#5a6b3a", holding: "telescope" })],
+  ["Grandmother", A({ creature: "human", gender: "female", age: "elder", skin: "#f1cdb2", hair: { style: "bun", color: "#c9c6c2" }, eyes: "#5a6a7a", top: { kind: "sweater", color: "#8a6a9a", accent: "#f2ead8", pattern: "dots" }, bottom: { kind: "skirt", color: "#4a3a4a" }, shoes: "#3a2a2a", headwear: "headscarf", headwearColor: "#b0455e", accessory: "glasses", accessoryColor: "#3a2a20", holding: "cup" })],
+  ["Red Riding Hood", A({ creature: "human", gender: "female", age: "child", skin: "#f7d7c0", hair: { style: "bob", color: "#6a3a1e" }, eyes: "#3a5a2a", top: { kind: "dress", color: "#f2ede2", accent: "#c62f2f", pattern: "checks" }, shoes: "#5a2a1a", headwear: "hood", headwearColor: "#c62f2f", accessory: "cape", accessoryColor: "#c62f2f", holding: "basket" })],
+  ["Big bad wolf", A({ creature: "wolf", gender: "male", build: "tall", skin: "#8a8f99", eyes: "#d8a02a", top: { kind: "dress", color: "#7a9ac0", accent: "#ffffff", pattern: "dots" }, headwear: "headscarf", headwearColor: "#e8d8b0", accessory: "glasses", accessoryColor: "#2a2020" })],
+  ["Honey bear", A({ creature: "bear", gender: "male", skin: "#c48a3a", eyes: "#2a1a10", top: { kind: "tshirt", color: "#d23c3c", accent: "#d23c3c" }, bottom: { kind: "none", color: "#c48a3a" }, holding: "cup", accessoryColor: "#e8a33c" })],
+  ["Mouse with candle", A({ creature: "mouse", gender: "female", age: "child", skin: "#b4aca2", eyes: "#1a1414", top: { kind: "dress", color: "#5a8ad0", accent: "#ffffff", pattern: "dots" }, holding: "candle" })],
+  ["Pig gardener", A({ creature: "pig", gender: "neutral", skin: "#f2a6b4", eyes: "#2a1a1a", top: { kind: "shirt", color: "#6aa84f", accent: "#ffffff", pattern: "checks" }, bottom: { kind: "pants", color: "#4a6a9a" }, headwear: "straw_hat", headwearColor: "#e7c877", holding: "flower", accessoryColor: "#ffd84a" })],
+  ["Lion", A({ creature: "lion", gender: "male", build: "broad", skin: "#d9a441", hair: { style: "long", color: "#8a4a1c" }, eyes: "#3a2a10", top: { kind: "tunic", color: "#d9a441", accent: "#ffffff" }, headwear: "crown", headwearColor: "#e6b440" })],
+  ["Pirate dog", A({ creature: "dog", gender: "male", skin: "#c8925a", eyes: "#2a1a10", top: { kind: "vest", color: "#2a3a6a", accent: "#f2ead8" }, bottom: { kind: "pants", color: "#e8e2d4" }, headwear: "bandana", headwearColor: "#c0392b", accessory: "belt_sword", accessoryColor: "#3a2a22" })],
+  ["Messenger bird", A({ creature: "bird", skin: "#4a90d9", eyes: "#1a1414", holding: "letter", accessory: "scarf", accessoryColor: "#f2c84b" })],
+  ["Punk", A({ creature: "human", gender: "male", age: "teen", build: "small", skin: "#e6b48f", hair: { style: "mohawk", color: "#3fbf5f" }, eyes: "#2a2a2a", top: { kind: "jacket", color: "#222228", accent: "#d23c5a", pattern: "plain" }, bottom: { kind: "pants", color: "#2a3a5a" }, shoes: "#1a1a1a", accessory: "necklace", accessoryColor: "#c0c0c8", holding: "microphone" })],
+  ["Professor", A({ creature: "human", gender: "male", age: "elder", build: "broad", skin: "#efc5a2", hair: { style: "none", color: "#e8e4de" }, facialHair: "mustache", eyes: "#3a4a5a", top: { kind: "suit", color: "#4a5262", accent: "#f2efe8" }, bottom: { kind: "pants", color: "#3a404c" }, shoes: "#2a1f1a", accessory: "monocle", accessoryColor: "#e6b440", holding: "book" })],
+  ["Witch", A({ creature: "human", gender: "female", build: "slim", skin: "#e8c6b0", hair: { style: "wavy", color: "#1f1a24" }, eyes: "#6a3a8a", top: { kind: "dress", color: "#3b2a4a", accent: "#8a5ac8", pattern: "plain" }, shoes: "#1a161c", headwear: "wizard_hat", headwearColor: "#2a2533", accessory: "necklace", accessoryColor: "#8a5ac8", holding: "candle" })],
+  ["Fairy", A({ creature: "elf", gender: "female", age: "child", skin: "#f7dccb", hair: { style: "curly", color: "#f2a8c8" }, eyes: "#4a6ac0", top: { kind: "dress", color: "#f6b8d0", accent: "#ffffff", pattern: "dots" }, shoes: "#e88aa8", headwear: "flower_wreath", headwearColor: "#ffd84a", accessory: "wings", accessoryColor: "#dff0ff", holding: "wand" })],
+  ["Nanny with umbrella", A({ creature: "human", gender: "female", skin: "#f3d0b5", hair: { style: "bob", color: "#4a2a1a" }, eyes: "#3a5a8a", top: { kind: "coat", color: "#2a3550", accent: "#f2efe8" }, bottom: { kind: "skirt", color: "#2a3550" }, shoes: "#1a1a1a", headwear: "top_hat", headwearColor: "#1d1d24", holding: "umbrella" })],
+  ["Shepherdess", A({ creature: "human", gender: "female", age: "teen", skin: "#f5d6bf", hair: { style: "braids", color: "#e8c46a" }, eyes: "#4a7ab0", top: { kind: "shirt", color: "#f6f1e6", accent: "#5a86c0", pattern: "plain" }, bottom: { kind: "robe", color: "#5a86c0" }, shoes: "#6a4a2a", headwear: "straw_hat", headwearColor: "#e7c877", holding: "staff", accessoryColor: "#c8e8a0" })],
+  ["Partial / invalid data", A({ creature: "unicorn", hair: "afro", top: "hoodie", holding: "torch", eyes: "blue", skin: 42 })],
+];
+
+const grid = document.getElementById("grid");
+const pick = document.getElementById("pick");
+const log = document.getElementById("log");
+document.getElementById("count").textContent = String(CHARACTERS.length);
+const say = (s) => { log.textContent = s; };
+
+CHARACTERS.forEach(([name], i) => pick.add(new Option(name, String(i))));
+
+// URL params for quick checks: ?pick=N&action=walk&nogallery
+const params = new URLSearchParams(location.search);
+const start = Math.min(CHARACTERS.length - 1, Math.max(0, Number(params.get("pick")) || 0));
+pick.value = String(start);
+let action = ACTIONS.includes(params.get("action")) ? params.get("action") : "idle";
+let viewer = createViewer(document.getElementById("viewer"), CHARACTERS[start][1], { label: CHARACTERS[start][0], action });
+window.__viewer = () => viewer;
+const actionsEl = document.getElementById("actions");
+for (const a of ACTIONS) {
+  const b = document.createElement("button");
+  b.type = "button"; b.textContent = a; b.setAttribute("aria-pressed", String(a === action));
+  b.addEventListener("click", () => {
+    action = a; viewer.setAction(a);
+    for (const x of actionsEl.children) x.setAttribute("aria-pressed", String(x === b));
+  });
+  actionsEl.append(b);
+}
+pick.addEventListener("change", () => { viewer.setAppearance(CHARACTERS[+pick.value][1]); viewer.setAction(action); });
+
+// gallery
+const t0 = performance.now();
+const times = [];
+for (const [i, [name, app]] of CHARACTERS.entries()) {
+  const fig = document.createElement("figure");
+  const img = document.createElement("img");
+  img.alt = name; img.width = 256; img.height = 256;
+  const cap = document.createElement("figcaption");
+  const b = document.createElement("b"); b.textContent = name;
+  const n = normalizeAppearance(app);
+  cap.append(b, " · " + [n.creature, n.age, n.hair.style, n.headwear, n.accessory, n.holding].filter((x) => x && x !== "none").join(", "));
+  fig.append(img, cap);
+  fig.addEventListener("click", () => { pick.value = String(i); pick.dispatchEvent(new Event("change")); window.scrollTo({ top: 0, behavior: "smooth" }); });
+  grid.append(fig);
+}
+const imgs = [...grid.querySelectorAll("img")];
+for (const [i, [, app]] of (params.has("nogallery") ? [] : CHARACTERS.entries())) {
+  const s = performance.now();
+  imgs[i].src = await renderPortrait(app, { size: 512 });
+  times.push(performance.now() - s);
+}
+window.__galleryDone = true;
+window.__galleryTimes = times;
+say(`gallery: ${CHARACTERS.length} portraits in ${(performance.now() - t0).toFixed(0)} ms\n` + JSON.stringify(portraitStats()));
+
+// stress: 30 distinct new appearances in a row
+async function stress() {
+  clearPortraitCache();
+  const res = [];
+  for (let i = 0; i < 30; i++) {
+    const [, base] = CHARACTERS[i % CHARACTERS.length];
+    const app = { ...base, eyes: "#" + (0x202020 + i * 3).toString(16).padStart(6, "0") };
+    const s = performance.now();
+    await renderPortrait(app, { size: 512 });
+    res.push(performance.now() - s);
+  }
+  const warm = res.slice(3);
+  const out = { avg: warm.reduce((a, b) => a + b, 0) / warm.length, max: Math.max(...warm), first: res[0], stats: portraitStats() };
+  say("stress (30 renders, size 512):\n" + JSON.stringify(out, null, 1));
+  return out;
+}
+document.getElementById("stress").addEventListener("click", stress);
+window.__stress = stress;
+
+async function leakTest() {
+  const host = document.createElement("div");
+  host.style.cssText = "width:320px;height:240px;position:fixed;left:-9999px;top:0";
+  document.body.append(host);
+  const v = createViewer(host, CHARACTERS[3][1]);
+  await new Promise((r) => setTimeout(r, 400));
+  const before = { ...v.renderer.info.memory };
+  v.dispose();
+  const after = { ...v.renderer.info.memory };
+  host.remove();
+  const out = { before, after, canvasRemoved: !host.querySelector("canvas") };
+  say("viewer leak test:\n" + JSON.stringify(out, null, 1));
+  return out;
+}
+document.getElementById("leak").addEventListener("click", leakTest);
+window.__leakTest = leakTest;
+
+document.getElementById("transparent").addEventListener("click", async () => {
+  const url = await renderPortrait(CHARACTERS[+pick.value][1], { size: 512, background: "transparent", pose: "wave" });
+  const w = window.open();
+  if (w) { w.document.body.style.background = "#123"; const im = w.document.createElement("img"); im.src = url; w.document.body.append(im); }
+});
+
+// animation smoke test for every action on every character (no throw)
+window.__animSmoke = () => {
+  let n = 0;
+  for (const [, app] of CHARACTERS) {
+    const g = buildCharacter(app);
+    for (const a of [...ACTIONS, "travel", "chase", "discover", "rest", "bogus"]) for (const t of [0, 0.7, 2.3]) { animateCharacter(g, a, t); n++; }
+    disposeCharacter(g);
+  }
+  return n;
+};
+window.__voxel = { renderPortrait, createViewer, buildCharacter, animateCharacter, normalizeAppearance, portraitStats, CHARACTERS };
+</script>
+</body>
+</html>

@@ -10,7 +10,7 @@ import { seeded, prefersReducedMotion } from "./util.js";
 const FAR_DENSITY = 1 / 4200;   // stars per CSS px²
 const NEAR_DENSITY = 1 / 26000;
 const BRIGHT_DENSITY = 1 / 190000;
-const FRAME_MS = 33;
+const FRAME_MS = 40; // ~25 fps is plenty for slow twinkle and drift
 
 const TINTS = ["#ffffff", "#dfeaff", "#cfe0ff", "#bfe9ff", "#fff3dc"];
 

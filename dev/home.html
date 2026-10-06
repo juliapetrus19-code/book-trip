@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BookTrip — dev: home</title>
+<meta name="theme-color" content="#04050b">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap">
+<script type="importmap">
+{ "imports": { "three": "../vendor/three.min.js" } }
+</script>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/home.css">
+<script>document.documentElement.classList.add("js");</script>
+<!-- Dev page for the home screen (hero, search, ring, starfield). Query params:
+     ?lang=ru|uk|en   ?reduced=1 (force reduced motion)   ?suggest=1 (open the suggestions demo)
+     ?gallery=1 (all 30 motifs × 4 layouts below the fold) -->
+</head>
+<body>
+
+<canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
+
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Перейти к содержимому</a>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#/" aria-label="BookTrip">
+    <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="bm-g" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#9ef6ff"/><stop offset=".5" stop-color="#39d6ff"/><stop offset="1" stop-color="#1a7fe0"/>
+        </linearGradient>
+      </defs>
+      <g transform="rotate(-24 24 24)">
+        <ellipse cx="24" cy="24" rx="20" ry="9" fill="none" stroke="url(#bm-g)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="62 28" stroke-dashoffset="16" opacity=".9"/>
+        <circle cx="43" cy="21" r="2.6" fill="#c9f8ff"/>
+      </g>
+      <path d="M13 16.5c3.6-1.4 7.4-1.2 11 .8v15.2c-3.6-2-7.4-2.2-11-.8z" fill="url(#bm-g)"/>
+      <path d="M35 16.5c-3.6-1.4-7.4-1.2-11 .8v15.2c3.6-2 7.4-2.2 11-.8z" fill="#bff6ff" opacity=".85"/>
+    </svg>
+    <span class="brand-word"><b>BOOK</b>TRIP</span>
+  </a>
+
+  <nav class="nav-links" id="nav-links" aria-label="Main">
+    <a href="#/how" data-i18n="nav.how">Как это работает</a>
+    <a href="#/library" data-i18n="nav.library">Библиотека</a>
+    <a href="#/premium" data-i18n="nav.premium">Премиум</a>
+  </nav>
+
+  <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria="nav.lang">
+      <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+      <button type="button" data-lang="uk" aria-pressed="false">UA</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn-glow btn-sm nav-cta" href="#/" data-action="focus-search"><span data-i18n="nav.cta">Начать путешествие</span></a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HOME: hero with search + 3D ring of book covers (keep in sync with index.html) -->
+  <section class="view view-home" id="view-home" aria-labelledby="home-title">
+    <div class="hero">
+      <p class="badge" id="home-badge">
+        <i aria-hidden="true">
+          <svg viewBox="5 1 14 22" preserveAspectRatio="none"><path d="M13.9 1.6 5.5 13.6a.7.7 0 0 0 .6 1.1h4.2l-1 7.7a.7.7 0 0 0 1.25.55l8.3-12.1a.7.7 0 0 0-.6-1.1h-4.2l1-7.7a.7.7 0 0 0-1.25-.55Z"/></svg>
+        </i>
+        <b data-i18n="home.badge">AI-пересказ · персонажи в 3D · мини-фильм</b>
+      </p>
+      <h1 class="hero-title" id="home-title">
+        <span class="l1" data-i18n="home.h1a">Войди внутрь</span>
+        <span class="l2" data-i18n="home.h1b">любой книги</span>
+      </h1>
+      <p class="hero-sub" data-i18n="home.sub">Пересказ, важные термины, персонажи и мини-фильм — за минуту.</p>
+
+      <form class="search" id="search-form" role="search" autocomplete="off">
+        <label class="sr-only" for="search-input" data-i18n="home.searchLabel">Название книги</label>
+        <svg class="search-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+        <input id="search-input" name="q" type="search" enterkeyhint="search" spellcheck="false"
+               placeholder="Например, «Маленький принц»" data-i18n-ph="home.placeholder"
+               aria-autocomplete="list" aria-controls="search-suggest" aria-expanded="false">
+        <button class="btn-glow search-go" type="submit"><span data-i18n="home.go">Войти в книгу</span></button>
+        <ul class="suggest" id="search-suggest" role="listbox" hidden></ul>
+      </form>
+      <p class="hero-hint" data-i18n="home.hint">Нажмите на обложку — или крутаните полку пальцем.</p>
+    </div>
+
+    <div class="ring-stage" id="ring" role="group" aria-label="Книги" data-i18n-aria="home.ringLabel"></div>
+  </section>
+
+</main>
+
+<section id="gallery" hidden style="position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:16px;padding:24px;justify-content:center"></section>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module">
+import { startStars } from "../js/stars.js";
+import { createRing } from "../js/ring.js";
+import { coverSVG, miniCoverSVG, coverFromString } from "../js/covers.js";
+import { COVER_MOTIFS } from "../js/enums.js";
+import { setLang, getLang, applyI18n } from "../js/i18n.js";
+import { prefersReducedMotion } from "../js/util.js";
+
+const q = new URLSearchParams(location.search);
+if (q.get("lang")) setLang(q.get("lang"));
+applyI18n();
+const syncLangButtons = () => {
+  for (const b of document.querySelectorAll(".lang-switch button")) b.setAttribute("aria-pressed", String(b.dataset.lang === getLang()));
+};
+syncLangButtons();
+
+const BOOKS = [
+  { id: "little-prince", title: { ru: "Маленький принц", uk: "Маленький принц", en: "The Little Prince" }, author: { ru: "Антуан де Сент-Экзюпери", uk: "Антуан де Сент-Екзюпері", en: "Antoine de Saint-Exupéry" }, cover: { bg: "#1b2a4a", bg2: "#0b1226", fg: "#f6e7b0", accent: "#ff8a5b", motif: "star" } },
+  { id: "master-margarita", title: { ru: "Мастер и Маргарита", uk: "Майстер і Маргарита", en: "The Master and Margarita" }, author: { ru: "Михаил Булгаков", uk: "Михайло Булгаков", en: "Mikhail Bulgakov" }, cover: { bg: "#2a1030", bg2: "#0d0510", fg: "#f3e2c8", accent: "#e8b04a", motif: "moon" } },
+  { id: "harry-potter-1", title: { ru: "Гарри Поттер и философский камень", uk: "Гаррі Поттер і філософський камінь", en: "Harry Potter and the Philosopher's Stone" }, author: { ru: "Дж. К. Роулинг", uk: "Дж. К. Роулінг", en: "J. K. Rowling" }, cover: { bg: "#7a1622", bg2: "#2c060c", fg: "#ffe9c2", accent: "#ffc14d", motif: "wand" } },
+  { id: "hobbit", title: { ru: "Хоббит", uk: "Гобіт", en: "The Hobbit" }, author: { ru: "Дж. Р. Р. Толкин", uk: "Дж. Р. Р. Толкін", en: "J. R. R. Tolkien" }, cover: { bg: "#2f5a3a", bg2: "#0e2216", fg: "#f1e6c4", accent: "#e0a84a", motif: "ring" } },
+  { id: "1984", title: { ru: "1984", uk: "1984", en: "Nineteen Eighty-Four" }, author: { ru: "Джордж Оруэлл", uk: "Джордж Орвелл", en: "George Orwell" }, cover: { bg: "#26303d", bg2: "#0b0f15", fg: "#e9eef5", accent: "#ff4d4d", motif: "eye" } },
+  { id: "alice", title: { ru: "Алиса в Стране чудес", uk: "Аліса в Країні Див", en: "Alice's Adventures in Wonderland" }, author: { ru: "Льюис Кэрролл", uk: "Льюїс Керрол", en: "Lewis Carroll" }, cover: { bg: "#3b5ba5", bg2: "#141b3d", fg: "#fde9c9", accent: "#ff8fb1", motif: "hat" } },
+  { id: "treasure-island", title: { ru: "Остров сокровищ", uk: "Острів скарбів", en: "Treasure Island" }, author: { ru: "Роберт Льюис Стивенсон", uk: "Роберт Луїс Стівенсон", en: "Robert Louis Stevenson" }, cover: { bg: "#d4963a", bg2: "#6b3a10", fg: "#1d140b", accent: "#fff2d6", motif: "compass" } },
+  { id: "romeo-juliet", title: { ru: "Ромео и Джульетта", uk: "Ромео і Джульєтта", en: "Romeo and Juliet" }, author: { ru: "Уильям Шекспир", uk: "Вільям Шекспір", en: "William Shakespeare" }, cover: { bg: "#4a2358", bg2: "#1c0b26", fg: "#f7dff0", accent: "#ff5d8f", motif: "heart" } },
+  { id: "baskervilles", title: { ru: "Собака Баскервилей", uk: "Собака Баскервілів", en: "The Hound of the Baskervilles" }, author: { ru: "Артур Конан Дойл", uk: "Артур Конан Дойл", en: "Arthur Conan Doyle" }, cover: { bg: "#1f2b25", bg2: "#070c0a", fg: "#e8e2c9", accent: "#ffb347", motif: "lantern" } },
+  { id: "moby-dick", title: { ru: "Моби Дик", uk: "Мобі Дік", en: "Moby-Dick" }, author: { ru: "Герман Мелвилл", uk: "Герман Мелвілл", en: "Herman Melville" }, cover: { bg: "#0f3d68", bg2: "#061629", fg: "#dff3ff", accent: "#7fd3ff", motif: "wave" } },
+  { id: "pride-prejudice", title: { ru: "Гордость и предубеждение", uk: "Гордість і упередження", en: "Pride and Prejudice" }, author: { ru: "Джейн Остин", uk: "Джейн Остін", en: "Jane Austen" }, cover: { bg: "#efe6d2", bg2: "#cbb994", fg: "#2a2118", accent: "#a3282c", motif: "rose" } },
+  { id: "monte-cristo", title: { ru: "Граф Монте-Кристо", uk: "Граф Монте-Крісто", en: "The Count of Monte Cristo" }, author: { ru: "Александр Дюма", uk: "Александр Дюма", en: "Alexandre Dumas" }, cover: { bg: "#0d5b45", bg2: "#032419", fg: "#f1e9c6", accent: "#d9b45a", motif: "key" } },
+];
+const itemsFor = (lang) => BOOKS.map((b) => ({ id: b.id, title: b.title[lang], author: b.author[lang], cover: b.cover }));
+
+window.__stars = startStars(document.getElementById("starfield"));
+
+const toast = document.getElementById("toast");
+let toastTimer = 0;
+function showToast(text) {
+  toast.textContent = text;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 1800);
+}
+
+const ring = createRing(document.getElementById("ring"), itemsFor(getLang()), {
+  onOpen: (item) => { window.__opened = item; showToast(`→ ${item.title}`); },
+  reducedMotion: q.get("reduced") === "1" ? true : prefersReducedMotion(),
+});
+window.__ring = ring;
+
+for (const b of document.querySelectorAll(".lang-switch button")) {
+  b.addEventListener("click", () => {
+    setLang(b.dataset.lang);
+    applyI18n();
+    syncLangButtons();
+    ring.setItems(itemsFor(getLang()));
+  });
+}
+
+// --- suggestions demo (the real flow lives in js/app.js) ---
+const input = document.getElementById("search-input");
+const listbox = document.getElementById("search-suggest");
+let active = -1;
+function renderSuggest(query) {
+  const lang = getLang();
+  const qn = query.trim().toLowerCase();
+  const found = itemsFor(lang).filter((it) => !qn || it.title.toLowerCase().includes(qn) || it.author.toLowerCase().includes(qn)).slice(0, 6);
+  listbox.replaceChildren(...found.map((it, i) => {
+    const li = document.createElement("li");
+    li.role = "option";
+    li.id = "sg-" + i;
+    li.setAttribute("aria-selected", String(i === active));
+    const cov = document.createElement("span");
+    cov.className = "sg-cover";
+    cov.innerHTML = miniCoverSVG(it.cover, { title: it.title });
+    const text = document.createElement("span");
+    text.className = "sg-text";
+    const t = document.createElement("b");
+    t.className = "sg-title";
+    t.textContent = it.title;
+    const a = document.createElement("small");
+    a.className = "sg-author";
+    a.textContent = it.author;
+    text.append(t, a);
+    const tag = document.createElement("span");
+    tag.className = "sg-tag";
+    tag.textContent = "demo";
+    li.append(cov, text, tag);
+    li.addEventListener("mousedown", (e) => { e.preventDefault(); showToast(`→ ${it.title}`); });
+    return li;
+  }));
+  listbox.hidden = !found.length;
+  input.setAttribute("aria-expanded", String(!listbox.hidden));
+}
+input.addEventListener("input", () => { active = -1; renderSuggest(input.value); });
+input.addEventListener("focus", () => renderSuggest(input.value));
+input.addEventListener("blur", () => { listbox.hidden = true; input.setAttribute("aria-expanded", "false"); });
+input.addEventListener("keydown", (e) => {
+  const n = listbox.children.length;
+  if (!n || (e.key !== "ArrowDown" && e.key !== "ArrowUp")) return;
+  e.preventDefault();
+  active = (active + (e.key === "ArrowDown" ? 1 : -1) + n) % n;
+  renderSuggest(input.value);
+  input.setAttribute("aria-activedescendant", "sg-" + active);
+});
+document.getElementById("search-form").addEventListener("submit", (e) => { e.preventDefault(); showToast(input.value || "…"); });
+if (q.get("suggest") === "1") { active = 1; input.value = q.get("q") || ""; renderSuggest(input.value); }
+
+// --- optional gallery of every motif in every layout ---
+if (q.get("gallery") === "1") {
+  const g = document.getElementById("gallery");
+  g.hidden = false;
+  let html = "";
+  COVER_MOTIFS.forEach((m, i) => {
+    const b = BOOKS[i % BOOKS.length];
+    for (let layout = 0; layout < 4; layout++) {
+      html += coverSVG({ ...coverFromString(m + layout), motif: m }, { title: b.title[getLang()], author: b.author[getLang()], w: 130, h: 195, layout });
+    }
+  });
+  g.innerHTML = html;
+}
+window.__ready = true;
+</script>
+</body>
+</html>

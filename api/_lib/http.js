@@ -3,6 +3,8 @@ import { LANGS } from "./enums.js";
 
 /** SPEC §3: GET responses that depend only on the query are CDN-cacheable. */
 export const CACHE_PUBLIC = "public, max-age=3600, s-maxage=31536000, stale-while-revalidate=86400";
+/** Negative answers (e.g. "book not found") are cached for a shorter time. */
+export const CACHE_SHORT = "public, max-age=600, s-maxage=86400, stale-while-revalidate=3600";
 /** Generated images never change for the same signed URL. */
 export const CACHE_IMMUTABLE = "public, max-age=31536000, s-maxage=31536000, immutable";
 export const NO_STORE = "no-store";
@@ -12,6 +14,7 @@ const STATUS = {
   forbidden: 403,
   not_found: 404,
   method_not_allowed: 405,
+  payload_too_large: 413,
   refused: 422,
   rate_limited: 429,
   server: 500,
@@ -71,8 +74,10 @@ export function clientIp(request) {
 // ---------------------------------------------------------------------------------------------
 // Query parameter validation. Every helper throws HttpError("bad_request") on invalid input.
 
-const CONTROL = /[\u0000-\u001f\u007f‪-‮⁦-⁩]/g;
+// C0/C1 controls, zero-width characters, line/paragraph separators, bidi overrides/isolates, BOM.
+export const CONTROL = /[\u0000-\u001f\u007f-\u009f\u200b-\u200f\u2028\u2029\u202a-\u202e\u2066-\u2069\ufeff]/g;
 
+/** Single-line text: control/invisible characters removed, whitespace collapsed, trimmed. */
 export function cleanText(value) {
   return String(value ?? "").replace(CONTROL, " ").replace(/\s+/g, " ").trim();
 }
@@ -82,8 +87,7 @@ export function searchParams(request) {
 }
 
 export function textParam(params, name, { required = true, max = 200 } = {}) {
-  const raw = params.get(name);
-  const value = cleanText(raw);
+  const value = cleanText(params.get(name));
   if (!value) {
     if (required) throw new HttpError("bad_request", `Missing parameter "${name}"`);
     return "";

@@ -21,6 +21,11 @@ export function isConfigured() {
   return Boolean(testClient || process.env.ANTHROPIC_API_KEY);
 }
 
+/** Throws not_configured (503) when live mode is off — call before counting rate limits. */
+export function requireLive() {
+  if (!isConfigured()) throw new HttpError("not_configured", "Live mode is not configured (ANTHROPIC_API_KEY is missing)");
+}
+
 function getClient() {
   if (testClient) return testClient;
   const key = process.env.ANTHROPIC_API_KEY;
@@ -76,8 +81,8 @@ function mapError(err, label) {
  * Returns the parsed JSON object; throws HttpError (not_configured | refused | rate_limited | upstream).
  */
 export async function callJson({ system, user, schema, effort = "medium", maxTokens = 16000, label = "call" }) {
+  requireLive();
   const client = getClient();
-  if (!client) throw new HttpError("not_configured", "Live mode is not configured (ANTHROPIC_API_KEY is missing)");
 
   let msg;
   try {

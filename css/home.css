@@ -1,0 +1,442 @@
+/* BookTrip — home: hero, search with suggestions, the 3D ring of covers. Owned by home.
+   Uses the tokens from base.css. The view fills exactly one viewport (100dvh) with no page scroll. */
+
+/* ---------- view ---------- */
+.view-home {
+  --hero-top: calc(var(--nav-h) + 10px + clamp(14px, 4.4vh, 50px));
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* soft blue horizon light behind the ring */
+.view-home::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: -22vh;
+  width: max(1200px, 130vw);
+  height: 78vh;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(38, 120, 255, .16), rgba(38, 120, 255, .05) 55%, transparent 76%);
+  pointer-events: none;
+}
+
+/* ---------- hero ----------
+   The ring stage has a viewport-relative height at the bottom; the hero takes the rest and centres
+   its content in it (it never shrinks below its content — the stage gives way instead). */
+.hero {
+  position: relative;
+  z-index: 3;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--hero-top) 16px clamp(4px, 1.6vh, 22px);
+}
+
+.view-home .badge {
+  max-width: 100%;
+  margin-bottom: clamp(14px, 2.7vh, 28px);
+}
+.view-home .badge b { overflow: hidden; text-overflow: ellipsis; }
+
+.hero-title {
+  /* The longest headline line in each language, in em, sets the width-based size. */
+  --h1-em: 11.2;
+  --h1-max: min(92px, 10.6vh);
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(20px, calc((100vw - 34px) / var(--h1-em)), var(--h1-max));
+  line-height: 1.02;
+  letter-spacing: -.022em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  color: #f6faff;
+  /* glow is a text-shadow (rasterized once) rather than a filter (re-applied every composited frame) */
+  text-shadow: 0 0 24px rgba(60, 150, 255, .5), 0 0 72px rgba(40, 110, 255, .38), 0 2px 1px rgba(0, 10, 40, .25);
+}
+:root:lang(en) .hero-title { --h1-em: 8.6; }
+:root:lang(uk) .hero-title { --h1-em: 14.3; }
+
+.hero-title > span {
+  display: block;
+  padding: 0 .04em .06em;
+}
+
+.hero-sub {
+  max-width: 34em;
+  margin-top: clamp(10px, 2vh, 20px);
+  font-size: clamp(15px, 1.25vw + 6px, 18px);
+  line-height: 1.5;
+  color: var(--ink-2);
+  text-wrap: balance;
+}
+
+/* ---------- search ---------- */
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(620px, 100%);
+  height: 66px;
+  margin-top: clamp(16px, 3.6vh, 36px);
+  padding: 0 8px 0 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, .13);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .02)),
+    rgba(9, 13, 27, .5);
+  box-shadow:
+    0 26px 60px -26px rgba(0, 0, 0, .9),
+    inset 0 1px 0 rgba(255, 255, 255, .07),
+    inset 0 -1px 0 rgba(255, 255, 255, .02);
+  transition: border-color .25s, box-shadow .25s, background-color .25s;
+}
+/* The frosted blur lives on a pseudo layer: a backdrop-filter on .search itself makes Chrome
+   mis-composite the overflowing suggestions dropdown (content behind shows through it). */
+.search::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  pointer-events: none;
+}
+.search:hover { border-color: rgba(255, 255, 255, .19); }
+.search:focus-within {
+  border-color: rgba(95, 225, 255, .45);
+  background-color: rgba(9, 13, 27, .62);
+  box-shadow:
+    0 26px 60px -26px rgba(0, 0, 0, .9),
+    0 0 0 4px rgba(95, 225, 255, .08),
+    0 0 40px -6px rgba(60, 190, 255, .22),
+    inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+.search-ico {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: stroke .25s;
+}
+.search:focus-within .search-ico { stroke: var(--cyan); }
+.search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: none;
+  background: none;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -.005em;
+  color: var(--ink);
+  caret-color: var(--cyan);
+  text-overflow: ellipsis;
+}
+.search input:focus-visible { outline: none; }
+.search input::placeholder { color: rgba(195, 203, 224, .52); font-weight: 400; }
+.search input::-webkit-search-decoration,
+.search input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+.search-go { flex: none; height: 50px; padding: 0 24px; }
+
+/* ---------- suggestions ----------
+   Expected item markup (all parts optional):
+   <li role="option" aria-selected="false">
+     <span class="sg-cover">miniCoverSVG()</span>
+     <span class="sg-text"><b class="sg-title">Title</b><small class="sg-author">Author</small></span>
+     <span class="sg-tag">demo</span>
+   </li> */
+.suggest {
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  max-height: min(344px, 48vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 6px;
+  list-style: none;
+  text-align: left;
+  border-radius: 18px;
+  border: 1px solid var(--line-hi);
+  background: linear-gradient(180deg, rgba(25, 33, 58, .97), rgba(11, 16, 31, .98));
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 34px 80px -22px rgba(0, 0, 0, .9), inset 0 1px 0 rgba(255, 255, 255, .06);
+  animation: suggest-in .24s var(--expo);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, .18) transparent;
+}
+@keyframes suggest-in { from { opacity: 0; transform: translateY(-6px) scale(.99); } }
+
+.suggest li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color .15s;
+}
+.suggest li + li { margin-top: 2px; }
+.suggest li:hover { background: rgba(255, 255, 255, .05); }
+.suggest li[aria-selected="true"] {
+  background: linear-gradient(90deg, rgba(95, 225, 255, .17), rgba(95, 225, 255, .05));
+  box-shadow: inset 0 0 0 1px rgba(95, 225, 255, .3);
+}
+.suggest .sg-cover,
+.suggest li > svg {
+  flex: none;
+  display: block;
+  width: 30px;
+  height: 45px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px -4px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .06);
+}
+.suggest .sg-cover svg { width: 100%; height: 100%; }
+.suggest .sg-text { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.suggest .sg-title,
+.suggest li b {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.suggest .sg-author,
+.suggest li small {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--ink-3);
+}
+.suggest mark { background: none; color: var(--cyan); }
+.suggest .sg-tag {
+  flex: none;
+  margin-left: auto;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--line-hi);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: var(--ink-3);
+}
+.suggest li[aria-selected="true"] .sg-tag { border-color: rgba(95, 225, 255, .4); color: #d9f8ff; }
+.suggest .sg-empty,
+.suggest li[aria-disabled="true"] { cursor: default; color: var(--ink-3); justify-content: center; }
+
+/* ---------- hint ---------- */
+.hero-hint {
+  max-width: 100%;
+  margin-top: clamp(10px, 1.8vh, 16px);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-3);
+  text-wrap: balance;
+}
+.hero-hint::before {
+  content: "";
+  display: inline-block;
+  vertical-align: -4px;
+  margin-right: 8px;
+  width: 17px;
+  height: 17px;
+  background: currentColor;
+  opacity: .9;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8.5h16M16.5 5 20 8.5 16.5 12M7.5 12 4 15.5 7.5 19M4 15.5h16'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8.5h16M16.5 5 20 8.5 16.5 12M7.5 12 4 15.5 7.5 19M4 15.5h16'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ---------- ring ---------- */
+.ring-stage {
+  position: relative;
+  z-index: 1;
+  flex: 0 1 auto;
+  height: clamp(150px, 42vh, 680px);
+  height: clamp(150px, 42dvh, 680px);
+  min-height: 150px;
+}
+
+.ring-view {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  opacity: 0;
+  transition: opacity 1.3s var(--ease) .35s;
+}
+.ring-view.is-in { opacity: 1; }
+.ring-view.is-dragging { cursor: grabbing; }
+.ring-view.is-empty { visibility: hidden; }
+
+/* edges fade into the night (overlays are far cheaper than masking the moving 3D cards) */
+.ring-host::after {
+  content: "";
+  position: absolute;
+  inset: -12% 0 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--void) 0, rgba(2, 3, 9, .55) 3.5%, rgba(2, 3, 9, 0) 9%, rgba(2, 3, 9, 0) 91%, rgba(2, 3, 9, .55) 96.5%, var(--void) 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 22%);
+          mask-image: linear-gradient(180deg, transparent 0, #000 22%);
+}
+
+/* blue backlight that the covers float in front of */
+.ring-floor {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--row-top, 40px) + var(--row-h, 225px) * .55);
+  width: min(1500px, 150%);
+  height: calc(var(--row-h, 225px) * 2.3);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(56, 150, 255, .2), rgba(56, 150, 255, .07) 52%, transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.6s var(--ease) .3s;
+}
+.ring-host.is-in .ring-floor { opacity: 1; }
+
+.ring-card {
+  position: absolute;
+  left: var(--card-x, 0);
+  top: var(--card-y, 0);
+  width: var(--card-w, 150px);
+  height: var(--card-h, 225px);
+  padding: 0;
+  border-radius: calc(9px * var(--ring-s, 1) + 1px);
+  overflow: hidden;
+  cursor: pointer;
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+  background: #0b1020;
+  /* sizes are in the oversampled space (--ring-s includes the factor) */
+  box-shadow: 0 calc(34px * var(--ring-s, 1)) calc(46px * var(--ring-s, 1)) calc(-26px * var(--ring-s, 1)) rgba(0, 0, 0, .95), 0 0 0 calc(1px * var(--ring-s, 1)) rgba(255, 255, 255, .07);
+  -webkit-box-reflect: below calc(5px * var(--ring-s, 1)) linear-gradient(transparent 62%, rgba(255, 255, 255, .2));
+}
+.ring-card:focus-visible { outline: calc(2px * var(--ring-s, 1)) solid rgba(120, 225, 255, .95); outline-offset: calc(4px * var(--ring-s, 1)); border-radius: calc(9px * var(--ring-s, 1) + 1px); }
+.ring-face,
+.ring-face > svg { display: block; width: 100%; height: 100%; pointer-events: none; }
+.ring-shade,
+.ring-shine { position: absolute; pointer-events: none; }
+.ring-shade { inset: 0; background: #03050d; opacity: .1; }
+.ring-shine {
+  inset: -4% -70%;
+  background: linear-gradient(104deg, transparent 40%, rgba(255, 255, 255, .13) 47%, rgba(255, 255, 255, .03) 53%, transparent 60%);
+}
+
+/* ---------- entrance (once) ---------- */
+@keyframes home-rise { from { opacity: 0; transform: translateY(16px); filter: blur(6px); } }
+/* each headline line rises from its own baseline, then its glow blooms (no hard clip edge on the glow) */
+@keyframes home-wipe {
+  0% {
+    transform: translateY(100%);
+    clip-path: inset(0 -25% 100% -25%);
+    text-shadow: 0 0 24px rgba(60, 150, 255, 0), 0 0 72px rgba(40, 110, 255, 0), 0 2px 1px rgba(0, 10, 40, 0);
+  }
+  70% {
+    transform: none;
+    clip-path: inset(0 -25% 0 -25%);
+    text-shadow: 0 0 24px rgba(60, 150, 255, 0), 0 0 72px rgba(40, 110, 255, 0), 0 2px 1px rgba(0, 10, 40, 0);
+  }
+  100% {
+    transform: none;
+    clip-path: inset(-80% -25% -80% -25%);
+    text-shadow: 0 0 24px rgba(60, 150, 255, .5), 0 0 72px rgba(40, 110, 255, .38), 0 2px 1px rgba(0, 10, 40, .25);
+  }
+}
+.js .view-home .badge { animation: home-rise .9s var(--expo) .05s backwards; }
+.js .view-home .hero-title > .l1 { animation: home-wipe 1.5s var(--expo) .16s backwards; }
+.js .view-home .hero-title > .l2 { animation: home-wipe 1.5s var(--expo) .3s backwards; }
+.js .view-home .hero-sub { animation: home-rise 1s var(--expo) .5s backwards; }
+.js .view-home .search { animation: home-rise 1s var(--expo) .62s backwards; }
+.js .view-home .hero-hint { animation: home-rise 1s var(--expo) .78s backwards; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .view-home { --hero-top: calc(var(--nav-h) + 10px + clamp(14px, 3.4vh, 34px)); }
+}
+
+@media (max-width: 560px) {
+  .view-home .badge { height: 34px; gap: 9px; padding-right: 12px; font-size: 12px; border-radius: 11px; }
+  .view-home .badge i { width: 26px; height: 26px; border-radius: 7px; }
+  .hero-title { line-height: 1.06; }
+  .search {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 6px 10px;
+    padding: 6px;
+    border-radius: 18px;
+  }
+  .search-ico { margin-left: 12px; width: 20px; height: 20px; }
+  .search input { height: 48px; font-size: 16px; }
+  .search-go { flex: 1 0 100%; height: 48px; border-radius: 13px; }
+  .hero-hint { font-size: 12.5px; }
+}
+
+@media (max-width: 360px) {
+  .view-home .badge { gap: 8px; padding-right: 10px; font-size: 10.5px; letter-spacing: -.01em; }
+  .hero-sub { font-size: 14px; }
+}
+
+/* big screens: scale the hero up so it keeps its presence */
+@media (min-width: 1800px) and (min-height: 1000px) {
+  .hero-title { --h1-max: min(132px, 10.6vh); }
+  .view-home .badge { height: 44px; padding-right: 18px; font-size: 14.5px; }
+  .view-home .badge i { width: 33px; height: 33px; }
+  .hero-sub { font-size: 21px; }
+  .search { width: 740px; height: 76px; border-radius: 23px; padding-left: 24px; }
+  .search input { font-size: 19px; }
+  .search-ico { width: 24px; height: 24px; }
+  .search-go { height: 58px; padding: 0 30px; font-size: 16.5px; border-radius: 16px; }
+  .hero-hint { font-size: 14.5px; }
+}
+
+/* short screens: tighten vertical rhythm */
+@media (max-height: 720px) {
+  .view-home { --hero-top: calc(var(--nav-h) + 10px + 12px); }
+  .view-home .badge { margin-bottom: 12px; }
+  .hero-sub { margin-top: 8px; font-size: 15px; }
+  .search { margin-top: 16px; }
+}
+@media (max-height: 640px) and (max-width: 560px) {
+  .hero-sub { display: none; }
+}
+/* very short (landscape phones): let the page scroll instead of squeezing the search */
+@media (max-height: 500px) {
+  .view-home { height: auto; min-height: 100vh; min-height: 100dvh; }
+  .ring-stage { flex: none; height: 270px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring-view { transform: none; }
+}

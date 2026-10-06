@@ -706,9 +706,10 @@ const LAYOUTS = [
     const y0 = top + fit.size * 0.74;
     const bottom = y0 + (fit.lines.length - 1) * fit.size * 1.06;
     const ey = Math.max(250, bottom + 112);
+    const es = Math.min(182, 2 * (346 - ey)); // keep clear of the author line
     return decoration(deco, 150, ey, c, rnd)
       + `<circle cx="150" cy="${f1(ey)}" r="120" fill="url(#${P}-glow)"/>`
-      + emblem(c.motif, 150, ey, 182, pal, P)
+      + emblem(c.motif, 150, ey, es, pal, P)
       + textBlock(fit.lines, { x: 24, y: y0, size: fit.size, lh: 1.06, family: FONT_DISPLAY, weight: 800, fill: c.fg })
       + `<rect x="24" y="${f1(bottom + 15)}" width="34" height="3" rx="1.5" fill="${c.accent}"/>`
       + authorLine(author, { x: 24, y: 364, anchor: "start", fill: c.fg, maxW: 200 });
@@ -763,7 +764,8 @@ const LAYOUTS = [
     const lh = 1.12;
     const y0 = 84 + fit.size * 0.72;
     const lastBase = y0 + (fit.lines.length - 1) * fit.size * lh;
-    const ey = Math.max(266, lastBase + 96);
+    const ey = Math.max(266, lastBase + 84);
+    const es = Math.min(132, 2 * (338 - ey)); // keep clear of the bottom ornament
     const corner = (x, y) => `<path d="M${x} ${y - 5}l5 5-5 5-5-5Z" fill="${c.accent}"/>`;
     return `<rect x="12" y="12" width="236" height="366" rx="3" fill="none" stroke="${c.fg}" stroke-opacity=".6" stroke-width="1.4"/>`
       + `<rect x="18.5" y="18.5" width="223" height="353" rx="2" fill="none" stroke="${c.fg}" stroke-opacity=".3" stroke-width=".7"/>`
@@ -772,7 +774,7 @@ const LAYOUTS = [
       + `<path d="M108 64H152" stroke="${c.accent}" stroke-width="1"/>`
       + textBlock(fit.lines, { x: 130, y: y0, size: fit.size, lh, anchor: "middle", family: FONT_SERIF, weight: 600, fill: c.fg, italic: true })
       + `<circle cx="130" cy="${f1(ey)}" r="92" fill="url(#${P}-glow)"/>`
-      + emblem(c.motif, 130, ey, 132, pal, P)
+      + emblem(c.motif, 130, ey, es, pal, P)
       + `<circle cx="118" cy="352" r="1.6" fill="${c.accent}"/><circle cx="130" cy="352" r="2.2" fill="${c.accent}"/><circle cx="142" cy="352" r="1.6" fill="${c.accent}"/>`;
   },
 ];

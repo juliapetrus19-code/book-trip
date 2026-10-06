@@ -1,0 +1,558 @@
+{
+  "id": "alice-in-wonderland",
+  "year": 1865,
+  "cover": { "bg": "#1f4f7a", "bg2": "#0d2340", "fg": "#fbeacb", "accent": "#e2524a", "motif": "clock" },
+  "aliases": [
+    "Alice in Wonderland",
+    "Alice's Adventures in Wonderland",
+    "Alice Wonderland",
+    "Алиса в Стране чудес",
+    "Приключения Алисы в Стране чудес",
+    "Алиса в стране чудес Кэрролл",
+    "Аліса в Країні Чудес",
+    "Аліса в Країні Див",
+    "Пригоди Аліси в Країні Чудес",
+    "Alisa v strane chudes",
+    "Alisa v Kraini Chudes",
+    "Alice im Wunderland",
+    "Wonderland Lewis Carroll",
+    "Алиса Кэрол"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Алиса в Стране чудес",
+      "originalTitle": "Alice's Adventures in Wonderland",
+      "author": "Льюис Кэрролл",
+      "genre": "Литературная сказка",
+      "tagline": "Девочка ныряет в кроличью нору — и попадает туда, где здравый смысл стоит вверх тормашками.",
+      "summary": [
+        "Жарким летним днём Алиса скучает на берегу реки рядом с сестрой, которая читает книжку без картинок и разговоров. Вдруг мимо пробегает Белый Кролик с розовыми глазами: он достаёт из жилетного кармана часы и причитает, что опаздывает. Сгорая от любопытства, Алиса ныряет за ним в кроличью нору и долго-долго падает мимо шкафов и полок. Внизу она оказывается в длинном зале с запертыми дверями. Золотой ключик открывает крошечную дверцу в чудесный сад, но Алиса туда не пролезает. Бутылочка с надписью «Выпей меня» уменьшает её, пирожок «Съешь меня» делает великаншей, и от отчаяния Алиса наплакивает целое море слёз.",
+        "Снова уменьшившись, Алиса падает в собственное море слёз и плывёт вместе с Мышью и другими зверьками. Чтобы обсохнуть, Додо устраивает бег по кругу, в котором побеждают все, а Алиса получает в награду свой же напёрсток. Затем Белый Кролик принимает её за свою служанку Мэри Энн и посылает домой за перчатками и веером. Там Алиса пьёт из новой бутылочки и вырастает так, что заполняет собой весь дом. Звери забрасывают её камешками, которые превращаются в пирожки, — съев один, Алиса снова становится крошечной и убегает в лес.",
+        "В лесу на большом грибе сидит синяя Гусеница с кальяном и строго спрашивает: «Ты кто такая?» Алиса и сама не знает — она столько раз менялась за день! Гусеница подсказывает, что одна сторона гриба делает выше, а другая — ниже, и Алиса учится управлять своим ростом. В доме Герцогини всё в перце: кухарка швыряет посуду, младенец чихает и визжит, а у Алисы на руках превращается в поросёнка. Чеширский Кот, ухмыляясь на ветке, объясняет, что здесь все не в своём уме, и исчезает, оставляя после себя одну улыбку.",
+        "У дома Мартовского Зайца идёт безумное чаепитие. Шляпник, Заяц и вечно спящая Соня теснятся в углу огромного стола: Шляпник поссорился со Временем, и теперь у них всегда шесть часов — время пить чай. Хозяева задают загадки без ответов, дерзят и пересаживаются вокруг стола, чтобы не мыть посуду, а Соня сквозь сон рассказывает о трёх сёстрах, живущих на дне колодца с патокой. Возмущённая Алиса уходит, находит дерево с дверцей и снова попадает в зал с ключиком. На этот раз, откусив кусочек гриба, она наконец проходит в чудесный сад.",
+        "В саду садовники-карты торопливо красят белые розы в красный цвет: они по ошибке посадили не тот куст. Появляется Червонная Королева со свитой и по любому поводу кричит: «Голову с плеч!» Начинается крокет, где молотками служат живые фламинго, шарами — ежи, а воротцами — согнувшиеся солдаты. Над полем возникает голова Чеширского Кота, и Король с палачом спорят, можно ли отрубить голову, если нет тела. Потом Грифон ведёт Алису к печальной Черепахе Квази, которая вспоминает свою морскую школу и учит её танцевать морскую кадриль.",
+        "Наконец начинается суд: Червонного Валета обвиняют в краже королевских пирожков. Свидетельствуют перепуганный Шляпник и кухарка Герцогини, а Алиса тем временем снова начинает расти. Белый Кролик зачитывает нелепые стихи без подписи как главную улику, а Королева требует сначала казнить, а потом выносить приговор. Выросшая до своего настоящего роста Алиса больше не боится и заявляет, что все они — просто колода карт. Карты взлетают и обрушиваются на неё — и Алиса просыпается на берегу, положив голову сестре на колени. Это был лишь сон, и сестра думает, как когда-нибудь Алиса расскажет его своим детям."
+      ],
+      "themes": ["Поиск себя", "Абсурд и игра с логикой", "Любопытство", "Детство и правила взрослых", "Сон и воображение"],
+      "terms": [
+        { "term": "Страна чудес", "definition": "Подземный мир, куда Алиса попадает через кроличью нору. Здесь законы логики, языка и роста то и дело выворачиваются наизнанку." },
+        { "term": "Кроличья нора", "definition": "Нора, похожая на глубокий колодец, в которую Алиса падает так медленно, что успевает разглядеть шкафы, полки и банку с апельсиновым вареньем." },
+        { "term": "Золотой ключик", "definition": "Крошечный ключ на стеклянном столике, открывающий дверцу в прекрасный сад. Чтобы им воспользоваться, Алисе приходится долго подбирать нужный рост." },
+        { "term": "«Выпей меня» и «Съешь меня»", "definition": "Бутылочка и пирожок с надписями: первая уменьшает Алису, а второй превращает её в великаншу." },
+        { "term": "Море слёз", "definition": "Огромная лужа, которую Алиса наплакала, когда была ростом в девять футов. Уменьшившись, она едва не тонет в ней вместе с Мышью и другими зверями." },
+        { "term": "Бег по кругу", "definition": "Странное состязание, которое придумал Додо: все бегают как хотят и когда хотят, а в конце побеждают все и все получают призы." },
+        { "term": "Волшебный гриб", "definition": "Гриб, на котором сидит Гусеница: откусишь с одной стороны — станешь выше, с другой — ниже." },
+        { "term": "Безумное чаепитие", "definition": "Бесконечный чай у Мартовского Зайца: Время обиделось на Шляпника, и стрелки навсегда застыли на шести часах." },
+        { "term": "Загадка про ворона", "definition": "Вопрос Шляпника «Чем ворон похож на письменный стол?», на который нет ответа — его не знает даже сам Шляпник." },
+        { "term": "Улыбка Чеширского Кота", "definition": "Кот умеет исчезать по частям, начиная с кончика хвоста, и в конце от него остаётся одна улыбка — улыбка без кота." },
+        { "term": "Королевский крокет", "definition": "Игра, в которой молотками служат фламинго, шарами — ежи, а воротцами — солдаты-карты, и все играют одновременно, не дожидаясь очереди." },
+        { "term": "Суд над Валетом", "definition": "Абсурдный процесс о краже пирожков, где главная улика — стихи без подписи, а Королева требует казни раньше приговора." }
+      ],
+      "similar": [
+        { "title": "Алиса в Зазеркалье", "author": "Льюис Кэрролл", "why": "Продолжение приключений Алисы: на этот раз она проходит сквозь зеркало и становится пешкой в огромной шахматной партии." },
+        { "title": "Удивительный волшебник из страны Оз", "author": "Лаймен Фрэнк Баум", "why": "Девочку уносит в волшебную страну, полную причудливых существ, и вся её дорога оказывается путём к самой себе." },
+        { "title": "Коралина", "author": "Нил Гейман", "why": "Любопытная девочка открывает дверь в зеркальный мир, где волшебство оборачивается кошмаром." },
+        { "title": "Маленький принц", "author": "Антуан де Сент-Экзюпери", "why": "Ещё одна мудрая сказка, где ребёнок встречает странных взрослых и обнаруживает всю нелепость их правил." },
+        { "title": "Бесконечная история", "author": "Михаэль Энде", "why": "Мальчик буквально проваливается в книгу и попадает в Фантазию — страну, которая живёт воображением." }
+      ],
+      "film": {
+        "title": "Вниз по кроличьей норе",
+        "intro": "Ты открываешь книгу, и мимо проносится Белый Кролик с карманными часами. Ты бросаешься следом — и проваливаешься в нору, которая ведёт прямо в Страну чудес.",
+        "outro": "Карты разлетаются сухими листьями, страницы смыкаются, и ты просыпаешься дома. Но где-то в траве, кажется, всё ещё тикают часы Белого Кролика.",
+        "scenes": [
+          {
+            "title": "Вслед за Белым Кроликом",
+            "narration": "Ты сидишь в траве на берегу реки, где Алиса изнывает от скуки. Мимо, поглядывая на часы, пробегает Белый Кролик в жилетке, и вы вместе с Алисой бросаетесь за ним.",
+            "line": { "text": "Ох, батюшки, я ужасно опаздываю!" }
+          },
+          {
+            "title": "Зал запертых дверей",
+            "narration": "Ты стоишь в длинном зале под рядом ламп, и все двери вокруг заперты. Алиса находит на стеклянном столике золотой ключик, а потом съедает пирожок и вырастает до самого потолка.",
+            "line": { "text": "Всё чудесатее и чудесатее!" }
+          },
+          {
+            "title": "Совет Гусеницы",
+            "narration": "Ты бредёшь по туманному лесу, где цветы выше твоей головы. На шляпке огромного гриба сидит синяя Гусеница с кальяном и лениво пускает кольца дыма.",
+            "line": { "text": "А ты-то кто такая?" }
+          },
+          {
+            "title": "Безумное чаепитие",
+            "narration": "Ты сидишь за длинным столом, уставленным чашками, а часы навсегда показывают шесть. Шляпник сыплет загадками, Мартовский Заяц предлагает вино, которого нет, а Соня клюёт носом между ними.",
+            "line": { "text": "Отгадай-ка: чем ворон похож на письменный стол?" }
+          },
+          {
+            "title": "Королевский крокет",
+            "narration": "Ты стоишь в королевском саду, где розы наспех выкрашены в красный. Фламинго вместо молотков, ежи вместо шаров, а над полем вдруг появляется улыбающаяся голова Чеширского Кота.",
+            "line": { "text": "Голову с плеч — и немедленно!" }
+          },
+          {
+            "title": "Всего лишь колода карт",
+            "narration": "Ты сидишь в зале суда, где Валета судят за украденные пирожки. Алиса вырастает до своего роста, и вся колода взмывает в воздух — а ты просыпаешься вместе с ней на берегу под шорох падающих листьев.",
+            "line": { "text": "Да вы же просто колода карт!" }
+          }
+        ]
+      },
+      "characters": {
+        "alice": {
+          "name": "Алиса",
+          "traits": ["любопытная", "смелая", "рассудительная", "вежливая"],
+          "description": "Маленькая девочка, которая от скуки бросается вслед за Белым Кроликом. В Стране чудес она то и дело меняет рост и всё время пытается понять, кто же она теперь. Постепенно Алиса перестаёт бояться абсурда и в финале смело даёт отпор Королеве и всей колоде карт."
+        },
+        "white-rabbit": {
+          "name": "Белый Кролик",
+          "traits": ["суетливый", "пугливый", "пунктуальный"],
+          "description": "Кролик с розовыми глазами, в жилете и с карманными часами, вечно куда-то опаздывающий. Именно за ним Алиса прыгает в нору. Перед Герцогиней и Королевой он дрожит от страха, а на суде служит глашатаем и зачитывает обвинение."
+        },
+        "cheshire-cat": {
+          "name": "Чеширский Кот",
+          "traits": ["загадочный", "насмешливый", "невозмутимый"],
+          "description": "Кот Герцогини с широченной улыбкой, который появляется и исчезает когда пожелает. Он объясняет Алисе, что в Стране чудес все безумны, и указывает дорогу к Шляпнику и Мартовскому Зайцу. На королевском крокете над полем парит одна его голова, и никто не может её казнить."
+        },
+        "hatter": {
+          "name": "Шляпник",
+          "traits": ["безумный", "болтливый", "грубоватый"],
+          "description": "Хозяин бесконечного чаепития в огромном цилиндре с ценником. Поссорившись со Временем, он навсегда застрял в шести часах вечера и пересаживается от чашки к чашке. Позже Шляпник, дрожа от страха, даёт сбивчивые показания на суде над Червонным Валетом."
+        },
+        "queen": {
+          "name": "Червонная Королева",
+          "traits": ["вспыльчивая", "властная", "жестокая"],
+          "description": "Грозная правительница Страны чудес, у которой на всё один ответ — отрубить голову. Её крокет превращается в хаос, а суд над Валетом — в фарс. Но казней на самом деле не бывает: Король потихоньку всех милует."
+        },
+        "march-hare": {
+          "name": "Мартовский Заяц",
+          "traits": ["безумный", "сварливый", "непредсказуемый"],
+          "description": "Хозяин дома, где идёт безумное чаепитие, — с трубами в форме ушей и крышей, крытой мехом. Вместе со Шляпником он угощает Алису несуществующим вином и запутывает её словесными играми. Когда Алиса уходит, они вдвоём запихивают Соню в чайник."
+        },
+        "caterpillar": {
+          "name": "Гусеница",
+          "traits": ["невозмутимая", "философствующая", "немногословная"],
+          "description": "Большая синяя Гусеница, которая курит кальян, сидя на грибе. Своим неизменным «Ты кто такая?» она заставляет Алису задуматься, кто же она на самом деле. На прощание Гусеница подсказывает, как с помощью гриба менять рост."
+        },
+        "dormouse": {
+          "name": "Соня",
+          "traits": ["сонная", "тихая", "мечтательная"],
+          "description": "Крошечная соня, которая всё чаепитие дремлет между Шляпником и Мартовским Зайцем, а те облокачиваются на неё, как на подушку. Сквозь сон она рассказывает бессмысленную историю о трёх сёстрах, живущих в колодце с патокой. На суде она сквозь сон вставляет словечко «патока», и Королева велит выставить её из зала."
+        },
+        "duchess": {
+          "name": "Герцогиня",
+          "traits": ["грубая", "назидательная", "переменчивая"],
+          "description": "Сварливая хозяйка дома, полного перца, которая баюкает младенца, встряхивая его, и поёт ему колыбельную. Позже, на крокете, она вдруг становится приторно любезной и в каждой фразе находит мораль. За то, что Герцогиня надрала Королеве уши, её приговаривают к казни."
+        },
+        "king": {
+          "name": "Червонный Король",
+          "traits": ["робкий", "незадачливый", "мягкий"],
+          "description": "Маленький король, который послушно следует за грозной супругой. На суде он председательствует в короне поверх парика и путает присяжных нелепыми указаниями. Тайком он милует всех, кого Королева приказывает казнить."
+        }
+      }
+    },
+    "uk": {
+      "title": "Аліса в Країні Чудес",
+      "originalTitle": "Alice's Adventures in Wonderland",
+      "author": "Льюїс Керрол",
+      "genre": "Літературна казка",
+      "tagline": "Дівчинка пірнає в кролячу нору — і потрапляє туди, де здоровий глузд стоїть догори дриґом.",
+      "summary": [
+        "Спекотного літнього дня Аліса нудьгує на березі річки біля сестри, яка читає книжку без малюнків і розмов. Раптом повз неї пробігає Білий Кролик із рожевими очима: він виймає з кишеньки жилета годинник і бідкається, що спізнюється. Згораючи з цікавості, Аліса пірнає за ним у кролячу нору й довго-довго падає повз шафи та полиці. Унизу вона опиняється в довгій залі із замкненими дверима. Золотий ключик відмикає крихітні дверцята до чудового саду, але Аліса туди не пролазить. Пляшечка з написом «Випий мене» зменшує її, тістечко «З’їж мене» робить велеткою, і з розпачу Аліса виплакує ціле море сліз.",
+        "Знову зменшившись, Аліса падає у власне море сліз і пливе разом із Мишею та іншими звірятами. Щоб обсохнути, Додо влаштовує біг по колу, де перемагають усі, а Аліса отримує в нагороду власний наперсток. Потім Білий Кролик бере її за свою служницю Мері Енн і посилає додому по рукавички та віяло. Там Аліса п’є з нової пляшечки й виростає так, що заповнює собою весь будинок. Звірі закидають її камінцями, які перетворюються на тістечка, — з’ївши одне, Аліса знову стає крихітною й тікає до лісу.",
+        "У лісі на великому грибі сидить синя Гусінь із кальяном і суворо питає: «Ти хто така?» Аліса й сама не знає — вона стільки разів мінялася за день! Гусінь підказує, що один бік гриба робить вищою, а другий — нижчою, і Аліса вчиться керувати своїм зростом. У домі Герцогині все в перці: куховарка жбурляє посуд, немовля чхає й верещить, а в Аліси на руках перетворюється на порося. Чеширський Кіт, шкірячись на гілці, пояснює, що тут усі несповна розуму, і зникає, лишаючи по собі саму усмішку.",
+        "Біля дому Березневого Зайця триває божевільне чаювання. Капелюшник, Заєць і вічно сонна Соня тісняться в кутку величезного столу: Капелюшник посварився з Часом, і тепер у них завжди шоста година — пора пити чай. Господарі загадують загадки без відповідей, грубіянять і пересідають довкола столу, щоб не мити посуд, а Соня крізь сон розповідає про трьох сестер, що живуть на дні колодязя з патокою. Обурена Аліса йде геть, знаходить дерево з дверцятами й знову потрапляє до зали з ключиком. Цього разу, відкусивши шматочок гриба, вона нарешті проходить до чудового саду.",
+        "У саду садівники-карти квапливо фарбують білі троянди в червоний колір: вони помилково посадили не той кущ. З’являється Чирвова Королева з почтом і з будь-якого приводу кричить: «Голову з пліч!» Починається крокет, де молотками слугують живі фламінго, кулями — їжаки, а ворітьми — зігнуті навпіл солдати. Над полем виринає голова Чеширського Кота, і Король із катом сперечаються, чи можна стяти голову, коли немає тіла. Згодом Ґрифон веде Алісу до зажуреної Черепахи, яка згадує свою морську школу й навчає дівчинку танцювати кадриль з омарами.",
+        "Нарешті починається суд: Чирвового Валета звинувачують у крадіжці королівських пиріжків. Свідчать переляканий Капелюшник і куховарка Герцогині, а тим часом Аліса знову починає рости. Білий Кролик зачитує безглузді вірші без підпису як головний доказ, а Королева вимагає спершу стратити, а вже потім виносити вирок. Вирісши до свого справжнього зросту, Аліса більше не боїться й заявляє, що всі вони — лише колода карт. Карти злітають і обрушуються на неї — і Аліса прокидається на березі, поклавши голову сестрі на коліна. Це був тільки сон, і сестра уявляє, як колись доросла Аліса розповідатиме його своїм дітям."
+      ],
+      "themes": ["Пошук себе", "Абсурд і гра з логікою", "Цікавість", "Дитинство й правила дорослих", "Сон і уява"],
+      "terms": [
+        { "term": "Країна Чудес", "definition": "Підземний світ, куди Аліса потрапляє крізь кролячу нору. Тут закони логіки, мови й зросту раз у раз вивертаються навиворіт." },
+        { "term": "Кроляча нора", "definition": "Нора, схожа на глибокий колодязь, у яку Аліса падає так повільно, що встигає роздивитися шафи, полиці й слоїк з апельсиновим варенням." },
+        { "term": "Золотий ключик", "definition": "Крихітний ключ на скляному столику, що відмикає дверцята до прекрасного саду. Щоб ним скористатися, Алісі доводиться довго добирати потрібний зріст." },
+        { "term": "«Випий мене» і «З’їж мене»", "definition": "Пляшечка й тістечко з написами: перша зменшує Алісу, а друге перетворює її на велетку." },
+        { "term": "Море сліз", "definition": "Величезна калюжа, яку Аліса наплакала, коли мала дев’ять футів зросту. Зменшившись, вона мало не тоне в ній разом із Мишею та іншими звірами." },
+        { "term": "Біг по колу", "definition": "Дивне змагання, яке вигадав Додо: всі бігають як хочуть і коли хочуть, а наприкінці перемагають усі й усі отримують призи." },
+        { "term": "Чарівний гриб", "definition": "Гриб, на якому сидить Гусінь: відкусиш з одного боку — станеш вищою, з другого — нижчою." },
+        { "term": "Божевільне чаювання", "definition": "Нескінченний чай у Березневого Зайця: Час образився на Капелюшника, і стрілки навіки застигли на шостій годині." },
+        { "term": "Загадка про ворона", "definition": "Питання Капелюшника «Чим ворон схожий на письмовий стіл?», на яке немає відповіді — її не знає навіть сам Капелюшник." },
+        { "term": "Усмішка Чеширського Кота", "definition": "Кіт уміє зникати частинами, починаючи з кінчика хвоста, і зрештою від нього лишається сама усмішка — усмішка без кота." },
+        { "term": "Королівський крокет", "definition": "Гра, в якій молотками слугують фламінго, кулями — їжаки, а ворітьми — солдати-карти, і всі грають одночасно, не чекаючи своєї черги." },
+        { "term": "Суд над Валетом", "definition": "Абсурдний процес про крадіжку пиріжків, де головний доказ — вірші без підпису, а Королева вимагає страти ще до вироку." }
+      ],
+      "similar": [
+        { "title": "Аліса в Задзеркаллі", "author": "Льюїс Керрол", "why": "Продовження пригод Аліси: цього разу вона проходить крізь дзеркало й стає пішаком у величезній шаховій партії." },
+        { "title": "Чарівник країни Оз", "author": "Ліман Френк Баум", "why": "Дівчинку заносить до чарівної країни, повної химерних істот, і вся її дорога стає шляхом до самої себе." },
+        { "title": "Кораліна", "author": "Ніл Ґейман", "why": "Допитлива дівчинка відчиняє двері до дзеркального світу, де чари обертаються на жахіття." },
+        { "title": "Маленький принц", "author": "Антуан де Сент-Екзюпері", "why": "Ще одна мудра казка, де дитина зустрічає дивних дорослих і бачить усю безглуздість їхніх правил." },
+        { "title": "Нескінченна історія", "author": "Міхаель Енде", "why": "Хлопчик буквально провалюється в книжку й потрапляє до Фантазії — країни, що живе уявою." }
+      ],
+      "film": {
+        "title": "Донизу кролячою норою",
+        "intro": "Ти розгортаєш книжку, і повз тебе пробігає Білий Кролик із кишеньковим годинником. Ти кидаєшся слідом — і провалюєшся в нору, що веде просто до Країни Чудес.",
+        "outro": "Карти розлітаються сухим листям, сторінки змикаються, і ти прокидаєшся вдома. Але десь у траві, здається, досі цокає годинник Білого Кролика.",
+        "scenes": [
+          {
+            "title": "Слідом за Білим Кроликом",
+            "narration": "Ти сидиш у траві на березі річки, де Аліса знемагає від нудьги. Повз пробігає Білий Кролик у жилеті, поглядаючи на годинник, і ви разом з Алісою кидаєтеся за ним.",
+            "line": { "text": "Ой лишенько, я страшенно спізнююся!" }
+          },
+          {
+            "title": "Зала замкнених дверей",
+            "narration": "Ти стоїш у довгій залі під рядом ламп, і всі двері довкола замкнені. Аліса знаходить на скляному столику золотий ключик, а потім з’їдає тістечко й виростає до самої стелі.",
+            "line": { "text": "Дедалі дивніше й дивніше!" }
+          },
+          {
+            "title": "Порада Гусені",
+            "narration": "Ти блукаєш туманним лісом, де квіти вищі за твою голову. На капелюсі величезного гриба сидить синя Гусінь із кальяном і ліниво пускає кільця диму.",
+            "line": { "text": "А ти хто така?" }
+          },
+          {
+            "title": "Божевільне чаювання",
+            "narration": "Ти сидиш за довгим столом, заставленим чашками, а годинник навіки показує шосту. Капелюшник сипле загадками, Березневий Заєць пригощає вином, якого немає, а Соня куняє між ними.",
+            "line": { "text": "Відгадай-но: чим ворон схожий на письмовий стіл?" }
+          },
+          {
+            "title": "Королівський крокет",
+            "narration": "Ти стоїш у королівському саду, де троянди нашвидкуруч пофарбовано в червоне. Фламінго замість молотків, їжаки замість куль, а над полем раптом з’являється усміхнена голова Чеширського Кота.",
+            "line": { "text": "Голову з пліч — і негайно!" }
+          },
+          {
+            "title": "Лише колода карт",
+            "narration": "Ти сидиш у залі суду, де Валета судять за вкрадені пиріжки. Аліса виростає до свого зросту, і вся колода злітає в повітря — а ти прокидаєшся разом із нею на березі під шелест опалого листя.",
+            "line": { "text": "Та ви ж лише колода карт!" }
+          }
+        ]
+      },
+      "characters": {
+        "alice": {
+          "name": "Аліса",
+          "traits": ["допитлива", "смілива", "розважлива", "чемна"],
+          "description": "Маленька дівчинка, яка від нудьги кидається слідом за Білим Кроликом. У Країні Чудес вона раз у раз змінює зріст і весь час намагається збагнути, хто ж вона тепер. Поступово Аліса перестає боятися абсурду й наприкінці сміливо дає відсіч Королеві та всій колоді карт."
+        },
+        "white-rabbit": {
+          "name": "Білий Кролик",
+          "traits": ["метушливий", "лякливий", "пунктуальний"],
+          "description": "Кролик із рожевими очима, у жилеті й з кишеньковим годинником, що вічно кудись спізнюється. Саме за ним Аліса стрибає в нору. Перед Герцогинею й Королевою він тремтить від страху, а на суді стає глашатаєм і зачитує звинувачення."
+        },
+        "cheshire-cat": {
+          "name": "Чеширський Кіт",
+          "traits": ["загадковий", "глузливий", "незворушний"],
+          "description": "Кіт Герцогині з широченною усмішкою, який з’являється й зникає, коли йому заманеться. Він пояснює Алісі, що в Країні Чудес усі божевільні, і вказує дорогу до Капелюшника й Березневого Зайця. На королівському крокеті над полем ширяє сама його голова, і ніхто не може її стяти."
+        },
+        "hatter": {
+          "name": "Капелюшник",
+          "traits": ["божевільний", "балакучий", "грубуватий"],
+          "description": "Господар нескінченного чаювання у величезному циліндрі з цінником. Посварившись із Часом, він навіки застряг на шостій годині вечора й пересідає від чашки до чашки. Згодом Капелюшник, тремтячи від страху, дає плутані свідчення на суді над Чирвовим Валетом."
+        },
+        "queen": {
+          "name": "Чирвова Королева",
+          "traits": ["запальна", "владна", "жорстока"],
+          "description": "Грізна володарка Країни Чудес, у якої на все одна відповідь — стяти голову. Її крокет перетворюється на хаос, а суд над Валетом — на фарс. Але страт насправді не буває: Король потихеньку всіх милує."
+        },
+        "march-hare": {
+          "name": "Березневий Заєць",
+          "traits": ["божевільний", "сварливий", "непередбачуваний"],
+          "description": "Господар дому, де триває божевільне чаювання, — з димарями у формі вух і дахом, критим хутром. Разом із Капелюшником він пригощає Алісу вином, якого немає, і заплутує її словесними іграми. Коли Аліса йде, вони вдвох пхають Соню в чайник."
+        },
+        "caterpillar": {
+          "name": "Гусінь",
+          "traits": ["незворушна", "мудрувата", "небагатослівна"],
+          "description": "Велика синя Гусінь, що курить кальян, сидячи на грибі. Своїм незмінним «Ти хто така?» вона змушує Алісу замислитися, хто ж вона насправді. На прощання Гусінь підказує, як за допомогою гриба змінювати зріст."
+        },
+        "dormouse": {
+          "name": "Соня",
+          "traits": ["сонна", "тиха", "мрійлива"],
+          "description": "Крихітна соня, що все чаювання дрімає між Капелюшником і Березневим Зайцем, а ті спираються на неї, як на подушку. Крізь сон вона розповідає безглузду історію про трьох сестер, які живуть у колодязі з патокою. На суді вона крізь сон бурмоче «патока», і Королева наказує вивести її із зали."
+        },
+        "duchess": {
+          "name": "Герцогиня",
+          "traits": ["груба", "повчальна", "мінлива"],
+          "description": "Сварлива господиня дому, повного перцю, яка колише немовля, трусячи його, і співає йому колискову. Згодом, на крокеті, вона раптом стає надміру люб’язною і в кожній фразі шукає мораль. За те, що Герцогиня надавала Королеві ляпасів, її засуджують до страти."
+        },
+        "king": {
+          "name": "Чирвовий Король",
+          "traits": ["боязкий", "недолугий", "м’який"],
+          "description": "Маленький король, який слухняно ходить за своєю грізною дружиною. На суді він головує в короні поверх перуки й плутає присяжних безглуздими вказівками. Потай він милує всіх, кого Королева наказує стратити."
+        }
+      }
+    },
+    "en": {
+      "title": "Alice's Adventures in Wonderland",
+      "originalTitle": "Alice's Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "genre": "Literary fairy tale",
+      "tagline": "A girl tumbles down a rabbit hole into a world where common sense is turned upside down.",
+      "summary": [
+        "On a drowsy summer afternoon Alice sits on a riverbank beside her sister, who is reading a book without pictures or conversations. A pink-eyed White Rabbit hurries past, takes a watch out of his waistcoat pocket and frets about being late. Burning with curiosity, Alice follows him down a rabbit hole and falls slowly past cupboards and shelves into a long hall of locked doors. A tiny golden key opens a little door to a lovely garden, but she is too big to fit. A bottle labelled “DRINK ME” shrinks her, a cake marked “EAT ME” makes her a giant, and in despair she weeps a pool of tears.",
+        "Shrunk once more, Alice tumbles into her own pool of tears and swims ashore with a Mouse and a crowd of creatures. To get everyone dry, the Dodo holds a Caucus-race in which everybody wins, and Alice is solemnly presented with her own thimble. Next the White Rabbit mistakes her for his housemaid, Mary Ann, and sends her to fetch his gloves and fan. In his house she drinks from another bottle and grows until she fills the whole room. The animals pelt her with pebbles that turn into little cakes; eating one, she shrinks again and escapes into the wood.",
+        "On top of a mushroom sits a large blue Caterpillar smoking a hookah, who sternly asks, “Who are you?” Alice hardly knows — she has changed so many times today. The Caterpillar tells her that one side of the mushroom makes you grow taller and the other shorter, and she learns to control her size. In the Duchess’s peppery kitchen the cook hurls dishes, a baby howls and sneezes, and in Alice’s arms it turns into a pig. Grinning from a branch, the Cheshire Cat explains that everyone here is mad, then fades away until only the grin remains.",
+        "At the March Hare’s house a mad tea-party is in progress. The Hatter, the March Hare and a dozing Dormouse crowd one corner of a huge table: the Hatter quarrelled with Time, so it is always six o’clock, always tea-time. They ask riddles with no answers, make rude remarks and keep moving round the table to avoid washing up, while the Dormouse sleepily tells of three sisters living at the bottom of a treacle well. Offended, Alice storms off, finds a tree with a door in it and returns to the hall. This time, nibbling the mushroom, she at last reaches the beautiful garden.",
+        "In the garden, playing-card gardeners are hastily painting white roses red because they planted the wrong tree. The Queen of Hearts sweeps in with her court, calling for someone’s head at the slightest excuse. A croquet game begins, with live flamingos for mallets, hedgehogs for balls and soldiers bent double as hoops. The Cheshire Cat’s head appears in mid-air, and the King and the executioner argue over whether you can behead something that has no body. Then a Gryphon leads Alice to the melancholy Mock Turtle, who recalls his school under the sea and teaches her the Lobster Quadrille.",
+        "At last the trial begins: the Knave of Hearts is accused of stealing the Queen’s tarts. A terrified Hatter and the Duchess’s cook give evidence, as Alice starts to grow. The White Rabbit reads an unsigned nonsense poem as evidence, and the Queen demands the sentence first and the verdict afterwards. Back to her full size, Alice fearlessly declares that they are nothing but a pack of cards. The cards fly up at her — and she wakes on the riverbank with her head in her sister’s lap. It was all a dream, and her sister imagines Alice one day telling it to children of her own."
+      ],
+      "themes": ["Searching for identity", "Absurdity and logic", "Curiosity", "Childhood versus grown-up rules", "Dreams and imagination"],
+      "terms": [
+        { "term": "Wonderland", "definition": "The underground world Alice reaches through the rabbit hole. Here the rules of logic, language and size are constantly turned inside out." },
+        { "term": "The rabbit hole", "definition": "A hole as deep as a well, down which Alice falls so slowly that she has time to study the cupboards, the shelves and a jar of orange marmalade." },
+        { "term": "The golden key", "definition": "A tiny key on a glass table that opens the little door to a beautiful garden. To use it, Alice must first get her size just right." },
+        { "term": "DRINK ME and EAT ME", "definition": "A labelled bottle and a little cake: the first shrinks Alice, the second turns her into a giant." },
+        { "term": "The pool of tears", "definition": "A huge pool Alice weeps while she is nine feet tall. Once she shrinks, she nearly drowns in it along with a Mouse and other creatures." },
+        { "term": "The Caucus-race", "definition": "The Dodo’s odd contest: everyone runs whenever and however they like, and in the end everybody wins and everybody gets a prize." },
+        { "term": "The mushroom", "definition": "The Caterpillar’s mushroom: a bite from one side makes you taller, a bite from the other makes you shorter." },
+        { "term": "The Mad Tea-Party", "definition": "An endless tea at the March Hare’s: Time has taken offence at the Hatter, so the clocks are stuck at six for ever." },
+        { "term": "The raven riddle", "definition": "The Hatter’s question “Why is a raven like a writing-desk?” — a riddle with no answer, as even the Hatter admits." },
+        { "term": "The Cheshire Cat’s grin", "definition": "The Cat can vanish bit by bit, starting with the end of its tail, until only the grin is left — a grin without a cat." },
+        { "term": "Royal croquet", "definition": "A game played with flamingos for mallets, hedgehogs for balls and card-soldiers for hoops, with all the players going at once." },
+        { "term": "The trial of the Knave", "definition": "An absurd trial over stolen tarts, where the main evidence is an unsigned poem and the Queen wants the sentence before the verdict." }
+      ],
+      "similar": [
+        { "title": "Through the Looking-Glass", "author": "Lewis Carroll", "why": "Alice’s next adventure: she steps through a mirror and becomes a pawn in a giant game of chess." },
+        { "title": "The Wonderful Wizard of Oz", "author": "L. Frank Baum", "why": "A girl is swept away to a magical land full of peculiar creatures, and her road becomes a journey back to herself." },
+        { "title": "Coraline", "author": "Neil Gaiman", "why": "A curious girl opens a door into a mirror-world where wonder turns into nightmare." },
+        { "title": "The Little Prince", "author": "Antoine de Saint-Exupéry", "why": "Another wise fable in which a child meets strange grown-ups and exposes the absurdity of their rules." },
+        { "title": "The Neverending Story", "author": "Michael Ende", "why": "A boy literally falls into a book and enters Fantastica, a land that lives on imagination." }
+      ],
+      "film": {
+        "title": "Down the Rabbit Hole",
+        "intro": "You open the book and a White Rabbit with a pocket watch dashes past. You run after him — and tumble down a hole that leads straight to Wonderland.",
+        "outro": "The cards scatter like dry leaves, the pages close and you wake up at home. Yet somewhere in the grass, the White Rabbit’s watch still seems to be ticking.",
+        "scenes": [
+          {
+            "title": "Following the White Rabbit",
+            "narration": "You sit in the grass on a riverbank where Alice is dying of boredom. A White Rabbit in a waistcoat hurries past, checking his watch, and you dash after him together with Alice.",
+            "line": { "text": "Goodness me, I’m going to be dreadfully late!" }
+          },
+          {
+            "title": "The Hall of Locked Doors",
+            "narration": "You stand in a long hall beneath a row of lamps, and every door around you is locked. Alice finds a golden key on a glass table, then eats a little cake and grows until her head brushes the ceiling.",
+            "line": { "text": "Curiouser and curiouser!" }
+          },
+          {
+            "title": "Advice from a Caterpillar",
+            "narration": "You wander through a misty wood where the flowers tower over your head. On top of a giant mushroom sits a blue Caterpillar, lazily puffing smoke rings from a hookah.",
+            "line": { "text": "And who exactly are you?" }
+          },
+          {
+            "title": "A Mad Tea-Party",
+            "narration": "You sit at a long table crowded with teacups, and the clock is stuck at six for ever. The Hatter fires off riddles, the March Hare offers wine that isn’t there, and the Dormouse nods off between them.",
+            "line": { "text": "Here’s one: how is a raven like a writing-desk?" }
+          },
+          {
+            "title": "The Queen’s Croquet",
+            "narration": "You stand in a royal garden where the roses have been hastily painted red. Flamingos serve as mallets, hedgehogs as balls, and suddenly the grinning head of the Cheshire Cat appears above the lawn.",
+            "line": { "text": "Off with that head — this instant!" }
+          },
+          {
+            "title": "Nothing but a Pack of Cards",
+            "narration": "You sit in the courtroom where the Knave stands trial for the stolen tarts. Alice grows to her full size, the whole pack flies into the air — and you wake with her on the riverbank as leaves drift down.",
+            "line": { "text": "Why, you’re nothing but a pack of cards!" }
+          }
+        ]
+      },
+      "characters": {
+        "alice": {
+          "name": "Alice",
+          "traits": ["curious", "brave", "sensible", "polite"],
+          "description": "A little girl who, out of sheer boredom, chases the White Rabbit underground. In Wonderland she keeps changing size and keeps wondering who she really is now. Little by little she stops fearing the nonsense around her and finally stands up to the Queen and her whole pack of cards."
+        },
+        "white-rabbit": {
+          "name": "The White Rabbit",
+          "traits": ["fussy", "timid", "punctual"],
+          "description": "A pink-eyed rabbit in a waistcoat, with a pocket watch and a constant fear of being late. It is after him that Alice jumps down the rabbit hole. He trembles before the Duchess and the Queen, and at the trial he acts as herald, reading out the accusation."
+        },
+        "cheshire-cat": {
+          "name": "The Cheshire Cat",
+          "traits": ["mysterious", "mocking", "unflappable"],
+          "description": "The Duchess’s cat, with an enormous grin, which appears and vanishes whenever it pleases. It tells Alice that everyone in Wonderland is mad and points her towards the Hatter and the March Hare. At the royal croquet game only its head floats in the air, and nobody can manage to behead it."
+        },
+        "hatter": {
+          "name": "The Hatter",
+          "traits": ["mad", "chatty", "rude"],
+          "description": "Host of the never-ending tea-party, wearing a huge top hat with a price ticket. Having quarrelled with Time, he is stuck forever at six o’clock and keeps moving from cup to cup. Later, shaking with fright, he gives muddled evidence at the Knave’s trial."
+        },
+        "queen": {
+          "name": "The Queen of Hearts",
+          "traits": ["hot-tempered", "domineering", "cruel"],
+          "description": "The fearsome ruler of Wonderland, who has one answer to everything: off with their head. Her croquet match descends into chaos, and the Knave’s trial into farce. Yet no one is ever actually executed — the King quietly pardons them all."
+        },
+        "march-hare": {
+          "name": "The March Hare",
+          "traits": ["mad", "quarrelsome", "unpredictable"],
+          "description": "Owner of the house where the mad tea-party takes place, with chimneys shaped like ears and a roof thatched with fur. With the Hatter he offers Alice wine that does not exist and tangles her up in word games. As she leaves, the two of them are stuffing the Dormouse into the teapot."
+        },
+        "caterpillar": {
+          "name": "The Caterpillar",
+          "traits": ["unflappable", "philosophical", "terse"],
+          "description": "A large blue caterpillar who sits on a mushroom smoking a hookah. Its endless “Who are you?” forces Alice to wonder who she really is. Before leaving, it tells her how to use the mushroom to change her size."
+        },
+        "dormouse": {
+          "name": "The Dormouse",
+          "traits": ["sleepy", "quiet", "dreamy"],
+          "description": "A tiny dormouse who dozes through the tea-party while the Hatter and the March Hare rest their elbows on it like a cushion. Half asleep, it tells a pointless story about three sisters living in a treacle well. At the trial it mumbles “Treacle” in its sleep, and the Queen has it turned out of court."
+        },
+        "duchess": {
+          "name": "The Duchess",
+          "traits": ["rude", "preachy", "changeable"],
+          "description": "The ill-tempered mistress of a pepper-filled house, who nurses a baby by shaking it and singing it a harsh lullaby. Later, at the croquet game, she turns sickly sweet and finds a moral in everything. For boxing the Queen’s ears she is sentenced to execution."
+        },
+        "king": {
+          "name": "The King of Hearts",
+          "traits": ["timid", "bumbling", "mild"],
+          "description": "A small king who meekly follows his fearsome wife about. He presides over the trial wearing his crown on top of a judge’s wig and confuses the jury with absurd instructions. In secret he pardons everyone the Queen orders to be beheaded."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "alice",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human", "gender": "female", "age": "child", "build": "slim",
+        "skin": "#f8dcc8", "hair": { "style": "long", "color": "#f1d27a" }, "facialHair": "none", "eyes": "#4a7ab8",
+        "top": { "kind": "dress", "color": "#6aa6dc", "accent": "#ffffff", "pattern": "plain" },
+        "bottom": { "kind": "skirt", "color": "#6aa6dc" }, "shoes": "#1e1e24",
+        "headwear": "bow", "headwearColor": "#1e1e24",
+        "accessory": "none", "accessoryColor": "#000000",
+        "holding": "key"
+      },
+      "portraitPrompt": "A little Victorian girl with long golden-blonde hair held back by a black ribbon, wearing a sky-blue dress with a white pinafore, white stockings and black shoes, holding a tiny golden key."
+    },
+    {
+      "id": "white-rabbit",
+      "role": "supporting",
+      "appearance": {
+        "creature": "rabbit", "gender": "male", "age": "adult", "build": "small",
+        "skin": "#f4f1ec", "hair": { "style": "none", "color": "#f4f1ec" }, "facialHair": "none", "eyes": "#e05a7a",
+        "top": { "kind": "jacket", "color": "#b8443a", "accent": "#f2d27a", "pattern": "checks" },
+        "bottom": { "kind": "pants", "color": "#3a3f5a" }, "shoes": "#4a3424",
+        "headwear": "none", "headwearColor": "#000000",
+        "accessory": "glasses", "accessoryColor": "#c9a34a",
+        "holding": "letter"
+      },
+      "portraitPrompt": "A white rabbit with pink eyes and long ears, wearing a red checked jacket over a waistcoat and small gold spectacles, holding a gold pocket watch on a chain."
+    },
+    {
+      "id": "cheshire-cat",
+      "role": "supporting",
+      "appearance": {
+        "creature": "cat", "gender": "neutral", "age": "adult", "build": "broad",
+        "skin": "#a86bc4", "hair": { "style": "none", "color": "#a86bc4" }, "facialHair": "none", "eyes": "#f2c84a",
+        "top": { "kind": "sweater", "color": "#a86bc4", "accent": "#f0a8e0", "pattern": "stripes" },
+        "bottom": { "kind": "none", "color": "#a86bc4" }, "shoes": "#8a55a8",
+        "headwear": "none", "headwearColor": "#000000",
+        "accessory": "none", "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A plump striped violet-and-pink cat with glowing golden eyes and an enormous, toothy, mischievous grin."
+    },
+    {
+      "id": "hatter",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human", "gender": "male", "age": "adult", "build": "slim",
+        "skin": "#f1cfb4", "hair": { "style": "messy", "color": "#8a4a26" }, "facialHair": "none", "eyes": "#3a6a52",
+        "top": { "kind": "suit", "color": "#3c6e5a", "accent": "#e8c14a", "pattern": "checks" },
+        "bottom": { "kind": "pants", "color": "#c9a86a" }, "shoes": "#2a2420",
+        "headwear": "top_hat", "headwearColor": "#3a6a52",
+        "accessory": "bowtie", "accessoryColor": "#d84a5a",
+        "holding": "cup"
+      },
+      "portraitPrompt": "A wiry man with untidy auburn hair, wearing a tall green top hat with a price ticket tucked in its band, a green checked coat, checked trousers and a big polka-dot bow tie, holding a teacup."
+    },
+    {
+      "id": "queen",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human", "gender": "female", "age": "adult", "build": "broad",
+        "skin": "#f2c4a4", "hair": { "style": "bun", "color": "#1e1a18" }, "facialHair": "none", "eyes": "#2a2020",
+        "top": { "kind": "gown", "color": "#c8283a", "accent": "#f2c43a", "pattern": "embroidery" },
+        "bottom": { "kind": "skirt", "color": "#b02232" }, "shoes": "#1e1a20",
+        "headwear": "crown", "headwearColor": "#f2c43a",
+        "accessory": "necklace", "accessoryColor": "#f2c43a",
+        "holding": "rose"
+      },
+      "portraitPrompt": "A stout, furious queen with black hair in a tight bun and a golden crown, wearing a red and gold gown patterned like a playing card, holding a single red rose."
+    },
+    {
+      "id": "march-hare",
+      "role": "supporting",
+      "appearance": {
+        "creature": "rabbit", "gender": "male", "age": "adult", "build": "average",
+        "skin": "#b98a5a", "hair": { "style": "none", "color": "#b98a5a" }, "facialHair": "none", "eyes": "#3a2a1a",
+        "top": { "kind": "vest", "color": "#6f9a4a", "accent": "#efe2b8", "pattern": "checks" },
+        "bottom": { "kind": "pants", "color": "#5a4f3f" }, "shoes": "#3a2a1a",
+        "headwear": "none", "headwearColor": "#000000",
+        "accessory": "bowtie", "accessoryColor": "#e0b040",
+        "holding": "none"
+      },
+      "portraitPrompt": "A wild-eyed brown hare with long upright ears, wearing a green checked waistcoat and a yellow bow tie."
+    },
+    {
+      "id": "caterpillar",
+      "role": "minor",
+      "appearance": {
+        "creature": "snake", "gender": "neutral", "age": "adult", "build": "slim",
+        "skin": "#4a86d0", "hair": { "style": "none", "color": "#4a86d0" }, "facialHair": "none", "eyes": "#1a1a2a",
+        "top": { "kind": "tunic", "color": "#4a86d0", "accent": "#9ac2ee", "pattern": "plain" },
+        "bottom": { "kind": "none", "color": "#4a86d0" }, "shoes": "#2f5f9a",
+        "headwear": "none", "headwearColor": "#000000",
+        "accessory": "none", "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A large, plump blue caterpillar with a cute round face and a calm, sleepy look, coiled on top of a giant mushroom beside a long hookah pipe."
+    },
+    {
+      "id": "dormouse",
+      "role": "minor",
+      "appearance": {
+        "creature": "mouse", "gender": "neutral", "age": "adult", "build": "small",
+        "skin": "#c9a07a", "hair": { "style": "none", "color": "#c9a07a" }, "facialHair": "none", "eyes": "#1e1a18",
+        "top": { "kind": "tunic", "color": "#c9a07a", "accent": "#f2e2cc", "pattern": "plain" },
+        "bottom": { "kind": "none", "color": "#c9a07a" }, "shoes": "#9a7a5a",
+        "headwear": "none", "headwearColor": "#000000",
+        "accessory": "none", "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A tiny, round, sleepy dormouse with soft tan fur, a cream belly, small round ears and half-closed eyes."
+    },
+    {
+      "id": "duchess",
+      "role": "minor",
+      "appearance": {
+        "creature": "human", "gender": "female", "age": "elder", "build": "broad",
+        "skin": "#eab896", "hair": { "style": "bun", "color": "#6a5a4a" }, "facialHair": "none", "eyes": "#3a2a2a",
+        "top": { "kind": "gown", "color": "#5a3a6a", "accent": "#e8d6a0", "pattern": "embroidery" },
+        "bottom": { "kind": "skirt", "color": "#4a2e58" }, "shoes": "#2a2020",
+        "headwear": "headscarf", "headwearColor": "#f2efe6",
+        "accessory": "necklace", "accessoryColor": "#e8c14a",
+        "holding": "none"
+      },
+      "portraitPrompt": "A large, bad-tempered old duchess with a very big head, wearing a tall white headdress, a purple embroidered gown and a gold necklace."
+    },
+    {
+      "id": "king",
+      "role": "minor",
+      "appearance": {
+        "creature": "human", "gender": "male", "age": "adult", "build": "small",
+        "skin": "#f0c6a6", "hair": { "style": "curly", "color": "#d9d4c8" }, "facialHair": "beard", "eyes": "#3a3a4a",
+        "top": { "kind": "robe", "color": "#c8283a", "accent": "#f2c43a", "pattern": "embroidery" },
+        "bottom": { "kind": "robe", "color": "#b02232" }, "shoes": "#2a2020",
+        "headwear": "crown", "headwearColor": "#f2c43a",
+        "accessory": "none", "accessoryColor": "#000000",
+        "holding": "staff"
+      },
+      "portraitPrompt": "A small, mild-mannered king with curly grey hair, a neat grey beard and a golden crown, wearing a red robe embroidered with gold and holding a sceptre."
+    }
+  ],
+  "film": {
+    "scenes": [
+      { "setting": "meadow", "time": "day", "weather": "clear", "cast": ["alice", "white-rabbit"], "props": ["tree", "flower", "bush"], "action": "chase", "camera": "pan", "mood": "joyful", "line": { "speaker": "white-rabbit" } },
+      { "setting": "room", "time": "night", "weather": "clear", "cast": ["alice"], "props": ["door", "table", "lamp"], "action": "discover", "camera": "dolly_in", "mood": "mysterious", "line": { "speaker": "alice" } },
+      { "setting": "forest", "time": "dawn", "weather": "fog", "cast": ["alice", "caterpillar"], "props": ["mushroom", "flower", "tree"], "action": "talk", "camera": "close_up", "mood": "magical", "line": { "speaker": "caterpillar" } },
+      { "setting": "village", "time": "dusk", "weather": "clear", "cast": ["alice", "hatter", "march-hare", "dormouse"], "props": ["table", "chair", "house", "tree"], "action": "celebrate", "camera": "orbit", "mood": "joyful", "line": { "speaker": "hatter" } },
+      { "setting": "garden", "time": "day", "weather": "clear", "cast": ["alice", "queen", "king", "cheshire-cat"], "props": ["rose", "bush", "fountain"], "action": "chase", "camera": "fly_over", "mood": "tense", "line": { "speaker": "queen" } },
+      { "setting": "palace", "time": "day", "weather": "wind", "cast": ["alice", "king", "queen", "white-rabbit"], "props": ["throne", "table", "cake"], "action": "fight", "camera": "crane", "mood": "epic", "line": { "speaker": "alice" } }
+    ],
+    "videoPrompts": [
+      "Cute voxel diorama, 3D render: a little girl with long blonde hair in a sky-blue dress and white pinafore tumbles slowly down a deep rabbit hole past floating cupboards, bookshelves, maps and jars, a white rabbit in a red checked jacket hurrying below with a pocket watch, warm lamplight, slow descending camera, no text, no real people.",
+      "Cute voxel diorama, 3D render: a whimsical tea party at a long table under a tree beside a cottage with ear-shaped chimneys and a fur-thatched roof, a hatter in a tall green top hat, a brown hare and a sleepy dormouse among dozens of teacups, golden late-afternoon light, slow orbit, no text, no real people.",
+      "Cute voxel diorama, 3D render: in a royal rose garden, playing-card gardeners paint white roses red while a furious queen in red and gold points, a grinning striped cat’s head floats in the air, then a whirlwind of playing cards swirls up into the sky, slow crane shot, no text, no real people."
+    ]
+  }
+}

@@ -23,6 +23,10 @@ const FLIP_MS = 640;
 const ENTER_MS = 560;
 const TAP_MS = 450;
 const DRAG_SLOP = 6;
+// Cards are laid out `over`× larger and scaled down in their own transform: Chrome rasterizes
+// layers whose 3D transform changes every frame at layer scale 1 (ignoring devicePixelRatio), so
+// this keeps covers crisp on retina screens and for the magnified outer cards.
+const oversample = () => clamp(Math.round((window.devicePixelRatio || 1) * 1.2 * 4) / 4, 1.25, 3);
 
 let instances = 0;
 
@@ -57,7 +61,9 @@ function cleanItems(items) {
 }
 
 /**
- * Fill the slots so equal books are as far apart as possible (never neighbours, ring wraps).
+ * Fill the slots so copies of the same book are spread as evenly as possible around the ring
+ * (never neighbours, the ring wraps). Each item gets floor/ceil(SLOTS / n) copies placed at
+ * ideal fractional positions; sorting all copies by position interleaves them.
  * Returns an array of item indices, one per slot.
  */
 function assignSlots(n, seed) {
@@ -68,23 +74,18 @@ function assignSlots(n, seed) {
     const j = Math.floor(rnd() * (i + 1));
     [order[i], order[j]] = [order[j], order[i]];
   }
-  const last = new Array(n).fill(-Infinity);
-  const first = new Array(n).fill(null);
-  const out = [];
-  for (let i = 0; i < SLOTS; i++) {
-    let best = order[0];
-    let bestScore = -Infinity;
-    for (const k of order) {
-      let gap = i - last[k];
-      if (first[k] !== null) gap = Math.min(gap, first[k] + SLOTS - i);
-      const score = Math.min(gap, SLOTS) + rnd() * 0.25;
-      if (score > bestScore) { bestScore = score; best = k; }
-    }
-    out.push(best);
-    if (first[best] === null) first[best] = i;
-    last[best] = i;
-  }
-  return out;
+  const used = order.slice(0, Math.min(n, SLOTS)); // more books than slots: a random subset
+  const m = used.length;
+  const base = Math.floor(SLOTS / m);
+  const extra = SLOTS % m;
+  const copies = [];
+  used.forEach((k, idx) => {
+    const count = base + (idx < extra ? 1 : 0);
+    const phase = (idx + 0.5) / m;
+    for (let j = 0; j < count; j++) copies.push({ k, p: (j + phase) / count });
+  });
+  copies.sort((a, b) => a.p - b.p);
+  return copies.map((c) => c.k);
 }
 
 export function createRing(container, items, { onOpen, reducedMotion } = {}) {
@@ -104,8 +105,7 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
   const floor = document.createElement("div");
   floor.className = "ring-floor";
   floor.setAttribute("aria-hidden", "true");
-  view.append(floor);
-  container.append(view);
+  container.append(floor, view); // the glow sits outside the edge-faded (masked) view
 
   const slots = [];
   for (let i = 0; i < SLOTS; i++) {
@@ -131,7 +131,7 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
       data: null,        // the original item object (what onOpen receives)
       pending: null,     // item index waiting to be swapped in
       vis: null,         // currently visible?
-      anim: null,        // { kind: "flip" | "enter", t0, dir }
+      anim: null,        // { kind: "flip" | "enter-wait" | "enter", t0, dir }
       hover: 0,
       ver: 0,
       lastT: "",
@@ -148,7 +148,8 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
       svgCache.set(key, svg);
     }
     // ids must be unique per inline copy
-    return svg.replace(/IDP-/g, `${uid}s${slot.i}v${++slot.ver}-`);
+    const prefix = `${uid}s${slot.i}v${++slot.ver}-`;
+    return svg.replace(/(id="|url\(#)IDP-/g, (m, head) => head + prefix);
   }
 
   function paintSlot(slot, itemIndex) {
@@ -180,22 +181,22 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
   let cardH = BASE_H;
   let edge = 0.7;    // angle where the screen edge is
   let cull = 0.8;    // cards beyond this angle are hidden
+  let over = 1.25;   // oversampling factor, see oversample()
 
   function layout() {
     W = container.clientWidth;
     H = container.clientHeight;
     if (!W || !H) return false;
-    // How many cards should span the width: ~3 on a phone, ~8 on a laptop, up to 11 on huge screens.
-    const visibleCards = clamp(3.1 + (W - 390) * 0.00486, 2.9, 11);
+    // How many cards span the width: ~3 on a phone, ~8 on a laptop and wider (cards grow instead).
+    const visibleCards = clamp(3.1 + (W - 390) * 0.00486, 2.9, 8.6);
     const half = (visibleCards * STEP) / 2;
-    let rs = W / 2 / Math.tan(half);
-    let s = rs / BASE_R;
-    s = Math.min(s, (H * 0.8) / BASE_H, 1.45);
-    s = Math.max(s, 0.5);
+    const fitWidth = W / 2 / Math.tan(half) / BASE_R;
+    const s = clamp(Math.min(fitWidth, (H * 0.8) / BASE_H), 0.5, 2);
     scale = s;
     radius = BASE_R * s;
     cardW = BASE_W * s;
     cardH = BASE_H * s;
+    over = oversample();
     edge = Math.atan(W / 2 / radius);
     cull = Math.min(edge + Math.atan(cardW / radius) + 0.02, 1.25);
 
@@ -204,11 +205,13 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
     const eyeY = cy - cardH * 0.62;
     view.style.perspective = `${n3(radius)}px`;
     view.style.perspectiveOrigin = `${n3(W / 2)}px ${n3(eyeY)}px`;
-    view.style.setProperty("--card-w", `${n3(cardW)}px`);
-    view.style.setProperty("--card-h", `${n3(cardH)}px`);
-    view.style.setProperty("--card-x", `${n3(W / 2 - cardW / 2)}px`);
-    view.style.setProperty("--card-y", `${n3(top)}px`);
-    view.style.setProperty("--ring-s", n3(s));
+    container.style.setProperty("--card-w", `${n3(cardW * over)}px`);
+    container.style.setProperty("--card-h", `${n3(cardH * over)}px`);
+    container.style.setProperty("--card-x", `${n3(W / 2 - (cardW * over) / 2)}px`);
+    container.style.setProperty("--card-y", `${n3(cy - (cardH * over) / 2)}px`);
+    container.style.setProperty("--row-top", `${n3(top)}px`);
+    container.style.setProperty("--row-h", `${n3(cardH)}px`);
+    container.style.setProperty("--ring-s", n3(s * over));
     for (const sl of slots) sl.lastT = "";
     return true;
   }
@@ -240,8 +243,12 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
       if (p >= 1) { slot.anim = null; return 0; }
       return a.dir * 90 * (1 - easeOut(p));
     }
-    // in-place flip: fold to edge-on, swap cover, unfold
-    if (p >= 1) { slot.anim = null; return 0; }
+    // in-place flip: fold to edge-on, swap cover, unfold (a long frame may skip the midpoint)
+    if (p >= 1) {
+      if (slot.pending !== null) paintSlot(slot, slot.pending);
+      slot.anim = null;
+      return 0;
+    }
     if (p < 0.5) return a.dir * 90 * easeIn(p * 2);
     if (slot.pending !== null) paintSlot(slot, slot.pending);
     return -a.dir * 90 * (1 - easeOut((p - 0.5) * 2));
@@ -282,12 +289,13 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
 
       const target = slot.i === hoverSlot && drag.id === null ? 1 : 0;
       slot.hover += (target - slot.hover) * (1 - Math.exp(-dt * 14));
-      if (slot.hover < 0.002) slot.hover = 0;
+      if (Math.abs(target - slot.hover) < 0.002) slot.hover = target;
       const flip = slot.anim && slot.anim.kind !== "enter-wait" ? flipAngle(slot, now) : 0;
       const hk = slot.hover;
 
       const t = `translateZ(${n3(radius)}px) rotateY(${n3(-th)}rad) translateZ(${n3(-radius)}px)`
-        + (hk ? ` translateY(${n3(-lift * hk)}px) scale(${n3(1 + 0.035 * hk)})` : "")
+        + (hk ? ` translateY(${n3(-lift * hk)}px)` : "")
+        + ` scale(${n3((1 + 0.035 * hk) / over)})`
         + (flip ? ` rotateY(${n3(flip)}deg)` : "");
       if (t !== slot.lastT) {
         slot.el.style.transform = t;
@@ -321,7 +329,9 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
     const dt = last ? Math.min(0.05, (now - last) / 1000) : 1 / 60;
     last = now;
 
-    hoverK += ((hoverSlot >= 0 ? 1 : 0) - hoverK) * (1 - Math.exp(-dt * 5));
+    const hoverTarget = hoverSlot >= 0 ? 1 : 0;
+    hoverK += (hoverTarget - hoverK) * (1 - Math.exp(-dt * 5));
+    if (Math.abs(hoverTarget - hoverK) < 0.002) hoverK = hoverTarget;
     if (drag.active) {
       // rotation follows the pointer (set in pointermove)
     } else if (focusSlot >= 0) {
@@ -336,7 +346,19 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
     }
     rotation = wrapPi(rotation);
     updateCards(now, dt);
-    schedule();
+    if (!isIdle()) schedule(); // input handlers wake the loop again
+  }
+
+  /** Nothing can move without input (reduced motion / paused and everything settled). */
+  function isIdle() {
+    if (!(reduced || paused) || drag.active || Math.abs(omega) > 1e-4) return false;
+    if (Math.abs(hoverK - (hoverSlot >= 0 ? 1 : 0)) > 0.002) return false;
+    if (focusSlot >= 0 && Math.abs(wrapPi(-focusSlot * STEP - rotation)) > 1e-4) return false;
+    for (const sl of slots) {
+      if (sl.anim || sl.pending !== null) return false;
+      if (sl.vis && Math.abs(sl.hover - (sl.i === hoverSlot ? 1 : 0)) > 0.002) return false;
+    }
+    return true;
   }
 
   function schedule() {
@@ -363,7 +385,8 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
   }
 
   function onPointerDown(e) {
-    if (drag.id !== null || (e.pointerType === "mouse" && e.button !== 0)) return;
+    // Ignore extra fingers during a drag; a stale pointer (released outside the window) is replaced.
+    if (drag.active || (e.pointerType === "mouse" && e.button !== 0)) return;
     drag.id = e.pointerId;
     drag.x0 = drag.lastX = e.clientX;
     drag.y0 = e.clientY;
@@ -546,6 +569,7 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
         if (s.pending !== null) s.pending = remap[s.pending];
         paintSlot(s, k);
       }
+      schedule();
       return;
     }
     const wasEmpty = !list.length;
@@ -562,7 +586,7 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
   }
 
   layout();
-  requestAnimationFrame(() => view.classList.add("is-in"));
+  requestAnimationFrame(() => { view.classList.add("is-in"); container.classList.add("is-in"); });
   wake();
 
   return {
@@ -580,7 +604,9 @@ export function createRing(container, items, { onOpen, reducedMotion } = {}) {
       if (io) io.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
       view.remove();
-      container.classList.remove("ring-host");
+      floor.remove();
+      container.classList.remove("ring-host", "is-in");
+      for (const v of ["--card-w", "--card-h", "--card-x", "--card-y", "--row-top", "--row-h", "--ring-s"]) container.style.removeProperty(v);
     },
   };
 }
