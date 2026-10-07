@@ -1,7 +1,11 @@
 // BookTrip — the 3D "trip into the book" mini-film (owner: film).
 //
-// createFilm(container, { book, lang, tts, onScene, onEnd, autoplay, controls })
-//   → { play(), pause(), restart(), dispose(), get playing(), seek(i), renderAt(t), get timeline, get duration }
+// createFilm(container, { book, lang, tts, onScene(i), onEnd(), autoplay?, controls?, lowQuality?, preserveDrawingBuffer? })
+//   → { play(), pause(), restart(), dispose(), get playing,                     (SPEC §4)
+//       seek(sceneIndex), renderAt(seconds), setTts(on),                        (extras)
+//       get ended, get duration, get time, get scene, get timeline, get stats }
+// `opts.tts` is read on every line (a getter works); setTts(on) overrides it. The container provides the size;
+// a canvas and an overlay (.btf-root) are appended to it and removed again by dispose().
 //
 // Sequence: intro (a voxel book on a desk opens, pages flip, the camera dives into the page through a burst of
 // glowing letters) → one floating voxel diorama per scene of book.film.scenes → outro (the book closes, the film
@@ -79,29 +83,21 @@ const STR = {
     film: "Мини-фильм", play: "Смотреть фильм", pause: "Пауза", resume: "Продолжить", replay: "Смотреть снова",
     scene: "Сцена {n} из {m}", voiceOn: "Выключить озвучку", voiceOff: "Включить озвучку", full: "Во весь экран",
     exitFull: "Свернуть", end: "Конец", prev: "Предыдущая сцена", next: "Следующая сцена", progress: "Сцены фильма",
-    scenes: ["сцена", "сцены", "сцен"], nogl: "3D недоступно на этом устройстве — показываем раскадровку",
+    nogl: "3D недоступно на этом устройстве — показываем раскадровку",
   },
   uk: {
     film: "Міні-фільм", play: "Дивитися фільм", pause: "Пауза", resume: "Продовжити", replay: "Дивитися знову",
     scene: "Сцена {n} з {m}", voiceOn: "Вимкнути озвучення", voiceOff: "Увімкнути озвучення", full: "На весь екран",
     exitFull: "Згорнути", end: "Кінець", prev: "Попередня сцена", next: "Наступна сцена", progress: "Сцени фільму",
-    scenes: ["сцена", "сцени", "сцен"], nogl: "3D недоступне на цьому пристрої — показуємо розкадрування",
+    nogl: "3D недоступне на цьому пристрої — показуємо розкадрування",
   },
   en: {
     film: "Mini film", play: "Watch the film", pause: "Pause", resume: "Resume", replay: "Watch again",
     scene: "Scene {n} of {m}", voiceOn: "Turn narration off", voiceOff: "Turn narration on", full: "Full screen",
     exitFull: "Exit full screen", end: "The End", prev: "Previous scene", next: "Next scene", progress: "Film scenes",
-    scenes: ["scene", "scenes", "scenes"], nogl: "3D is not available on this device — showing a storyboard",
+    nogl: "3D is not available on this device — showing a storyboard",
   },
 };
-function plural(lang, n, forms) {
-  if (lang === "en") return n === 1 ? forms[0] : forms[1];
-  const m10 = n % 10, m100 = n % 100;
-  if (m10 === 1 && m100 !== 11) return forms[0];
-  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return forms[1];
-  return forms[2];
-}
-const fmtTime = (s) => { s = Math.max(0, Math.round(s)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
 
 // =================================================================================================
 // Voxel grid + mesher (culled faces, baked AO, one bucket per material)
@@ -1619,13 +1615,6 @@ function pMushrooms(W, i, k, o) {
   mMushroom(W, x - 5, z + 4, { s: 0.75, cap, glow });
 }
 
-function pFenceProp(W, i, k, o) {
-  // a fence run along the front edge, skipping the stage
-  const z = 2 * (k) + 1;
-  const half = 9;
-  mFenceLine(W, 2 * i - half * 2, z, 2 * i + half * 2, z);
-}
-
 const BOOKS = [0x8a2a2a, 0x2a4a8a, 0x3a7a4a, 0xc8a040, 0x6a3a7a, 0xd86a3a, 0x2a6a6a, 0xe8dcc0, 0x9a3a5a];
 
 function pBookshelf(W, i, k, o) {
@@ -2089,8 +2078,9 @@ function mHangingLight(W, x, y, z, o = {}) {
       F.set(x + rx, y, z + rz, GOLD, M_SOLID, 0);
       if (a % 2 === 0) { F.set(x + rx, y + 1, z + rz, 0xfaf3e0); F.set(x + rx, y + 2, z + rz, FLAME[0], M_GLOW, 0); }
     }
-    for (let a = 0; a < 8; a++) { const t = (a / 8) * TAU; F.line(x, y + 6, z, x + Math.round(Math.cos(t) * 9), y, z + Math.round(Math.sin(t) * 9), GOLD, M_SOLID, 0); }
-    F.ball(x - 0.5 + 0.5, y + 3, z, 2.2, 3, 2.2, 0xcfefff, M_GLASS, 0);
+    const P = painter(F, 0, 0, 0, 0);
+    for (let a = 0; a < 8; a++) { const t = (a / 8) * TAU; P.line(x, y + 6, z, x + Math.round(Math.cos(t) * 9), y, z + Math.round(Math.sin(t) * 9), GOLD, M_SOLID, 0); }
+    P.ball(x + 0.5, y + 3, z + 0.5, 2.2, 3, 2.2, 0xcfefff, M_GLASS, 0);
     for (let a = 0; a < 10; a++) { const t = (a / 10) * TAU; F.set(x + Math.round(Math.cos(t) * 6), y - 2, z + Math.round(Math.sin(t) * 6), 0xdff4ff, M_GLOW, 0); }
     W.light(x, y - 2, z, 0xffd8a0, 2.2);
   } else {
@@ -2603,7 +2593,7 @@ const DEF = {
     },
   },
   space: {
-    HX: 18, HZ: 18, shapeP: 2, edgeNoise: 0.03,
+    HX: 18, HZ: 18, shapeP: 2, edgeNoise: 0.03, frame: 1.32, camY: -13,
     stage: { cx: 0, cz: 1, rx: 10, rz: 6 },
     stageH: 4,
     height: (W, i, k, rr) => Math.round(Math.sqrt(Math.max(0, 1 - rr * rr)) * 9.5) - 5,
@@ -2901,7 +2891,7 @@ const TIME_LOOK = {
   dawn: { top: 0x5d7fd2, mid: 0xffbca2, bot: 0x8c6f92, sun: 0xffc9a0, sunI: 2.5, sunEl: 0.3, sunAz: -1.0, sky: 0xffd8c8, ground: 0x6a5468, hemiI: 1.25, fog: 0xffcbb5, glow: 1.5, exposure: 1.0 },
   day: { top: 0x3d8de6, mid: 0xc4e6ff, bot: 0x9ab8d4, sun: 0xfff2da, sunI: 3.0, sunEl: 0.95, sunAz: 0.55, sky: 0xd4ecff, ground: 0x8a7a62, hemiI: 1.35, fog: 0xcfe7ff, glow: 1.25, exposure: 1.0 },
   dusk: { top: 0x37388a, mid: 0xff9d6c, bot: 0x6a3a5c, sun: 0xffa466, sunI: 2.3, sunEl: 0.24, sunAz: 1.05, sky: 0xffb59a, ground: 0x4a3252, hemiI: 1.1, fog: 0xec9a82, glow: 1.9, exposure: 1.02 },
-  night: { top: 0x070c26, mid: 0x1c2a5e, bot: 0x090d20, sun: 0x9cb8ff, sunI: 0.95, sunEl: 0.75, sunAz: -0.55, sky: 0x5466a8, ground: 0x1c1c30, hemiI: 0.7, fog: 0x18224a, glow: 2.6, exposure: 1.1, moon: 1, stars: 1 },
+  night: { top: 0x070c26, mid: 0x1c2a5e, bot: 0x090d20, sun: 0xa8c0ff, sunI: 1.15, sunEl: 0.75, sunAz: -0.55, sky: 0x6c7cbc, ground: 0x24243a, hemiI: 0.95, fog: 0x18224a, glow: 2.6, exposure: 1.1, moon: 1, stars: 1 },
 };
 
 const MOOD_LOOK = {
@@ -2921,44 +2911,44 @@ function sunDir(az, el) { return new THREE.Vector3(Math.sin(az) * Math.cos(el), 
 function lookFor(spec, W, S) {
   const L = { ...TIME_LOOK[spec.time] || TIME_LOOK.day };
   L.moon = L.moon || 0; L.stars = L.stars || 0; L.nebula = 0; L.horizon = 0.34;
-  L.fogNear = 170; L.fogFar = 640; L.wind = 0.25;
+  L.fogNear = 1.15; L.fogFar = 4.4; L.wind = 0.25; // fog distances are multiples of the camera distance
   const w = spec.weather;
   if (w === "rain") {
     for (const k of ["top", "mid", "bot", "fog"]) L[k] = mixC(L[k], spec.time === "night" ? 0x101420 : 0x7d8898, 0.6);
-    L.sunI *= 0.42; L.hemiI *= 0.95; L.fogNear = 90; L.fogFar = 420; L.exposure *= 0.98; L.wind = 0.6; L.stars = 0; L.moon *= 0.3;
+    L.sunI *= 0.42; L.hemiI *= 0.95; L.fogNear = 0.8; L.fogFar = 3.3; L.exposure *= 0.98; L.wind = 0.6; L.stars = 0; L.moon *= 0.3;
   } else if (w === "snow") {
     for (const k of ["top", "mid", "fog"]) L[k] = mixC(L[k], spec.time === "night" ? 0x2a3456 : 0xdfe7f2, 0.42);
-    L.sun = mixC(L.sun, 0xdfeaff, 0.5); L.sunI *= 0.72; L.fogNear = 110; L.fogFar = 480;
+    L.sun = mixC(L.sun, 0xdfeaff, 0.5); L.sunI *= 0.72; L.fogNear = 0.9; L.fogFar = 3.5;
   } else if (w === "fog") {
     L.fog = mixC(L.mid, 0xc8ccd4, spec.time === "night" ? 0.15 : 0.45);
     L.mid = mixC(L.mid, L.fog, 0.6); L.top = mixC(L.top, L.fog, 0.35);
-    L.fogNear = 40; L.fogFar = 260; L.sunI *= 0.65;
+    L.fogNear = 0.62; L.fogFar = 2.5; L.sunI *= 0.65;
   } else if (w === "stars") {
     L.stars = 1;
     if (spec.time !== "night") { L.top = mixC(L.top, 0x1a1f5a, spec.time === "day" ? 0.25 : 0.5); }
   } else if (w === "wind") L.wind = 1;
   if (S.space) {
-    Object.assign(L, { top: 0x04050e, mid: 0x161b40, bot: 0x05060f, fog: 0x10142e, stars: 1, nebula: 1, horizon: 0.05, sky: 0x8a90c8, ground: 0x2a2440, fogNear: 260, fogFar: 900 });
-    if (spec.time === "day") { L.sun = 0xfff4e6; L.sunI = 2.8; L.hemiI = 1.15; L.moon = 0; }
-    else if (spec.time === "night") { L.sun = 0xb8c8ff; L.sunI = 1.3; L.hemiI = 0.85; }
-    else { L.sunI = 2.2; L.hemiI = 1.0; }
+    Object.assign(L, { top: 0x04050e, mid: 0x161b40, bot: 0x05060f, fog: 0x10142e, stars: 1, nebula: 1, horizon: 0.05, sky: 0xc4c8e6, ground: 0x4a4258, fogNear: 1.6, fogFar: 6 });
+    if (spec.time === "day") { L.sun = 0xfff4e6; L.sunI = 2.9; L.hemiI = 1.2; L.moon = 0; }
+    else if (spec.time === "night") { L.sun = 0xe6ecff; L.sunI = 2.1; L.hemiI = 1.05; }
+    else { L.sunI = 2.4; L.hemiI = 1.1; }
   }
   if (S.alwaysDark) {
     Object.assign(L, { top: 0x0b0a14, mid: 0x231c30, bot: 0x0a0910, fog: 0x1a1626, sky: 0x6a6090, ground: 0x2a2028, stars: 0, moon: 0, nebula: 0.25, horizon: 0.2 });
     L.sunI = spec.time === "day" ? 1.1 : 0.7; L.sun = 0xb8a8ff; L.hemiI = 0.8; L.glow = 2.6;
   }
-  if (S.alwaysFog) { L.fog = mixC(L.fog, 0x8a9a7a, 0.35); L.fogNear = Math.min(L.fogNear, 60); L.fogFar = Math.min(L.fogFar, 300); }
-  if (W.interior) { L.fogNear = 260; L.fogFar = 900; L.hemiI *= 1.12; }
+  if (S.alwaysFog) { L.fog = mixC(L.fog, 0x8a9a7a, 0.35); L.fogNear = Math.min(L.fogNear, 0.75); L.fogFar = Math.min(L.fogFar, 2.9); }
+  if (W.interior) { L.fogNear = 1.8; L.fogFar = 7; L.hemiI *= 1.12; }
   L.sunDir = sunDir(L.sunAz + (W.interior ? 0.35 : 0), L.sunEl);
   return L;
 }
 
 const DESK_LOOK = {
-  top: 0x0d0a0e, mid: 0x2b1c16, bot: 0x0a0706, sun: 0xffd2a0, sunI: 2.2, sunEl: 0.85, sunAz: -0.75, sky: 0xffe0b8, ground: 0x3a2418,
-  hemiI: 0.55, fog: 0x1a120e, glow: 2.2, exposure: 1.06, moon: 0, stars: 0, nebula: 0, horizon: 0.25, fogNear: 260, fogFar: 760, wind: 0,
+  top: 0x0c0b10, mid: 0x261d1a, bot: 0x0a0807, sun: 0xffe6c8, sunI: 2.3, sunEl: 0.85, sunAz: -0.75, sky: 0xfff0dc, ground: 0x4a3a30,
+  hemiI: 0.62, fog: 0x1a120e, glow: 2.2, exposure: 1.06, moon: 0, stars: 0, nebula: 0, horizon: 0.25, fogNear: 260, fogFar: 760, wind: 0,
 };
 DESK_LOOK.sunDir = sunDir(DESK_LOOK.sunAz, DESK_LOOK.sunEl);
-const DESK_GRADE = { tint: [1.04, 1.0, 0.94], lift: [0.012, 0.006, 0], sat: 1.06, con: 1.04, bloom: 0.9, vig: 0.5 };
+const DESK_GRADE = { tint: [1.02, 1.0, 0.97], lift: [0.008, 0.006, 0.004], sat: 0.98, con: 1.04, bloom: 0.9, vig: 0.5 };
 
 // =================================================================================================
 // Segments — one THREE.Scene per intro / scene / outro, all with the same light rig
@@ -3060,13 +3050,13 @@ function ambientEmitters(spec, W, C, L, extra) {
   const out = [], inside = W.interior, x = C.x, y = C.y, z = C.z;
   switch (spec.weather) {
     case "rain":
-      if (!inside) out.push({ kind: "rain", count: 760, center: [x, y + 46, z], box: [160, 104, 130], vel: [-5, -88, 0], size: [5, 9], colors: [0xd0e2ff, 0xaac4f0], opacity: 0.5 });
+      if (!inside) out.push({ kind: "rain", count: 760, center: [x, y + 46, z], box: [160, 104, 130], vel: [-5, -92, 0], size: [3, 5.5], colors: [0xd0e2ff, 0xaac4f0], opacity: 0.36 });
       break;
     case "snow":
-      if (!inside) out.push({ kind: "dot", count: 520, center: [x, y + 42, z], box: [170, 104, 140], vel: [2.5, -8.5, 0.6], size: [1.6, 3.1], colors: [0xffffff, 0xeef4ff], wob: 3, opacity: 0.95, intensity: 1.2 });
+      if (!inside) out.push({ kind: "dot", count: 520, center: [x, y + 42, z], box: [170, 104, 140], vel: [2.5, -8.5, 0.6], size: [0.9, 1.9], colors: [0xffffff, 0xeef4ff], wob: 3, opacity: 0.95, intensity: 1.2 });
       break;
     case "fog":
-      out.push({ kind: "puff", count: inside ? 14 : 34, center: [x, y + 7, z], box: [inside ? 80 : 180, 16, inside ? 60 : 140], vel: [2.5, 0, 0.6], size: [36, 66], colors: [L.fog, mixC(L.fog, 0xffffff, 0.3)], opacity: inside ? 0.16 : 0.3, wob: 3 });
+      out.push({ kind: "puff", count: inside ? 14 : 34, center: [x, y + 7, z], box: [inside ? 80 : 180, 16, inside ? 60 : 140], vel: [2.5, 0, 0.6], size: [36, 66], colors: [L.fog, mixC(L.fog, 0xffffff, 0.3)], opacity: inside ? 0.14 : 0.22, wob: 3 });
       break;
     case "stars":
       out.push({ kind: "sparkle", count: 34, center: [x, y + (inside ? 34 : 56), z - 26], box: [inside ? 80 : 210, 50, 80], vel: [0, 0, 0], size: [2.4, 4.6], colors: [0xffffff, 0xfff0b0, 0xbfe0ff], additive: true, intensity: 2.2 });
@@ -3197,7 +3187,7 @@ function poseCast(seg, spec, l, a, lineOn) {
 
 function fitDistance(ctx, half) {
   const tanV = Math.tan((FOV * Math.PI) / 360), tanH = tanV * ctx.aspect;
-  return Math.max((half * 1.1) / tanH, (half * 0.64) / tanV);
+  return Math.max((half * 1.34) / tanH, (half * 0.78) / tanV);
 }
 
 function placeSceneCamera(ctx, seg, spec, l, a, lineK) {
@@ -3206,37 +3196,32 @@ function placeSceneCamera(ctx, seg, spec, l, a, lineK) {
   let u = easeInOut(l / d);
   if (ctx.reduced) u = 0.5 + (u - 0.5) * 0.35;
   const half = Math.max(W.HX, W.HZ * 0.9) * 2;
-  const Dw = fitDistance(ctx, half);
+  const S = DEF[spec.setting] || DEF.meadow;
+  const Dw = fitDistance(ctx, half) * (S.frame || 1);
   const az0 = seg.az0;
-  const T0 = _cT.set(C.x, C.y + 9, C.z);
-  let az = az0, el = 0.44, dist = Dw * 0.92, fov = FOV;
-  const tgt = _cTg.copy(T0);
+  let az = az0, el = 0.44, dist = Dw * 0.95, fov = FOV;
   switch (spec.camera) {
-    case "dolly_in": az = az0 + (0.5 - u) * 0.32; el = lerp(0.46, 0.3, u); dist = Dw * lerp(1.0, 0.5, u); tgt.y += lerp(-2, 1.5, u); break;
-    case "pan": {
-      az = az0 - 0.08; el = 0.36; dist = Dw * 0.74;
-      const s = lerp(-0.3, 0.3, u) * half;
-      tgt.x += Math.cos(az) * s; tgt.z -= Math.sin(az) * s;
-      break;
-    }
-    case "crane": az = az0 + 0.18 * (u - 0.5); el = lerp(0.12, 0.8, u); dist = Dw * lerp(0.6, 1.02, u); tgt.y += lerp(1, -3, u); break;
-    case "fly_over": az = az0 + lerp(-1.05, 0.22, u); el = lerp(1.02, 0.4, u); dist = Dw * lerp(1.28, 0.86, u); break;
-    case "close_up": {
-      az = az0 + (u - 0.5) * 0.36; el = 0.2; dist = Math.max(42, Dw * lerp(0.44, 0.38, u)); fov = 28;
-      const cast = seg.cast;
-      if (cast.length) {
-        let cx = 0, cz = 0, cy = 0;
-        for (const c of cast) { cx += c.g.position.x; cz += c.g.position.z; cy += c.g.position.y + c.h * 0.62; }
-        cx /= cast.length; cz /= cast.length; cy /= cast.length;
-        const sp = cast[seg.speaker] || cast[0];
-        const k = smooth(lineK) * 0.75;
-        tgt.set(lerp(cx, sp.g.position.x, k), lerp(cy, sp.g.position.y + sp.h * 0.72, k), lerp(cz, sp.g.position.z, k));
-      }
-      break;
-    }
+    case "dolly_in": az = az0 + (0.5 - u) * 0.32; el = lerp(0.46, 0.3, u); dist = Dw * lerp(1.0, 0.42, u); break;
+    case "pan": az = az0 - 0.08; el = 0.36; dist = Dw * 0.68; break;
+    case "crane": az = az0 + 0.18 * (u - 0.5); el = lerp(0.14, 0.8, u); dist = Dw * lerp(0.62, 1.0, u); break;
+    case "fly_over": az = az0 + lerp(-1.05, 0.22, u); el = lerp(1.0, 0.4, u); dist = Dw * lerp(1.18, 0.82, u); break;
+    case "close_up": az = az0 + (u - 0.5) * 0.36; el = 0.22; dist = Math.max(84, Dw * lerp(0.6, 0.52, u)); fov = 28; break;
     default: az = az0 + (u - 0.5) * 0.95; el = 0.42 + 0.04 * Math.sin(u * Math.PI); break; // orbit
   }
   if (W.interior) { az = clamp(az, W.azRange[0], W.azRange[1]); el = Math.max(el, 0.3); }
+  // aim at the cast when close, lower (at the island's middle) when wide so the floating chunk sits in frame
+  const near = sat((Dw * 0.9 - dist) / (Dw * 0.55));
+  const tgt = _cTg.set(C.x, C.y + lerp(4 + (S.camY || 0), 9.5, near), C.z);
+  if (spec.camera === "pan") { const s = lerp(-0.3, 0.3, u) * half; tgt.x += Math.cos(az) * s; tgt.z -= Math.sin(az) * s; }
+  if (spec.camera === "close_up" && seg.cast.length) {
+    let cx = 0, cz = 0, cy = 0;
+    for (const c of seg.cast) { cx += c.g.position.x; cz += c.g.position.z; cy += c.g.position.y + c.h * 0.62; }
+    const n = seg.cast.length;
+    cx /= n; cz /= n; cy /= n;
+    const sp = seg.cast[seg.speaker] || seg.cast[0];
+    const k = smooth(lineK) * 0.75;
+    tgt.set(lerp(cx, sp.g.position.x, k), lerp(cy, sp.g.position.y + sp.h * 0.72, k), lerp(cz, sp.g.position.z, k));
+  }
   cam.position.set(tgt.x + Math.sin(az) * Math.cos(el) * dist, tgt.y + Math.sin(el) * dist, tgt.z + Math.cos(az) * Math.cos(el) * dist);
   if (!ctx.reduced) {
     tgt.x += Math.sin(a * 0.63) * 0.3; tgt.y += Math.sin(a * 0.81 + 1) * 0.2;
@@ -3246,10 +3231,11 @@ function placeSceneCamera(ctx, seg, spec, l, a, lineK) {
   cam.fov = fov;
   cam.up.set(0, 1, 0);
   cam.lookAt(tgt);
-  seg.focusY = 0.5;
-  seg.tilt = spec.camera === "close_up" ? 0.55 : 1;
+  seg.scene.fog.near = dist * seg.look.fogNear;
+  seg.scene.fog.far = dist * seg.look.fogFar;
+  seg.tilt = spec.camera === "close_up" ? 0.5 : 0.85;
 }
-const _cT = new THREE.Vector3(), _cTg = new THREE.Vector3();
+const _cTg = new THREE.Vector3();
 
 // ---------------------------------------------------------------- diorama scene segment ----
 
@@ -3357,9 +3343,10 @@ function titlePage(ctx) {
     const lines = wrapText(g, ctx.texts.title || "BookTrip", w - 110).slice(0, 4);
     let y = h * 0.42 - lines.length * 30;
     for (const ln of lines) { g.fillText(ln, w / 2 - 10, y); y += 62; }
-    g.font = `italic 600 28px ${SERIF}`;
+    g.font = `italic 600 26px ${SERIF}`;
     g.fillStyle = "#7a4a2a";
-    if (ctx.texts.author) g.fillText(wrapText(g, ctx.texts.author, w - 110)[0] || "", w / 2 - 10, y + 22);
+    for (const ln of ctx.texts.author ? wrapText(g, ctx.texts.author, w - 150).slice(0, 2) : []) { g.fillText(ln, w / 2 - 14, y + 22); y += 32; }
+    y -= 32;
     g.strokeStyle = "rgba(122,74,42,0.55)";
     g.lineWidth = 2;
     const oy = y + 70;
@@ -3430,8 +3417,6 @@ function coverTex(ctx) {
 function makeSheet(len, depth, K = 20) {
   const geo = new THREE.PlaneGeometry(len, depth, K, 1);
   geo.userData.K = K; geo.userData.len = len;
-  const uv = geo.attributes.uv;
-  for (let n = 0; n < uv.count; n++) uv.setX(n, uv.getX(n));
   return geo;
 }
 function bendSheet(geo, theta, curl, y0) {
@@ -3470,7 +3455,7 @@ function* deskSegmentGen(ctx, kind) {
   const D = new Grid(4, 77);
   for (let i = -28; i < 28; i++) for (let k = -20; k < 16; k++) {
     const plank = Math.floor((k + 40) / 2);
-    const base = [0x6e4024, 0x7a4a2a, 0x66391f, 0x744527][plank % 4];
+    const base = [0x8a6a4e, 0x957657, 0x806248, 0x8f6f52][plank % 4];
     D.set(i, -1, k, mulC(base, 0.94 + h3(i >> 2, plank, 0, 5) * 0.1), M_SOLID, 0.03);
   }
   const Bk = newBuckets();
@@ -3489,16 +3474,16 @@ function* deskSegmentGen(ctx, kind) {
   for (let z = -6; z <= 25; z++) G.set(-6 - Math.floor((z + 6) / 9), 7, z, 0xb02a3a, M_SOLID, 0.03);
   for (let y = 1; y <= 6; y++) G.set(-9, y, 26, 0xb02a3a, M_SOLID, 0.03);
   // candle on a brass dish
-  const C1 = painter(G, -60, 0, -30, 0);
+  const C1 = painter(G, -52, 0, -28, 0);
   C1.cyl(0, 0, 7, 0, 0, 0xc8963a); C1.cyl(0, 0, 7, 1, 1, (x, y, z, dx, dz) => (dx * dx + dz * dz > 30 ? 0xd8a84a : -1));
   C1.cyl(0, 0, 3.3, 1, 17, 0xf4ecd8, M_SOLID, 0.03);
   C1.set(3, 15, 0, 0xfaf4e4); C1.set(3, 14, 0, 0xfaf4e4); C1.set(-4, 12, -1, 0xfaf4e4);
   C1.box(-1, 0, 18, 18, -1, 0, 0x2a2018);
   C1.box(-1, 0, 19, 21, -1, 0, FLAME[1], M_GLOW, 0); C1.set(-1, 22, -1, FLAME[0], M_GLOW, 0); C1.set(0, 22, 0, FLAME[0], M_GLOW, 0); C1.set(-1, 23, 0, 0xfff4d0, M_GLOW, 0);
   // inkwell and quill
-  const I1 = painter(G, 58, 0, -34, 0);
-  I1.cyl(0, 0, 5.2, 0, 6, (x, y) => (y === 6 ? 0x14182a : 0x22305a), M_SOLID, 0.04);
-  I1.cyl(0, 0, 2.6, 7, 8, 0x1a2240);
+  const I1 = painter(G, 52, 0, -32, 0);
+  I1.cyl(0, 0, 5.2, 0, 6, (x, y, z, dx, dz) => (y === 6 ? 0x2a3450 : dx < -2 && dz > 0 ? 0x6a8ac8 : 0x3a5a9a), M_SOLID, 0.04);
+  I1.cyl(0, 0, 2.6, 7, 8, 0x2a3a66); I1.cyl(0, 0, 2.2, 9, 9, 0x8a6a3a);
   for (let n = 0; n <= 30; n++) {
     const t = n / 30, x = Math.round(lerp(1, -12, t)), y = Math.round(lerp(8, 38, t)), z = Math.round(lerp(0, 9, t));
     I1.set(x, y, z, t < 0.25 ? 0x3a2a1a : 0xf2ece0, M_SOLID, 0.03);
@@ -3506,12 +3491,12 @@ function* deskSegmentGen(ctx, kind) {
     for (let s = 1; s <= wv; s++) { I1.set(x + s, y, z, 0xece4d2, M_SOLID, 0.04); I1.set(x - s, y + 1, z, 0xf6f0e4, M_SOLID, 0.04); }
   }
   // stack of books
-  const B1 = painter(G, -62, 0, 26, 0);
+  const B1 = painter(G, -58, 0, 24, 0);
   drawStackBook(B1, -16, 15, 0, 4, -11, 10, 0x2a4a7a);
   drawStackBook(B1, -12, 16, 5, 8, -10, 9, 0x8a2a2a);
   drawStackBook(B1, -15, 10, 9, 13, -9, 8, 0x3a6a3a);
   // teacup on a saucer
-  const T1 = painter(G, 62, 0, 30, 0);
+  const T1 = painter(G, 56, 0, 28, 0);
   T1.cyl(0, 0, 8, 0, 0, 0xf2eee6); T1.cyl(0, 0, 8, 1, 1, (x, y, z, dx, dz) => (dx * dx + dz * dz > 42 ? 0xe8e2d8 : -1));
   T1.cyl(0, 0, 5, 1, 8, (x, y, z, dx, dz) => (dx * dx + dz * dz > 12 || y === 1 ? (y === 6 ? 0x3a6ab8 : 0xf6f2ea) : y === 7 ? 0x8a4a1c : -1), M_SOLID, 0.03);
   T1.box(5, 6, 3, 3, -1, 0, 0xf6f2ea); T1.box(5, 6, 7, 7, -1, 0, 0xf6f2ea); T1.box(7, 7, 4, 6, -1, 0, 0xf6f2ea);
@@ -3551,21 +3536,25 @@ function* deskSegmentGen(ctx, kind) {
   const sheets = [];
   if (intro) {
     const tex = linesPage(ctx, 5);
-    const m = new THREE.MeshLambertMaterial({ map: tex, side: THREE.DoubleSide });
-    seg.own.push(m, tex);
+    // the back of the last sheet is the title page (mirrored, since we see it from behind)
+    const back = titlePage(ctx);
+    back.wrapS = THREE.RepeatWrapping; back.repeat.set(-1, 1); back.offset.set(1, 0);
+    const front = new THREE.MeshLambertMaterial({ map: tex, side: THREE.FrontSide });
+    const backM = new THREE.MeshLambertMaterial({ map: tex, side: THREE.BackSide });
+    const backT = new THREE.MeshLambertMaterial({ map: back, side: THREE.BackSide });
+    seg.own.push(front, backM, backT, tex, back);
     for (let n = 0; n < 3; n++) {
       const geo = makeSheet(34.5, 47.6);
       seg.geos.push(geo);
-      const mesh = new THREE.Mesh(geo, m);
-      mesh.position.set(0, 0, -0.5);
-      mesh.castShadow = true;
-      bendSheet(geo, 0, 0, 7.05 + n * 0.04);
-      seg.scene.add(mesh);
+      const mesh = new THREE.Mesh(geo, front);
+      const mb = new THREE.Mesh(geo, n === 2 ? backT : backM);
+      for (const x of [mesh, mb]) { x.position.set(0, 0, -0.5); x.castShadow = x === mesh; x.receiveShadow = true; seg.scene.add(x); }
+      bendSheet(geo, 0, 0, 7.06 + (2 - n) * 0.05);
       sheets.push({ mesh, geo, y0: 7.06 + (2 - n) * 0.05 });
     }
   }
   // glowing letters
-  const chars = [...new Set((ctx.texts.title + ctx.texts.intro + ctx.texts.outro + "BookTrip").replace(/\s+/g, "").split(""))];
+  const chars = [...new Set(Array.from((ctx.texts.title + ctx.texts.intro + ctx.texts.outro + "BookTrip").replace(/[\s\p{P}]+/gu, "")))].filter((c) => c.length === 1);
   while (chars.length < 8) chars.push(...("AaBbCcDd".split("")));
   const atlas = letterAtlas(chars.slice(0, 64));
   ctx.redraws.push(atlas.userData.redraw);
@@ -3592,14 +3581,14 @@ function* deskSegmentGen(ctx, kind) {
   seg.scene.add(letters);
   seg.geos.push(lgeo); seg.own.push(lmat, atlas);
   // lights: candle, page glow
-  assignLights(seg, [{ pos: new THREE.Vector3(-60, 24, -30), color: 0xffb060, intensity: 1.5, flicker: 2 }, { pos: new THREE.Vector3(14, 16, 0), color: 0xffe2a8, intensity: 0.001, flicker: 0 }], new THREE.Vector3());
+  assignLights(seg, [{ pos: new THREE.Vector3(-52, 24, -28), color: 0xffb060, intensity: 1.5, flicker: 2 }, { pos: new THREE.Vector3(14, 16, 0), color: 0xffe2a8, intensity: 0.001, flicker: 0 }], new THREE.Vector3());
   const pageLight = seg.points[1];
   // ambience: dust in the lamp light, bokeh of a dark room, steam from the tea
   const prng = seeded(77);
   addParticles(ctx, seg, { kind: "dot", count: 46, center: [0, 30, 0], box: [150, 54, 100], vel: [0.4, 0.6, 0], size: [0.55, 1], colors: [0xffe8c0], wob: 3, additive: true, intensity: 1.3, opacity: 0.7 }, prng);
   addParticles(ctx, seg, { kind: "dot", count: 24, center: [0, 80, -300], box: [620, 190, 40], vel: [0.7, 0.2, 0], size: [16, 34], colors: [0xffb060, 0xffd090, 0xff8a50, 0x8ab0ff], wob: 6, additive: true, intensity: 0.42 }, prng);
-  addParticles(ctx, seg, { kind: "puff", count: 7, center: [62, 20, 30], box: [6, 18, 6], vel: [0.3, 3.2, 0], size: [5, 9], colors: [0xffffff], opacity: 0.18, wob: 1 }, prng);
-  addParticles(ctx, seg, { kind: "dot", count: 10, center: [-60, 34, -30], box: [4, 18, 4], vel: [0, 5, 0], size: [0.6, 1.1], colors: [0xffd08a, 0xff9a4a], wob: 0.8, additive: true, intensity: 3 }, prng);
+  addParticles(ctx, seg, { kind: "puff", count: 7, center: [56, 20, 28], box: [6, 18, 6], vel: [0.3, 3.2, 0], size: [5, 9], colors: [0xffffff], opacity: 0.18, wob: 1 }, prng);
+  addParticles(ctx, seg, { kind: "dot", count: 10, center: [-52, 34, -28], box: [4, 18, 4], vel: [0, 5, 0], size: [0.6, 1.1], colors: [0xffd08a, 0xff9a4a], wob: 0.8, additive: true, intensity: 3 }, prng);
   seg.tilt = 0.7;
   const cam = seg.camera;
   const tgt = new THREE.Vector3();
@@ -3616,7 +3605,7 @@ function* deskSegmentGen(ctx, kind) {
         bendSheet(s.geo, th, 0.95, p >= 1 ? 7.06 + n * 0.05 : s.y0);
       });
       lmat.uniforms.uT.value = l;
-      lmat.uniforms.uDive.value = Ld + 0.15;
+      lmat.uniforms.uDive.value = ctx.reduced ? 99 : Ld + 0.15;
       lmat.uniforms.uGain.value = 1;
       pageLight.intensity = LK * (0.05 + 2.6 * easeIn(range(l, Ld, dur)));
       if (l < Ld) {
@@ -3625,7 +3614,7 @@ function* deskSegmentGen(ctx, kind) {
         tgt.set(lerp(2, 7, p), lerp(3, 6, p), lerp(4, 0, p));
         cam.position.set(tgt.x + Math.sin(az) * Math.cos(el) * d, tgt.y + Math.sin(el) * d, tgt.z + Math.cos(az) * Math.cos(el) * d);
       } else {
-        const q = easeIn(range(l, Ld, dur));
+        const q = easeIn(range(l, Ld, dur)) * (ctx.reduced ? 0.6 : 1);
         const az = 0.16, el = 0.92, d = 118;
         const sx = 7 + Math.sin(az) * Math.cos(el) * d, sy = 6 + Math.sin(el) * d, sz = Math.cos(az) * Math.cos(el) * d;
         cam.position.set(lerp(sx, 18, q), lerp(sy, 9.5, q), lerp(sz, 2.5, q));
@@ -3724,11 +3713,12 @@ const FILM_CSS = `
 .btf-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;outline:none}
 .btf-root{position:absolute;inset:0;overflow:hidden;pointer-events:none;color:#fff;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;container-type:size;-webkit-font-smoothing:antialiased;z-index:2}
 .btf-root.btf-nogl{background:var(--btf-bg,linear-gradient(180deg,#1b2a4a,#0e1630));transition:background 1.2s ease}
+.btf-nogl .btf-card{top:calc(9% + 34px)}
 .btf-card{position:absolute;left:0;right:0;top:9%;display:flex;flex-direction:column;align-items:center;gap:.6em;padding:0 7%;text-align:center;opacity:0;transform:translateY(14px) scale(.985);transition:opacity .8s ease,transform 1.2s cubic-bezier(.16,1,.3,1)}
 .btf-card.is-on{opacity:1;transform:none}
-.btf-kicker{font-weight:600;font-size:clamp(9px,1.2vw,13px);font-size:clamp(8.5px,1.3cqw,13px);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.9);padding:.55em 1.1em;border-radius:99px;background:rgba(8,10,22,.34);border:1px solid rgba(255,255,255,.2);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.btf-title{margin:0;font-family:Unbounded,Inter,system-ui,sans-serif;font-weight:800;font-size:clamp(15px,3.4vw,54px);font-size:clamp(14px,4.1cqw,58px);line-height:1.1;letter-spacing:-.012em;max-width:21ch;text-wrap:balance;text-shadow:0 1px 2px rgba(0,0,0,.45),0 4px 30px rgba(0,0,0,.5)}
-.btf-sub{position:absolute;left:50%;bottom:calc(5% + 18px);transform:translate(-50%,8px);width:max-content;max-width:min(88%,58ch);padding:.5em 1em .56em;border-radius:14px;background:rgba(6,8,18,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font-weight:500;font-size:clamp(12px,1.7vw,21px);font-size:clamp(11px,2.05cqw,22px);line-height:1.42;text-align:center;text-wrap:pretty;opacity:0;transition:opacity .45s ease,transform .6s cubic-bezier(.16,1,.3,1)}
+.btf-kicker{font-weight:600;font-size:clamp(9px,1.2vw,13px);font-size:clamp(8.5px,1.3cqw,16px);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.9);padding:.55em 1.1em;border-radius:99px;background:rgba(8,10,22,.34);border:1px solid rgba(255,255,255,.2);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.btf-title{margin:0;font-family:Unbounded,Inter,system-ui,sans-serif;font-weight:800;font-size:clamp(15px,3.4vw,54px);font-size:clamp(14px,4.1cqw,72px);line-height:1.1;letter-spacing:-.012em;max-width:21ch;text-wrap:balance;text-shadow:0 1px 2px rgba(0,0,0,.45),0 4px 30px rgba(0,0,0,.5)}
+.btf-sub{position:absolute;left:50%;bottom:calc(5% + 18px);transform:translate(-50%,8px);width:max-content;max-width:min(88%,58ch);padding:.5em 1em .56em;border-radius:14px;background:rgba(6,8,18,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font-weight:500;font-size:clamp(12px,1.7vw,21px);font-size:clamp(11px,1.85cqw,28px);line-height:1.42;text-align:center;text-wrap:pretty;opacity:0;transition:opacity .45s ease,transform .6s cubic-bezier(.16,1,.3,1)}
 .btf-sub.is-on{opacity:1;transform:translate(-50%,0)}
 .btf-who{font-weight:700;color:#ffcf7a}
 .btf-sub.is-line .btf-txt{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600}
@@ -3739,8 +3729,9 @@ const FILM_CSS = `
 .btf-dot i{position:absolute;inset:0;background:#fff;transform-origin:0 50%;transform:scaleX(0)}
 .btf-end{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:.55em;padding:0 8% 6%;text-align:center;opacity:0;transform:scale(.97);transition:opacity 1.3s ease,transform 2s cubic-bezier(.16,1,.3,1)}
 .btf-end.is-on{opacity:1;transform:none}
-.btf-end-k{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(12px,1.8vw,26px);font-size:clamp(11px,2.3cqw,28px);color:#ffe2a8;text-shadow:0 2px 18px rgba(0,0,0,.6)}
-.btf-end-t{margin:0;font-family:Unbounded,Inter,system-ui,sans-serif;font-weight:800;font-size:clamp(16px,3.8vw,60px);font-size:clamp(15px,4.6cqw,64px);line-height:1.08;max-width:18ch;text-wrap:balance;text-shadow:0 2px 4px rgba(0,0,0,.4),0 6px 40px rgba(0,0,0,.55)}
+.btf-end::before{content:"";position:absolute;inset:-10%;z-index:-1;background:radial-gradient(closest-side,rgba(4,5,12,.5),rgba(4,5,12,0))}
+.btf-end-k{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(12px,1.8vw,26px);font-size:clamp(11px,2.3cqw,34px);color:#ffe2a8;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.btf-end-t{margin:0;font-family:Unbounded,Inter,system-ui,sans-serif;font-weight:800;font-size:clamp(16px,3.8vw,60px);font-size:clamp(15px,4.6cqw,80px);line-height:1.08;max-width:18ch;text-wrap:balance;text-shadow:0 2px 4px rgba(0,0,0,.4),0 6px 40px rgba(0,0,0,.55)}
 .btf-note{position:absolute;left:50%;top:10px;transform:translateX(-50%);max-width:92%;padding:.4em .9em;border-radius:99px;background:rgba(6,8,18,.6);font-size:12px;color:#c3cbe0;text-align:center}
 .btf-ctrl{position:absolute;right:10px;top:10px;display:flex;gap:6px;pointer-events:auto}
 .btf-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:rgba(6,8,18,.55);color:#fff;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .2s,border-color .2s}
@@ -3750,6 +3741,7 @@ const FILM_CSS = `
 .btf-btn[aria-pressed="false"]{opacity:.6}
 @container (max-width:460px){.btf-sub{bottom:calc(4% + 14px);max-width:94%;padding:.42em .8em .46em;border-radius:10px}.btf-dots{gap:4px}.btf-dot{width:5px;height:5px}.btf-dot.is-cur{width:18px}.btf-card{top:7%;gap:.45em}}
 @container (max-height:230px){.btf-kicker{display:none}}
+@container (max-width:560px){.btf-root.has-ctrl .btf-card{top:calc(7% + 52px)}}
 @media (prefers-reduced-motion:reduce){.btf-card,.btf-sub,.btf-end{transform:none!important;transition-property:opacity!important}.btf-dot{transition:none}}
 `;
 
@@ -3790,6 +3782,7 @@ function buildOverlay(root, nScenes, L, withControls) {
     const btn = (name, label) => { const b = mk("button", "btf-btn"); b.type = "button"; b.innerHTML = ICONS[name]; b.setAttribute("aria-label", label); b.title = label; ctrl.append(b); return b; };
     ctrl.prev = btn("prev", L.prev); ctrl.pp = btn("play", L.play); ctrl.next = btn("next", L.next); ctrl.voice = btn("voice", L.voiceOn);
     root.append(ctrl);
+    root.classList.add("has-ctrl");
   }
   return { card, kicker, title, sub, who, txt, dots, dotEls, end, endK, endT, ctrl, last: {} };
 }
@@ -4039,7 +4032,12 @@ export function createFilm(container, opts = {}) {
       if (!job.gen) throw new Error("no generator");
       for (;;) {
         const r = job.gen.next();
-        if (r.done) { built.set(job.i, r.value); job = null; return; }
+        if (r.done) {
+          built.set(job.i, r.value);
+          if (!sync && renderer.compileAsync) renderer.compileAsync(r.value.scene, r.value.camera).catch(() => {});
+          job = null;
+          return;
+        }
         if (!sync && performance.now() - t0 > budgetMs) return;
       }
     } catch (err) {
@@ -4109,7 +4107,11 @@ export function createFilm(container, opts = {}) {
     const ok = voice.speak(text, {
       start: () => { if (my === sp) my.started = true; },
       boundary: (c) => { if (my === sp) my.chars = c; },
-      end: () => { if (my === sp) advancePhase(); },
+      end: (ok) => {
+        if (my !== sp) return;
+        if (ok || my.started) advancePhase();
+        else { my.timed = true; ttsBroken = true; } // the engine failed before speaking: follow the clock
+      },
     });
     if (!ok) { sp.timed = true; }
   }
@@ -4133,7 +4135,7 @@ export function createFilm(container, opts = {}) {
     const s = st.s, l = st.l;
     if (st.mode === 1 && st.prog > 0.45) return null;
     const narr = s.narr, line = s.line;
-    const maxC = clamp(Math.round(W / 9.5), 44, 104);
+    const maxC = W < 420 ? 86 : 108; // about two subtitle lines at every size
     const voiced = ttsOn() && !sp.timed && sp.seg === st.i && sp.phase > 0;
     let showLine = false, frac = 0;
     if (voiced) {
@@ -4307,7 +4309,7 @@ export function createFilm(container, opts = {}) {
   function frame(now) {
     raf = 0;
     if (!running()) { draw(); return; }
-    const dt = Math.min(0.1, Math.max(0, (now - lastNow) / 1000));
+    const dt = Math.min(0.25, Math.max(0, (now - lastNow) / 1000));
     lastNow = now;
     advance(dt);
     pump(lowQ ? 5 : 8);
@@ -4481,3 +4483,6 @@ export function createFilm(container, opts = {}) {
   if (opts.autoplay) api.play();
   return api;
 }
+
+/** Internals for dev pages / tests only (not part of the contract). */
+export const _debug = { buildWorld, normalizeFilm, SETTING_IDS: Object.keys(DEF), PROP_IDS: Object.keys(PROPS) };

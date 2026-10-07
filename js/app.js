@@ -1184,6 +1184,33 @@ function buildFooter() {
 }
 
 // ---------------------------------------------------------------------------------------------
+// Compact nav menu (≤ 860px): How it works / Library / Premium in a dropdown
+
+function initNavMenu() {
+  const nav = $("#nav");
+  const btn = $("#nav-menu");
+  const links = $("#nav-links");
+  if (!nav || !btn || !links) return;
+  const isOpen = () => nav.classList.contains("is-open");
+  const set = (open) => {
+    nav.classList.toggle("is-open", open);
+    btn.setAttribute("aria-expanded", String(open));
+  };
+  btn.addEventListener("click", (e) => {
+    set(!isOpen());
+    if (isOpen() && e.detail === 0) links.querySelector("a")?.focus(); // opened from the keyboard
+  });
+  links.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
+  document.addEventListener("pointerdown", (e) => { if (isOpen() && !nav.contains(e.target)) set(false); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isOpen()) { e.stopPropagation(); set(false); btn.focus(); }
+  }, true);
+  nav.addEventListener("focusout", (e) => { if (isOpen() && e.relatedTarget && !nav.contains(e.relatedTarget)) set(false); });
+  window.addEventListener("hashchange", () => set(false));
+  try { matchMedia("(min-width: 861px)").addEventListener("change", () => set(false)); } catch { /* old Safari */ }
+}
+
+// ---------------------------------------------------------------------------------------------
 // Language
 
 function syncLangButtons() {
@@ -1244,6 +1271,7 @@ async function boot() {
   syncLangButtons();
   document.title = t("meta.title");
   buildFooter();
+  initNavMenu();
   searchBox = initSearchBox();
   searchBox?.refresh();
 
@@ -1378,7 +1406,8 @@ html.bt-lock { overflow: hidden; }
 .bt-steps { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 24px 0 4px; }
 .bt-step {
   position: relative; padding: 20px; border-radius: 18px; border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, .012));
+  /* fully opaque colours: translucent cards inside the modal pick up compositing artefacts */
+  background: linear-gradient(180deg, #1c2232, #141b2b);
   animation: rise .5s var(--expo) backwards; animation-delay: calc(var(--i, 0) * 60ms);
 }
 .bt-step .bt-ico { margin-bottom: 16px; }
@@ -1430,9 +1459,9 @@ html.bt-lock { overflow: hidden; }
 .bt-feats { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 24px 0 14px; }
 .bt-feat {
   position: relative; overflow: hidden; padding: 18px; border-radius: 18px; border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .012));
+  background: linear-gradient(180deg, #1b2131, #141b2b);
 }
-.bt-feat.is-hero { border-color: rgba(95, 225, 255, .2); background: radial-gradient(120% 80% at 50% 120%, rgba(60, 190, 255, .16), transparent 70%), linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .015)); }
+.bt-feat.is-hero { border-color: rgba(95, 225, 255, .2); background: radial-gradient(120% 80% at 50% 120%, rgba(60, 190, 255, .16), transparent 70%), linear-gradient(180deg, #1d2333, #151c2c); }
 .bt-feat-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 14px; }
 .bt-feat h3 { font: 700 16px/1.3 var(--ui); margin-bottom: 6px; }
 .bt-feat p { font-size: 14px; line-height: 1.55; color: var(--ink-2); }
@@ -1527,8 +1556,8 @@ html.bt-lock { overflow: hidden; }
 .bt-ld-book.is-found .bt-ld-leaf { animation-play-state: paused; }
 
 /* ---- footer ---- */
-.bt-footer { position: relative; z-index: 1; margin-top: 56px; padding: 40px 16px calc(32px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(10, 16, 32, 0), rgba(10, 16, 32, .55)); }
-.bt-footer-in { width: min(1100px, 100%); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px 40px; align-items: start; }
+.bt-footer { position: relative; z-index: 1; margin-top: 56px; padding: 40px 0 calc(32px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(10, 16, 32, 0), rgba(10, 16, 32, .55)); }
+.bt-footer-in { width: min(1200px, calc(100% - 2 * clamp(16px, 4vw, 40px))); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px 40px; align-items: start; }
 .bt-footer-brand .brand { display: inline-flex; }
 .bt-footer-tag { margin-top: 8px; font: italic 600 15px/1.4 var(--serif); color: var(--ink-2); }
 .bt-footer-nav { display: flex; flex-wrap: wrap; gap: 6px 22px; justify-content: flex-end; }

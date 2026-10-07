@@ -126,6 +126,7 @@ function player() {
   const film = createFilm(stage, { book, lang, tts: false, controls: true, onScene: (i) => mark(i), onEnd: () => console.log("[dev] film ended") });
   film.setTts(tts);
   window.__film = film;
+  window.__sampleBook = book;
   const btn = (label, fn) => { const b = mk("button", { type: "button", textContent: label }); b.addEventListener("click", fn); return b; };
   const ttsBtn = btn("Voice", () => { tts = !tts; film.setTts(tts); ttsBtn.setAttribute("aria-pressed", String(tts)); });
   ttsBtn.setAttribute("aria-pressed", String(tts));

@@ -3,7 +3,8 @@
   "cleanUrls": true,
   "functions": {
     "api/*.js": { "maxDuration": 300 },
-    "api/portrait.js": { "maxDuration": 120, "includeFiles": "data/books/**" }
+    "api/portrait.js": { "maxDuration": 120, "includeFiles": "data/books/**" },
+    "api/video.js": { "maxDuration": 300, "includeFiles": "data/books/**" }
   },
   "headers": [
     { "source": "/vendor/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },

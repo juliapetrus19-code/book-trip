@@ -1,5 +1,6 @@
 // Premium AI video (Veo), three 8-second clips per book:
 //   POST /api/video  body { id, title, prompts:[3], token }, header x-premium-code → { jobs: [opId, …] }
+//                    (bundled demo books send { demo: <bookId> } instead; prompts come from the data file)
 //   GET  /api/video?op=<opId>    → { done: false } | { done: true, url: "/api/video?file=<signed>" }
 //   GET  /api/video?file=<signed> → streams video/mp4
 // opIds and file references are sealed (encrypted + authenticated + expiring): clients never see
@@ -8,6 +9,7 @@ import { OP_NAME_RE, VIDEO_SAFETY, VIDEO_STYLE, downloadFile, getOperation, isCo
 import { HttpError, NO_STORE, clientIp, cleanText, json, route, searchParams, ID_RE } from "./_lib/http.js";
 import { enforce, hit, isLimited, tooManyError } from "./_lib/ratelimit.js";
 import { safeEqual, seal, unseal, verify } from "./_lib/sign.js";
+import { loadDemoBook } from "./_lib/demo.js";
 
 const OP_TTL = 6 * 3600;    // a job can be polled for 6 hours
 const FILE_TTL = 47 * 3600; // Google keeps generated files for 48 hours
@@ -40,13 +42,22 @@ export const POST = route(async (request) => {
   } catch {
     throw new HttpError("bad_request", "Body must be JSON: { id, title, prompts, token }");
   }
-  const id = body && body.id;
-  const prompts = body && body.prompts;
-  if (typeof id !== "string" || !ID_RE.test(id)) throw new HttpError("bad_request", 'Field "id" must match [a-z0-9-]{1,100}');
-  if (!Array.isArray(prompts) || prompts.length !== 3 || !prompts.every((p) => typeof p === "string" && p.trim() && p.length <= MAX_PROMPT)) {
-    throw new HttpError("bad_request", 'Field "prompts" must be exactly 3 non-empty strings');
+  let id = body && body.id;
+  let prompts = body && body.prompts;
+  if (body && body.demo !== undefined) {
+    // bundled demo book: the prompts come from data/books/<id>.json, never from the client
+    const book = await loadDemoBook(typeof body.demo === "string" ? body.demo : "");
+    const vp = book && book.film && book.film.videoPrompts;
+    if (!book || !Array.isArray(vp) || vp.length !== 3) throw new HttpError("not_found", "Unknown demo book");
+    id = book.id;
+    prompts = vp.map((p) => String(p).slice(0, MAX_PROMPT));
+  } else {
+    if (typeof id !== "string" || !ID_RE.test(id)) throw new HttpError("bad_request", 'Field "id" must match [a-z0-9-]{1,100}');
+    if (!Array.isArray(prompts) || prompts.length !== 3 || !prompts.every((p) => typeof p === "string" && p.trim() && p.length <= MAX_PROMPT)) {
+      throw new HttpError("bad_request", 'Field "prompts" must be exactly 3 non-empty strings');
+    }
+    if (!verify("video", [id, ...prompts], body.token)) throw new HttpError("forbidden", "Invalid video token");
   }
-  if (!verify("video", [id, ...prompts], body.token)) throw new HttpError("forbidden", "Invalid video token");
 
   enforce(request, "video");
   const title = cleanText(body.title).slice(0, 120);

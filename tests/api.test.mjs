@@ -692,6 +692,28 @@ describe("video", () => {
     assert.equal(calls.length, 0);
   });
 
+  test("demo books: prompts come from the data file, client prompts and token are ignored", async () => {
+    process.env.PREMIUM_CODE = "letmein";
+    const dir = await mkdtemp(join(tmpdir(), "bt-demo-video-"));
+    const demoPrompts = ["Demo prompt one.", "Demo prompt two.", "Demo prompt three."];
+    await writeFile(join(dir, "little-prince.json"), JSON.stringify({ id: "little-prince", characters: [], film: { scenes: [], videoPrompts: demoPrompts } }));
+    setDemoDirForTests(dir);
+    try {
+      const calls = useFetch(() => Response.json({ name: OP }));
+      const res = await post(JSON.stringify({ demo: "little-prince", id: "little-prince", prompts: ["Make anything", "x", "y"], token: "" }));
+      assert.equal(res.status, 200);
+      assert.equal((await res.json()).jobs.length, 3);
+      const sent = calls.map((c) => JSON.parse(c.init.body).instances[0].prompt);
+      demoPrompts.forEach((p, i) => assert.ok(sent[i].includes(p)));
+      assert.ok(!sent.some((p) => p.includes("Make anything")));
+      assert.equal((await post(JSON.stringify({ demo: "no-such-book" }))).status, 404);
+      assert.equal((await post(JSON.stringify({ demo: "../etc/passwd" }))).status, 404);
+    } finally {
+      setDemoDirForTests(null);
+      await rm(dir, { recursive: true, force: true });
+    }
+  });
+
   test("start → poll → stream", async () => {
     process.env.PREMIUM_CODE = "letmein";
     let pollDone = false;

@@ -212,7 +212,7 @@
    Sections (shared)
    ============================================================================================= */
 
-.bk-sec { width: min(var(--bk-max), calc(100% - 2 * var(--bk-pad))); margin: clamp(68px, 9vw, 124px) auto 0; }
+.bk-sec { width: min(var(--bk-max), calc(100% - 2 * var(--bk-pad))); margin: clamp(68px, 9vw, 124px) auto 0; scroll-margin-top: calc(var(--bk-tabs-top) + 64px); }
 .bk-tabs + .bk-sec { margin-top: clamp(40px, 6vw, 80px); }
 .bk-sec-head {
   display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
@@ -880,8 +880,8 @@
   .bk-filter { order: 2; width: 100%; }
   .bk-poster-teaser, .bk-poster-kicker { display: none; }
   .bk-teaser-below { display: block; }
-  .bk-poster-copy { left: 5%; width: 52%; }
-  .bk-cast { right: 0; width: 56%; height: 58%; }
+  .bk-poster-copy { left: 5%; width: 48%; }
+  .bk-cast { right: 1%; width: 42%; height: 46%; } /* the ensemble starts at ~55%: clear of the title */
   .bk-bar { height: 10%; letter-spacing: .22em; }
   .bk-hud { padding-bottom: 22px; }
   .bk-video-actions, .bk-video-cta { width: 100%; }
@@ -922,8 +922,8 @@
   .bk-play { width: 50px; }
   .bk-play::before { inset: -9px; }
   .bk-play-label { display: none; }
-  .bk-poster-copy { width: 54%; }
-  .bk-poster-title { font-size: clamp(15px, 4.6vw, 18px); }
+  .bk-poster-copy { width: 49%; }
+  .bk-poster-title { font-size: clamp(14px, 4.4vw, 17px); }
   .bk-poster-cta { margin-top: 10px; }
   .bk-hud-btn { width: 44px; height: 44px; border-radius: 12px; }
   .bk-hud-now { display: none; }

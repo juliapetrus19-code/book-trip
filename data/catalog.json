@@ -1,0 +1,453 @@
+[
+  {
+    "id": "alice-in-wonderland",
+    "year": 1865,
+    "cover": {
+      "bg": "#1f4f7a",
+      "bg2": "#0d2340",
+      "fg": "#fbeacb",
+      "accent": "#e2524a",
+      "motif": "clock"
+    },
+    "title": {
+      "ru": "Алиса в Стране чудес",
+      "uk": "Аліса в Країні Чудес",
+      "en": "Alice's Adventures in Wonderland"
+    },
+    "author": {
+      "ru": "Льюис Кэрролл",
+      "uk": "Льюїс Керрол",
+      "en": "Lewis Carroll"
+    },
+    "aliases": [
+      "Alice in Wonderland",
+      "Alice's Adventures in Wonderland",
+      "Alice Wonderland",
+      "Алиса в Стране чудес",
+      "Приключения Алисы в Стране чудес",
+      "Алиса в стране чудес Кэрролл",
+      "Аліса в Країні Чудес",
+      "Аліса в Країні Див",
+      "Пригоди Аліси в Країні Чудес",
+      "Alisa v strane chudes",
+      "Alisa v Kraini Chudes",
+      "Alice im Wunderland",
+      "Wonderland Lewis Carroll",
+      "Алиса Кэрол"
+    ]
+  },
+  {
+    "id": "harry-potter-philosophers-stone",
+    "year": 1997,
+    "cover": {
+      "bg": "#5c1626",
+      "bg2": "#1a0810",
+      "fg": "#f4d27a",
+      "accent": "#e8643a",
+      "motif": "wand"
+    },
+    "title": {
+      "ru": "Гарри Поттер и философский камень",
+      "uk": "Гаррі Поттер і філософський камінь",
+      "en": "Harry Potter and the Philosopher's Stone"
+    },
+    "author": {
+      "ru": "Дж. К. Роулинг",
+      "uk": "Дж. К. Ролінґ",
+      "en": "J. K. Rowling"
+    },
+    "aliases": [
+      "Harry Potter and the Sorcerer's Stone",
+      "Harry Potter and the Philosopher's Stone",
+      "Harry Potter 1",
+      "Harry Potter",
+      "Philosopher's Stone",
+      "Sorcerer's Stone",
+      "Гарри Поттер и философский камень",
+      "Гарри Поттер",
+      "Гарри Поттер 1",
+      "Гаррі Поттер і філософський камінь",
+      "Гаррі Поттер",
+      "Garri Potter",
+      "Harri Potter",
+      "Hary Poter",
+      "Гари Потер"
+    ]
+  },
+  {
+    "id": "hound-of-the-baskervilles",
+    "year": 1902,
+    "cover": {
+      "bg": "#1f2e2a",
+      "bg2": "#0a1210",
+      "fg": "#ece4cf",
+      "accent": "#cdec5e",
+      "motif": "moon"
+    },
+    "title": {
+      "ru": "Собака Баскервилей",
+      "uk": "Собака Баскервілів",
+      "en": "The Hound of the Baskervilles"
+    },
+    "author": {
+      "ru": "Артур Конан Дойл",
+      "uk": "Артур Конан Дойл",
+      "en": "Arthur Conan Doyle"
+    },
+    "aliases": [
+      "The Hound of the Baskervilles",
+      "Hound of the Baskervilles",
+      "Hound of Baskervilles",
+      "Baskerville hound",
+      "Собака Баскервилей",
+      "Собака Баскервиллей",
+      "Собака Баскервилля",
+      "Баскервильская собака",
+      "Собака Баскервілів",
+      "Собака Баскервілей",
+      "Sobaka Baskerviley",
+      "Sobaka Baskerviliv",
+      "Шерлок Холмс и собака Баскервилей",
+      "Шерлок Голмс",
+      "Sherlock Holmes Hound"
+    ]
+  },
+  {
+    "id": "little-prince",
+    "year": 1943,
+    "cover": {
+      "bg": "#17285a",
+      "bg2": "#0a1230",
+      "fg": "#f7e4a6",
+      "accent": "#f0806e",
+      "motif": "star"
+    },
+    "title": {
+      "ru": "Маленький принц",
+      "uk": "Маленький принц",
+      "en": "The Little Prince"
+    },
+    "author": {
+      "ru": "Антуан де Сент-Экзюпери",
+      "uk": "Антуан де Сент-Екзюпері",
+      "en": "Antoine de Saint-Exupéry"
+    },
+    "aliases": [
+      "Le Petit Prince",
+      "Petit Prince",
+      "The Little Prince",
+      "Little Prince",
+      "Маленький принц",
+      "Маленький принц Экзюпери",
+      "Маленький принц Екзюпері",
+      "Malenkiy prints",
+      "Malenkij princ",
+      "Malenkyi prynts",
+      "Маленький прынц",
+      "Маленкий принц",
+      "Der kleine Prinz",
+      "Little Prince Saint-Exupery"
+    ]
+  },
+  {
+    "id": "nineteen-eighty-four",
+    "year": 1949,
+    "cover": {
+      "bg": "#2b2f36",
+      "bg2": "#0f1114",
+      "fg": "#ece6d8",
+      "accent": "#d0252f",
+      "motif": "eye"
+    },
+    "title": {
+      "ru": "1984",
+      "uk": "1984",
+      "en": "Nineteen Eighty-Four"
+    },
+    "author": {
+      "ru": "Джордж Оруэлл",
+      "uk": "Джордж Орвелл",
+      "en": "George Orwell"
+    },
+    "aliases": [
+      "1984",
+      "Nineteen Eighty-Four",
+      "Nineteen Eighty Four",
+      "1984 Orwell",
+      "1984 Оруэлл",
+      "1984 Орвелл",
+      "Оруэлл 1984",
+      "Орвелл 1984",
+      "Тысяча девятьсот восемьдесят четвёртый",
+      "Тисяча дев'ятсот вісімдесят четвертий",
+      "Big Brother",
+      "Старший Брат",
+      "Оруел 1984",
+      "Orwel 1984"
+    ]
+  },
+  {
+    "id": "pride-and-prejudice",
+    "year": 1813,
+    "cover": {
+      "bg": "#2f4a5c",
+      "bg2": "#15222d",
+      "fg": "#f6ecd9",
+      "accent": "#e6a6a0",
+      "motif": "feather"
+    },
+    "title": {
+      "ru": "Гордость и предубеждение",
+      "uk": "Гордість і упередження",
+      "en": "Pride and Prejudice"
+    },
+    "author": {
+      "ru": "Джейн Остин",
+      "uk": "Джейн Остін",
+      "en": "Jane Austen"
+    },
+    "aliases": [
+      "Pride and Prejudice",
+      "Pride & Prejudice",
+      "Pride and Predjudice",
+      "Гордость и предубеждение",
+      "Гордость и предрассудки",
+      "Гордость и предубеждения",
+      "Гордість і упередження",
+      "Гордість та упередження",
+      "Gordost i predubezhdenie",
+      "Hordist i uperedzhennia",
+      "Мистер Дарси",
+      "Mr Darcy",
+      "Гордость и предубеждение Остин",
+      "Jane Austen Pride and Prejudice"
+    ]
+  },
+  {
+    "id": "romeo-and-juliet",
+    "year": 1597,
+    "cover": {
+      "bg": "#5a1028",
+      "bg2": "#1a050e",
+      "fg": "#f7e3d4",
+      "accent": "#f0b44c",
+      "motif": "rose"
+    },
+    "title": {
+      "ru": "Ромео и Джульетта",
+      "uk": "Ромео і Джульєтта",
+      "en": "Romeo and Juliet"
+    },
+    "author": {
+      "ru": "Уильям Шекспир",
+      "uk": "Вільям Шекспір",
+      "en": "William Shakespeare"
+    },
+    "aliases": [
+      "Romeo and Juliet",
+      "Romeo & Juliet",
+      "The Tragedy of Romeo and Juliet",
+      "Ромео и Джульетта",
+      "Ромео і Джульєтта",
+      "Ромео та Джульєтта",
+      "Romeo i Dzhulyetta",
+      "Romeo i Dzhulietta",
+      "Romeo and Juliette",
+      "Romeo e Giulietta",
+      "Romeo y Julieta",
+      "Ромео и Джульета",
+      "Ромео и Джулиетта",
+      "Ромео і Джульєта",
+      "Ромео и Джульетта Шекспир"
+    ]
+  },
+  {
+    "id": "shadows-of-forgotten-ancestors",
+    "year": 1911,
+    "cover": {
+      "bg": "#16463a",
+      "bg2": "#071812",
+      "fg": "#f3e6c8",
+      "accent": "#e2483a",
+      "motif": "tree"
+    },
+    "title": {
+      "ru": "Тени забытых предков",
+      "uk": "Тіні забутих предків",
+      "en": "Shadows of Forgotten Ancestors"
+    },
+    "author": {
+      "ru": "Михаил Коцюбинский",
+      "uk": "Михайло Коцюбинський",
+      "en": "Mykhailo Kotsiubynsky"
+    },
+    "aliases": [
+      "Тіні забутих предків",
+      "Тени забытых предков",
+      "Shadows of Forgotten Ancestors",
+      "Shadows of Our Forgotten Ancestors",
+      "Tini zabutykh predkiv",
+      "Teni zabytykh predkov",
+      "Тіні забутих предків Коцюбинський",
+      "Тени забытых предков Коцюбинский",
+      "Коцюбинський Тіні забутих предків",
+      "Іван і Марічка",
+      "Иван и Маричка",
+      "Тіні забутих предків повість",
+      "Тини забутых предкив",
+      "Тені забитих предків"
+    ]
+  },
+  {
+    "id": "the-great-gatsby",
+    "year": 1925,
+    "cover": {
+      "bg": "#15264a",
+      "bg2": "#060b1a",
+      "fg": "#f3d68a",
+      "accent": "#3fd68c",
+      "motif": "eye"
+    },
+    "title": {
+      "ru": "Великий Гэтсби",
+      "uk": "Великий Гетсбі",
+      "en": "The Great Gatsby"
+    },
+    "author": {
+      "ru": "Фрэнсис Скотт Фицджеральд",
+      "uk": "Френсіс Скотт Фіцджеральд",
+      "en": "F. Scott Fitzgerald"
+    },
+    "aliases": [
+      "The Great Gatsby",
+      "Great Gatsby",
+      "Gatsby",
+      "Великий Гэтсби",
+      "Великий Гетсби",
+      "Великий Гатсби",
+      "Гэтсби",
+      "Великий Гетсбі",
+      "Гетсбі",
+      "Velikiy Getsbi",
+      "Velykyi Hetsbi",
+      "Velikij Gatsbi",
+      "Gatsby Fitzgerald",
+      "Гэтсби Фицджеральд"
+    ]
+  },
+  {
+    "id": "the-hobbit",
+    "year": 1937,
+    "cover": {
+      "bg": "#1f4030",
+      "bg2": "#0c1c14",
+      "fg": "#f4e4b4",
+      "accent": "#e0782e",
+      "motif": "mountain"
+    },
+    "title": {
+      "ru": "Хоббит, или Туда и обратно",
+      "uk": "Гобіт, або Туди і звідти",
+      "en": "The Hobbit, or There and Back Again"
+    },
+    "author": {
+      "ru": "Дж. Р. Р. Толкин",
+      "uk": "Дж. Р. Р. Толкін",
+      "en": "J. R. R. Tolkien"
+    },
+    "aliases": [
+      "The Hobbit",
+      "Hobbit",
+      "There and Back Again",
+      "The Hobbit or There and Back Again",
+      "Хоббит",
+      "Хоббит, или Туда и обратно",
+      "Туда и обратно",
+      "Хоббит Толкин",
+      "Гобіт",
+      "Гобіт, або Туди і звідти",
+      "Хоббіт",
+      "Khobbit",
+      "Hobit",
+      "Хобит",
+      "Гоббит",
+      "The Hobbit, or There and Back Again"
+    ]
+  },
+  {
+    "id": "three-musketeers",
+    "year": 1844,
+    "cover": {
+      "bg": "#1d3a7a",
+      "bg2": "#0b1534",
+      "fg": "#f4e6c0",
+      "accent": "#d8423a",
+      "motif": "sword"
+    },
+    "title": {
+      "ru": "Три мушкетёра",
+      "uk": "Три мушкетери",
+      "en": "The Three Musketeers"
+    },
+    "author": {
+      "ru": "Александр Дюма",
+      "uk": "Олександр Дюма",
+      "en": "Alexandre Dumas"
+    },
+    "aliases": [
+      "The Three Musketeers",
+      "Three Musketeers",
+      "Les Trois Mousquetaires",
+      "Trois Mousquetaires",
+      "Три мушкетёра",
+      "Три мушкетера",
+      "Три мушкетери",
+      "Три мушкетёры",
+      "Tri mushketera",
+      "Try mushketery",
+      "Д’Артаньян и три мушкетёра",
+      "Д'Артаньян",
+      "Дартаньян",
+      "D'Artagnan",
+      "Мушкетёры Дюма"
+    ]
+  },
+  {
+    "id": "treasure-island",
+    "year": 1883,
+    "cover": {
+      "bg": "#0f4a5a",
+      "bg2": "#061a24",
+      "fg": "#f5e3b3",
+      "accent": "#e8a83a",
+      "motif": "compass"
+    },
+    "title": {
+      "ru": "Остров сокровищ",
+      "uk": "Острів скарбів",
+      "en": "Treasure Island"
+    },
+    "author": {
+      "ru": "Роберт Льюис Стивенсон",
+      "uk": "Роберт Луїс Стівенсон",
+      "en": "Robert Louis Stevenson"
+    },
+    "aliases": [
+      "Treasure Island",
+      "Остров сокровищ",
+      "Острів скарбів",
+      "Ostrov sokrovishch",
+      "Ostriv skarbiv",
+      "Остров Сокровищ Стивенсон",
+      "Острів скарбів Стівенсон",
+      "Treasure Island Stevenson",
+      "Остров сакровищ",
+      "Острів скарбов",
+      "Tresure Island",
+      "Treasure Iland",
+      "Long John Silver",
+      "Джон Сильвер",
+      "Джон Сільвер"
+    ]
+  }
+]

@@ -304,3 +304,28 @@ Tokens are in `css/base.css` `:root` — use them, do not invent new colours for
 - Motion: entrance animations once; continuous motion only for the ring and starfield; everything
   honours `prefers-reduced-motion`.
 - Mobile first-class: 320px … 2560px, no horizontal scroll, tap targets ≥ 44px.
+
+---------------------------------------------------------------------------------------------------
+## 6. Additions made during integration (all optional / backwards compatible)
+
+- **API**
+  - Extra error codes: `refused` (422), `payload_too_large` (413), `server` (500).
+  - `/api/resolve` `found: true` answers may carry `suggestions` (other volumes of a series etc.).
+  - `POST /api/video` also accepts `{ demo: "<bookId>" }` for bundled books: the 3 prompts are read
+    from `data/books/<id>.json` (client prompts and token are ignored), premium code still required.
+- **BookView (live)**: optional `loading: { overview, characters, film }` (bool) and
+  `errors: { <part>: { code, message } }`; live characters carry `portraitToken`, the live film
+  carries `videoToken`.
+- **js/book-view.js**: `renderBook(root, book, { lang, health, onSearch, onBack, onRetry(part) })`.
+- **js/film.js**: handle also has `seek(sceneIndex)`, `renderAt(seconds)`, `setTts(on)` and getters
+  `ended`, `duration`, `time`, `scene`; options `controls` (default false), `lowQuality`,
+  `preserveDrawingBuffer`, `autoplay`.
+- **js/voxel.js**: `createViewer(container, appearance, { background, action, autoRotate, label })`
+  returns `{ dispose(), setAppearance(a), setAction(name), renderer }`; also `ACTIONS`,
+  `normalizeAppearance`, `disposeCharacter`, `portraitStats`, `clearPortraitCache`.
+- **js/ring.js**: handle also has `flick()`, `pause()`, `resume()`.
+- **js/covers.js**: also `miniCoverSVG(cover, { title, w, h })`, `coverFromString(str)`.
+- **js/app.js** exports `openModal(node, { label, labelledBy, className, onClose })`, `toast(msg, { error })`,
+  `errorText(err)`, `navigate(hash, { replace })`.
+- **index.html**: `#nav-menu` button (≤ 860 px) toggles the `#nav-links` dropdown (`.nav.is-open`).
+- **tests/e2e.mjs**: end-to-end browser checks (demo + mocked live mode); `npm run e2e`.
