@@ -1,0 +1,1091 @@
+{
+  "id": "shadows-of-forgotten-ancestors",
+  "year": 1911,
+  "cover": {
+    "bg": "#16463a",
+    "bg2": "#071812",
+    "fg": "#f3e6c8",
+    "accent": "#e2483a",
+    "motif": "tree"
+  },
+  "aliases": [
+    "Тіні забутих предків",
+    "Тени забытых предков",
+    "Shadows of Forgotten Ancestors",
+    "Shadows of Our Forgotten Ancestors",
+    "Tini zabutykh predkiv",
+    "Teni zabytykh predkov",
+    "Тіні забутих предків Коцюбинський",
+    "Тени забытых предков Коцюбинский",
+    "Коцюбинський Тіні забутих предків",
+    "Іван і Марічка",
+    "Иван и Маричка",
+    "Тіні забутих предків повість",
+    "Тини забутых предкив",
+    "Тені забитих предків"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Тени забытых предков",
+      "originalTitle": "Тіні забутих предків",
+      "author": "Михаил Коцюбинский",
+      "genre": "Неоромантическая повесть",
+      "tagline": "Любовь сильнее вражды родов и самой смерти — среди гор, трембит и лесных духов Гуцульщины.",
+      "summary": [
+        "Иван был девятнадцатым ребёнком в гуцульской семье Палийчуков. Младенцем он плакал так безутешно, что мать боялась, не подменила ли его нечистая сила. Мальчик рос странным и молчаливым: подолгу смотрел в одну точку, бродил один по лесу и слушал, как говорит всё живое вокруг. Карпаты для него полны тайных сил: в скалах и чащах подстерегает нечисть, в лесу водятся нявки, а над всем шумит быстрый Черемош. Рано Иван научился играть на флояре — и его мелодии звучали так, будто их подсказал сам лес.",
+        "Между Палийчуками и Гутенюками давно тянулась вражда, причину которой уже никто не помнил. Однажды на храмовом празднике между родами вспыхнула драка, и старый Гутенюк топориком раскроил голову отцу Ивана. В тот же день маленький Иван впервые встретил Маричку — дочь враждебного рода. Девочка угостила его конфетой, и дети, ещё не понимая, какая пропасть лежит между их семьями, подружились. Несмотря на кровь, разделившую Палийчуков и Гутенюков, эта дружба с годами переросла в любовь.",
+        "Иван и Маричка вместе пасли скот на горных склонах, перекликались через потоки и прятались от всего мира среди елей. Он играл на флояре, а она сочиняла коломыйки — быстрее и лучше всех в селе. Подростками они поняли, что не могут жить друг без друга. Но между ними стояла вражда родов, а Иван был беден. Чтобы заработать на хозяйство и свадьбу, он нанялся на всё лето пастухом на дальнюю полонину. Прощаясь, влюблённые обещали друг другу, что осенью будут вместе.",
+        "На полонине жизнь шла по древним обычаям: пастухи берегли живую ватру, добытую трением дерева, доили овец и вслушивались в голоса гор. Иван тосковал и ждал осени. И вот пришла страшная весть: Маричка утонула в Черемоше. Беспощадная река отняла у него любимую. Горе выбило Ивана из жизни: годами он бродил, словно тень, оборванный и равнодушный ко всему, и люди уже думали, что он пропал. Но однажды он будто очнулся и решил жить, как все.",
+        "Иван женился на Палагне — красивой, бойкой и хозяйственной женщине. Дом стал полной чашей, но любви в нём не было: сердце Ивана по-прежнему принадлежало Маричке. Палагне было одиноко и скучно. Весной, на Юрьев день, она на рассвете вышла в поле творить старинные заговоры, чтобы уберечь скот от беды, — и встретила мольфара Юру, который умел заклинать грозовые тучи и отводить град. Вскоре Палагна стала его любовницей, а между Иваном и Юрой зародилась глухая вражда.",
+        "Однажды в лесу Иван встретил Чугайстера — лесного духа, который охотится на нявок, — и заиграл ему на флояре, а тот пустился в бешеный пляс. Вскоре, ночью на полонине, Иван услышал голос Марички и увидел её среди деревьев. Он шёл за ней через леса и скалы, пока видение не исчезло: это была нявка, принявшая облик любимой. Через несколько дней пастухи нашли Ивана над обрывом, обессиленного и израненного, и вскоре он умер. Над ним зарыдали трембиты, а у тела, по старому обычаю, соседи шутили и играли в древние игры."
+      ],
+      "themes": [
+        "Любовь сильнее смерти",
+        "Человек и природа",
+        "Гуцульские поверья и мифология",
+        "Вражда родов",
+        "Память и одиночество"
+      ],
+      "terms": [
+        {
+          "term": "Гуцулы",
+          "definition": "Украинский горный народ Карпат со своим говором, одеждой, обрядами и миром поверий, в котором живут герои повести."
+        },
+        {
+          "term": "Полонина",
+          "definition": "Высокогорное пастбище в Карпатах, куда на всё лето угоняют овец и скот; там пастухи живут по старинным обычаям."
+        },
+        {
+          "term": "Живая ватра",
+          "definition": "Священный огонь на полонине, добытый трением дерева. Ему не дают погаснуть до конца лета, ведь он оберегает от зла."
+        },
+        {
+          "term": "Трембита",
+          "definition": "Длинная, до трёх метров, деревянная гуцульская труба. Её голос разносит по горам весть о радости, беде и смерти."
+        },
+        {
+          "term": "Флояра",
+          "definition": "Гуцульская деревянная свирель, на которой играет Иван; её мелодии словно разговаривают с лесом."
+        },
+        {
+          "term": "Коломыйка",
+          "definition": "Короткая шуточная или грустная песенка, которую поют и сочиняют прямо на ходу; лучше всех их складывала Маричка."
+        },
+        {
+          "term": "Мольфар",
+          "definition": "Гуцульский колдун, знающий заговоры: он лечит, насылает чары и умеет отводить град и бурю."
+        },
+        {
+          "term": "Нявка",
+          "definition": "Лесная дева-дух, прекрасная спереди, но с пустой, будто выдолбленной спиной. Она заманивает мужчин на погибель."
+        },
+        {
+          "term": "Чугайстер",
+          "definition": "Лесной великан, поросший шерстью, — добрый к людям враг нявок, который обожает плясать."
+        },
+        {
+          "term": "Черемош",
+          "definition": "Бурная горная река Гуцульщины, в волнах которой погибла Маричка."
+        },
+        {
+          "term": "Топорик (бартка)",
+          "definition": "Гуцульский топорик на длинной рукояти — одновременно посох, украшение и оружие; им старый Гутенюк убивает отца Ивана."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Лесная песня",
+          "author": "Леся Украинка",
+          "why": "Написанная в том же 1911 году драма-феерия о любви лесной мавки и деревенского парня-свирельщика, где природа живёт своей волшебной жизнью."
+        },
+        {
+          "title": "В воскресенье рано зелье копала",
+          "author": "Ольга Кобылянская",
+          "why": "Гуцульская трагедия любви, сотканная из народной песни, ревности и колдовства."
+        },
+        {
+          "title": "Олеся",
+          "author": "Александр Куприн",
+          "why": "Любовь к полесской лесной «колдунье», где природа и народные поверья сильнее человеческих законов."
+        },
+        {
+          "title": "Вечера на хуторе близ Диканьки",
+          "author": "Николай Гоголь",
+          "why": "Украинская народная демонология и удивительные истории людей, которых сбивает с пути нечистая сила."
+        },
+        {
+          "title": "Грозовой перевал",
+          "author": "Эмили Бронте",
+          "why": "Страстная любовь, не угасающая даже после смерти, на фоне суровой и дикой природы."
+        }
+      ],
+      "film": {
+        "title": "Тени забытых предков: песня Ивана и Марички",
+        "intro": "Ты открываешь книгу — и слышишь, как где-то в горах протяжно отзывается трембита. Пахнет еловой смолой и дымом ватры, а внизу шумит Черемош.",
+        "outro": "Трембиты смолкают, и страницы смыкаются, как еловые ветви за твоей спиной. Но в лесу ещё долго звенит тихая мелодия флояры.",
+        "scenes": [
+          {
+            "title": "Кровь на празднике",
+            "narration": "Ты стоишь у деревянной церкви среди праздничной толпы в пёстрых вышитых кептарях. Двое детей из враждующих родов впервые смотрят друг на друга, а за их спинами уже сверкают топорики: старые враги сцепились в смертельной драке.",
+            "line": {
+              "text": "На, Иванко, возьми конфету."
+            }
+          },
+          {
+            "title": "Коломыйки на склоне",
+            "narration": "Ты сидишь на зелёном склоне, где пасётся скот и пахнет чабрецом. Иван играет на флояре, а Маричка на ходу сочиняет коломыйки, и их смех эхом отзывается среди елей.",
+            "line": {
+              "text": "Никто не поёт коломыйки так, как ты, Маричка."
+            }
+          },
+          {
+            "title": "Ватра на полонине",
+            "narration": "Ты стоишь на высокой полонине под звёздным небом, где пастухи стерегут живую ватру. Иван смотрит в пламя и думает о Маричке, а из долины уже летит весть, которая расколет его жизнь надвое.",
+            "line": null
+          },
+          {
+            "title": "Юрьево утро",
+            "narration": "Ты стоишь в туманном поле на рассвете Юрьева дня, роса ещё не высохла. Палагна шепчет древние заговоры, чтобы уберечь скот, а из тумана выходит мольфар Юра, чьё слово слушаются даже тучи.",
+            "line": null
+          },
+          {
+            "title": "Пляска Чугайстера",
+            "narration": "Ты стоишь в тёмном еловом лесу, где из-за стволов выходит косматый великан Чугайстер. Он просит Ивана сыграть, и под звуки флояры лесной дух пускается в такой бешеный пляс, что шумят ветви.",
+            "line": {
+              "text": "Сыграй-ка мне, человече, — хочу поплясать!"
+            }
+          },
+          {
+            "title": "Голос Марички",
+            "narration": "Ты идёшь ночными горами сквозь густой туман, и впереди между скалами мелькает знакомая фигура. Иван бежит на голос любимой, не замечая пропасти, — но Маричка ли это?",
+            "line": {
+              "text": "Иванко, иди ко мне — я здесь, я жду!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "ivan": {
+          "name": "Иван Палийчук",
+          "traits": [
+            "мечтательный",
+            "верный",
+            "чуткий",
+            "одинокий"
+          ],
+          "description": "Гуцульский парень, девятнадцатый ребёнок в семье, с детства слышащий язык леса и чудесно играющий на флояре. Он любит Маричку с детства вопреки вражде родов, и её гибель ломает ему жизнь. После женитьбы на Палагне он живёт словно тенью, пока голос нявки в облике любимой не уводит его навстречу смерти."
+        },
+        "marichka": {
+          "name": "Маричка Гутенюк",
+          "traits": [
+            "нежная",
+            "певучая",
+            "преданная",
+            "жизнерадостная"
+          ],
+          "description": "Дочь враждебного рода Гутенюков, с которой Иван дружит с детства. Весёлая и певучая, она сочиняет коломыйки лучше всех и любит Ивана всем сердцем. Пока он на полонине, она гибнет в волнах Черемоша, но навсегда остаётся в его памяти — и в лесных мороках."
+        },
+        "palahna": {
+          "name": "Палагна",
+          "traits": [
+            "красивая",
+            "бойкая",
+            "практичная",
+            "страстная"
+          ],
+          "description": "Жена Ивана, хозяйка с огнём в крови, которая хочет простого земного счастья. Не найдя у мужа ни тепла, ни внимания, она на Юрьев день встречает мольфара Юру и становится его любовницей. Её приземлённость резко контрастирует с миром грёз и воспоминаний, в котором живёт Иван."
+        },
+        "yura": {
+          "name": "Юра-мольфар",
+          "traits": [
+            "властный",
+            "загадочный",
+            "сильный",
+            "коварный"
+          ],
+          "description": "Известный мольфар, знающий чары: он лечит людей и умеет отводить от сёл градовые тучи. Он становится любовником Палагны и соперником Ивана. В нём воплощена тёмная колдовская сила гуцульского мира."
+        },
+        "chuhaister": {
+          "name": "Чугайстер",
+          "traits": [
+            "косматый",
+            "добродушный",
+            "весёлый",
+            "дикий"
+          ],
+          "description": "Лесной дух, могучий и поросший шерстью, который охотится на нявок и не обижает людей. Встретив Ивана, он просит сыграть и неистово пляшет под флояру. Эта встреча — одна из самых волшебных сцен повести, где миф становится явью."
+        },
+        "nyavka": {
+          "name": "Нявка",
+          "traits": [
+            "обольстительная",
+            "призрачная",
+            "коварная"
+          ],
+          "description": "Лесная дева-дух, которая принимает облик Марички и зовёт Ивана её голосом. Она ведёт его ночными горами над обрывами, чтобы погубить, и становится предвестницей его смерти."
+        },
+        "huteniuk": {
+          "name": "Старый Гутенюк",
+          "traits": [
+            "вспыльчивый",
+            "мстительный",
+            "грозный"
+          ],
+          "description": "Отец Марички и глава рода Гутенюков, давних врагов Палийчуков. На храмовом празднике он в драке убивает отца Ивана, и эта кровь ещё глубже разделяет две семьи."
+        },
+        "paliichuk": {
+          "name": "Старый Палийчук",
+          "traits": [
+            "гордый",
+            "горячий",
+            "отважный"
+          ],
+          "description": "Отец Ивана и глава рода Палийчуков, который гибнет от топорика Гутенюка в праздничной драке. Его смерть оставляет семью без хозяина, а маленький Иван навсегда запоминает тот день."
+        }
+      }
+    },
+    "uk": {
+      "title": "Тіні забутих предків",
+      "originalTitle": "Тіні забутих предків",
+      "author": "Михайло Коцюбинський",
+      "genre": "Неоромантична повість",
+      "tagline": "Кохання, сильніше за ворожнечу родів і саму смерть, — серед гір, трембіт і лісових духів Гуцульщини.",
+      "summary": [
+        "Іван був дев’ятнадцятою дитиною в гуцульській родині Палійчуків. Немовлям він так безупинно плакав, що мати боялася, чи не підмінила його лиха сила. Хлопчик ріс дивним і мовчазним: міг довго вдивлятися в одну точку, блукав сам у лісі й слухав, як говорить усе живе довкола. Карпати для нього сповнені таємних сил: у скелях і хащах чатує нечисть, у лісі водяться нявки, а над усім шумить бистрий Черемош. Рано Іван навчився грати на флояру — і мелодії його звучали так, ніби їх підказав сам ліс.",
+        "Між Палійчуками й Гутенюками здавна точилася ворожнеча, причини якої вже ніхто не пам’ятав. Якось на храмовому святі між родами знялася бійка, і старий Гутенюк розтяв топірцем голову Іванового батька. Того ж дня малий Іван уперше зустрів Марічку — доньку ворожого роду. Дівчинка пригостила його цукеркою, і діти, ще не тямлячи, яка прірва лежить між їхніми родинами, потоваришували. Попри кров, що розділила Палійчуків і Гутенюків, ця дружба з роками переросла в кохання.",
+        "Іван і Марічка разом пасли маржину на гірських схилах, перегукувалися через потоки й ховалися від усього світу серед смерек. Він грав на флояру, а вона складала коломийки — швидше й краще за всіх у селі. Підлітками вони зрозуміли, що не можуть жити одне без одного. Та між ними стояла ворожнеча родів, а Іван був бідний. Щоб заробити на господарство й весілля, він найнявся на ціле літо вівчарем на далеку полонину. Прощаючись, закохані обіцяли одне одному, що восени будуть разом.",
+        "На полонині життя плинуло за давнім звичаєм: вівчарі берегли живу ватру, добуту тертям дерева, доїли овець і вслухалися в голоси гір. Іван тужив і чекав осені. Аж ось прийшла страшна звістка: Марічка втонула в Черемоші. Безжальна ріка забрала в нього кохану. Горе вибило Івана з життя: роками він блукав, мов тінь, обдертий і байдужий до всього, і люди вже думали, що він пропав. Та одного дня він ніби прокинувся й вирішив жити, як усі.",
+        "Іван оженився з Палагною — вродливою, жвавою й господарною жінкою. Хата стала повною чашею, але кохання в ній не було: серце Івана й далі належало Марічці. Палагні було самотньо й нудно. Навесні, на Юрія, вона на світанку вийшла в поле чарувати, щоб уберегти маржину від лиха, — і зустріла мольфара Юру, що вмів заклинати грозові хмари й відвертати град. Невдовзі Палагна стала його коханкою, а між Іваном і Юрою зародилася глуха ворожнеча.",
+        "Якось у лісі Іван стрів Чугайстира — лісового духа, що полює на нявок, — і заграв йому на флояру, а той пустився в шалений танець. Невдовзі, вночі на полонині, Іван почув голос Марічки й побачив її між деревами. Він ішов за нею крізь ліси й скелі, доки видіння не зникло: то була нявка, що прибрала образ коханої. Через кілька днів вівчарі знайшли Івана над урвищем, знесиленого й подертого, і невдовзі він помер. Над ним заридали трембіти, а біля тіла, за давнім звичаєм, сусіди жартували й бавилися в прадавні ігри."
+      ],
+      "themes": [
+        "Кохання, сильніше за смерть",
+        "Людина і природа",
+        "Гуцульські вірування та міфологія",
+        "Ворожнеча родів",
+        "Пам’ять і самотність"
+      ],
+      "terms": [
+        {
+          "term": "Гуцули",
+          "definition": "Український гірський народ Карпат зі своєю говіркою, вбранням, обрядами й світом вірувань, у якому живуть герої повісті."
+        },
+        {
+          "term": "Полонина",
+          "definition": "Високогірне пасовище в Карпатах, куди на ціле літо виганяють овець і худобу; там вівчарі живуть за давніми звичаями."
+        },
+        {
+          "term": "Жива ватра",
+          "definition": "Священний вогонь на полонині, добутий тертям дерева. Йому не дають згаснути до кінця літа, бо він береже від лихого."
+        },
+        {
+          "term": "Трембіта",
+          "definition": "Довга, до трьох метрів, дерев’яна гуцульська труба. Її голос сповіщає в горах про радість, біду й смерть."
+        },
+        {
+          "term": "Флояра",
+          "definition": "Гуцульська дерев’яна сопілка, на якій грає Іван; її мелодії ніби розмовляють із лісом."
+        },
+        {
+          "term": "Коломийка",
+          "definition": "Коротка жартівлива чи сумна пісенька, яку співають і складають просто на ходу; найкраще їх вигадувала Марічка."
+        },
+        {
+          "term": "Мольфар",
+          "definition": "Гуцульський чаклун, що знає замовляння: він лікує, насилає чари й уміє відвертати град і бурю."
+        },
+        {
+          "term": "Нявка",
+          "definition": "Лісова дівчина-дух, гарна спереду, але з порожньою, ніби видовбаною спиною. Вона заманює чоловіків на погибель."
+        },
+        {
+          "term": "Чугайстир",
+          "definition": "Лісовий велетень, порослий шерстю, — добрий до людей ворог нявок, який страшенно любить танцювати."
+        },
+        {
+          "term": "Черемош",
+          "definition": "Бурхлива гірська ріка Гуцульщини, у хвилях якої загинула Марічка."
+        },
+        {
+          "term": "Топірець (бартка)",
+          "definition": "Гуцульська сокирка на довгому держаку — водночас палиця, оздоба й зброя; нею старий Гутенюк убиває Іванового батька."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Лісова пісня",
+          "author": "Леся Українка",
+          "why": "Написана того ж 1911 року драма-феєрія про кохання лісової мавки й сільського хлопця-сопілкаря, де природа живе власним чарівним життям."
+        },
+        {
+          "title": "В неділю рано зілля копала",
+          "author": "Ольга Кобилянська",
+          "why": "Гуцульська трагедія кохання, зіткана з народної пісні, ревнощів і чарів."
+        },
+        {
+          "title": "Олеся",
+          "author": "Олександр Купрін",
+          "why": "Кохання до поліської лісової «відьми», де природа й народні вірування сильніші за людські закони."
+        },
+        {
+          "title": "Вечори на хуторі біля Диканьки",
+          "author": "Микола Гоголь",
+          "why": "Українська народна демонологія й дивовижні історії людей, яких збиває з дороги нечиста сила."
+        },
+        {
+          "title": "Буремний перевал",
+          "author": "Емілі Бронте",
+          "why": "Пристрасне кохання, що не згасає навіть після смерті, на тлі суворої й дикої природи."
+        }
+      ],
+      "film": {
+        "title": "Тіні забутих предків: пісня Івана й Марічки",
+        "intro": "Ти розгортаєш книжку — і чуєш, як десь у горах протяжно озивається трембіта. Пахне смерековою живицею й димом ватри, а внизу шумить Черемош.",
+        "outro": "Трембіти замовкають, і сторінки стуляються, мов смерекове гілля за твоєю спиною. Та в лісі ще довго бринить тиха мелодія флояри.",
+        "scenes": [
+          {
+            "title": "Кров на храмовому святі",
+            "narration": "Ти стоїш біля дерев’яної церкви серед святкового натовпу в барвистих вишитих кептарях. Двоє дітей із ворожих родів уперше дивляться одне на одного, а за їхніми спинами вже зблискують топірці: старі вороги зчепилися в смертельній бійці.",
+            "line": {
+              "text": "На, Іванку, візьми цукерку."
+            }
+          },
+          {
+            "title": "Коломийки на схилі",
+            "narration": "Ти сидиш на зеленому схилі, де пасеться маржина й пахне чебрецем. Іван грає на флояру, а Марічка на ходу складає коломийки, і їхній сміх відлунює між смереками.",
+            "line": {
+              "text": "Ніхто не співає коломийок так, як ти, Марічко."
+            }
+          },
+          {
+            "title": "Ватра на полонині",
+            "narration": "Ти стоїш на високій полонині під зоряним небом, де вівчарі стережуть живу ватру. Іван дивиться в полум’я й думає про Марічку, а з долини вже летить звістка, що розітне його життя навпіл.",
+            "line": null
+          },
+          {
+            "title": "Юріїв ранок",
+            "narration": "Ти стоїш у туманному полі на світанку Юрієвого дня, роса ще не висохла. Палагна шепоче давні замовляння, щоб уберегти маржину, а з туману виходить мольфар Юра, чиє слово слухають навіть хмари.",
+            "line": null
+          },
+          {
+            "title": "Танець Чугайстира",
+            "narration": "Ти стоїш у темному смерековому лісі, де з-за стовбурів виходить волохатий велетень Чугайстир. Він просить Івана заграти, і під звуки флояри лісовий дух пускається в такий шалений танець, що аж гілля шумить.",
+            "line": {
+              "text": "Заграй-но мені, чоловіче, — хочу потанцювати!"
+            }
+          },
+          {
+            "title": "Голос Марічки",
+            "narration": "Ти йдеш нічними горами крізь густий туман, і попереду між скелями майорить знайома постать. Іван біжить на голос коханої, не бачачи прірви, — та чи справді це Марічка?",
+            "line": {
+              "text": "Іванку, йди до мене — я тут, я чекаю!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "ivan": {
+          "name": "Іван Палійчук",
+          "traits": [
+            "мрійливий",
+            "вірний",
+            "чутливий",
+            "самотній"
+          ],
+          "description": "Гуцульський хлопець, дев’ятнадцята дитина в родині, що змалку чує мову лісу й чудово грає на флояру. Він кохає Марічку з дитинства попри ворожнечу родів, і її загибель ламає йому життя. Після шлюбу з Палагною він живе ніби тінню, доки голос нявки в образі коханої не веде його назустріч смерті."
+        },
+        "marichka": {
+          "name": "Марічка Гутенюк",
+          "traits": [
+            "ніжна",
+            "співоча",
+            "віддана",
+            "життєрадісна"
+          ],
+          "description": "Донька ворожого роду Гутенюків, з якою Іван дружить із дитинства. Весела й співоча, вона складає коломийки краще за всіх і кохає Івана всім серцем. Поки він на полонині, вона гине в хвилях Черемошу, але назавжди лишається в його пам’яті — і в лісових маревах."
+        },
+        "palahna": {
+          "name": "Палагна",
+          "traits": [
+            "вродлива",
+            "жвава",
+            "практична",
+            "пристрасна"
+          ],
+          "description": "Іванова дружина, господиня з вогнем у крові, яка прагне простого земного щастя. Не знайшовши в чоловіка ні тепла, ні уваги, вона на Юрія зустрічає мольфара Юру й стає його коханкою. Її приземленість різко контрастує зі світом мрій і спогадів, у якому живе Іван."
+        },
+        "yura": {
+          "name": "Юра-мольфар",
+          "traits": [
+            "владний",
+            "таємничий",
+            "сильний",
+            "підступний"
+          ],
+          "description": "Знаний мольфар, що знається на чарах: він лікує людей і вміє відвертати від сіл градові хмари. Він стає коханцем Палагни й Івановим суперником. У ньому втілено темну, чаклунську силу гуцульського світу."
+        },
+        "chuhaister": {
+          "name": "Чугайстир",
+          "traits": [
+            "волохатий",
+            "добродушний",
+            "веселий",
+            "дикий"
+          ],
+          "description": "Лісовий дух, могутній і порослий шерстю, що полює на нявок і не кривдить людей. Зустрівши Івана, він просить заграти й шалено танцює під флояру. Ця зустріч — одна з найчарівніших сцен повісті, де міф стає дійсністю."
+        },
+        "nyavka": {
+          "name": "Нявка",
+          "traits": [
+            "звабна",
+            "примарна",
+            "підступна"
+          ],
+          "description": "Лісова дівчина-дух, яка прибирає образ Марічки й кличе Івана її голосом. Вона веде його нічними горами над урвищами, щоб занапастити, і стає провісницею його смерті."
+        },
+        "huteniuk": {
+          "name": "Старий Гутенюк",
+          "traits": [
+            "запальний",
+            "мстивий",
+            "грізний"
+          ],
+          "description": "Батько Марічки й голова роду Гутенюків, давніх ворогів Палійчуків. На храмовому святі він у бійці вбиває Іванового батька, і ця кров ще глибше розділяє дві родини."
+        },
+        "paliichuk": {
+          "name": "Старий Палійчук",
+          "traits": [
+            "гордий",
+            "гарячий",
+            "відважний"
+          ],
+          "description": "Іванів батько й голова роду Палійчуків, який гине від Гутенюкового топірця у святковій бійці. Його смерть лишає родину без господаря, а малий Іван навіки запам’ятовує той день."
+        }
+      }
+    },
+    "en": {
+      "title": "Shadows of Forgotten Ancestors",
+      "originalTitle": "Тіні забутих предків",
+      "author": "Mykhailo Kotsiubynsky",
+      "genre": "Neo-romantic novella",
+      "tagline": "A love stronger than a blood feud and death itself, among the trembitas and forest spirits of the Carpathians.",
+      "summary": [
+        "Ivan was the nineteenth child of the Paliichuks, a Hutsul family in the Carpathian Mountains. As a baby he cried so endlessly that his mother feared some evil power had swapped her child for another. He grew up strange and silent, staring into the distance, wandering alone in the forest and listening to everything alive around him. For him the mountains teem with hidden powers: evil spirits lurk among the rocks and thickets, nyavkas haunt the woods, and over it all roars the swift Cheremosh. Early on Ivan learned to play the floyara, and his tunes sounded as if the forest itself had taught them.",
+        "The Paliichuks and the Huteniuks had been feuding for so long that no one remembered why. One church holiday a brawl broke out between the clans, and old Huteniuk split the head of Ivan’s father with his hatchet. That same day little Ivan first met Marichka, a daughter of the enemy clan. She treated him to a candy, and the children, not yet grasping the chasm between their families, became friends. Despite the blood that divided the Paliichuks and the Huteniuks, that friendship grew into love over the years.",
+        "Ivan and Marichka herded cattle together on the mountain slopes, called to each other across the streams and hid from the whole world among the firs. He played the floyara, while she made up kolomyikas faster and better than anyone in the village. As teenagers they realised they could not live without each other. But the feud stood between them, and Ivan was poor. To earn money for a household and a wedding, he hired himself out for the whole summer as a shepherd on a distant polonyna. Parting, the lovers promised to be together by autumn.",
+        "On the polonyna life followed ancient custom: the shepherds guarded the living fire kindled by rubbing wood, milked the sheep and listened to the voices of the mountains. Ivan pined and waited for autumn. Then terrible news came: Marichka had drowned in the Cheremosh. The merciless river had taken his beloved. Grief knocked Ivan out of life: for years he wandered like a shadow, ragged and indifferent to everything, until people thought he was lost for good. Then one day he seemed to wake up and decided to live like everyone else.",
+        "Ivan married Palahna, a handsome, lively and capable woman. Their home was prosperous, but there was no love in it: Ivan’s heart still belonged to Marichka. Palahna grew lonely and bored. One spring, on St George’s Day, she went out into the fields at dawn to work old charms that would protect the cattle from harm — and met Yura the molfar, a sorcerer who could command storm clouds and turn away hail. Soon Palahna became his lover, and a silent enmity grew between Ivan and Yura.",
+        "One day in the forest Ivan met the Chuhaister, a forest spirit who hunts nyavkas, and played the floyara for him while the creature broke into a wild dance. Soon after, at night on the polonyna, Ivan heard Marichka’s voice and saw her among the trees. He followed her through forests and over rocks until the vision vanished: it was a nyavka that had taken his beloved’s shape. Days later shepherds found Ivan at the edge of a ravine, exhausted and torn, and soon he died. Trembitas wailed over him, and beside his body neighbours joked and played the old games of a Hutsul wake."
+      ],
+      "themes": [
+        "Love stronger than death",
+        "Humanity and nature",
+        "Hutsul beliefs and myth",
+        "The blood feud",
+        "Memory and loneliness"
+      ],
+      "terms": [
+        {
+          "term": "Hutsuls",
+          "definition": "A Ukrainian highland people of the Carpathians with their own dialect, dress, rituals and world of beliefs, in which the novella’s heroes live."
+        },
+        {
+          "term": "Polonyna",
+          "definition": "A high mountain pasture in the Carpathians where sheep and cattle are driven for the whole summer; the shepherds there live by ancient customs."
+        },
+        {
+          "term": "Living fire (vatra)",
+          "definition": "The sacred fire on the polonyna, kindled by rubbing wood together. It must not go out until summer’s end, for it guards against evil."
+        },
+        {
+          "term": "Trembita",
+          "definition": "A wooden Hutsul horn up to three metres long. Its voice carries news of joy, trouble and death across the mountains."
+        },
+        {
+          "term": "Floyara",
+          "definition": "A wooden Hutsul shepherd’s flute, Ivan’s instrument; its tunes seem to converse with the forest."
+        },
+        {
+          "term": "Kolomyika",
+          "definition": "A short, witty or sad folk song improvised on the spot; Marichka made them up better than anyone."
+        },
+        {
+          "term": "Molfar",
+          "definition": "A Hutsul sorcerer who knows spells: he heals, casts charms and can turn away hail and storms."
+        },
+        {
+          "term": "Nyavka",
+          "definition": "A forest maiden-spirit, beautiful from the front but with a hollow back. She lures men to their doom."
+        },
+        {
+          "term": "Chuhaister",
+          "definition": "A shaggy forest giant who is kind to people, hunts nyavkas and loves nothing more than dancing."
+        },
+        {
+          "term": "Cheremosh",
+          "definition": "The wild mountain river of the Hutsul region, in whose waters Marichka drowns."
+        },
+        {
+          "term": "Hatchet (bartka)",
+          "definition": "A Hutsul axe on a long handle — walking stick, ornament and weapon at once; with it old Huteniuk kills Ivan’s father."
+        }
+      ],
+      "similar": [
+        {
+          "title": "The Forest Song",
+          "author": "Lesya Ukrainka",
+          "why": "Written in the same year, 1911, this fairy-tale drama about a forest nymph who loves a village piper lets nature live its own magical life."
+        },
+        {
+          "title": "On Sunday Morning She Gathered Herbs",
+          "author": "Olha Kobylianska",
+          "why": "A Hutsul love tragedy woven from folk song, jealousy and witchcraft."
+        },
+        {
+          "title": "Olesya",
+          "author": "Alexander Kuprin",
+          "why": "A love for a forest “witch” in Polissia, where nature and folk belief are stronger than human law."
+        },
+        {
+          "title": "Evenings on a Farm Near Dikanka",
+          "author": "Nikolai Gogol",
+          "why": "Ukrainian folk demonology and marvellous tales of people led astray by unclean spirits."
+        },
+        {
+          "title": "Wuthering Heights",
+          "author": "Emily Brontë",
+          "why": "A passionate love that does not fade even after death, set against wild and unforgiving nature."
+        }
+      ],
+      "film": {
+        "title": "Shadows of Forgotten Ancestors: the song of Ivan and Marichka",
+        "intro": "You open the book and hear a trembita calling far away in the mountains. The air smells of fir resin and campfire smoke, and the Cheremosh roars below.",
+        "outro": "The trembitas fall silent and the pages close like fir branches behind you. Yet the soft tune of a floyara lingers in the forest for a long, long time.",
+        "scenes": [
+          {
+            "title": "Blood on a Holy Day",
+            "narration": "You stand by a wooden church among a holiday crowd in bright embroidered sheepskins. Two children from feuding clans look at each other for the first time, while behind them hatchets flash: the old enemies are locked in a deadly fight.",
+            "line": {
+              "text": "Here, Ivan — have a candy."
+            }
+          },
+          {
+            "title": "Kolomyikas on the Slope",
+            "narration": "You sit on a green slope where cattle graze and the air smells of wild thyme. Ivan plays his floyara while Marichka makes up kolomyikas as she goes, and their laughter echoes among the firs.",
+            "line": {
+              "text": "No one sings kolomyikas the way you do, Marichka."
+            }
+          },
+          {
+            "title": "Fire on the Polonyna",
+            "narration": "You stand on a high mountain pasture under a starry sky, where shepherds guard the living fire. Ivan gazes into the flames and thinks of Marichka, but news that will break his life in two is already on its way up from the valley.",
+            "line": null
+          },
+          {
+            "title": "St George’s Morning",
+            "narration": "You stand in a misty field at dawn on St George’s Day, the dew still wet on the grass. Palahna whispers ancient charms to protect the cattle, and out of the fog steps Yura the molfar, whose word even the clouds obey.",
+            "line": null
+          },
+          {
+            "title": "The Chuhaister’s Dance",
+            "narration": "You stand in a dark fir forest as a shaggy giant, the Chuhaister, steps out from between the trunks. He asks Ivan to play, and to the floyara’s tune the forest spirit breaks into a dance so wild that the branches roar.",
+            "line": {
+              "text": "Play for me, man — I’ve a mind to dance!"
+            }
+          },
+          {
+            "title": "Marichka’s Voice",
+            "narration": "You walk through the night mountains wrapped in thick fog, and ahead, among the rocks, a familiar figure flickers. Ivan runs toward his beloved’s voice without seeing the abyss — but is it really Marichka?",
+            "line": {
+              "text": "Ivan, come to me — I’m here, I’m waiting!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "ivan": {
+          "name": "Ivan Paliichuk",
+          "traits": [
+            "dreamy",
+            "faithful",
+            "sensitive",
+            "lonely"
+          ],
+          "description": "A Hutsul youth, the nineteenth child in his family, who hears the language of the forest from childhood and plays the floyara beautifully. He loves Marichka from boyhood despite the feud between their clans, and her death breaks his life. Married to Palahna, he lives like a shadow until a nyavka’s voice in his beloved’s likeness lures him toward death."
+        },
+        "marichka": {
+          "name": "Marichka Huteniuk",
+          "traits": [
+            "tender",
+            "songful",
+            "devoted",
+            "joyful"
+          ],
+          "description": "A daughter of the enemy Huteniuk clan and Ivan’s friend since childhood. Merry and full of songs, she makes up kolomyikas better than anyone and loves Ivan with all her heart. While he is away on the polonyna she drowns in the Cheremosh, yet she lives on forever in his memory — and in the forest’s illusions."
+        },
+        "palahna": {
+          "name": "Palahna",
+          "traits": [
+            "handsome",
+            "lively",
+            "practical",
+            "passionate"
+          ],
+          "description": "Ivan’s wife, a fiery, capable housewife who wants simple earthly happiness. Finding neither warmth nor attention in her husband, she meets Yura the molfar on St George’s Day and becomes his lover. Her down-to-earth nature contrasts sharply with Ivan’s world of dreams and memories."
+        },
+        "yura": {
+          "name": "Yura the Molfar",
+          "traits": [
+            "domineering",
+            "mysterious",
+            "powerful",
+            "sly"
+          ],
+          "description": "A renowned molfar versed in magic, who heals people and can turn hail clouds away from the villages. He becomes Palahna’s lover and Ivan’s rival. He embodies the dark, sorcerous power of the Hutsul world."
+        },
+        "chuhaister": {
+          "name": "Chuhaister",
+          "traits": [
+            "shaggy",
+            "good-natured",
+            "merry",
+            "wild"
+          ],
+          "description": "A mighty forest spirit covered in fur, who hunts nyavkas and does no harm to people. Meeting Ivan, he asks him to play and dances wildly to the floyara. This encounter is one of the most magical scenes in the novella, where myth becomes reality."
+        },
+        "nyavka": {
+          "name": "Nyavka",
+          "traits": [
+            "alluring",
+            "ghostly",
+            "treacherous"
+          ],
+          "description": "A forest maiden-spirit who takes on Marichka’s likeness and calls Ivan with her voice. She leads him through the night mountains along the edges of cliffs to destroy him, and becomes the herald of his death."
+        },
+        "huteniuk": {
+          "name": "Old Huteniuk",
+          "traits": [
+            "hot-tempered",
+            "vengeful",
+            "fearsome"
+          ],
+          "description": "Marichka’s father and head of the Huteniuk clan, long-time enemies of the Paliichuks. At a church holiday he kills Ivan’s father in a brawl, and that blood divides the two families even more deeply."
+        },
+        "paliichuk": {
+          "name": "Old Paliichuk",
+          "traits": [
+            "proud",
+            "fiery",
+            "bold"
+          ],
+          "description": "Ivan’s father and head of the Paliichuk clan, who dies from Huteniuk’s hatchet in the holiday brawl. His death leaves the family without its master, and little Ivan remembers that day forever."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "ivan",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "slim",
+        "skin": "#e6b48c",
+        "hair": {
+          "style": "short",
+          "color": "#2a1c14"
+        },
+        "facialHair": "none",
+        "eyes": "#4a3424",
+        "top": {
+          "kind": "vest",
+          "color": "#b0662c",
+          "accent": "#f2ead8",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#b4282a"
+        },
+        "shoes": "#6a4426",
+        "headwear": "feather_hat",
+        "headwearColor": "#22201e",
+        "accessory": "none",
+        "accessoryColor": "#c9a050",
+        "holding": "staff"
+      },
+      "portraitPrompt": "A lean young Hutsul shepherd with dark hair and dreamy brown eyes, wearing a black felt hat trimmed with bright feathers and beads, an embroidered sheepskin keptar vest over a white linen shirt, red woollen trousers and leather moccasins, holding a long wooden shepherd’s flute."
+    },
+    {
+      "id": "marichka",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f2c9a6",
+        "hair": {
+          "style": "braids",
+          "color": "#2e1d12"
+        },
+        "facialHair": "none",
+        "eyes": "#4a2e1c",
+        "top": {
+          "kind": "shirt",
+          "color": "#f6f0e2",
+          "accent": "#c3272b",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#c8402a"
+        },
+        "shoes": "#6a4426",
+        "headwear": "flower_wreath",
+        "headwearColor": "#e2453a",
+        "accessory": "necklace",
+        "accessoryColor": "#d8323a",
+        "holding": "flower"
+      },
+      "portraitPrompt": "A cheerful Hutsul girl with long dark braids and a wreath of red and yellow mountain flowers, wearing a white linen blouse with rich red-and-black embroidery, a striped red-orange woven wrap skirt and strings of red coral beads, holding a sprig of wildflowers."
+    },
+    {
+      "id": "palahna",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "adult",
+        "build": "average",
+        "skin": "#efc3a0",
+        "hair": {
+          "style": "bun",
+          "color": "#3a2216"
+        },
+        "facialHair": "none",
+        "eyes": "#2a1c14",
+        "top": {
+          "kind": "vest",
+          "color": "#7a3a1e",
+          "accent": "#f4ece0",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#2a3a6a"
+        },
+        "shoes": "#4a2e1c",
+        "headwear": "headscarf",
+        "headwearColor": "#c2302a",
+        "accessory": "necklace",
+        "accessoryColor": "#e2b84a",
+        "holding": "basket"
+      },
+      "portraitPrompt": "A handsome, full-figured Hutsul woman with lively dark eyes and rosy cheeks, wearing a bright red headscarf, an embroidered sheepskin keptar over a white blouse, a dark woven wrap skirt and a necklace of gleaming brass coins, carrying a wicker basket."
+    },
+    {
+      "id": "yura",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#d9a47e",
+        "hair": {
+          "style": "long",
+          "color": "#1a1412"
+        },
+        "facialHair": "mustache",
+        "eyes": "#2e3a2a",
+        "top": {
+          "kind": "coat",
+          "color": "#3a2a22",
+          "accent": "#c0392b",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#2a2420"
+        },
+        "shoes": "#3a2618",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "cape",
+        "accessoryColor": "#4a1c1a",
+        "holding": "pipe"
+      },
+      "portraitPrompt": "A powerful, broad-shouldered Hutsul sorcerer with long black hair, a thick drooping moustache and piercing dark eyes, wearing a dark brown woollen coat with red embroidered trim and a black cloak, holding a carved clay pipe."
+    },
+    {
+      "id": "chuhaister",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "tall",
+        "skin": "#c8a07a",
+        "hair": {
+          "style": "messy",
+          "color": "#9a7a56"
+        },
+        "facialHair": "long_beard",
+        "eyes": "#6a8a3a",
+        "top": {
+          "kind": "tunic",
+          "color": "#6e5238",
+          "accent": "#a8885e",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#5e4630"
+        },
+        "shoes": "#4a3a2a",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A towering, kindly forest giant covered head to toe in shaggy brown fur, with a long tangled beard, mossy twigs caught in his hair and bright green eyes, caught mid-dance with his arms flung wide."
+    },
+    {
+      "id": "nyavka",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f4e4da",
+        "hair": {
+          "style": "long",
+          "color": "#3a2a20"
+        },
+        "facialHair": "none",
+        "eyes": "#6a9a7a",
+        "top": {
+          "kind": "dress",
+          "color": "#e8efe4",
+          "accent": "#8ab88a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#dfe8da"
+        },
+        "shoes": "#f4e4da",
+        "headwear": "flower_wreath",
+        "headwearColor": "#f2f0e6",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "flower"
+      },
+      "portraitPrompt": "A pale, ethereal forest maiden with long loose dark hair crowned with white wildflowers, wearing a flowing white linen dress embroidered with faint green leaves, barefoot, with a sad, beckoning smile, half-hidden among misty fir trees."
+    },
+    {
+      "id": "huteniuk",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "broad",
+        "skin": "#d8a07a",
+        "hair": {
+          "style": "long",
+          "color": "#8a847c"
+        },
+        "facialHair": "mustache",
+        "eyes": "#3a2a20",
+        "top": {
+          "kind": "coat",
+          "color": "#5a2a1e",
+          "accent": "#e0c890",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#9a2a24"
+        },
+        "shoes": "#3a2618",
+        "headwear": "feather_hat",
+        "headwearColor": "#1e1c1a",
+        "accessory": "none",
+        "accessoryColor": "#c9a050",
+        "holding": "staff"
+      },
+      "portraitPrompt": "A grim, heavy-set old Hutsul man with grey shoulder-length hair and a long drooping moustache, wearing a black felt hat, a dark red embroidered woollen coat and red trousers, gripping a long-handled Hutsul hatchet."
+    },
+    {
+      "id": "paliichuk",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "average",
+        "skin": "#e0aa84",
+        "hair": {
+          "style": "long",
+          "color": "#3a2a1e"
+        },
+        "facialHair": "mustache",
+        "eyes": "#4a3424",
+        "top": {
+          "kind": "vest",
+          "color": "#8a5a2e",
+          "accent": "#f0e6d2",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#a8302a"
+        },
+        "shoes": "#5a3a22",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A proud middle-aged Hutsul man with dark shoulder-length hair and a bushy moustache, wearing a brown sheepskin keptar richly embroidered in red and green over a white linen shirt and red woollen trousers."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "church",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "ivan",
+          "marichka",
+          "huteniuk",
+          "paliichuk"
+        ],
+        "props": [
+          "fence",
+          "pine",
+          "gate",
+          "bench"
+        ],
+        "action": "fight",
+        "camera": "crane",
+        "mood": "tense",
+        "line": {
+          "speaker": "marichka"
+        }
+      },
+      {
+        "setting": "meadow",
+        "time": "dusk",
+        "weather": "clear",
+        "cast": [
+          "ivan",
+          "marichka"
+        ],
+        "props": [
+          "pine",
+          "flower",
+          "fence",
+          "rock"
+        ],
+        "action": "rest",
+        "camera": "pan",
+        "mood": "romantic",
+        "line": {
+          "speaker": "ivan"
+        }
+      },
+      {
+        "setting": "mountains",
+        "time": "night",
+        "weather": "stars",
+        "cast": [
+          "ivan"
+        ],
+        "props": [
+          "fire",
+          "tent",
+          "pine",
+          "fence"
+        ],
+        "action": "sad",
+        "camera": "dolly_in",
+        "mood": "melancholic",
+        "line": null
+      },
+      {
+        "setting": "village",
+        "time": "dawn",
+        "weather": "fog",
+        "cast": [
+          "palahna",
+          "yura"
+        ],
+        "props": [
+          "house",
+          "fence",
+          "well",
+          "flower"
+        ],
+        "action": "talk",
+        "camera": "close_up",
+        "mood": "mysterious",
+        "line": null
+      },
+      {
+        "setting": "forest",
+        "time": "dusk",
+        "weather": "wind",
+        "cast": [
+          "ivan",
+          "chuhaister"
+        ],
+        "props": [
+          "pine",
+          "mushroom",
+          "rock",
+          "bush"
+        ],
+        "action": "dance",
+        "camera": "orbit",
+        "mood": "magical",
+        "line": {
+          "speaker": "chuhaister"
+        }
+      },
+      {
+        "setting": "mountains",
+        "time": "night",
+        "weather": "fog",
+        "cast": [
+          "ivan",
+          "nyavka"
+        ],
+        "props": [
+          "rock",
+          "pine",
+          "moon"
+        ],
+        "action": "chase",
+        "camera": "fly_over",
+        "mood": "melancholic",
+        "line": {
+          "speaker": "nyavka"
+        }
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: green Carpathian mountain slopes with dark fir forests at sunset, a small shepherd in an embroidered vest, red trousers and a feathered black hat playing a long wooden flute while a girl with dark braids and a red flower wreath sings beside grazing cattle; gentle pan, warm golden light, tilt-shift miniature look, no text.",
+      "Cute voxel-diorama 3D scene: a high mountain pasture at night under a sky full of stars, a wooden shepherds’ hut and a glowing campfire with sparks rising, sheep dozing inside a wooden fence and a very long wooden alpine horn leaning against a fir; slow dolly-in, cool blue moonlight mixed with warm firelight, no text.",
+      "Cute voxel-diorama 3D scene: a misty fir forest at night, a pale glowing forest-spirit girl in a white dress and flower wreath drifting between mossy rocks as a small shepherd in a feathered black hat follows her toward the edge of a cliff; slow fly-over camera, soft fog and moonbeams, mysterious mood, no text."
+    ]
+  }
+}
