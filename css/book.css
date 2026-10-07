@@ -218,7 +218,7 @@
   display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
   gap: 16px 32px; margin-bottom: clamp(22px, 3vw, 36px);
 }
-.bk-sec-titles { min-width: 0; max-width: 44em; }
+.bk-sec-titles { flex: 1 1 26em; min-width: 0; max-width: 44em; }
 .bk-eyebrow {
   display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
   font: 700 12px/1 var(--ui); letter-spacing: .16em; text-transform: uppercase; color: var(--cyan);
@@ -229,7 +229,7 @@
 .bk-h2 { font: 800 clamp(27px, 3.4vw, 44px)/1.1 var(--display); letter-spacing: -.02em; text-wrap: balance; overflow-wrap: break-word; }
 .bk-h2:focus { outline: none; }
 .bk-lead { margin-top: 12px; max-width: 40em; font-size: clamp(15.5px, 1.2vw, 17px); line-height: 1.55; color: var(--ink-2); text-wrap: pretty; }
-.bk-sec-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.bk-sec-tools { flex: 0 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 12px 16px; max-width: 100%; }
 .bk-count { font-size: 13.5px; font-weight: 500; color: var(--ink-3); white-space: nowrap; }
 
 /* reveal once when a section scrolls into view (added by JS, never with reduced motion) */
@@ -327,7 +327,7 @@
 .bk-terms.is-skel .bk-term::before { display: none; }
 
 .bk-filter {
-  display: flex; align-items: center; gap: 10px; width: min(300px, 100%); height: 46px; padding: 0 14px;
+  display: flex; align-items: center; gap: 10px; width: 300px; max-width: 100%; height: 46px; padding: 0 14px;
   border-radius: 14px; border: 1px solid var(--line-hi); background: rgba(255, 255, 255, .035); cursor: text;
   transition: border-color .2s, box-shadow .2s, background-color .2s;
 }
@@ -443,7 +443,10 @@
    ============================================================================================= */
 
 .modal.bk-modal-char { width: min(1000px, 100%); padding: 0; }
+/* sticky (not absolute) so the close button stays reachable when the dialog scrolls on phones;
+   the negative bottom margin cancels the space it would take above the content */
 .bk-modal-char .modal-close {
+  position: sticky; top: 12px; margin: 12px 12px -52px auto;
   z-index: 5; color: #fff; background: rgba(12, 16, 28, .55);
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
 }
@@ -510,6 +513,17 @@
 
 .bk-similar { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 14px; }
 .bk-similar > li { display: flex; min-width: 0; }
+/* two / three columns: an incomplete last row is shared out evenly instead of leaving a hole */
+@media (min-width: 760px) and (max-width: 1139.98px) {
+  .bk-similar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bk-similar > li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+@media (min-width: 1140px) {
+  .bk-similar { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .bk-similar > li { grid-column: span 2; }
+  .bk-similar:has(> li:first-child:nth-last-child(3n+2)) > li:nth-last-child(-n+2),
+  .bk-similar:has(> li:first-child:nth-last-child(3n+1)) > li:nth-last-child(-n+4) { grid-column: span 3; }
+}
 .bk-sim {
   position: relative; display: flex; align-items: flex-start; gap: 18px; width: 100%; padding: 18px 18px 20px;
   border-radius: 20px; border: 1px solid var(--line); text-align: left;
@@ -693,8 +707,9 @@
   margin-top: 18px; padding-bottom: 2px; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain;
 }
 .bk-scenes::-webkit-scrollbar { display: none; }
+.bk-scene-li { display: flex; min-width: 0; }
 .bk-scene {
-  position: relative; display: flex; align-items: flex-start; gap: 10px; min-height: 52px; padding: 14px 14px 13px;
+  position: relative; display: flex; align-items: flex-start; gap: 10px; width: 100%; min-height: 52px; padding: 14px 14px 13px; text-align: left; cursor: pointer;
   border-radius: 14px; border: 1px solid var(--line); background: rgba(255, 255, 255, .025);
   font-size: 13.5px; line-height: 1.35; color: var(--ink-2); transition: border-color .4s, background-color .4s, color .4s;
 }
@@ -707,6 +722,7 @@
 .bk-scene.is-current::before { opacity: 1; }
 .bk-scene.is-current .bk-scene-n { color: var(--cyan); }
 .bk-scene.is-past { color: var(--ink-3); }
+.bk-scene:not(.is-current):hover { color: #fff; border-color: var(--line-hi); background: rgba(255, 255, 255, .05); }
 
 /* premium AI video panel */
 .bk-video {
@@ -909,9 +925,10 @@
   .bk-poster-copy { width: 54%; }
   .bk-poster-title { font-size: clamp(15px, 4.6vw, 18px); }
   .bk-poster-cta { margin-top: 10px; }
-  .bk-hud-btn { width: 38px; height: 38px; border-radius: 11px; }
+  .bk-hud-btn { width: 44px; height: 44px; border-radius: 12px; }
   .bk-hud-now { display: none; }
   .bk-scene { min-width: 0; }
+  .bk-video-head { flex-direction: column; gap: 14px; }
 }
 
 @media (hover: none) {

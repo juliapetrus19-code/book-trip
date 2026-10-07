@@ -177,8 +177,8 @@ const SAMPLE = {
       description: "Одноглазая колдунья, которая правит Мигунами и видит своим глазом всю страну. Боится темноты и воды. Посылает на путников волков, ворон, пчёл и Летучих обезьян, но тает от ведра воды.",
       appearance: A({ gender: "female", age: "elder", build: "slim", skin: "#cfd9a3", hair: { style: "long", color: "#2a2430" }, eyes: "#3a2a1a",
         top: { kind: "robe", color: "#2a2433", accent: "#6a4a8a", pattern: "plain" }, bottom: { kind: "robe", color: "#2a2433" }, shoes: "#1e1a24",
-        headwear: "wizard_hat", headwearColor: "#1e1a24", accessory: "eyepatch", accessoryColor: "#111111", holding: "umbrella" }),
-      portraitPrompt: "A scowling old witch with one eye and a black eyepatch, in a dark purple robe and a tall pointed hat, clutching a black umbrella." },
+        headwear: "wizard_hat", headwearColor: "#1e1a24", accessory: "eyepatch", accessoryColor: "#111111", holding: "staff" }),
+      portraitPrompt: "A scowling old witch with one eye and a black eyepatch, in a dark purple robe and a tall pointed hat, leaning on a gnarled staff." },
     { id: "mouse-queen", role: "minor", name: "Королева полевых мышей", traits: ["благодарная", "мудрая", "решительная"],
       description: "Крошечная правительница, которую Дровосек спасает от дикой кошки. В ответ её подданные вытаскивают спящего Льва из макового поля.",
       appearance: A({ creature: "mouse", gender: "female", build: "small", skin: "#b8b0a6", hair: { style: "none", color: "#b8b0a6" }, eyes: "#1a1410",
@@ -232,6 +232,9 @@ const ERR = {
 
 let book = SAMPLE;
 if (params.has("demo")) {
+  // js/api.js fetches "data/…" relative to the site root (index.html); this page lives in /dev/
+  const rawFetch = window.fetch.bind(window);
+  window.fetch = (url, init) => rawFetch(typeof url === "string" && url.startsWith("data/") ? `../${url}` : url, init);
   const api = await import("../js/api.js");
   book = await api.loadDemoBook(params.get("demo"), lang);
 } else if (params.has("loading") || params.has("progressive")) {

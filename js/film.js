@@ -2841,3 +2841,1643 @@ function curtains(W, side, slot) {
     else W.F.set(fx + (y % 4 === 0 ? 1 : 0), y, fz + off + a, c, M_SOLID, 0.04);
   }
 }
+
+// =================================================================================================
+// Scene recipe → World (voxels, lights, emitters)
+// =================================================================================================
+
+const CLOUD_SLOTS = [[-78, 30, -62], [60, 44, -88], [-10, 58, -120], [106, 26, -24], [-112, 22, -6]];
+
+/** Mark the stage columns and level them (the cast stands on a flat floor at W.stageH blocks). */
+function markStage(W, S) {
+  const st = [];
+  for (const c of W.cols.values()) if (W.inStage(c.i, c.k)) { c.stage = true; st.push(c); }
+  let h = S.stageH;
+  if (h == null) {
+    const hs = st.filter((c) => !c.water).map((c) => c.h).sort((a, b) => a - b);
+    h = hs.length ? hs[hs.length >> 1] : 0;
+  }
+  W.stageH = h;
+  if (!S.stageKeep) for (const c of st) { c.h = h; c.water = false; c.wl = 0; }
+}
+
+/** Build the voxel world of one scene. spec = normalised scene. */
+function buildWorld(spec, seed) {
+  const S = DEF[spec.setting] || DEF.meadow;
+  const W = new World({ seed, setting: spec.setting, time: spec.time, weather: spec.weather, mood: spec.mood, action: spec.action });
+  if (S.HX) W.HX = S.HX;
+  if (S.HZ) W.HZ = S.HZ;
+  if (S.stage) W.stage = { ...S.stage };
+  if (S.interior) { W.interior = true; W.snowy = spec.setting === "snow"; }
+  if (S.azRange) W.azRange = S.azRange;
+  if (S.leaves) W.leaves = S.leaves;
+  W.mossC = S.mossC;
+  W.rockC = S.rockC;
+  if (S.lampsDay || S.alwaysDark) W.dark = true;
+  W.skyUsed = 0; W.wallTurn = 0; W.stageH = 0;
+  shapeIsland(W, S);
+  markStage(W, S);
+  fillTerrain(W, S);
+  if (S.wall) interiorShell(W, S.wall);
+  if (S.reserve) S.reserve(W);
+  placeSceneProps(W, spec.props);
+  S.deco(W);
+  if (S.sprinkle) sprinkle(W, S.sprinkle[0], S.sprinkle[1]);
+  if (S.clouds) {
+    const n = spec.weather === "rain" || spec.weather === "snow" ? 5 : 3 + (W.seed % 2);
+    for (let c = 0; c < n; c++) {
+      const p = CLOUD_SLOTS[(c + W.seed) % CLOUD_SLOTS.length];
+      addCloud(W, [p[0], p[1] + W.stageH * 2, p[2]], 0.9 + W.rng() * 0.6);
+    }
+  }
+  return W;
+}
+
+// =================================================================================================
+// Looks: time of day × weather × setting → sky + lights; mood → colour grade
+// =================================================================================================
+
+const TIME_LOOK = {
+  dawn: { top: 0x5d7fd2, mid: 0xffbca2, bot: 0x8c6f92, sun: 0xffc9a0, sunI: 2.5, sunEl: 0.3, sunAz: -1.0, sky: 0xffd8c8, ground: 0x6a5468, hemiI: 1.25, fog: 0xffcbb5, glow: 1.5, exposure: 1.0 },
+  day: { top: 0x3d8de6, mid: 0xc4e6ff, bot: 0x9ab8d4, sun: 0xfff2da, sunI: 3.0, sunEl: 0.95, sunAz: 0.55, sky: 0xd4ecff, ground: 0x8a7a62, hemiI: 1.35, fog: 0xcfe7ff, glow: 1.25, exposure: 1.0 },
+  dusk: { top: 0x37388a, mid: 0xff9d6c, bot: 0x6a3a5c, sun: 0xffa466, sunI: 2.3, sunEl: 0.24, sunAz: 1.05, sky: 0xffb59a, ground: 0x4a3252, hemiI: 1.1, fog: 0xec9a82, glow: 1.9, exposure: 1.02 },
+  night: { top: 0x070c26, mid: 0x1c2a5e, bot: 0x090d20, sun: 0x9cb8ff, sunI: 0.95, sunEl: 0.75, sunAz: -0.55, sky: 0x5466a8, ground: 0x1c1c30, hemiI: 0.7, fog: 0x18224a, glow: 2.6, exposure: 1.1, moon: 1, stars: 1 },
+};
+
+const MOOD_LOOK = {
+  calm: { tint: [1.0, 1.0, 0.98], lift: [0, 0, 0], sat: 1.05, con: 1.0, bloom: 0.5, vig: 0.26 },
+  magical: { tint: [1.0, 0.96, 1.08], lift: [0.01, 0, 0.026], sat: 1.12, con: 1.02, bloom: 0.9, vig: 0.32 },
+  tense: { tint: [0.97, 1.0, 0.98], lift: [0, 0.006, 0.004], sat: 0.86, con: 1.12, bloom: 0.4, vig: 0.46 },
+  joyful: { tint: [1.05, 1.02, 0.95], lift: [0.01, 0.006, 0], sat: 1.18, con: 1.02, bloom: 0.6, vig: 0.22 },
+  melancholic: { tint: [0.93, 0.97, 1.08], lift: [0, 0.004, 0.016], sat: 0.74, con: 0.97, bloom: 0.45, vig: 0.4 },
+  epic: { tint: [1.06, 0.99, 0.92], lift: [0.008, 0.002, 0], sat: 1.08, con: 1.13, bloom: 0.75, vig: 0.38 },
+  mysterious: { tint: [0.92, 0.98, 1.07], lift: [0.004, 0.008, 0.02], sat: 0.9, con: 1.06, bloom: 0.75, vig: 0.48 },
+  romantic: { tint: [1.06, 0.96, 1.0], lift: [0.018, 0.004, 0.012], sat: 1.06, con: 0.98, bloom: 0.85, vig: 0.3 },
+};
+
+function sunDir(az, el) { return new THREE.Vector3(Math.sin(az) * Math.cos(el), Math.sin(el), Math.cos(az) * Math.cos(el)).normalize(); }
+
+/** Sky + light parameters for a scene. Returns plain numbers/ints (colours as 0xRRGGBB). */
+function lookFor(spec, W, S) {
+  const L = { ...TIME_LOOK[spec.time] || TIME_LOOK.day };
+  L.moon = L.moon || 0; L.stars = L.stars || 0; L.nebula = 0; L.horizon = 0.34;
+  L.fogNear = 170; L.fogFar = 640; L.wind = 0.25;
+  const w = spec.weather;
+  if (w === "rain") {
+    for (const k of ["top", "mid", "bot", "fog"]) L[k] = mixC(L[k], spec.time === "night" ? 0x101420 : 0x7d8898, 0.6);
+    L.sunI *= 0.42; L.hemiI *= 0.95; L.fogNear = 90; L.fogFar = 420; L.exposure *= 0.98; L.wind = 0.6; L.stars = 0; L.moon *= 0.3;
+  } else if (w === "snow") {
+    for (const k of ["top", "mid", "fog"]) L[k] = mixC(L[k], spec.time === "night" ? 0x2a3456 : 0xdfe7f2, 0.42);
+    L.sun = mixC(L.sun, 0xdfeaff, 0.5); L.sunI *= 0.72; L.fogNear = 110; L.fogFar = 480;
+  } else if (w === "fog") {
+    L.fog = mixC(L.mid, 0xc8ccd4, spec.time === "night" ? 0.15 : 0.45);
+    L.mid = mixC(L.mid, L.fog, 0.6); L.top = mixC(L.top, L.fog, 0.35);
+    L.fogNear = 40; L.fogFar = 260; L.sunI *= 0.65;
+  } else if (w === "stars") {
+    L.stars = 1;
+    if (spec.time !== "night") { L.top = mixC(L.top, 0x1a1f5a, spec.time === "day" ? 0.25 : 0.5); }
+  } else if (w === "wind") L.wind = 1;
+  if (S.space) {
+    Object.assign(L, { top: 0x04050e, mid: 0x161b40, bot: 0x05060f, fog: 0x10142e, stars: 1, nebula: 1, horizon: 0.05, sky: 0x8a90c8, ground: 0x2a2440, fogNear: 260, fogFar: 900 });
+    if (spec.time === "day") { L.sun = 0xfff4e6; L.sunI = 2.8; L.hemiI = 1.15; L.moon = 0; }
+    else if (spec.time === "night") { L.sun = 0xb8c8ff; L.sunI = 1.3; L.hemiI = 0.85; }
+    else { L.sunI = 2.2; L.hemiI = 1.0; }
+  }
+  if (S.alwaysDark) {
+    Object.assign(L, { top: 0x0b0a14, mid: 0x231c30, bot: 0x0a0910, fog: 0x1a1626, sky: 0x6a6090, ground: 0x2a2028, stars: 0, moon: 0, nebula: 0.25, horizon: 0.2 });
+    L.sunI = spec.time === "day" ? 1.1 : 0.7; L.sun = 0xb8a8ff; L.hemiI = 0.8; L.glow = 2.6;
+  }
+  if (S.alwaysFog) { L.fog = mixC(L.fog, 0x8a9a7a, 0.35); L.fogNear = Math.min(L.fogNear, 60); L.fogFar = Math.min(L.fogFar, 300); }
+  if (W.interior) { L.fogNear = 260; L.fogFar = 900; L.hemiI *= 1.12; }
+  L.sunDir = sunDir(L.sunAz + (W.interior ? 0.35 : 0), L.sunEl);
+  return L;
+}
+
+const DESK_LOOK = {
+  top: 0x0d0a0e, mid: 0x2b1c16, bot: 0x0a0706, sun: 0xffd2a0, sunI: 2.2, sunEl: 0.85, sunAz: -0.75, sky: 0xffe0b8, ground: 0x3a2418,
+  hemiI: 0.55, fog: 0x1a120e, glow: 2.2, exposure: 1.06, moon: 0, stars: 0, nebula: 0, horizon: 0.25, fogNear: 260, fogFar: 760, wind: 0,
+};
+DESK_LOOK.sunDir = sunDir(DESK_LOOK.sunAz, DESK_LOOK.sunEl);
+const DESK_GRADE = { tint: [1.04, 1.0, 0.94], lift: [0.012, 0.006, 0], sat: 1.06, con: 1.04, bloom: 0.9, vig: 0.5 };
+
+// =================================================================================================
+// Segments — one THREE.Scene per intro / scene / outro, all with the same light rig
+// =================================================================================================
+
+const N_POINT = 4;           // point lights per segment (same count everywhere → shared shader programs)
+const LK = 34;               // world light units → point light intensity
+
+/** Turn mesher buckets into meshes (one per material) under `parent`. */
+function addBuckets(ctx, seg, Bk, parent, shadow = true) {
+  for (let m = 0; m < M_COUNT; m++) {
+    const geo = bucketGeometry(Bk[m]);
+    if (!geo) continue;
+    const mesh = new THREE.Mesh(geo, ctx.mats[m]);
+    mesh.castShadow = shadow && (m === M_SOLID || m === M_LEAF);
+    mesh.receiveShadow = m !== M_GLOW && m !== M_GLASS;
+    if (m === M_WATER) mesh.renderOrder = 2;
+    if (m === M_GLASS) mesh.renderOrder = 4;
+    seg.geos.push(geo);
+    parent.add(mesh);
+  }
+}
+
+function setSky(mat, L) {
+  const u = mat.uniforms;
+  u.uTop.value.copy(col3(L.top)); u.uMid.value.copy(col3(L.mid)); u.uBot.value.copy(col3(L.bot));
+  // the visible sun / moon hangs low behind the island, where the camera can see it
+  const side = L.sunAz < 0 ? -1 : 1;
+  const d = sunDir(Math.PI - side * 0.55, clamp(L.sunEl * 0.32, 0.07, 0.3));
+  u.uSunDir.value.copy(d);
+  u.uMoonDir.value.copy(d);
+  u.uMoonCut.value.copy(sunDir(Math.PI - side * 0.55 + 0.012, clamp(L.sunEl * 0.32, 0.07, 0.3) + 0.012));
+  u.uSunCol.value.copy(col3(L.sun)).multiplyScalar(L.sunSky ?? 1);
+  u.uMoon.value = L.moon;
+  u.uStars.value = L.stars;
+  u.uNebula.value = L.nebula;
+  u.uHorizon.value = L.horizon;
+}
+
+function newSegment(ctx, kind, idx, L, grade, center, radius) {
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(FOV, ctx.aspect, 1, 3000);
+  const seg = { kind, idx, scene, camera, look: L, grade, geos: [], own: [], cast: [], floaters: [], points: [], flick: [], parts: [], dur: 8, tilt: 1, focusY: 0.5 };
+  const sky = makeSky(ctx.skyGeo);
+  sky.material.uniforms.uTime = ctx.U.time;
+  setSky(sky.material, L);
+  seg.own.push(sky.material);
+  scene.add(sky);
+  seg.sky = sky;
+  scene.fog = new THREE.Fog(col3(L.fog), L.fogNear, L.fogFar);
+  const hemi = new THREE.HemisphereLight(col3(L.sky), col3(L.ground), L.hemiI);
+  const sun = new THREE.DirectionalLight(col3(L.sun), L.sunI);
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(ctx.shadowSize, ctx.shadowSize);
+  sun.shadow.bias = -0.0004;
+  sun.shadow.normalBias = 0.45;
+  sun.shadow.radius = 2.5;
+  const sc = sun.shadow.camera;
+  sc.left = sc.bottom = -radius; sc.right = sc.top = radius; sc.near = 20; sc.far = 220 + radius * 2;
+  sun.position.copy(L.sunDir).multiplyScalar(200 + radius).add(center);
+  sun.target.position.copy(center);
+  scene.add(hemi, sun, sun.target);
+  for (let n = 0; n < N_POINT; n++) {
+    const p = new THREE.PointLight(0xffffff, 0, 110, 1.15);
+    p.position.copy(center);
+    scene.add(p);
+    seg.points.push(p);
+  }
+  seg.hemi = hemi; seg.sun = sun;
+  return seg;
+}
+
+/** Use the strongest / nearest world lights for the point light rig. */
+function assignLights(seg, lights, center) {
+  const ranked = lights.map((l) => ({ l, s: l.intensity / (1 + l.pos.distanceTo(center) / 70) })).sort((a, b) => b.s - a.s);
+  for (let n = 0; n < N_POINT; n++) {
+    const p = seg.points[n], r = ranked[n];
+    if (!r) { p.intensity = 0; continue; }
+    p.position.copy(r.l.pos);
+    p.color.copy(col3(r.l.color));
+    p.intensity = r.l.intensity * LK;
+    if (r.l.flicker) seg.flick.push({ light: p, base: p.intensity, f: r.l.flicker, ph: n * 1.7 });
+  }
+}
+
+function addParticles(ctx, seg, spec, rng) {
+  if (!spec || !(spec.count > 0)) return;
+  const n = Math.max(4, Math.round(spec.count * (ctx.lowQ ? 0.6 : 1)));
+  const pts = makeParticles({ ...spec, count: n }, rng, ctx.U);
+  seg.parts.push(pts);
+  seg.geos.push(pts.geometry);
+  seg.own.push(pts.material);
+  seg.scene.add(pts);
+}
+
+const FIREFLY_SETTINGS = new Set(["meadow", "forest", "garden", "swamp", "village", "island", "mountains"]);
+
+function ambientEmitters(spec, W, C, L, extra) {
+  const out = [], inside = W.interior, x = C.x, y = C.y, z = C.z;
+  switch (spec.weather) {
+    case "rain":
+      if (!inside) out.push({ kind: "rain", count: 760, center: [x, y + 46, z], box: [160, 104, 130], vel: [-5, -88, 0], size: [5, 9], colors: [0xd0e2ff, 0xaac4f0], opacity: 0.5 });
+      break;
+    case "snow":
+      if (!inside) out.push({ kind: "dot", count: 520, center: [x, y + 42, z], box: [170, 104, 140], vel: [2.5, -8.5, 0.6], size: [1.6, 3.1], colors: [0xffffff, 0xeef4ff], wob: 3, opacity: 0.95, intensity: 1.2 });
+      break;
+    case "fog":
+      out.push({ kind: "puff", count: inside ? 14 : 34, center: [x, y + 7, z], box: [inside ? 80 : 180, 16, inside ? 60 : 140], vel: [2.5, 0, 0.6], size: [36, 66], colors: [L.fog, mixC(L.fog, 0xffffff, 0.3)], opacity: inside ? 0.16 : 0.3, wob: 3 });
+      break;
+    case "stars":
+      out.push({ kind: "sparkle", count: 34, center: [x, y + (inside ? 34 : 56), z - 26], box: [inside ? 80 : 210, 50, 80], vel: [0, 0, 0], size: [2.4, 4.6], colors: [0xffffff, 0xfff0b0, 0xbfe0ff], additive: true, intensity: 2.2 });
+      break;
+    case "wind": {
+      if (inside) break;
+      const cols = spec.setting === "desert" ? [0xe8c890, 0xd8b070, 0xf0d8a8] : W.snowy ? [0xffffff, 0xe8f0fa] : spec.setting === "space" ? [0xb8a8c8] : [0x7cc456, 0xe8a83a, 0xd8643a, 0xf0c84a];
+      out.push({ kind: "leaf", count: 64, center: [x, y + 20, z], box: [180, 44, 130], vel: [26, -1.5, 5], size: [2.6, 3.6], colors: cols, wob: 4, spin: 3 });
+      break;
+    }
+    default: break;
+  }
+  if ((spec.time === "night" || spec.time === "dusk") && FIREFLY_SETTINGS.has(spec.setting))
+    out.push({ kind: "dot", count: 30, center: [x, y + 8, z], box: [110, 14, 80], vel: [0, 0.4, 0], size: [0.9, 1.5], colors: [0xe8ff8a, 0xc8ff6a], wob: 4, additive: true, intensity: 3.2 });
+  switch (spec.mood) {
+    case "magical": out.push({ kind: "sparkle", count: 40, center: [x, y + 16, z], box: [80, 30, 60], vel: [0, 1.4, 0], size: [1.6, 3.2], colors: [0xbfe8ff, 0xffe6a8, 0xf0c0ff], additive: true, intensity: 2.4, wob: 2 }); break;
+    case "romantic": out.push({ kind: "leaf", count: 28, center: [x, y + 26, z], box: [90, 44, 70], vel: [3, -3.5, 1], size: [2.2, 3.2], colors: [0xff9ab8, 0xffc0d0, 0xff7a9a], wob: 3, spin: 2 }); break;
+    case "mysterious": out.push({ kind: "dot", count: 34, center: [x, y + 12, z], box: [100, 24, 80], vel: [0, 0.6, 0], size: [0.7, 1.3], colors: [0x7af0e8, 0x9ab8ff], wob: 3, additive: true, intensity: 2.4 }); break;
+    case "epic": out.push({ kind: "dot", count: 30, center: [x, y + 20, z], box: [110, 40, 80], vel: [1.5, 4.5, 0], size: [0.8, 1.4], colors: [0xffb04a, 0xff7a2a], wob: 2, additive: true, intensity: 3 }); break;
+    case "melancholic": out.push({ kind: "dot", count: 30, center: [x, y + 22, z], box: [110, 44, 80], vel: [0.5, -1.6, 0], size: [0.7, 1.2], colors: [0xc8d4ea], wob: 2, opacity: 0.55 }); break;
+    default: break;
+  }
+  switch (spec.action) {
+    case "celebrate": out.push({ kind: "confetti", count: 90, center: [x, y + 30, z], box: [64, 52, 50], vel: [0, -10, 0], size: [1.8, 2.8], colors: [0xffd23f, 0xff5a8a, 0x5ad0ff, 0x7aff9a, 0xffffff], wob: 2.5, spin: 3 }); break;
+    case "fight": out.push({ kind: "puff", count: 16, center: [x, y + 4, z], box: [30, 8, 18], vel: [0, 2, 0], size: [8, 14], colors: [0xcbbc9e, 0xb8a888], opacity: 0.32, wob: 1.5 }); break;
+    case "dance": out.push({ kind: "sparkle", count: 30, center: [x, y + 10, z], box: [40, 20, 30], vel: [0, 1.5, 0], size: [1.5, 2.8], colors: [0xfff0b0, 0xffb8e0], additive: true, intensity: 2.4, wob: 3 }); break;
+    case "discover": if (extra) out.push({ kind: "sparkle", count: 30, center: [extra.x, extra.y + 7, extra.z], box: [9, 14, 9], vel: [0, 2.2, 0], size: [1.4, 2.8], colors: [0xfff4c0, 0xbfefff], additive: true, intensity: 3.2, wob: 1 }); break;
+    default: break;
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------- cast staging ----
+
+const ROW_TURN = { talk: 0.5, sad: 0.22, celebrate: 0.14, rest: 0.3, discover: 0, fight: 0, walk: 0, travel: 0, dance: 0, chase: 0 };
+
+function stageCast(ctx, seg, W, spec) {
+  const s = W.stage;
+  const C = new THREE.Vector3(2 * s.cx, W.stageH * 2, 2 * s.cz);
+  seg.C = C; seg.RX = 2 * s.rx; seg.RZ = 2 * s.rz;
+  const ids = [];
+  for (const id of spec.cast) if (ctx.chars.has(id) && !ids.includes(id)) ids.push(id);
+  for (const id of ids.slice(0, 4)) {
+    const g = ctx.acquire(id);
+    if (!g) continue;
+    seg.scene.add(g);
+    seg.cast.push({ id, g, h: g.userData.height || 20, j: seg.cast.length });
+  }
+  const az0 = seg.az0;
+  seg.fwd = new THREE.Vector3(Math.sin(az0), 0, Math.cos(az0));
+  seg.right = new THREE.Vector3(Math.cos(az0), 0, -Math.sin(az0));
+  const n = seg.cast.length;
+  seg.spacing = n > 1 ? clamp((seg.RX * 1.15) / n, 10, 17) : 0;
+  if (spec.action === "discover") seg.spot = C.clone().addScaledVector(seg.right, seg.RX * 0.42).addScaledVector(seg.fwd, seg.RZ * 0.25);
+  seg.speaker = spec.line ? Math.max(0, seg.cast.findIndex((c) => c.id === spec.line.speaker)) : 0;
+}
+
+/** Ground height (units) under a world point; the stage is flat. */
+function groundAt(W, C, x, z) {
+  const i = Math.floor(x / 2), k = Math.floor(z / 2);
+  if (W.inStage(i, k)) return C.y;
+  const c = W.col(i, k);
+  if (!c) return C.y;
+  return (c.water ? c.wl : c.h) * 2;
+}
+
+const _v = new THREE.Vector3();
+
+function poseCast(seg, spec, l, a, lineOn) {
+  const n = seg.cast.length;
+  if (!n) return;
+  const { C, fwd, right, W } = seg;
+  const act = spec.action;
+  const camA = seg.az0;
+  const dur = seg.dur || 8;
+  for (const c of seg.cast) {
+    const j = c.j, g = c.g;
+    const off = j - (n - 1) / 2;
+    let x, z, rot, anim = act, ts = 1;
+    if (act === "walk" || act === "chase") {
+      const w = act === "chase" ? 0.8 : 0.42, gap = act === "chase" ? 0.95 : 0.55;
+      const al = 1.9 + l * w - j * gap;
+      const rx = seg.RX * 0.52, rz = seg.RZ * 0.56;
+      x = C.x + Math.cos(al) * rx; z = C.z + Math.sin(al) * rz;
+      rot = Math.atan2(-Math.sin(al) * rx, Math.cos(al) * rz);
+      anim = act === "chase" ? "chase" : "walk"; ts = act === "chase" ? 1.35 : 1;
+    } else if (act === "travel") {
+      const lead = lerp(-0.62, 0.62, sat(l / dur)) * seg.RX;
+      const s = Math.max(-seg.RX * 0.92, lead - j * 9);
+      _v.copy(C).addScaledVector(right, s).addScaledVector(fwd, j % 2 ? -3 : 1.5);
+      x = _v.x; z = _v.z;
+      rot = camA + Math.PI / 2 - 0.25;
+      anim = s > lead - j * 9 + 0.01 ? "idle" : "walk";
+    } else if (act === "dance") {
+      const R = n > 1 ? 4 + 2.6 * n : 0, al = (j / n) * TAU + a * 0.5;
+      x = C.x + Math.cos(al) * R; z = C.z + Math.sin(al) * R * 0.8;
+      rot = n > 1 ? Math.atan2(C.x - x, C.z - z) + 0.5 : camA + 0.4 * Math.sin(a);
+    } else if (act === "fight") {
+      const nA = Math.ceil(n / 2), side = j < nA ? -1 : 1, row = j < nA ? j - (nA - 1) / 2 : j - nA - (n - nA - 1) / 2;
+      const lunge = 2.4 * Math.pow(Math.max(0, Math.sin(a * 2.6 + j * 1.7)), 3);
+      if (n === 1) { _v.copy(C); rot = camA + 0.6; }
+      else {
+        _v.copy(C).addScaledVector(right, side * (8.5 - lunge)).addScaledVector(fwd, row * 8);
+        rot = camA + (side < 0 ? Math.PI / 2 - 0.4 : -Math.PI / 2 + 0.4);
+      }
+      x = _v.x; z = _v.z;
+    } else {
+      // standing row on a shallow arc, everybody turned a little inward
+      const base = act === "discover" ? C.clone().addScaledVector(right, -seg.RX * 0.12) : C;
+      _v.copy(base).addScaledVector(right, off * seg.spacing).addScaledVector(fwd, 2 - Math.abs(off) * 2.6);
+      x = _v.x; z = _v.z;
+      const k = act === "talk" && n === 2 ? 0.9 : ROW_TURN[act] ?? 0.3;
+      rot = camA - Math.sign(off) * k;
+      if (act === "discover" && seg.spot) rot = lerp(Math.atan2(seg.spot.x - x, seg.spot.z - z), camA, 0.25);
+      if (act === "talk") {
+        const talker = lineOn ? seg.speaker : Math.floor(l / 2.7) % n;
+        anim = j === talker ? "talk" : "idle";
+      }
+    }
+    if (lineOn && j === seg.speaker && (act === "sad" || act === "rest" || act === "discover")) anim = "talk";
+    g.position.set(x, groundAt(W, C, x, z), z);
+    g.rotation.set(0, rot, 0);
+    animateCharacter(g, anim, a * ts + j * 0.37);
+  }
+}
+
+// ---------------------------------------------------------------- cameras ----
+
+function fitDistance(ctx, half) {
+  const tanV = Math.tan((FOV * Math.PI) / 360), tanH = tanV * ctx.aspect;
+  return Math.max((half * 1.1) / tanH, (half * 0.64) / tanV);
+}
+
+function placeSceneCamera(ctx, seg, spec, l, a, lineK) {
+  const W = seg.W, C = seg.C, cam = seg.camera;
+  const d = seg.dur || 8;
+  let u = easeInOut(l / d);
+  if (ctx.reduced) u = 0.5 + (u - 0.5) * 0.35;
+  const half = Math.max(W.HX, W.HZ * 0.9) * 2;
+  const Dw = fitDistance(ctx, half);
+  const az0 = seg.az0;
+  const T0 = _cT.set(C.x, C.y + 9, C.z);
+  let az = az0, el = 0.44, dist = Dw * 0.92, fov = FOV;
+  const tgt = _cTg.copy(T0);
+  switch (spec.camera) {
+    case "dolly_in": az = az0 + (0.5 - u) * 0.32; el = lerp(0.46, 0.3, u); dist = Dw * lerp(1.0, 0.5, u); tgt.y += lerp(-2, 1.5, u); break;
+    case "pan": {
+      az = az0 - 0.08; el = 0.36; dist = Dw * 0.74;
+      const s = lerp(-0.3, 0.3, u) * half;
+      tgt.x += Math.cos(az) * s; tgt.z -= Math.sin(az) * s;
+      break;
+    }
+    case "crane": az = az0 + 0.18 * (u - 0.5); el = lerp(0.12, 0.8, u); dist = Dw * lerp(0.6, 1.02, u); tgt.y += lerp(1, -3, u); break;
+    case "fly_over": az = az0 + lerp(-1.05, 0.22, u); el = lerp(1.02, 0.4, u); dist = Dw * lerp(1.28, 0.86, u); break;
+    case "close_up": {
+      az = az0 + (u - 0.5) * 0.36; el = 0.2; dist = Math.max(42, Dw * lerp(0.44, 0.38, u)); fov = 28;
+      const cast = seg.cast;
+      if (cast.length) {
+        let cx = 0, cz = 0, cy = 0;
+        for (const c of cast) { cx += c.g.position.x; cz += c.g.position.z; cy += c.g.position.y + c.h * 0.62; }
+        cx /= cast.length; cz /= cast.length; cy /= cast.length;
+        const sp = cast[seg.speaker] || cast[0];
+        const k = smooth(lineK) * 0.75;
+        tgt.set(lerp(cx, sp.g.position.x, k), lerp(cy, sp.g.position.y + sp.h * 0.72, k), lerp(cz, sp.g.position.z, k));
+      }
+      break;
+    }
+    default: az = az0 + (u - 0.5) * 0.95; el = 0.42 + 0.04 * Math.sin(u * Math.PI); break; // orbit
+  }
+  if (W.interior) { az = clamp(az, W.azRange[0], W.azRange[1]); el = Math.max(el, 0.3); }
+  cam.position.set(tgt.x + Math.sin(az) * Math.cos(el) * dist, tgt.y + Math.sin(el) * dist, tgt.z + Math.cos(az) * Math.cos(el) * dist);
+  if (!ctx.reduced) {
+    tgt.x += Math.sin(a * 0.63) * 0.3; tgt.y += Math.sin(a * 0.81 + 1) * 0.2;
+    cam.position.x += Math.sin(a * 0.47 + 2) * 0.5; cam.position.y += Math.sin(a * 0.39) * 0.35;
+    if (spec.action === "fight") { const s = Math.pow(Math.max(0, Math.sin(a * 2.6)), 14) * 0.5; cam.position.y += s * Math.sin(a * 53); cam.position.x += s * Math.cos(a * 47); }
+  }
+  cam.fov = fov;
+  cam.up.set(0, 1, 0);
+  cam.lookAt(tgt);
+  seg.focusY = 0.5;
+  seg.tilt = spec.camera === "close_up" ? 0.55 : 1;
+}
+const _cT = new THREE.Vector3(), _cTg = new THREE.Vector3();
+
+// ---------------------------------------------------------------- diorama scene segment ----
+
+/** Generator: builds a scene segment, yielding between chunks of work so it can run across frames. */
+function* sceneSegmentGen(ctx, spec, idx) {
+  const seed = hashStr(ctx.seedBase + ":" + idx + ":" + spec.setting + ":" + spec.time + ":" + spec.weather + ":" + spec.props.join(","));
+  const S = DEF[spec.setting] || DEF.meadow;
+  const W = buildWorld(spec, seed);
+  yield;
+  const L = lookFor(spec, W, S);
+  const grade = MOOD_LOOK[spec.mood] || MOOD_LOOK.calm;
+  const center = new THREE.Vector3(2 * W.stage.cx, W.stageH * 2, 2 * W.stage.cz);
+  const seg = newSegment(ctx, "scene", idx, L, grade, center, Math.hypot(W.HX, W.HZ) * 2 + 14);
+  seg.W = W; seg.spec = spec;
+  const Bk = newBuckets();
+  yield* meshGrid(W.C, Bk);
+  yield* meshGrid(W.F, Bk);
+  addBuckets(ctx, seg, Bk, seg.scene, true);
+  yield;
+  for (const f of W.floaters) {
+    const b = newBuckets();
+    yield* meshGrid(f.grid, b);
+    const g = new THREE.Group();
+    addBuckets(ctx, seg, b, g, f.castShadow);
+    g.position.set(f.pos[0], f.pos[1], f.pos[2]);
+    g.rotation.set(f.rot[0], f.rot[1], f.rot[2]);
+    seg.scene.add(g);
+    seg.floaters.push({ g, f });
+  }
+  const rng = seeded(seed ^ 0x2545f491);
+  const azMid = W.interior ? (W.azRange[0] + W.azRange[1]) / 2 : 0.3 + (rng() - 0.5) * 0.3;
+  seg.az0 = azMid;
+  stageCast(ctx, seg, W, spec);
+  const lights = W.lights.slice();
+  if (seg.spot) lights.push({ pos: seg.spot.clone().setY(seg.spot.y + 6), color: 0xfff0b8, intensity: 1.6, flicker: 0 });
+  assignLights(seg, lights, center);
+  for (const e of W.emitters) addParticles(ctx, seg, e, rng);
+  for (const e of ambientEmitters(spec, W, center, L, seg.spot)) addParticles(ctx, seg, e, rng);
+  seg.update = (l, a, lineOn, lineK) => {
+    for (const f of seg.floaters) {
+      const F = f.f, p = F.pos;
+      f.g.position.set(p[0] + Math.sin(a * 0.05 + F.phase) * F.drift * 6, p[1] + Math.sin(a * 0.7 + F.phase) * F.bob, p[2]);
+      f.g.rotation.y = F.rot[1] + a * F.spin;
+    }
+    for (const p of seg.flick) p.light.intensity = p.base * (1 + p.f * 0.1 * (Math.sin(a * 13 + p.ph) * 0.6 + Math.sin(a * 7.3 + p.ph * 2) * 0.4));
+    poseCast(seg, spec, l, a, lineOn);
+    placeSceneCamera(ctx, seg, spec, l, a, lineK);
+  };
+  return seg;
+}
+
+// =================================================================================================
+// The book on the desk (intro + outro)
+// =================================================================================================
+
+/** Word-wrap `text` into lines no wider than `w` with the current font. */
+function wrapText(g, text, w) {
+  const out = [];
+  for (const para of String(text).split(/\n+/)) {
+    let line = "";
+    for (const word of para.split(/\s+/).filter(Boolean)) {
+      const t = line ? line + " " + word : word;
+      if (g.measureText(t).width > w && line) { out.push(line); line = word; } else line = t;
+    }
+    if (line) out.push(line);
+  }
+  return out;
+}
+
+/** A canvas texture redrawn once web fonts are ready. */
+function canvasTex(ctx, w, h, draw) {
+  const cv = document.createElement("canvas");
+  cv.width = w; cv.height = h;
+  const tex = new THREE.CanvasTexture(cv);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = 4;
+  const redraw = () => { const g = cv.getContext("2d"); g.clearRect(0, 0, w, h); draw(g, w, h); tex.needsUpdate = true; };
+  redraw();
+  ctx.redraws.push(redraw);
+  return tex;
+}
+
+function paperBase(g, w, h, spine) {
+  g.fillStyle = "#f3e7cb";
+  g.fillRect(0, 0, w, h);
+  const sx = spine === "left" ? 0 : w;
+  const gr = g.createLinearGradient(sx, 0, spine === "left" ? w * 0.24 : w * 0.76, 0);
+  gr.addColorStop(0, "rgba(110,70,30,0.38)");
+  gr.addColorStop(1, "rgba(110,70,30,0)");
+  g.fillStyle = gr;
+  g.fillRect(0, 0, w, h);
+  const rng = seeded(w * 7 + h);
+  g.fillStyle = "rgba(120,90,50,0.06)";
+  for (let n = 0; n < 260; n++) g.fillRect(rng() * w, rng() * h, 1 + rng() * 2, 1 + rng() * 2);
+}
+
+const SERIF = '"Playfair Display", Georgia, "Times New Roman", serif';
+
+function titlePage(ctx) {
+  return canvasTex(ctx, 512, 728, (g, w, h) => {
+    paperBase(g, w, h, "right");
+    g.textAlign = "center";
+    g.fillStyle = "#3a2414";
+    g.font = `600 52px ${SERIF}`;
+    const lines = wrapText(g, ctx.texts.title || "BookTrip", w - 110).slice(0, 4);
+    let y = h * 0.42 - lines.length * 30;
+    for (const ln of lines) { g.fillText(ln, w / 2 - 10, y); y += 62; }
+    g.font = `italic 600 28px ${SERIF}`;
+    g.fillStyle = "#7a4a2a";
+    if (ctx.texts.author) g.fillText(wrapText(g, ctx.texts.author, w - 110)[0] || "", w / 2 - 10, y + 22);
+    g.strokeStyle = "rgba(122,74,42,0.55)";
+    g.lineWidth = 2;
+    const oy = y + 70;
+    g.beginPath(); g.moveTo(w / 2 - 110, oy); g.lineTo(w / 2 - 24, oy); g.moveTo(w / 2 + 4, oy); g.lineTo(w / 2 + 90, oy); g.stroke();
+    g.fillStyle = "#b8862a";
+    g.font = `600 22px ${SERIF}`;
+    g.fillText("✦", w / 2 - 10, oy + 8);
+  });
+}
+
+function textPage(ctx, text, seed) {
+  return canvasTex(ctx, 512, 728, (g, w, h) => {
+    paperBase(g, w, h, "left");
+    g.fillStyle = "#3a2a1c";
+    const body = String(text || "").trim();
+    const mx = 62, top = 92;
+    g.textAlign = "left";
+    if (body) {
+      g.font = `600 84px ${SERIF}`;
+      g.fillStyle = "#9a2a2a";
+      g.fillText(body[0], mx, top + 58);
+      g.fillStyle = "#3a2a1c";
+      g.font = `400 25px ${SERIF}`;
+      const lines = wrapText(g, body.slice(1), w - mx * 2 - 64);
+      let y = top + 6;
+      lines.slice(0, 3).forEach((ln) => { g.fillText(ln, mx + 64, y + 22); y += 36; });
+      const rest = wrapText(g, lines.slice(3).join(" "), w - mx * 2);
+      for (const ln of rest.slice(0, 12)) { g.fillText(ln, mx, y + 22); y += 36; }
+      if (y < h - 140) {
+        // fill the rest of the page with soft "printed" lines
+        const rng = seeded(seed);
+        g.fillStyle = "rgba(58,42,28,0.16)";
+        for (y += 30; y < h - 80; y += 36) g.fillRect(mx, y, (w - mx * 2) * (y > h - 130 ? 0.5 : 0.82 + rng() * 0.18), 9);
+      }
+    }
+  });
+}
+
+function linesPage(ctx, seed) {
+  return canvasTex(ctx, 256, 364, (g, w, h) => {
+    paperBase(g, w, h, "left");
+    const rng = seeded(seed);
+    g.fillStyle = "rgba(58,42,28,0.2)";
+    for (let y = 40; y < h - 36; y += 18) g.fillRect(28, y, (w - 56) * (0.7 + rng() * 0.3), 5);
+  });
+}
+
+function coverTex(ctx) {
+  const c = ctx.cover;
+  return canvasTex(ctx, 512, 740, (g, w, h) => {
+    const gr = g.createLinearGradient(0, 0, w * 0.4, h);
+    gr.addColorStop(0, cssC(c.bg)); gr.addColorStop(1, cssC(c.bg2));
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    g.strokeStyle = cssC(c.accent); g.lineWidth = 6; g.strokeRect(30, 30, w - 60, h - 60);
+    g.lineWidth = 2; g.strokeRect(44, 44, w - 88, h - 88);
+    g.fillStyle = cssC(c.fg); g.textAlign = "center";
+    g.font = `600 54px ${SERIF}`;
+    const lines = wrapText(g, ctx.texts.title || "", w - 130).slice(0, 4);
+    let y = h * 0.4 - lines.length * 31;
+    for (const ln of lines) { g.fillText(ln, w / 2, y); y += 64; }
+    g.fillStyle = cssC(c.accent); g.font = `600 30px ${SERIF}`; g.fillText("✦", w / 2, y + 16);
+    g.fillStyle = cssC(c.fg); g.font = `italic 600 28px ${SERIF}`;
+    if (ctx.texts.author) g.fillText(wrapText(g, ctx.texts.author, w - 130)[0] || "", w / 2, h - 96);
+  });
+}
+
+/** A flexible page sheet: K segments from the spine (x = 0) outward, bent on the CPU each frame. */
+function makeSheet(len, depth, K = 20) {
+  const geo = new THREE.PlaneGeometry(len, depth, K, 1);
+  geo.userData.K = K; geo.userData.len = len;
+  const uv = geo.attributes.uv;
+  for (let n = 0; n < uv.count; n++) uv.setX(n, uv.getX(n));
+  return geo;
+}
+function bendSheet(geo, theta, curl, y0) {
+  const K = geo.userData.K, len = geo.userData.len, ds = len / K;
+  const pos = geo.attributes.position;
+  let x = 0, y = y0;
+  const xs = [x], ys = [y];
+  for (let k = 0; k < K; k++) {
+    const phi = theta - curl * Math.sin(theta) * Math.pow((k + 0.5) / K, 1.3);
+    x += Math.cos(phi) * ds; y += Math.sin(phi) * ds;
+    xs.push(x); ys.push(y);
+  }
+  // PlaneGeometry rows: (K + 1) vertices per row, 2 rows; z from the original y coordinate
+  for (let r = 0; r < 2; r++) for (let k = 0; k <= K; k++) {
+    const n = r * (K + 1) + k;
+    pos.setXYZ(n, xs[k], ys[k], r === 0 ? -geo.parameters.height / 2 : geo.parameters.height / 2);
+  }
+  pos.needsUpdate = true;
+  geo.computeVertexNormals();
+}
+
+function drawStackBook(P, x0, x1, y0, y1, z0, z1, col) {
+  P.box(x0, x1, y0, y0, z0, z1, col);
+  P.box(x0, x1, y1, y1, z0, z1, col);
+  P.box(x0, x0 + 1, y0, y1, z0, z1, mulC(col, 0.86));
+  P.box(x0 + 2, x1 - 1, y0 + 1, y1 - 1, z0 + 1, z1 - 1, (x, y) => (y % 2 ? 0xf3e6c8 : 0xe2d0ae), M_SOLID, 0.02);
+  P.box(x0 + 3, x0 + 3, y1, y1, z0 + 2, z1 - 2, GOLD, M_SOLID, 0);
+}
+
+function* deskSegmentGen(ctx, kind) {
+  const intro = kind === "intro";
+  const L = DESK_LOOK;
+  const seg = newSegment(ctx, kind, intro ? -1 : ctx.nScenes, L, DESK_GRADE, new THREE.Vector3(0, 0, 0), 120);
+  const cv = ctx.cover;
+  // desk: big wooden planks on a coarse grid
+  const D = new Grid(4, 77);
+  for (let i = -28; i < 28; i++) for (let k = -20; k < 16; k++) {
+    const plank = Math.floor((k + 40) / 2);
+    const base = [0x6e4024, 0x7a4a2a, 0x66391f, 0x744527][plank % 4];
+    D.set(i, -1, k, mulC(base, 0.94 + h3(i >> 2, plank, 0, 5) * 0.1), M_SOLID, 0.03);
+  }
+  const Bk = newBuckets();
+  yield* meshGrid(D, Bk);
+  // left half of the book, spine and the desk props (fine grid)
+  const G = new Grid(1, 99);
+  const coverC = cv.bg, edge = mulC(cv.bg, 0.78);
+  const pageEdge = (x, y) => (y % 2 ? 0xf6ead0 : 0xe4d4b2);
+  G.box(-38, -1, 0, 1, -27, 26, (x, y, z) => (x === -38 || z === -27 || z === 26 ? edge : coverC));
+  G.box(-1, 0, 0, 2, -27, 26, mulC(cv.bg, 0.7));
+  G.box(-36, -1, 2, 6, -25, 24, pageEdge, M_SOLID, 0.02);
+  G.box(-2, -1, 6, 6, -25, 24, -1);
+  G.del(-2, 6, 0);
+  for (let z = -25; z <= 24; z++) { G.del(-1, 6, z); G.del(-2, 6, z); G.set(-1, 5, z, 0xe8d8b6, M_SOLID, 0.02); }
+  // ribbon bookmark lying over the left page and hanging over the front edge
+  for (let z = -6; z <= 25; z++) G.set(-6 - Math.floor((z + 6) / 9), 7, z, 0xb02a3a, M_SOLID, 0.03);
+  for (let y = 1; y <= 6; y++) G.set(-9, y, 26, 0xb02a3a, M_SOLID, 0.03);
+  // candle on a brass dish
+  const C1 = painter(G, -60, 0, -30, 0);
+  C1.cyl(0, 0, 7, 0, 0, 0xc8963a); C1.cyl(0, 0, 7, 1, 1, (x, y, z, dx, dz) => (dx * dx + dz * dz > 30 ? 0xd8a84a : -1));
+  C1.cyl(0, 0, 3.3, 1, 17, 0xf4ecd8, M_SOLID, 0.03);
+  C1.set(3, 15, 0, 0xfaf4e4); C1.set(3, 14, 0, 0xfaf4e4); C1.set(-4, 12, -1, 0xfaf4e4);
+  C1.box(-1, 0, 18, 18, -1, 0, 0x2a2018);
+  C1.box(-1, 0, 19, 21, -1, 0, FLAME[1], M_GLOW, 0); C1.set(-1, 22, -1, FLAME[0], M_GLOW, 0); C1.set(0, 22, 0, FLAME[0], M_GLOW, 0); C1.set(-1, 23, 0, 0xfff4d0, M_GLOW, 0);
+  // inkwell and quill
+  const I1 = painter(G, 58, 0, -34, 0);
+  I1.cyl(0, 0, 5.2, 0, 6, (x, y) => (y === 6 ? 0x14182a : 0x22305a), M_SOLID, 0.04);
+  I1.cyl(0, 0, 2.6, 7, 8, 0x1a2240);
+  for (let n = 0; n <= 30; n++) {
+    const t = n / 30, x = Math.round(lerp(1, -12, t)), y = Math.round(lerp(8, 38, t)), z = Math.round(lerp(0, 9, t));
+    I1.set(x, y, z, t < 0.25 ? 0x3a2a1a : 0xf2ece0, M_SOLID, 0.03);
+    const wv = t < 0.3 ? 0 : Math.round(Math.sin(((t - 0.3) / 0.7) * Math.PI) * 3.2);
+    for (let s = 1; s <= wv; s++) { I1.set(x + s, y, z, 0xece4d2, M_SOLID, 0.04); I1.set(x - s, y + 1, z, 0xf6f0e4, M_SOLID, 0.04); }
+  }
+  // stack of books
+  const B1 = painter(G, -62, 0, 26, 0);
+  drawStackBook(B1, -16, 15, 0, 4, -11, 10, 0x2a4a7a);
+  drawStackBook(B1, -12, 16, 5, 8, -10, 9, 0x8a2a2a);
+  drawStackBook(B1, -15, 10, 9, 13, -9, 8, 0x3a6a3a);
+  // teacup on a saucer
+  const T1 = painter(G, 62, 0, 30, 0);
+  T1.cyl(0, 0, 8, 0, 0, 0xf2eee6); T1.cyl(0, 0, 8, 1, 1, (x, y, z, dx, dz) => (dx * dx + dz * dz > 42 ? 0xe8e2d8 : -1));
+  T1.cyl(0, 0, 5, 1, 8, (x, y, z, dx, dz) => (dx * dx + dz * dz > 12 || y === 1 ? (y === 6 ? 0x3a6ab8 : 0xf6f2ea) : y === 7 ? 0x8a4a1c : -1), M_SOLID, 0.03);
+  T1.box(5, 6, 3, 3, -1, 0, 0xf6f2ea); T1.box(5, 6, 7, 7, -1, 0, 0xf6f2ea); T1.box(7, 7, 4, 6, -1, 0, 0xf6f2ea);
+  yield* meshGrid(G, Bk);
+  addBuckets(ctx, seg, Bk, seg.scene, true);
+  yield;
+  // right half pivots on the spine (book closes in the outro)
+  const R = new Grid(1, 101);
+  R.box(0, 37, 0, 1, -27, 26, (x, y, z) => (x === 37 || z === -27 || z === 26 ? edge : coverC));
+  R.box(0, 35, 2, 6, -25, 24, pageEdge, M_SOLID, 0.02);
+  for (let z = -25; z <= 24; z++) { R.del(0, 6, z); R.del(1, 6, z); R.set(0, 5, z, 0xe8d8b6, M_SOLID, 0.02); }
+  const Rb = newBuckets();
+  yield* meshGrid(R, Rb, 0, -7, 0);
+  const right = new THREE.Group();
+  right.position.set(0, 7, 0);
+  addBuckets(ctx, seg, Rb, right, true);
+  seg.scene.add(right);
+  // printed pages
+  const mk = (tex, w, h) => {
+    const m = new THREE.MeshLambertMaterial({ map: tex });
+    const geo = new THREE.PlaneGeometry(w, h);
+    seg.own.push(m, tex); seg.geos.push(geo);
+    const mesh = new THREE.Mesh(geo, m);
+    mesh.receiveShadow = true;
+    return mesh;
+  };
+  const pl = mk(titlePage(ctx), 33.5, 47.6);
+  pl.rotation.x = -Math.PI / 2; pl.position.set(-19.6, 7.02, -0.5);
+  seg.scene.add(pl);
+  const pr = mk(textPage(ctx, intro ? ctx.texts.intro : ctx.texts.outro, 11), 33.5, 47.6);
+  pr.rotation.x = -Math.PI / 2; pr.position.set(19.6, 0.02, -0.5);
+  right.add(pr);
+  const pc = mk(coverTex(ctx), 37, 53);
+  pc.rotation.set(Math.PI / 2, 0, Math.PI); pc.position.set(18.5, -7.03, -0.5);
+  right.add(pc);
+  // pages flipping over (intro)
+  const sheets = [];
+  if (intro) {
+    const tex = linesPage(ctx, 5);
+    const m = new THREE.MeshLambertMaterial({ map: tex, side: THREE.DoubleSide });
+    seg.own.push(m, tex);
+    for (let n = 0; n < 3; n++) {
+      const geo = makeSheet(34.5, 47.6);
+      seg.geos.push(geo);
+      const mesh = new THREE.Mesh(geo, m);
+      mesh.position.set(0, 0, -0.5);
+      mesh.castShadow = true;
+      bendSheet(geo, 0, 0, 7.05 + n * 0.04);
+      seg.scene.add(mesh);
+      sheets.push({ mesh, geo, y0: 7.06 + (2 - n) * 0.05 });
+    }
+  }
+  // glowing letters
+  const chars = [...new Set((ctx.texts.title + ctx.texts.intro + ctx.texts.outro + "BookTrip").replace(/\s+/g, "").split(""))];
+  while (chars.length < 8) chars.push(...("AaBbCcDd".split("")));
+  const atlas = letterAtlas(chars.slice(0, 64));
+  ctx.redraws.push(atlas.userData.redraw);
+  const NL = ctx.lowQ ? 150 : 240;
+  const lp = new Float32Array(NL * 3), ls = new Float32Array(NL), lg = new Float32Array(NL), lm = new Float32Array(NL);
+  const rng = seeded(4242);
+  for (let n = 0; n < NL; n++) {
+    const sideX = rng() < 0.5 ? -1 : 1;
+    lp[n * 3] = sideX * (3 + rng() * 30); lp[n * 3 + 1] = 7.4; lp[n * 3 + 2] = (rng() - 0.5) * 42;
+    ls[n] = rng(); lg[n] = Math.floor(rng() * Math.min(64, chars.length)); lm[n] = rng() < 0.32 ? 0 : 1;
+  }
+  const lgeo = new THREE.BufferGeometry();
+  lgeo.setAttribute("position", new THREE.BufferAttribute(lp, 3));
+  lgeo.setAttribute("aSeed", new THREE.BufferAttribute(ls, 1));
+  lgeo.setAttribute("aGlyph", new THREE.BufferAttribute(lg, 1));
+  lgeo.setAttribute("aMode", new THREE.BufferAttribute(lm, 1));
+  const lmat = new THREE.ShaderMaterial({
+    vertexShader: LET_VS, fragmentShader: LET_FS, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false,
+    uniforms: { uT: { value: 0 }, uDive: { value: 99 }, uScale: ctx.U.pscale, uMaxSize: ctx.U.pmax, uAtlas: { value: atlas }, uGain: { value: 1 } },
+  });
+  const letters = new THREE.Points(lgeo, lmat);
+  letters.frustumCulled = false;
+  letters.renderOrder = 30;
+  seg.scene.add(letters);
+  seg.geos.push(lgeo); seg.own.push(lmat, atlas);
+  // lights: candle, page glow
+  assignLights(seg, [{ pos: new THREE.Vector3(-60, 24, -30), color: 0xffb060, intensity: 1.5, flicker: 2 }, { pos: new THREE.Vector3(14, 16, 0), color: 0xffe2a8, intensity: 0.001, flicker: 0 }], new THREE.Vector3());
+  const pageLight = seg.points[1];
+  // ambience: dust in the lamp light, bokeh of a dark room, steam from the tea
+  const prng = seeded(77);
+  addParticles(ctx, seg, { kind: "dot", count: 46, center: [0, 30, 0], box: [150, 54, 100], vel: [0.4, 0.6, 0], size: [0.55, 1], colors: [0xffe8c0], wob: 3, additive: true, intensity: 1.3, opacity: 0.7 }, prng);
+  addParticles(ctx, seg, { kind: "dot", count: 24, center: [0, 80, -300], box: [620, 190, 40], vel: [0.7, 0.2, 0], size: [16, 34], colors: [0xffb060, 0xffd090, 0xff8a50, 0x8ab0ff], wob: 6, additive: true, intensity: 0.42 }, prng);
+  addParticles(ctx, seg, { kind: "puff", count: 7, center: [62, 20, 30], box: [6, 18, 6], vel: [0.3, 3.2, 0], size: [5, 9], colors: [0xffffff], opacity: 0.18, wob: 1 }, prng);
+  addParticles(ctx, seg, { kind: "dot", count: 10, center: [-60, 34, -30], box: [4, 18, 4], vel: [0, 5, 0], size: [0.6, 1.1], colors: [0xffd08a, 0xff9a4a], wob: 0.8, additive: true, intensity: 3 }, prng);
+  seg.tilt = 0.7;
+  const cam = seg.camera;
+  const tgt = new THREE.Vector3();
+  seg.update = (l, a) => {
+    const dur = seg.dur || 6;
+    for (const p of seg.flick) p.light.intensity = p.base * (1 + p.f * 0.1 * (Math.sin(a * 13 + p.ph) * 0.6 + Math.sin(a * 7.3 + p.ph * 2) * 0.4));
+    let fov = FOV, roll = 0;
+    if (intro) {
+      const Ld = Math.max(0.5, dur - DIVE);
+      const gap = Math.max(0.55, (Ld - 0.9) / sheets.length);
+      sheets.forEach((s, n) => {
+        const p = range(l, 0.45 + n * gap, 0.45 + n * gap + 1.25);
+        const th = Math.PI * easeInOut(p);
+        bendSheet(s.geo, th, 0.95, p >= 1 ? 7.06 + n * 0.05 : s.y0);
+      });
+      lmat.uniforms.uT.value = l;
+      lmat.uniforms.uDive.value = Ld + 0.15;
+      lmat.uniforms.uGain.value = 1;
+      pageLight.intensity = LK * (0.05 + 2.6 * easeIn(range(l, Ld, dur)));
+      if (l < Ld) {
+        const p = easeInOut(l / Ld);
+        const az = lerp(0.42, 0.16, p), el = lerp(0.74, 0.92, p), d = lerp(178, 118, easeOut(l / Ld));
+        tgt.set(lerp(2, 7, p), lerp(3, 6, p), lerp(4, 0, p));
+        cam.position.set(tgt.x + Math.sin(az) * Math.cos(el) * d, tgt.y + Math.sin(el) * d, tgt.z + Math.cos(az) * Math.cos(el) * d);
+      } else {
+        const q = easeIn(range(l, Ld, dur));
+        const az = 0.16, el = 0.92, d = 118;
+        const sx = 7 + Math.sin(az) * Math.cos(el) * d, sy = 6 + Math.sin(el) * d, sz = Math.cos(az) * Math.cos(el) * d;
+        cam.position.set(lerp(sx, 18, q), lerp(sy, 9.5, q), lerp(sz, 2.5, q));
+        tgt.set(lerp(7, 18.5, q), lerp(6, 7, q), lerp(0, -3, q));
+        fov = lerp(FOV, ctx.reduced ? 38 : 54, q);
+        roll = ctx.reduced ? 0 : q * q * 0.6;
+      }
+    } else {
+      const cl = easeInOut(range(l, 1.5, 3.5));
+      right.rotation.z = Math.PI * cl;
+      const g = Math.min(1, ctx.reduced ? 0 : 1);
+      lmat.uniforms.uT.value = l < 3 ? lerp(3.3, 0, l / 3) * g + 0.2 : 0;
+      lmat.uniforms.uDive.value = 0.3;
+      lmat.uniforms.uGain.value = 0.8;
+      pageLight.intensity = LK * 2.2 * (1 - range(l, 0, 2.6));
+      const q = easeOut(range(l, 0, 3.6));
+      const az = lerp(0.1, 0.34, q), el = lerp(1.25, 0.64, q), d = lerp(30, 150, q) + Math.max(0, l - 3.6) * 1.6;
+      tgt.set(lerp(16, -6, q), lerp(7, 5, q), lerp(-2, 2, q));
+      cam.position.set(tgt.x + Math.sin(az) * Math.cos(el) * d, tgt.y + Math.sin(el) * d, tgt.z + Math.cos(az) * Math.cos(el) * d);
+    }
+    if (!ctx.reduced) { tgt.x += Math.sin(a * 0.5) * 0.25; tgt.y += Math.sin(a * 0.7) * 0.15; }
+    cam.fov = fov;
+    cam.up.set(Math.sin(roll), Math.cos(roll), 0);
+    cam.lookAt(tgt);
+  };
+  return seg;
+}
+
+// =================================================================================================
+// Post pipeline: segment render targets → bloom → composite (transition, grade, tilt-shift, ACES)
+// =================================================================================================
+
+function makePost(renderer, hdr, samples) {
+  const type = hdr ? THREE.HalfFloatType : THREE.UnsignedByteType;
+  const mkRT = (s, depth = true) => new THREE.WebGLRenderTarget(1, 1, { type, samples: s, depthBuffer: depth, minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter });
+  const rtA = mkRT(samples), rtB = mkRT(samples), rtH1 = mkRT(0, false), rtH2 = mkRT(0, false);
+  const TU = { tA: { value: rtA.texture }, tB: { value: rtB.texture }, uMode: { value: 0 }, uProg: { value: 0 }, uAspect: { value: 1 }, uTime: { value: 0 } };
+  const base = { vertexShader: TRI_VS, depthTest: false, depthWrite: false, toneMapped: false };
+  const bright = new THREE.ShaderMaterial({ ...base, fragmentShader: BRIGHT_FS, uniforms: { ...TU, uTexel: { value: new THREE.Vector2() }, uThresh: { value: hdr ? 1.0 : 0.82 } } });
+  const blur = new THREE.ShaderMaterial({ ...base, fragmentShader: BLUR_FS, uniforms: { tIn: { value: null }, uDir: { value: new THREE.Vector2() } } });
+  const comp = new THREE.ShaderMaterial({
+    ...base, fragmentShader: COMP_FS,
+    uniforms: {
+      ...TU, tBloom: { value: rtH1.texture }, uBloom: { value: 0.6 }, uExposure: { value: 1 }, uSat: { value: 1 }, uCon: { value: 1 }, uVig: { value: 0.3 },
+      uTilt: { value: 0 }, uFocus: { value: 0.5 }, uFlash: { value: 0 }, uFade: { value: 0 }, uGrain: { value: 0.012 }, uHDR: { value: hdr ? 1 : 0 },
+      uTint: { value: new THREE.Vector3(1, 1, 1) }, uLift: { value: new THREE.Vector3() }, uFlashCol: { value: new THREE.Vector3(2.4, 2.05, 1.6) },
+      uPx: { value: new THREE.Vector2() }, uRes: { value: new THREE.Vector2() },
+    },
+  });
+  const tri = new THREE.BufferGeometry();
+  tri.setAttribute("position", new THREE.Float32BufferAttribute([-1, -1, 0, 3, -1, 0, -1, 3, 0], 3));
+  const quad = new THREE.Mesh(tri, comp);
+  quad.frustumCulled = false;
+  const pScene = new THREE.Scene();
+  pScene.add(quad);
+  const pCam = new THREE.Camera();
+  let W = 1, H = 1;
+  const pass = (mat, target) => { quad.material = mat; renderer.setRenderTarget(target); renderer.render(pScene, pCam); };
+  return {
+    rtA, rtB, TU, comp,
+    setSize(w, h) {
+      W = w; H = h;
+      rtA.setSize(w, h); rtB.setSize(w, h);
+      const qw = Math.max(1, Math.round(w / 4)), qh = Math.max(1, Math.round(h / 4));
+      rtH1.setSize(qw, qh); rtH2.setSize(qw, qh);
+      bright.uniforms.uTexel.value.set(1 / w, 1 / h);
+      comp.uniforms.uPx.value.set(1 / w, 1 / h);
+      comp.uniforms.uRes.value.set(w, h);
+      TU.uAspect.value = w / h;
+    },
+    /** Bloom from the (transitioned) scene, then the final composite to the canvas. */
+    finish() {
+      pass(bright, rtH1);
+      const qw = rtH1.width, qh = rtH1.height;
+      for (const s of [1, 2.2]) {
+        blur.uniforms.tIn.value = rtH1.texture; blur.uniforms.uDir.value.set(s / qw, 0); pass(blur, rtH2);
+        blur.uniforms.tIn.value = rtH2.texture; blur.uniforms.uDir.value.set(0, s / qh); pass(blur, rtH1);
+      }
+      pass(comp, null);
+    },
+    dispose() {
+      for (const r of [rtA, rtB, rtH1, rtH2]) r.dispose();
+      for (const m of [bright, blur, comp]) m.dispose();
+      tri.dispose();
+    },
+    get size() { return [W, H]; },
+  };
+}
+
+// =================================================================================================
+// Overlay (DOM over the canvas): title cards, subtitles, progress dots, optional controls
+// =================================================================================================
+
+const FILM_CSS = `
+.btf-host-rel{position:relative}
+.btf-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;outline:none}
+.btf-root{position:absolute;inset:0;overflow:hidden;pointer-events:none;color:#fff;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;container-type:size;-webkit-font-smoothing:antialiased;z-index:2}
+.btf-root.btf-nogl{background:var(--btf-bg,linear-gradient(180deg,#1b2a4a,#0e1630));transition:background 1.2s ease}
+.btf-card{position:absolute;left:0;right:0;top:9%;display:flex;flex-direction:column;align-items:center;gap:.6em;padding:0 7%;text-align:center;opacity:0;transform:translateY(14px) scale(.985);transition:opacity .8s ease,transform 1.2s cubic-bezier(.16,1,.3,1)}
+.btf-card.is-on{opacity:1;transform:none}
+.btf-kicker{font-weight:600;font-size:clamp(9px,1.2vw,13px);font-size:clamp(8.5px,1.3cqw,13px);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.9);padding:.55em 1.1em;border-radius:99px;background:rgba(8,10,22,.34);border:1px solid rgba(255,255,255,.2);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.btf-title{margin:0;font-family:Unbounded,Inter,system-ui,sans-serif;font-weight:800;font-size:clamp(15px,3.4vw,54px);font-size:clamp(14px,4.1cqw,58px);line-height:1.1;letter-spacing:-.012em;max-width:21ch;text-wrap:balance;text-shadow:0 1px 2px rgba(0,0,0,.45),0 4px 30px rgba(0,0,0,.5)}
+.btf-sub{position:absolute;left:50%;bottom:calc(5% + 18px);transform:translate(-50%,8px);width:max-content;max-width:min(88%,58ch);padding:.5em 1em .56em;border-radius:14px;background:rgba(6,8,18,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.25);font-weight:500;font-size:clamp(12px,1.7vw,21px);font-size:clamp(11px,2.05cqw,22px);line-height:1.42;text-align:center;text-wrap:pretty;opacity:0;transition:opacity .45s ease,transform .6s cubic-bezier(.16,1,.3,1)}
+.btf-sub.is-on{opacity:1;transform:translate(-50%,0)}
+.btf-who{font-weight:700;color:#ffcf7a}
+.btf-sub.is-line .btf-txt{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600}
+.btf-dots{position:absolute;left:50%;bottom:calc(2.4% + 2px);transform:translateX(-50%);display:flex;gap:6px;align-items:center}
+.btf-dot{position:relative;width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.34);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.35);transition:width .6s cubic-bezier(.16,1,.3,1),background .3s}
+.btf-dot.is-past{background:rgba(255,255,255,.88)}
+.btf-dot.is-cur{width:26px}
+.btf-dot i{position:absolute;inset:0;background:#fff;transform-origin:0 50%;transform:scaleX(0)}
+.btf-end{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:.55em;padding:0 8% 6%;text-align:center;opacity:0;transform:scale(.97);transition:opacity 1.3s ease,transform 2s cubic-bezier(.16,1,.3,1)}
+.btf-end.is-on{opacity:1;transform:none}
+.btf-end-k{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(12px,1.8vw,26px);font-size:clamp(11px,2.3cqw,28px);color:#ffe2a8;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.btf-end-t{margin:0;font-family:Unbounded,Inter,system-ui,sans-serif;font-weight:800;font-size:clamp(16px,3.8vw,60px);font-size:clamp(15px,4.6cqw,64px);line-height:1.08;max-width:18ch;text-wrap:balance;text-shadow:0 2px 4px rgba(0,0,0,.4),0 6px 40px rgba(0,0,0,.55)}
+.btf-note{position:absolute;left:50%;top:10px;transform:translateX(-50%);max-width:92%;padding:.4em .9em;border-radius:99px;background:rgba(6,8,18,.6);font-size:12px;color:#c3cbe0;text-align:center}
+.btf-ctrl{position:absolute;right:10px;top:10px;display:flex;gap:6px;pointer-events:auto}
+.btf-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:rgba(6,8,18,.55);color:#fff;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .2s,border-color .2s}
+.btf-btn:hover{background:rgba(20,26,44,.75);border-color:rgba(95,225,255,.5)}
+.btf-btn:focus-visible{outline:2px solid #5fe1ff;outline-offset:2px}
+.btf-btn svg{width:20px;height:20px;fill:currentColor}
+.btf-btn[aria-pressed="false"]{opacity:.6}
+@container (max-width:460px){.btf-sub{bottom:calc(4% + 14px);max-width:94%;padding:.42em .8em .46em;border-radius:10px}.btf-dots{gap:4px}.btf-dot{width:5px;height:5px}.btf-dot.is-cur{width:18px}.btf-card{top:7%;gap:.45em}}
+@container (max-height:230px){.btf-kicker{display:none}}
+@media (prefers-reduced-motion:reduce){.btf-card,.btf-sub,.btf-end{transform:none!important;transition-property:opacity!important}.btf-dot{transition:none}}
+`;
+
+function injectCSS() {
+  if (typeof document === "undefined" || document.getElementById("btf-style")) return;
+  const s = document.createElement("style");
+  s.id = "btf-style";
+  s.textContent = FILM_CSS;
+  document.head.appendChild(s);
+}
+
+const ICONS = {
+  play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.2-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>',
+  pause: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1.2"/><rect x="13.5" y="5" width="4" height="14" rx="1.2"/></svg>',
+  prev: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="2.6" height="14" rx="1"/><path d="M19 6.2v11.6a.9.9 0 0 1-1.4.75L9.3 12.75a.9.9 0 0 1 0-1.5l8.3-5.8A.9.9 0 0 1 19 6.2z"/></svg>',
+  next: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="16.4" y="5" width="2.6" height="14" rx="1"/><path d="M5 6.2v11.6a.9.9 0 0 0 1.4.75l8.3-5.8a.9.9 0 0 0 0-1.5L6.4 5.45A.9.9 0 0 0 5 6.2z"/></svg>',
+  voice: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.2L12 5.6v12.8l-4.8-3.9H4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7l-1.1-1.1a3.4 3.4 0 0 0 0-4.8zM17.9 6.1a8.4 8.4 0 0 1 0 11.8l-1.1-1.1a6.8 6.8 0 0 0 0-9.6z"/></svg>',
+};
+
+function buildOverlay(root, nScenes, L, withControls) {
+  const mk = (tag, cls) => { const e = document.createElement(tag); if (cls) e.className = cls; return e; };
+  const card = mk("div", "btf-card"), kicker = mk("span", "btf-kicker"), title = mk("p", "btf-title");
+  card.append(kicker, title);
+  const sub = mk("div", "btf-sub"), who = mk("span", "btf-who"), txt = mk("span", "btf-txt");
+  sub.setAttribute("aria-live", "polite");
+  sub.append(who, txt);
+  const dots = mk("div", "btf-dots");
+  dots.setAttribute("role", "img");
+  dots.setAttribute("aria-label", L.progress);
+  const dotEls = [];
+  for (let n = 0; n < nScenes; n++) { const d = mk("span", "btf-dot"); const f = mk("i"); d.append(f); dots.append(d); dotEls.push({ d, f }); }
+  const end = mk("div", "btf-end"), endK = mk("span", "btf-end-k"), endT = mk("p", "btf-end-t");
+  end.append(endT, endK);
+  root.append(card, sub, dots, end);
+  let ctrl = null;
+  if (withControls) {
+    ctrl = mk("div", "btf-ctrl");
+    const btn = (name, label) => { const b = mk("button", "btf-btn"); b.type = "button"; b.innerHTML = ICONS[name]; b.setAttribute("aria-label", label); b.title = label; ctrl.append(b); return b; };
+    ctrl.prev = btn("prev", L.prev); ctrl.pp = btn("play", L.play); ctrl.next = btn("next", L.next); ctrl.voice = btn("voice", L.voiceOn);
+    root.append(ctrl);
+  }
+  return { card, kicker, title, sub, who, txt, dots, dotEls, end, endK, endT, ctrl, last: {} };
+}
+
+/** Split long narration into subtitle chunks of at most ~max characters, on sentence / clause boundaries. */
+function chunkText(text, max) {
+  const t = String(text || "").replace(/\s+/g, " ").trim();
+  if (!t) return [];
+  if (t.length <= max) return [t];
+  const parts = t.match(/[^.!?…]+[.!?…]+["»”')\]]*\s*|[^.!?…]+$/g) || [t];
+  const out = [];
+  let cur = "";
+  const push = (s) => {
+    s = s.trim();
+    if (!s) return;
+    if (s.length <= max * 1.15) { out.push(s); return; }
+    // very long sentence: split on commas / dashes / spaces
+    let c = "";
+    for (const w of s.split(/\s+/)) {
+      if ((c + " " + w).trim().length > max && c) { out.push(c.trim()); c = w; } else c = (c + " " + w).trim();
+    }
+    if (c) out.push(c.trim());
+  };
+  for (const p of parts) {
+    if ((cur + p).trim().length > max && cur) { push(cur); cur = p; } else cur += p;
+  }
+  push(cur);
+  return out;
+}
+
+// =================================================================================================
+// Speech (optional narration voice)
+// =================================================================================================
+
+const VOICE_LANG = { ru: "ru-RU", uk: "uk-UA", en: "en-US" };
+
+function makeVoice(lang) {
+  const synth = typeof window !== "undefined" ? window.speechSynthesis : null;
+  if (!synth || typeof window.SpeechSynthesisUtterance === "undefined") return null;
+  const tag = VOICE_LANG[lang] || "en-US", lc = tag.toLowerCase();
+  let voice = null, known = false, token = 0;
+  const norm = (s) => String(s || "").replace("_", "-").toLowerCase();
+  const pickVoice = () => {
+    let vs = [];
+    try { vs = synth.getVoices() || []; } catch { vs = []; }
+    if (!vs.length) return;
+    known = true;
+    voice = vs.find((v) => norm(v.lang) === lc && v.localService) || vs.find((v) => norm(v.lang) === lc) || vs.find((v) => norm(v.lang).startsWith(lang + "-")) || null;
+  };
+  pickVoice();
+  const onVC = () => pickVoice();
+  try { synth.addEventListener("voiceschanged", onVC); } catch { /* old browsers */ }
+  return {
+    /** Speak; returns false when there is no voice for the language (stay silent). */
+    speak(text, h) {
+      const my = ++token;
+      if (known && !voice) return false;
+      try {
+        const u = new window.SpeechSynthesisUtterance(text);
+        u.lang = tag;
+        if (voice) u.voice = voice;
+        u.rate = 1; u.pitch = 1; u.volume = 1;
+        u.onstart = () => { if (my === token) h.start(); };
+        u.onend = () => { if (my === token) h.end(true); };
+        u.onerror = () => { if (my === token) h.end(false); };
+        u.onboundary = (e) => { if (my === token && typeof e.charIndex === "number") h.boundary(e.charIndex); };
+        synth.speak(u);
+        return true;
+      } catch { return false; }
+    },
+    cancel() { token++; try { if (synth.speaking || synth.pending) synth.cancel(); } catch { /* ignore */ } },
+    dispose() { this.cancel(); try { synth.removeEventListener("voiceschanged", onVC); } catch { /* ignore */ } },
+  };
+}
+
+// =================================================================================================
+// Film data normalisation (unknown enums / ids never crash the film)
+// =================================================================================================
+
+const SETTING_ALIAS = {
+  beach: "island", coast: "island", ocean: "sea", lake: "sea", river: "meadow", harbor: "sea", port: "sea", home: "room", house: "room",
+  bedroom: "room", kitchen: "room", study: "library", office: "room", hall: "ballroom", ball: "ballroom", court: "palace", throne_room: "palace",
+  market: "street", town: "city", square: "street", farm: "village", field: "meadow", fields: "meadow", jungle: "forest", woods: "forest", wood: "forest",
+  park: "garden", prison: "cave", dungeon: "cave", mine: "cave", temple: "church", cathedral: "church", chapel: "church", monastery: "church",
+  inn: "tavern", pub: "tavern", bar: "tavern", arctic: "snow", tundra: "snow", winter: "snow", deck: "ship", boat: "ship", spaceship: "space",
+  planet: "space", moon: "space", asteroid: "space", war: "battlefield", battle: "battlefield", classroom: "school", university: "school",
+  hill: "mountains", hills: "mountains", mountain: "mountains", valley: "meadow", bog: "swamp", marsh: "swamp", fortress: "castle", station: "train",
+  railway: "train", sky: "space", underground: "cave", ruins: "castle", graveyard: "church", cemetery: "church",
+};
+const TIME_ALIAS = { morning: "dawn", sunrise: "dawn", noon: "day", afternoon: "day", daytime: "day", evening: "dusk", sunset: "dusk", twilight: "dusk", midnight: "night" };
+const WEATHER_ALIAS = { sunny: "clear", sun: "clear", storm: "rain", rainy: "rain", thunderstorm: "rain", snowy: "snow", blizzard: "snow", mist: "fog", foggy: "fog", misty: "fog", starry: "stars", windy: "wind", breeze: "wind" };
+const ACTION_ALIAS = { run: "chase", running: "chase", fly: "travel", journey: "travel", walking: "walk", battle: "fight", duel: "fight", sleep: "rest", sit: "rest", cry: "sad", party: "celebrate", feast: "celebrate", explore: "discover", search: "discover", speak: "talk", argue: "talk", idle: "talk", wave: "talk" };
+const CAMERA_ALIAS = { zoom: "dolly_in", dolly: "dolly_in", push_in: "dolly_in", tracking: "pan", aerial: "fly_over", flyover: "fly_over", closeup: "close_up", close: "close_up", rotate: "orbit" };
+const MOOD_ALIAS = { happy: "joyful", sad: "melancholic", scary: "tense", dark: "mysterious", love: "romantic", heroic: "epic", peaceful: "calm", dreamy: "magical" };
+const normEnum = (v, list, alias, fb) => { const s = str(v).toLowerCase().replace(/[\s-]+/g, "_"); return list.includes(s) ? s : alias[s] || fb; };
+
+function normalizeFilm(book) {
+  const f = book.film && typeof book.film === "object" ? book.film : {};
+  const chars = new Map();
+  for (const c of Array.isArray(book.characters) ? book.characters : []) {
+    if (c && typeof c.id === "string" && c.id && !chars.has(c.id)) chars.set(c.id, { name: str(c.name) || c.id, appearance: c.appearance });
+  }
+  const scenes = (Array.isArray(f.scenes) ? f.scenes : []).filter((s) => s && typeof s === "object").slice(0, 12).map((s) => {
+    const line = s.line && typeof s.line === "object" && str(s.line.text) ? { speaker: str(s.line.speaker), text: str(s.line.text) } : null;
+    const props = [];
+    for (const p of Array.isArray(s.props) ? s.props : []) { const n = str(p).toLowerCase(); if (SCENE_PROPS.includes(n) && !props.includes(n)) props.push(n); }
+    return {
+      title: str(s.title), narration: str(s.narration), line,
+      setting: normEnum(s.setting, SETTINGS, SETTING_ALIAS, "meadow"),
+      time: normEnum(s.time, TIMES, TIME_ALIAS, "day"),
+      weather: normEnum(s.weather, WEATHER, WEATHER_ALIAS, "clear"),
+      action: normEnum(s.action, ACTIONS, ACTION_ALIAS, "talk"),
+      camera: normEnum(s.camera, CAMERAS, CAMERA_ALIAS, "orbit"),
+      mood: normEnum(s.mood, MOODS, MOOD_ALIAS, "calm"),
+      cast: (Array.isArray(s.cast) ? s.cast : []).filter((id) => typeof id === "string" && id),
+      props: props.slice(0, 5),
+    };
+  });
+  return { title: str(f.title) || str(book.title), intro: str(f.intro), outro: str(f.outro), scenes, chars };
+}
+
+/** Scene length: long enough to read (or hear) the narration and the line. */
+function sceneDuration(sc) {
+  const narr = sc.narration.length / CPS, ln = sc.line ? sc.line.text.length / CPS + 1 : 0;
+  return Math.max(SCENE_MIN, narr + 1.5 + ln);
+}
+
+// =================================================================================================
+// createFilm — the public API
+// =================================================================================================
+
+const LANGS3 = ["ru", "uk", "en"];
+
+export function createFilm(container, opts = {}) {
+  if (!container || typeof container.appendChild !== "function") throw new TypeError("createFilm(container): a DOM element is required");
+  injectCSS();
+  const book = opts.book && typeof opts.book === "object" ? opts.book : {};
+  const lang = LANGS3.includes(opts.lang) ? opts.lang : LANGS3.includes(book.lang) ? book.lang : "en";
+  const L = STR[lang];
+  const data = normalizeFilm(book);
+  const nS = data.scenes.length;
+  const reduced = prefersReducedMotion();
+  let coarse = false;
+  try { coarse = window.matchMedia("(pointer: coarse)").matches; } catch { /* ignore */ }
+  const lowQ = !!opts.lowQuality || coarse || Math.min(window.screen?.width || 1920, window.screen?.height || 1080) < 600;
+
+  // ---- timeline: intro, scenes, outro (durations may grow while speech is still running)
+  const segs = [{ kind: "intro", idx: -1, base: clamp(data.intro.length / CPS + 1.6, 5.4, 10), narr: data.intro, line: null }];
+  data.scenes.forEach((sc, i) => segs.push({ kind: "scene", idx: i, sc, base: sceneDuration(sc), narr: sc.narration, line: sc.line }));
+  segs.push({ kind: "outro", idx: nS, base: clamp(data.outro.length / CPS + 2.6, 6.2, 11), narr: data.outro, line: null });
+  let total = 0;
+  const relayout = () => { let t = 0; for (const s of segs) { s.start = t; t += s.dur; } total = t; };
+  for (const s of segs) s.dur = s.base;
+  relayout();
+
+  // ---- DOM
+  let madeRel = false;
+  try { if (getComputedStyle(container).position === "static") { container.classList.add("btf-host-rel"); madeRel = true; } } catch { /* ignore */ }
+  const canvas = document.createElement("canvas");
+  canvas.className = "btf-canvas";
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute("aria-label", data.title || L.film);
+  const root = document.createElement("div");
+  root.className = "btf-root";
+  container.append(canvas, root);
+  const ui = buildOverlay(root, nS, L, !!opts.controls);
+
+  // ---- renderer + shared resources
+  const U = { time: { value: 0 }, wind: { value: 0 }, pscale: { value: 800 }, pmax: { value: 64 } };
+  let renderer = null, post = null, hdr = false;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: "high-performance", preserveDrawingBuffer: !!opts.preserveDrawingBuffer });
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
+    renderer.setClearColor(0x04050b, 1);
+    renderer.info.autoReset = false;
+    hdr = renderer.extensions.has("EXT_color_buffer_float") || renderer.extensions.has("EXT_color_buffer_half_float");
+    post = makePost(renderer, hdr, lowQ ? 2 : 4);
+  } catch (err) {
+    console.warn("[film] WebGL unavailable, showing a storyboard", err);
+    try { renderer?.dispose(); } catch { /* ignore */ }
+    renderer = null; post = null;
+    canvas.remove();
+    root.classList.add("btf-nogl");
+    const note = document.createElement("p");
+    note.className = "btf-note";
+    note.textContent = L.nogl;
+    root.append(note);
+  }
+  const cov = book.cover && typeof book.cover === "object" ? book.cover : {};
+  const pool = new Map(), inUse = new Set();
+  const ctx = {
+    renderer, U, reduced, lowQ, aspect: 16 / 9, shadowSize: lowQ ? 1024 : 2048,
+    mats: renderer ? makeMaterials(U) : null,
+    skyGeo: renderer ? new THREE.SphereGeometry(1500, 32, 16) : null,
+    chars: data.chars, nScenes: nS, seedBase: str(book.id) || data.title || "booktrip",
+    cover: { bg: hexC(cov.bg, 0x7a2a3a), bg2: hexC(cov.bg2, 0x3a1424), fg: hexC(cov.fg, 0xf6e7b0), accent: hexC(cov.accent, 0xe8b04a) },
+    texts: { title: str(book.title) || data.title, author: str(book.author), intro: data.intro, outro: data.outro },
+    redraws: [],
+    acquire(id) {
+      let list = pool.get(id);
+      if (!list) pool.set(id, (list = []));
+      let g = list.find((x) => !inUse.has(x));
+      if (!g) {
+        const ch = data.chars.get(id);
+        if (!ch) return null;
+        try { g = buildCharacter(normalizeAppearance(ch.appearance)); } catch (err) { console.warn("[film] character skipped", id, err); return null; }
+        list.push(g);
+      }
+      inUse.add(g);
+      return g;
+    },
+    release(g) { inUse.delete(g); if (g.parent) g.parent.remove(g); },
+  };
+
+  // ---- state
+  let T = 0, animT = 0, userPlaying = false, ended = false, endFired = false, disposed = false;
+  let hidden = typeof document !== "undefined" && document.hidden, offscreen = false, suspended = hidden;
+  let raf = 0, lastNow = 0, curSeg = -1, quality = 1, debug = false;
+  let W = 1, H = 1, dprUsed = 1;
+  const built = new Map();
+  let job = null;
+  const ft = [];
+  let fps = 0;
+
+  // ---- segment building (incremental, a few ms per frame)
+  function startJob(i) {
+    const s = segs[i];
+    let gen;
+    try { gen = s.kind === "scene" ? sceneSegmentGen(ctx, s.sc, s.idx) : deskSegmentGen(ctx, s.kind); } catch (err) { gen = null; }
+    job = { i, gen };
+  }
+  function fallbackSeg(i) {
+    const s = segs[i];
+    if (s.kind === "scene" && s.sc.setting !== "meadow") {
+      try { return drain(sceneSegmentGen(ctx, { ...s.sc, setting: "meadow", props: [], cast: [] }, s.idx)); } catch { /* fall through */ }
+    }
+    const seg = newSegment(ctx, s.kind, s.idx, TIME_LOOK.night, MOOD_LOOK.calm, new THREE.Vector3(), 60);
+    seg.update = (l, a) => { seg.camera.position.set(0, 30, 120); seg.camera.lookAt(0, 20, 0); };
+    return seg;
+  }
+  function drain(gen) { let r; do { r = gen.next(); } while (!r.done); return r.value; }
+  function stepJob(budgetMs, sync) {
+    if (!job) return;
+    const t0 = performance.now();
+    try {
+      if (!job.gen) throw new Error("no generator");
+      for (;;) {
+        const r = job.gen.next();
+        if (r.done) { built.set(job.i, r.value); job = null; return; }
+        if (!sync && performance.now() - t0 > budgetMs) return;
+      }
+    } catch (err) {
+      console.warn("[film] segment build failed", segs[job.i]?.kind, err);
+      built.set(job.i, fallbackSeg(job.i));
+      job = null;
+    }
+  }
+  function ensure(i, sync) {
+    if (!renderer || i < 0 || i >= segs.length) return null;
+    if (built.has(i)) return built.get(i);
+    if (!job || job.i !== i) {
+      if (job && !sync) return null;
+      startJob(i);
+    }
+    stepJob(0, sync);
+    return built.get(i) || null;
+  }
+  function pump(budgetMs) {
+    if (!renderer) return;
+    if (!job) {
+      for (const i of [curSeg, curSeg + 1]) if (i >= 0 && i < segs.length && !built.has(i)) { startJob(i); break; }
+    }
+    stepJob(budgetMs, false);
+  }
+  function disposeSeg(seg) {
+    for (const c of seg.cast) ctx.release(c.g);
+    for (const g of seg.geos) g.dispose();
+    for (const m of seg.own) m.dispose();
+    try { seg.sun.dispose(); for (const p of seg.points) p.dispose(); } catch { /* ignore */ }
+    seg.scene.clear();
+  }
+  function prune(keep) {
+    for (const [i, seg] of built) if (!keep.includes(i)) { disposeSeg(seg); built.delete(i); }
+    if (job && !keep.includes(job.i)) job = null;
+  }
+
+  // ---- timeline helpers
+  function segIndexAt(t) {
+    for (let i = 0; i < segs.length; i++) if (t < segs[i].start + segs[i].dur) return i;
+    return segs.length - 1;
+  }
+  function frameState(t) {
+    const i = segIndexAt(t), s = segs[i], l = clamp(t - s.start, 0, s.dur);
+    let mode = 0, prog = 0, j = -1;
+    if (i > 0 && segs[i - 1].kind === "intro" && l < IRIS) { mode = 2; prog = l / IRIS; }
+    else if (i + 1 < segs.length && s.kind !== "intro" && l > s.dur - TRANS) { mode = 1; prog = sat((l - (s.dur - TRANS)) / TRANS); j = i + 1; }
+    return { i, s, l, mode, prog, j };
+  }
+  function extend(i, d) { segs[i].dur += d; relayout(); }
+
+  // ---- speech + subtitles
+  const voice = makeVoice(lang);
+  let ttsBroken = !voice;
+  const ttsWanted = () => { try { return !!opts.tts; } catch { return false; } };
+  let ttsOverride = null;
+  const ttsOn = () => !debug && !ttsBroken && (ttsOverride ?? ttsWanted());
+  // phase: 0 waiting, 1 narration, 2 line, 3 done; timed = following the clock instead of the voice
+  let sp = { seg: -1, phase: 0, started: false, t0: 0, chars: 0, timed: false, lineAt: 0 };
+  function resetSpeech(i) { if (voice) voice.cancel(); sp = { seg: i, phase: 0, started: false, t0: 0, chars: 0, timed: false, lineAt: 0 }; }
+  function speakPhase(ph) {
+    const s = segs[sp.seg];
+    const text = ph === 1 ? s.narr : s.line ? s.line.text : "";
+    sp.phase = ph; sp.started = false; sp.t0 = animT; sp.chars = 0;
+    if (!text) { advancePhase(); return; }
+    const my = sp;
+    const ok = voice.speak(text, {
+      start: () => { if (my === sp) my.started = true; },
+      boundary: (c) => { if (my === sp) my.chars = c; },
+      end: () => { if (my === sp) advancePhase(); },
+    });
+    if (!ok) { sp.timed = true; }
+  }
+  function advancePhase() {
+    const s = segs[sp.seg];
+    if (sp.phase === 1 && s.line) { sp.lineAt = segLocal(sp.seg); speakPhase(2); } else sp.phase = 3;
+  }
+  const segLocal = (i) => T - segs[i].start;
+  function tickSpeech(st) {
+    if (sp.seg !== st.i) resetSpeech(st.i);
+    if (!ttsOn() || sp.timed) { if (voice && sp.phase && sp.phase < 3 && !sp.timed) { voice.cancel(); sp.timed = true; } return; }
+    const s = st.s;
+    if (sp.phase === 0 && st.l >= (s.kind === "scene" ? 0.5 : 0.6) && s.narr) speakPhase(1);
+    // a voice that never starts (blocked autoplay, broken engine) → follow the clock from now on
+    if ((sp.phase === 1 || sp.phase === 2) && !sp.started && animT - sp.t0 > 2.2) { voice.cancel(); ttsBroken = true; sp.timed = true; }
+  }
+  function speaking(st) { return ttsOn() && !sp.timed && sp.seg === st.i && (sp.phase === 1 || sp.phase === 2); }
+
+  /** Which subtitle to show for segment state st → { who, text, line } or null. */
+  function subtitleFor(st) {
+    const s = st.s, l = st.l;
+    if (st.mode === 1 && st.prog > 0.45) return null;
+    const narr = s.narr, line = s.line;
+    const maxC = clamp(Math.round(W / 9.5), 44, 104);
+    const voiced = ttsOn() && !sp.timed && sp.seg === st.i && sp.phase > 0;
+    let showLine = false, frac = 0;
+    if (voiced) {
+      if (sp.phase === 1) frac = sp.chars > 0 ? sp.chars / Math.max(1, narr.length) : (animT - sp.t0) / Math.max(1, narr.length / CPS);
+      else showLine = !!line;
+      if (sp.phase === 3 && !line) return null;
+    } else {
+      const n0 = s.kind === "scene" ? 0.5 : 0.6, nT = narr.length / CPS + 0.6;
+      if (l < n0) return null;
+      if (l < n0 + nT || !line) {
+        if (!line && l > n0 + nT + 1.2 && s.kind !== "outro") return null;
+        frac = (l - n0) / nT;
+      } else showLine = true;
+    }
+    if (showLine && line) {
+      const ch = data.chars.get(line.speaker);
+      return { who: ch ? ch.name + ": " : "", text: "«" + line.text + "»", line: true };
+    }
+    if (!narr) return null;
+    const chunks = chunkText(narr, maxC);
+    if (!chunks.length) return null;
+    // pick the chunk by its share of characters
+    const totalC = chunks.reduce((a, c) => a + c.length, 0);
+    let acc = 0, idx = 0;
+    const at = clamp(frac, 0, 0.999) * totalC;
+    for (; idx < chunks.length - 1; idx++) { acc += chunks[idx].length; if (acc > at) break; }
+    return { who: "", text: chunks[idx], line: false };
+  }
+
+  // ---- overlay
+  function setOn(el, on, key) { if (ui.last[key] !== on) { ui.last[key] = on; el.classList.toggle("is-on", on); } }
+  function updateOverlay(st) {
+    const s = st.s, l = st.l;
+    // title card
+    let cardOn = false, kick = "", title = "";
+    if (s.kind === "intro") { cardOn = l > 0.7 && l < Math.min(3.8, s.dur - DIVE - 0.2); kick = L.film; title = data.title; }
+    else if (s.kind === "scene") {
+      const t0 = s.idx === 0 ? IRIS * 0.7 : 0.35;
+      cardOn = l > t0 && l < t0 + Math.min(3.2, s.dur * 0.42) && st.mode !== 1;
+      kick = L.scene.replace("{n}", String(s.idx + 1)).replace("{m}", String(nS));
+      title = s.sc.title;
+    }
+    if (!title) cardOn = false;
+    if (cardOn && ui.last.title !== title + kick) { ui.last.title = title + kick; ui.kicker.textContent = kick; ui.title.textContent = title; }
+    setOn(ui.card, cardOn, "card");
+    // subtitles
+    const sub = subtitleFor(st);
+    const key = sub ? sub.who + "|" + sub.text : "";
+    if (sub && ui.last.sub !== key) {
+      ui.last.sub = key;
+      ui.who.textContent = sub.who;
+      ui.who.hidden = !sub.who;
+      ui.txt.textContent = sub.text;
+      ui.sub.classList.toggle("is-line", sub.line);
+    }
+    setOn(ui.sub, !!sub, "subOn");
+    // progress dots
+    const cur = s.kind === "scene" ? s.idx : s.kind === "outro" ? nS : -1;
+    if (ui.last.dot !== cur) {
+      ui.last.dot = cur;
+      ui.dotEls.forEach((d, n) => { d.d.classList.toggle("is-cur", n === cur); d.d.classList.toggle("is-past", n < cur); d.f.style.transform = n < cur ? "scaleX(1)" : "scaleX(0)"; });
+    }
+    if (cur >= 0 && cur < nS) ui.dotEls[cur].f.style.transform = `scaleX(${sat(l / s.dur).toFixed(3)})`;
+    // end title
+    const endOn = s.kind === "outro" && l > 2.9 && !(endFired && typeof opts.onEnd === "function" && !debug);
+    if (endOn && !ui.last.endText) { ui.last.endText = true; ui.endT.textContent = data.title || ctx.texts.title; ui.endK.textContent = L.end; }
+    setOn(ui.end, endOn, "end");
+    if (!renderer) {
+      const sc = s.kind === "scene" ? s.sc : null;
+      const lk = sc ? TIME_LOOK[sc.time] : DESK_LOOK;
+      const bg = `linear-gradient(180deg, ${cssC(lk.top)}, ${cssC(lk.mid)} 62%, ${cssC(lk.bot)})`;
+      if (ui.last.bg !== bg) { ui.last.bg = bg; root.style.setProperty("--btf-bg", bg); }
+    }
+    if (ui.ctrl) {
+      const want = userPlaying && !ended ? "pause" : "play";
+      if (ui.last.pp !== want) { ui.last.pp = want; ui.ctrl.pp.innerHTML = ICONS[want]; const lb = want === "pause" ? L.pause : ended ? L.replay : L.play; ui.ctrl.pp.setAttribute("aria-label", lb); ui.ctrl.pp.title = lb; }
+      const v = ttsOverride ?? ttsWanted();
+      if (ui.last.v !== v) { ui.last.v = v; ui.ctrl.voice.setAttribute("aria-pressed", v ? "true" : "false"); const lb = v ? L.voiceOn : L.voiceOff; ui.ctrl.voice.setAttribute("aria-label", lb); ui.ctrl.voice.title = lb; }
+    }
+  }
+
+  // ---- rendering
+  const _tint = new THREE.Vector3(), _lift = new THREE.Vector3();
+  function renderSeg(seg, i, l, target, lineOn, lineK) {
+    seg.dur = segs[i].dur;
+    seg.update(l, animT, lineOn, lineK);
+    U.wind.value = seg.look.wind;
+    ctx.mats[M_GLOW].color.setScalar(seg.look.glow);
+    const cam = seg.camera;
+    cam.aspect = ctx.aspect;
+    cam.updateProjectionMatrix();
+    seg.sky.position.copy(cam.position);
+    U.pscale.value = H / (2 * Math.tan((cam.fov * Math.PI) / 360));
+    renderer.setRenderTarget(target);
+    renderer.render(seg.scene, cam);
+  }
+  function draw() {
+    if (disposed) return;
+    const st = frameState(T);
+    if (st.i !== curSeg) {
+      const prev = curSeg;
+      curSeg = st.i;
+      prune([curSeg, curSeg + 1]);
+      if (st.s.kind === "scene" && prev !== curSeg) { try { opts.onScene?.(st.s.idx); } catch (err) { console.warn(err); } }
+    }
+    tickSpeech(st);
+    updateOverlay(st);
+    if (!renderer) return;
+    const A = ensure(st.i, true);
+    const B = st.j >= 0 ? ensure(st.j, true) : null;
+    if (!A) return;
+    renderer.info.reset();
+    U.time.value = animT;
+    const s = st.s;
+    const sub = subtitleFor(st);
+    const lineOn = !!(sub && sub.line);
+    if (lineOn && !sp.lineSeen) { sp.lineSeen = true; sp.lineStart = st.l; }
+    const lineK = lineOn ? sat((st.l - (sp.lineStart ?? st.l)) / 0.9) : 0;
+    const P = post;
+    if (st.mode === 2) {
+      renderSeg(A, st.i, st.l, P.rtB, lineOn, lineK);
+      P.TU.tA.value = P.rtB.texture; P.TU.tB.value = P.rtB.texture;
+    } else {
+      renderSeg(A, st.i, st.l, P.rtA, lineOn, lineK);
+      P.TU.tA.value = P.rtA.texture; P.TU.tB.value = P.rtA.texture;
+      if (B) { renderSeg(B, st.j, 0, P.rtB, false, 0); P.TU.tB.value = P.rtB.texture; }
+    }
+    P.TU.uMode.value = st.mode === 1 && B ? 1 : st.mode === 2 ? 2 : 0;
+    P.TU.uProg.value = st.mode === 2 ? easeOut(st.prog) : easeInOut(st.prog);
+    P.TU.uTime.value = animT;
+    const k = st.mode === 1 && B ? smooth(st.prog) : 0;
+    const g0 = A.grade, g1 = B ? B.grade : A.grade;
+    const cu = P.comp.uniforms;
+    cu.uTint.value.copy(_tint.set(...g0.tint).lerp(_lift.set(...g1.tint), k));
+    cu.uLift.value.copy(_tint.set(...g0.lift).lerp(_lift.set(...g1.lift), k));
+    cu.uSat.value = lerp(g0.sat, g1.sat, k);
+    cu.uCon.value = lerp(g0.con, g1.con, k);
+    cu.uVig.value = lerp(g0.vig, g1.vig, k);
+    cu.uBloom.value = lerp(g0.bloom, g1.bloom, k) * (hdr ? 1 : 0.7);
+    cu.uExposure.value = lerp(A.look.exposure, B ? B.look.exposure : A.look.exposure, k);
+    cu.uTilt.value = lerp(A.tilt, B ? B.tilt : A.tilt, k) * 3.4 * dprUsed;
+    cu.uFocus.value = 0.5;
+    cu.uFlash.value = s.kind === "intro" ? smooth(range(st.l, s.dur - 0.5, s.dur)) : 0;
+    cu.uFade.value = s.kind === "intro" ? 1 - smooth(st.l / 0.9) : 0;
+    P.finish();
+  }
+
+  // ---- clock
+  function advance(dt) {
+    animT += dt;
+    let st = frameState(T);
+    const s = st.s;
+    // hold the current segment while its narration is still being spoken (capped), or while the next one builds
+    const holdAt = s.kind === "intro" ? s.dur - DIVE - 0.1 : s.kind === "scene" ? s.dur - TRANS - 0.15 : s.dur - 0.3;
+    const cap = s.kind === "scene" ? Math.max(s.base, SPEECH_CAP) : Math.max(s.base, 16);
+    if (st.l + dt >= holdAt && st.l <= holdAt + dt && s.dur < cap && speaking(st)) { extend(st.i, dt); }
+    else if (renderer && st.i + 1 < segs.length && !built.has(st.i + 1) && st.l + dt >= holdAt - 0.05 && s.dur - s.base < 2.5) { extend(st.i, dt); pump(14); }
+    T = Math.min(T + dt, total);
+    if (T >= total - 1e-6) {
+      T = total;
+      if (!ended) {
+        ended = true;
+        userPlaying = false;
+        if (!endFired) { endFired = true; try { opts.onEnd?.(); } catch (err) { console.warn(err); } }
+      }
+    }
+  }
+
+  function running() { return userPlaying && !suspended && !ended && !disposed; }
+  function schedule() { if (!raf && running()) { lastNow = performance.now(); raf = requestAnimationFrame(frame); } }
+  function frame(now) {
+    raf = 0;
+    if (!running()) { draw(); return; }
+    const dt = Math.min(0.1, Math.max(0, (now - lastNow) / 1000));
+    lastNow = now;
+    advance(dt);
+    pump(lowQ ? 5 : 8);
+    draw();
+    // adaptive resolution when frames are slow
+    ft.push(dt);
+    if (ft.length >= 45) {
+      const avg = ft.reduce((a, b) => a + b, 0) / ft.length;
+      ft.length = 0;
+      fps = Math.round(1 / Math.max(avg, 1e-3));
+      if (avg > 0.05 && quality > 0.55) { quality = Math.max(0.55, quality * 0.85); resize(); }
+    }
+    if (running()) raf = requestAnimationFrame(frame);
+    else if (ended) draw();
+  }
+
+  function resize() {
+    if (disposed) return;
+    const r = container.getBoundingClientRect();
+    W = Math.max(1, Math.round(r.width)); H = Math.max(1, Math.round(r.height));
+    ctx.aspect = W / H;
+    if (!renderer) return;
+    let dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR) * quality;
+    if (W * H * dpr * dpr > MAX_PIXELS) dpr = Math.sqrt(MAX_PIXELS / (W * H));
+    dprUsed = dpr;
+    renderer.setPixelRatio(dpr);
+    renderer.setSize(W, H, false);
+    const v = renderer.getDrawingBufferSize(new THREE.Vector2());
+    post.setSize(v.x, v.y);
+    U.pmax.value = 80 * dpr;
+    H = v.y; // particle scale uses drawing-buffer pixels
+    ctx.aspect = v.x / v.y;
+    W = r.width;
+  }
+
+  // ---- listeners
+  const onVis = () => { hidden = document.hidden; syncSuspend(); };
+  document.addEventListener("visibilitychange", onVis);
+  let io = null;
+  if (typeof IntersectionObserver === "function") {
+    io = new IntersectionObserver((es) => { for (const e of es) offscreen = !e.isIntersecting; syncSuspend(); }, { threshold: 0.12 });
+    io.observe(container);
+  }
+  let ro = null;
+  if (typeof ResizeObserver === "function") {
+    ro = new ResizeObserver(() => { resize(); if (!running()) draw(); });
+    ro.observe(container);
+  }
+  const onLost = (e) => { e.preventDefault(); suspended = true; if (raf) cancelAnimationFrame(raf); raf = 0; };
+  const onRestored = () => { syncSuspend(); draw(); };
+  canvas.addEventListener("webglcontextlost", onLost);
+  canvas.addEventListener("webglcontextrestored", onRestored);
+  function syncSuspend() {
+    const s = hidden || offscreen;
+    if (s === suspended) return;
+    suspended = s;
+    if (s) pauseSpeech(); else resumeSpeech();
+    schedule();
+  }
+  function pauseSpeech() { if (voice && (sp.phase === 1 || sp.phase === 2) && !sp.timed) { voice.cancel(); sp.resume = sp.phase; } }
+  function resumeSpeech() { if (voice && sp.resume && running() && ttsOn()) { const ph = sp.resume; sp.resume = 0; speakPhase(ph); } }
+  if (ui.ctrl) {
+    ui.ctrl.pp.addEventListener("click", () => (userPlaying && !ended ? api.pause() : api.play()));
+    ui.ctrl.prev.addEventListener("click", () => api.seek(Math.max(0, (segs[curSeg]?.kind === "scene" ? segs[curSeg].idx : nS) - 1)));
+    ui.ctrl.next.addEventListener("click", () => { const c = segs[curSeg]; const n = c?.kind === "scene" ? c.idx + 1 : c?.kind === "intro" ? 0 : nS; if (n < nS) api.seek(n); });
+    ui.ctrl.voice.addEventListener("click", () => api.setTts(!(ttsOverride ?? ttsWanted())));
+  }
+
+  // fonts arrive later than the first frame: redraw canvas text (pages, letters) once they are ready
+  if (document.fonts && document.fonts.load) {
+    Promise.all([document.fonts.load('600 52px "Playfair Display"'), document.fonts.load('italic 600 28px "Playfair Display"')]).catch(() => {}).then(() => {
+      if (disposed) return;
+      for (const r of ctx.redraws) { try { r(); } catch { /* ignore */ } }
+      if (!running()) draw();
+    });
+  }
+
+  resize();
+  if (renderer) ensure(0, true);
+  draw();
+
+  const api = {
+    play() {
+      if (disposed) return;
+      if (ended) api.restart();
+      userPlaying = true;
+      resumeSpeech();
+      schedule();
+      draw();
+    },
+    pause() {
+      if (disposed) return;
+      userPlaying = false;
+      pauseSpeech();
+      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+      draw();
+    },
+    restart() {
+      if (disposed) return;
+      T = 0; animT = 0; ended = false; endFired = false; curSeg = -1;
+      for (const s of segs) s.dur = s.base;
+      relayout();
+      resetSpeech(-1);
+      ui.last = {};
+      prune([0, 1]);
+      draw();
+      schedule();
+    },
+    /** Jump to the start of scene i (0-based). */
+    seek(i) {
+      if (disposed || !nS) return;
+      const n = clamp(Math.round(Number(i) || 0), 0, nS - 1);
+      T = segs[n + 1].start + (n === 0 ? IRIS : 0);
+      ended = false; endFired = false;
+      resetSpeech(-1);
+      draw();
+      schedule();
+    },
+    /** Debug / screenshots: render the frame at film time t (seconds) synchronously, no speech. */
+    renderAt(t) {
+      if (disposed) return null;
+      debug = true;
+      T = clamp(Number(t) || 0, 0, total);
+      animT = T;
+      draw();
+      debug = false;
+      const s = segs[segIndexAt(T)];
+      return { kind: s.kind, index: s.idx, local: T - s.start };
+    },
+    setTts(on) {
+      ttsOverride = !!on;
+      if (!on && voice) { voice.cancel(); if (sp.phase === 1 || sp.phase === 2) sp.timed = true; }
+      if (on) ttsBroken = !voice;
+      if (!running()) draw();
+    },
+    dispose() {
+      if (disposed) return;
+      disposed = true;
+      userPlaying = false;
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+      if (voice) voice.dispose();
+      document.removeEventListener("visibilitychange", onVis);
+      io?.disconnect(); ro?.disconnect();
+      canvas.removeEventListener("webglcontextlost", onLost);
+      canvas.removeEventListener("webglcontextrestored", onRestored);
+      job = null;
+      for (const seg of built.values()) disposeSeg(seg);
+      built.clear();
+      for (const list of pool.values()) for (const g of list) disposeCharacter(g);
+      pool.clear(); inUse.clear();
+      if (renderer) {
+        post.dispose();
+        ctx.mats.forEach((m) => m.dispose());
+        ctx.skyGeo.dispose();
+        renderer.dispose();
+        try { renderer.forceContextLoss(); } catch { /* ignore */ }
+      }
+      canvas.remove();
+      root.remove();
+      if (madeRel) container.classList.remove("btf-host-rel");
+    },
+    get playing() { return userPlaying && !ended && !disposed; },
+    get ended() { return ended; },
+    get duration() { return total; },
+    get time() { return T; },
+    get timeline() { return segs.map((s) => ({ kind: s.kind, index: s.idx, start: s.start, duration: s.dur })); },
+    get scene() { const s = segs[segIndexAt(T)]; return s.kind === "scene" ? s.idx : -1; },
+    get stats() { return { fps, quality, hdr, calls: renderer ? renderer.info.render.calls : 0, triangles: renderer ? renderer.info.render.triangles : 0, segments: built.size, webgl: !!renderer }; },
+  };
+  if (opts.autoplay) api.play();
+  return api;
+}

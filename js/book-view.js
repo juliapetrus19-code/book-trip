@@ -729,8 +729,9 @@ export function renderBook(root, bookIn, opts = {}) {
       return;
     }
     if (st === "error") {
-      s.node.hidden = false;
-      s.body.replaceChildren(errorBlock("overview", { compact: true }));
+      // the retelling section shows the overview error (with retry) once; this part waits for it
+      s.node.hidden = true;
+      s.body.replaceChildren();
       return;
     }
     const terms = arr(book.terms).filter((t) => isObj(t) && str(t.term));
@@ -1004,12 +1005,14 @@ export function renderBook(root, bookIn, opts = {}) {
       out.replaceChildren(el("figure", { class: "bk-ai-figure" }, img, el("figcaption", { text: T("char.portraitNote") })));
     };
 
+    const reveal = () => requestAnimationFrame(() => { if (out.isConnected) out.scrollIntoView({ block: "nearest", behavior: reduced ? "auto" : "smooth" }); });
     const run = async () => {
       out.hidden = false;
       if (!health.portraits) {
         out.replaceChildren(el("div", { class: "bk-ai-off" },
           el("p", { class: "bk-ai-off-title" }, icon("sparkle"), el("span", { text: T("char.portraitOffTitle") })),
           el("p", { text: T("char.portraitOffText") })));
+        reveal();
         return;
       }
       if (aiPortraits.has(pkey)) { showImg(aiPortraits.get(pkey)); return; }
@@ -1024,6 +1027,7 @@ export function renderBook(root, bookIn, opts = {}) {
       out.replaceChildren(el("div", { class: "bk-ai-loading" },
         el("span", { class: "bk-ai-canvas", "aria-hidden": "true" }),
         waitNote(T("char.portraitLoading"))));
+      reveal();
       try {
         const res = await fetch(url, { signal: ctrl.signal });
         if (!res.ok) {
@@ -1035,7 +1039,7 @@ export function renderBook(root, bookIn, opts = {}) {
         const objectUrl = URL.createObjectURL(await res.blob());
         objectUrls.add(objectUrl);
         aiPortraits.set(pkey, objectUrl);
-        if (out.isConnected) showImg(objectUrl);
+        if (out.isConnected) { showImg(objectUrl); reveal(); }
       } catch (err) {
         if (!out.isConnected || (err?.name === "AbortError" && !disposed && ctrl.signal.aborted && out.isConnected === false)) return;
         const msg = err?.name === "AbortError" ? T("char.portraitError") : (err?.code ? await errorMessage(err, lang) : T("char.portraitError"));
@@ -1043,6 +1047,7 @@ export function renderBook(root, bookIn, opts = {}) {
         retry.addEventListener("click", run);
         out.replaceChildren(el("div", { class: "bk-ai-error", role: "alert" },
           el("p", {}, icon("alert"), el("span", { text: msg === tb(lang, "err.generic") ? T("char.portraitError") : msg })), retry));
+        reveal();
       } finally {
         clearTimeout(timer);
         btn.disabled = false;
@@ -1077,8 +1082,8 @@ export function renderBook(root, bookIn, opts = {}) {
       return;
     }
     if (st === "error") {
-      s.node.hidden = false;
-      s.body.replaceChildren(errorBlock("overview", { compact: true }));
+      s.node.hidden = true; // the error (with retry) is shown once, in the retelling section
+      s.body.replaceChildren();
       return;
     }
     const items = arr(book.similar).filter((x) => isObj(x) && str(x.title)).slice(0, 8);
@@ -1190,8 +1195,13 @@ export function renderBook(root, bookIn, opts = {}) {
     on(stage, "pointerdown", wakeHud);
     on(stage, "focusin", wakeHud);
 
-    const sceneList = scenes.length ? el("ol", { class: "bk-scenes", "aria-label": T("film.scenesTitle") }, scenes.map((sc, n) =>
-      el("li", { class: "bk-scene" }, el("span", { class: "bk-scene-n", text: pad2(n + 1) }), el("span", { class: "bk-scene-t", text: str(sc.title) || `${pad2(n + 1)}` })))) : null;
+    // scene strip: follows the film; a click jumps straight to that scene
+    const sceneList = scenes.length ? el("ol", { class: "bk-scenes", "aria-label": T("film.scenesTitle") }, scenes.map((sc, n) => {
+      const b = el("button", { type: "button", class: "bk-scene" },
+        el("span", { class: "bk-scene-n", text: pad2(n + 1) }), el("span", { class: "bk-scene-t", text: str(sc.title) || pad2(n + 1) }));
+      b.addEventListener("click", () => playScene(n));
+      return el("li", { class: "bk-scene-li" }, b);
+    })) : null;
     film.sceneList = sceneList;
 
     videoPanel = el("div", { class: "bk-video glass" });
@@ -1313,10 +1323,11 @@ export function renderBook(root, bookIn, opts = {}) {
 
   function markScene(i) {
     const n = Number(i);
-    const list = film.sceneList ? [...film.sceneList.children] : [];
-    list.forEach((li, k) => {
-      li.classList.toggle("is-current", k === n);
-      li.classList.toggle("is-past", k < n);
+    const list = film.sceneList ? [...film.sceneList.querySelectorAll(".bk-scene")] : [];
+    list.forEach((b, k) => {
+      b.classList.toggle("is-current", k === n);
+      b.classList.toggle("is-past", k < n);
+      if (k === n) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current");
     });
     const now = film.hud?.querySelector(".bk-hud-now");
     const sc = filmScenes()[n];
@@ -1349,6 +1360,7 @@ export function renderBook(root, bookIn, opts = {}) {
       const filmOpts = {
         book,
         lang,
+        controls: false, // this page draws its own HUD (play/pause, restart, voice, fullscreen)
         onScene: (i) => { if (!disposed) markScene(i); },
         onEnd: () => { if (!disposed) onFilmEnd(); },
       };
@@ -1371,6 +1383,25 @@ export function renderBook(root, bookIn, opts = {}) {
       stage.classList.remove("is-starting", "is-playing");
       film.msg.hidden = false;
       film.msg.replaceChildren(el("p", { class: "bk-stage-note" }, icon("alert"), el("span", { text: T("film.failed") })));
+    }
+  }
+
+  async function playScene(n) {
+    if (!film.handle) await startFilm();
+    const h = film.handle;
+    if (!h || disposed) return;
+    try {
+      if (typeof h.seek === "function") h.seek(n);
+      if (!h.playing) { stopReading(); h.play(); }
+    } catch (err) { console.warn("[book] seek failed", err); }
+    if (film.endScreen) film.endScreen.hidden = true;
+    film.stage?.classList.remove("is-ended");
+    markScene(n);
+    syncHud();
+    wakeHud();
+    const r = film.stage?.getBoundingClientRect();
+    if (r && (r.top < stickyOffset() - 40 || r.bottom > window.innerHeight)) {
+      window.scrollTo({ top: Math.max(0, r.top + window.scrollY - stickyOffset()), behavior: reduced ? "auto" : "smooth" });
     }
   }
 

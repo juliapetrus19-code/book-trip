@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini-film — dev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap">
+<script type="importmap">{ "imports": { "three": "../vendor/three.min.js" } }</script>
+<style>
+  :root { color-scheme: dark; --bg: #05060c; --panel: #10131f; --line: #23263a; --text: #e9ecf6; --muted: #8d93ad; --cyan: #5fe1ff; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.45 Inter, system-ui, sans-serif; overflow-x: hidden; }
+  header { padding: 18px 16px 6px; max-width: 1280px; margin: 0 auto; }
+  h1 { font: 800 clamp(18px, 3vw, 26px)/1.15 Unbounded, Inter, sans-serif; margin: 0 0 6px; }
+  header p { margin: 0; color: var(--muted); }
+  main { max-width: 1280px; margin: 0 auto; padding: 10px 16px 40px; }
+  .stage { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: #000; border: 1px solid var(--line); }
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0; }
+  button, select { font: inherit; color: var(--text); background: #171a29; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; min-height: 44px; cursor: pointer; }
+  button:hover { border-color: rgba(95, 225, 255, .45); }
+  button[aria-pressed="true"] { border-color: var(--cyan); box-shadow: inset 0 -2px 0 var(--cyan); }
+  .stats { margin-left: auto; color: var(--muted); font: 12px/1.4 ui-monospace, monospace; }
+  ol.scenes { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+  ol.scenes button { width: 100%; text-align: left; }
+  ol.scenes small { display: block; color: var(--muted); font-size: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 14px; }
+  figure { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  figure img { display: block; width: 100%; aspect-ratio: 16 / 9; background: #0b0d16; }
+  figcaption { padding: 8px 10px; font-size: 12px; color: var(--muted); }
+  figcaption b { color: var(--text); font-weight: 600; }
+  .work { position: fixed; left: 0; top: 0; width: 640px; height: 360px; opacity: 0; pointer-events: none; }
+  .work .btf-root { display: none; }
+  @media (max-width: 520px) { .stats { margin-left: 0; width: 100%; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Trip into the book — mini-film</h1>
+  <p id="lead">Sample book rendered with <code>createFilm</code>. Add <code>?gallery</code> for stills of all 25 settings, <code>?lang=ru</code> for Russian.</p>
+</header>
+<main id="main"></main>
+<script type="module">
+import { createFilm } from "../js/film.js";
+import { SETTINGS } from "../js/enums.js";
+
+const q = new URLSearchParams(location.search);
+const lang = ["ru", "uk", "en"].includes(q.get("lang")) ? q.get("lang") : "en";
+
+// ---------------------------------------------------------------- sample BookView (Little Prince style)
+const A = {
+  prince: { creature: "human", gender: "male", age: "child", build: "small", skin: "#f7d9c2", hair: { style: "messy", color: "#f4c64a" }, facialHair: "none", eyes: "#3d6fb6", top: { kind: "coat", color: "#4f9a5e", accent: "#f4c64a", pattern: "plain" }, bottom: { kind: "pants", color: "#3e7d4d" }, shoes: "#6b4a2e", headwear: "none", headwearColor: "#000000", accessory: "scarf", accessoryColor: "#f6c845", holding: "none" },
+  fox: { creature: "fox", gender: "male", age: "adult", build: "small", skin: "#e8792e", hair: { style: "none", color: "#e8792e" }, facialHair: "none", eyes: "#2b1d14", top: { kind: "vest", color: "#e8792e", accent: "#fff6ea", pattern: "plain" }, bottom: { kind: "none", color: "#e8792e" }, shoes: "#3b2a24", headwear: "none", headwearColor: "#000000", accessory: "none", accessoryColor: "#000000", holding: "none" },
+  rose: { creature: "human", gender: "female", age: "adult", build: "slim", skin: "#f7d6c8", hair: { style: "wavy", color: "#c8283c" }, facialHair: "none", eyes: "#3a2b2b", top: { kind: "gown", color: "#d83447", accent: "#3f8f4a", pattern: "plain" }, bottom: { kind: "skirt", color: "#c22d40" }, shoes: "#2f7d3e", headwear: "flower_wreath", headwearColor: "#e8424f", accessory: "none", accessoryColor: "#3f8f4a", holding: "rose" },
+  aviator: { creature: "human", gender: "male", age: "adult", build: "average", skin: "#e8b892", hair: { style: "short", color: "#5b3a22" }, facialHair: "stubble", eyes: "#5a4632", top: { kind: "jacket", color: "#7b4a2b", accent: "#eadcc2", pattern: "plain" }, bottom: { kind: "pants", color: "#6e6650" }, shoes: "#3a2a1d", headwear: "cap", headwearColor: "#6a4227", accessory: "scarf", accessoryColor: "#f3eee3", holding: "map" },
+  king: { creature: "human", gender: "male", age: "elder", build: "broad", skin: "#f0c9a8", hair: { style: "long", color: "#ecebe6" }, facialHair: "long_beard", eyes: "#3b3b5a", top: { kind: "robe", color: "#6a2c91", accent: "#f7f4ee", pattern: "dots" }, bottom: { kind: "robe", color: "#5d2680" }, shoes: "#3a2440", headwear: "crown", headwearColor: "#f2c437", accessory: "cape", accessoryColor: "#f6f2ea", holding: "staff" },
+};
+const T = {
+  en: {
+    title: "The Little Prince", author: "Antoine de Saint-Exupéry",
+    names: { prince: "The Little Prince", fox: "The Fox", rose: "The Rose", aviator: "The Aviator", king: "The King" },
+    film: {
+      title: "Journey to Asteroid B-612",
+      intro: "You open the book and its pages crumble into golden sand. You fall straight into the Sahara, where at sunrise someone will ask you to draw a sheep.",
+      outro: "The pages close and you are home again. But now, whenever you look at the stars, one of them seems to be quietly laughing.",
+      scenes: [
+        ["Draw Me a Sheep", "You stand in the middle of the Sahara beside a broken-down plane, a thousand miles from anyone. A small voice sounds behind you, and you turn to see a golden-haired boy in a long green coat.", "Please… draw me a sheep!"],
+        ["Farewell to the Rose", "You stand on a planet so tiny you could walk around it in a minute. The prince has swept out his volcanoes and is saying goodbye to the Rose, who for once lets her tenderness show.", "Try to be happy. And go — now."],
+        ["The King of Everything", "You step into a palace where an old King sits on a throne that fills the whole planet. He is delighted to finally have a subject to give orders to.", "I order you to sit down — I command it!"],
+        ["Taming the Fox", "You sit in the warm grass by a fence while the red fox circles closer every day. Running together through the meadow, the prince learns what it means to tame someone.", "Only the heart sees clearly."],
+        ["Sailing Home in the Rain", "You drift across a grey evening sea with the aviator, rain drumming on the boat. The lighthouse blinks somewhere far away, guiding you back.", "We will find the well at dawn."],
+        ["Stars That Can Laugh", "You stand in the snow beneath a sky full of falling stars. Friends gather around a glowing lamp, and the whole night seems to be quietly laughing.", "Look up at night — all the stars will be laughing for you."],
+      ],
+    },
+  },
+  ru: {
+    title: "Маленький принц", author: "Антуан де Сент-Экзюпери",
+    names: { prince: "Маленький принц", fox: "Лис", rose: "Роза", aviator: "Лётчик", king: "Король" },
+    film: {
+      title: "Путешествие на астероид B-612",
+      intro: "Ты открываешь книгу, и её страницы рассыпаются золотым песком. Ты падаешь прямо в Сахару, где на рассвете тебя попросят нарисовать барашка.",
+      outro: "Страницы закрываются, и ты снова дома. Но теперь, глядя на звёзды, ты слышишь, как одна из них тихонько смеётся.",
+      scenes: [
+        ["Нарисуй мне барашка", "Ты стоишь посреди Сахары рядом со сломанным самолётом, за тысячу миль от людей. За спиной раздаётся тонкий голосок, и ты видишь золотоволосого мальчика в длинном зелёном пальто.", "Пожалуйста… нарисуй мне барашка!"],
+        ["Прощание с Розой", "Ты стоишь на планете такой крошечной, что её можно обойти за минуту. Принц прочистил вулканы и прощается с Розой, которая впервые не прячет нежность.", "Постарайся быть счастливым. Уходи."],
+        ["Король всего на свете", "Ты входишь во дворец, где старый Король восседает на троне. Он счастлив, что у него наконец появился подданный.", "Повелеваю тебе сесть!"],
+        ["Приручение Лиса", "Ты сидишь в тёплой траве у забора, а рыжий Лис с каждым днём подходит ближе. Они бегут по лугу, и принц узнаёт, что значит приручить.", "Зорко одно лишь сердце."],
+        ["Домой под дождём", "Ты плывёшь с Лётчиком по серому вечернему морю, дождь стучит по лодке. Где-то вдали мигает маяк.", "На рассвете мы найдём колодец."],
+        ["Звёзды, которые умеют смеяться", "Ты стоишь в снегу под небом, полным падающих звёзд. Друзья собрались у фонаря, и вся ночь тихонько смеётся.", "Посмотри ночью на небо — все звёзды будут смеяться для тебя."],
+      ],
+    },
+  },
+};
+T.uk = T.ru;
+const S = [
+  { setting: "desert", time: "dawn", weather: "wind", cast: ["aviator", "prince"], props: ["rock", "chest", "palm", "sign"], action: "talk", camera: "dolly_in", mood: "mysterious", speaker: "prince" },
+  { setting: "space", time: "night", weather: "stars", cast: ["prince", "rose"], props: ["volcano", "rose", "planet", "star"], action: "sad", camera: "orbit", mood: "romantic", speaker: "rose" },
+  { setting: "palace", time: "day", weather: "clear", cast: ["king", "prince"], props: ["throne", "candles", "clock", "window", "statue"], action: "talk", camera: "close_up", mood: "epic", speaker: "king" },
+  { setting: "meadow", time: "day", weather: "wind", cast: ["prince", "fox"], props: ["tree", "flower", "fence", "well", "bush"], action: "chase", camera: "pan", mood: "joyful", speaker: "fox" },
+  { setting: "sea", time: "dusk", weather: "rain", cast: ["aviator", "prince"], props: ["boat", "lamp", "barrel", "ship"], action: "travel", camera: "fly_over", mood: "melancholic", speaker: "aviator" },
+  { setting: "snow", time: "night", weather: "snow", cast: ["prince", "fox", "rose", "king", "ghost-id"], props: ["pine", "house", "lamp", "bench", "unknown-prop"], action: "celebrate", camera: "crane", mood: "magical", speaker: "prince" },
+];
+const L = T[lang];
+const book = {
+  id: "little-prince-dev", lang, source: "demo", title: L.title, author: L.author, year: 1943,
+  cover: { bg: "#1b2a4a", bg2: "#0e1630", fg: "#f6e7b0", accent: "#ff8a5b", motif: "star" },
+  characters: Object.keys(A).map((id) => ({ id, name: L.names[id], role: id === "prince" ? "protagonist" : "supporting", traits: [], description: "", appearance: A[id] })),
+  film: {
+    title: L.film.title, intro: L.film.intro, outro: L.film.outro,
+    scenes: S.map((s, i) => ({ ...s, title: L.film.scenes[i][0], narration: L.film.scenes[i][1], line: { speaker: s.speaker, text: L.film.scenes[i][2] } })),
+    videoPrompts: ["", "", ""],
+  },
+};
+
+const main = document.getElementById("main");
+const mk = (tag, props = {}, ...kids) => { const e = Object.assign(document.createElement(tag), props); e.append(...kids); return e; };
+
+if (q.has("gallery")) gallery(); else player();
+
+// ---------------------------------------------------------------- player
+function player() {
+  const stage = mk("div", { className: "stage" });
+  const stats = mk("span", { className: "stats" });
+  let tts = q.get("tts") === "1";
+  const film = createFilm(stage, { book, lang, tts: false, controls: true, onScene: (i) => mark(i), onEnd: () => console.log("[dev] film ended") });
+  film.setTts(tts);
+  window.__film = film;
+  const btn = (label, fn) => { const b = mk("button", { type: "button", textContent: label }); b.addEventListener("click", fn); return b; };
+  const ttsBtn = btn("Voice", () => { tts = !tts; film.setTts(tts); ttsBtn.setAttribute("aria-pressed", String(tts)); });
+  ttsBtn.setAttribute("aria-pressed", String(tts));
+  const langSel = mk("select", { ariaLabel: "Language" }, ...["en", "ru", "uk"].map((l) => mk("option", { value: l, textContent: l.toUpperCase(), selected: l === lang })));
+  langSel.addEventListener("change", () => { q.set("lang", langSel.value); location.search = q.toString(); });
+  const list = mk("ol", { className: "scenes" }, ...book.film.scenes.map((s, i) => mk("li", {}, btn("", () => { film.seek(i); film.play(); }))));
+  [...list.querySelectorAll("button")].forEach((b, i) => { const s = book.film.scenes[i]; b.replaceChildren(mk("b", { textContent: `${i + 1}. ${s.title}` }), mk("small", { textContent: `${s.setting} · ${s.time} · ${s.weather} · ${s.action} · ${s.camera} · ${s.mood}` })); });
+  function mark(i) { [...list.children].forEach((li, n) => { li.firstChild.setAttribute("aria-pressed", String(n === i)); }); }
+  main.append(stage, mk("div", { className: "bar" },
+    btn("Play / pause", () => (film.playing ? film.pause() : film.play())),
+    btn("Restart", () => { film.restart(); film.play(); }),
+    ttsBtn, langSel, stats), list);
+  setInterval(() => {
+    const s = film.stats;
+    stats.textContent = `${film.time.toFixed(1)} / ${film.duration.toFixed(1)} s · ${s.fps} fps · ${s.calls} calls · ${(s.triangles / 1000).toFixed(0)}k tris · q ${s.quality.toFixed(2)} · ${s.hdr ? "HDR" : "LDR"}`;
+  }, 500);
+  if (q.has("scene")) film.seek(Number(q.get("scene")) || 0);
+  if (q.has("t")) film.renderAt(Number(q.get("t")));
+  if (q.has("autoplay")) film.play();
+}
+
+// ---------------------------------------------------------------- gallery: a still of every setting
+const G = {
+  space: ["night", "stars", ["planet", "volcano", "rose", "star"], ["prince", "rose"], "talk", "romantic"],
+  forest: ["day", "wind", ["mushroom", "tent", "fire"], ["prince", "fox"], "walk", "calm"],
+  city: ["dusk", "rain", ["lamp", "train", "sign"], ["aviator", "prince"], "travel", "melancholic"],
+  village: ["day", "clear", ["well", "cart", "fence", "house"], ["prince", "fox"], "celebrate", "joyful"],
+  castle: ["dusk", "clear", ["tower", "gate", "statue"], ["king", "prince"], "fight", "epic"],
+  desert: ["dawn", "wind", ["rock", "chest", "palm", "star"], ["aviator", "prince"], "talk", "mysterious"],
+  sea: ["dusk", "clear", ["boat", "ship", "lamp", "moon"], ["aviator", "prince"], "discover", "joyful"],
+  ship: ["day", "wind", ["chest", "barrel", "telescope"], ["aviator", "prince"], "talk", "epic"],
+  room: ["night", "clear", ["bed", "desk", "window", "candles"], ["prince", "aviator"], "rest", "calm"],
+  snow: ["night", "snow", ["pine", "house", "lamp"], ["prince", "fox", "rose"], "celebrate", "magical"],
+  garden: ["day", "clear", ["rose", "fountain", "bench"], ["prince", "rose"], "talk", "romantic"],
+  mountains: ["dawn", "fog", ["pine", "rock", "tent"], ["aviator", "prince"], "travel", "epic"],
+  school: ["day", "clear", ["desk", "clock", "bookshelf", "window"], ["prince", "king"], "talk", "calm"],
+  ballroom: ["night", "clear", ["piano", "candles", "clock"], ["prince", "rose"], "dance", "romantic"],
+  battlefield: ["dusk", "fog", ["fire", "tent", "castle"], ["king", "aviator"], "fight", "tense"],
+  cave: ["night", "clear", ["crystal", "chest", "cauldron"], ["prince", "fox"], "discover", "mysterious"],
+  island: ["day", "wind", ["palm", "boat", "chest"], ["prince", "aviator"], "celebrate", "joyful"],
+  street: ["night", "rain", ["lamp", "sign", "carriage"], ["aviator", "prince"], "walk", "mysterious"],
+  train: ["dusk", "clear", ["bench", "sign", "lamp"], ["prince", "aviator"], "talk", "melancholic"],
+  meadow: ["day", "clear", ["tree", "flower", "fence", "bridge", "bush"], ["prince", "fox"], "chase", "joyful"],
+  library: ["night", "clear", ["bookshelf", "desk", "candles", "telescope"], ["prince", "king"], "discover", "magical"],
+  tavern: ["night", "clear", ["barrel", "table", "chair", "cake"], ["king", "aviator", "prince"], "celebrate", "joyful"],
+  palace: ["day", "clear", ["throne", "candles", "statue", "window"], ["king", "prince"], "talk", "epic"],
+  swamp: ["dusk", "fog", ["mushroom", "cauldron", "grave"], ["prince", "fox"], "sad", "mysterious"],
+  church: ["dawn", "clear", ["candles", "statue", "door"], ["rose", "prince"], "sad", "melancholic"],
+};
+
+async function gallery() {
+  document.getElementById("lead").textContent = "A still of every setting (time · weather · props · action), rendered with renderAt().";
+  const only = (q.get("gallery") || "").split(",").filter((s) => SETTINGS.includes(s));
+  const list = only.length ? only : SETTINGS;
+  const time = q.has("t") ? Number(q.get("t")) : null;
+  const tw = Number(q.get("w")) || 640;
+  const grid = mk("div", { className: "grid" });
+  main.append(grid);
+  const work = mk("div", { className: "work" });
+  work.style.width = tw + "px"; work.style.height = Math.round(tw * 9 / 16) + "px";
+  document.body.append(work);
+  await document.fonts?.ready;
+  const t0 = performance.now();
+  for (const setting of list) {
+    const g = G[setting] || ["day", "clear", [], ["prince"], "talk", "calm"];
+    const scene = { setting, time: q.get("time") || g[0], weather: q.get("weather") || g[1], props: g[2], cast: g[3], action: g[4], mood: g[5], camera: q.get("camera") || "orbit", title: setting, narration: "", line: null };
+    const b = { ...book, id: "gallery-" + setting, film: { ...book.film, scenes: [scene] } };
+    const fig = mk("figure", {}, mk("img", { alt: setting }), mk("figcaption", {}, mk("b", { textContent: setting }), ` · ${scene.time} · ${scene.weather} · ${scene.action} · ${scene.mood}`, mk("br"), scene.props.join(", ")));
+    grid.append(fig);
+    const s0 = performance.now();
+    let film;
+    try {
+      film = createFilm(work, { book: b, lang, tts: false, preserveDrawingBuffer: true });
+      const sc = film.timeline.find((x) => x.kind === "scene");
+      film.renderAt(time != null ? sc.start + time : sc.start + Math.min(4.5, sc.duration * 0.5));
+      fig.querySelector("img").src = work.querySelector("canvas").toDataURL("image/jpeg", 0.9);
+      const s = film.stats;
+      fig.querySelector("figcaption").append(mk("br"), `${Math.round(performance.now() - s0)} ms · ${s.calls} calls · ${(s.triangles / 1000).toFixed(0)}k tris`);
+    } catch (err) {
+      console.error(setting, err);
+      fig.querySelector("figcaption").append(mk("br"), "ERROR: " + err.message);
+    } finally {
+      film?.dispose();
+    }
+    await new Promise((r) => setTimeout(r, 0));
+  }
+  window.__galleryDone = Math.round(performance.now() - t0);
+}
+</script>
+</body>
+</html>
