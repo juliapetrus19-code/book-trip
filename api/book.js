@@ -26,7 +26,7 @@ export function escapeHtml(value) {
 
 /** JSON safe inside <script>: no "<", ">", "&" or line separators can end the element. */
 export function scriptJson(value) {
-  return JSON.stringify(value).replace(/[<>&  ]/g, (c) => `\\u${c.charCodeAt(0).toString(16).padStart(4, "0")}`);
+  return JSON.stringify(value).replace(/[<>&\u2028\u2029]/g, (c) => `\\u${c.charCodeAt(0).toString(16).padStart(4, "0")}`);
 }
 
 /** ?lang= wins; else the first of uk/ru/en in Accept-Language (by q); else uk. */
@@ -158,6 +158,7 @@ export function renderBookPage(shell, { id, book, lang, explicit, origin, image 
   const ogTitle = book.author ? `${book.title} — ${book.author}` : book.title;
   const description = bookDescription(book);
   const imageUrl = origin + image;
+  const large = image === "/og.png";
   const ld = {
     "@context": "https://schema.org",
     "@type": "Book",
@@ -182,8 +183,10 @@ export function renderBookPage(shell, { id, book, lang, explicit, origin, image 
     `<meta property="og:description" content="${e(description)}">`,
     `<meta property="og:url" content="${e(canonical)}">`,
     `<meta property="og:image" content="${e(imageUrl)}">`,
+    ...(large ? ['<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">'] : []),
     `<meta property="og:locale" content="${LOCALE[lang] || LOCALE.uk}">`,
-    `<meta name="twitter:card" content="summary">`,
+    // og.png is the 1200×630 site card; the square icon fallback suits the small card.
+    `<meta name="twitter:card" content="${large ? "summary_large_image" : "summary"}">`,
     `<meta name="twitter:title" content="${e(ogTitle)}">`,
     `<meta name="twitter:description" content="${e(description)}">`,
     `<meta name="twitter:image" content="${e(imageUrl)}">`,

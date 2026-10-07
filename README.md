@@ -39,6 +39,26 @@
 
 ---
 
+## BookTrip v2: аккаунты, подписка, общий кэш
+
+Всё включается переменными окружения и выключено по умолчанию — **без ключей сайт работает как v1**
+(подробная инструкция — `docs/DEPLOY.md`, раздел 8; договор клиента и сервера — `docs/V2-CONTRACT.md`).
+
+- **Общий кэш ИИ** (Upstash Redis, `KV_REST_API_*`): каждая книга генерируется один раз для всех
+  посетителей; без базы — память сервера.
+- **Вход по ссылке на почту** (`SIGNING_SECRET` + Resend): `/api/auth/start`, `/api/auth/verify`,
+  `/api/auth/logout`, `/api/me`.
+- **«2 книги бесплатно, дальше подписка»** (Paddle Billing, `PADDLE_*`): `/api/access`,
+  `/api/billing/checkout`, `/api/billing/portal`, webhook `/api/billing/webhook`. ИИ-части книги
+  (пересказ, персонажи, фильм, портреты) закрываются на сервере ответом 402.
+- **Лист ожидания и воронка**: `/api/waitlist`, `/api/event`; статистика — `/api/admin`
+  (заголовок `x-admin-token`).
+- **SEO**: страницы `/book/<id>` с собственными мета-тегами и текстом, `/sitemap.xml`, `/robots.txt`;
+  юридические страницы `/terms`, `/privacy`, `/refund` (черновики).
+
+Локально: `SIGNING_SECRET=dev AUTH_DEV_LINKS=1 npm run dev` — ссылка входа возвращается в ответе
+вместо письма (только для разработки).
+
 ## Как запустить у себя на компьютере
 
 Нужен **Node.js 20 или новее** (https://nodejs.org).
@@ -120,7 +140,15 @@ api/                    серверные функции Vercel
   film.js               сценарий мини-фильма
   portrait.js           AI-портрет персонажа (Gemini)
   video.js              премиум AI-видео (Veo)
-  _lib/                 общий код: Claude, Gemini, подписи, лимиты, очистка ответов
+  me.js, access.js      v2: аккаунт посетителя, учёт бесплатных книг (402 — нужна подписка)
+  auth/                 v2: вход по ссылке на почту (start, verify, logout)
+  billing/              v2: Paddle — checkout, portal, webhook
+  waitlist.js, event.js v2: лист ожидания, счётчики воронки
+  admin.js              v2: статистика для владельца (x-admin-token)
+  book.js, sitemap.js   v2: SEO-страницы /book/<id>, /sitemap.xml и /robots.txt
+  _lib/                 общий код: Claude, Gemini, подписи, лимиты, очистка ответов,
+                        v2: хранилище (Upstash/память), кэш, сессии, доступ, Paddle, письма
+terms.html, privacy.html, refund.html   v2: условия, конфиденциальность, возвраты (черновики)
 data/
   books/<id>.json       встроенные книги (все три языка в одном файле)
   catalog.json          список встроенных книг (собирается командой npm run build:catalog)

@@ -1,0 +1,990 @@
+{
+  "id": "pinocchio",
+  "year": 1883,
+  "cover": {
+    "bg": "#b5452c",
+    "bg2": "#45170c",
+    "fg": "#fff0d4",
+    "accent": "#46bccb",
+    "motif": "mask"
+  },
+  "aliases": [
+    "Le avventure di Pinocchio",
+    "Le avventure di Pinocchio. Storia di un burattino",
+    "The Adventures of Pinocchio",
+    "Pinocchio",
+    "Приключения Пиноккио",
+    "Приключения Пиноккио. История деревянной куклы",
+    "Пиноккио",
+    "Пінокіо",
+    "Пригоди Піноккіо",
+    "Піноккіо",
+    "Пригоди Пінокіо",
+    "Pinokkio",
+    "Priklyucheniya Pinokkio",
+    "Pryhody Pinokkio",
+    "Пиноккио Коллоди",
+    "Піноккіо Коллоді"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Приключения Пиноккио",
+      "originalTitle": "Le avventure di Pinocchio. Storia di un burattino",
+      "author": "Карло Коллоди",
+      "genre": "Сказочная повесть",
+      "tagline": "Деревянный мальчишка, нос которого выдаёт каждую ложь, долгим путём учится быть настоящим.",
+      "summary": [
+        "Столяру по прозвищу мастер Вишня попадается полено, которое пищит и смеётся человеческим голосом. Перепуганный мастер отдаёт его другу — бедному старику Джеппетто, который мечтает вырезать чудесную деревянную куклу и странствовать с ней по свету. Не успевает Джеппетто доделать марионетку, которую называет Пиноккио, как та уже показывает ему язык, срывает с него жёлтый парик и удирает на улицу. Карабинер ловит беглеца, но толпа решает, что старик жесток с куклой, и в тюрьму отправляют самого Джеппетто.",
+        "Дома Пиноккио встречает Говорящего Сверчка, который сто лет живёт в этой комнате и предупреждает, что непослушных мальчишек ждёт беда. В ответ Пиноккио запускает в него деревянным молотком. Ночью он засыпает, положив ноги на жаровню, и к утру они сгорают дотла. Вернувшийся Джеппетто отдаёт ему свой завтрак, мастерит новые ноги и продаёт в мороз свою единственную куртку, чтобы купить сыну азбуку. Но по дороге в школу Пиноккио слышит музыку и продаёт азбуку за билет в кукольный театр.",
+        "Марионетки радостно узнают в нём собрата, а их хозяин, бородатый великан Манджафоко, хочет пустить Пиноккио на дрова для жаркого. Растроганный рассказом о бедном отце, он чихает — так у него проявляется жалость — и отпускает мальчишку, подарив пять золотых монет. По дороге домой Пиноккио встречает Лису, притворяющуюся хромой, и Кота, который прикидывается слепым. Они уговаривают его закопать монеты на Поле Чудес, где за ночь вырастет денежное дерево. Ночью переодетые разбойниками мошенники нападают на него и вешают на ветке Большого Дуба.",
+        "Пиноккио спасает Фея с лазурными волосами. Когда он врёт ей о монетах, его нос растёт так, что он не может повернуться в комнате. Фея прощает его, но он снова попадается Лисе и Коту, закапывает монеты на Поле Чудес — и, конечно, лишается их. Судья-горилла сажает в тюрьму не воров, а обворованного. Выйдя на свободу, Пиноккио служит сторожевой собакой у крестьянина, а вернувшись к домику Феи, находит лишь надгробие: она умерла от горя. Узнав, что Джеппетто уплыл искать его в утлой лодке, Пиноккио бросается в бурное море.",
+        "Волны выносят его на Остров трудолюбивых пчёл, где Фея является ему уже взрослой женщиной и обещает: если он будет хорошо учиться, то станет настоящим мальчиком. Пиноккио исправно ходит в школу, но накануне долгожданного превращения друг Фитиль уговаривает его уехать в Страну Развлечений, где не учатся и каждый день праздник. Через пять месяцев беззаботной жизни у обоих вырастают ослиные уши, и мальчишки превращаются в настоящих ослов. Пиноккио продают в цирк, он хромает после неудачного прыжка, и новый хозяин бросает его в море, чтобы сделать барабан из его шкуры.",
+        "Рыбы объедают с него ослиную шкуру, и он снова становится деревянным, но тут его проглатывает огромная Акула. В её брюхе при свете свечи Пиноккио находит Джеппетто, который живёт там уже два года. Пиноккио выносит отца через пасть спящего чудовища и плывёт с ним на спине, пока их не подхватывает добрый Тунец. Чтобы прокормить больного старика, мальчишка каждый день крутит колесо водокачки за стакан молока и плетёт корзины. А когда последние деньги отдаёт заболевшей Фее, однажды утром просыпается настоящим мальчиком — и смеётся, глядя на старую деревянную куклу на стуле."
+      ],
+      "themes": [
+        "Взросление и ответственность",
+        "Ложь и правда",
+        "Любовь отца и сына",
+        "Соблазны лёгкой жизни",
+        "Доброта и искупление"
+      ],
+      "terms": [
+        {
+          "term": "Говорящее полено",
+          "definition": "Полено, которое пищит, смеётся и жалуется на удары топора. Из него Джеппетто вырезает Пиноккио."
+        },
+        {
+          "term": "Растущий нос",
+          "definition": "Наказание за ложь: стоит Пиноккио солгать, как его нос вытягивается. Фея объясняет, что у одной лжи короткие ноги, а у другой — длинный нос."
+        },
+        {
+          "term": "Пять золотых монет",
+          "definition": "Подарок Манджафоко для бедного Джеппетто, из-за которого Пиноккио попадает в лапы Лисы и Кота."
+        },
+        {
+          "term": "Харчевня «Красный Рак»",
+          "definition": "Постоялый двор, где Лиса и Кот ужинают за счёт Пиноккио, а затем исчезают, чтобы подстеречь его в лесу."
+        },
+        {
+          "term": "Поле Чудес",
+          "definition": "Поле, где, по словам мошенников, закопанные монеты за ночь вырастают в дерево с золотыми монетами вместо листьев."
+        },
+        {
+          "term": "Большой Дуб",
+          "definition": "Дерево, на котором разбойники вешают Пиноккио. Фея посылает сокола перерезать верёвку."
+        },
+        {
+          "term": "Фея с лазурными волосами",
+          "definition": "Добрая волшебница, которая то являет себя девочкой, то матерью для Пиноккио, спасает его, прощает и наставляет."
+        },
+        {
+          "term": "Страна Развлечений",
+          "definition": "Край, где нет ни школ, ни учителей, а каждый день праздник. Всех, кто там живёт, ждёт ослиная судьба."
+        },
+        {
+          "term": "Ослиные уши",
+          "definition": "Знак того, что лентяй превращается в осла. У Пиноккио и Фитиля они вырастают после пяти месяцев безделья."
+        },
+        {
+          "term": "Гигантская Акула",
+          "definition": "Морское чудовище длиной больше километра, в брюхе которого оказываются и Джеппетто, и Пиноккио."
+        },
+        {
+          "term": "Марионетка",
+          "definition": "Деревянная кукла на нитях. Стать из марионетки настоящим мальчиком — главная мечта и награда Пиноккио."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Золотой ключик, или Приключения Буратино",
+          "author": "Алексей Толстой",
+          "why": "Знаменитая вольная переделка «Пиноккио» с папой Карло, Мальвиной и тем же деревянным мальчишкой."
+        },
+        {
+          "title": "Приключения Чиполлино",
+          "author": "Джанни Родари",
+          "why": "Ещё одна итальянская сказка о маленьком озорном герое, который борется с несправедливостью."
+        },
+        {
+          "title": "Щелкунчик и Мышиный король",
+          "author": "Эрнст Теодор Амадей Гофман",
+          "why": "Деревянная игрушка оживает и мечтает снова стать человеком."
+        },
+        {
+          "title": "Удивительный волшебник из страны Оз",
+          "author": "Лаймен Фрэнк Баум",
+          "why": "Путь, полный чудес и испытаний, в конце которого герои получают то, о чём мечтали."
+        },
+        {
+          "title": "Алиса в Стране чудес",
+          "author": "Льюис Кэрролл",
+          "why": "Классическая сказка XIX века, где ребёнок попадает в мир говорящих животных и странных правил."
+        }
+      ],
+      "film": {
+        "title": "Как стать настоящим",
+        "intro": "Ты открываешь книгу, и в нос тебе ударяет запах свежей стружки. Ты стоишь в бедной мастерской, а на столе лежит полено, которое тихонько хихикает.",
+        "outro": "Последняя страница закрывается, и в мастерской становится тихо. На стуле остаётся сидеть деревянная кукла — но мальчик, который был ею, уже убежал на улицу.",
+        "scenes": [
+          {
+            "title": "Полено, которое смеётся",
+            "narration": "Ты стоишь в каморке Джеппетто, где на стене нарисован очаг с кипящим котелком. Старик вырезает из полена голову, глаза, нос — и нос тут же начинает расти, а кукла заливается смехом.",
+            "line": {
+              "text": "Назову-ка я его Пиноккио — это имя принесёт ему счастье."
+            }
+          },
+          {
+            "title": "Чих Манджафоко",
+            "narration": "Ты стоишь за кулисами кукольного театра, где марионетки сбились в кучу от страха. Огромный хозяин с бородой до самого пола грозится бросить Пиноккио в огонь — но вдруг громко чихает.",
+            "line": {
+              "text": "Апчхи! Держи пять золотых и неси их своему бедному отцу."
+            }
+          },
+          {
+            "title": "Поле Чудес",
+            "narration": "Ты идёшь за Пиноккио по пустому полю в сумерках, а рядом хромает Лиса и ощупью шагает «слепой» Кот. Мальчишка роет ямку, кладёт туда монеты и поливает их водой из лужи.",
+            "line": {
+              "text": "Закопай их здесь, и к утру вырастет дерево, всё в золотых монетах!"
+            }
+          },
+          {
+            "title": "Нос лгунишки",
+            "narration": "Ты стоишь в комнате Феи, у кровати, где лежит спасённый Пиноккио. Он клянётся, что потерял монеты, — и нос его растёт, пока не упирается в стену, а Фея с лазурными волосами смеётся.",
+            "line": {
+              "text": "Ложь сразу видно: у одной короткие ноги, а у твоей — длинный нос."
+            }
+          },
+          {
+            "title": "Страна Развлечений",
+            "narration": "Ты бежишь по шумным улицам, где мальчишки играют в мяч, катаются на велосипедах и объедаются сладостями. Нет ни школы, ни учителей, а Фитиль хлопает Пиноккио по плечу, ещё не подозревая об ослиных ушах.",
+            "line": {
+              "text": "Ни книжек, ни уроков — каждый день праздник!"
+            }
+          },
+          {
+            "title": "В брюхе Акулы",
+            "narration": "Ты бредёшь в темноте по скользкому брюху огромной Акулы, туда, где вдали мерцает огонёк. За маленьким столом при свече сидит седой старик — и Пиноккио бросается к нему на шею.",
+            "line": {
+              "text": "Папа! Наконец-то я тебя нашёл — больше я тебя не оставлю!"
+            }
+          },
+          {
+            "title": "Настоящий мальчик",
+            "narration": "Ты стоишь в маленькой хижине на рассвете, где мальчик в новой одежде смотрит в зеркало, а Джеппетто снова бодр и весел. На стуле, свесив руки, сидит старая деревянная кукла.",
+            "line": {
+              "text": "Каким же смешным я был, когда был марионеткой!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "pinocchio": {
+          "name": "Пиноккио",
+          "traits": [
+            "озорной",
+            "легкомысленный",
+            "доверчивый",
+            "добрый",
+            "отважный"
+          ],
+          "description": "Деревянная марионетка, вырезанная Джеппетто из говорящего полена. Он то и дело врёт, сбегает из школы и попадается на удочку мошенников, хотя искренне любит отца и Фею. Пройдя через тюрьму, ослиную шкуру и брюхо Акулы, Пиноккио спасает Джеппетто и становится настоящим мальчиком."
+        },
+        "geppetto": {
+          "name": "Джеппетто",
+          "traits": [
+            "бедный",
+            "любящий",
+            "вспыльчивый",
+            "самоотверженный"
+          ],
+          "description": "Старый бедняк в жёлтом парике, за который мальчишки прозвали его Полендиной — Мамалыгой. Он вырезает Пиноккио, продаёт ради него последнюю куртку, а потом отправляется искать сына по морю и два года живёт в брюхе Акулы."
+        },
+        "cricket": {
+          "name": "Говорящий Сверчок",
+          "traits": [
+            "мудрый",
+            "строгий",
+            "незлопамятный"
+          ],
+          "description": "Сверчок, больше ста лет живущий в комнате Джеппетто. Он первым предупреждает Пиноккио, что непослушание ведёт к беде, и получает за это молотком. Потом он ещё не раз появляется — тенью, доктором, а в конце сам даёт Пиноккио и Джеппетто приют."
+        },
+        "blue-fairy": {
+          "name": "Фея с лазурными волосами",
+          "traits": [
+            "добрая",
+            "терпеливая",
+            "строгая",
+            "загадочная"
+          ],
+          "description": "Волшебница, которая сначала является Пиноккио бледной девочкой, а потом взрослой женщиной, заменившей ему мать. Она спасает его с Большого Дуба, проучивает растущим носом и прощает снова и снова. Её любовь и есть та сила, что делает Пиноккио человеком."
+        },
+        "fox": {
+          "name": "Лиса",
+          "traits": [
+            "хитрая",
+            "льстивая",
+            "жадная"
+          ],
+          "description": "Мошенница, которая притворяется хромой и вместе с Котом выманивает у Пиноккио золотые монеты. В финале она по-настоящему облезла от нищеты и даже продала свой хвост."
+        },
+        "cat": {
+          "name": "Кот",
+          "traits": [
+            "хитрый",
+            "подражающий",
+            "жадный"
+          ],
+          "description": "Напарник Лисы, который выдаёт себя за слепого и во всём ей поддакивает. В ночном нападении Пиноккио откусывает ему лапу, а в финале Кот и вправду слепнет."
+        },
+        "mangiafuoco": {
+          "name": "Манджафоко",
+          "traits": [
+            "грозный",
+            "сентиментальный",
+            "щедрый"
+          ],
+          "description": "Владелец Большого кукольного театра — великан с чёрной бородой до самой земли. Он грозится сжечь Пиноккио, но, растрогавшись, чихает и дарит ему пять золотых монет для отца."
+        },
+        "lampwick": {
+          "name": "Фитиль",
+          "traits": [
+            "ленивый",
+            "весёлый",
+            "беспечный"
+          ],
+          "description": "Самый ленивый и озорной мальчишка в школе, прозванный так за худобу. Он уговаривает Пиноккио бежать в Страну Развлечений, превращается в осла и в конце умирает от непосильной работы на глазах у друга."
+        }
+      }
+    },
+    "uk": {
+      "title": "Пригоди Піноккіо",
+      "originalTitle": "Le avventure di Pinocchio. Storia di un burattino",
+      "author": "Карло Коллоді",
+      "genre": "Казкова повість",
+      "tagline": "Дерев’яний хлопчак, чий ніс видає кожну брехню, довгою дорогою вчиться бути справжнім.",
+      "summary": [
+        "Теслеві на прізвисько майстер Вишня трапляється поліно, яке пищить і сміється людським голосом. Переляканий майстер віддає його приятелеві — бідному старому Джеппетто, який мріє вирізати чудову дерев’яну ляльку й мандрувати з нею світом. Ледве Джеппетто закінчує маріонетку, яку називає Піноккіо, як та вже показує йому язика, зриває з нього жовту перуку й тікає на вулицю. Карабінер ловить утікача, але натовп вирішує, що старий жорстокий до ляльки, і до в’язниці потрапляє сам Джеппетто.",
+        "Удома Піноккіо зустрічає Цвіркуна-Балакуна, який сто років живе в цій кімнаті й застерігає, що неслухняних хлопчиків чекає лихо. У відповідь Піноккіо жбурляє в нього дерев’яним молотком. Уночі він засинає, поклавши ноги на жаровню, і до ранку вони згоряють ущент. Джеппетто, повернувшись, віддає йому свій сніданок, майструє нові ноги й продає в мороз свою єдину куртку, щоб купити синові буквар. Та дорогою до школи Піноккіо чує музику й продає буквар за квиток до лялькового театру.",
+        "Маріонетки радісно впізнають у ньому брата, а їхній господар, бородатий велетень Манджафоко, хоче пустити Піноккіо на дрова для печені. Зворушений розповіддю про бідного батька, він чхає — так у нього виявляється жалість — і відпускає хлопчака, подарувавши п’ять золотих монет. Дорогою додому Піноккіо зустрічає Лисицю, що вдає кульгаву, і Кота, який прикидається сліпим. Вони вмовляють його закопати монети на Полі Чудес, де за ніч виросте грошове дерево. Уночі ошуканці, перевдягнені розбійниками, нападають на нього й вішають на гілці Великого Дуба.",
+        "Піноккіо рятує Фея з блакитним волоссям. Коли він бреше їй про монети, його ніс росте так, що він не може обернутися в кімнаті. Фея прощає його, але він знову потрапляє до рук Лисиці й Кота, закопує монети на Полі Чудес — і, звісно, втрачає їх. Суддя-горила кидає до в’язниці не злодіїв, а обкраденого. Вийшовши на волю, Піноккіо служить сторожовим псом у селянина, а повернувшись до будиночка Феї, знаходить лише надгробок: вона померла з горя. Дізнавшись, що Джеппетто поплив шукати його в утлому човнику, Піноккіо кидається в бурхливе море.",
+        "Хвилі виносять його на Острів працьовитих бджіл, де Фея з’являється йому вже дорослою жінкою й обіцяє: якщо він добре вчитиметься, то стане справжнім хлопчиком. Піноккіо сумлінно ходить до школи, але напередодні жаданого перетворення товариш Лучіньоло вмовляє його поїхати до Країни Іграшок, де ніхто не вчиться і щодня свято. Через п’ять місяців безтурботного життя в обох виростають ослячі вуха, і хлопці перетворюються на справжніх віслюків. Піноккіо продають до цирку, він кульгає після невдалого стрибка, і новий власник кидає його в море, щоб зробити барабан із його шкури.",
+        "Риби об’їдають із нього ослячу шкуру, і він знову стає дерев’яним, але тут його ковтає величезна Акула. У її череві при світлі свічки Піноккіо знаходить Джеппетто, який живе там уже два роки. Піноккіо виносить батька крізь пащу сплячої потвори й пливе з ним на спині, аж поки їх не підхоплює добрий Тунець. Щоб прогодувати хворого старого, хлопчак щодня крутить колесо водокачки за склянку молока й плете кошики. А коли останні гроші віддає хворій Феї, одного ранку прокидається справжнім хлопчиком — і сміється, дивлячись на стару дерев’яну ляльку на стільці."
+      ],
+      "themes": [
+        "Дорослішання й відповідальність",
+        "Брехня і правда",
+        "Любов батька й сина",
+        "Спокуси легкого життя",
+        "Доброта і спокута"
+      ],
+      "terms": [
+        {
+          "term": "Поліно, що розмовляє",
+          "definition": "Поліно, яке пищить, сміється й скаржиться на удари сокири. З нього Джеппетто вирізає Піноккіо."
+        },
+        {
+          "term": "Ніс, що росте",
+          "definition": "Кара за брехню: щойно Піноккіо збреше, його ніс видовжується. Фея пояснює, що в однієї брехні короткі ноги, а в іншої — довгий ніс."
+        },
+        {
+          "term": "П’ять золотих монет",
+          "definition": "Подарунок Манджафоко для бідного Джеппетто, через який Піноккіо потрапляє в лапи Лисиці й Кота."
+        },
+        {
+          "term": "Корчма «Червоний Рак»",
+          "definition": "Заїжджий двір, де Лисиця й Кіт вечеряють коштом Піноккіо, а потім зникають, щоб підстерегти його в лісі."
+        },
+        {
+          "term": "Поле Чудес",
+          "definition": "Поле, де, за словами ошуканців, закопані монети за ніч виростають у дерево із золотими монетами замість листя."
+        },
+        {
+          "term": "Великий Дуб",
+          "definition": "Дерево, на якому розбійники вішають Піноккіо. Фея посилає сокола перерізати мотузку."
+        },
+        {
+          "term": "Фея з блакитним волоссям",
+          "definition": "Добра чарівниця, яка постає перед Піноккіо то дівчинкою, то матір’ю, рятує його, прощає й наставляє."
+        },
+        {
+          "term": "Країна Іграшок",
+          "definition": "Край, де немає ні шкіл, ні вчителів, а щодня свято. Усіх, хто там живе, чекає осляча доля."
+        },
+        {
+          "term": "Ослячі вуха",
+          "definition": "Знак того, що ледар перетворюється на віслюка. У Піноккіо й Лучіньоло вони виростають після п’яти місяців байдикування."
+        },
+        {
+          "term": "Велетенська Акула",
+          "definition": "Морська потвора завдовжки понад кілометр, у череві якої опиняються і Джеппетто, і Піноккіо."
+        },
+        {
+          "term": "Маріонетка",
+          "definition": "Дерев’яна лялька на нитках. Стати з маріонетки справжнім хлопчиком — головна мрія і нагорода Піноккіо."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Золотий ключик, або Пригоди Буратіно",
+          "author": "Олексій Толстой",
+          "why": "Знаменита вільна переробка «Піноккіо» з татом Карло, Мальвіною і тим самим дерев’яним хлопчаком."
+        },
+        {
+          "title": "Пригоди Цибуліно",
+          "author": "Джанні Родарі",
+          "why": "Ще одна італійська казка про маленького пустотливого героя, що бореться з несправедливістю."
+        },
+        {
+          "title": "Лускунчик і Мишачий король",
+          "author": "Ернст Теодор Амадей Гофман",
+          "why": "Дерев’яна іграшка оживає й мріє знову стати людиною."
+        },
+        {
+          "title": "Дивовижний чарівник країни Оз",
+          "author": "Лаймен Френк Баум",
+          "why": "Дорога, повна чудес і випробувань, наприкінці якої герої отримують те, про що мріяли."
+        },
+        {
+          "title": "Аліса в Країні Див",
+          "author": "Льюїс Керролл",
+          "why": "Класична казка XIX століття, де дитина потрапляє у світ тварин, що розмовляють, і дивних правил."
+        }
+      ],
+      "film": {
+        "title": "Як стати справжнім",
+        "intro": "Ти розгортаєш книжку, і тобі в ніс б’є запах свіжої стружки. Ти стоїш у бідній майстерні, а на столі лежить поліно, яке тихенько хихоче.",
+        "outro": "Остання сторінка закривається, і в майстерні стає тихо. На стільці лишається сидіти дерев’яна лялька — але хлопчик, який нею був, уже побіг на вулицю.",
+        "scenes": [
+          {
+            "title": "Поліно, що сміється",
+            "narration": "Ти стоїш у комірчині Джеппетто, де на стіні намальовано вогнище з казанком, що кипить. Старий вирізає з поліна голову, очі, ніс — і ніс одразу починає рости, а лялька заходиться сміхом.",
+            "line": {
+              "text": "Назву-но я його Піноккіо — це ім’я принесе йому щастя."
+            }
+          },
+          {
+            "title": "Чхання Манджафоко",
+            "narration": "Ти стоїш за лаштунками лялькового театру, де маріонетки збилися докупи від страху. Величезний господар із бородою до самої підлоги погрожує кинути Піноккіо у вогонь — але раптом гучно чхає.",
+            "line": {
+              "text": "Апчхи! Тримай п’ять золотих і віднеси їх своєму бідному батькові."
+            }
+          },
+          {
+            "title": "Поле Чудес",
+            "narration": "Ти йдеш за Піноккіо порожнім полем у присмерку, а поруч шкутильгає Лисиця й навпомацки ступає «сліпий» Кіт. Хлопчак риє ямку, кладе туди монети й поливає їх водою з калюжі.",
+            "line": {
+              "text": "Закопай їх тут, і до ранку виросте дерево, все в золотих монетах!"
+            }
+          },
+          {
+            "title": "Ніс брехунця",
+            "narration": "Ти стоїш у кімнаті Феї, біля ліжка, де лежить урятований Піноккіо. Він присягається, що загубив монети, — і ніс його росте, аж поки не впирається в стіну, а Фея з блакитним волоссям сміється.",
+            "line": {
+              "text": "Брехню видно одразу: в однієї короткі ноги, а в твоєї — довгий ніс."
+            }
+          },
+          {
+            "title": "Країна Іграшок",
+            "narration": "Ти біжиш галасливими вулицями, де хлопчаки грають у м’яча, катаються на велосипедах і об’їдаються ласощами. Немає ні школи, ні вчителів, а Лучіньоло плескає Піноккіо по плечу, ще не підозрюючи про ослячі вуха.",
+            "line": {
+              "text": "Ні книжок, ні уроків — щодня свято!"
+            }
+          },
+          {
+            "title": "У череві Акули",
+            "narration": "Ти бредеш у темряві слизьким черевом величезної Акули туди, де вдалині мерехтить вогник. За маленьким столом при свічці сидить сивий дідусь — і Піноккіо кидається йому на шию.",
+            "line": {
+              "text": "Тату! Нарешті я тебе знайшов — більше я тебе не покину!"
+            }
+          },
+          {
+            "title": "Справжній хлопчик",
+            "narration": "Ти стоїш у маленькій хатині на світанку, де хлопчик у новому вбранні дивиться в дзеркало, а Джеппетто знову бадьорий і веселий. На стільці, звісивши руки, сидить стара дерев’яна лялька.",
+            "line": {
+              "text": "Яким же кумедним я був, коли був маріонеткою!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "pinocchio": {
+          "name": "Піноккіо",
+          "traits": [
+            "пустотливий",
+            "легковажний",
+            "довірливий",
+            "добрий",
+            "відважний"
+          ],
+          "description": "Дерев’яна маріонетка, яку Джеппетто вирізав із поліна, що розмовляє. Він раз у раз бреше, тікає зі школи й піддається на гачок ошуканців, хоча щиро любить батька й Фею. Пройшовши крізь в’язницю, ослячу шкуру й черево Акули, Піноккіо рятує Джеппетто й стає справжнім хлопчиком."
+        },
+        "geppetto": {
+          "name": "Джеппетто",
+          "traits": [
+            "бідний",
+            "люблячий",
+            "запальний",
+            "самовідданий"
+          ],
+          "description": "Старий бідняк у жовтій перуці, за яку хлопчаки прозвали його Полендіною — Мамалиґою. Він вирізає Піноккіо, продає задля нього останню куртку, а потім вирушає шукати сина морем і два роки живе в череві Акули."
+        },
+        "cricket": {
+          "name": "Цвіркун-Балакун",
+          "traits": [
+            "мудрий",
+            "суворий",
+            "незлопам’ятний"
+          ],
+          "description": "Цвіркун, який понад сто років живе в кімнаті Джеппетто. Він першим застерігає Піноккіо, що неслухняність веде до біди, і дістає за це молотком. Згодом він ще не раз з’являється — тінню, лікарем, а наприкінці сам дає Піноккіо й Джеппетто притулок."
+        },
+        "blue-fairy": {
+          "name": "Фея з блакитним волоссям",
+          "traits": [
+            "добра",
+            "терпляча",
+            "сувора",
+            "загадкова"
+          ],
+          "description": "Чарівниця, яка спершу постає перед Піноккіо блідою дівчинкою, а згодом дорослою жінкою, що замінила йому матір. Вона рятує його з Великого Дуба, провчає ростом носа й прощає знову і знову. Її любов і є тією силою, що робить Піноккіо людиною."
+        },
+        "fox": {
+          "name": "Лисиця",
+          "traits": [
+            "хитра",
+            "улеслива",
+            "жадібна"
+          ],
+          "description": "Ошуканка, яка вдає кульгаву й разом із Котом виманює в Піноккіо золоті монети. У фіналі вона по-справжньому облізла від злиднів і навіть продала свій хвіст."
+        },
+        "cat": {
+          "name": "Кіт",
+          "traits": [
+            "хитрий",
+            "підтакувач",
+            "жадібний"
+          ],
+          "description": "Спільник Лисиці, який видає себе за сліпого й у всьому їй підтакує. Під час нічного нападу Піноккіо відкушує йому лапу, а у фіналі Кіт і справді сліпне."
+        },
+        "mangiafuoco": {
+          "name": "Манджафоко",
+          "traits": [
+            "грізний",
+            "сентиментальний",
+            "щедрий"
+          ],
+          "description": "Власник Великого лялькового театру — велетень із чорною бородою до самої землі. Він погрожує спалити Піноккіо, але, розчулившись, чхає й дарує йому п’ять золотих монет для батька."
+        },
+        "lampwick": {
+          "name": "Лучіньоло",
+          "traits": [
+            "лінивий",
+            "веселий",
+            "безтурботний"
+          ],
+          "description": "Найлінивіший і найпустотливіший хлопець у школі, якого прозвали Ґнотом за худорлявість. Він умовляє Піноккіо втекти до Країни Іграшок, перетворюється на віслюка й наприкінці помирає від непосильної праці на очах у друга."
+        }
+      }
+    },
+    "en": {
+      "title": "The Adventures of Pinocchio",
+      "originalTitle": "Le avventure di Pinocchio. Storia di un burattino",
+      "author": "Carlo Collodi",
+      "genre": "Children’s fantasy novel",
+      "tagline": "A wooden boy whose nose betrays every lie takes the long road to becoming real.",
+      "summary": [
+        "A carpenter nicknamed Master Cherry comes across a log that squeaks and laughs with a human voice. Frightened, he gives it to his friend Geppetto, a poor old man who dreams of carving a wonderful wooden puppet and travelling the world with it. Geppetto has barely finished the marionette, which he names Pinocchio, when it sticks out its tongue, snatches his yellow wig and runs off into the street. A carabiniere catches the runaway, but the crowd decides the old man is cruel to his puppet, and it is Geppetto who is taken to jail.",
+        "At home Pinocchio meets the Talking Cricket, who has lived in that room for a hundred years and warns him that disobedient boys come to grief. Pinocchio answers by hurling a wooden mallet at him. That night he falls asleep with his feet on a brazier, and by morning they have burned away. When Geppetto returns he gives the puppet his own breakfast, carves him new feet and sells his only coat in the cold to buy him a spelling book. But on the way to school Pinocchio hears music and sells the book for a ticket to the puppet theatre.",
+        "The marionettes joyfully hail him as a brother, but their master, the bearded giant Fire-Eater, wants to use Pinocchio as firewood for his roast. Moved by the story of the poor father, he sneezes — his way of showing pity — lets the boy go and gives him five gold coins. On the way home Pinocchio meets the Fox, who pretends to be lame, and the Cat, who pretends to be blind. They persuade him to bury his coins in the Field of Miracles, where overnight they will grow into a money tree. That night the swindlers, disguised as assassins, attack him and hang him from a branch of the Big Oak.",
+        "Pinocchio is rescued by the Fairy with Turquoise Hair. When he lies to her about the coins, his nose grows so long he cannot turn round in the room. The Fairy forgives him, but he falls for the Fox and the Cat again, buries the coins in the Field of Miracles — and of course loses them. A gorilla judge sends to prison not the thieves but the boy who was robbed. Once free, Pinocchio serves a farmer as a watchdog, and when he returns to the Fairy’s cottage he finds only a gravestone: she has died of grief. Learning that Geppetto has put to sea in a tiny boat to look for him, Pinocchio throws himself into the stormy waves.",
+        "The waves wash him up on the Island of the Busy Bees, where the Fairy appears to him as a grown woman and promises that if he studies well he will become a real boy. Pinocchio attends school faithfully, but on the eve of his transformation his friend Lampwick talks him into running away to the Land of Toys, where nobody studies and every day is a holiday. After five carefree months both boys sprout donkey ears and turn into real donkeys. Pinocchio is sold to a circus, goes lame after a bad jump, and his new owner throws him into the sea to make a drum from his hide.",
+        "Fish nibble away his donkey skin and he is a wooden puppet again — until an enormous Dogfish swallows him. In its belly, by the light of a candle, Pinocchio finds Geppetto, who has lived there for two years. Pinocchio carries his father out through the sleeping monster’s mouth and swims with him on his back until a kindly Tuna takes them ashore. To feed the sick old man, the boy turns a water wheel every day for a glass of milk and weaves baskets. And after he gives his last coins to the ailing Fairy, he wakes one morning as a real boy — and laughs at the old wooden puppet slumped on a chair."
+      ],
+      "themes": [
+        "Growing up and responsibility",
+        "Lies and truth",
+        "A father’s and son’s love",
+        "The lure of an easy life",
+        "Kindness and redemption"
+      ],
+      "terms": [
+        {
+          "term": "The talking log",
+          "definition": "A log that squeaks, laughs and complains when struck with an axe. Geppetto carves Pinocchio out of it."
+        },
+        {
+          "term": "The growing nose",
+          "definition": "The punishment for lying: whenever Pinocchio tells a lie, his nose grows longer. The Fairy explains that some lies have short legs and others long noses."
+        },
+        {
+          "term": "The five gold coins",
+          "definition": "Fire-Eater’s gift for poor Geppetto, which lands Pinocchio in the clutches of the Fox and the Cat."
+        },
+        {
+          "term": "The Inn of the Red Crawfish",
+          "definition": "The inn where the Fox and the Cat dine at Pinocchio’s expense before slipping away to ambush him in the woods."
+        },
+        {
+          "term": "The Field of Miracles",
+          "definition": "A field where, the swindlers claim, buried coins grow overnight into a tree with gold pieces for leaves."
+        },
+        {
+          "term": "The Big Oak",
+          "definition": "The tree from which the assassins hang Pinocchio. The Fairy sends a falcon to cut the rope."
+        },
+        {
+          "term": "The Fairy with Turquoise Hair",
+          "definition": "A kind enchantress who appears to Pinocchio first as a girl and then as a mother, saving, forgiving and guiding him."
+        },
+        {
+          "term": "The Land of Toys",
+          "definition": "A country with no schools or teachers where every day is a holiday. Everyone who lives there ends up a donkey."
+        },
+        {
+          "term": "Donkey ears",
+          "definition": "The sign that an idler is turning into a donkey. Pinocchio and Lampwick sprout them after five months of idleness."
+        },
+        {
+          "term": "The Terrible Dogfish",
+          "definition": "A sea monster more than a kilometre long, in whose belly both Geppetto and Pinocchio end up."
+        },
+        {
+          "term": "Burattino",
+          "definition": "Italian for a wooden puppet. To change from a puppet into a real boy is Pinocchio’s great dream and reward."
+        }
+      ],
+      "similar": [
+        {
+          "title": "The Golden Key, or the Adventures of Buratino",
+          "author": "Alexei Tolstoy",
+          "why": "The famous Russian free retelling of Pinocchio, with Papa Carlo, Malvina and the same wooden boy."
+        },
+        {
+          "title": "The Adventures of Cipollino",
+          "author": "Gianni Rodari",
+          "why": "Another Italian tale of a small, mischievous hero who stands up to injustice."
+        },
+        {
+          "title": "The Nutcracker and the Mouse King",
+          "author": "E. T. A. Hoffmann",
+          "why": "A wooden toy comes to life and longs to become human again."
+        },
+        {
+          "title": "The Wonderful Wizard of Oz",
+          "author": "L. Frank Baum",
+          "why": "A journey of wonders and trials at the end of which the heroes receive what they longed for."
+        },
+        {
+          "title": "Alice’s Adventures in Wonderland",
+          "author": "Lewis Carroll",
+          "why": "A classic nineteenth-century tale in which a child enters a world of talking animals and strange rules."
+        }
+      ],
+      "film": {
+        "title": "How to Become Real",
+        "intro": "You open the book and the smell of fresh wood shavings fills your nose. You are standing in a poor little workshop, and on the bench lies a log that is quietly giggling.",
+        "outro": "The last page closes and the workshop falls silent. A wooden puppet is left slumped on the chair — but the boy it used to be has already run out to play.",
+        "scenes": [
+          {
+            "title": "The Log That Laughs",
+            "narration": "You stand in Geppetto’s little room, where a fireplace with a boiling pot is only painted on the wall. The old man carves a head, eyes and a nose from the log — and the nose immediately starts to grow while the puppet bursts out laughing.",
+            "line": {
+              "text": "I’ll call him Pinocchio — that name will bring him luck."
+            }
+          },
+          {
+            "title": "Fire-Eater’s Sneeze",
+            "narration": "You stand backstage at the puppet theatre, where the marionettes huddle together in fear. Their huge master, with a beard that sweeps the floor, threatens to throw Pinocchio on the fire — and then suddenly sneezes.",
+            "line": {
+              "text": "Atchoo! Take these five gold coins to your poor father."
+            }
+          },
+          {
+            "title": "The Field of Miracles",
+            "narration": "You follow Pinocchio across an empty field at dusk, the Fox limping on one side and the “blind” Cat groping along on the other. The boy digs a little hole, drops in his coins and waters them from a puddle.",
+            "line": {
+              "text": "Bury them here, and by morning a tree covered in gold coins will grow!"
+            }
+          },
+          {
+            "title": "The Liar’s Nose",
+            "narration": "You stand in the Fairy’s room beside the bed where the rescued Pinocchio lies. He swears he has lost the coins — and his nose grows until it bumps against the wall, while the Fairy with Turquoise Hair laughs.",
+            "line": {
+              "text": "Lies are easy to spot: some have short legs, and yours has a long nose."
+            }
+          },
+          {
+            "title": "The Land of Toys",
+            "narration": "You run through noisy streets where boys play ball, ride bicycles and stuff themselves with sweets. There is no school and no teacher, and Lampwick claps Pinocchio on the shoulder, not yet suspecting anything about donkey ears.",
+            "line": {
+              "text": "No books, no lessons — every day a holiday!"
+            }
+          },
+          {
+            "title": "Inside the Dogfish",
+            "narration": "You stumble through the dark along the slippery belly of the enormous Dogfish toward a light flickering far away. At a little table, by the light of a candle, sits a white-haired old man — and Pinocchio throws his arms around his neck.",
+            "line": {
+              "text": "Father! I’ve found you at last — I’ll never leave you again!"
+            }
+          },
+          {
+            "title": "A Real Boy",
+            "narration": "You stand in a little cottage at dawn, where a boy in new clothes gazes into a mirror and Geppetto is hale and cheerful again. On a chair, arms dangling, sits an old wooden puppet.",
+            "line": {
+              "text": "How funny I was when I was a puppet!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "pinocchio": {
+          "name": "Pinocchio",
+          "traits": [
+            "mischievous",
+            "rash",
+            "gullible",
+            "kind-hearted",
+            "brave"
+          ],
+          "description": "A wooden marionette carved by Geppetto from a talking log. He keeps lying, skipping school and falling for swindlers, though he truly loves his father and the Fairy. After prison, a donkey’s hide and the belly of the Dogfish, Pinocchio saves Geppetto and becomes a real boy."
+        },
+        "geppetto": {
+          "name": "Geppetto",
+          "traits": [
+            "poor",
+            "loving",
+            "hot-tempered",
+            "self-sacrificing"
+          ],
+          "description": "A poor old man whose yellow wig earned him the nickname Polendina, “Cornmeal Mush,” from the local boys. He carves Pinocchio, sells his last coat for him, then sets out across the sea to find his son and spends two years in the belly of the Dogfish."
+        },
+        "cricket": {
+          "name": "The Talking Cricket",
+          "traits": [
+            "wise",
+            "stern",
+            "forgiving"
+          ],
+          "description": "A cricket who has lived in Geppetto’s room for over a hundred years. He is the first to warn Pinocchio that disobedience leads to trouble, and is hit with a mallet for his pains. He reappears several times — as a ghost, as a doctor, and finally as the one who gives Pinocchio and Geppetto shelter."
+        },
+        "blue-fairy": {
+          "name": "The Fairy with Turquoise Hair",
+          "traits": [
+            "kind",
+            "patient",
+            "strict",
+            "mysterious"
+          ],
+          "description": "An enchantress who first appears to Pinocchio as a pale little girl and later as a grown woman who becomes his mother. She saves him from the Big Oak, teaches him a lesson with his growing nose and forgives him again and again. Her love is the power that finally makes Pinocchio human."
+        },
+        "fox": {
+          "name": "The Fox",
+          "traits": [
+            "sly",
+            "flattering",
+            "greedy"
+          ],
+          "description": "A swindler who pretends to be lame and, with the Cat, tricks Pinocchio out of his gold coins. In the end she is truly mangy with poverty and has even sold her own tail."
+        },
+        "cat": {
+          "name": "The Cat",
+          "traits": [
+            "sly",
+            "echoing",
+            "greedy"
+          ],
+          "description": "The Fox’s partner, who pretends to be blind and repeats whatever she says. During the night attack Pinocchio bites off one of his paws, and in the end the Cat really does go blind."
+        },
+        "mangiafuoco": {
+          "name": "Fire-Eater",
+          "traits": [
+            "fearsome",
+            "soft-hearted",
+            "generous"
+          ],
+          "description": "Mangiafuoco, owner of the Great Puppet Theatre — a giant with a black beard that reaches the ground. He threatens to burn Pinocchio but, moved to pity, sneezes and gives him five gold coins for his father."
+        },
+        "lampwick": {
+          "name": "Lampwick",
+          "traits": [
+            "lazy",
+            "cheerful",
+            "reckless"
+          ],
+          "description": "The laziest and naughtiest boy at school, nicknamed for being as thin as a candlewick. He lures Pinocchio to the Land of Toys, turns into a donkey and at the end dies of overwork before his friend’s eyes."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "pinocchio",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "child",
+        "build": "slim",
+        "skin": "#d9a266",
+        "hair": { "style": "short", "color": "#3a2412" },
+        "facialHair": "none",
+        "eyes": "#2a1a10",
+        "top": { "kind": "shirt", "color": "#e9dcae", "accent": "#c8402e", "pattern": "dots" },
+        "bottom": { "kind": "shorts", "color": "#c8402e" },
+        "shoes": "#7a5232",
+        "headwear": "wizard_hat",
+        "headwearColor": "#f2e6cc",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "book"
+      },
+      "portraitPrompt": "A jointed wooden puppet boy with a pale pine-coloured face, round painted cheeks and a long pointed nose, wearing a little suit of flowered paper, red short trousers, shoes of tree bark and a tall cone-shaped cap of bread dough, clutching a spelling book."
+    },
+    {
+      "id": "geppetto",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "small",
+        "skin": "#efc4a2",
+        "hair": { "style": "curly", "color": "#e8c240" },
+        "facialHair": "none",
+        "eyes": "#5a4a3a",
+        "top": { "kind": "vest", "color": "#6e4a2c", "accent": "#efe4cc", "pattern": "plain" },
+        "bottom": { "kind": "pants", "color": "#4a4038" },
+        "shoes": "#2e241c",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "candle"
+      },
+      "portraitPrompt": "A small, poor, kindly old woodcarver with a wrinkled face under a curly yellow wig the colour of cornmeal mush, wearing a patched cream shirt and a brown waistcoat with no coat, holding a stub of candle."
+    },
+    {
+      "id": "cricket",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "small",
+        "skin": "#7ab84a",
+        "hair": { "style": "none", "color": "#4a7a2a" },
+        "facialHair": "none",
+        "eyes": "#1a2a12",
+        "top": { "kind": "coat", "color": "#3e6a2a", "accent": "#a8d46a", "pattern": "plain" },
+        "bottom": { "kind": "pants", "color": "#2e4a20" },
+        "shoes": "#2a3a1a",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "glasses",
+        "accessoryColor": "#3a2a1a",
+        "holding": "none"
+      },
+      "portraitPrompt": "A small, wise old green cricket standing upright on the wall, with long antennae, thin bent legs and a stern, owlish face, dressed like a tiny scholar in a dark-green coat."
+    },
+    {
+      "id": "blue-fairy",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "adult",
+        "build": "slim",
+        "skin": "#f8e6dc",
+        "hair": { "style": "long", "color": "#3fbfcb" },
+        "facialHair": "none",
+        "eyes": "#2f8aa8",
+        "top": { "kind": "gown", "color": "#e6f4f6", "accent": "#3fbfcb", "pattern": "embroidery" },
+        "bottom": { "kind": "skirt", "color": "#e6f4f6" },
+        "shoes": "#bfe4ea",
+        "headwear": "tiara",
+        "headwearColor": "#e8eef4",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A gentle, pale fairy with long flowing turquoise hair and a serene smile, wearing a pale silvery gown embroidered in turquoise and a delicate silver tiara."
+    },
+    {
+      "id": "fox",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "fox",
+        "gender": "female",
+        "age": "adult",
+        "build": "slim",
+        "skin": "#c8642c",
+        "hair": { "style": "none", "color": "#a8501e" },
+        "facialHair": "none",
+        "eyes": "#d8a030",
+        "top": { "kind": "coat", "color": "#6a5a3e", "accent": "#a8925a", "pattern": "checks" },
+        "bottom": { "kind": "none", "color": "#c8642c" },
+        "shoes": "#3a2a1a",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "staff"
+      },
+      "portraitPrompt": "A sly, scrawny red fox in a shabby checked coat, leaning on a crutch-like stick while pretending to limp, with a sweet false smile and narrowed golden eyes."
+    },
+    {
+      "id": "cat",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "cat",
+        "gender": "male",
+        "age": "adult",
+        "build": "average",
+        "skin": "#8a8a86",
+        "hair": { "style": "none", "color": "#6a6a66" },
+        "facialHair": "none",
+        "eyes": "#c8c040",
+        "top": { "kind": "coat", "color": "#3a3a46", "accent": "#5a5a6a", "pattern": "plain" },
+        "bottom": { "kind": "none", "color": "#8a8a86" },
+        "shoes": "#2a2a2e",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "round_glasses",
+        "accessoryColor": "#141418",
+        "holding": "none"
+      },
+      "portraitPrompt": "A grey tabby cat in a worn dark coat and round black spectacles, groping ahead with one paw as though blind, while a crafty eye peeks over the glasses."
+    },
+    {
+      "id": "mangiafuoco",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#e0a888",
+        "hair": { "style": "long", "color": "#141012" },
+        "facialHair": "long_beard",
+        "eyes": "#d84a2a",
+        "top": { "kind": "robe", "color": "#8a1e1e", "accent": "#e0a83a", "pattern": "embroidery" },
+        "bottom": { "kind": "pants", "color": "#2a1a1a" },
+        "shoes": "#1a1210",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A huge, frightening puppet-show master with a coal-black beard so long it drags on the floor, eyes glowing like red lanterns and a mouth as wide as an oven, wearing a dark-red gold-embroidered robe."
+    },
+    {
+      "id": "lampwick",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f0c8a6",
+        "hair": { "style": "spiky", "color": "#5a3a1e" },
+        "facialHair": "none",
+        "eyes": "#4a3a2a",
+        "top": { "kind": "shirt", "color": "#d8b04a", "accent": "#7a5a2a", "pattern": "stripes" },
+        "bottom": { "kind": "shorts", "color": "#5a4a3a" },
+        "shoes": "#3a2a1e",
+        "headwear": "cap",
+        "headwearColor": "#3a5a3a",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A tall, very thin, gangly schoolboy with spiky brown hair under a crooked green cap, wearing a striped yellow shirt and knee breeches, grinning with lazy mischief."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "room",
+        "time": "day",
+        "weather": "clear",
+        "cast": ["geppetto", "pinocchio"],
+        "props": ["table", "chair", "fire", "window"],
+        "action": "discover",
+        "camera": "dolly_in",
+        "mood": "magical",
+        "line": { "speaker": "geppetto" }
+      },
+      {
+        "setting": "room",
+        "time": "night",
+        "weather": "clear",
+        "cast": ["pinocchio", "mangiafuoco"],
+        "props": ["candles", "fire", "chest", "chair"],
+        "action": "talk",
+        "camera": "close_up",
+        "mood": "tense",
+        "line": { "speaker": "mangiafuoco" }
+      },
+      {
+        "setting": "meadow",
+        "time": "dusk",
+        "weather": "wind",
+        "cast": ["pinocchio", "fox", "cat"],
+        "props": ["tree", "rock", "sign", "bush"],
+        "action": "walk",
+        "camera": "pan",
+        "mood": "mysterious",
+        "line": { "speaker": "fox" }
+      },
+      {
+        "setting": "room",
+        "time": "night",
+        "weather": "stars",
+        "cast": ["pinocchio", "blue-fairy", "cricket"],
+        "props": ["bed", "window", "candles"],
+        "action": "talk",
+        "camera": "close_up",
+        "mood": "magical",
+        "line": { "speaker": "blue-fairy" }
+      },
+      {
+        "setting": "street",
+        "time": "day",
+        "weather": "clear",
+        "cast": ["pinocchio", "lampwick"],
+        "props": ["carriage", "cake", "fountain", "statue"],
+        "action": "celebrate",
+        "camera": "crane",
+        "mood": "joyful",
+        "line": { "speaker": "lampwick" }
+      },
+      {
+        "setting": "cave",
+        "time": "night",
+        "weather": "fog",
+        "cast": ["pinocchio", "geppetto"],
+        "props": ["table", "candles", "barrel", "boat"],
+        "action": "discover",
+        "camera": "dolly_in",
+        "mood": "romantic",
+        "line": { "speaker": "pinocchio" }
+      },
+      {
+        "setting": "room",
+        "time": "dawn",
+        "weather": "clear",
+        "cast": ["pinocchio", "geppetto"],
+        "props": ["chair", "bed", "window"],
+        "action": "celebrate",
+        "camera": "orbit",
+        "mood": "joyful",
+        "line": { "speaker": "pinocchio" }
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: a poor Italian woodcarver’s workshop with a fireplace painted on the wall, an old man in a yellow wig carves a wooden puppet whose long nose suddenly grows and pokes him, wood shavings flying, warm afternoon sunbeams through a small window; slow dolly-in, tilt-shift miniature look, no text.",
+      "Cute voxel-diorama 3D scene: a wooden puppet boy with a cone-shaped cap buries gold coins in a twilight field while a sly fox on a crutch and a cat in dark glasses exchange winks behind him, a lonely oak on the hill; slow panning camera, purple dusk light, mischievous mood, no text.",
+      "Cute voxel-diorama 3D scene: inside the dark cavernous belly of a giant sea monster, a tiny table lit by one candle where an old white-haired man sits, and a wooden puppet boy runs toward him across the wet ribs; then both swim out through huge open jaws under the moon; slow dolly-in then crane up, magical emotional mood, no text."
+    ]
+  }
+}

@@ -1,0 +1,991 @@
+{
+  "id": "tyhrolovy",
+  "year": 1944,
+  "cover": {
+    "bg": "#1c3a44",
+    "bg2": "#081418",
+    "fg": "#eef2ee",
+    "accent": "#f28a1e",
+    "motif": "flame"
+  },
+  "aliases": [
+    "Тигролови",
+    "Тигроловы",
+    "Тигролов",
+    "Tyhrolovy",
+    "Tigrolovy",
+    "The Hunters and the Hunted",
+    "Tiger Trappers",
+    "Tiger Hunters",
+    "Звіролови",
+    "Звероловы",
+    "Тигролови Багряний",
+    "Багряний Тигролови",
+    "Тигроловы Багряный",
+    "Тиграловы",
+    "Тигроловы Багряного"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Тигроловы",
+      "originalTitle": "Тигролови",
+      "author": "Иван Багряный",
+      "genre": "Приключенческий роман",
+      "tagline": "Побег из «эшелона смерти», дикая тайга, охота на тигра и любовь, которая ведёт к свободе.",
+      "summary": [
+        "По Дальнему Востоку мчатся два поезда. Одним, роскошным «Дальневосточным экспрессом», едет среди прочих майор НКВД Медвин. Другой — «эшелон смерти», похожий на огромного дракона, — везёт в дальневосточные лагеря тысячи узников сталинских тюрем. Среди них — Григорий Многогрешный, потомок гетманского рода, осуждённый на двадцать пять лет каторги. Когда-то именно Медвин пытал его на допросах. Григорий знает: впереди только медленная смерть в лагере. И он решается на отчаянный шаг — вырывается из вагона и на полном ходу прыгает в темноту.",
+        "Беглец неделями пробирается дикой тайгой — голодный, оборванный, преследуемый зверями и людьми. Однажды он видит, как на молодую охотницу нападает медведь, и бросается на зверя с ножом. Григорий спасает девушку, но и сам падает без сил, израненный. Охотница — Наталка Сирко — забирает его к своей семье, на хутор, спрятанный глубоко в тайге. Там живут украинцы, потомки переселенцев, которые когда-то пришли на Дальний Восток, в Зелёный Клин, и сохранили здесь родной язык, песни и обычаи.",
+        "Старый Денис Сирко, его жена, сын Грицько и дочь Наталка принимают беглеца как родного. Для Григория, который годами видел лишь тюрьмы и этапы, их дом становится настоящим раем: здесь пахнет хлебом, звучит украинская песня, а люди живут вольно и честно. Он понемногу оживает, набирается сил и становится в семье своим. Между ним и Наталкой — смелой, гордой и нежной — зарождается любовь, хотя Григорий помнит, что погоня за ним не прекратилась.",
+        "Сирко — тигроловы: они не убивают тигров, а ловят их живьём для зверинцев. Григорий ходит с ними на охоту, учится читать тайгу и однажды находит женьшень — «корень жизни», который стоит целое состояние. Самым большим испытанием становится зимняя охота на тигра: охотники с собаками идут по следу полосатого зверя, окружают его и, рискуя жизнью, вяжут верёвками. В этом опасном деле Григорий доказывает своё мужество и окончательно завоёвывает уважение старого Дениса.",
+        "Тем временем майор Медвин не забывает о беглеце: энкавэдэшники рыщут по тайге и посёлкам. Григорий понимает, что, оставаясь у Сирко, он навлечёт беду на всю семью, и решает уходить за границу, в Маньчжурию. Судьба ещё раз сводит его с Медвином, и в решающей схватке беглец одолевает своего палача. Наталка без колебаний уходит вместе с любимым. Через заснеженную тайгу, мимо застав и погони, они пробираются к границе и переходят её. Позади — родная земля, впереди — чужбина, но и свобода. Роман становится гимном человеческому достоинству, которое не может сломить никакая тоталитарная машина."
+      ],
+      "themes": [
+        "Свобода и неволя",
+        "Человек против тоталитарной системы",
+        "Человек и дикая природа",
+        "Любовь и верность",
+        "Украинцы Зелёного Клина"
+      ],
+      "terms": [
+        {
+          "term": "Эшелон смерти",
+          "definition": "Состав из товарных вагонов, в котором НКВД везло тысячи узников в дальневосточные лагеря; в романе он изображён как гигантский дракон."
+        },
+        {
+          "term": "НКВД",
+          "definition": "Народный комиссариат внутренних дел — карательный орган сталинского режима, который устраивал аресты, допросы и лагеря."
+        },
+        {
+          "term": "Зелёный Клин",
+          "definition": "Украинское название земель на Дальнем Востоке (Приморья и Приамурья), куда с конца XIX века массово переселялись украинцы."
+        },
+        {
+          "term": "Тайга",
+          "definition": "Бескрайние хвойные леса Сибири и Дальнего Востока, где живут тигры, медведи и охотники вроде семьи Сирко."
+        },
+        {
+          "term": "Тигроловы",
+          "definition": "Охотники, которые ловят тигров живьём: окружают зверя с собаками и связывают его, чтобы продать в зоопарк или зверинец."
+        },
+        {
+          "term": "Рогатина",
+          "definition": "Охотничья палка с развилкой на конце, которой прижимают зверя к земле во время отлова."
+        },
+        {
+          "term": "Женьшень",
+          "definition": "«Корень жизни» — редкое целебное растение дальневосточной тайги, ценившееся на вес золота; Григорий находит такой корень."
+        },
+        {
+          "term": "Маньчжурия",
+          "definition": "Область на северо-востоке Китая за границей СССР, куда бегут Григорий и Наталка в поисках свободы."
+        },
+        {
+          "term": "Каторга",
+          "definition": "Принудительный труд в лагерях; Григория приговорили к двадцати пяти годам каторги."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Сад Гефсиманский",
+          "author": "Иван Багряный",
+          "why": "Автобиографический роман того же автора об узнике сталинских тюрем, которого не смогли сломить пытки."
+        },
+        {
+          "title": "Зов предков",
+          "author": "Джек Лондон",
+          "why": "Суровая дикая природа, борьба за выживание и сила духа, которая делает героя свободным."
+        },
+        {
+          "title": "Дерсу Узала",
+          "author": "Владимир Арсеньев",
+          "why": "Тайга Дальнего Востока, охотники и мудрость людей, живущих в согласии с природой."
+        },
+        {
+          "title": "Один день Ивана Денисовича",
+          "author": "Александр Солженицын",
+          "why": "Правда о сталинских лагерях — той самой неволе, из которой бежит Григорий."
+        },
+        {
+          "title": "Граф Монте-Кристо",
+          "author": "Александр Дюма",
+          "why": "Побег невинно осуждённого узника и его расплата с теми, кто сломал ему жизнь."
+        }
+      ],
+      "film": {
+        "title": "Тигроловы: побег к свободе",
+        "intro": "Ты открываешь книгу — и в лицо тебе бьёт холодный ветер тайги. Где-то в темноте гудит паровоз, а в чаще неторопливо ступает полосатый хозяин леса.",
+        "outro": "Следы на снегу уходят за горизонт, к свободе. Страницы закрываются, а ты ещё слышишь, как шумит бескрайняя тайга.",
+        "scenes": [
+          {
+            "title": "Эшелон смерти",
+            "narration": "Ты стоишь в тёмном, душном вагоне, где на нарах теснятся измученные узники, а за досками грохочут колёса. Григорий Многогрешный выбирается наружу и на полном ходу бросается в ночь, в неизвестность.",
+            "line": {
+              "text": "Лучше погибнуть свободным, чем сгнить в лагере!"
+            }
+          },
+          {
+            "title": "Схватка с медведем",
+            "narration": "Ты стоишь среди исполинских кедров, когда из чащи с рёвом вываливается медведь. Обессиленный беглец, не раздумывая, бросается на зверя с ножом, чтобы спасти незнакомую охотницу.",
+            "line": {
+              "text": "Кто вы? Держитесь, я вас не брошу!"
+            }
+          },
+          {
+            "title": "Хата в тайге",
+            "narration": "Ты сидишь в тёплой хате посреди тайги, где потрескивает огонь и пахнет свежим хлебом. Старый Денис Сирко неспешно расспрашивает гостя, мать ставит на стол ужин, а Наталка украдкой поглядывает на спасённого чужака.",
+            "line": {
+              "text": "Кто пришёл к нам с добром — тот нам родной."
+            }
+          },
+          {
+            "title": "Корень жизни",
+            "narration": "Ты пробираешься сквозь утренний туман вслед за Григорием. Вдруг среди папоротника вспыхивают алые ягоды — под ними прячется женьшень, «корень жизни», дороже золота.",
+            "line": null
+          },
+          {
+            "title": "Охота на тигра",
+            "narration": "Ты бежишь по заснеженной тайге вместе с тигроловами, а впереди заливаются лаем собаки. Полосатый зверь загнан, рычит и бьёт лапой — и охотники, рискуя жизнью, бросаются на него с рогатинами и верёвками.",
+            "line": {
+              "text": "Живьём берём, хлопцы, — не стрелять!"
+            }
+          },
+          {
+            "title": "Погоня",
+            "narration": "Ты стоишь в ночной тайге, где между деревьями мелькают огни погони. Майор Медвин наконец напал на след беглеца — и теперь охотник и добыча меняются местами.",
+            "line": {
+              "text": "Тебе некуда бежать, Многогрешный!"
+            }
+          },
+          {
+            "title": "К свободе",
+            "narration": "Ты идёшь заснеженным перевалом на рассвете, а впереди Григорий и Наталка прокладывают путь к границе. Позади остаются родные люди и тайга, впереди — чужбина, но и свобода.",
+            "line": {
+              "text": "Куда ты — туда и я."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "hryhorii": {
+          "name": "Григорий Многогрешный",
+          "traits": [
+            "свободолюбивый",
+            "мужественный",
+            "несгибаемый",
+            "находчивый"
+          ],
+          "description": "Политический заключённый, потомок гетманского рода, осуждённый сталинским режимом на двадцать пять лет каторги. Он бежит из «эшелона смерти», выживает в тайге и находит приют и любовь в семье Сирко. Сильный духом и телом, он выбирает свободу даже ценой изгнания с родной земли."
+        },
+        "natalka": {
+          "name": "Наталка Сирко",
+          "traits": [
+            "смелая",
+            "гордая",
+            "нежная",
+            "преданная"
+          ],
+          "description": "Дочь старого Дениса, умелая охотница, которая в тайге чувствует себя как дома. Спасённая Григорием от медведя, она приводит обессиленного беглеца к своей семье. Полюбив его, Наталка без колебаний уходит с ним навстречу опасности и свободе."
+        },
+        "hrytsko": {
+          "name": "Грицько Сирко",
+          "traits": [
+            "отважный",
+            "весёлый",
+            "ловкий",
+            "искренний"
+          ],
+          "description": "Брат Наталки, молодой и азартный тигролов. Он становится Григорию настоящим другом и побратимом на охоте. Вместе они ходят по тайге и ловят тигра живьём."
+        },
+        "denys": {
+          "name": "Денис Сирко",
+          "traits": [
+            "мудрый",
+            "степенный",
+            "гостеприимный",
+            "опытный"
+          ],
+          "description": "Старый тигролов, глава семьи, давно поселившейся на Дальнем Востоке, но сохранившей украинский язык и обычаи. Он знает тайгу как свои пять пальцев и учит Григория её законам. Спокойный и справедливый, он принимает беглеца как родного сына."
+        },
+        "mother": {
+          "name": "Мать (Сирчиха)",
+          "traits": [
+            "ласковая",
+            "заботливая",
+            "гостеприимная"
+          ],
+          "description": "Жена Дениса, мать Наталки и Грицька — добрая хозяйка, хранящая домашний уют в самом сердце тайги. Она выхаживает обессиленного Григория и окружает его материнским теплом, которого он не знал годами."
+        },
+        "medvin": {
+          "name": "Майор Медвин",
+          "traits": [
+            "жестокий",
+            "коварный",
+            "безжалостный",
+            "упорный"
+          ],
+          "description": "Офицер НКВД, который когда-то пытал Григория на допросах. Побег узника становится для него делом чести, и он неутомимо ищет беглеца. Медвин олицетворяет бездушную карательную машину сталинского режима и в решающей схватке погибает от руки Григория."
+        }
+      }
+    },
+    "uk": {
+      "title": "Тигролови",
+      "originalTitle": "Тигролови",
+      "author": "Іван Багряний",
+      "genre": "Пригодницький роман",
+      "tagline": "Утеча з «ешелону смерті», дика тайга, лови тигра й кохання, що веде до волі.",
+      "summary": [
+        "Далеким Сходом мчать два потяги. Одним, розкішним «Далекосхідним експресом», серед інших їде майор НКВС Медвин. Другий — «ешелон смерті», схожий на велетенського дракона, — везе до далекосхідних таборів тисячі в’язнів сталінських тюрем. Серед них — Григорій Многогрішний, нащадок гетьманського роду, засуджений на двадцять п’ять років каторги. Колись саме Медвин катував його на допитах. Григорій знає: попереду лише повільна смерть у таборі. І він зважується на відчайдушний крок — вибирається з вагона й на повному ходу стрибає в темряву.",
+        "Утікач тижнями пробирається дикою тайгою — голодний, обдертий, переслідуваний звірами й людьми. Одного дня він бачить, як на молоду мисливицю нападає ведмідь, і кидається на звіра з ножем. Григорій рятує дівчину, але й сам, поранений, падає без сил. Мисливиця — Наталка Сірко — забирає його до своєї родини, на хутір, захований глибоко в тайзі. Там живуть українці, нащадки переселенців, що колись прийшли на Далекий Схід, у Зелений Клин, і зберегли тут рідну мову, пісні й звичаї.",
+        "Старий Денис Сірко, його дружина, син Грицько й донька Наталка приймають утікача як рідного. Для Григорія, який роками бачив лише тюрми й етапи, їхня оселя стає справжнім раєм: тут пахне хлібом, лунає українська пісня, а люди живуть вільно й чесно. Він поволі оживає, набирається сил і стає в родині своїм. Між ним і Наталкою — сміливою, гордою й ніжною — зароджується кохання, хоч Григорій пам’ятає, що погоня за ним не вщухла.",
+        "Сірки — тигролови: вони не вбивають тигрів, а ловлять їх живцем для звіринців. Григорій ходить із ними на полювання, вчиться читати тайгу й одного разу знаходить женьшень — «корінь життя», що коштує цілий статок. Найбільшим випробуванням стають зимові лови тигра: мисливці із собаками йдуть слідом смугастого звіра, оточують його й, ризикуючи життям, в’яжуть мотузками. У цій небезпечній справі Григорій доводить свою мужність і остаточно здобуває повагу старого Дениса.",
+        "Тим часом майор Медвин не забуває про втікача: енкаведисти нишпорять тайгою й селищами. Григорій розуміє, що, залишаючись у Сірків, накличе біду на всю родину, і вирішує тікати за кордон, до Маньчжурії. Доля ще раз зводить його з Медвином, і в вирішальній сутичці втікач перемагає свого ката. Наталка без вагань іде з коханим. Крізь засніжену тайгу, повз застави й погоню вони пробираються до кордону й переходять його. Позаду — рідна земля, попереду — чужина, але й воля. Роман стає гімном людській гідності, яку не здатна зламати жодна тоталітарна машина."
+      ],
+      "themes": [
+        "Воля і неволя",
+        "Людина проти тоталітарної системи",
+        "Людина й дика природа",
+        "Кохання і вірність",
+        "Українці Зеленого Клину"
+      ],
+      "terms": [
+        {
+          "term": "Ешелон смерті",
+          "definition": "Потяг із товарних вагонів, яким НКВС везло тисячі в’язнів до далекосхідних таборів; у романі він постає як велетенський дракон."
+        },
+        {
+          "term": "НКВС",
+          "definition": "Народний комісаріат внутрішніх справ — каральний орган сталінського режиму, що влаштовував арешти, допити й табори."
+        },
+        {
+          "term": "Зелений Клин",
+          "definition": "Українська назва земель на Далекому Сході (Примор’я та Приамур’я), куди з кінця XIX століття масово переселялися українці."
+        },
+        {
+          "term": "Тайга",
+          "definition": "Безкраї хвойні ліси Сибіру й Далекого Сходу, де живуть тигри, ведмеді й мисливці на кшталт Сірків."
+        },
+        {
+          "term": "Тигролови",
+          "definition": "Мисливці, які ловлять тигрів живцем: оточують звіра із собаками й зв’язують його, щоб продати до зоопарку чи звіринця."
+        },
+        {
+          "term": "Рогатина",
+          "definition": "Мисливська палиця з розвилкою на кінці, якою притискають звіра до землі під час ловів."
+        },
+        {
+          "term": "Женьшень",
+          "definition": "«Корінь життя» — рідкісна цілюща рослина далекосхідної тайги, що цінувалася на вагу золота; Григорій знаходить такий корінь."
+        },
+        {
+          "term": "Маньчжурія",
+          "definition": "Край на північному сході Китаю за кордоном СРСР, куди тікають Григорій і Наталка в пошуках волі."
+        },
+        {
+          "term": "Каторга",
+          "definition": "Примусова праця в таборах; Григорія засудили до двадцяти п’яти років каторги."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Сад Гетсиманський",
+          "author": "Іван Багряний",
+          "why": "Автобіографічний роман того самого автора про в’язня сталінських тюрем, якого не змогли зламати катування."
+        },
+        {
+          "title": "Поклик предків",
+          "author": "Джек Лондон",
+          "why": "Сувора дика природа, боротьба за виживання й сила духу, що робить героя вільним."
+        },
+        {
+          "title": "Дерсу Узала",
+          "author": "Володимир Арсеньєв",
+          "why": "Тайга Далекого Сходу, мисливці й мудрість людей, які живуть у злагоді з природою."
+        },
+        {
+          "title": "Один день Івана Денисовича",
+          "author": "Олександр Солженіцин",
+          "why": "Правда про сталінські табори — ту саму неволю, від якої тікає Григорій."
+        },
+        {
+          "title": "Граф Монте-Крісто",
+          "author": "Олександр Дюма",
+          "why": "Утеча безневинно засудженого в’язня і його розплата з тими, хто зламав йому життя."
+        }
+      ],
+      "film": {
+        "title": "Тигролови: втеча до волі",
+        "intro": "Ти розгортаєш книжку — і в обличчя тобі б’є холодний вітер тайги. Десь у темряві гуде паровоз, а в хащах неквапно ступає смугастий володар лісу.",
+        "outro": "Сліди на снігу ведуть за обрій, до волі. Сторінки закриваються, а ти ще чуєш, як шумить безкрая тайга.",
+        "scenes": [
+          {
+            "title": "Ешелон смерті",
+            "narration": "Ти стоїш у темному, задушливому вагоні, де на нарах тісняться змучені в’язні, а за дошками гуркочуть колеса. Григорій Многогрішний вибирається назовні й на повному ходу кидається в ніч, у невідомість.",
+            "line": {
+              "text": "Краще загинути вільним, ніж згнити в таборі!"
+            }
+          },
+          {
+            "title": "Сутичка з ведмедем",
+            "narration": "Ти стоїш серед велетенських кедрів, коли з хащі з ревом вивалюється ведмідь. Знесилений утікач, не вагаючись, кидається на звіра з ножем, щоб урятувати незнайому мисливицю.",
+            "line": {
+              "text": "Хто ви? Тримайтеся, я вас не покину!"
+            }
+          },
+          {
+            "title": "Хата в тайзі",
+            "narration": "Ти сидиш у теплій хаті посеред тайги, де потріскує вогонь і пахне свіжим хлібом. Старий Денис Сірко неквапно розпитує гостя, мати ставить на стіл вечерю, а Наталка нишком поглядає на врятованого чужинця.",
+            "line": {
+              "text": "Хто прийшов до нас із добром — той нам рідний."
+            }
+          },
+          {
+            "title": "Корінь життя",
+            "narration": "Ти пробираєшся крізь ранковий туман слідом за Григорієм. Раптом серед папороті спалахують червоні ягоди — під ними ховається женьшень, «корінь життя», дорожчий за золото.",
+            "line": null
+          },
+          {
+            "title": "Лови тигра",
+            "narration": "Ти біжиш засніженою тайгою разом із тигроловами, а попереду заливаються гавкотом собаки. Смугастий звір загнаний, гарчить і б’є лапою — і мисливці, ризикуючи життям, кидаються на нього з рогатинами й мотузками.",
+            "line": {
+              "text": "Живцем беремо, хлопці, — не стріляти!"
+            }
+          },
+          {
+            "title": "Погоня",
+            "narration": "Ти стоїш у нічній тайзі, де між деревами блимають вогні погоні. Майор Медвин нарешті натрапив на слід утікача — і тепер мисливець і здобич міняються місцями.",
+            "line": {
+              "text": "Тобі нікуди тікати, Многогрішний!"
+            }
+          },
+          {
+            "title": "До волі",
+            "narration": "Ти йдеш засніженим перевалом на світанку, а попереду Григорій і Наталка прокладають шлях до кордону. Позаду лишаються рідні люди й тайга, попереду — чужина, але й воля.",
+            "line": {
+              "text": "Куди ти — туди і я."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "hryhorii": {
+          "name": "Григорій Многогрішний",
+          "traits": [
+            "волелюбний",
+            "мужній",
+            "незламний",
+            "винахідливий"
+          ],
+          "description": "Політичний в’язень, нащадок гетьманського роду, засуджений сталінським режимом на двадцять п’ять років каторги. Він тікає з «ешелону смерті», виживає в тайзі й знаходить прихисток і кохання в родині Сірків. Сильний духом і тілом, він обирає волю навіть ціною вигнання з рідної землі."
+        },
+        "natalka": {
+          "name": "Наталка Сірко",
+          "traits": [
+            "смілива",
+            "горда",
+            "ніжна",
+            "віддана"
+          ],
+          "description": "Донька старого Дениса, вправна мисливиця, що в тайзі почувається як удома. Урятована Григорієм від ведмедя, вона забирає знесиленого втікача до своєї родини. Покохавши його, Наталка без вагань іде з ним назустріч небезпеці й волі."
+        },
+        "hrytsko": {
+          "name": "Грицько Сірко",
+          "traits": [
+            "відважний",
+            "веселий",
+            "спритний",
+            "щирий"
+          ],
+          "description": "Наталчин брат, молодий і завзятий тигролов. Він стає Григорієві справжнім другом і побратимом на полюванні. Разом вони ходять тайгою й ловлять тигра живцем."
+        },
+        "denys": {
+          "name": "Денис Сірко",
+          "traits": [
+            "мудрий",
+            "статечний",
+            "гостинний",
+            "досвідчений"
+          ],
+          "description": "Старий тигролов, голова родини, що давно оселилася на Далекому Сході, але зберегла українську мову й звичаї. Він знає тайгу як свої п’ять пальців і вчить Григорія її законів. Спокійний і справедливий, він приймає втікача як рідного сина."
+        },
+        "mother": {
+          "name": "Мати (Сірчиха)",
+          "traits": [
+            "лагідна",
+            "дбайлива",
+            "гостинна"
+          ],
+          "description": "Денисова дружина, мати Наталки й Грицька — добра господиня, що береже домашній затишок у самому серці тайги. Вона виходжує знесиленого Григорія й огортає його материнським теплом, якого він не знав роками."
+        },
+        "medvin": {
+          "name": "Майор Медвин",
+          "traits": [
+            "жорстокий",
+            "підступний",
+            "безжальний",
+            "упертий"
+          ],
+          "description": "Офіцер НКВС, що колись катував Григорія на допитах. Утеча в’язня стає для нього справою честі, і він невтомно шукає втікача. Медвин уособлює бездушну каральну машину сталінського режиму й у вирішальній сутичці гине від Григорієвої руки."
+        }
+      }
+    },
+    "en": {
+      "title": "The Hunters and the Hunted",
+      "originalTitle": "Тигролови",
+      "author": "Ivan Bahrianyi",
+      "genre": "Adventure novel",
+      "tagline": "An escape from the “death train”, the wild taiga, a tiger hunt and a love that leads to freedom.",
+      "summary": [
+        "Two trains race across the Soviet Far East. On one, the luxurious Far Eastern Express, rides, among others, NKVD Major Medvin. The other, a “death train” that looks like an enormous dragon, carries thousands of prisoners of Stalin’s jails to the Far Eastern camps. Among them is Hryhorii Mnohohrishnyi, a descendant of a hetman’s family, sentenced to twenty-five years of hard labour. It was Medvin who once tortured him during interrogations. Hryhorii knows that only a slow death in the camps awaits him. So he takes a desperate step: he breaks out of the wagon and leaps into the darkness from the speeding train.",
+        "For weeks the fugitive makes his way through the wild taiga — starving, in rags, hunted by beasts and men. One day he sees a bear attack a young huntress and throws himself at the animal with a knife. Hryhorii saves the girl, but collapses, wounded and exhausted. The huntress, Natalka Sirko, takes him to her family’s homestead hidden deep in the taiga. There live Ukrainians, descendants of settlers who long ago came to the Far East — the “Green Wedge” — and kept their language, songs and customs alive.",
+        "Old Denys Sirko, his wife, their son Hrytsko and their daughter Natalka welcome the fugitive as one of their own. For Hryhorii, who for years has seen nothing but prisons and convoys, their home is paradise: it smells of bread, Ukrainian songs ring out, and people live freely and honestly. Little by little he comes back to life, regains his strength and becomes part of the family. Love grows between him and Natalka — brave, proud and tender — though Hryhorii never forgets that the hunt for him goes on.",
+        "The Sirkos are tiger trappers: they do not kill tigers but catch them alive for menageries. Hryhorii joins their hunts, learns to read the taiga and one day finds ginseng — the “root of life”, worth a fortune. The greatest test is a winter tiger hunt: the hunters and their dogs follow the striped beast’s trail, surround it and, risking their lives, bind it with ropes. In this dangerous work Hryhorii proves his courage and wins old Denys’s full respect.",
+        "Meanwhile Major Medvin has not forgotten the fugitive, and NKVD men comb the taiga and the settlements. Hryhorii realises that by staying with the Sirkos he will bring disaster on the whole family, and he decides to flee across the border into Manchuria. Fate brings him face to face with Medvin once more, and in the decisive clash the fugitive defeats his tormentor. Natalka goes with her beloved without hesitation. Through the snowbound taiga, past border posts and pursuers, they make their way to the frontier and cross it. Behind them lies their homeland; ahead, a foreign land — but freedom. The novel is a hymn to human dignity that no totalitarian machine can break."
+      ],
+      "themes": [
+        "Freedom and captivity",
+        "The individual against a totalitarian state",
+        "Humans and the wild",
+        "Love and loyalty",
+        "Ukrainians of the Green Wedge"
+      ],
+      "terms": [
+        {
+          "term": "Death train",
+          "definition": "A train of freight wagons in which the NKVD carried thousands of prisoners to the Far Eastern camps; the novel depicts it as a gigantic dragon."
+        },
+        {
+          "term": "NKVD",
+          "definition": "The People’s Commissariat for Internal Affairs — the punitive organ of Stalin’s regime that ran arrests, interrogations and labour camps."
+        },
+        {
+          "term": "Green Wedge (Zelenyi Klyn)",
+          "definition": "The Ukrainian name for lands in the Russian Far East (Primorye and the Amur region), where Ukrainians settled en masse from the late 19th century."
+        },
+        {
+          "term": "Taiga",
+          "definition": "The endless coniferous forests of Siberia and the Far East, home to tigers, bears and hunters like the Sirkos."
+        },
+        {
+          "term": "Tiger trappers",
+          "definition": "Hunters who catch tigers alive: they surround the animal with dogs and tie it up to sell to a zoo or menagerie."
+        },
+        {
+          "term": "Rohatyna (forked pole)",
+          "definition": "A hunting pole with a fork at the end, used to pin an animal to the ground during a capture."
+        },
+        {
+          "term": "Ginseng",
+          "definition": "The “root of life”, a rare healing plant of the Far Eastern taiga worth its weight in gold; Hryhorii finds such a root."
+        },
+        {
+          "term": "Manchuria",
+          "definition": "A region in north-eastern China beyond the Soviet border, where Hryhorii and Natalka flee in search of freedom."
+        },
+        {
+          "term": "Hard labour (katorga)",
+          "definition": "Forced labour in the camps; Hryhorii was sentenced to twenty-five years of it."
+        }
+      ],
+      "similar": [
+        {
+          "title": "The Garden of Gethsemane",
+          "author": "Ivan Bahrianyi",
+          "why": "An autobiographical novel by the same author about a prisoner of Stalin’s jails whom torture could not break."
+        },
+        {
+          "title": "The Call of the Wild",
+          "author": "Jack London",
+          "why": "Harsh wild nature, the struggle for survival and a strength of spirit that sets the hero free."
+        },
+        {
+          "title": "Dersu Uzala",
+          "author": "Vladimir Arsenyev",
+          "why": "The Far Eastern taiga, its hunters and the wisdom of people who live in harmony with nature."
+        },
+        {
+          "title": "One Day in the Life of Ivan Denisovich",
+          "author": "Aleksandr Solzhenitsyn",
+          "why": "The truth about Stalin’s camps — the very captivity Hryhorii escapes from."
+        },
+        {
+          "title": "The Count of Monte Cristo",
+          "author": "Alexandre Dumas",
+          "why": "The escape of a wrongly condemned prisoner and his reckoning with those who ruined his life."
+        }
+      ],
+      "film": {
+        "title": "The Hunters and the Hunted: escape to freedom",
+        "intro": "You open the book and the cold wind of the taiga hits your face. Somewhere in the dark a locomotive roars, and in the thicket the striped lord of the forest pads silently along.",
+        "outro": "Tracks in the snow lead over the horizon, toward freedom. The pages close, but you can still hear the endless taiga whispering.",
+        "scenes": [
+          {
+            "title": "The Death Train",
+            "narration": "You stand in a dark, stifling wagon where exhausted prisoners are crammed on wooden bunks and the wheels thunder beyond the planks. Hryhorii Mnohohrishnyi squeezes out and hurls himself from the speeding train into the night.",
+            "line": {
+              "text": "Better to die free than to rot in a camp!"
+            }
+          },
+          {
+            "title": "The Bear",
+            "narration": "You stand among giant cedars when a bear bursts roaring out of the thicket. Without a moment’s thought, the exhausted fugitive throws himself at the beast with a knife to save a huntress he has never met.",
+            "line": {
+              "text": "Who are you? Hold on — I won’t leave you!"
+            }
+          },
+          {
+            "title": "A Cabin in the Taiga",
+            "narration": "You sit in a warm cabin in the middle of the taiga, where the fire crackles and the air smells of fresh bread. Old Denys Sirko quietly questions the guest, the mother sets supper on the table, and Natalka steals glances at the stranger she brought home.",
+            "line": {
+              "text": "Whoever comes to us in good faith is family to us."
+            }
+          },
+          {
+            "title": "The Root of Life",
+            "narration": "You push through the morning mist behind Hryhorii. Suddenly red berries flash among the ferns — beneath them hides ginseng, the “root of life”, more precious than gold.",
+            "line": null
+          },
+          {
+            "title": "The Tiger Hunt",
+            "narration": "You run through the snowy taiga with the tiger trappers as the dogs bay ahead. The striped beast is cornered, snarling and lashing out — and the hunters, risking their lives, rush at it with forked poles and ropes.",
+            "line": {
+              "text": "We take him alive, lads — no shooting!"
+            }
+          },
+          {
+            "title": "The Pursuit",
+            "narration": "You stand in the night taiga as the lights of the pursuers flicker between the trees. Major Medvin has finally picked up the fugitive’s trail — and now hunter and prey are about to trade places.",
+            "line": {
+              "text": "You’ve nowhere left to run, Mnohohrishnyi!"
+            }
+          },
+          {
+            "title": "Toward Freedom",
+            "narration": "You climb a snowy mountain pass at dawn while Hryhorii and Natalka break a trail toward the border ahead of you. Behind them lie their loved ones and the taiga; ahead lies a foreign land — and freedom.",
+            "line": {
+              "text": "Wherever you go, I go too."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "hryhorii": {
+          "name": "Hryhorii Mnohohrishnyi",
+          "traits": [
+            "freedom-loving",
+            "courageous",
+            "unbreakable",
+            "resourceful"
+          ],
+          "description": "A political prisoner, descendant of a hetman’s family, sentenced by Stalin’s regime to twenty-five years of hard labour. He escapes from the “death train”, survives the taiga and finds shelter and love with the Sirko family. Strong in body and spirit, he chooses freedom even at the price of exile from his homeland."
+        },
+        "natalka": {
+          "name": "Natalka Sirko",
+          "traits": [
+            "brave",
+            "proud",
+            "tender",
+            "devoted"
+          ],
+          "description": "Old Denys’s daughter, a skilled huntress who is at home in the taiga. Saved by Hryhorii from a bear, she takes the exhausted fugitive to her family. Falling in love with him, she goes with him without hesitation toward danger and freedom."
+        },
+        "hrytsko": {
+          "name": "Hrytsko Sirko",
+          "traits": [
+            "daring",
+            "cheerful",
+            "nimble",
+            "sincere"
+          ],
+          "description": "Natalka’s brother, a young and spirited tiger trapper. He becomes Hryhorii’s true friend and brother-in-arms on the hunt. Together they roam the taiga and take a tiger alive."
+        },
+        "denys": {
+          "name": "Denys Sirko",
+          "traits": [
+            "wise",
+            "dignified",
+            "hospitable",
+            "experienced"
+          ],
+          "description": "An old tiger trapper and head of a family that settled in the Far East long ago yet kept the Ukrainian language and customs. He knows the taiga like the back of his hand and teaches Hryhorii its laws. Calm and fair, he welcomes the fugitive like a son."
+        },
+        "mother": {
+          "name": "Mother Sirko",
+          "traits": [
+            "gentle",
+            "caring",
+            "hospitable"
+          ],
+          "description": "Denys’s wife and the mother of Natalka and Hrytsko — a kind housewife who keeps a cosy home in the very heart of the taiga. She nurses the exhausted Hryhorii back to health and surrounds him with a mother’s warmth he has not known for years."
+        },
+        "medvin": {
+          "name": "Major Medvin",
+          "traits": [
+            "cruel",
+            "cunning",
+            "ruthless",
+            "relentless"
+          ],
+          "description": "An NKVD officer who once tortured Hryhorii during interrogations. The prisoner’s escape becomes a matter of honour for him, and he hunts the fugitive tirelessly. Medvin embodies the soulless punitive machine of Stalin’s regime, and in the decisive clash he dies at Hryhorii’s hand."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "hryhorii",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "tall",
+        "skin": "#e0b08a",
+        "hair": {
+          "style": "messy",
+          "color": "#2a1e16"
+        },
+        "facialHair": "stubble",
+        "eyes": "#3a4a5a",
+        "top": {
+          "kind": "jacket",
+          "color": "#4a5a3e",
+          "accent": "#8a7a5a",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#3a3a36"
+        },
+        "shoes": "#2a2420",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "backpack",
+        "accessoryColor": "#6a5232",
+        "holding": "none"
+      },
+      "portraitPrompt": "A tall, gaunt but strong man in his thirties with tousled dark hair, rough stubble and steely grey-blue eyes, wearing a torn olive padded jacket, dark trousers and worn boots, a canvas pack on his back, standing alert in a snowy cedar forest."
+    },
+    {
+      "id": "natalka",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f0c8a4",
+        "hair": {
+          "style": "braids",
+          "color": "#4a2c18"
+        },
+        "facialHair": "none",
+        "eyes": "#3a2a1c",
+        "top": {
+          "kind": "coat",
+          "color": "#9a5a32",
+          "accent": "#e8d8b8",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#3a4a3a"
+        },
+        "shoes": "#3a2a1c",
+        "headwear": "headscarf",
+        "headwearColor": "#c8302a",
+        "accessory": "necklace",
+        "accessoryColor": "#d83a3a",
+        "holding": "none"
+      },
+      "portraitPrompt": "A brave young huntress with long dark-brown braids, rosy cheeks from the cold and lively dark eyes, wearing a red headscarf, a short brown fur-trimmed coat with embroidered hems, a dark skirt and soft leather boots, a hunting rifle slung over her shoulder."
+    },
+    {
+      "id": "hrytsko",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "teen",
+        "build": "average",
+        "skin": "#eec0a0",
+        "hair": {
+          "style": "short",
+          "color": "#6a4628"
+        },
+        "facialHair": "none",
+        "eyes": "#4a3424",
+        "top": {
+          "kind": "coat",
+          "color": "#7a6a4a",
+          "accent": "#d8c8a8",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#3a3428"
+        },
+        "shoes": "#2e2218",
+        "headwear": "beanie",
+        "headwearColor": "#5a4632",
+        "accessory": "belt_sword",
+        "accessoryColor": "#3a2a1c",
+        "holding": "spear"
+      },
+      "portraitPrompt": "A cheerful, sturdy young hunter with short brown hair under a fur cap, bright eyes and a wide grin, wearing a quilted grey-brown coat with a hunting knife on his belt, holding a long wooden forked pole for catching tigers."
+    },
+    {
+      "id": "denys",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "broad",
+        "skin": "#d8a27c",
+        "hair": {
+          "style": "short",
+          "color": "#c8c4bc"
+        },
+        "facialHair": "long_beard",
+        "eyes": "#4a4a3a",
+        "top": {
+          "kind": "coat",
+          "color": "#5a4632",
+          "accent": "#c8b48a",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#3a3228"
+        },
+        "shoes": "#2a2018",
+        "headwear": "beanie",
+        "headwearColor": "#6a5440",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "pipe"
+      },
+      "portraitPrompt": "A broad-shouldered old taiga hunter with a long silver beard, weathered ruddy face and calm, wise eyes, wearing a fur cap and a brown sheepskin coat belted with a leather strap, holding a short wooden pipe."
+    },
+    {
+      "id": "mother",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "elder",
+        "build": "average",
+        "skin": "#e8bc98",
+        "hair": {
+          "style": "bun",
+          "color": "#8a7a6a"
+        },
+        "facialHair": "none",
+        "eyes": "#4a3a2a",
+        "top": {
+          "kind": "shirt",
+          "color": "#f2ece0",
+          "accent": "#b83a2a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#4a3a5a"
+        },
+        "shoes": "#3a2a1c",
+        "headwear": "headscarf",
+        "headwearColor": "#3a4a6a",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "basket"
+      },
+      "portraitPrompt": "A kind, motherly older Ukrainian woman with a warm smile and grey hair under a dark-blue headscarf, wearing a white blouse with red embroidery and a dark woollen skirt, holding a basket of freshly baked bread."
+    },
+    {
+      "id": "medvin",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#e4b898",
+        "hair": {
+          "style": "short",
+          "color": "#3a2e24"
+        },
+        "facialHair": "none",
+        "eyes": "#2a2a2a",
+        "top": {
+          "kind": "coat",
+          "color": "#4a4e3a",
+          "accent": "#b8282a",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#2a2c24"
+        },
+        "shoes": "#141414",
+        "headwear": "cap",
+        "headwearColor": "#2e4a7a",
+        "accessory": "belt_sword",
+        "accessoryColor": "#3a2a1c",
+        "holding": "pistol"
+      },
+      "portraitPrompt": "A thick-set, cold-eyed Soviet secret-police major with a heavy jaw and close-cropped hair, wearing a blue-crowned peaked cap with a red band, a khaki greatcoat with a leather belt and holster, and polished black boots, holding a pistol."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "train",
+        "time": "night",
+        "weather": "wind",
+        "cast": [
+          "hryhorii"
+        ],
+        "props": [
+          "train",
+          "lamp",
+          "pine"
+        ],
+        "action": "chase",
+        "camera": "dolly_in",
+        "mood": "tense",
+        "line": {
+          "speaker": "hryhorii"
+        }
+      },
+      {
+        "setting": "forest",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "hryhorii",
+          "natalka"
+        ],
+        "props": [
+          "pine",
+          "rock",
+          "bush",
+          "tree"
+        ],
+        "action": "fight",
+        "camera": "close_up",
+        "mood": "tense",
+        "line": {
+          "speaker": "natalka"
+        }
+      },
+      {
+        "setting": "room",
+        "time": "night",
+        "weather": "snow",
+        "cast": [
+          "hryhorii",
+          "denys",
+          "mother",
+          "natalka"
+        ],
+        "props": [
+          "table",
+          "fire",
+          "bench",
+          "window",
+          "candles"
+        ],
+        "action": "talk",
+        "camera": "orbit",
+        "mood": "calm",
+        "line": {
+          "speaker": "denys"
+        }
+      },
+      {
+        "setting": "forest",
+        "time": "dawn",
+        "weather": "fog",
+        "cast": [
+          "hryhorii"
+        ],
+        "props": [
+          "pine",
+          "mushroom",
+          "bush",
+          "rock"
+        ],
+        "action": "discover",
+        "camera": "close_up",
+        "mood": "magical",
+        "line": null
+      },
+      {
+        "setting": "snow",
+        "time": "day",
+        "weather": "snow",
+        "cast": [
+          "hryhorii",
+          "hrytsko",
+          "denys"
+        ],
+        "props": [
+          "pine",
+          "rock",
+          "tent"
+        ],
+        "action": "chase",
+        "camera": "fly_over",
+        "mood": "epic",
+        "line": {
+          "speaker": "denys"
+        }
+      },
+      {
+        "setting": "forest",
+        "time": "night",
+        "weather": "snow",
+        "cast": [
+          "hryhorii",
+          "medvin"
+        ],
+        "props": [
+          "pine",
+          "lamp",
+          "rock"
+        ],
+        "action": "fight",
+        "camera": "pan",
+        "mood": "tense",
+        "line": {
+          "speaker": "medvin"
+        }
+      },
+      {
+        "setting": "mountains",
+        "time": "dawn",
+        "weather": "wind",
+        "cast": [
+          "hryhorii",
+          "natalka"
+        ],
+        "props": [
+          "pine",
+          "rock",
+          "sign"
+        ],
+        "action": "travel",
+        "camera": "crane",
+        "mood": "epic",
+        "line": {
+          "speaker": "natalka"
+        }
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: a long dark prison train of freight wagons snaking through a moonlit Siberian forest like a dragon, steam billowing, as a tiny man in a torn padded jacket leaps from a wagon into the snowy darkness; dramatic dolly-in, cold blue light, tilt-shift miniature look, no text.",
+      "Cute voxel-diorama 3D scene: a snowy Far Eastern taiga with giant cedars, three fur-capped hunters and barking dogs surrounding a big orange striped tiger with forked poles and ropes, snow flying; dynamic fly-over camera, crisp winter daylight, epic adventurous mood, no text.",
+      "Cute voxel-diorama 3D scene: a young man with a backpack and a girl with dark braids and a red headscarf climbing a snowy mountain pass at dawn toward a distant border sign, a cosy log cabin with a smoking chimney far below in the taiga; slow crane shot, pink sunrise light, hopeful mood, no text."
+    ]
+  }
+}

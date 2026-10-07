@@ -1,10 +1,12 @@
 // End-to-end checks for BookTrip in headless Chromium (software WebGL).
 //
-//   NODE_PATH=$(npm root -g) node tests/e2e.mjs [--base http://localhost:5600/] [--only home,live] [--shots]
+//   NODE_PATH=$(npm root -g) node tests/e2e.mjs [--base http://localhost:5600/] [--only home,live] [--shots] [--all-books]
 //
 // Starts tests/dev-server.mjs when nothing answers at --base. Prints PASS/FAIL per check and exits
 // with code 1 when any check fails. --shots saves screenshots of the key states to shots/e2e/.
 // The LIVE flow is fully mocked with page.route fixtures, so no API keys are needed.
+// The PAYWALL checks start their own dev server (port of --base + 7) with test billing env vars and
+// mock Paddle.js. Loops over demo books sample a few of them unless --all-books is given.
 import { spawn } from "node:child_process";
 import { mkdir, readFile, readdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
@@ -16,6 +18,7 @@ const arg = (name, def) => { const i = argv.indexOf(`--${name}`); return i < 0 ?
 const BASE = String(arg("base", "http://localhost:5600/")).replace(/\/?$/, "/");
 const ONLY = arg("only", "") ? String(arg("only")).split(",") : null;
 const SHOTS = arg("shots", false) ? `${ROOT}shots/e2e/` : null;
+const ALL_BOOKS = Boolean(arg("all-books", false));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // ---------------------------------------------------------------------------------------------
@@ -53,12 +56,15 @@ async function ensureServer() {
 
 const browser = await (async () => { await ensureServer().then((c) => { if (c) process.on("exit", () => c.kill()); }); return launch(); })();
 
-/** New page with fonts routed, console errors collected and the UI language preset. */
-async function open(path = "", { width = 1440, height = 900, dpr = 1, mobile = false, lang = "ru", routes = null, reducedMotion = "no-preference" } = {}) {
-  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, isMobile: mobile, hasTouch: mobile, reducedMotion });
+/**
+ * New page with fonts routed, console errors collected and the UI language preset (lang: null keeps
+ * the browser default, `locale` sets navigator.language). Service workers are blocked unless `sw`.
+ */
+async function open(path = "", { width = 1440, height = 900, dpr = 1, mobile = false, lang = "ru", routes = null, reducedMotion = "no-preference", base = BASE, locale = "en-US", sw = false } = {}) {
+  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, isMobile: mobile, hasTouch: mobile, reducedMotion, locale, serviceWorkers: sw ? "allow" : "block" });
   await routeFonts(context);
   if (routes) await routes(context);
-  await context.addInitScript((l) => { try { if (!sessionStorage.getItem("e2e-init")) { localStorage.setItem("bt-lang", l); sessionStorage.setItem("e2e-init", "1"); } } catch { /* ignore */ } }, lang);
+  if (lang) await context.addInitScript((l) => { try { if (!sessionStorage.getItem("e2e-init")) { localStorage.setItem("bt-lang", l); sessionStorage.setItem("e2e-init", "1"); } } catch { /* ignore */ } }, lang);
   const page = await context.newPage();
   page.errors = [];
   page.on("console", (m) => {
@@ -67,7 +73,7 @@ async function open(path = "", { width = 1440, height = 900, dpr = 1, mobile = f
   page.on("pageerror", (e) => page.errors.push("pageerror: " + e.message));
   // broken static assets count as errors; API error statuses are part of the tested flows
   page.on("response", (r) => { if (r.status() >= 400 && !r.url().includes("/api/")) page.errors.push(`HTTP ${r.status()} ${r.url()}`); });
-  await page.goto(BASE + path, { waitUntil: "networkidle" });
+  await page.goto(base + path, { waitUntil: "networkidle" });
   await page.evaluate(() => document.fonts && document.fonts.ready);
   return page;
 }
@@ -84,6 +90,14 @@ async function waitFor(page, fn, arg, { timeout = 20000, what = "condition" } = 
   try { await page.waitForFunction(fn, arg, { timeout, polling: 100 }); } catch { throw new Error(`timed out waiting for ${what}`); }
 }
 const hashIs = (page, hash, timeout = 15000) => waitFor(page, (h) => location.hash === h, hash, { timeout, what: `hash ${hash}` });
+const pathIs = (page, path, timeout = 15000) => waitFor(page, (p) => location.pathname === p && !location.hash, path, { timeout, what: `path ${path}` });
+/** Click an in-app link (exercises the router's link interception, no page load). */
+const clickLink = (page, href) => page.evaluate((h) => { const a = document.createElement("a"); a.href = h; a.textContent = "x"; document.body.append(a); a.click(); a.remove(); }, href);
+const SAMPLE = (ids, n, always = []) => {
+  if (ALL_BOOKS) return ids;
+  const rest = ids.filter((id) => !always.includes(id)).sort(() => Math.random() - 0.5);
+  return [...always.filter((id) => ids.includes(id)), ...rest].slice(0, n);
+};
 const bookShown = (page, title) => waitFor(page, (t) => {
   const v = document.getElementById("view-book");
   const h = v && !v.hidden && v.querySelector("h1");
@@ -144,7 +158,7 @@ await check("home: suggestions while typing, keyboard Enter opens the book", asy
   await shot(page, "home-suggest");
   await page.keyboard.press("ArrowDown");
   await page.keyboard.press("Enter");
-  await hashIs(page, "#/book/little-prince");
+  await pathIs(page, "/book/little-prince");
   await bookShown(page, "Маленький принц");
   noErrors(page, "search → book");
   await close(page);
@@ -154,7 +168,7 @@ await check("home: typo search via the submit button finds the demo book", async
   const page = await open("", { lang: "en" });
   await page.fill("#search-input", "hobit");
   await page.click(".search-go");
-  await hashIs(page, "#/book/the-hobbit");
+  await pathIs(page, "/book/the-hobbit");
   await bookShown(page);
   noErrors(page);
   await close(page);
@@ -182,8 +196,8 @@ await check("home: a ring card opens its book", async () => {
   const box = await card.boundingBox();
   assert(box && box.width > 40, "centre card has no size");
   await page.mouse.click(box.x + box.width / 2, box.y + box.height * 0.4);
-  await waitFor(page, () => /^#\/book\/[a-z0-9-]+$/.test(location.hash), null, { what: "book route after card click" });
-  const id = await page.evaluate(() => location.hash.split("/").pop());
+  await waitFor(page, () => /^\/book\/[a-z0-9-]+$/.test(location.pathname), null, { what: "book route after card click" });
+  const id = await page.evaluate(() => location.pathname.split("/").pop());
   assert(BOOK_IDS.includes(id), `card opened unknown id ${id}`);
   await bookShown(page, BOOKS[id].i18n.en.title);
   noErrors(page, "ring → book");
@@ -197,7 +211,7 @@ await check("home: keyboard on the ring (arrows + Enter)", async () => {
   await page.keyboard.press("ArrowRight");
   await page.waitForTimeout(900);
   await page.keyboard.press("Enter");
-  await waitFor(page, () => /^#\/book\//.test(location.hash), null, { what: "book route after Enter" });
+  await waitFor(page, () => /^\/book\//.test(location.pathname), null, { what: "book route after Enter" });
   await bookShown(page);
   noErrors(page);
   await close(page);
@@ -207,7 +221,7 @@ await check("home: keyboard on the ring (arrows + Enter)", async () => {
 // BOOK PAGE
 
 await check("book: every section of a demo book renders", async () => {
-  const page = await open("#/book/little-prince", { lang: "ru" });
+  const page = await open("book/little-prince", { lang: "ru" });
   const raw = BOOKS["little-prince"];
   await bookShown(page, raw.i18n.ru.title);
   const counts = await page.evaluate(() => ({
@@ -240,9 +254,9 @@ await check("book: every section of a demo book renders", async () => {
 await check("book: voxel portraits render for every character of every demo book", async () => {
   const page = await open("", { lang: "en", width: 1280, height: 900 });
   const report = [];
-  for (const id of BOOK_IDS) {
+  for (const id of SAMPLE(BOOK_IDS, 4, ["little-prince"])) {
     const raw = BOOKS[id];
-    await page.evaluate((h) => { location.hash = h; }, `#/book/${id}`);
+    await clickLink(page, `/book/${id}`);
     await bookShown(page, raw.i18n.en.title);
     const n = raw.characters.length;
     await waitFor(page, (k) => document.querySelectorAll("#bk-characters .bk-char-stage").length === k, n, { what: `${id}: ${n} character cards` });
@@ -265,7 +279,7 @@ await check("book: voxel portraits render for every character of every demo book
 });
 
 await check("book: 3D character viewer modal (render, next, close, dispose)", async () => {
-  const page = await open("#/book/alice-in-wonderland", { lang: "uk" });
+  const page = await open("book/alice-in-wonderland", { lang: "uk" });
   const raw = BOOKS["alice-in-wonderland"];
   await bookShown(page, raw.i18n.uk.title);
   await page.locator("#bk-characters .bk-char-open").first().click();
@@ -299,7 +313,7 @@ await check("book: 3D character viewer modal (render, next, close, dispose)", as
 });
 
 await check("book: the mini-film plays (scenes, subtitles, pause, restart, end)", async () => {
-  const page = await open("#/book/little-prince", { lang: "en" });
+  const page = await open("book/little-prince", { lang: "en" });
   const raw = BOOKS["little-prince"];
   await bookShown(page, raw.i18n.en.title);
   await page.evaluate(() => document.getElementById("bk-film").scrollIntoView());
@@ -369,13 +383,13 @@ await check("i18n: RU/UA/EN switch on home", async () => {
 });
 
 await check("i18n: RU/UA/EN switch on a book page keeps the book", async () => {
-  const page = await open("#/book/three-musketeers", { lang: "ru" });
+  const page = await open("book/three-musketeers", { lang: "ru" });
   const raw = BOOKS["three-musketeers"];
   await bookShown(page, raw.i18n.ru.title);
   for (const lang of ["uk", "en"]) {
     await page.click(`.lang-switch [data-lang="${lang}"]`);
     await bookShown(page, raw.i18n[lang].title);
-    assert(await page.evaluate(() => location.hash) === "#/book/three-musketeers", "route changed on language switch");
+    assert(await page.evaluate(() => location.pathname + location.hash) === "/book/three-musketeers", "route changed on language switch");
     const name = raw.i18n[lang].characters[raw.characters[0].id].name;
     await waitFor(page, (n) => [...document.querySelectorAll("#bk-characters .bk-char-name")].some((e) => e.textContent.trim() === n), name, { what: `${lang} character names` });
     const term = raw.i18n[lang].terms[0].term;
@@ -402,7 +416,7 @@ await check("routes: #/how, #/library, #/premium open as modals and close", asyn
   await page.click('#nav-links a[href="#/library"]');
   await waitFor(page, () => document.querySelectorAll(".modal .bt-card").length >= 12, null, { what: "library grid" });
   await page.locator(".modal .bt-card").nth(3).click();
-  await waitFor(page, () => /^#\/book\//.test(location.hash), null, { what: "book from library" });
+  await waitFor(page, () => /^\/book\//.test(location.pathname) && !location.hash, null, { what: "book from library" });
   await bookShown(page);
   await page.click('#nav-links a[href="#/how"]');
   await waitFor(page, () => document.querySelector(".modal"), null, { what: "how modal over a book" });
@@ -417,9 +431,9 @@ await check("navigation: back / forward between home and books", async () => {
   const page = await open("", { lang: "en" });
   await page.fill("#search-input", "gatsby");
   await page.keyboard.press("Enter");
-  await hashIs(page, "#/book/the-great-gatsby");
+  await pathIs(page, "/book/the-great-gatsby");
   await bookShown(page);
-  await page.evaluate(() => { location.hash = "#/book/treasure-island"; });
+  await clickLink(page, "/book/treasure-island");
   await bookShown(page, BOOKS["treasure-island"].i18n.en.title);
   await page.goBack();
   await bookShown(page, BOOKS["the-great-gatsby"].i18n.en.title);
@@ -430,15 +444,15 @@ await check("navigation: back / forward between home and books", async () => {
   // the page's own Back button
   await page.locator(".bk-back, .bk-hero button:has-text('Back')").first().click();
   await homeShown(page);
-  // direct link + unknown id
-  await page.evaluate(() => { location.hash = "#/book/no-such-book"; });
+  // unknown id
+  await clickLink(page, "/book/no-such-book");
   await homeShown(page);
   noErrors(page, "navigation");
   await close(page);
 });
 
 await check("reduced motion: home and book work without animation", async () => {
-  const page = await open("#/book/the-hobbit", { lang: "en", reducedMotion: "reduce" });
+  const page = await open("book/the-hobbit", { lang: "en", reducedMotion: "reduce" });
   await bookShown(page);
   await page.evaluate(() => { location.hash = "#/"; });
   await homeShown(page);
@@ -500,7 +514,7 @@ await check("wide 2560px: home and book page without horizontal scroll", async (
   const page = await open("", { lang: "en", width: 2560, height: 1440 });
   await waitFor(page, () => document.querySelectorAll("#ring .ring-card[aria-label]").length >= 8, null, { what: "ring" });
   await noOverflow(page, "home 2560");
-  await page.evaluate(() => { location.hash = "#/book/pride-and-prejudice"; });
+  await clickLink(page, "/book/pride-and-prejudice");
   await bookShown(page);
   await noOverflow(page, "book 2560");
   noErrors(page, "2560");
@@ -576,7 +590,7 @@ await check("live (mocked): search → resolve → overview, characters, film st
   await page.click(".search-go");
   await waitFor(page, () => document.querySelector(".bt-loading"), null, { what: "loading overlay" });
   await shot(page, "live-loading");
-  await hashIs(page, `#/book/${LIVE_ID}`);
+  await pathIs(page, `/book/${LIVE_ID}`);
   await bookShown(page, FIX.resolve.title);
   await waitFor(page, () => document.querySelectorAll("#bk-summary p").length >= 4, null, { what: "live summary" });
   await waitFor(page, (n) => document.querySelectorAll("#bk-characters .bk-char").length === n, FIX.characters.characters.length, { what: "live characters" });

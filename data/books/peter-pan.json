@@ -32,8 +32,8 @@
       "genre": "Сказочная повесть",
       "tagline": "Мальчик, который не хотел взрослеть, уводит детей на остров фей, пиратов и русалок.",
       "summary": [
-        "Все дети вырастают — кроме одного. В лондонском доме Дарлингов живут Венди, Джон и Майкл, а нянчит их собака-ньюфаундленд Нана. Однажды ночью в детскую влетает мальчик в одежде из листьев; Нана бросается на него, и он ускользает, оставив свою тень. Мальчик возвращается за ней вместе с крошечной феей Динь-Динь, и Венди пришивает ему тень. Его зовут Питер Пэн: он сбежал из дома в день своего рождения, потому что не хотел становиться взрослым, и живёт на острове Нетландия с Пропавшими мальчишками.",
-        "Питер мечтает, чтобы у мальчишек была мама, которая рассказывает сказки, и зовёт Венди с братьями с собой. Он учит их летать: нужны лишь счастливые мысли и щепотка волшебной пыльцы. Дети вылетают в окно и долго летят — ко второй звезде направо и прямо до самого утра. На острове ревнивая Динь-Динь обманом заставляет мальчишку Задаваку выстрелить в «птицу Венди». Стрела попадает в жёлудь-«поцелуй», который Питер подарил девочке, и Венди остаётся жива. Вокруг неё строят маленький домик, а потом она становится мамой всем мальчишкам в их подземном жилище.",
+        "Все дети вырастают — кроме одного. В лондонском доме Дарлингов живут Венди, Джон и Майкл, а нянчит их собака-ньюфаундленд Нана. Однажды ночью в детскую влетает мальчик в одежде из листьев; Нана бросается на него, и он ускользает, оставив свою тень. Мальчик возвращается за ней вместе с крошечной феей Динь-Динь, и Венди пришивает ему тень. Его зовут Питер Пэн: он сбежал из дома в тот самый день, когда родился, потому что не хотел становиться взрослым, и живёт на острове Нетландия с Пропавшими мальчишками.",
+        "Питер мечтает, чтобы у мальчишек была мама, которая рассказывает сказки, и зовёт Венди с братьями с собой. Он учит их летать: нужны лишь счастливые мысли и щепотка волшебной пыльцы. Дети вылетают в окно и долго летят — ко второй звезде направо и прямо до самого утра. На острове ревнивая Динь-Динь обманом заставляет мальчишку Тутлса выстрелить в «птицу Венди». Стрела попадает в жёлудь-«поцелуй», который Питер подарил девочке, и Венди остаётся жива. Вокруг неё строят маленький домик, а потом она становится мамой всем мальчишкам в их подземном жилище.",
         "Нетландия полна чудес и опасностей: здесь живут индейцы, феи, русалки, дикие звери и пираты капитана Джеймса Крюка. Когда-то Питер отрубил капитану правую руку и бросил её крокодилу, и теперь вместо кисти у Крюка железный крюк, а крокодил, проглотивший будильник, повсюду ходит за ним, громко тикая, в надежде доесть остальное. В Лагуне русалок пираты Сми и Старки привозят на скалу принцессу Тигровую Лилию, чтобы бросить её там тонуть. Питер подражает голосу Крюка и освобождает её, а потом сражается с самим капитаном.",
         "Крюк нечестно ранит Питера, и тот, обессилев, остаётся на скале, а прилив поднимается всё выше. Венди уносит воздушный змей Майкла, а Питер, глядя на воду, думает, что умереть — тоже ужасно большое приключение. Его спасает птица, приплывшая к скале в своём гнезде. Тигровая Лилия в благодарность ставит своих воинов охранять подземный дом. Но со временем Венди начинает тревожиться, что братья забывают родителей, и решает вернуться в Лондон вместе со всеми мальчишками. Питер с обидой отказывается лететь.",
         "В ту ночь пираты нападают на индейцев врасплох и разбивают их, а затем хватают мальчишек и Венди по одному, когда те выбираются наружу. Крюк спускается в подземный дом и капает яд в лекарство спящего Питера. Динь-Динь выпивает его, чтобы спасти друга, и её огонёк начинает гаснуть. Тогда Питер обращается ко всем детям, которые верят в фей, и просит их похлопать в ладоши — и Динь-Динь оживает. Питер клянётся покончить с Крюком и, тикая, как крокодил, пробирается на пиратский корабль «Весёлый Роджер».",
@@ -69,7 +69,7 @@
         },
         {
           "term": "«Поцелуй» и «напёрсток»",
-          "definition": "Питер не знает, что такое поцелуй, и в ответ на протянутую руку дарит Венди жёлудь-пуговицу. Позже стрела Задаваки застревает именно в нём."
+          "definition": "Питер не знает, что такое поцелуй, и в ответ на протянутую руку дарит Венди жёлудь-пуговицу. Позже стрела Тутлса застревает именно в нём."
         },
         {
           "term": "Лагуна русалок",
@@ -185,7 +185,7 @@
             "самовлюблённый",
             "забывчивый"
           ],
-          "description": "Мальчик, сбежавший из дома в день своего рождения, чтобы никогда не взрослеть. Он умеет летать, сражается с пиратами и командует Пропавшими мальчишками, но очень быстро всё забывает. Питер так и не позволяет себе вырасти — и снова и снова прилетает за дочерьми Венди."
+          "description": "Мальчик, сбежавший из дома в тот же день, когда родился, чтобы никогда не взрослеть. Он умеет летать, сражается с пиратами и командует Пропавшими мальчишками, но очень быстро всё забывает. Питер так и не позволяет себе вырасти — и снова и снова прилетает за дочерьми Венди."
         },
         "wendy": {
           "name": "Венди Дарлинг",
@@ -259,7 +259,7 @@
             "строгая",
             "верная"
           ],
-          "description": "Собака-ньюфаундленд, которая служит у Дарлингов нянькой. В ту роковую ночь мистер Дарлинг сажает её на цепь во дворе, и дети улетают. Это Нана оторвала Питеру тень."
+          "description": "Собака-ньюфаундленд, которая служит у Дарлингов нянькой. В ту роковую ночь мистер Дарлинг сажает её на цепь во дворе, и дети улетают. Это из-за Наны, захлопнувшей окно, Питер лишился тени."
         }
       }
     },
@@ -270,7 +270,7 @@
       "genre": "Казкова повість",
       "tagline": "Хлопчик, який не хотів дорослішати, веде дітей на острів фей, піратів і русалок.",
       "summary": [
-        "Усі діти виростають — крім одного. У лондонському домі Дарлінгів живуть Венді, Джон і Майкл, а няньчить їх собака-ньюфаундленд Нана. Якось уночі до дитячої влітає хлопчик в одязі з листя; Нана кидається на нього, і він вислизає, лишивши свою тінь. Хлопчик повертається по неї разом із крихітною феєю Дінь-Дінь, і Венді пришиває йому тінь. Його звуть Пітер Пен: він утік із дому в день свого народження, бо не хотів ставати дорослим, і живе на острові Нетландія із Загубленими хлопчиками.",
+        "Усі діти виростають — крім одного. У лондонському домі Дарлінгів живуть Венді, Джон і Майкл, а няньчить їх собака-ньюфаундленд Нана. Якось уночі до дитячої влітає хлопчик в одязі з листя; Нана кидається на нього, і він вислизає, лишивши свою тінь. Хлопчик повертається по неї разом із крихітною феєю Дінь-Дінь, і Венді пришиває йому тінь. Його звуть Пітер Пен: він утік із дому того самого дня, коли народився, бо не хотів ставати дорослим, і живе на острові Нетландія із Загубленими хлопчиками.",
         "Пітер мріє, щоб у хлопців була мама, яка розповідає казки, і кличе Венді з братами із собою. Він учить їх літати: потрібні лише щасливі думки й дрібка чарівного пилку. Діти вилітають у вікно й довго летять — до другої зірки праворуч і далі просто до ранку. На острові ревнива Дінь-Дінь обманом змушує хлопчака Тутлса вистрелити в «пташку Венді». Стріла влучає в жолудь-«поцілунок», який Пітер подарував дівчинці, і Венді лишається живою. Довкола неї будують маленький будиночок, а згодом вона стає мамою всім хлопцям у їхньому підземному житлі.",
         "Нетландія сповнена чудес і небезпек: тут живуть індіанці, феї, русалки, дикі звірі й пірати капітана Джеймса Гака. Колись Пітер відрубав капітанові праву руку й кинув її крокодилові, тож тепер замість кисті в Гака залізний гак, а крокодил, що проковтнув будильник, усюди ходить за ним, гучно цокаючи, сподіваючись доїсти решту. У Лагуні русалок пірати Смі й Старкі привозять на скелю принцесу Тигрову Лілію, щоб лишити її там тонути. Пітер наслідує голос Гака й визволяє її, а потім б’ється із самим капітаном.",
         "Гак нечесно ранить Пітера, і знесилений хлопчик лишається на скелі, а приплив піднімається дедалі вище. Венді відносить повітряний змій Майкла, а Пітер, дивлячись на воду, думає, що й померти — це страшенно велика пригода. Його рятує пташка, що підпливла до скелі у своєму гнізді. Тигрова Лілія на знак вдячності ставить своїх воїнів вартувати підземний дім. Та з часом Венді починає тривожитися, що брати забувають батьків, і вирішує повернутися до Лондона разом з усіма хлопцями. Пітер ображено відмовляється летіти.",
@@ -354,7 +354,7 @@
         {
           "title": "Острів скарбів",
           "author": "Роберт Луїс Стівенсон",
-          "why": "Класика про піратів; сам Баррі запевняв, що Гака боявся навіть Окіст Сільвер."
+          "why": "Класика про піратів; сам Баррі запевняв, що Гака боявся навіть Довгий Джон Сільвер."
         }
       ],
       "film": {
@@ -423,7 +423,7 @@
             "самозакоханий",
             "забудькуватий"
           ],
-          "description": "Хлопчик, що втік із дому в день свого народження, аби ніколи не дорослішати. Він уміє літати, б’ється з піратами й верховодить Загубленими хлопчиками, але дуже швидко все забуває. Пітер так і не дозволяє собі вирости — і знову й знову прилітає по Вендіних доньок."
+          "description": "Хлопчик, що втік із дому того ж дня, коли народився, аби ніколи не дорослішати. Він уміє літати, б’ється з піратами й верховодить Загубленими хлопчиками, але дуже швидко все забуває. Пітер так і не дозволяє собі вирости — і знову й знову прилітає по Вендіних доньок."
         },
         "wendy": {
           "name": "Венді Дарлінг",
@@ -497,7 +497,7 @@
             "сувора",
             "вірна"
           ],
-          "description": "Собака-ньюфаундленд, що служить у Дарлінгів за няньку. Тієї фатальної ночі містер Дарлінг сажає її на ланцюг надворі, і діти відлітають. Це Нана відірвала Пітерові тінь."
+          "description": "Собака-ньюфаундленд, що служить у Дарлінгів за няньку. Тієї фатальної ночі містер Дарлінг сажає її на ланцюг надворі, і діти відлітають. Це через Нану, яка зачинила вікно, Пітер утратив тінь."
         }
       }
     },
@@ -510,9 +510,9 @@
       "summary": [
         "All children grow up — except one. In the Darlings’ London house live Wendy, John and Michael, looked after by Nana, a Newfoundland dog who serves as their nurse. One night a boy dressed in leaves flies into the nursery; Nana springs at him and he escapes, leaving his shadow behind. He comes back for it with a tiny fairy, Tinker Bell, and Wendy sews the shadow back on. His name is Peter Pan: he ran away on the day he was born because he never wanted to grow up, and he lives on the island of the Neverland with the Lost Boys.",
         "Peter wishes the boys had a mother to tell them stories, and invites Wendy and her brothers to come away. He teaches them to fly: all it takes is happy thoughts and a pinch of fairy dust. The children sail out of the window and fly for a long time — second to the right, and straight on till morning. On the island the jealous Tinker Bell tricks Tootles into shooting “the Wendy bird.” The arrow strikes the acorn “kiss” Peter gave her, and Wendy survives. The boys build a little house around her, and she becomes mother to them all in their home under the ground.",
-        "The Neverland is full of wonders and dangers: redskins, fairies, mermaids, wild beasts and the pirates of Captain James Hook. Peter once cut off the captain’s right hand and flung it to a crocodile, so Hook now has an iron hook, and the crocodile, which also swallowed a clock, follows him everywhere, ticking loudly, hoping for the rest of him. At the Mermaids’ Lagoon the pirates Smee and Starkey leave the princess Tiger Lily on a rock to drown. Peter imitates Hook’s voice to set her free, then fights the captain himself.",
-        "Hook wounds Peter unfairly, and the exhausted boy is left on the rock as the tide rises. Michael’s kite carries Wendy away, and Peter, watching the water, thinks that to die will be an awfully big adventure. He is rescued by a bird that floats her nest to the rock. In gratitude Tiger Lily sets her braves to guard the home under the ground. But in time Wendy worries that her brothers are forgetting their parents, and decides to return to London with all the Lost Boys. Peter, hurt, refuses to come.",
-        "That night the pirates fall on the redskins by surprise and defeat them, then seize the boys and Wendy one by one as they climb up. Hook creeps into the underground home and drops poison into the sleeping Peter’s medicine. Tinker Bell drinks it to save him, and her light begins to fade. Peter calls on every child who believes in fairies to clap their hands — and Tink revives. Peter vows to finish Hook, and, ticking like the crocodile, he steals aboard the pirate ship, the Jolly Roger.",
+        "The Neverland is full of wonders and dangers: the island’s tribe, fairies, mermaids, wild beasts and the pirates of Captain James Hook. Peter once cut off the captain’s right hand and flung it to a crocodile, so Hook now has an iron hook, and the crocodile, which also swallowed a clock, follows him everywhere, ticking loudly, hoping for the rest of him. At the Mermaids’ Lagoon the pirates Smee and Starkey leave the princess Tiger Lily on a rock to drown. Peter imitates Hook’s voice to set her free, then fights the captain himself.",
+        "Hook wounds Peter unfairly, and the exhausted boy is left on the rock as the tide rises. Michael’s kite carries Wendy away, and Peter, watching the water, thinks that to die will be an awfully big adventure. He is rescued by a bird that floats her nest to the rock. In gratitude Tiger Lily sets her warriors to guard the home under the ground. But in time Wendy worries that her brothers are forgetting their parents, and decides to return to London with all the Lost Boys. Peter, hurt, refuses to come.",
+        "That night the pirates fall on Tiger Lily’s tribe by surprise and defeat them, then seize the boys and Wendy one by one as they climb up. Hook creeps into the underground home and drops poison into the sleeping Peter’s medicine. Tinker Bell drinks it to save him, and her light begins to fade. Peter calls on every child who believes in fairies to clap their hands — and Tink revives. Peter vows to finish Hook, and, ticking like the crocodile, he steals aboard the pirate ship, the Jolly Roger.",
         "On the ship Peter picks off the pirates one by one, frees the boys and saves Wendy, already tied to the mast. In their final duel Hook knows he has lost, and as he leaps overboard he thinks only of good form; the crocodile waits below. The children fly home, where their mother has kept the window open every night and Mr Darling has lived in the dog kennel as penance. The Darlings adopt the Lost Boys, but Peter refuses to grow up. Wendy grows up, and one day Peter comes for her daughter Jane — and later for Jane’s daughter, Margaret."
       ],
       "themes": [
@@ -525,7 +525,7 @@
       "terms": [
         {
           "term": "The Neverland",
-          "definition": "A magical island that every child imagines a little differently, home to the Lost Boys, fairies, mermaids, redskins and pirates."
+          "definition": "A magical island that every child imagines a little differently, home to the Lost Boys, fairies, mermaids, warriors and pirates."
         },
         {
           "term": "Second to the right",
@@ -726,7 +726,7 @@
             "fearless",
             "grateful"
           ],
-          "description": "The daughter of the chief of the island’s tribe. The pirates leave her to drown on a rock, and Peter rescues her. In gratitude her braves guard the home under the ground until the pirates take them by surprise."
+          "description": "The daughter of the chief of the island’s tribe. The pirates leave her to drown on a rock, and Peter rescues her. In gratitude her warriors guard the home under the ground until the pirates take them by surprise."
         },
         "nana": {
           "name": "Nana",
@@ -735,7 +735,7 @@
             "strict",
             "loyal"
           ],
-          "description": "The Newfoundland dog who serves the Darlings as nursemaid. On the fateful night Mr Darling chains her in the yard, and the children fly away. It was Nana who tore off Peter’s shadow."
+          "description": "The Newfoundland dog who serves the Darlings as nursemaid. On the fateful night Mr Darling chains her in the yard, and the children fly away. It was Nana slamming the window that cost Peter his shadow."
         }
       }
     }

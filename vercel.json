@@ -25,6 +25,10 @@
       "maxDuration": 300,
       "includeFiles": "data/books/**"
     },
+    "api/anime.js": {
+      "maxDuration": 60,
+      "includeFiles": "data/books/**"
+    },
     "api/book.js": {
       "maxDuration": 10,
       "includeFiles": "{index.html,og.png,data/books/**}"

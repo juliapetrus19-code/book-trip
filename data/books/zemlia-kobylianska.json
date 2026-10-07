@@ -1,0 +1,932 @@
+{
+  "id": "zemlia-kobylianska",
+  "year": 1902,
+  "cover": {
+    "bg": "#5a4a24",
+    "bg2": "#1e170a",
+    "fg": "#f6e6b8",
+    "accent": "#c0392b",
+    "motif": "sun"
+  },
+  "aliases": [
+    "Земля",
+    "Земля Кобилянська",
+    "Кобилянська Земля",
+    "Земля Ольга Кобилянська",
+    "Земля Кобылянская",
+    "Кобылянская Земля",
+    "Zemlia",
+    "Zemlya",
+    "Earth",
+    "The Land",
+    "Earth Kobylianska",
+    "Kobylianska Earth",
+    "Земля повість",
+    "Земля Кобилянской"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Земля",
+      "originalTitle": "Земля",
+      "author": "Ольга Кобылянская",
+      "genre": "Социально-психологическая повесть",
+      "tagline": "Буковинское село, крестьянская любовь к земле и страшная цена, которую за неё платит одна семья.",
+      "summary": [
+        "На Буковине, в селе Димка неподалёку от Черновцов, живёт крестьянская семья Федорчуков. Отец, Ивоника, и мать, Докия, всю жизнь тяжело трудились, чтобы прикупить клочок за клочком и стать настоящими хозяевами-газдами. Для Ивоники земля превыше всего: он любит её как живое существо и мечтает передать сыновьям. Старший сын, Михайло, весь в отца: работящий, кроткий и рассудительный, он уважает землю и людей. Младший, Сава, совсем другой — ленивый, вспыльчивый и необузданный; ему милее гулянки и лес, чем плуг и нива.",
+        "Михайла забирают в армию, на службу в Черновцы. Перед отъездом он обещает жениться на Анне — бедной сироте-батрачке. Тихая, работящая и преданная, Анна полюбила Михайла всем сердцем и ждёт его. Михайло тоже мечтает о своём хозяйстве: после службы он получит от отца землю, поставит хату и приведёт туда Анну. В казарме он тоскует по полю и родному дому, а каждый приезд домой для него — праздник.",
+        "Тем временем Сава увлекается Рахирой — красивой, черноволосой и хитрой девушкой из бедной семьи с дурной славой. Родители и слышать не хотят о такой невестке, и Сава боится, что земля достанется брату. Рахира, мечтающая стать богатой хозяйкой, без устали нашёптывает ему: если бы не брат, вся земля была бы его. Зависть и жадность понемногу отравляют душу младшего сына, и в ней созревает страшный замысел.",
+        "Однажды Сава подстерегает брата в лесу и стреляет в него из ружья. Михайла находят мёртвым. Весть сражает семью: Докия не может поверить, что убийцей стал её родной ребёнок, Ивоника молча чернеет от горя, а Анна теряет и любимого, и надежду на счастье. Саву берут под следствие, но прямых доказательств нет, и его отпускают. Однако тяжесть преступления ложится на всю семью, и прежней жизни в доме Федорчуков уже не будет.",
+        "Родители не могут ни простить Саву, ни отречься от него: теперь он их единственный сын и наследник земли. Сава женится на Рахире и становится хозяином отцовского хозяйства. Но счастья, построенного на крови, не бывает: в хате царят холод и молчание, а старики живут, словно тени. Ивоника по-прежнему выходит на свою ниву, ведь земля не ждёт, — но теперь она не радует его, а лишь напоминает, какой страшной ценой за неё заплачено. Повесть заканчивается размышлением о власти земли над человеком — силе, которая может и кормить, и губить."
+      ],
+      "themes": [
+        "Власть земли над человеком",
+        "Братоубийство",
+        "Отцы и дети",
+        "Любовь и верность",
+        "Добро и зло в душе человека"
+      ],
+      "terms": [
+        {
+          "term": "Буковина",
+          "definition": "Историческая область на западе Украины с центром в Черновцах; в конце XIX века она входила в Австро-Венгрию."
+        },
+        {
+          "term": "Димка",
+          "definition": "Буковинское село неподалёку от Черновцов, где разворачиваются события; в его основу легло реальное убийство брата братом."
+        },
+        {
+          "term": "Газда",
+          "definition": "Хозяин, зажиточный крестьянин на западноукраинских землях; стать газдой — мечта Ивоники и цель всей его жизни."
+        },
+        {
+          "term": "Нива",
+          "definition": "Обработанное поле, пашня. Для Федорчуков нива — главное богатство и почти святыня."
+        },
+        {
+          "term": "Батрачка",
+          "definition": "Наёмная работница в чужом хозяйстве; такова сирота Анна, у которой нет ни земли, ни приданого."
+        },
+        {
+          "term": "Цесарское войско",
+          "definition": "Армия Австро-Венгерской монархии, в которую призывали и буковинских крестьян; в ней служит Михайло."
+        },
+        {
+          "term": "Каин и Авель",
+          "definition": "Библейские братья, из которых Каин из зависти убил Авеля; история Савы и Михайла явно перекликается с этим сюжетом."
+        },
+        {
+          "term": "Наследство",
+          "definition": "Земля, которую родители передают детям; именно спор о будущем разделе земли толкает Саву на преступление."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Земля",
+          "author": "Эмиль Золя",
+          "why": "Ещё один роман о крестьянской жажде земли, которая доводит родных людей до жестокости и убийства."
+        },
+        {
+          "title": "Кайдашева семья",
+          "author": "Иван Нечуй-Левицкий",
+          "why": "Украинская крестьянская семья, которую раскалывает борьба за землю и наследство."
+        },
+        {
+          "title": "Братья Карамазовы",
+          "author": "Фёдор Достоевский",
+          "why": "Глубокая психологическая драма о преступлении внутри семьи, зависти и вине."
+        },
+        {
+          "title": "Тени забытых предков",
+          "author": "Михаил Коцюбинский",
+          "why": "Трагедия западноукраинского села, где любовь и смерть переплетаются с древними обычаями."
+        },
+        {
+          "title": "Разве ревут волы, когда ясли полны?",
+          "author": "Панас Мирный",
+          "why": "История о том, как обида и жадность превращают сельского парня в преступника."
+        }
+      ],
+      "film": {
+        "title": "Земля: цена нивы",
+        "intro": "Ты открываешь книгу — и чувствуешь под ногами тёплую, только что вспаханную землю. Над Буковиной висит тяжёлое золотое солнце, и где-то в буковом лесу тревожно кричит птица.",
+        "outro": "Нива снова зеленеет, будто ничего не случилось. Страницы закрываются, а ты понимаешь, что земля помнит всё — и труд, и любовь, и пролитую кровь.",
+        "scenes": [
+          {
+            "title": "Отцовская нива",
+            "narration": "Ты стоишь на краю широкой нивы, где колосья колышутся на тёплом ветру. Старый Ивоника гладит землю шершавой ладонью, а Михайло, которого скоро заберут в армию, слушает отца и смотрит на поле, которое когда-нибудь станет его.",
+            "line": {
+              "text": "Земля, сынок, — наша святыня: кто её уважает, того она и кормит."
+            }
+          },
+          {
+            "title": "Обещание",
+            "narration": "Ты стоишь у плетня в сумерках, где пахнет скошенной травой. Михайло держит Анну за руку и обещает: как только кончится служба, он поставит хату и поведёт её под венец.",
+            "line": {
+              "text": "Дождись меня, Анна, — вернусь, и поженимся."
+            }
+          },
+          {
+            "title": "Шёпот Рахиры",
+            "narration": "Ты стоишь в ночном лесу, где луна едва пробивается сквозь буки. Рахира льнёт к Саве и тихо, словно колдунья, нашёптывает ему самые опасные слова — о земле, о богатстве, о брате, который стоит на пути.",
+            "line": {
+              "text": "Если бы не брат, вся отцовская земля была бы твоей…"
+            }
+          },
+          {
+            "title": "Выстрел",
+            "narration": "Ты стоишь в тумане на лесной тропе, по которой идёт Михайло. Тишина такая глубокая, что слышно, как падает роса, — и вдруг грохочет выстрел, и эхо катится между деревьями.",
+            "line": null
+          },
+          {
+            "title": "Материнское горе",
+            "narration": "Ты стоишь в хате, где горят свечи и пахнет воском. Докия плачет по сыну, Ивоника молча сидит, склонив седую голову, а Анна застыла у порога, не веря, что всё кончено.",
+            "line": {
+              "text": "Сыночек мой, кто же тебя погубил?"
+            }
+          },
+          {
+            "title": "Земля без радости",
+            "narration": "Ты стоишь на той же ниве, но теперь она кажется чужой. Ивоника идёт за плугом, а Сава стоит в стороне: земля досталась ему, но отцовское молчание тяжелее любого приговора.",
+            "line": null
+          }
+        ]
+      },
+      "characters": {
+        "mykhailo": {
+          "name": "Михайло Федорчук",
+          "traits": [
+            "работящий",
+            "кроткий",
+            "честный",
+            "верный"
+          ],
+          "description": "Старший сын Ивоники и Докии, надежда и гордость отца. Он любит землю так же, как отец, служит в армии и мечтает после службы жениться на Анне и стать хозяином. Его убивает родной брат, и эта смерть разрушает всю семью."
+        },
+        "sava": {
+          "name": "Сава Федорчук",
+          "traits": [
+            "ленивый",
+            "завистливый",
+            "вспыльчивый",
+            "безвольный"
+          ],
+          "description": "Младший сын Федорчуков, необузданный и избалованный, не любящий работать на земле. Под влиянием Рахиры он поддаётся зависти и жадности и убивает родного брата, чтобы завладеть землёй. Преступление не приносит ему счастья — лишь отчуждение родителей."
+        },
+        "ivonika": {
+          "name": "Ивоника Федорчук",
+          "traits": [
+            "трудолюбивый",
+            "молчаливый",
+            "мудрый",
+            "несчастный"
+          ],
+          "description": "Отец семьи, буковинский газда, который всю жизнь тяжело трудился, чтобы приобрести землю. Для него земля — святыня, которую он мечтает передать сыновьям. Гибель Михайла ломает его, но он и дальше молча и покорно работает на своей ниве."
+        },
+        "dokia": {
+          "name": "Докия Федорчук",
+          "traits": [
+            "набожная",
+            "любящая",
+            "работящая",
+            "страдающая"
+          ],
+          "description": "Жена Ивоники, вместе с мужем строившая хозяйство. Она любит обоих сыновей и долго не может поверить, что один из них стал убийцей другого. Горе преждевременно старит её."
+        },
+        "anna": {
+          "name": "Анна",
+          "traits": [
+            "тихая",
+            "трудолюбивая",
+            "преданная",
+            "скромная"
+          ],
+          "description": "Бедная сирота-батрачка, которая искренне любит Михайла и ждёт его из армии. Она мечтает о собственной семье и хате, но смерть Михайла рушит все её надежды."
+        },
+        "rakhira": {
+          "name": "Рахира",
+          "traits": [
+            "хитрая",
+            "красивая",
+            "жадная",
+            "коварная"
+          ],
+          "description": "Черноволосая, красивая и лукавая девушка из бедной семьи с дурной славой. Она хочет стать богатой хозяйкой и подталкивает влюблённого в неё Саву избавиться от брата. В конце концов она становится женой Савы, но счастья на чужом горе не построить."
+        }
+      }
+    },
+    "uk": {
+      "title": "Земля",
+      "originalTitle": "Земля",
+      "author": "Ольга Кобилянська",
+      "genre": "Соціально-психологічна повість",
+      "tagline": "Буковинське село, селянська любов до землі й страшна ціна, яку платить за неї одна родина.",
+      "summary": [
+        "На Буковині, у селі Димка неподалік Чернівців, живе селянська родина Федорчуків. Батько, Івоніка, і мати, Докія, усе життя тяжко працювали, щоб докупити клапоть за клаптем і стати справжніми газдами. Для Івоніки земля понад усе: він любить її, як живу істоту, і мріє передати синам. Старший син, Михайло, вдався в батька: роботящий, лагідний і розважливий, він шанує землю й людей. Молодший, Сава, зовсім інший — лінивий, запальний і нестримний; йому миліші гулянки й ліс, ніж плуг і нива.",
+        "Михайла забирають до війська, на службу в Чернівцях. Перед від’їздом він обіцяє одружитися з Анною — бідною сиротою-наймичкою. Тиха, працьовита й віддана, Анна покохала Михайла всім серцем і чекає на нього. Михайло теж мріє про власне господарство: після служби він отримає від батька землю, поставить хату й приведе туди Анну. У казармі він тужить за полем і рідною домівкою, а кожен приїзд додому для нього — свято.",
+        "Тим часом Сава захоплюється Рахірою — вродливою, чорнявою й хитрою дівчиною з бідної родини, що має лиху славу. Батьки й чути не хочуть про таку невістку, і Сава боїться, що земля дістанеться братові. Рахіра, яка мріє стати багатою газдинею, невтомно нашіптує йому: якби не брат, уся земля була б його. Заздрість і жадоба поволі отруюють душу молодшого сина, і в ній визріває страшний задум.",
+        "Одного разу Сава підстерігає брата в лісі й стріляє в нього з рушниці. Михайла знаходять мертвим. Звістка нищить родину: Докія не може повірити, що вбивцею стала її рідна дитина, Івоніка мовчки чорніє з горя, а Анна втрачає і коханого, і надію на щастя. Саву беруть під слідство, але прямих доказів немає, і його відпускають. Та тягар злочину лягає на всю родину, і колишнього життя в домі Федорчуків уже не буде.",
+        "Батьки не можуть ані простити Саву, ані зректися його: тепер він їхній єдиний син і спадкоємець землі. Сава одружується з Рахірою й стає господарем батьківського добра. Але щастя, збудованого на крові, не буває: у хаті панують холод і мовчання, а старі живуть, мов тіні. Івоніка й далі виходить на свою ниву, бо земля не чекає, — та тепер вона не тішить його, а лише нагадує, яку страшну ціну за неї заплачено. Повість завершується роздумом про владу землі над людиною — силу, що може і годувати, і губити."
+      ],
+      "themes": [
+        "Влада землі над людиною",
+        "Братовбивство",
+        "Батьки й діти",
+        "Кохання і вірність",
+        "Добро і зло в людській душі"
+      ],
+      "terms": [
+        {
+          "term": "Буковина",
+          "definition": "Історична область на заході України з центром у Чернівцях; наприкінці XIX століття вона входила до Австро-Угорщини."
+        },
+        {
+          "term": "Димка",
+          "definition": "Буковинське село неподалік Чернівців, де розгортаються події; в основу повісті лягло справжнє вбивство брата братом."
+        },
+        {
+          "term": "Газда",
+          "definition": "Господар, заможний селянин на західноукраїнських землях; стати газдою — мрія Івоніки й мета всього його життя."
+        },
+        {
+          "term": "Нива",
+          "definition": "Оброблене поле, рілля. Для Федорчуків нива — головне багатство й майже святиня."
+        },
+        {
+          "term": "Наймичка",
+          "definition": "Наймана робітниця в чужому господарстві; така сирота Анна, що не має ні землі, ні посагу."
+        },
+        {
+          "term": "Цісарське військо",
+          "definition": "Армія Австро-Угорської монархії, до якої брали й буковинських селян; у ній служить Михайло."
+        },
+        {
+          "term": "Каїн і Авель",
+          "definition": "Біблійні брати, з яких Каїн із заздрощів убив Авеля; історія Сави й Михайла виразно перегукується з цим сюжетом."
+        },
+        {
+          "term": "Спадщина",
+          "definition": "Земля, яку батьки передають дітям; саме думка про майбутній поділ землі штовхає Саву на злочин."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Земля",
+          "author": "Еміль Золя",
+          "why": "Ще один роман про селянську жадобу землі, що доводить рідних людей до жорстокості й убивства."
+        },
+        {
+          "title": "Кайдашева сім’я",
+          "author": "Іван Нечуй-Левицький",
+          "why": "Українська селянська родина, яку розколює боротьба за землю й спадщину."
+        },
+        {
+          "title": "Брати Карамазови",
+          "author": "Федір Достоєвський",
+          "why": "Глибока психологічна драма про злочин у родині, заздрість і провину."
+        },
+        {
+          "title": "Тіні забутих предків",
+          "author": "Михайло Коцюбинський",
+          "why": "Трагедія західноукраїнського села, де кохання й смерть переплітаються з давніми звичаями."
+        },
+        {
+          "title": "Хіба ревуть воли, як ясла повні?",
+          "author": "Панас Мирний",
+          "why": "Історія про те, як кривда й жадоба перетворюють сільського хлопця на злочинця."
+        }
+      ],
+      "film": {
+        "title": "Земля: ціна ниви",
+        "intro": "Ти розгортаєш книжку — і відчуваєш під ногами теплу, щойно зорану землю. Над Буковиною висить важке золоте сонце, а десь у буковому лісі тривожно кричить птах.",
+        "outro": "Нива знову зеленіє, ніби нічого й не сталося. Сторінки закриваються, а ти розумієш: земля пам’ятає все — і працю, і кохання, і пролиту кров.",
+        "scenes": [
+          {
+            "title": "Батькова нива",
+            "narration": "Ти стоїш на краю широкої ниви, де колосся хвилюється на теплому вітрі. Старий Івоніка гладить землю шорсткою долонею, а Михайло, якого незабаром заберуть до війська, слухає батька й дивиться на поле, що колись стане його.",
+            "line": {
+              "text": "Земля, сину, — то наша святиня: хто її шанує, того вона й годує."
+            }
+          },
+          {
+            "title": "Обіцянка",
+            "narration": "Ти стоїш біля перелазу в сутінках, де пахне скошеною травою. Михайло тримає Анну за руку й обіцяє: щойно скінчиться служба, він поставить хату й поведе її до шлюбу.",
+            "line": {
+              "text": "Дочекайся мене, Анно, — вернуся, і поберемося."
+            }
+          },
+          {
+            "title": "Шепіт Рахіри",
+            "narration": "Ти стоїш у нічному лісі, де місяць ледь пробивається крізь буки. Рахіра горнеться до Сави й тихо, мов чарівниця, нашіптує йому найнебезпечніші слова — про землю, про багатство, про брата, що стоїть на заваді.",
+            "line": {
+              "text": "Якби не брат, уся батькова земля була б твоя…"
+            }
+          },
+          {
+            "title": "Постріл",
+            "narration": "Ти стоїш у тумані на лісовій стежці, якою йде Михайло. Тиша така глибока, що чути, як падає роса, — аж раптом гримить постріл, і луна котиться поміж деревами.",
+            "line": null
+          },
+          {
+            "title": "Материне горе",
+            "narration": "Ти стоїш у хаті, де горять свічки й пахне воском. Докія плаче за сином, Івоніка мовчки сидить, похиливши сиву голову, а Анна завмерла біля порога, не вірячи, що все скінчено.",
+            "line": {
+              "text": "Сину мій, хто ж тебе занапастив?"
+            }
+          },
+          {
+            "title": "Земля без радості",
+            "narration": "Ти стоїш на тій самій ниві, але тепер вона здається чужою. Івоніка йде за плугом, а Сава стоїть осторонь: земля дісталася йому, та батькова мовчанка важча за будь-який присуд.",
+            "line": null
+          }
+        ]
+      },
+      "characters": {
+        "mykhailo": {
+          "name": "Михайло Федорчук",
+          "traits": [
+            "роботящий",
+            "лагідний",
+            "чесний",
+            "вірний"
+          ],
+          "description": "Старший син Івоніки й Докії, батькова надія й гордість. Він любить землю так само, як батько, служить у війську й мріє після служби одружитися з Анною та стати господарем. Його вбиває рідний брат, і ця смерть руйнує всю родину."
+        },
+        "sava": {
+          "name": "Сава Федорчук",
+          "traits": [
+            "лінивий",
+            "заздрісний",
+            "запальний",
+            "безвольний"
+          ],
+          "description": "Молодший син Федорчуків, нестримний і розпещений, що не любить працювати на землі. Під впливом Рахіри він піддається заздрощам і жадобі й убиває рідного брата, щоб заволодіти землею. Злочин не приносить йому щастя — лише відчуження батьків."
+        },
+        "ivonika": {
+          "name": "Івоніка Федорчук",
+          "traits": [
+            "працьовитий",
+            "мовчазний",
+            "мудрий",
+            "нещасний"
+          ],
+          "description": "Батько родини, буковинський газда, що все життя тяжко працював, аби придбати землю. Для нього земля — святиня, яку він мріє передати синам. Загибель Михайла ламає його, та він і далі мовчки й покірно працює на своїй ниві."
+        },
+        "dokia": {
+          "name": "Докія Федорчук",
+          "traits": [
+            "побожна",
+            "любляча",
+            "роботяща",
+            "стражденна"
+          ],
+          "description": "Івонікова дружина, яка разом із чоловіком будувала господарство. Вона любить обох синів і довго не може повірити, що один із них став убивцею іншого. Горе передчасно старить її."
+        },
+        "anna": {
+          "name": "Анна",
+          "traits": [
+            "тиха",
+            "працьовита",
+            "віддана",
+            "скромна"
+          ],
+          "description": "Бідна сирота-наймичка, яка щиро кохає Михайла й чекає його з війська. Вона мріє про власну родину й хату, та Михайлова смерть руйнує всі її сподівання."
+        },
+        "rakhira": {
+          "name": "Рахіра",
+          "traits": [
+            "хитра",
+            "вродлива",
+            "жадібна",
+            "підступна"
+          ],
+          "description": "Чорнява, вродлива й лукава дівчина з бідної родини, що має в селі лиху славу. Вона прагне стати багатою газдинею й підбурює закоханого в неї Саву позбутися брата. Зрештою вона стає Савиною дружиною, та щастя на чужому горі не збудуєш."
+        }
+      }
+    },
+    "en": {
+      "title": "Earth",
+      "originalTitle": "Земля",
+      "author": "Olha Kobylianska",
+      "genre": "Psychological novella of village life",
+      "tagline": "A Bukovynian village, a peasant’s love of the land and the terrible price one family pays for it.",
+      "summary": [
+        "In Bukovyna, in the village of Dymka near Chernivtsi, lives the peasant Fedorchuk family. The father, Ivonika, and the mother, Dokiia, have worked hard all their lives, buying plot after plot to become real gazdas — prosperous farmers. For Ivonika the land is above everything: he loves it like a living thing and dreams of passing it on to his sons. The elder son, Mykhailo, takes after his father: hard-working, gentle and level-headed, he respects the land and people. The younger, Sava, is quite different — lazy, hot-tempered and unruly; he prefers carousing and the forest to the plough and the field.",
+        "Mykhailo is called up into the army and serves in Chernivtsi. Before leaving he promises to marry Anna, a poor orphan working as a hired maid. Quiet, hard-working and devoted, Anna loves Mykhailo with all her heart and waits for him. Mykhailo dreams of his own farm too: after his service his father will give him land, he will build a cottage and bring Anna there. In the barracks he longs for the fields and his home, and every visit home is a holiday for him.",
+        "Meanwhile Sava falls for Rakhira — a beautiful, dark-haired and cunning girl from a poor family with a bad name. His parents will not hear of such a daughter-in-law, and Sava fears the land will go to his brother. Rakhira, who dreams of becoming a rich farmer’s wife, keeps whispering to him that if it were not for his brother, all the land would be his. Envy and greed slowly poison the younger son’s soul, and a terrible plan takes shape in it.",
+        "One day Sava lies in wait for his brother in the forest and shoots him with a rifle. Mykhailo is found dead. The news devastates the family: Dokiia cannot believe that her own child is the killer, Ivonika silently darkens with grief, and Anna loses both her beloved and her hope of happiness. Sava is investigated, but there is no direct proof, and he is set free. Yet the weight of the crime falls on the whole family, and life in the Fedorchuk house will never be the same.",
+        "The parents can neither forgive Sava nor disown him: he is now their only son and the heir to the land. Sava marries Rakhira and becomes master of his father’s farm. But happiness built on blood does not exist: cold and silence reign in the cottage, and the old couple live like shadows. Ivonika still goes out to his field, for the land will not wait — but it no longer gladdens him, only reminds him of the terrible price paid for it. The story ends with a meditation on the land’s power over people — a force that can both feed and destroy."
+      ],
+      "themes": [
+        "The land’s power over people",
+        "Fratricide",
+        "Parents and children",
+        "Love and fidelity",
+        "Good and evil in the human soul"
+      ],
+      "terms": [
+        {
+          "term": "Bukovyna",
+          "definition": "A historical region in western Ukraine centred on Chernivtsi; in the late 19th century it was part of Austria-Hungary."
+        },
+        {
+          "term": "Dymka",
+          "definition": "A Bukovynian village near Chernivtsi where the story takes place; the novella is based on a real case of one brother killing another."
+        },
+        {
+          "term": "Gazda",
+          "definition": "A farmer and master of a household in western Ukraine; becoming a gazda is Ivonika’s dream and the aim of his whole life."
+        },
+        {
+          "term": "Nyva (the field)",
+          "definition": "A cultivated field. For the Fedorchuks it is their chief wealth and almost something sacred."
+        },
+        {
+          "term": "Hired maid",
+          "definition": "A woman working for wages on someone else’s farm, like the orphan Anna, who has neither land nor dowry."
+        },
+        {
+          "term": "The Emperor’s army",
+          "definition": "The army of the Austro-Hungarian monarchy, into which Bukovynian peasants were also drafted; Mykhailo serves in it."
+        },
+        {
+          "term": "Cain and Abel",
+          "definition": "The biblical brothers, of whom Cain killed Abel out of envy; the story of Sava and Mykhailo clearly echoes it."
+        },
+        {
+          "term": "Inheritance",
+          "definition": "The land parents pass on to their children; the thought of how it will be divided drives Sava to his crime."
+        }
+      ],
+      "similar": [
+        {
+          "title": "The Earth (La Terre)",
+          "author": "Émile Zola",
+          "why": "Another novel about the peasant hunger for land that drives relatives to cruelty and murder."
+        },
+        {
+          "title": "The Kaidash Family",
+          "author": "Ivan Nechui-Levytskyi",
+          "why": "A Ukrainian peasant family split apart by the struggle over land and inheritance."
+        },
+        {
+          "title": "The Brothers Karamazov",
+          "author": "Fyodor Dostoevsky",
+          "why": "A deep psychological drama about a crime within a family, envy and guilt."
+        },
+        {
+          "title": "Shadows of Forgotten Ancestors",
+          "author": "Mykhailo Kotsiubynsky",
+          "why": "A tragedy of a western Ukrainian village where love and death intertwine with ancient customs."
+        },
+        {
+          "title": "Do the Oxen Low When the Manger Is Full?",
+          "author": "Panas Myrnyi",
+          "why": "The story of how injustice and greed turn a village lad into a criminal."
+        }
+      ],
+      "film": {
+        "title": "Earth: the price of a field",
+        "intro": "You open the book and feel warm, freshly ploughed soil beneath your feet. A heavy golden sun hangs over Bukovyna, and somewhere in the beech forest a bird cries out in alarm.",
+        "outro": "The field turns green again as if nothing had happened. The pages close, and you understand that the earth remembers everything — the toil, the love and the blood that was spilled.",
+        "scenes": [
+          {
+            "title": "Father’s Field",
+            "narration": "You stand at the edge of a wide field where the ears of grain sway in the warm wind. Old Ivonika strokes the soil with a rough palm, while Mykhailo, who will soon be taken into the army, listens to his father and looks at the field that will one day be his.",
+            "line": {
+              "text": "The land, son, is sacred to us: whoever honours it, it feeds."
+            }
+          },
+          {
+            "title": "The Promise",
+            "narration": "You stand by a stile at twilight, where the air smells of fresh-cut grass. Mykhailo holds Anna’s hand and promises that as soon as his service ends he will build a cottage and lead her to the altar.",
+            "line": {
+              "text": "Wait for me, Anna — I’ll come back and we’ll be married."
+            }
+          },
+          {
+            "title": "Rakhira’s Whisper",
+            "narration": "You stand in the night forest, where the moon barely breaks through the beeches. Rakhira nestles against Sava and, softly as a witch, whispers the most dangerous words of all — about land, about wealth, about the brother standing in the way.",
+            "line": {
+              "text": "If it weren’t for your brother, all your father’s land would be yours…"
+            }
+          },
+          {
+            "title": "The Shot",
+            "narration": "You stand in the mist on a forest path along which Mykhailo is walking. The silence is so deep you can hear the dew fall — and suddenly a shot rings out, its echo rolling between the trees.",
+            "line": null
+          },
+          {
+            "title": "A Mother’s Grief",
+            "narration": "You stand in the cottage, where candles burn and the air smells of wax. Dokiia weeps for her son, Ivonika sits in silence with his grey head bowed, and Anna stands frozen at the threshold, unable to believe it is all over.",
+            "line": {
+              "text": "My son, my son — who has destroyed you?"
+            }
+          },
+          {
+            "title": "Joyless Earth",
+            "narration": "You stand in the same field, but now it seems foreign. Ivonika walks behind the plough while Sava stands apart: the land is his now, yet his father’s silence weighs heavier than any sentence.",
+            "line": null
+          }
+        ]
+      },
+      "characters": {
+        "mykhailo": {
+          "name": "Mykhailo Fedorchuk",
+          "traits": [
+            "hard-working",
+            "gentle",
+            "honest",
+            "faithful"
+          ],
+          "description": "The elder son of Ivonika and Dokiia, his father’s hope and pride. He loves the land as his father does, serves in the army and dreams of marrying Anna and becoming a farmer after his service. He is killed by his own brother, and his death destroys the whole family."
+        },
+        "sava": {
+          "name": "Sava Fedorchuk",
+          "traits": [
+            "lazy",
+            "envious",
+            "hot-tempered",
+            "weak-willed"
+          ],
+          "description": "The younger Fedorchuk son, unruly and spoilt, with no love for working the land. Under Rakhira’s influence he gives in to envy and greed and kills his own brother to take possession of the land. The crime brings him no happiness — only his parents’ estrangement."
+        },
+        "ivonika": {
+          "name": "Ivonika Fedorchuk",
+          "traits": [
+            "industrious",
+            "taciturn",
+            "wise",
+            "unhappy"
+          ],
+          "description": "The head of the family, a Bukovynian farmer who has toiled all his life to acquire land. For him the land is sacred, and he dreams of passing it on to his sons. Mykhailo’s death breaks him, yet he goes on working his field, silent and resigned."
+        },
+        "dokia": {
+          "name": "Dokiia Fedorchuk",
+          "traits": [
+            "pious",
+            "loving",
+            "hard-working",
+            "long-suffering"
+          ],
+          "description": "Ivonika’s wife, who built up the farm together with her husband. She loves both her sons and for a long time cannot believe that one of them has killed the other. Grief ages her before her time."
+        },
+        "anna": {
+          "name": "Anna",
+          "traits": [
+            "quiet",
+            "industrious",
+            "devoted",
+            "modest"
+          ],
+          "description": "A poor orphan working as a hired maid, who sincerely loves Mykhailo and waits for him to return from the army. She dreams of a family and a home of her own, but Mykhailo’s death shatters all her hopes."
+        },
+        "rakhira": {
+          "name": "Rakhira",
+          "traits": [
+            "cunning",
+            "beautiful",
+            "greedy",
+            "treacherous"
+          ],
+          "description": "A dark-haired, beautiful and sly girl from a poor family with a bad name in the village. She longs to be a rich farmer’s wife and urges Sava, who is in love with her, to get rid of his brother. In the end she becomes Sava’s wife, but no happiness can be built on another’s grief."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "mykhailo",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "tall",
+        "skin": "#e6b892",
+        "hair": {
+          "style": "short",
+          "color": "#5a3a22"
+        },
+        "facialHair": "mustache",
+        "eyes": "#4a6a8a",
+        "top": {
+          "kind": "jacket",
+          "color": "#26365e",
+          "accent": "#d8b050",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#6a88b0"
+        },
+        "shoes": "#1e1a16",
+        "headwear": "cap",
+        "headwearColor": "#26365e",
+        "accessory": "belt_sword",
+        "accessoryColor": "#2a2420",
+        "holding": "none"
+      },
+      "portraitPrompt": "A tall, kind-faced young Bukovynian peasant serving as a soldier, with short brown hair, a neat moustache and gentle blue eyes, wearing a dark-blue Austro-Hungarian infantry tunic with brass buttons, light-blue trousers and a dark peaked kepi."
+    },
+    {
+      "id": "sava",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#dca882",
+        "hair": {
+          "style": "messy",
+          "color": "#1a1410"
+        },
+        "facialHair": "none",
+        "eyes": "#2a1c14",
+        "top": {
+          "kind": "vest",
+          "color": "#5a3a24",
+          "accent": "#f2ece0",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#efe8da"
+        },
+        "shoes": "#2a1e16",
+        "headwear": "feather_hat",
+        "headwearColor": "#1e1c1a",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A sullen, restless young Bukovynian peasant with unruly black hair and dark brooding eyes, wearing a black felt hat with a feather, a brown sheepskin keptar vest over a white embroidered shirt and white linen trousers."
+    },
+    {
+      "id": "ivonika",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "average",
+        "skin": "#d49c76",
+        "hair": {
+          "style": "long",
+          "color": "#b0aaa0"
+        },
+        "facialHair": "mustache",
+        "eyes": "#4a3a2a",
+        "top": {
+          "kind": "shirt",
+          "color": "#efe8da",
+          "accent": "#3a2a1c",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#e6dccc"
+        },
+        "shoes": "#3a2a1c",
+        "headwear": "straw_hat",
+        "headwearColor": "#c8a858",
+        "accessory": "belt_sword",
+        "accessoryColor": "#8a2a24",
+        "holding": "none"
+      },
+      "portraitPrompt": "A weathered old Bukovynian farmer with shoulder-length grey hair, a drooping grey moustache and deep lines of toil on his sun-browned face, wearing a straw hat, a long white linen shirt with dark embroidery and a wide red woven belt, his hands rough from the plough."
+    },
+    {
+      "id": "dokia",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "elder",
+        "build": "average",
+        "skin": "#e4b896",
+        "hair": {
+          "style": "bun",
+          "color": "#8a7a6a"
+        },
+        "facialHair": "none",
+        "eyes": "#4a3a2a",
+        "top": {
+          "kind": "shirt",
+          "color": "#f4eee2",
+          "accent": "#2a2a2a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#2a2a2a"
+        },
+        "shoes": "#2a1e16",
+        "headwear": "headscarf",
+        "headwearColor": "#f2efe6",
+        "accessory": "necklace",
+        "accessoryColor": "#b8282a",
+        "holding": "candle"
+      },
+      "portraitPrompt": "A grieving, gentle elderly Bukovynian peasant woman with a lined face and tired kind eyes, wearing a long white headcloth wrapped around her head, a white blouse with black embroidery, a dark woven wrap skirt and red beads, holding a thin wax candle."
+    },
+    {
+      "id": "anna",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f2cdb0",
+        "hair": {
+          "style": "braids",
+          "color": "#7a5232"
+        },
+        "facialHair": "none",
+        "eyes": "#5a7a5a",
+        "top": {
+          "kind": "shirt",
+          "color": "#f6f2e8",
+          "accent": "#7a8a3a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#5a5a4a"
+        },
+        "shoes": "#5a3e26",
+        "headwear": "headscarf",
+        "headwearColor": "#d8c8a0",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "basket"
+      },
+      "portraitPrompt": "A modest, quiet young peasant girl with light-brown braids and soft hazel-green eyes, wearing a pale headscarf, a simple white blouse with modest green embroidery and a plain grey woven skirt, carrying a wicker basket."
+    },
+    {
+      "id": "rakhira",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#d8a27a",
+        "hair": {
+          "style": "long",
+          "color": "#100c0a"
+        },
+        "facialHair": "none",
+        "eyes": "#1e1410",
+        "top": {
+          "kind": "shirt",
+          "color": "#f2e8d8",
+          "accent": "#c0282a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#a8202a"
+        },
+        "shoes": "#2a1a12",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "necklace",
+        "accessoryColor": "#e0b040",
+        "holding": "rose"
+      },
+      "portraitPrompt": "A striking, sly young woman with long loose jet-black hair, dark smouldering eyes and a knowing smile, wearing a white blouse with bold red embroidery, a red woven skirt and many strands of gold-coloured coin necklaces, twirling a red flower."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "meadow",
+        "time": "day",
+        "weather": "wind",
+        "cast": [
+          "ivonika",
+          "mykhailo"
+        ],
+        "props": [
+          "fence",
+          "tree",
+          "cart",
+          "house"
+        ],
+        "action": "talk",
+        "camera": "crane",
+        "mood": "calm",
+        "line": {
+          "speaker": "ivonika"
+        }
+      },
+      {
+        "setting": "village",
+        "time": "dusk",
+        "weather": "clear",
+        "cast": [
+          "mykhailo",
+          "anna"
+        ],
+        "props": [
+          "fence",
+          "house",
+          "flower",
+          "well"
+        ],
+        "action": "talk",
+        "camera": "pan",
+        "mood": "romantic",
+        "line": {
+          "speaker": "mykhailo"
+        }
+      },
+      {
+        "setting": "forest",
+        "time": "night",
+        "weather": "clear",
+        "cast": [
+          "sava",
+          "rakhira"
+        ],
+        "props": [
+          "tree",
+          "moon",
+          "bush",
+          "rock"
+        ],
+        "action": "talk",
+        "camera": "close_up",
+        "mood": "mysterious",
+        "line": {
+          "speaker": "rakhira"
+        }
+      },
+      {
+        "setting": "forest",
+        "time": "dawn",
+        "weather": "fog",
+        "cast": [
+          "mykhailo",
+          "sava"
+        ],
+        "props": [
+          "tree",
+          "bush",
+          "rock"
+        ],
+        "action": "walk",
+        "camera": "dolly_in",
+        "mood": "tense",
+        "line": null
+      },
+      {
+        "setting": "room",
+        "time": "night",
+        "weather": "clear",
+        "cast": [
+          "dokia",
+          "ivonika",
+          "anna"
+        ],
+        "props": [
+          "candles",
+          "table",
+          "bench",
+          "window"
+        ],
+        "action": "sad",
+        "camera": "orbit",
+        "mood": "melancholic",
+        "line": {
+          "speaker": "dokia"
+        }
+      },
+      {
+        "setting": "meadow",
+        "time": "dusk",
+        "weather": "wind",
+        "cast": [
+          "ivonika",
+          "sava"
+        ],
+        "props": [
+          "fence",
+          "tree",
+          "cart"
+        ],
+        "action": "sad",
+        "camera": "fly_over",
+        "mood": "melancholic",
+        "line": null
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: rolling golden wheat fields of Bukovyna under a big warm sun, a whitewashed cottage and a wooden cart at the edge, an old farmer in a straw hat and white embroidered shirt kneeling to touch the soil beside a young soldier in a dark-blue uniform; slow crane shot, soft golden light, tilt-shift miniature look, no text.",
+      "Cute voxel-diorama 3D scene: a moonlit beech forest at night, a dark-haired girl in a red skirt and coin necklace whispering to a sullen young man in a feathered black hat among mossy rocks; slow close-up, cold blue moonlight with drifting mist, mysterious ominous mood, no text.",
+      "Cute voxel-diorama 3D scene: inside a dim village cottage lit by thin wax candles, an old woman in a white headcloth weeping at a wooden table while a grey-haired farmer sits with bowed head and a young girl in a pale headscarf stands frozen at the door; slow orbiting camera, warm flickering light, melancholic mood, no text."
+    ]
+  }
+}

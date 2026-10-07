@@ -129,6 +129,7 @@ describe("health", () => {
     assert.deepEqual(body, {
       live: false, portraits: false, video: false, premiumCodeRequired: true, model: "claude-opus-5-5",
       account: false, billing: { enabled: false, env: "sandbox", clientToken: null, prices: [] }, freeBooks: 2, telegram: null, store: "memory",
+      anime: { provider: process.env.CLOUDFLARE_ACCOUNT_ID && process.env.CLOUDFLARE_API_TOKEN ? "cloudflare" : process.env.ANIME_PROVIDER === "off" ? "off" : "pollinations" },
     });
   });
 

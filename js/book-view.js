@@ -1,6 +1,7 @@
 // BookTrip — the book page (owner: book-ui).
 //
-//   renderBook(root, book, { lang, health, onSearch(query), onBack(), onRetry(part) }) → { update(book), dispose() }
+//   renderBook(root, book, { lang, health, onSearch(query), onBack(), onRetry(part), onPaywall(),
+//                            badge: { text, onClick } | null, shareUrl }) → { update(book), dispose() }
 //
 // Sections: hero (3D cover, listen / share) · sticky section tabs · retelling · terms · characters ·
 // similar books · trip into the book (mini-film + premium AI video) · footer.
@@ -390,6 +391,11 @@ export function renderBook(root, bookIn, opts = {}) {
     const meta = el("div", { class: "bk-hero-meta" });
     if (str(b.genre)) meta.append(el("span", { class: "chip chip-cyan bk-genre", text: str(b.genre) }));
     meta.append(el("span", { class: "bk-source" }, icon("sparkle"), el("span", { text: b.source === "live" ? T("hero.live") : T("hero.demo") })));
+    if (isObj(opts.badge) && str(opts.badge.text)) {
+      const badge = el("button", { type: "button", class: "chip bk-free", text: str(opts.badge.text) });
+      if (typeof opts.badge.onClick === "function") badge.addEventListener("click", () => opts.badge.onClick());
+      meta.append(badge);
+    }
 
     const len = [...title].length;
     const textKids = [meta, el("h1", { class: `bk-title${len > 56 ? " is-xlong" : len > 30 ? " is-long" : ""}`, text: title })];
@@ -479,7 +485,7 @@ export function renderBook(root, bookIn, opts = {}) {
   // ---- share ----
   async function share() {
     const title = str(book.title) || "BookTrip";
-    const url = location.href;
+    const url = str(opts.shareUrl) || `${location.origin}/book/${enc(str(book.id))}`;
     const data = { title: `${title} — BookTrip`, text: T("hero.shareText", { title }), url };
     if (navigator.share && (!navigator.canShare || navigator.canShare(data))) {
       try { await navigator.share(data); return; } catch (err) { if (err?.name === "AbortError") return; }
@@ -598,20 +604,58 @@ export function renderBook(root, bookIn, opts = {}) {
   let active = null;
   let lockUntil = 0;
 
+  /** Space covered at the top of the viewport by the floating nav and the stuck section tabs (+ air). */
   function stickyOffset() {
-    const top = parseFloat(getComputedStyle(tabs).top) || 82;
-    return top + tabs.offsetHeight + 18;
+    const nav = document.getElementById("nav");
+    const navBottom = nav ? nav.getBoundingClientRect().bottom : 0; // position: fixed
+    const top = parseFloat(getComputedStyle(tabs).top);
+    const tabsBottom = (Number.isFinite(top) ? top : 82) + tabs.offsetHeight;
+    return Math.ceil(Math.max(navBottom, tabsBottom)) + 16;
   }
+
+  /** Layout position of a node in the document (ignores transforms such as the fade-up reveal). */
+  function docTop(node) {
+    let y = 0;
+    for (let n = node; n; n = n.offsetParent) y += n.offsetTop;
+    return y;
+  }
+
+  /** scroll-margin-top for native jumps (anchors, scrollIntoView) from the real bar heights. */
+  function syncStick() {
+    if (!disposed) page.style.setProperty("--bk-stick", `${stickyOffset()}px`);
+  }
+
+  let settleTimer = 0;
+  let userMoved = false;
+  const markUser = () => { userMoved = true; };
+  on(window, "wheel", markUser, { passive: true });
+  on(window, "touchstart", markUser, { passive: true });
+  on(window, "keydown", (e) => { if (/^(Arrow|Page|Home|End| )/.test(e.key)) markUser(); });
 
   function goTo(name) {
     const s = secs[name];
     if (!s || s.node.hidden) return;
-    const y = s.node.getBoundingClientRect().top + window.scrollY - stickyOffset();
+    const target = () => Math.max(0, docTop(s.node) - stickyOffset());
     lockUntil = Date.now() + (reduced ? 60 : 1000);
     setActive(name);
-    window.scrollTo({ top: Math.max(0, y), behavior: reduced ? "auto" : "smooth" });
+    userMoved = false;
+    window.scrollTo({ top: target(), behavior: reduced ? "auto" : "smooth" });
     s.h2.focus({ preventScroll: true });
+    // Covers, portraits and late parts above may change height during a smooth scroll: land exactly.
+    clearTimeout(settleTimer);
+    let tries = 0;
+    const settle = () => {
+      if (disposed || userMoved) return;
+      const want = target();
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (Math.abs(window.scrollY - want) > 2 && !(want > max && window.scrollY >= max - 2)) {
+        window.scrollTo({ top: want, behavior: "auto" });
+      }
+      if (++tries < 3) settleTimer = setTimeout(settle, 400);
+    };
+    settleTimer = setTimeout(settle, reduced ? 50 : 900);
   }
+  cleanups.push(() => clearTimeout(settleTimer));
 
   function setActive(name) {
     active = name;
@@ -651,7 +695,8 @@ export function renderBook(root, bookIn, opts = {}) {
   spy.observe(hero);
   for (const s of SECTIONS) spy.observe(secs[s.name].node);
   cleanups.push(() => spy.disconnect());
-  on(window, "resize", debounce(() => positionInk(false), 120));
+  on(window, "resize", debounce(() => { positionInk(false); syncStick(); }, 120));
+  requestAnimationFrame(syncStick);
   document.fonts?.ready?.then(() => { if (!disposed) positionInk(false); });
 
   function syncSections() {
@@ -1031,8 +1076,9 @@ export function renderBook(root, bookIn, opts = {}) {
       try {
         const res = await fetch(url, { signal: ctrl.signal });
         if (!res.ok) {
-          let code = "upstream";
+          let code = res.status === 402 ? "paywall" : "upstream";
           try { code = (await res.json()).error || code; } catch { /* not JSON */ }
+          if (code === "paywall" && typeof opts.onPaywall === "function") { try { opts.onPaywall(); } catch { /* ignore */ } }
           throw Object.assign(new Error(code), { code });
         }
         if (!String(res.headers.get("content-type") || "").startsWith("image/")) throw Object.assign(new Error("bad_response"), { code: "bad_response" });

@@ -1,7 +1,7 @@
 // Paddle Billing: configuration from env, subscription records (sub:<uid>), webhook signatures.
 import { createHmac } from "node:crypto";
 import { canSign, safeEqual } from "./sign.js";
-import { getStore } from "./store.js";
+import { getStore, storeKind } from "./store.js";
 
 const PRICE_RE = /^[A-Za-z0-9_-]{1,80}$/;
 const SUBSCRIBED = new Set(["active", "trialing", "past_due"]);
@@ -11,7 +11,9 @@ const clean = (v) => (typeof v === "string" ? v.trim() : "");
 
 /**
  * Billing is "enabled" when the client token, at least one price and the webhook secret are set
- * (contract) — and sessions can be signed, since checkout needs a logged-in user.
+ * (contract) — and sessions can be signed, since checkout needs a logged-in user. On Vercel it also
+ * needs Redis: with the per-instance memory store a webhook's subscription would be invisible to the
+ * other instances and a paying user could hit the paywall.
  */
 export function billingConfig() {
   const e = process.env;
@@ -23,7 +25,8 @@ export function billingConfig() {
   if (PRICE_RE.test(month)) prices.push({ id: month, period: "month", label: clean(e.PRICE_LABEL_MONTH).slice(0, 40) || "$4.99" });
   if (PRICE_RE.test(year)) prices.push({ id: year, period: "year", label: clean(e.PRICE_LABEL_YEAR).slice(0, 40) || "$29" });
   const webhookSecret = clean(e.PADDLE_WEBHOOK_SECRET);
-  const enabled = Boolean(clientToken && prices.length && webhookSecret && canSign());
+  const sharedStore = !e.VERCEL || storeKind() === "redis";
+  const enabled = Boolean(clientToken && prices.length && webhookSecret && canSign() && sharedStore);
   return { enabled, env, clientToken, prices, webhookSecret, apiKey: clean(e.PADDLE_API_KEY) };
 }
 

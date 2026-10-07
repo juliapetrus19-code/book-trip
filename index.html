@@ -1,34 +1,44 @@
 <!doctype html>
-<html lang="ru">
+<html lang="uk">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BookTrip — путешествие внутрь любой книги</title>
-<meta name="description" content="Введите название книги — и войдите внутрь: пересказ, важные термины, персонажи в 3D, похожие книги и мини-фильм о путешествии в историю.">
+<title>BookTrip — подорож усередину великих книг</title>
+<meta name="description" content="Введіть назву книги й увійдіть усередину: переказ, ключові терміни, персонажі в 3D, схожі книги та мініфільм про подорож в історію.">
 <meta name="theme-color" content="#04050b">
-<meta property="og:title" content="BookTrip — путешествие внутрь любой книги">
-<meta property="og:description" content="Пересказ, термины, персонажи в 3D и мини-фильм по любой книге.">
+<meta property="og:title" content="BookTrip — подорож усередину великих книг">
+<meta property="og:description" content="Переказ, ключові терміни, персонажі в 3D і мініфільм для класики з бібліотеки BookTrip.">
 <meta property="og:type" content="website">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="BookTrip">
+<meta property="og:image" content="/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="BookTrip">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap">
 <script type="importmap">
-{ "imports": { "three": "./vendor/three.min.js" } }
+{ "imports": { "three": "/vendor/three.min.js" } }
 </script>
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/home.css">
-<link rel="stylesheet" href="css/book.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/book.css">
 <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
 <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
 
-<a class="skip-link" href="#main" data-i18n="a11y.skip">Перейти к содержимому</a>
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Перейти до вмісту</a>
 
 <header class="nav" id="nav">
-  <a class="brand" href="#/" aria-label="BookTrip">
+  <a class="brand" href="/" aria-label="BookTrip">
     <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
       <defs>
         <linearGradient id="bm-g" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
@@ -46,18 +56,18 @@
   </a>
 
   <nav class="nav-links" id="nav-links" aria-label="Main">
-    <a href="#/how" data-i18n="nav.how">Как это работает</a>
-    <a href="#/library" data-i18n="nav.library">Библиотека</a>
-    <a href="#/premium" data-i18n="nav.premium">Премиум</a>
+    <a href="#/how" data-i18n="nav.how">Як це працює</a>
+    <a href="#/library" data-i18n="nav.library">Бібліотека</a>
+    <a href="#/premium" data-i18n="nav.premium">Преміум</a>
   </nav>
 
   <div class="nav-right">
     <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria="nav.lang">
-      <button type="button" data-lang="ru" aria-pressed="true">RU</button>
-      <button type="button" data-lang="uk" aria-pressed="false">UA</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+      <button type="button" data-lang="uk" aria-pressed="true">UA</button>
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
-    <a class="btn-glow btn-sm nav-cta" href="#/" data-action="focus-search"><span data-i18n="nav.cta">Начать путешествие</span></a>
+    <a class="btn-glow btn-sm nav-cta" href="/" data-action="focus-search"><span data-i18n="nav.cta">Почати подорож</span></a>
     <button class="nav-menu" id="nav-menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Меню" data-i18n-aria="nav.menu">
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 8h14M5 12h14M5 16h14"/></svg>
     </button>
@@ -73,24 +83,24 @@
         <i aria-hidden="true">
           <svg viewBox="5 1 14 22" preserveAspectRatio="none"><path d="M13.9 1.6 5.5 13.6a.7.7 0 0 0 .6 1.1h4.2l-1 7.7a.7.7 0 0 0 1.25.55l8.3-12.1a.7.7 0 0 0-.6-1.1h-4.2l1-7.7a.7.7 0 0 0-1.25-.55Z"/></svg>
         </i>
-        <b data-i18n="home.badge">AI-пересказ · персонажи в 3D · мини-фильм</b>
+        <b data-i18n="home.badge">AI-переказ · персонажі в 3D · мініфільм</b>
       </p>
       <h1 class="hero-title" id="home-title">
-        <span class="l1" data-i18n="home.h1a">Войди внутрь</span>
-        <span class="l2" data-i18n="home.h1b">любой книги</span>
+        <span class="l1" data-i18n="home.h1a">Увійди всередину</span>
+        <span class="l2" data-i18n="home.h1b">великих книг</span>
       </h1>
-      <p class="hero-sub" data-i18n="home.sub">Пересказ, важные термины, персонажи и мини-фильм — за минуту.</p>
+      <p class="hero-sub" data-i18n="home.sub">Переказ, герої в 3D і мініфільм — для класики з нашої бібліотеки. Незабаром книг стане ще більше.</p>
 
       <form class="search" id="search-form" role="search" autocomplete="off">
-        <label class="sr-only" for="search-input" data-i18n="home.searchLabel">Название книги</label>
+        <label class="sr-only" for="search-input" data-i18n="home.searchLabel">Назва книги</label>
         <svg class="search-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
         <input id="search-input" name="q" type="search" enterkeyhint="search" spellcheck="false"
-               placeholder="Например, «Маленький принц»" data-i18n-ph="home.placeholder"
+               placeholder="Наприклад, «Маленький принц»" data-i18n-ph="home.placeholder"
                aria-autocomplete="list" aria-controls="search-suggest" aria-expanded="false">
-        <button class="btn-glow search-go" type="submit"><span data-i18n="home.go">Войти в книгу</span></button>
+        <button class="btn-glow search-go" type="submit"><span data-i18n="home.go">Увійти в книгу</span></button>
         <ul class="suggest" id="search-suggest" role="listbox" hidden></ul>
       </form>
-      <p class="hero-hint" data-i18n="home.hint">Нажмите на обложку — или крутаните полку пальцем.</p>
+      <p class="hero-hint" data-i18n="home.hint">Натисніть на обкладинку — або крутніть полицю пальцем.</p>
     </div>
 
     <div class="ring-stage" id="ring" role="group" aria-label="Книги" data-i18n-aria="home.ringLabel"></div>
@@ -104,8 +114,8 @@
 <div id="modal-root"></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<noscript><p class="noscript">BookTrip работает с включённым JavaScript.</p></noscript>
+<noscript><p class="noscript">BookTrip працює з увімкненим JavaScript.</p></noscript>
 
-<script type="module" src="js/app.js"></script>
+<script type="module" src="/js/app.js"></script>
 </body>
 </html>

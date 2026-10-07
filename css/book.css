@@ -212,7 +212,7 @@
    Sections (shared)
    ============================================================================================= */
 
-.bk-sec { width: min(var(--bk-max), calc(100% - 2 * var(--bk-pad))); margin: clamp(68px, 9vw, 124px) auto 0; scroll-margin-top: calc(var(--bk-tabs-top) + 64px); }
+.bk-sec { width: min(var(--bk-max), calc(100% - 2 * var(--bk-pad))); margin: clamp(68px, 9vw, 124px) auto 0; scroll-margin-top: var(--bk-stick, calc(var(--bk-tabs-top) + 72px)); }
 .bk-tabs + .bk-sec { margin-top: clamp(40px, 6vw, 80px); }
 .bk-sec-head {
   display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
@@ -940,3 +940,7 @@
   .bk-book { animation: none; }
   .bk-stage-shimmer, .bk-wait-dot, .bk-clip-dot, .bk-ai-canvas { animation: none !important; }
 }
+
+/* v2: "Free books left: N" chip in the hero (paywall on, not subscribed) */
+.bk-free { cursor: pointer; border-color: rgba(255, 207, 122, .35); background: rgba(255, 207, 122, .07); color: #ffe7b8; font-size: 12.5px; transition: background .2s, border-color .2s; }
+.bk-free:hover { background: rgba(255, 207, 122, .14); border-color: rgba(255, 207, 122, .6); }
