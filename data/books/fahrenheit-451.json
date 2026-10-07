@@ -1,0 +1,948 @@
+{
+  "id": "fahrenheit-451",
+  "year": 1953,
+  "cover": {
+    "bg": "#c8431c",
+    "bg2": "#2a0904",
+    "fg": "#fff1cc",
+    "accent": "#ffd23a",
+    "motif": "flame"
+  },
+  "aliases": [
+    "Fahrenheit 451",
+    "Fahrenheit",
+    "451 Fahrenheit",
+    "451° по Фаренгейту",
+    "451 градус по Фаренгейту",
+    "451 по Фаренгейту",
+    "Фаренгейт 451",
+    "451° за Фаренгейтом",
+    "451 градус за Фаренгейтом",
+    "451 за Фаренгейтом",
+    "Фаренгейт",
+    "451 gradus po Farengeytu",
+    "451 hradus za Farenheitom",
+    "Брэдбери 451",
+    "Бредбері 451"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "451° по Фаренгейту",
+      "originalTitle": "Fahrenheit 451",
+      "author": "Рэй Брэдбери",
+      "genre": "Антиутопия, научная фантастика",
+      "tagline": "Пожарный, который сжигал книги, однажды решается одну из них прочитать.",
+      "summary": [
+        "В Америке недалёкого будущего пожарные не тушат огонь, а разжигают его: по тревоге они мчатся к домам, где спрятаны книги, и сжигают их вместе с домами. Гай Монтэг десять лет служит пожарным и любит свою работу — запах керосина, шипение огнемёта, номер 451 на шлеме. Однажды ночью по дороге домой он встречает семнадцатилетнюю соседку Клариссу Маклеллан. Странная девушка любит гулять пешком, нюхать листья и разговаривать, а на прощание спрашивает его, счастлив ли он. Вопрос не даёт Монтэгу покоя.",
+        "Вернувшись домой, он находит жену Милдред без сознания: она проглотила целый флакон снотворного. Приехавшие техники равнодушно откачивают её машиной, словно делают это по десять раз за ночь, а наутро Милдред ничего не помнит. Её мир — ракушки-приёмники в ушах и «телестены» в гостиной, где круглые сутки болтает экранная «семья»; Милдред мечтает о четвёртой стене. Кларисса же продолжает встречаться Монтэгу и задаёт неудобные вопросы, пока однажды не исчезает: Милдред между делом сообщает, что девушку сбила машина.",
+        "По очередному вызову пожарные приезжают к пожилой женщине, у которой целая библиотека. Она отказывается покинуть дом и сама чиркает спичкой, сгорая вместе с книгами. Потрясённый Монтэг тайком уносит одну книгу и на следующий день не может выйти на работу. Брандмейстер Битти навещает его и объясняет историю: люди сами отказались от книг ради скорости, развлечений и спокойствия, а пожарные лишь охраняют их счастье от тревожащих мыслей. Битти намекает, что знает о спрятанной книге.",
+        "Монтэг показывает Милдред тайник — около двадцати книг, которые он годами прятал за решёткой вентиляции, — и пытается читать. Не понимая прочитанного, он вспоминает о старом профессоре английского Фабере, с которым однажды разговорился в парке. Фабер даёт ему крошечный приёмник-«ракушку», чтобы подсказывать на расстоянии. Но Монтэг срывается: читает подругам жены стихотворение «Дуврский берег», и одна из них плачет. Ночью в пожарной части Битти засыпает его цитатами, доказывая, что книги противоречат сами себе, — и тут объявляют вызов.",
+        "Машина останавливается у дома Монтэга: донос написала Милдред, которая уже уезжает на такси с чемоданом. Битти приказывает Монтэгу сжечь собственный дом, а потом замечает в его ухе приёмник Фабера. Доведённый до предела, Монтэг обращает огнемёт против брандмейстера и сжигает его, оглушает двух других пожарных и уничтожает Механического пса, успевшего всадить ему в ногу иглу с обезболивающим. Хромая, он бежит по ночному городу, а за погоней в прямом эфире следит вся страна.",
+        "Монтэг укрывается у Фабера, меняет одежду и уходит по реке, чтобы сбить пса со следа. Течение выносит его за город, где вдоль заброшенной железной дороги живут изгнанники во главе с Грейнджером. Каждый из них выучил наизусть книгу и бережёт её в памяти до лучших времён; Монтэг вспоминает отрывки из Екклесиаста. Не найдя беглеца, власти показывают по телевизору поимку случайного прохожего. Вскоре начавшаяся война за мгновения стирает город бомбами. На рассвете книжные люди отправляются туда — помогать восстанавливать мир из пепла, как феникс."
+      ],
+      "themes": [
+        "Цензура и свобода мысли",
+        "Пустота массовых развлечений",
+        "Память и культура",
+        "Пробуждение личности",
+        "Одиночество в толпе"
+      ],
+      "terms": [
+        {
+          "term": "451° по Фаренгейту",
+          "definition": "Температура, при которой, по словам эпиграфа, воспламеняется и горит бумага. Число красуется на шлемах пожарных."
+        },
+        {
+          "term": "Пожарные",
+          "definition": "Служба, которая не тушит пожары, а сжигает книги и дома их владельцев. Их эмблемы — саламандра и феникс."
+        },
+        {
+          "term": "Саламандра",
+          "definition": "Символ пожарных на рукавах и прозвище пожарной машины: по поверью, саламандра живёт в огне и не сгорает."
+        },
+        {
+          "term": "Ракушки",
+          "definition": "Крошечные радиоприёмники-вкладыши, которые Милдред не вынимает из ушей даже ночью, — непрерывный поток звуков."
+        },
+        {
+          "term": "Телестены",
+          "definition": "Стены-экраны в гостиной, где «родственники» ведут бессмысленные беседы со зрителем. Милдред мечтает о четвёртой стене."
+        },
+        {
+          "term": "Механический пёс",
+          "definition": "Восьминогая машина-ищейка с иглой, начинённой снотворным, которая выслеживает жертву по запаху."
+        },
+        {
+          "term": "Зелёная пуля",
+          "definition": "Миниатюрный передатчик Фабера, через который старик слышит Монтэга и подсказывает ему."
+        },
+        {
+          "term": "«Дуврский берег»",
+          "definition": "Стихотворение Мэтью Арнолда о мире, утратившем веру и опору, которое Монтэг читает подругам Милдред."
+        },
+        {
+          "term": "Книжные люди",
+          "definition": "Изгнанники, которые выучили книги наизусть и стали их живыми хранителями, ожидая, когда люди снова захотят читать."
+        },
+        {
+          "term": "Феникс",
+          "definition": "Птица, сгорающая и вновь рождающаяся из пепла. Грейнджер видит в ней образ человечества, которое снова и снова поднимается после катастроф."
+        }
+      ],
+      "similar": [
+        {
+          "title": "1984",
+          "author": "Джордж Оруэлл",
+          "why": "Ещё один одиночка восстаёт против государства, которое переписывает прошлое и контролирует мысли."
+        },
+        {
+          "title": "О дивный новый мир",
+          "author": "Олдос Хаксли",
+          "why": "Антиутопия, где людей усмиряют не страхом, а удовольствиями и бездумным потреблением."
+        },
+        {
+          "title": "Мы",
+          "author": "Евгений Замятин",
+          "why": "Родоначальник жанра: человек в идеально упорядоченном обществе вдруг пробуждается к собственной душе."
+        },
+        {
+          "title": "Рассказ служанки",
+          "author": "Маргарет Этвуд",
+          "why": "Мир, где запрещено читать, а память и слова становятся формой сопротивления."
+        },
+        {
+          "title": "Марсианские хроники",
+          "author": "Рэй Брэдбери",
+          "why": "Поэтичная фантастика того же автора о людях, теряющих связь с прошлым и с собой."
+        }
+      ],
+      "film": {
+        "title": "Город, где горят книги",
+        "intro": "Ты открываешь книгу, и пахнет керосином. Где-то вдалеке воет сирена, и ты понимаешь: в этом мире книгу нельзя держать в руках — её можно только сжечь.",
+        "outro": "Пламя гаснет, и ты закрываешь книгу. Ты держишь её чуть крепче, чем обычно, — и, кажется, начинаешь запоминать первую страницу наизусть.",
+        "scenes": [
+          {
+            "title": "Девушка из темноты",
+            "narration": "Ты идёшь по пустой ночной улице под осенними листьями, а навстречу из темноты выходит худенькая девушка в белом. Она шагает рядом с пожарным, вдыхает запах керосина и смотрит ему прямо в глаза.",
+            "line": {
+              "text": "А вы счастливы?"
+            }
+          },
+          {
+            "title": "Дом, полный книг",
+            "narration": "Ты стоишь в старом доме, где книги падают с полок, словно подстреленные птицы. Пожарные обливают их керосином, а хозяйка дома, не двигаясь, сжимает в руке спичку.",
+            "line": {
+              "text": "Будь мужествен — сегодня мы зажжём свечу, которую уже не погасить."
+            }
+          },
+          {
+            "title": "«Дуврский берег»",
+            "narration": "Ты сидишь в гостиной, где на трёх стенах кривляется экранная «семья». Монтэг выключает стены, открывает томик стихов и читает вслух, а гости Милдред замирают в неловкой тишине.",
+            "line": {
+              "text": "Любимая, будем верны друг другу — ведь мир вокруг лишь кажется прекрасным."
+            }
+          },
+          {
+            "title": "Профессор Фабер",
+            "narration": "Ты сидишь в тесной комнате старого профессора, где за плотными шторами прячутся последние книги. Фабер достаёт крошечную зелёную пулю-приёмник и вкладывает её Монтэгу в ухо.",
+            "line": {
+              "text": "Нужны не сами книги, а то, что когда-то в них было."
+            }
+          },
+          {
+            "title": "Пожар в собственном доме",
+            "narration": "Ты стоишь у пылающего дома Монтэга, а сирены воют на всю улицу. Битти, ухмыляясь, бросает ему вызов, а из-за угла, мягко ступая, выходит Механический пёс с горящими глазами.",
+            "line": {
+              "text": "Ну же, книжник, нажимай на спуск!"
+            }
+          },
+          {
+            "title": "Книжные люди",
+            "narration": "Ты сидишь у костра у заброшенной железной дороги среди тихих бородатых людей. Каждый из них — живая книга, и на рассвете вы вместе идёте к разрушенному городу.",
+            "line": {
+              "text": "Каждый из нас — книга. А вместе мы — библиотека."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "montag": {
+          "name": "Гай Монтэг",
+          "traits": [
+            "сомневающийся",
+            "порывистый",
+            "ищущий",
+            "смелый"
+          ],
+          "description": "Пожарный, десять лет сжигавший книги и тайком их собиравший. Встреча с Клариссой и гибель женщины вместе с её библиотекой заставляют его задуматься о собственной пустой жизни. Он восстаёт, убивает Битти, бежит из города и становится одним из книжных людей."
+        },
+        "clarisse": {
+          "name": "Кларисса Маклеллан",
+          "traits": [
+            "любознательная",
+            "наблюдательная",
+            "живая",
+            "искренняя"
+          ],
+          "description": "Семнадцатилетняя соседка Монтэга, которая гуляет по ночам, замечает росу и луну и задаёт людям вопросы. Общество считает её «странной». Она исчезает из книги внезапно — погибает под колёсами машины, — но успевает разбудить в Монтэге сомнения."
+        },
+        "beatty": {
+          "name": "Брандмейстер Битти",
+          "traits": [
+            "начитанный",
+            "циничный",
+            "властный",
+            "насмешливый"
+          ],
+          "description": "Начальник Монтэга, который знает книги лучше всех и именно поэтому их ненавидит. Он ловко оправдывает сожжение книг, цитируя их же. Похоже, сам Битти хотел смерти: он нарочно провоцирует Монтэга, пока тот не направляет на него огнемёт."
+        },
+        "mildred": {
+          "name": "Милдред Монтэг",
+          "traits": [
+            "равнодушная",
+            "зависимая",
+            "несчастная",
+            "пустая"
+          ],
+          "description": "Жена Монтэга, живущая в мире «ракушек», телестен и снотворного. После передозировки она даже не помнит о случившемся. Испугавшись книг мужа, Милдред сама доносит на него и уезжает, не оглянувшись на горящий дом."
+        },
+        "faber": {
+          "name": "Фабер",
+          "traits": [
+            "мудрый",
+            "робкий",
+            "образованный",
+            "совестливый"
+          ],
+          "description": "Старый профессор английской литературы, давно смирившийся со своей трусостью. Монтэг заставляет его действовать: Фабер подсказывает ему через приёмник, помогает бежать и сам уезжает в Сент-Луис, чтобы связаться с печатником."
+        },
+        "granger": {
+          "name": "Грейнджер",
+          "traits": [
+            "спокойный",
+            "мудрый",
+            "терпеливый"
+          ],
+          "description": "Предводитель изгнанников, живущих у железной дороги. Он принимает Монтэга, объясняет, что каждый из них хранит в памяти книгу, и после гибели города ведёт людей восстанавливать мир."
+        },
+        "hound": {
+          "name": "Механический пёс",
+          "traits": [
+            "безжалостный",
+            "неутомимый",
+            "бездушный"
+          ],
+          "description": "Восьминогая машина-ищейка пожарной части, которую можно настроить на запах любого человека. Пёс с самого начала рычит на Монтэга, а потом едва не убивает его; его двойник продолжает охоту в прямом эфире."
+        },
+        "old-woman": {
+          "name": "Женщина с книгами",
+          "traits": [
+            "непреклонная",
+            "достойная",
+            "бесстрашная"
+          ],
+          "description": "Пожилая хозяйка дома с огромной библиотекой. Вместо того чтобы покинуть дом, она сама поджигает его, цитируя слова мученика, — и её смерть переворачивает душу Монтэга."
+        }
+      }
+    },
+    "uk": {
+      "title": "451° за Фаренгейтом",
+      "originalTitle": "Fahrenheit 451",
+      "author": "Рей Бредбері",
+      "genre": "Антиутопія, наукова фантастика",
+      "tagline": "Пожежник, який палив книжки, одного дня наважується одну з них прочитати.",
+      "summary": [
+        "В Америці недалекого майбутнього пожежники не гасять вогонь, а розпалюють його: на виклик вони мчать до будинків, де сховано книжки, і спалюють їх разом із будинками. Гай Монтеґ десять років служить пожежником і любить свою роботу — запах гасу, шипіння вогнемета, число 451 на шоломі. Якось уночі, повертаючись додому, він зустрічає сімнадцятирічну сусідку Кларису Макклеллан. Дивна дівчина любить ходити пішки, нюхати листя й розмовляти, а на прощання питає його, чи він щасливий. Це питання не дає Монтеґові спокою.",
+        "Удома він знаходить дружину Мілдред непритомною: вона проковтнула цілий флакон снодійного. Техніки, що приїхали, байдуже відкачують її машиною, наче роблять це по десять разів за ніч, а вранці Мілдред нічого не пам’ятає. Її світ — мушлі-приймачі у вухах і «телестіни» у вітальні, де цілодобово базікає екранна «родина»; Мілдред мріє про четверту стіну. А Клариса й далі зустрічається Монтеґові та ставить незручні питання, аж поки одного дня не зникає: Мілдред мимохідь повідомляє, що дівчину збила машина.",
+        "За черговим викликом пожежники приїздять до літньої жінки, в якої ціла бібліотека. Вона відмовляється покинути дім і сама черкає сірником, згоряючи разом із книжками. Приголомшений Монтеґ потай виносить одну книжку й наступного дня не може вийти на роботу. Брандмайстер Бітті навідується до нього й пояснює історію: люди самі зреклися книжок заради швидкості, розваг і спокою, а пожежники лише бережуть їхнє щастя від тривожних думок. Бітті натякає, що знає про сховану книжку.",
+        "Монтеґ показує Мілдред схованку — близько двадцяти книжок, які він роками ховав за ґратами вентиляції, — і пробує читати. Не розуміючи прочитаного, він згадує про старого професора англійської Фабера, з яким колись розговорився в парку. Фабер дає йому крихітний приймач-«мушлю», щоб підказувати на відстані. Та Монтеґ зривається: читає подругам дружини вірш «Дуврський берег», і одна з них плаче. Уночі в пожежній частині Бітті засипає його цитатами, доводячи, що книжки суперечать самі собі, — і тут оголошують виклик.",
+        "Машина зупиняється біля Монтеґового будинку: донос написала Мілдред, яка вже їде геть на таксі з валізою. Бітті наказує Монтеґові спалити власний дім, а потім помічає в його вусі Фаберів приймач. Доведений до краю, Монтеґ обертає вогнемет проти брандмайстра й спалює його, приголомшує двох інших пожежників і знищує Механічного пса, що встиг устромити йому в ногу голку зі знеболювальним. Кульгаючи, він тікає нічним містом, а за гонитвою в прямому ефірі стежить уся країна.",
+        "Монтеґ переховується у Фабера, перевдягається й тікає річкою, щоб збити пса зі сліду. Течія виносить його за місто, де вздовж покинутої залізниці живуть вигнанці на чолі з Ґрейнджером. Кожен із них вивчив напам’ять книжку й береже її в пам’яті до кращих часів; Монтеґ пригадує уривки з Екклезіяста. Так і не знайшовши втікача, влада показує по телебаченню, як схопили випадкового перехожого. Невдовзі війна за лічені миті стирає місто бомбами. На світанку книжкові люди вирушають туди — допомагати відроджувати світ із попелу, як фенікс."
+      ],
+      "themes": [
+        "Цензура і свобода думки",
+        "Порожнеча масових розваг",
+        "Пам’ять і культура",
+        "Пробудження особистості",
+        "Самотність у натовпі"
+      ],
+      "terms": [
+        {
+          "term": "451° за Фаренгейтом",
+          "definition": "Температура, за якої, як сказано в епіграфі, займається й горить папір. Це число красується на шоломах пожежників."
+        },
+        {
+          "term": "Пожежники",
+          "definition": "Служба, яка не гасить пожеж, а палить книжки й будинки їхніх власників. Їхні емблеми — саламандра і фенікс."
+        },
+        {
+          "term": "Саламандра",
+          "definition": "Символ пожежників на рукавах і прізвисько пожежної машини: за повір’ям, саламандра живе у вогні й не згорає."
+        },
+        {
+          "term": "Мушлі",
+          "definition": "Крихітні радіоприймачі-вкладки, які Мілдред не виймає з вух навіть уночі, — безперервний потік звуків."
+        },
+        {
+          "term": "Телестіни",
+          "definition": "Стіни-екрани у вітальні, де «родичі» ведуть безглузді розмови з глядачем. Мілдред мріє про четверту стіну."
+        },
+        {
+          "term": "Механічний пес",
+          "definition": "Восьминога машина-нишпорка з голкою, наповненою снодійним, що вистежує жертву за запахом."
+        },
+        {
+          "term": "Зелена куля",
+          "definition": "Мініатюрний передавач Фабера, крізь який старий чує Монтеґа й підказує йому."
+        },
+        {
+          "term": "«Дуврський берег»",
+          "definition": "Вірш Метью Арнольда про світ, що втратив віру й опору, який Монтеґ читає подругам Мілдред."
+        },
+        {
+          "term": "Книжкові люди",
+          "definition": "Вигнанці, які вивчили книжки напам’ять і стали їхніми живими охоронцями, чекаючи, коли люди знову захочуть читати."
+        },
+        {
+          "term": "Фенікс",
+          "definition": "Птах, що згорає й знову народжується з попелу. Ґрейнджер бачить у ньому образ людства, яке щоразу підводиться після катастроф."
+        }
+      ],
+      "similar": [
+        {
+          "title": "1984",
+          "author": "Джордж Орвелл",
+          "why": "Ще один самотній бунтар повстає проти держави, яка переписує минуле й контролює думки."
+        },
+        {
+          "title": "Прекрасний новий світ",
+          "author": "Олдос Гакслі",
+          "why": "Антиутопія, де людей приборкують не страхом, а насолодами й бездумним споживанням."
+        },
+        {
+          "title": "Ми",
+          "author": "Євген Замятін",
+          "why": "Родоначальник жанру: людина в ідеально впорядкованому суспільстві раптом пробуджується до власної душі."
+        },
+        {
+          "title": "Оповідь служниці",
+          "author": "Марґарет Етвуд",
+          "why": "Світ, де заборонено читати, а пам’ять і слова стають формою спротиву."
+        },
+        {
+          "title": "Марсіанські хроніки",
+          "author": "Рей Бредбері",
+          "why": "Поетична фантастика того самого автора про людей, які втрачають зв’язок із минулим і з собою."
+        }
+      ],
+      "film": {
+        "title": "Місто, де горять книжки",
+        "intro": "Ти розгортаєш книжку, і пахне гасом. Десь удалині виє сирена, і ти розумієш: у цьому світі книжку не можна тримати в руках — її можна тільки спалити.",
+        "outro": "Полум’я згасає, і ти закриваєш книжку. Ти тримаєш її трохи міцніше, ніж зазвичай, — і, здається, починаєш вивчати першу сторінку напам’ять.",
+        "scenes": [
+          {
+            "title": "Дівчина з темряви",
+            "narration": "Ти йдеш порожньою нічною вулицею під осіннім листям, а назустріч із темряви виходить тендітна дівчина в білому. Вона крокує поруч із пожежником, вдихає запах гасу й дивиться йому просто в очі.",
+            "line": {
+              "text": "А ви щасливі?"
+            }
+          },
+          {
+            "title": "Дім, повний книжок",
+            "narration": "Ти стоїш у старому будинку, де книжки падають з полиць, наче підстрелені птахи. Пожежники обливають їх гасом, а господиня, не рушаючи з місця, стискає в руці сірник.",
+            "line": {
+              "text": "Будь мужнім — сьогодні ми запалимо свічу, якої вже не загасити."
+            }
+          },
+          {
+            "title": "«Дуврський берег»",
+            "narration": "Ти сидиш у вітальні, де на трьох стінах кривляється екранна «родина». Монтеґ вимикає стіни, розгортає томик віршів і читає вголос, а гості Мілдред завмирають у незручній тиші.",
+            "line": {
+              "text": "Кохана, будьмо вірні одне одному — бо світ довкола лише здається прекрасним."
+            }
+          },
+          {
+            "title": "Професор Фабер",
+            "narration": "Ти сидиш у тісній кімнаті старого професора, де за щільними шторами ховаються останні книжки. Фабер дістає крихітну зелену кулю-приймач і вкладає її Монтеґові у вухо.",
+            "line": {
+              "text": "Потрібні не самі книжки, а те, що колись у них було."
+            }
+          },
+          {
+            "title": "Пожежа у власному домі",
+            "narration": "Ти стоїш біля палаючого будинку Монтеґа, а сирени виють на всю вулицю. Бітті, посміхаючись, кидає йому виклик, а з-за рогу, м’яко ступаючи, виходить Механічний пес із палаючими очима.",
+            "line": {
+              "text": "Ну ж бо, книжнику, тисни на гачок!"
+            }
+          },
+          {
+            "title": "Книжкові люди",
+            "narration": "Ти сидиш біля багаття край покинутої залізниці серед тихих бородатих людей. Кожен із них — жива книжка, і на світанку ви разом ідете до зруйнованого міста.",
+            "line": {
+              "text": "Кожен із нас — книжка. А разом ми — бібліотека."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "montag": {
+          "name": "Гай Монтеґ",
+          "traits": [
+            "сповнений сумнівів",
+            "поривчастий",
+            "шукач",
+            "сміливий"
+          ],
+          "description": "Пожежник, який десять років палив книжки й потай їх збирав. Зустріч із Кларисою та загибель жінки разом із її бібліотекою змушують його замислитися над власним порожнім життям. Він бунтує, вбиває Бітті, тікає з міста й стає одним із книжкових людей."
+        },
+        "clarisse": {
+          "name": "Клариса Макклеллан",
+          "traits": [
+            "допитлива",
+            "спостережлива",
+            "жвава",
+            "щира"
+          ],
+          "description": "Сімнадцятирічна сусідка Монтеґа, яка гуляє ночами, помічає росу й місяць і ставить людям питання. Суспільство вважає її «дивною». Вона раптово зникає з книжки — гине під колесами машини, — але встигає розбудити в Монтеґові сумніви."
+        },
+        "beatty": {
+          "name": "Брандмайстер Бітті",
+          "traits": [
+            "начитаний",
+            "цинічний",
+            "владний",
+            "глузливий"
+          ],
+          "description": "Монтеґів начальник, який знає книжки краще за всіх — і саме тому їх ненавидить. Він спритно виправдовує спалення книжок, цитуючи їх же. Схоже, Бітті сам шукав смерті: він навмисне провокує Монтеґа, аж поки той не спрямовує на нього вогнемет."
+        },
+        "mildred": {
+          "name": "Мілдред Монтеґ",
+          "traits": [
+            "байдужа",
+            "залежна",
+            "нещасна",
+            "порожня"
+          ],
+          "description": "Монтеґова дружина, що живе у світі «мушель», телестін і снодійного. Після передозування вона навіть не пам’ятає, що сталося. Злякавшись чоловікових книжок, Мілдред сама доносить на нього й їде, не озирнувшись на палаючий дім."
+        },
+        "faber": {
+          "name": "Фабер",
+          "traits": [
+            "мудрий",
+            "боязкий",
+            "освічений",
+            "сумлінний"
+          ],
+          "description": "Старий професор англійської літератури, що давно змирився зі своєю боягузливістю. Монтеґ змушує його діяти: Фабер підказує йому через приймач, допомагає втекти й сам їде до Сент-Луїса, щоб зв’язатися з друкарем."
+        },
+        "granger": {
+          "name": "Ґрейнджер",
+          "traits": [
+            "спокійний",
+            "мудрий",
+            "терплячий"
+          ],
+          "description": "Ватажок вигнанців, які живуть біля залізниці. Він приймає Монтеґа, пояснює, що кожен із них зберігає в пам’яті книжку, і після загибелі міста веде людей відроджувати світ."
+        },
+        "hound": {
+          "name": "Механічний пес",
+          "traits": [
+            "безжальний",
+            "невтомний",
+            "бездушний"
+          ],
+          "description": "Восьминога машина-нишпорка пожежної частини, яку можна налаштувати на запах будь-кого. Пес від самого початку гарчить на Монтеґа, а згодом мало не вбиває його; його двійник продовжує полювання в прямому ефірі."
+        },
+        "old-woman": {
+          "name": "Жінка з книжками",
+          "traits": [
+            "непохитна",
+            "гідна",
+            "безстрашна"
+          ],
+          "description": "Літня господиня будинку з величезною бібліотекою. Замість того щоб покинути дім, вона сама підпалює його, цитуючи слова мученика, — і її смерть перевертає Монтеґові душу."
+        }
+      }
+    },
+    "en": {
+      "title": "Fahrenheit 451",
+      "originalTitle": "Fahrenheit 451",
+      "author": "Ray Bradbury",
+      "genre": "Dystopian science fiction",
+      "tagline": "A fireman who burns books one day dares to read one.",
+      "summary": [
+        "In an America of the near future, firemen do not put fires out — they start them: when the alarm sounds they race to houses where books are hidden and burn the books along with the houses. Guy Montag has been a fireman for ten years and loves his work — the smell of kerosene, the hiss of the flamethrower, the number 451 on his helmet. One night on his way home he meets his seventeen-year-old neighbour, Clarisse McClellan. The strange girl likes walking, smelling leaves and talking, and as they part she asks him whether he is happy. The question gives Montag no peace.",
+        "At home he finds his wife Mildred unconscious: she has swallowed a whole bottle of sleeping pills. The technicians who arrive pump her out with a machine as casually as if they did it ten times a night, and in the morning Mildred remembers nothing. Her world is Seashell radios in her ears and parlour walls where an on-screen “family” chatters around the clock; she longs for a fourth wall. Clarisse keeps meeting Montag and asking awkward questions, until one day she is gone: Mildred mentions in passing that the girl was hit by a car.",
+        "On their next call the firemen come to an elderly woman with a whole library. She refuses to leave her house and strikes the match herself, burning along with her books. Shaken, Montag secretly takes one book away and the next day cannot face work. Captain Beatty visits him and explains the history: people gave up books themselves for speed, entertainment and peace of mind, and the firemen merely protect their happiness from troubling thoughts. Beatty hints that he knows about the hidden book.",
+        "Montag shows Mildred his hiding place — some twenty books he has stashed behind the ventilator grille over the years — and tries to read. Unable to understand, he remembers Faber, an old English professor he once talked to in a park. Faber gives him a tiny Seashell-style earpiece so that he can coach him from a distance. But Montag loses control: he reads Mildred’s friends the poem “Dover Beach,” and one of them weeps. That night at the firehouse Beatty bombards him with quotations to prove that books contradict themselves — and then the alarm sounds.",
+        "The engine pulls up at Montag’s own house: the alarm was turned in by Mildred, who is already leaving in a taxi with a suitcase. Beatty orders Montag to burn his own home, then spots Faber’s earpiece. Driven to the edge, Montag turns the flamethrower on the captain and burns him, knocks out the other two firemen and destroys the Mechanical Hound, though not before it injects a needle of anaesthetic into his leg. Limping, he flees through the city at night while the whole country watches the manhunt live on television.",
+        "Montag hides at Faber’s, changes clothes and escapes down the river to throw the Hound off his scent. The current carries him out of the city to a band of outcasts living along an abandoned railway, led by Granger. Each of them has memorised a book and keeps it safe in his head for better times; Montag recalls passages of Ecclesiastes. Unable to find the fugitive, the authorities stage the capture of an innocent passer-by on television. Soon a war breaks out and bombs wipe the city away in seconds. At dawn the book people set off toward it — to help rebuild the world from the ashes, like the phoenix."
+      ],
+      "themes": [
+        "Censorship and freedom of thought",
+        "The emptiness of mass entertainment",
+        "Memory and culture",
+        "Awakening of the individual",
+        "Loneliness in the crowd"
+      ],
+      "terms": [
+        {
+          "term": "451 degrees Fahrenheit",
+          "definition": "The temperature at which, as the epigraph says, book paper catches fire and burns. The number is displayed on the firemen’s helmets."
+        },
+        {
+          "term": "Firemen",
+          "definition": "A service that does not put out fires but burns books and their owners’ houses. Their emblems are the salamander and the phoenix."
+        },
+        {
+          "term": "The Salamander",
+          "definition": "The firemen’s sleeve badge and the nickname of their engine: legend says the salamander lives in fire without burning."
+        },
+        {
+          "term": "Seashells",
+          "definition": "Tiny thimble radios Mildred keeps in her ears even at night — an unbroken stream of sound."
+        },
+        {
+          "term": "Parlour walls",
+          "definition": "Wall-sized screens where a television “family” holds meaningless conversations with the viewer. Mildred wants a fourth wall."
+        },
+        {
+          "term": "The Mechanical Hound",
+          "definition": "An eight-legged robotic tracker with a needle full of anaesthetic that hunts its victim by scent."
+        },
+        {
+          "term": "The green bullet",
+          "definition": "Faber’s miniature two-way radio, through which the old man hears Montag and prompts him."
+        },
+        {
+          "term": "“Dover Beach”",
+          "definition": "Matthew Arnold’s poem about a world that has lost its faith and certainty, which Montag reads to Mildred’s friends."
+        },
+        {
+          "term": "The book people",
+          "definition": "Outcasts who have memorised books and become their living keepers, waiting for the day people want to read again."
+        },
+        {
+          "term": "The phoenix",
+          "definition": "A bird that burns and is reborn from its ashes. Granger sees in it humanity, which rises again and again after every catastrophe."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Nineteen Eighty-Four",
+          "author": "George Orwell",
+          "why": "Another lone rebel turns against a state that rewrites the past and controls thought."
+        },
+        {
+          "title": "Brave New World",
+          "author": "Aldous Huxley",
+          "why": "A dystopia where people are pacified not by fear but by pleasure and mindless consumption."
+        },
+        {
+          "title": "We",
+          "author": "Yevgeny Zamyatin",
+          "why": "The forerunner of the genre: a man in a perfectly ordered society suddenly awakens to his own soul."
+        },
+        {
+          "title": "The Handmaid’s Tale",
+          "author": "Margaret Atwood",
+          "why": "A world where reading is forbidden and memory and words become a form of resistance."
+        },
+        {
+          "title": "The Martian Chronicles",
+          "author": "Ray Bradbury",
+          "why": "Bradbury’s poetic science fiction about people losing touch with their past and with themselves."
+        }
+      ],
+      "film": {
+        "title": "The City Where Books Burn",
+        "intro": "You open the book and smell kerosene. A siren wails somewhere far away, and you realise that in this world a book is not for holding — only for burning.",
+        "outro": "The flames die down and you close the book. You hold it a little tighter than usual — and, it seems, you are already learning the first page by heart.",
+        "scenes": [
+          {
+            "title": "The Girl from the Dark",
+            "narration": "You walk down an empty night street beneath autumn leaves, and a slender girl in white steps out of the darkness. She falls into step beside the fireman, breathes in the smell of kerosene and looks him straight in the eye.",
+            "line": {
+              "text": "Are you happy?"
+            }
+          },
+          {
+            "title": "A House Full of Books",
+            "narration": "You stand in an old house where books tumble from the shelves like shot birds. The firemen douse them with kerosene, while the owner stands perfectly still, a match clutched in her hand.",
+            "line": {
+              "text": "Be brave — today we light a candle that can never be put out."
+            }
+          },
+          {
+            "title": "Dover Beach",
+            "narration": "You sit in a parlour where an on-screen “family” capers across three walls. Montag switches the walls off, opens a slim book of poems and reads aloud, and Mildred’s guests freeze in awkward silence.",
+            "line": {
+              "text": "Love, let us be true to one another — for the world only seems so bright and new."
+            }
+          },
+          {
+            "title": "Professor Faber",
+            "narration": "You sit in the old professor’s cramped room, where the last books hide behind heavy curtains. Faber takes out a tiny green bullet-shaped radio and slips it into Montag’s ear.",
+            "line": {
+              "text": "It isn’t the books you need, but what was once in them."
+            }
+          },
+          {
+            "title": "Fire at Home",
+            "narration": "You stand outside Montag’s burning house as the sirens wail down the street. Beatty grins and goads him, and round the corner, treading softly, comes the Mechanical Hound with glowing eyes.",
+            "line": {
+              "text": "Go on then, bookworm — pull the trigger!"
+            }
+          },
+          {
+            "title": "The Book People",
+            "narration": "You sit by a campfire beside an abandoned railway among quiet, bearded men. Each of them is a living book, and at dawn you walk together toward the ruined city.",
+            "line": {
+              "text": "Each of us is a book. Together we are a library."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "montag": {
+          "name": "Guy Montag",
+          "traits": [
+            "doubting",
+            "impulsive",
+            "searching",
+            "brave"
+          ],
+          "description": "A fireman who has burned books for ten years while secretly hoarding them. Meeting Clarisse and watching a woman die with her library force him to face the emptiness of his life. He rebels, kills Beatty, flees the city and becomes one of the book people."
+        },
+        "clarisse": {
+          "name": "Clarisse McClellan",
+          "traits": [
+            "curious",
+            "observant",
+            "lively",
+            "sincere"
+          ],
+          "description": "Montag’s seventeen-year-old neighbour, who walks at night, notices the dew and the moon and asks people questions. Society considers her “odd.” She disappears from the story abruptly — killed by a speeding car — but not before she has awakened Montag’s doubts."
+        },
+        "beatty": {
+          "name": "Captain Beatty",
+          "traits": [
+            "well-read",
+            "cynical",
+            "domineering",
+            "mocking"
+          ],
+          "description": "Montag’s chief, who knows books better than anyone and hates them for that very reason. He cleverly justifies book-burning by quoting books themselves. Beatty seems to have wanted to die: he deliberately goads Montag until the fireman turns the flamethrower on him."
+        },
+        "mildred": {
+          "name": "Mildred Montag",
+          "traits": [
+            "indifferent",
+            "dependent",
+            "unhappy",
+            "hollow"
+          ],
+          "description": "Montag’s wife, who lives in a world of Seashells, parlour walls and sleeping pills. After her overdose she does not even remember what happened. Frightened by her husband’s books, Mildred turns him in herself and drives away without a glance at the burning house."
+        },
+        "faber": {
+          "name": "Faber",
+          "traits": [
+            "wise",
+            "timid",
+            "learned",
+            "conscientious"
+          ],
+          "description": "A retired English professor long resigned to his own cowardice. Montag shakes him into action: Faber coaches him through the earpiece, helps him escape and sets off for St. Louis to contact a printer."
+        },
+        "granger": {
+          "name": "Granger",
+          "traits": [
+            "calm",
+            "wise",
+            "patient"
+          ],
+          "description": "The leader of the outcasts who live by the railway. He welcomes Montag, explains that each of them carries a book in his memory, and after the city’s destruction leads the group off to rebuild."
+        },
+        "hound": {
+          "name": "The Mechanical Hound",
+          "traits": [
+            "merciless",
+            "tireless",
+            "soulless"
+          ],
+          "description": "The firehouse’s eight-legged robotic tracker, which can be set to anyone’s scent. It growls at Montag from the start and later nearly kills him; a replacement continues the hunt live on television."
+        },
+        "old-woman": {
+          "name": "The Woman with the Books",
+          "traits": [
+            "unyielding",
+            "dignified",
+            "fearless"
+          ],
+          "description": "The elderly owner of a house full of books. Rather than leave, she sets the fire herself while quoting a martyr’s words — and her death turns Montag’s world upside down."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "montag",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "average",
+        "skin": "#e8bf9c",
+        "hair": { "style": "short", "color": "#1e1a18" },
+        "facialHair": "stubble",
+        "eyes": "#4a5a6a",
+        "top": { "kind": "jacket", "color": "#1c1c22", "accent": "#e8642a", "pattern": "plain" },
+        "bottom": { "kind": "pants", "color": "#1c1c22" },
+        "shoes": "#101014",
+        "headwear": "helmet",
+        "headwearColor": "#1a1a1e",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "book"
+      },
+      "portraitPrompt": "A soot-smudged fireman in his thirties with short black hair and troubled eyes, wearing a black fireproof uniform with an orange salamander badge on the sleeve and a phoenix disc on the chest, a black helmet numbered 451, secretly clutching a small book."
+    },
+    {
+      "id": "clarisse",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f6e4d8",
+        "hair": { "style": "long", "color": "#2e2420" },
+        "facialHair": "none",
+        "eyes": "#3a2e28",
+        "top": { "kind": "dress", "color": "#f4f2ee", "accent": "#d8c8a8", "pattern": "plain" },
+        "bottom": { "kind": "skirt", "color": "#f4f2ee" },
+        "shoes": "#c8b8a0",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "flower"
+      },
+      "portraitPrompt": "A slender seventeen-year-old girl with a milk-white face, long dark hair and dark, wondering eyes, wearing a simple white dress, holding a yellow dandelion under her chin, autumn leaves swirling around her."
+    },
+    {
+      "id": "beatty",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#eab49a",
+        "hair": { "style": "short", "color": "#141214" },
+        "facialHair": "none",
+        "eyes": "#3a3a40",
+        "top": { "kind": "jacket", "color": "#1c1c22", "accent": "#e8b02a", "pattern": "plain" },
+        "bottom": { "kind": "pants", "color": "#1c1c22" },
+        "shoes": "#101014",
+        "headwear": "helmet",
+        "headwearColor": "#1a1a1e",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "pipe"
+      },
+      "portraitPrompt": "A heavy-set fire captain with a pink, freshly shaven face, black hair and a sardonic smile, wearing a black uniform with gold salamander insignia and a black helmet, puffing on a pipe and flicking a lighter."
+    },
+    {
+      "id": "mildred",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "adult",
+        "build": "slim",
+        "skin": "#f2dcd0",
+        "hair": { "style": "bob", "color": "#d8c070" },
+        "facialHair": "none",
+        "eyes": "#7a8a8a",
+        "top": { "kind": "robe", "color": "#b8d4dc", "accent": "#e8f2f4", "pattern": "plain" },
+        "bottom": { "kind": "robe", "color": "#b8d4dc" },
+        "shoes": "#e0e6ea",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A pale, thin woman with chemically bleached, brittle straw-coloured hair and a vacant gaze, wearing a pale-blue dressing gown, tiny seashell radios in her ears, lit by the flicker of wall-sized screens."
+    },
+    {
+      "id": "faber",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "slim",
+        "skin": "#efd2bc",
+        "hair": { "style": "short", "color": "#e6e2da" },
+        "facialHair": "none",
+        "eyes": "#5a6a7a",
+        "top": { "kind": "suit", "color": "#2a2a30", "accent": "#e8e4dc", "pattern": "plain" },
+        "bottom": { "kind": "pants", "color": "#2a2a30" },
+        "shoes": "#1a1612",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "book"
+      },
+      "portraitPrompt": "A frail, nervous old professor with thin white hair and kind, frightened eyes, wearing a shabby dark suit, holding a worn book close to his chest in a dim, curtained room."
+    },
+    {
+      "id": "granger",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "average",
+        "skin": "#c89a74",
+        "hair": { "style": "short", "color": "#5a4a3a" },
+        "facialHair": "beard",
+        "eyes": "#4a3a2a",
+        "top": { "kind": "coat", "color": "#6a5a42", "accent": "#4a3e2e", "pattern": "plain" },
+        "bottom": { "kind": "pants", "color": "#4a4236" },
+        "shoes": "#3a2e22",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A calm, weathered man with a short brown beard and thoughtful eyes, wearing a worn brown field coat, warming his hands at a small campfire beside old railway tracks."
+    },
+    {
+      "id": "hound",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "dog",
+        "gender": "neutral",
+        "age": "adult",
+        "build": "slim",
+        "skin": "#a8b0ba",
+        "hair": { "style": "none", "color": "#8a929c" },
+        "facialHair": "none",
+        "eyes": "#3ae0c0",
+        "top": { "kind": "armor", "color": "#9aa2ac", "accent": "#3ae0c0", "pattern": "plain" },
+        "bottom": { "kind": "none", "color": "#a8b0ba" },
+        "shoes": "#5a626c",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A sleek eight-legged robotic hound of polished steel and brass, with glowing green-blue eyes and a long silver needle extending from its snout, crouched in a dark firehouse."
+    },
+    {
+      "id": "old-woman",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "elder",
+        "build": "slim",
+        "skin": "#f0d4c0",
+        "hair": { "style": "bun", "color": "#c8c4bc" },
+        "facialHair": "none",
+        "eyes": "#5a5a6a",
+        "top": { "kind": "dress", "color": "#4a3a4a", "accent": "#e8e0d4", "pattern": "plain" },
+        "bottom": { "kind": "skirt", "color": "#4a3a4a" },
+        "shoes": "#1e1a18",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "book"
+      },
+      "portraitPrompt": "A dignified elderly woman with grey hair in a bun and a calm, defiant face, wearing a dark plum dress, standing among heaps of books with a kitchen match in her hand."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "street",
+        "time": "night",
+        "weather": "wind",
+        "cast": ["montag", "clarisse"],
+        "props": ["lamp", "tree", "house", "moon"],
+        "action": "walk",
+        "camera": "pan",
+        "mood": "mysterious",
+        "line": { "speaker": "clarisse" }
+      },
+      {
+        "setting": "library",
+        "time": "night",
+        "weather": "clear",
+        "cast": ["montag", "beatty", "old-woman"],
+        "props": ["bookshelf", "fire", "door", "lamp"],
+        "action": "sad",
+        "camera": "crane",
+        "mood": "tense",
+        "line": { "speaker": "old-woman" }
+      },
+      {
+        "setting": "room",
+        "time": "night",
+        "weather": "clear",
+        "cast": ["montag", "mildred"],
+        "props": ["chair", "table", "window", "lamp"],
+        "action": "talk",
+        "camera": "close_up",
+        "mood": "melancholic",
+        "line": { "speaker": "montag" }
+      },
+      {
+        "setting": "room",
+        "time": "night",
+        "weather": "rain",
+        "cast": ["montag", "faber"],
+        "props": ["bookshelf", "desk", "lamp", "window"],
+        "action": "talk",
+        "camera": "dolly_in",
+        "mood": "mysterious",
+        "line": { "speaker": "faber" }
+      },
+      {
+        "setting": "street",
+        "time": "night",
+        "weather": "clear",
+        "cast": ["montag", "beatty", "hound", "mildred"],
+        "props": ["house", "fire", "lamp"],
+        "action": "fight",
+        "camera": "orbit",
+        "mood": "epic",
+        "line": { "speaker": "beatty" }
+      },
+      {
+        "setting": "forest",
+        "time": "dawn",
+        "weather": "fog",
+        "cast": ["montag", "granger"],
+        "props": ["fire", "train", "tree", "pine"],
+        "action": "rest",
+        "camera": "crane",
+        "mood": "calm",
+        "line": { "speaker": "granger" }
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: a retro-futuristic fire engine shaped like a salamander roars down a night street, firemen in black helmets numbered 451 spray glowing kerosene onto a small house as stacks of books flutter out of the windows like burning birds; slow crane camera, orange firelight against deep blue night, no text.",
+      "Cute voxel-diorama 3D scene: an eight-legged silver robotic hound with glowing green eyes stalks through an empty futuristic suburb at night, while a lone man in a black uniform limps away toward a dark river; tense tracking pan, cold neon light and drifting smoke, no text.",
+      "Cute voxel-diorama 3D scene: a small campfire beside rusty abandoned railway tracks in a misty forest at dawn, a circle of quiet travellers recite books from memory as, far on the horizon, a city flashes and crumbles, then a golden phoenix of sparks rises from the fire; gentle crane camera, hopeful mood, no text."
+    ]
+  }
+}

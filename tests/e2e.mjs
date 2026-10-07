@@ -678,6 +678,305 @@ await check("live (mocked): resolver errors and 'not found' are handled", async 
 });
 
 // ---------------------------------------------------------------------------------------------
+// V2: pretty URLs, router, default language, honest hero, waitlist, sticky tabs, PWA
+
+const STR = await (async () => {
+  const src = await readFile(`${ROOT}js/i18n.js`, "utf8");
+  const pick = (lang, key) => {
+    const block = src.split(new RegExp(`\\n  ${lang}: \\{`)).slice(1).map((b) => b.split(/\n  \},?\n/)[0]);
+    for (const b of block.reverse()) {
+      const m = new RegExp(`"${key.replace(/[.~]/g, (c) => `\\${c}`)}": "([^"]*)"`).exec(b);
+      if (m) return m[1];
+    }
+    return null;
+  };
+  return pick;
+})();
+
+await check("routes: a direct /book/<id> load renders the book and keeps its URL", async () => {
+  const page = await open("book/little-prince", { lang: "en" });
+  const raw = BOOKS["little-prince"];
+  await bookShown(page, raw.i18n.en.title);
+  const info = await page.evaluate(() => ({ path: location.pathname, hash: location.hash, ssr: document.querySelectorAll("#ssr-book").length, title: document.title }));
+  assert(info.path === "/book/little-prince" && !info.hash, `URL became ${info.path}${info.hash}`);
+  assert(!info.ssr, "server-rendered #ssr-book block was not removed");
+  assert(info.title === `${raw.i18n.en.title} — ${raw.i18n.en.author} | BookTrip`, `document.title "${info.title}"`);
+  // share uses the canonical book URL
+  const share = await page.evaluate(() => { let url = ""; navigator.share = undefined; navigator.clipboard.writeText = async (u) => { url = u; }; document.querySelector(".bk-share").click(); return new Promise((r) => setTimeout(() => r(url), 300)); });
+  assert(share === `${new URL(BASE).origin}/book/little-prince`, `share URL ${share}`);
+  noErrors(page, "direct book load");
+  await close(page);
+});
+
+await check("routes: legacy /#/book/<id> becomes /book/<id>", async () => {
+  const page = await open("#/book/the-hobbit", { lang: "en" });
+  await bookShown(page, BOOKS["the-hobbit"].i18n.en.title);
+  await pathIs(page, "/book/the-hobbit");
+  noErrors(page, "legacy link");
+  await close(page);
+});
+
+await check("navigation: back/forward across home, books and modals over a book; links never reload", async () => {
+  const page = await open("", { lang: "en" });
+  await page.evaluate(() => { window.__marker = 42; });
+  await clickLink(page, "/book/the-hobbit");
+  await bookShown(page, BOOKS["the-hobbit"].i18n.en.title);
+  await pathIs(page, "/book/the-hobbit");
+  await page.click('#nav-links a[href="#/how"]');
+  await waitFor(page, () => document.querySelector(".modal") && location.pathname === "/book/the-hobbit" && location.hash === "#/how", null, { what: "how modal over the book" });
+  assert(await page.evaluate(() => !document.getElementById("view-book").hidden), "book hidden under the modal");
+  await page.goBack();
+  await waitFor(page, () => !document.querySelector(".modal-backdrop:not(.is-closing)") && location.hash === "", null, { what: "modal closed by Back" });
+  await bookShown(page, BOOKS["the-hobbit"].i18n.en.title);
+  await page.goForward();
+  await waitFor(page, () => document.querySelector(".modal") && location.hash === "#/how", null, { what: "modal again after Forward" });
+  await page.keyboard.press("Escape");
+  await waitFor(page, () => !document.querySelector(".modal-backdrop:not(.is-closing)") && location.pathname === "/book/the-hobbit" && !location.hash, null, { what: "Esc closes back to the book URL" });
+  await clickLink(page, "/book/little-prince");
+  await bookShown(page, BOOKS["little-prince"].i18n.en.title);
+  await page.click("a.brand");
+  await homeShown(page);
+  assert(await page.evaluate(() => location.pathname + location.hash) === "/", "brand link should lead to /");
+  await page.goBack();
+  await bookShown(page, BOOKS["little-prince"].i18n.en.title);
+  await page.goBack();
+  await bookShown(page, BOOKS["the-hobbit"].i18n.en.title);
+  await page.goForward();
+  await bookShown(page, BOOKS["little-prince"].i18n.en.title);
+  // search from a book page lives on "/" and lands on the book path
+  await clickLink(page, "#/q/treasure island");
+  await pathIs(page, "/book/treasure-island");
+  await bookShown(page, BOOKS["treasure-island"].i18n.en.title);
+  assert(await page.evaluate(() => window.__marker) === 42, "an in-app link reloaded the page");
+  noErrors(page, "history");
+  await close(page);
+});
+
+await check("i18n: Ukrainian by default, browser ru/en respected, an explicit choice wins", async () => {
+  for (const [locale, want] of [["de-DE", "uk"], ["uk-UA", "uk"], ["ru-RU", "ru"], ["en-GB", "en"]]) {
+    const page = await open("", { lang: null, locale });
+    await waitFor(page, (l) => document.documentElement.lang === l, want, { what: `${locale} → ${want}` });
+    const h1 = (await page.locator("#home-title .l1").textContent()).trim();
+    assert(h1 === STR(want, "home.h1a"), `${locale}: hero "${h1}"`);
+    noErrors(page, `default language ${locale}`);
+    await close(page);
+  }
+  const page = await open("", { lang: "en", locale: "ru-RU" });
+  assert(await page.evaluate(() => document.documentElement.lang) === "en", "stored choice should beat navigator.language");
+  await close(page);
+  const html = await readFile(`${ROOT}index.html`, "utf8");
+  assert(/<html lang="uk">/.test(html), "index.html should default to lang=uk");
+});
+
+await check("home: honest hero while the AI is not live, the full promise once it is", async () => {
+  const page = await open("", { lang: "uk" });
+  const health = await page.evaluate(() => fetch("/api/health").then((r) => r.json()));
+  assert(health.live === false, "this check expects a dev server without AI keys");
+  const l2 = (await page.locator("#home-title .l2").textContent()).trim();
+  assert(l2 === STR("uk", "home.h1b~curated"), `hero promise "${l2}" while not live`);
+  assert(!/будь-як/i.test(await page.locator(".hero").textContent()), "hero still promises any book");
+  await close(page);
+  const live = await open("", { lang: "uk", routes: async (c) => c.route(/\/api\/health$/, (r) => r.fulfill({ contentType: "application/json", body: JSON.stringify({ ...health, live: true }) })) });
+  await waitFor(live, (want) => document.querySelector("#home-title .l2").textContent.trim() === want, STR("uk", "home.h1b"), { what: "the live promise" });
+  noErrors(live, "live hero");
+  await close(live);
+});
+
+async function openNotice(page, q = "Qwzx Plorb Unknown") {
+  await page.fill("#search-input", q);
+  await page.click(".search-go");
+  await waitFor(page, () => document.querySelector(".modal .bt-demo"), null, { what: "demo notice" });
+}
+
+await check("waitlist: unknown book → contact validation, POST /api/waitlist, success state", async () => {
+  const page = await open("", { lang: "en" });
+  await openNotice(page);
+  await page.fill(".bt-wl input", "ab");
+  await page.click(".bt-wl button[type=submit]");
+  await waitFor(page, () => document.querySelector(".bt-wl .bt-field-err")?.textContent.trim().length > 5 && document.querySelector('.bt-wl input[aria-invalid="true"]'), null, { what: "inline validation error" });
+  const req = page.waitForRequest((r) => r.url().includes("/api/waitlist") && r.method() === "POST");
+  await page.fill(".bt-wl input", "@booktrip_reader");
+  await page.click(".bt-wl button[type=submit]");
+  const body = (await req).postDataJSON();
+  assert(body.q === "Qwzx Plorb Unknown" && body.contact === "@booktrip_reader" && body.lang === "en", `waitlist body ${JSON.stringify(body)}`);
+  await waitFor(page, () => document.querySelector(".bt-wl.is-done"), null, { what: "waitlist success" });
+  await shot(page, "waitlist-done");
+  noErrors(page, "waitlist");
+  await close(page);
+});
+
+await check("demo notice closes when a book opens (route change or a pick)", async () => {
+  const page = await open("", { lang: "en" });
+  await openNotice(page);
+  await page.evaluate(() => { location.hash = "#/book/the-hobbit"; }); // a route change from outside
+  await bookShown(page, BOOKS["the-hobbit"].i18n.en.title);
+  await waitFor(page, () => !document.querySelector(".modal-backdrop:not(.is-closing)"), null, { what: "notice closed after the route change" });
+  await page.click("a.brand");
+  await homeShown(page);
+  await openNotice(page, "Zorbulon Mirth");
+  await page.locator(".modal .bt-card").first().click();
+  await bookShown(page);
+  await waitFor(page, () => !document.querySelector(".modal-backdrop:not(.is-closing)"), null, { what: "notice closed after a pick" });
+  noErrors(page, "demo notice");
+  await close(page);
+});
+
+for (const [w, h] of [[320, 640], [390, 844], [1440, 900], [2560, 1300]]) {
+  await check(`book ${w}px: sticky nav + tabs never cover a section heading`, async () => {
+    const page = await open("book/little-prince", { lang: "ru", width: w, height: h, mobile: w < 800, dpr: w < 800 ? 2 : 1 });
+    await bookShown(page, BOOKS["little-prince"].i18n.ru.title);
+    const names = await page.$$eval(".bk-tabs .bk-tab", (b) => b.filter((x) => !x.hidden).map((x) => x.dataset.target));
+    assert(names.length >= 5, `tabs: ${names.join(",")}`);
+    const bad = [];
+    for (const name of names) {
+      await page.locator(`.bk-tabs .bk-tab[data-target="${name}"]`).click();
+      // wait until the smooth scroll and its settle pass are over
+      await page.waitForFunction(() => new Promise((r) => { let y = scrollY, n = 0; const t = setInterval(() => { if (Math.abs(scrollY - y) < 1) n++; else n = 0; y = scrollY; if (n >= 6) { clearInterval(t); r(true); } }, 100); }), null, { timeout: 15000 });
+      await page.waitForTimeout(1300);
+      const m = await page.evaluate((name) => {
+        const sec = document.getElementById(`bk-${name}`);
+        const head = sec.querySelector(".bk-eyebrow") || sec.querySelector("h2");
+        const bars = Math.max(document.getElementById("nav").getBoundingClientRect().bottom, document.querySelector(".bk-tabs").getBoundingClientRect().bottom);
+        return { top: head.getBoundingClientRect().top, h2: sec.querySelector("h2").getBoundingClientRect().top, bars };
+      }, name);
+      if (m.top < m.bars - 0.5) bad.push(`${name}: heading at ${m.top.toFixed(1)} under bars ending at ${m.bars.toFixed(1)}`);
+      if (m.h2 > h * 0.6 && name !== names[names.length - 1]) bad.push(`${name}: heading too far down (${m.h2.toFixed(0)}px)`);
+    }
+    assert(!bad.length, bad.join("; "));
+    await shot(page, `tabs-${w}`, { fullPage: false });
+    await noOverflow(page, `book ${w}`);
+    noErrors(page, `tabs ${w}`);
+    await close(page);
+  });
+}
+
+await check("library: filter field and genre chips", async () => {
+  const page = await open("", { lang: "en" });
+  await page.click('#nav-links a[href="#/library"]');
+  await waitFor(page, () => document.querySelectorAll(".modal .bt-card").length === document.querySelectorAll(".modal .bt-card").length && document.querySelectorAll(".modal .bt-card").length >= 6, null, { what: "library grid" });
+  const total = await page.locator(".modal .bt-card").count();
+  assert(total === CATALOG.length, `library shows ${total} of ${CATALOG.length}`);
+  await page.fill(".bt-lib-input", "hobbit");
+  await waitFor(page, () => document.querySelectorAll(".modal .bt-card").length === 1, null, { what: "filtered to one book" });
+  assert(/Hobbit/.test(await page.locator(".modal .bt-card-title").first().textContent()), "wrong book after filtering");
+  await page.fill(".bt-lib-input", "");
+  const chips = await page.locator(".modal .bt-chip").count();
+  if (chips > 1) {
+    await page.locator(".modal .bt-chip").nth(1).click();
+    await waitFor(page, (n) => { const k = document.querySelectorAll(".modal .bt-card").length; return k > 0 && k < n; }, total, { what: "a genre chip narrows the grid" });
+    assert(await page.locator('.modal .bt-chip[aria-pressed="true"]').count() === 1, "exactly one chip should be pressed");
+  }
+  await noOverflow(page, "library");
+  noErrors(page, "library");
+  await close(page);
+});
+
+await check("pwa: manifest, icons, service worker and the offline shell", async () => {
+  const man = await (await fetch(BASE + "manifest.webmanifest")).json();
+  assert(man.start_url === "/" && man.scope === "/" && man.display === "standalone" && man.background_color === "#04050b", "manifest fields");
+  for (const i of man.icons) {
+    const res = await fetch(new URL(i.src, BASE));
+    assert(res.ok, `icon ${i.src}: HTTP ${res.status}`);
+  }
+  assert(man.icons.some((i) => i.purpose === "maskable"), "no maskable icon");
+  for (const f of ["apple-touch-icon.png", "og.png"]) assert((await fetch(BASE + f)).ok, `${f} missing`);
+  const page = await open("", { lang: "en", sw: true });
+  const html = await page.evaluate(() => ({
+    manifest: document.querySelector('link[rel="manifest"]')?.getAttribute("href"),
+    apple: document.querySelector('link[rel="apple-touch-icon"]')?.getAttribute("href"),
+    theme: document.querySelector('meta[name="theme-color"]')?.content,
+  }));
+  assert(html.manifest === "/manifest.webmanifest" && html.apple === "/apple-touch-icon.png" && html.theme === "#04050b", JSON.stringify(html));
+  await page.evaluate(() => navigator.serviceWorker.ready);
+  await page.reload({ waitUntil: "networkidle" }); // now controlled: modules land in the cache
+  assert(await page.evaluate(() => Boolean(navigator.serviceWorker.controller)), "page is not controlled by the service worker");
+  const api = await page.evaluate(async () => (await caches.keys()).length && (await Promise.all((await caches.keys()).map(async (k) => (await (await caches.open(k)).keys()).map((r) => r.url)))).flat().filter((u) => u.includes("/api/")));
+  assert(Array.isArray(api) && !api.length, `API responses were cached: ${api}`);
+  await page.context().setOffline(true);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await waitFor(page, () => document.getElementById("view-home") && !document.getElementById("view-home").hidden && document.getElementById("search-input"), null, { what: "offline shell" });
+  await page.context().setOffline(false);
+  await close(page);
+});
+
+// ---------------------------------------------------------------------------------------------
+// PAYWALL (own dev server with test billing env, Paddle.js mocked)
+
+await check("paywall: 2 free books, then the paywall; magic-link login; Subscribe opens Paddle with the right price", async () => {
+  const port = Number(new URL(BASE).port || 80) + 7;
+  const PAY = `http://localhost:${port}/`;
+  const env = { ...process.env, AUTH_DEV_LINKS: "1", PADDLE_CLIENT_TOKEN: "test_x", PADDLE_PRICE_MONTH: "pri_m", PADDLE_PRICE_YEAR: "pri_y", PADDLE_WEBHOOK_SECRET: "whsec", PADDLE_API_KEY: "k", PUBLIC_TELEGRAM: "booktrip_test", SIGNING_SECRET: "dev", PADDLE_ENV: "sandbox" };
+  for (const k of ["ANTHROPIC_API_KEY", "RESEND_API_KEY", "KV_REST_API_URL", "UPSTASH_REDIS_REST_URL"]) delete env[k];
+  const child = spawn(process.execPath, [`${ROOT}tests/dev-server.mjs`, String(port)], { stdio: "ignore", env });
+  try {
+    let h = null;
+    for (let i = 0; i < 50 && !h; i++) { await sleep(200); try { h = await (await fetch(PAY + "api/health")).json(); } catch { /* not yet */ } }
+    assert(h && h.billing?.enabled && h.account, `billing/account not enabled on the test server: ${JSON.stringify(h)}`);
+    const events = [];
+    const routes = async (c) => {
+      await c.route("https://cdn.paddle.com/**", (r) => r.fulfill({ contentType: "text/javascript", body: `window.__paddle = { calls: [] };
+        window.Paddle = { Environment: { set(e) { window.__paddle.env = e; } }, Initialize(o) { window.__paddle.init = o; }, Update(o) { window.__paddle.init = o; },
+          Checkout: { open(a) { window.__paddle.open = JSON.parse(JSON.stringify(a)); }, close() { window.__paddle.closed = true; } } };` }));
+      c.on("request", (r) => { if (r.url().includes("/api/event")) { try { events.push(JSON.parse(r.postData() || "{}").name); } catch { /* ignore */ } } });
+    };
+    const page = await open("", { lang: "en", base: PAY, routes });
+    await waitFor(page, () => { const b = document.getElementById("nav-account"); return b && !b.hidden; }, null, { what: "account button" });
+    await clickLink(page, "/book/little-prince");
+    await bookShown(page, BOOKS["little-prince"].i18n.en.title);
+    await waitFor(page, () => /1 free book left/.test(document.querySelector(".bk-free")?.textContent || ""), null, { what: "free books badge (1 left)" });
+    await clickLink(page, "/book/the-hobbit");
+    await bookShown(page, BOOKS["the-hobbit"].i18n.en.title);
+    await waitFor(page, () => /0 free books left/.test(document.querySelector(".bk-free")?.textContent || ""), null, { what: "free books badge (0 left)" });
+    await clickLink(page, "/book/treasure-island");
+    await waitFor(page, () => document.querySelector(".bt-paymodal .bt-plan"), null, { what: "paywall on the 3rd book" });
+    const state = await page.evaluate(() => ({ path: location.pathname, h1: document.querySelector("#view-book:not([hidden]) h1")?.textContent || "", plans: document.querySelectorAll(".bt-paymodal .bt-plan").length, best: document.querySelector(".bt-paymodal .bt-plan.is-best .bt-plan-best")?.textContent || "", tg: document.querySelector(".bt-paymodal a[href^='https://t.me/']")?.getAttribute("href"), legal: [...document.querySelectorAll(".bt-paymodal .bt-legal a")].map((a) => a.getAttribute("href")) }));
+    assert(state.path !== "/book/treasure-island" && !/Treasure/.test(state.h1), `the 3rd book rendered anyway (${state.path})`);
+    assert(state.plans === 2 && state.best, `plans ${state.plans}, best "${state.best}"`);
+    assert(state.tg === "https://t.me/booktrip_test", `telegram link ${state.tg}`);
+    assert(["/terms", "/privacy", "/refund"].every((x) => state.legal.includes(x)), `legal links ${state.legal}`);
+    await shot(page, "paywall");
+    // Subscribe while logged out → sign-in step → dev magic link
+    await page.click(".bt-paymodal .bt-subscribe");
+    await waitFor(page, () => document.querySelector('.bt-paymodal input[type="email"]'), null, { what: "login step" });
+    await page.fill('.bt-paymodal input[type="email"]', "Reader@Example.com");
+    await page.click(".bt-paymodal .bt-login-form button[type=submit]");
+    await waitFor(page, () => document.querySelector(".bt-devlink"), null, { what: "dev sign-in link" });
+    const link = await page.getAttribute(".bt-devlink", "href");
+    await page.goto(link, { waitUntil: "networkidle" });
+    await waitFor(page, () => !/login=/.test(location.search), null, { what: "?login stripped" });
+    await waitFor(page, () => /reader@example\.com/i.test(document.getElementById("toast").textContent), null, { what: "signed-in toast" });
+    await waitFor(page, () => /reader@example\.com/i.test(document.getElementById("nav-account")?.title || ""), null, { what: "e-mail in the nav" });
+    await waitFor(page, () => document.querySelector(".bt-paymodal .bt-subscribe"), null, { what: "paywall reopened after login" });
+    await page.click(".bt-paymodal .bt-subscribe");
+    await waitFor(page, () => window.__paddle?.open, null, { what: "Paddle.Checkout.open" });
+    const pd = await page.evaluate(() => ({ env: window.__paddle.env, token: window.__paddle.init?.token, open: window.__paddle.open, cb: typeof window.__paddle.init?.eventCallback }));
+    assert(pd.token === "test_x" && pd.env === "sandbox" && pd.cb === "function", `Paddle init ${JSON.stringify(pd)}`);
+    assert(pd.open.items?.[0]?.priceId === "pri_y" && pd.open.items[0].quantity === 1, `checkout items ${JSON.stringify(pd.open.items)}`);
+    const uid = pd.open.customData?.uid;
+    assert(/^[0-9a-f]{16}$/.test(uid || ""), `customData.uid ${uid}`);
+    assert(/reader@example\.com/i.test(pd.open.customer?.email || ""), `customer ${JSON.stringify(pd.open.customer)}`);
+    // checkout.completed → "activating…" → the (signed) webhook lands → subscribed, the blocked book opens
+    await page.evaluate(() => window.__paddle.init.eventCallback({ name: "checkout.completed", data: {} }));
+    await waitFor(page, () => document.querySelector(".bt-activate"), null, { what: "activating state" });
+    const { createHmac } = await import("node:crypto");
+    const raw = JSON.stringify({ event_id: "evt_e2e", event_type: "subscription.activated", occurred_at: new Date().toISOString(), data: { id: "sub_e2e", status: "active", customer_id: "ctm_e2e", custom_data: { uid }, items: [{ price: { id: "pri_y" } }], current_billing_period: { starts_at: new Date().toISOString(), ends_at: new Date(Date.now() + 365 * 864e5).toISOString() } } });
+    const ts = Math.floor(Date.now() / 1000);
+    const sig = createHmac("sha256", "whsec").update(`${ts}:${raw}`).digest("hex");
+    const wh = await fetch(PAY + "api/billing/webhook", { method: "POST", headers: { "content-type": "application/json", "paddle-signature": `ts=${ts};h1=${sig}` }, body: raw });
+    assert(wh.ok, `webhook answered ${wh.status}`);
+    await waitFor(page, () => !document.querySelector(".bt-activate"), null, { timeout: 30000, what: "activation to finish" });
+    await bookShown(page, BOOKS["treasure-island"].i18n.en.title);
+    assert(!(await page.locator(".bk-free").count()), "free-books badge shown to a subscriber");
+    await sleep(500);
+    for (const name of ["book_open", "paywall_shown", "signup_start", "signup_done", "checkout_start"]) assert(events.includes(name), `event ${name} not sent (${events.join(",")})`);
+    noErrors(page, "paywall flow");
+    await close(page);
+  } finally {
+    child.kill();
+  }
+});
+
+// ---------------------------------------------------------------------------------------------
 
 await browser.close();
 const failed = results.filter((r) => !r.ok);

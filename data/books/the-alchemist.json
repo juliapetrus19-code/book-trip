@@ -1,0 +1,519 @@
+{
+  "id": "the-alchemist",
+  "year": 1988,
+  "cover": { "bg": "#4a2c55", "bg2": "#170c1c", "fg": "#fbe7bb", "accent": "#f2a93b", "motif": "sun" },
+  "aliases": [
+    "The Alchemist",
+    "Alchemist",
+    "O Alquimista",
+    "Алхимик",
+    "Алхімік",
+    "Алхимик Коэльо",
+    "Алхімік Коельйо",
+    "Alkhimik",
+    "Alkhimik Koelyo",
+    "Paulo Coelho",
+    "Пауло Коэльо",
+    "Пауло Коельо",
+    "Пауло Коельйо",
+    "El Alquimista",
+    "Der Alchimist"
+  ],
+  "i18n": {
+    "uk": {
+      "title": "Алхімік",
+      "originalTitle": "O Alquimista",
+      "author": "Пауло Коельйо",
+      "genre": "Роман-притча",
+      "tagline": "Пастух вирушає через пустелю до пірамід по скарб зі сну — і дорогою вчиться слухати власне серце.",
+      "summary": [
+        "Сантьяго — юний пастух з Андалусії, який покинув семінарію, бо понад усе хотів мандрувати, і тепер жене отару рівнинами Іспанії з книжкою в торбі. Одного вечора, заночувавши з вівцями в покинутій церкві, де на місці ризниці виросла смоковниця, він удруге бачить той самий сон: дитина бере його за руку й веде до єгипетських пірамід, де заховано скарб. У Тарифі стара циганка тлумачить йому цей сон — і просить за це десяту частину скарбу.",
+        "На міській площі з ним заговорює старий, який називає себе Мелхіседеком, царем Салиму. Під його плащем виблискує золотий нагрудник, усипаний коштовним камінням. Він розповідає Сантьяго про Особисту Легенду — те, чого кожна людина завжди прагнула здійснити, — і про Душу Світу, що допомагає кожному, хто справді йде за своєю мрією. За десяту частину отари старий дає хлопцеві два камінці, Урім і Туммім, які відповідають «так» чи «ні», і вчить зважати на знаки. Сантьяго продає овець і перепливає море до Танжера, в Африку.",
+        "Першого ж дня в Африці спритний юнак, що пообіцяв провести його до пірамід, обкрадає Сантьяго до останньої монети. Без гроша в кишені хлопець наймається до торговця кришталем, чия крамниця на вершині пагорба давно занепадає. Сантьяго відмиває запорошений посуд, пропонує виставити вітрину на вулицю, а згодом — продавати втомленим перехожим чай у кришталевих склянках, і торгівля розквітає. Торговець, що все життя мріє про паломництво до Мекки, але боїться його здійснити, лише повторює: «Мактуб» — «так написано». За майже рік Сантьяго заробляє вдвічі більше, ніж треба на нову отару, проте вирішує йти далі.",
+        "Він пристає до каравану, що перетинає Сахару, і знайомиться з Англійцем, який витратив статки й роки на книжки в пошуках легендарного алхіміка з оази Ель-Файюм. Через війни між племенами караван зупиняється в оазі, і там, біля криниці, Сантьяго зустрічає Фатіму й закохується з першого погляду. Спостерігаючи, як у небі б’ються два яструби, він бачить видіння: на оазу йде військо. Хлопець попереджає вождів, а коли виходить від них, його зупиняє вершник у чорному із соколом на плечі — сам Алхімік. Наступного дня напад справді стається, оаза вже готова, і Сантьяго стає її радником.",
+        "Алхімік погоджується провести Сантьяго пустелею до пірамід, а Фатіма, справжня жінка пустелі, обіцяє чекати. Дорогою Алхімік навчає хлопця слухати своє серце, нічого не боятися й розуміти Мову Світу. Коли їх захоплюють воїни одного з племен, Алхімік заявляє їхньому вождеві, що хлопець уміє обертатися на вітер. Після трьох днів відчаю Сантьяго розмовляє з пустелею, вітром і сонцем, а зрештою з Рукою, що написала все, — і над табором здіймається самум. У коптському монастирі Алхімік перетворює свинець на золото, ділить його на чотири частини й відпускає хлопця далі самого.",
+        "Біля пірамід Сантьяго починає копати там, де йому показав жук-скарабей, але біженці з воєн між племенами б’ють його й забирають золото. Їхній ватажок глузує: йому теж колись снився скарб під смоковницею в зруйнованій іспанській церкві, але він не такий дурень, щоб заради сну перетинати пустелю. Тепер Сантьяго знає, де шукати. Він повертається до покинутої церкви й викопує скриню зі старовинними іспанськими золотими монетами та коштовностями; вітер приносить йому поцілунок Фатіми, і хлопець вирушає назад до неї. Ця притча, видана португальською 1988 року, стала однією з найперекладаніших книжок, написаних живим автором."
+      ],
+      "themes": [
+        "Іти за своєю мрією",
+        "Мова знаків",
+        "Страх і віра",
+        "Любов, що не тримає",
+        "Шлях важливіший за скарб"
+      ],
+      "terms": [
+        { "term": "Особиста Легенда", "definition": "Те, чого людина від юності прагне здійснити, — її справжнє призначення. За словами Мелхіседека, кожен у дитинстві знає свою Легенду, але з роками забуває про неї. У різних перекладах — «Свій Шлях»." },
+        { "term": "Душа Світу", "definition": "Єдина сила, що поєднує все живе, — людей, тварин, пустелю й вітер. Коли людина щиро прагне своєї мети, Душа Світу допомагає їй." },
+        { "term": "Мова Світу", "definition": "Мова без слів, якою говорять знаки, тварини й серце. Саме її Сантьяго вчиться розуміти в пустелі." },
+        { "term": "Мактуб", "definition": "Арабське слово, яке повторює торговець кришталем: «так написано». У ньому — віра, що шлях людини вже вписано в книгу світу." },
+        { "term": "Знаки", "definition": "Підказки, якими світ спрямовує людину: політ яструбів, пісок, що зводиться вихором, жук-скарабей. Мелхіседек учить Сантьяго їх помічати." },
+        { "term": "Урім і Туммім", "definition": "Два камінці, чорний і білий, які Мелхіседек знімає зі свого нагрудника. Вони відповідають «так» чи «ні», коли людина сама не може прочитати знаки." },
+        { "term": "Удача новачка", "definition": "Закономірність, яку пояснює Мелхіседек: коли людина вперше береться за свою мрію, усе складається на її користь, щоб вона відчула смак успіху." },
+        { "term": "Дві краплини олії", "definition": "Притча Мелхіседека про юнака, який мав оглянути палац мудреця, не проливши олію з ложки. Секрет щастя — бачити всі дива світу, але не забувати про краплини на ложці." },
+        { "term": "Велике Діяння", "definition": "Мета алхімії, якою марить Англієць: створення філософського каменю, що обертає метал на золото, та еліксиру життя, що лікує від усіх недуг." },
+        { "term": "Смарагдова скрижаль", "definition": "Легендарний текст, у якому, як вірять алхіміки, у кількох рядках записано всю суть їхнього мистецтва. Алхімік каже, що її зміст простий, як сама Душа Світу." },
+        { "term": "Самум", "definition": "Гарячий піщаний буревій пустелі. Сантьяго здіймає його, коли нарешті розмовляє з вітром мовою серця." },
+        { "term": "Оаза Ель-Файюм", "definition": "Оаза серед Сахари з криницями й тисячами фінікових пальм, де за законом пустелі ніхто не воює. Тут Сантьяго зустрічає Фатіму й Алхіміка." }
+      ],
+      "similar": [
+        { "title": "Сіддхартха", "author": "Герман Гессе", "why": "Ще одна притча про юнака, який покидає дім, щоб знайти себе, і розуміє, що мудрість не можна передати словами." },
+        { "title": "Чайка Джонатан Лівінгстон", "author": "Річард Бах", "why": "Коротка повість-притча про свободу, мрію та сміливість іти власним шляхом." },
+        { "title": "Маленький принц", "author": "Антуан де Сент-Екзюпері", "why": "Мандрівка серед пісків пустелі й мудрість, яку бачить лише серце." },
+        { "title": "Пророк", "author": "Джебран Халіль Джебран", "why": "Поетичні роздуми про любов, свободу та сенс життя — тексти, що теж звучать як мудрість пустелі." },
+        { "title": "Життя Пі", "author": "Ян Мартел", "why": "Пригодницький роман-притча про віру, страх і пошук сенсу посеред безкрайнього простору." }
+      ],
+      "film": {
+        "title": "Скарб під смоковницею",
+        "intro": "Ти розгортаєш книжку — і з неї сиплеться теплий пісок. Над тобою зоряне небо Андалусії, поруч тихо мекає отара, а крізь дірявий дах старої церкви проростає смоковниця.",
+        "outro": "Ти закриваєш книжку, а в долоні ще лишається кілька піщинок. Можливо, і твій скарб чекає там, звідки ти вирушив, — треба лише пройти весь шлях, щоб це зрозуміти.",
+        "scenes": [
+          {
+            "title": "Сон під смоковницею",
+            "narration": "Ти лежиш поруч із Сантьяго на кам’яній підлозі покинутої церкви, а над вами крізь провалений дах світять зорі. Вівці сплять, смоковниця шелестить листям, і хлопцеві вдруге сниться дитина, що веде його до пірамід.",
+            "line": { "text": "Знову той самий сон: дитина бере мене за руку й веде до пірамід, де захований скарб." }
+          },
+          {
+            "title": "Цар Салиму",
+            "narration": "Ти сидиш на лаві на площі в Тарифі, коли до Сантьяго підсідає старий із книжкою. Він відгортає плащ, і на сонці спалахує золотий нагрудник, усипаний коштовним камінням.",
+            "line": { "text": "Коли ти чогось справді прагнеш, увесь Всесвіт допомагає тобі досягти цього." }
+          },
+          {
+            "title": "Чай у кришталевих склянках",
+            "narration": "Ти стоїш у крамниці на вершині пагорба в Танжері, де на полицях сяє відмитий до блиску кришталь. Сантьяго розливає м’ятний чай у прозорі склянки, а старий торговець дивиться на чергу покупців і хитає головою.",
+            "line": { "text": "Мактуб. Так написано." }
+          },
+          {
+            "title": "Фатіма біля криниці",
+            "narration": "Ти стоїш в оазі серед фінікових пальм, коли сонце сідає за дюни. До криниці підходить дівчина з глеком на плечі, і Сантьяго раптом розуміє Мову Світу без жодного слова.",
+            "line": { "text": "Я жінка пустелі. Іди за своєю мрією — я чекатиму на тебе." }
+          },
+          {
+            "title": "Вершник із соколом",
+            "narration": "Ти виходиш слідом за Сантьяго в нічну пустелю, і раптом перед вами здіймається білий кінь. Вершник у чорному, із соколом на лівому плечі, приставляє до лоба хлопця вигнутий меч — і тут же опускає його.",
+            "line": { "text": "Слухай своє серце. Воно знає все, бо походить з Душі Світу." }
+          },
+          {
+            "title": "Стати вітром",
+            "narration": "Ти стоїш на кручі над табором воїнів, і Сантьяго розмовляє з пустелею, вітром і сонцем. Пісок здіймається стіною, самум завиває над наметами, а Алхімік спокійно чекає, склавши руки.",
+            "line": { "text": "Допоможи мені, вітре, — я хочу дізнатися, як стати тобою." }
+          },
+          {
+            "title": "Скарб під смоковницею",
+            "narration": "Ти повертаєшся з Сантьяго до старої церкви на світанку і разом із ним копаєш біля коріння смоковниці. Лопата дзенькає об кришку скрині, повної золотих монет і самоцвітів, а теплий вітер із пустелі торкається щоки, наче поцілунок.",
+            "line": { "text": "Я вже йду, Фатімо." }
+          }
+        ]
+      },
+      "characters": {
+        "santiago": {
+          "name": "Сантьяго",
+          "traits": ["мрійливий", "наполегливий", "допитливий", "сміливий"],
+          "description": "Юний андалузький пастух, що покинув семінарію заради мандрів і вирушає в Єгипет по скарб зі сну. Дорогою він утрачає все, знову заробляє й знову ризикує, вчиться читати знаки й слухати серце. Наприкінці Сантьяго знаходить і скарб, і себе."
+        },
+        "melchizedek": {
+          "name": "Мелхіседек, цар Салиму",
+          "traits": ["мудрий", "таємничий", "владний", "доброзичливий"],
+          "description": "Старий, що з’являється на площі в Тарифі й знає про хлопця те, чого не може знати ніхто. Під простим плащем у нього золотий нагрудник царя. Він вчить Сантьяго про Особисту Легенду й дає йому Урім і Туммім."
+        },
+        "gypsy": {
+          "name": "стара циганка",
+          "traits": ["хитра", "корислива", "прониклива", "загадкова"],
+          "description": "Тлумачка снів із Тарифи, у чиїй хатині висить образ Святого Серця Ісуса. Вона каже Сантьяго, що скарб справді чекає біля пірамід, і за пораду вимагає десяту частину знахідки. Наприкінці хлопець згадує свою обіцянку їй."
+        },
+        "crystal-merchant": {
+          "name": "торговець кришталем",
+          "traits": ["обережний", "побожний", "сумний", "чесний"],
+          "description": "Літній торговець із Танжера, чия крамниця на вершині пагорба поволі занепадає. Із Сантьяго справи йдуть угору, але сам він боїться змін і зберігає мрію про Мекку лише як мрію. Його улюблене слово — «Мактуб»."
+        },
+        "englishman": {
+          "name": "Англієць",
+          "traits": ["учений", "відлюдний", "наполегливий", "раціональний"],
+          "description": "Мандрівник, який вивчив безліч мов і книжок, щоб знайти справжнього алхіміка й осягнути Мову Світу. Він довіряє книжкам більше, ніж знакам, і дивується, що хлопець учиться в пустелі, а не з томів. Знайшовши Алхіміка, Англієць лишається в оазі ставити власні досліди."
+        },
+        "fatima": {
+          "name": "Фатіма",
+          "traits": ["ніжна", "мудра", "вірна", "незалежна"],
+          "description": "Дівчина з оази Ель-Файюм, яку Сантьяго зустрічає біля криниці. Як справжня жінка пустелі, вона не тримає коханого, а відпускає його здійснювати мрію й обіцяє чекати. Наприкінці вітер приносить йому її поцілунок."
+        },
+        "alchemist": {
+          "name": "Алхімік",
+          "traits": ["мудрий", "суворий", "загадковий", "всемогутній"],
+          "description": "Двохсотлітній мудрець, що живе в оазі й володіє філософським каменем та еліксиром життя. Він вершником у чорному випробовує Сантьяго і стає його вчителем на шляху через пустелю. Алхімік учить хлопця, що головне — не золото, а здатність слухати серце."
+        },
+        "camel-driver": {
+          "name": "погонич верблюдів",
+          "traits": ["спокійний", "мудрий", "уважний", "розважливий"],
+          "description": "Бувалий погонич із каравану, який колись утратив усе й відтоді живе лише теперішньою миттю. Він першим серйозно сприймає видіння Сантьяго про яструбів і радить розповісти про нього вождям оази."
+        }
+      }
+    },
+    "ru": {
+      "title": "Алхимик",
+      "originalTitle": "O Alquimista",
+      "author": "Пауло Коэльо",
+      "genre": "Роман-притча",
+      "tagline": "Пастух отправляется через пустыню к пирамидам за сокровищем из сна — и по дороге учится слушать собственное сердце.",
+      "summary": [
+        "Сантьяго — юный пастух из Андалусии, который бросил семинарию, потому что больше всего на свете хотел странствовать, и теперь гонит отару по равнинам Испании с книгой в котомке. Однажды вечером, заночевав с овцами в заброшенной церкви, где на месте ризницы выросла смоковница, он во второй раз видит тот же сон: ребёнок берёт его за руку и ведёт к египетским пирамидам, где спрятано сокровище. В Тарифе старая цыганка толкует ему этот сон — и просит за это десятую часть клада.",
+        "На городской площади с ним заговаривает старик, называющий себя Мелхиседеком, царём Салима. Под его плащом поблёскивает золотой нагрудник, усыпанный драгоценными камнями. Он рассказывает Сантьяго о Своей Стезе — о том, что каждый человек всегда хотел осуществить, — и о Душе Мира, которая помогает всякому, кто действительно следует своей мечте. За десятую часть отары старик даёт мальчику два камешка, Урим и Туммим, отвечающие «да» или «нет», и учит обращать внимание на знаки. Сантьяго продаёт овец и переплывает море в Танжер, в Африку.",
+        "В первый же день в Африке ловкий юноша, пообещавший проводить его к пирамидам, обкрадывает Сантьяго до последней монеты. Без гроша в кармане мальчик нанимается к торговцу хрусталём, чья лавка на вершине холма давно приходит в упадок. Сантьяго отмывает запылённую посуду, предлагает выставить на улицу витрину, а потом — продавать усталым прохожим чай в хрустальных стаканах, и торговля расцветает. Торговец, который всю жизнь мечтает о паломничестве в Мекку, но боится его совершить, лишь повторяет: «Мактуб» — «так написано». Почти за год Сантьяго зарабатывает вдвое больше, чем нужно на новую отару, но решает идти дальше.",
+        "Он присоединяется к каравану, пересекающему Сахару, и знакомится с Англичанином, который потратил состояние и годы на книги в поисках легендарного алхимика из оазиса Аль-Файюм. Из-за войн между племенами караван останавливается в оазисе, и там, у колодца, Сантьяго встречает Фатиму и влюбляется с первого взгляда. Наблюдая, как в небе дерутся два ястреба, он видит видение: на оазис идёт войско. Мальчик предупреждает вождей, а когда выходит от них, его останавливает всадник в чёрном с соколом на плече — сам Алхимик. На следующий день нападение действительно происходит, оазис к нему готов, и Сантьяго становится его советником.",
+        "Алхимик соглашается провести Сантьяго через пустыню к пирамидам, а Фатима, настоящая женщина пустыни, обещает ждать. В пути Алхимик учит мальчика слушать своё сердце, ничего не бояться и понимать Язык Мира. Когда их захватывают воины одного из племён, Алхимик заявляет их вождю, что мальчик умеет превращаться в ветер. После трёх дней отчаяния Сантьяго говорит с пустыней, ветром и солнцем, а в конце концов — с Рукой, Написавшей Всё, и над лагерем поднимается самум. В коптском монастыре Алхимик превращает свинец в золото, делит его на четыре части и отпускает мальчика дальше одного.",
+        "У пирамид Сантьяго начинает копать там, где ему указал жук-скарабей, но беженцы с межплеменных войн избивают его и отбирают золото. Их главарь насмехается: ему тоже когда-то снился клад под смоковницей в разрушенной испанской церкви, но он не такой дурак, чтобы ради сна пересекать пустыню. Теперь Сантьяго знает, где искать. Он возвращается в заброшенную церковь и выкапывает сундук со старинными испанскими золотыми монетами и драгоценностями; ветер приносит ему поцелуй Фатимы, и мальчик отправляется обратно к ней. Эта притча, изданная на португальском в 1988 году, стала одной из самых переводимых книг, написанных живым автором."
+      ],
+      "themes": [
+        "Следовать своей мечте",
+        "Язык знаков",
+        "Страх и вера",
+        "Любовь, которая не удерживает",
+        "Путь важнее сокровища"
+      ],
+      "terms": [
+        { "term": "Своя Стезя", "definition": "То, что человек с юности хочет осуществить, — его истинное предназначение. По словам Мелхиседека, в детстве каждый знает свою Стезю, но с годами забывает о ней. В некоторых переводах — «Личная Легенда»." },
+        { "term": "Душа Мира", "definition": "Единая сила, связывающая всё живое — людей, животных, пустыню и ветер. Когда человек искренне стремится к своей цели, Душа Мира помогает ему." },
+        { "term": "Язык Мира", "definition": "Язык без слов, на котором говорят знаки, животные и сердце. Именно его Сантьяго учится понимать в пустыне." },
+        { "term": "Мактуб", "definition": "Арабское слово, которое повторяет торговец хрусталём: «так написано». В нём — вера в то, что путь человека уже вписан в книгу мира." },
+        { "term": "Знаки", "definition": "Подсказки, которыми мир направляет человека: полёт ястребов, песок, взметнувшийся вихрем, жук-скарабей. Мелхиседек учит Сантьяго их замечать." },
+        { "term": "Урим и Туммим", "definition": "Два камешка, чёрный и белый, которые Мелхиседек снимает со своего нагрудника. Они отвечают «да» или «нет», когда человек сам не может прочесть знаки." },
+        { "term": "Везение новичка", "definition": "Закон, который объясняет Мелхиседек: когда человек впервые берётся за свою мечту, всё складывается в его пользу, чтобы он почувствовал вкус успеха." },
+        { "term": "Две капли масла", "definition": "Притча Мелхиседека о юноше, который должен был осмотреть дворец мудреца, не пролив масло из ложки. Секрет счастья — видеть все чудеса мира и не забывать о каплях на ложке." },
+        { "term": "Великое Делание", "definition": "Цель алхимии, о которой грезит Англичанин: создание философского камня, превращающего металл в золото, и эликсира долголетия, исцеляющего от всех болезней." },
+        { "term": "Изумрудная скрижаль", "definition": "Легендарный текст, в котором, по вере алхимиков, в нескольких строках записана вся суть их искусства. Алхимик говорит, что её смысл прост, как сама Душа Мира." },
+        { "term": "Самум", "definition": "Горячий песчаный ураган пустыни. Сантьяго поднимает его, когда наконец говорит с ветром на языке сердца." },
+        { "term": "Оазис Аль-Файюм", "definition": "Оазис посреди Сахары с колодцами и тысячами финиковых пальм, где по закону пустыни никто не воюет. Здесь Сантьяго встречает Фатиму и Алхимика." }
+      ],
+      "similar": [
+        { "title": "Сиддхартха", "author": "Герман Гессе", "why": "Ещё одна притча о юноше, который покидает дом, чтобы найти себя, и понимает, что мудрость нельзя передать словами." },
+        { "title": "Чайка по имени Джонатан Ливингстон", "author": "Ричард Бах", "why": "Короткая повесть-притча о свободе, мечте и смелости идти своим путём." },
+        { "title": "Маленький принц", "author": "Антуан де Сент-Экзюпери", "why": "Странствие среди песков пустыни и мудрость, которую видит только сердце." },
+        { "title": "Пророк", "author": "Джебран Халиль Джебран", "why": "Поэтические размышления о любви, свободе и смысле жизни — тексты, которые тоже звучат как мудрость пустыни." },
+        { "title": "Жизнь Пи", "author": "Янн Мартел", "why": "Приключенческий роман-притча о вере, страхе и поиске смысла посреди бескрайнего простора." }
+      ],
+      "film": {
+        "title": "Сокровище под смоковницей",
+        "intro": "Ты открываешь книгу — и из неё сыплется тёплый песок. Над тобой звёздное небо Андалусии, рядом тихо блеет отара, а сквозь дырявую крышу старой церкви прорастает смоковница.",
+        "outro": "Ты закрываешь книгу, а на ладони ещё остаётся несколько песчинок. Может быть, и твоё сокровище ждёт там, откуда ты вышел, — нужно лишь пройти весь путь, чтобы это понять.",
+        "scenes": [
+          {
+            "title": "Сон под смоковницей",
+            "narration": "Ты лежишь рядом с Сантьяго на каменном полу заброшенной церкви, а над вами сквозь провалившуюся крышу светят звёзды. Овцы спят, смоковница шелестит листьями, и мальчику во второй раз снится ребёнок, ведущий его к пирамидам.",
+            "line": { "text": "Опять тот же сон: ребёнок берёт меня за руку и ведёт к пирамидам, где спрятан клад." }
+          },
+          {
+            "title": "Царь Салима",
+            "narration": "Ты сидишь на скамье на площади в Тарифе, когда к Сантьяго подсаживается старик с книгой. Он распахивает плащ, и на солнце вспыхивает золотой нагрудник, усыпанный драгоценными камнями.",
+            "line": { "text": "Когда ты по-настоящему чего-то хочешь, вся Вселенная помогает тебе этого добиться." }
+          },
+          {
+            "title": "Чай в хрустальных стаканах",
+            "narration": "Ты стоишь в лавке на вершине холма в Танжере, где на полках сияет отмытый до блеска хрусталь. Сантьяго разливает мятный чай в прозрачные стаканы, а старый торговец смотрит на очередь покупателей и качает головой.",
+            "line": { "text": "Мактуб. Так написано." }
+          },
+          {
+            "title": "Фатима у колодца",
+            "narration": "Ты стоишь в оазисе среди финиковых пальм, когда солнце садится за дюны. К колодцу подходит девушка с кувшином на плече, и Сантьяго вдруг понимает Язык Мира без единого слова.",
+            "line": { "text": "Я женщина пустыни. Иди за своей мечтой — я буду тебя ждать." }
+          },
+          {
+            "title": "Всадник с соколом",
+            "narration": "Ты выходишь вслед за Сантьяго в ночную пустыню, и вдруг перед вами встаёт на дыбы белый конь. Всадник в чёрном, с соколом на левом плече, приставляет ко лбу мальчика изогнутый меч — и тут же опускает его.",
+            "line": { "text": "Слушай своё сердце. Оно знает всё, потому что пришло из Души Мира." }
+          },
+          {
+            "title": "Стать ветром",
+            "narration": "Ты стоишь на утёсе над лагерем воинов, и Сантьяго говорит с пустыней, ветром и солнцем. Песок поднимается стеной, самум воет над шатрами, а Алхимик спокойно ждёт, сложив руки.",
+            "line": { "text": "Помоги мне, ветер, — я хочу узнать, как стать тобой." }
+          },
+          {
+            "title": "Клад под смоковницей",
+            "narration": "Ты возвращаешься с Сантьяго к старой церкви на рассвете и вместе с ним копаешь у корней смоковницы. Лопата звякает о крышку сундука, полного золотых монет и самоцветов, а тёплый ветер из пустыни касается щеки, словно поцелуй.",
+            "line": { "text": "Я иду, Фатима." }
+          }
+        ]
+      },
+      "characters": {
+        "santiago": {
+          "name": "Сантьяго",
+          "traits": ["мечтательный", "упорный", "любознательный", "смелый"],
+          "description": "Юный андалусский пастух, оставивший семинарию ради странствий и отправившийся в Египет за сокровищем из сна. По дороге он теряет всё, снова зарабатывает и снова рискует, учится читать знаки и слушать сердце. В конце Сантьяго находит и клад, и самого себя."
+        },
+        "melchizedek": {
+          "name": "Мелхиседек, царь Салима",
+          "traits": ["мудрый", "таинственный", "властный", "благожелательный"],
+          "description": "Старик, появляющийся на площади в Тарифе и знающий о мальчике то, чего не может знать никто. Под простым плащом у него золотой нагрудник царя. Он учит Сантьяго о Своей Стезе и дарит ему Урим и Туммим."
+        },
+        "gypsy": {
+          "name": "старая цыганка",
+          "traits": ["хитрая", "корыстная", "проницательная", "загадочная"],
+          "description": "Толковательница снов из Тарифы, в чьей хижине висит образ Святого Сердца Иисуса. Она говорит Сантьяго, что клад действительно ждёт у пирамид, и за совет требует десятую часть находки. В конце мальчик вспоминает о своём обещании ей."
+        },
+        "crystal-merchant": {
+          "name": "торговец хрусталём",
+          "traits": ["осторожный", "набожный", "печальный", "честный"],
+          "description": "Пожилой торговец из Танжера, чья лавка на вершине холма понемногу приходит в упадок. С Сантьяго дела идут в гору, но сам он боится перемен и хранит мечту о Мекке лишь как мечту. Его любимое слово — «Мактуб»."
+        },
+        "englishman": {
+          "name": "Англичанин",
+          "traits": ["учёный", "замкнутый", "упорный", "рассудочный"],
+          "description": "Путешественник, изучивший множество языков и книг, чтобы найти настоящего алхимика и постичь Язык Мира. Он доверяет книгам больше, чем знакам, и удивляется, что мальчик учится у пустыни, а не по томам. Найдя Алхимика, Англичанин остаётся в оазисе ставить собственные опыты."
+        },
+        "fatima": {
+          "name": "Фатима",
+          "traits": ["нежная", "мудрая", "верная", "независимая"],
+          "description": "Девушка из оазиса Аль-Файюм, которую Сантьяго встречает у колодца. Как настоящая женщина пустыни, она не удерживает любимого, а отпускает его исполнять мечту и обещает ждать. В конце ветер приносит ему её поцелуй."
+        },
+        "alchemist": {
+          "name": "Алхимик",
+          "traits": ["мудрый", "суровый", "загадочный", "всемогущий"],
+          "description": "Двухсотлетний мудрец, живущий в оазисе и владеющий философским камнем и эликсиром долголетия. Он в облике всадника в чёрном испытывает Сантьяго и становится его учителем на пути через пустыню. Алхимик учит мальчика, что главное — не золото, а умение слушать сердце."
+        },
+        "camel-driver": {
+          "name": "погонщик верблюдов",
+          "traits": ["спокойный", "мудрый", "внимательный", "рассудительный"],
+          "description": "Бывалый погонщик из каравана, который когда-то потерял всё и с тех пор живёт только настоящим мгновением. Он первым всерьёз принимает видение Сантьяго о ястребах и советует рассказать о нём вождям оазиса."
+        }
+      }
+    },
+    "en": {
+      "title": "The Alchemist",
+      "originalTitle": "O Alquimista",
+      "author": "Paulo Coelho",
+      "genre": "Allegorical novel, fable",
+      "tagline": "A shepherd crosses the desert to the pyramids in search of a treasure from his dream — and learns to listen to his own heart.",
+      "summary": [
+        "Santiago is a young shepherd from Andalusia who left the seminary because more than anything he wanted to travel, and now drives his flock across the plains of Spain with a book in his bag. One night, sleeping with his sheep in an abandoned church where a sycamore has grown up in place of the sacristy, he has the same dream for the second time: a child takes him by the hand and leads him to the Egyptian pyramids, where a treasure is hidden. In Tarifa an old Gypsy woman interprets the dream for him — and asks for a tenth of the treasure in return.",
+        "In the town square an old man who calls himself Melchizedek, King of Salem, strikes up a conversation. Beneath his cloak gleams a golden breastplate studded with precious stones. He tells Santiago about the Personal Legend — what each person has always wanted to accomplish — and about the Soul of the World, which helps anyone who truly pursues their dream. In exchange for a tenth of the flock, he gives the boy two stones, Urim and Thummim, that answer yes or no, and teaches him to heed omens. Santiago sells his sheep and crosses the sea to Tangier, in Africa.",
+        "On his very first day in Africa a smooth-talking young man who promised to guide him to the pyramids robs Santiago of every coin. Penniless, the boy finds work with a crystal merchant whose shop at the top of a hill has long been in decline. Santiago cleans the dusty glassware, suggests putting a display case out in the street and then selling tea in crystal glasses to weary passers-by — and business flourishes. The merchant, who has dreamed all his life of a pilgrimage to Mecca but is afraid to make it, only repeats “Maktub” — “it is written.” After almost a year Santiago has earned twice what he needs for a new flock, yet he decides to go on.",
+        "He joins a caravan crossing the Sahara and meets an Englishman who has spent his fortune and years of his life on books, searching for a legendary alchemist who lives at the Al-Fayoum oasis. Tribal wars force the caravan to stop at the oasis, and there, at the well, Santiago meets Fatima and falls in love at first sight. Watching two hawks fight in the sky, he has a vision of an army marching on the oasis. He warns the chieftains, and as he leaves their tent he is stopped by a horseman in black with a falcon on his shoulder — the alchemist himself. The next day the attack really comes, the oasis is ready for it, and Santiago becomes its counsellor.",
+        "The alchemist agrees to guide Santiago across the desert to the pyramids, and Fatima, a true woman of the desert, promises to wait. Along the way the alchemist teaches the boy to listen to his heart, to fear nothing and to understand the Language of the World. When they are captured by warriors from one of the tribes, the alchemist tells their chief that the boy can turn himself into the wind. After three days of despair Santiago speaks to the desert, the wind and the sun, and at last to the Hand that wrote all — and a simoom rises over the camp. At a Coptic monastery the alchemist turns lead into gold, divides it into four parts and sends the boy on alone.",
+        "At the pyramids Santiago starts digging where a scarab beetle shows him, but refugees from the tribal wars beat him and take his gold. Their leader mocks him: he too once dreamed of a treasure buried under a sycamore in a ruined church in Spain, but he is not fool enough to cross a desert for a dream. Now Santiago knows where to look. He returns to the abandoned church and digs up a chest of old Spanish gold coins and jewels; the wind brings him Fatima’s kiss, and he sets off back to her. First published in Portuguese in 1988, this parable became one of the most translated books ever written by a living author."
+      ],
+      "themes": [
+        "Following your dream",
+        "The language of omens",
+        "Fear and faith",
+        "Love that does not hold you back",
+        "The journey matters more than the treasure"
+      ],
+      "terms": [
+        { "term": "Personal Legend", "definition": "What a person has wanted to accomplish since youth — their true calling. According to Melchizedek, everyone knows their Personal Legend as a child, but forgets it over the years." },
+        { "term": "Soul of the World", "definition": "The single force that connects all living things — people, animals, the desert and the wind. When someone sincerely pursues their goal, the Soul of the World helps them." },
+        { "term": "Language of the World", "definition": "A wordless language spoken by omens, animals and the heart. It is what Santiago learns to understand in the desert." },
+        { "term": "Maktub", "definition": "The Arabic word the crystal merchant keeps repeating: “it is written.” It expresses the belief that a person’s path is already written in the book of the world." },
+        { "term": "Omens", "definition": "The hints through which the world guides a person: the flight of hawks, sand whipped into a whirlwind, a scarab beetle. Melchizedek teaches Santiago to notice them." },
+        { "term": "Urim and Thummim", "definition": "Two stones, one black and one white, that Melchizedek takes from his breastplate. They answer yes or no when a person cannot read the omens himself." },
+        { "term": "Beginner’s luck", "definition": "The principle Melchizedek describes: when someone first sets out after their dream, everything goes their way, so they get a taste of success." },
+        { "term": "The drops of oil", "definition": "Melchizedek’s parable of a youth sent to tour a wise man’s palace without spilling oil from a spoon. The secret of happiness is to see all the marvels of the world without forgetting the drops of oil on the spoon." },
+        { "term": "The Master Work", "definition": "The goal of alchemy the Englishman dreams of: making the Philosopher’s Stone, which turns metal into gold, and the Elixir of Life, which cures all ills." },
+        { "term": "The Emerald Tablet", "definition": "A legendary text that alchemists believe sums up the whole of their art in a few lines. The alchemist says its meaning is as simple as the Soul of the World itself." },
+        { "term": "Simoom", "definition": "A hot, sand-laden desert storm. Santiago raises one when he finally speaks to the wind in the language of the heart." },
+        { "term": "Al-Fayoum oasis", "definition": "An oasis in the middle of the Sahara with wells and thousands of date palms, where by desert law no one wages war. Here Santiago meets Fatima and the alchemist." }
+      ],
+      "similar": [
+        { "title": "Siddhartha", "author": "Hermann Hesse", "why": "Another parable of a young man who leaves home to find himself and learns that wisdom cannot be passed on in words." },
+        { "title": "Jonathan Livingston Seagull", "author": "Richard Bach", "why": "A short fable about freedom, dreams and the courage to follow your own path." },
+        { "title": "The Little Prince", "author": "Antoine de Saint-Exupéry", "why": "A journey among desert sands and a wisdom that only the heart can see." },
+        { "title": "The Prophet", "author": "Kahlil Gibran", "why": "Poetic reflections on love, freedom and the meaning of life that also ring like the wisdom of the desert." },
+        { "title": "Life of Pi", "author": "Yann Martel", "why": "An adventure-parable about faith, fear and the search for meaning in the middle of endless emptiness." }
+      ],
+      "film": {
+        "title": "The Treasure Beneath the Sycamore",
+        "intro": "You open the book and warm sand pours out of it. Above you is the starry sky of Andalusia, a flock of sheep bleats softly nearby, and a sycamore grows up through the broken roof of an old church.",
+        "outro": "You close the book, but a few grains of sand still cling to your palm. Perhaps your treasure, too, is waiting where you set out from — you just have to travel the whole road to understand it.",
+        "scenes": [
+          {
+            "title": "A Dream Beneath the Sycamore",
+            "narration": "You lie beside Santiago on the stone floor of an abandoned church, the stars shining through the caved-in roof above. The sheep are asleep, the sycamore rustles its leaves, and for the second time the boy dreams of a child leading him to the pyramids.",
+            "line": { "text": "The same dream again: a child takes my hand and leads me to the pyramids, where a treasure lies hidden." }
+          },
+          {
+            "title": "The King of Salem",
+            "narration": "You sit on a bench in the square at Tarifa when an old man with a book sits down beside Santiago. He opens his cloak, and a golden breastplate studded with precious stones flashes in the sun.",
+            "line": { "text": "When you truly want something, the whole universe works to help you achieve it." }
+          },
+          {
+            "title": "Tea in Crystal Glasses",
+            "narration": "You stand in a shop at the top of a hill in Tangier, where polished crystal sparkles on every shelf. Santiago pours mint tea into clear glasses while the old merchant looks at the queue of customers and shakes his head.",
+            "line": { "text": "Maktub. It is written." }
+          },
+          {
+            "title": "Fatima at the Well",
+            "narration": "You stand in the oasis among the date palms as the sun sinks behind the dunes. A girl comes to the well with a jug on her shoulder, and suddenly Santiago understands the Language of the World without a single word.",
+            "line": { "text": "I am a woman of the desert. Go after your dream — I will wait for you." }
+          },
+          {
+            "title": "The Horseman with the Falcon",
+            "narration": "You follow Santiago out into the night desert, and suddenly a white horse rears up in front of you. A rider dressed in black, a falcon on his left shoulder, presses a curved sword to the boy’s forehead — and then lowers it.",
+            "line": { "text": "Listen to your heart. It knows everything, because it came from the Soul of the World." }
+          },
+          {
+            "title": "Becoming the Wind",
+            "narration": "You stand on a cliff above the warriors’ camp as Santiago speaks to the desert, the wind and the sun. The sand rises like a wall, a simoom howls over the tents, and the alchemist waits calmly with folded arms.",
+            "line": { "text": "Help me, wind — I want to learn how to become you." }
+          },
+          {
+            "title": "The Treasure Beneath the Sycamore",
+            "narration": "You return with Santiago to the old church at dawn and dig beside him among the roots of the sycamore. The spade clangs against the lid of a chest full of gold coins and gems, and a warm wind from the desert brushes your cheek like a kiss.",
+            "line": { "text": "I’m coming, Fatima." }
+          }
+        ]
+      },
+      "characters": {
+        "santiago": {
+          "name": "Santiago",
+          "traits": ["dreamy", "persistent", "curious", "brave"],
+          "description": "A young Andalusian shepherd who left the seminary to travel and sets out for Egypt in search of the treasure from his dream. Along the way he loses everything, earns it back and risks it again, learning to read omens and listen to his heart. In the end Santiago finds both the treasure and himself."
+        },
+        "melchizedek": {
+          "name": "Melchizedek, King of Salem",
+          "traits": ["wise", "mysterious", "commanding", "benevolent"],
+          "description": "An old man who appears in the square at Tarifa and knows things about the boy that no one could know. Beneath his plain cloak he wears a king’s golden breastplate. He teaches Santiago about the Personal Legend and gives him Urim and Thummim."
+        },
+        "gypsy": {
+          "name": "The old Gypsy woman",
+          "traits": ["shrewd", "mercenary", "perceptive", "mysterious"],
+          "description": "A dream-reader from Tarifa whose house has a picture of the Sacred Heart of Jesus on the wall. She tells Santiago that the treasure really is waiting at the pyramids and demands a tenth of it for her advice. At the end the boy remembers his promise to her."
+        },
+        "crystal-merchant": {
+          "name": "The crystal merchant",
+          "traits": ["cautious", "devout", "melancholy", "honest"],
+          "description": "An ageing shopkeeper in Tangier whose shop at the top of a hill is slowly failing. With Santiago’s help business takes off, but he himself fears change and keeps his dream of Mecca only as a dream. His favourite word is “Maktub.”"
+        },
+        "englishman": {
+          "name": "The Englishman",
+          "traits": ["scholarly", "aloof", "determined", "rational"],
+          "description": "A traveller who has studied countless languages and books in order to find a true alchemist and grasp the Language of the World. He trusts books more than omens and is puzzled that the boy learns from the desert rather than from volumes. Having found the alchemist, the Englishman stays at the oasis to carry out his own experiments."
+        },
+        "fatima": {
+          "name": "Fatima",
+          "traits": ["tender", "wise", "faithful", "independent"],
+          "description": "A girl of the Al-Fayoum oasis whom Santiago meets at the well. As a true woman of the desert she does not hold her beloved back, but lets him go to pursue his dream and promises to wait. At the end the wind carries her kiss to him."
+        },
+        "alchemist": {
+          "name": "The alchemist",
+          "traits": ["wise", "stern", "enigmatic", "powerful"],
+          "description": "A two-hundred-year-old sage who lives at the oasis and possesses the Philosopher’s Stone and the Elixir of Life. As a horseman in black he tests Santiago, then becomes his teacher on the journey across the desert. The alchemist teaches the boy that what matters is not gold but the ability to listen to his heart."
+        },
+        "camel-driver": {
+          "name": "The camel driver",
+          "traits": ["calm", "wise", "observant", "level-headed"],
+          "description": "A seasoned camel driver in the caravan who once lost everything and has since lived only in the present moment. He is the first to take Santiago’s vision of the hawks seriously and advises him to tell the oasis chieftains about it."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "santiago",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human", "gender": "male", "age": "teen", "build": "slim", "skin": "#d9a27a",
+        "hair": { "style": "wavy", "color": "#2a1c14" }, "facialHair": "none", "eyes": "#3a2a1c",
+        "top": { "kind": "jacket", "color": "#8a6a46", "accent": "#efe2c8", "pattern": "plain" },
+        "bottom": { "kind": "pants", "color": "#5a4a3a" }, "shoes": "#4a3020",
+        "headwear": "none", "headwearColor": "#000000", "accessory": "backpack", "accessoryColor": "#7a5a38", "holding": "staff"
+      },
+      "portraitPrompt": "A young, sun-tanned shepherd with wavy dark hair and thoughtful dark eyes, wearing a worn brown jacket over a cream shirt and a leather pouch slung across his back, leaning on a wooden shepherd’s crook."
+    },
+    {
+      "id": "melchizedek",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human", "gender": "male", "age": "elder", "build": "average", "skin": "#e0b48e",
+        "hair": { "style": "short", "color": "#e8e4dc" }, "facialHair": "beard", "eyes": "#4a3a2c",
+        "top": { "kind": "armor", "color": "#e2b440", "accent": "#3a8a6a", "pattern": "dots" },
+        "bottom": { "kind": "robe", "color": "#6a5a7a" }, "shoes": "#4a3424",
+        "headwear": "none", "headwearColor": "#000000", "accessory": "cape", "accessoryColor": "#6a5a7a", "holding": "book"
+      },
+      "portraitPrompt": "A dignified old man with a short white beard, his plain dusky-purple cloak parted to reveal a heavy golden breastplate set with glittering precious stones, holding a small book."
+    },
+    {
+      "id": "gypsy",
+      "role": "minor",
+      "appearance": {
+        "creature": "human", "gender": "female", "age": "elder", "build": "average", "skin": "#c98e68",
+        "hair": { "style": "long", "color": "#5a5450" }, "facialHair": "none", "eyes": "#2a1e16",
+        "top": { "kind": "dress", "color": "#8a2a3a", "accent": "#e8c050", "pattern": "dots" },
+        "bottom": { "kind": "skirt", "color": "#4a2a5a" }, "shoes": "#3a2418",
+        "headwear": "headscarf", "headwearColor": "#d89a2a", "accessory": "necklace", "accessoryColor": "#e8c050", "holding": "none"
+      },
+      "portraitPrompt": "A wrinkled old Gypsy fortune-teller with sharp dark eyes, a bright golden headscarf over greying hair, a deep red dress and a jangle of gold necklaces, reaching out to read a palm."
+    },
+    {
+      "id": "crystal-merchant",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human", "gender": "male", "age": "elder", "build": "average", "skin": "#c89270",
+        "hair": { "style": "short", "color": "#9a948c" }, "facialHair": "beard", "eyes": "#3a2a1c",
+        "top": { "kind": "robe", "color": "#e8e0cc", "accent": "#7a8aa0", "pattern": "stripes" },
+        "bottom": { "kind": "robe", "color": "#e8e0cc" }, "shoes": "#8a6a46",
+        "headwear": "cap", "headwearColor": "#a83a2a", "accessory": "none", "accessoryColor": "#000000", "holding": "cup"
+      },
+      "portraitPrompt": "An elderly Moroccan shopkeeper with a neat grey beard and a red fez, wearing a striped cream robe, holding a sparkling crystal glass of mint tea, with a gentle, worried smile."
+    },
+    {
+      "id": "englishman",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human", "gender": "male", "age": "adult", "build": "slim", "skin": "#f2d2b8",
+        "hair": { "style": "short", "color": "#a8784a" }, "facialHair": "none", "eyes": "#5a7a8a",
+        "top": { "kind": "jacket", "color": "#c8b890", "accent": "#efe8d8", "pattern": "plain" },
+        "bottom": { "kind": "pants", "color": "#a8987a" }, "shoes": "#5a3e28",
+        "headwear": "none", "headwearColor": "#000000", "accessory": "round_glasses", "accessoryColor": "#3a3028", "holding": "book"
+      },
+      "portraitPrompt": "A thin, serious European scholar with sandy hair and round spectacles, wearing a dusty khaki travelling jacket, absorbed in a thick old book on alchemy."
+    },
+    {
+      "id": "fatima",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human", "gender": "female", "age": "teen", "build": "slim", "skin": "#c98e6a",
+        "hair": { "style": "long", "color": "#140e0c" }, "facialHair": "none", "eyes": "#1e1612",
+        "top": { "kind": "dress", "color": "#3a7aa0", "accent": "#e8d8a8", "pattern": "embroidery" },
+        "bottom": { "kind": "skirt", "color": "#3a7aa0" }, "shoes": "#6a4a32",
+        "headwear": "headscarf", "headwearColor": "#e8dcc4", "accessory": "none", "accessoryColor": "#000000", "holding": "cup"
+      },
+      "portraitPrompt": "A beautiful young woman of the desert with large dark eyes and long black hair under a light veil that leaves her face uncovered, wearing an embroidered blue dress, carrying a clay water jug at an oasis well."
+    },
+    {
+      "id": "alchemist",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human", "gender": "male", "age": "elder", "build": "tall", "skin": "#b88462",
+        "hair": { "style": "none", "color": "#1a1614" }, "facialHair": "none", "eyes": "#1e1612",
+        "top": { "kind": "robe", "color": "#1c1a1e", "accent": "#5a5460", "pattern": "plain" },
+        "bottom": { "kind": "robe", "color": "#1c1a1e" }, "shoes": "#141214",
+        "headwear": "headscarf", "headwearColor": "#1c1a1e", "accessory": "cape", "accessoryColor": "#2a2830", "holding": "sword"
+      },
+      "portraitPrompt": "A tall, mysterious desert sage dressed entirely in black, a black turban and veil hiding all of his face but piercing dark eyes, a falcon perched on his left shoulder, holding a long curved sword."
+    },
+    {
+      "id": "camel-driver",
+      "role": "minor",
+      "appearance": {
+        "creature": "human", "gender": "male", "age": "adult", "build": "average", "skin": "#b47e58",
+        "hair": { "style": "short", "color": "#2a201a" }, "facialHair": "beard", "eyes": "#2a1e16",
+        "top": { "kind": "robe", "color": "#d8c4a0", "accent": "#8a6a46", "pattern": "plain" },
+        "bottom": { "kind": "robe", "color": "#d8c4a0" }, "shoes": "#6a4a32",
+        "headwear": "headscarf", "headwearColor": "#f0ead8", "accessory": "none", "accessoryColor": "#000000", "holding": "staff"
+      },
+      "portraitPrompt": "A weathered caravan camel driver with a dark beard and calm eyes, wrapped in a sand-coloured robe and a white head cloth, leaning on a long wooden stick against the desert wind."
+    }
+  ],
+  "film": {
+    "scenes": [
+      { "setting": "church", "time": "night", "weather": "stars", "cast": ["santiago"], "props": ["tree", "door", "rock"], "action": "rest", "camera": "crane", "mood": "mysterious", "line": { "speaker": "santiago" } },
+      { "setting": "street", "time": "day", "weather": "clear", "cast": ["santiago", "melchizedek"], "props": ["bench", "fountain", "house"], "action": "talk", "camera": "dolly_in", "mood": "magical", "line": { "speaker": "melchizedek" } },
+      { "setting": "city", "time": "day", "weather": "clear", "cast": ["santiago", "crystal-merchant"], "props": ["table", "crystal", "house"], "action": "talk", "camera": "close_up", "mood": "calm", "line": { "speaker": "crystal-merchant" } },
+      { "setting": "desert", "time": "dusk", "weather": "clear", "cast": ["santiago", "fatima"], "props": ["palm", "well", "tent"], "action": "talk", "camera": "orbit", "mood": "romantic", "line": { "speaker": "fatima" } },
+      { "setting": "desert", "time": "night", "weather": "stars", "cast": ["santiago", "alchemist"], "props": ["palm", "rock", "moon"], "action": "discover", "camera": "dolly_in", "mood": "mysterious", "line": { "speaker": "alchemist" } },
+      { "setting": "desert", "time": "day", "weather": "wind", "cast": ["santiago", "alchemist"], "props": ["tent", "rock"], "action": "discover", "camera": "fly_over", "mood": "epic", "line": { "speaker": "santiago" } },
+      { "setting": "church", "time": "dawn", "weather": "clear", "cast": ["santiago"], "props": ["tree", "chest", "door"], "action": "celebrate", "camera": "dolly_in", "mood": "joyful", "line": { "speaker": "santiago" } }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: a young shepherd with a crook sleeps among his woolly sheep inside a ruined stone church at night, a big sycamore tree growing up through the broken roof into a sky full of stars; slow crane up, soft moonlight, tilt-shift miniature look, dreamy mood, no text.",
+      "Cute voxel-diorama 3D scene: a desert oasis at sunset with date palms, white tents and a stone well, where a shepherd boy meets a young woman with a clay jug on her shoulder, golden dunes glowing behind them; slow orbit, warm romantic light, no text.",
+      "Cute voxel-diorama 3D scene: a boy stands on a rocky cliff above a desert camp as a giant swirling sandstorm rises around him under a blazing sun, while a figure in black robes with a falcon on his shoulder watches calmly; dramatic fly-over camera, flying sand particles, no text."
+    ]
+  }
+}

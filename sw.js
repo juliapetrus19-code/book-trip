@@ -10,7 +10,12 @@
 const VERSION = "bt-v2-1";
 const SHELL = `${VERSION}-shell`;
 const STATIC = `${VERSION}-static`;
-const PRECACHE = ["/", "/index.html", "/css/base.css", "/css/home.css", "/css/book.css", "/js/app.js", "/icon.svg", "/manifest.webmanifest"];
+const PRECACHE = [
+  "/", "/index.html", "/css/base.css", "/css/home.css", "/css/book.css",
+  "/js/app.js", "/js/account.js", "/js/api.js", "/js/i18n.js", "/js/util.js", "/js/enums.js", "/js/covers.js",
+  "/js/ring.js", "/js/stars.js", "/js/book-view.js", "/js/strings-book.js", "/data/catalog.json",
+  "/icon.svg", "/icon-192.png", "/manifest.webmanifest",
+];
 const STATIC_MAX = 160;
 
 self.addEventListener("install", (event) => {

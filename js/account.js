@@ -531,9 +531,11 @@ export function takeLoginParam() {
 export function init(context) {
   ctx = context;
   initNav();
-  Promise.all([api.getHealth(), api.getMe()]).then(([h, me]) => {
+  api.getHealth().then(async (h) => {
     st.health = h;
-    st.me = me;
+    renderNav();
+    if (!enabled()) return; // no accounts, no billing: nothing to ask /api/me
+    st.me = await api.getMe();
     renderNav();
   });
 }

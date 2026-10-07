@@ -1,0 +1,911 @@
+{
+  "id": "zakhar-berkut",
+  "year": 1883,
+  "cover": {
+    "bg": "#3a4a5e",
+    "bg2": "#141a24",
+    "fg": "#f0e8d8",
+    "accent": "#e0a43a",
+    "motif": "wave"
+  },
+  "aliases": [
+    "Захар Беркут",
+    "Zakhar Berkut",
+    "Zachar Berkut",
+    "Zakhar Berkout",
+    "Захар Беркут Франко",
+    "Франко Захар Беркут",
+    "Захар Беркут Іван Франко",
+    "Захар Беркут Иван Франко",
+    "Захар Беркут повість",
+    "Беркут",
+    "Тухля",
+    "Тухольці",
+    "Захар Беркут. Образ громадського життя Карпатської Русі в XIII віці"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Захар Беркут",
+      "originalTitle": "Захар Беркут",
+      "author": "Иван Франко",
+      "genre": "Историческая повесть",
+      "tagline": "Карпатская община против боярина-предателя и монгольской орды: сила, которую даёт единство.",
+      "summary": [
+        "1241 год. Монгольские орды уже разорили Киев и движутся на запад. А в Карпатах, в горной долине, живёт вольная община Тухли. Здесь все решения принимает вече, земли, леса и пастбища принадлежат всем, а люди чтут старинные обычаи. Самый уважаемый среди тухольцев — Захар Беркут, седой мудрый старец и известный лекарь, всю жизнь служащий общине. Его младший сын Максим — отважный охотник, сильный и честный, гордость всей долины.",
+        "Князь Даниил Галицкий жалует боярину Тугару Волку земли возле Тухли. Гордый и властный, боярин не признаёт общинных порядков и самовольно захватывает общий лес и пастбище. Во время охоты на медведя, которую устраивает Тугар, Максим спасает от разъярённого зверя его дочь Мирославу — смелую и вольную девушку, которая стреляет из лука не хуже охотников. Между ними вспыхивает любовь, но боярин и слышать не хочет о браке дочери с простым «смердом».",
+        "Тухольское вече судит Тугара Волка за обиды общине. Боярин презрительно отвергает суд, грозит и покидает Тухлю, а вскоре переходит на сторону монголов: он обещает провести отряд Бурунды-бегадира через горные перевалы в Венгрию — прямо через тухольскую землю. Мирослава в отчаянии: отец предал родной край. Тем временем тухольцы по призыву Захара Беркута созывают соседние общины и готовятся защищать свои горы.",
+        "Первый удар принимает Максим с отрядом в узкой горной теснине. Тухольцы отчаянно сражаются, обрушивают на врагов камни, но силы неравны, и Максим попадает в плен. Монголы входят в Тухольскую долину, а Бурунда требует покорности: либо община пропустит орду и склонит голову, либо Максим погибнет. Захар Беркут стоит перед страшным выбором — и выбирает общину, а не сына. Мирослава, порвав с отцом, переходит на сторону тухольцев и помогает Максиму вырваться из неволи.",
+        "Тогда Захар осуществляет свой замысел. Тухольская долина — каменная котловина, из которой река вытекает через узкую расщелину. Тухольцы запруживают этот выход, и вода быстро поднимается, превращая долину в озеро. Монгольское войско оказывается в ловушке и гибнет в волнах и под стрелами горцев. Погибает и предатель Тугар Волк. А Захар Беркут, отдав общине все силы, умирает, завещая тухольцам беречь единство. Максим и Мирослава остаются вместе, а община — свободной."
+      ],
+      "themes": [
+        "Единство общины",
+        "Защита родной земли",
+        "Предательство и расплата",
+        "Любовь сильнее сословных преград",
+        "Отец и сын"
+      ],
+      "terms": [
+        {
+          "term": "Тухля",
+          "definition": "Горное село в Карпатах (ныне Сколевский край Львовщины), вольная община которого становится главным героем повести."
+        },
+        {
+          "term": "Община (громада)",
+          "definition": "Самоуправляемое сообщество крестьян, которое сообща владеет землёй и принимает решения на вече; Франко противопоставляет его боярской власти."
+        },
+        {
+          "term": "Вече",
+          "definition": "Общее собрание общины, на котором все свободные её члены вместе решают важнейшие дела и судят обидчиков."
+        },
+        {
+          "term": "Боярин",
+          "definition": "Представитель феодальной знати, которому князь жалует земли; Тугар Волк хочет подчинить себе вольных тухольцев."
+        },
+        {
+          "term": "Монгольское нашествие",
+          "definition": "Поход монгольских войск на Русь и Европу в 1237–1241 годах; в 1240 году был разрушен Киев."
+        },
+        {
+          "term": "Бегадир (багатур)",
+          "definition": "Почётный титул монгольского военачальника-богатыря; так зовут Бурунду."
+        },
+        {
+          "term": "Сторож",
+          "definition": "Древний каменный оберег тухольской общины на скале над долиной — символ её единства и старой веры."
+        },
+        {
+          "term": "Теснина",
+          "definition": "Узкий горный проход между скалами, где небольшой отряд может сдерживать большое войско."
+        },
+        {
+          "term": "Котловина",
+          "definition": "Низина, со всех сторон окружённая горами; такую долину тухольцы превращают в озеро."
+        },
+        {
+          "term": "Даниил Галицкий",
+          "definition": "Князь Галицко-Волынского государства XIII века, который в повести жалует земли боярину Тугару Волку."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Тарас Бульба",
+          "author": "Николай Гоголь",
+          "why": "Героическая историческая повесть о защите родной земли, где отец ставит долг выше судьбы сына."
+        },
+        {
+          "title": "Чёрная рада",
+          "author": "Пантелеймон Кулиш",
+          "why": "Классический украинский исторический роман о борьбе за власть, предательстве и народной правде."
+        },
+        {
+          "title": "Айвенго",
+          "author": "Вальтер Скотт",
+          "why": "Средневековые рыцари, предатели и любовь, которая преодолевает сословные преграды."
+        },
+        {
+          "title": "Батый",
+          "author": "Василий Ян",
+          "why": "Роман о монгольском нашествии XIII века, которое обрушивается и на героев Франко."
+        },
+        {
+          "title": "Последний из могикан",
+          "author": "Джеймс Фенимор Купер",
+          "why": "Приключения в диких горах и лесах, где знание природы помогает выстоять против сильнейшего врага."
+        }
+      ],
+      "film": {
+        "title": "Захар Беркут: озеро в горах",
+        "intro": "Ты открываешь книгу — и стоишь на карпатском склоне, где пахнет смолой и горным ветром. Внизу лежит тихая Тухольская долина, но с востока уже тянется дым монгольских костров.",
+        "outro": "Над долиной разливается спокойное озеро, отражая горы и небо. Страницы закрываются, а ты помнишь: пока люди вместе, их не одолеть.",
+        "scenes": [
+          {
+            "title": "Охота на медведя",
+            "narration": "Ты стоишь в густом буковом лесу, где гремит боярская охота. Разъярённый медведь бросается на Мирославу — и Максим, не раздумывая, встаёт между ними с рогатиной.",
+            "line": {
+              "text": "Ты спас мне жизнь, охотник из Тухли!"
+            }
+          },
+          {
+            "title": "Вече",
+            "narration": "Ты стоишь посреди села, где собралась вся община. Седой Захар Беркут говорит спокойно и твёрдо, а боярин Тугар Волк, презрительно усмехаясь, отказывается признать суд простых людей.",
+            "line": {
+              "text": "Лес и пастбища — общее добро общины, а не боярское!"
+            }
+          },
+          {
+            "title": "Измена",
+            "narration": "Ты стоишь на горном перевале в сумерках, где ветер треплет знамёна. Тугар Волк склоняется перед монгольским полководцем Бурундой и указывает дорогу через горы — прямо на Тухлю.",
+            "line": {
+              "text": "Я проведу ваше войско через горы, бегадир."
+            }
+          },
+          {
+            "title": "Бой в теснине",
+            "narration": "Ты стоишь в узкой скалистой теснине, куда втискивается монгольская конница. Максим и тухольцы обрушивают на врагов камни и стрелы, но орда неудержимо прёт вперёд.",
+            "line": {
+              "text": "Стоим, братья! Ни шагу назад!"
+            }
+          },
+          {
+            "title": "Выбор отца",
+            "narration": "Ты стоишь у монгольского лагеря, где связанный Максим ждёт своей участи. Бурунда требует от Захара покорности, и старик, побледнев, отвечает отказом — община для него дороже собственного сына.",
+            "line": {
+              "text": "Один человек — ничто против общины. Даже если это мой сын."
+            }
+          },
+          {
+            "title": "Озеро в горах",
+            "narration": "Ты стоишь высоко на скале и видишь, как запруженная река затапливает долину, превращая её в озеро. Монгольское войско тонет в ловушке, а освобождённый Максим и Мирослава стоят рядом с Захаром, глядя на спасённую землю.",
+            "line": {
+              "text": "Помните, дети: пока община едина, её никто не одолеет."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "zakhar": {
+          "name": "Захар Беркут",
+          "traits": [
+            "мудрый",
+            "справедливый",
+            "несгибаемый",
+            "преданный общине"
+          ],
+          "description": "Седой тухольский старейшина и известный лекарь, всю жизнь служащий общине. Он ведёт вольных горцев против боярина-предателя и монгольской орды, а когда враг берёт в плен его сына, ставит благо общины выше собственного горя. Именно его замысел — затопить долину — спасает Тухлю."
+        },
+        "maksym": {
+          "name": "Максим Беркут",
+          "traits": [
+            "отважный",
+            "честный",
+            "сильный",
+            "верный"
+          ],
+          "description": "Младший сын Захара, храбрый охотник и воин. Он спасает Мирославу на охоте и искренне любит её, несмотря на вражду с её отцом. Максим возглавляет оборону теснины, попадает в монгольский плен, но не склоняет головы перед врагом."
+        },
+        "myroslava": {
+          "name": "Мирослава",
+          "traits": [
+            "смелая",
+            "гордая",
+            "вольная",
+            "верная"
+          ],
+          "description": "Дочь боярина Тугара Волка, умелая охотница, которая стреляет из лука не хуже мужчин. Полюбив Максима, она порывает с отцом-предателем и переходит на сторону тухольцев. Её решимость помогает Максиму вырваться из неволи."
+        },
+        "tuhar-vovk": {
+          "name": "Тугар Волк",
+          "traits": [
+            "гордый",
+            "властный",
+            "коварный",
+            "жестокий"
+          ],
+          "description": "Боярин, которому князь Даниил пожаловал земли возле Тухли. Презирая общинные порядки, он захватывает общие угодья, а осуждённый вечем, переходит на сторону монголов и ведёт их на родную землю. Предательство оборачивается против него самого — он погибает."
+        },
+        "burunda": {
+          "name": "Бурунда-бегадир",
+          "traits": [
+            "жестокий",
+            "властный",
+            "самоуверенный",
+            "хитрый"
+          ],
+          "description": "Монгольский военачальник, отряд которого Тугар Волк ведёт через Карпаты. Он уверен, что горстка горцев не устоит перед его войском, и держит Максима в плену как заложника. Замысел Захара Беркута превращает долину в ловушку для его орды."
+        }
+      }
+    },
+    "uk": {
+      "title": "Захар Беркут",
+      "originalTitle": "Захар Беркут",
+      "author": "Іван Франко",
+      "genre": "Історична повість",
+      "tagline": "Карпатська громада проти боярина-зрадника й монгольської орди: сила, яку дає єдність.",
+      "summary": [
+        "1241 рік. Монгольські орди вже сплюндрували Київ і сунуть на захід. А в Карпатах, у гірській долині, живе вільна громада Тухлі. Тут усі рішення ухвалює віче, землі, ліси й пасовиська належать усім, а люди шанують давні звичаї. Найповажніший серед тухольців — Захар Беркут, сивий мудрий старець і знаний лікар, що все життя служить громаді. Його наймолодший син Максим — відважний мисливець, сильний і чесний, гордість усієї долини.",
+        "Князь Данило Галицький дарує боярину Тугарові Вовку землі поблизу Тухлі. Гордий і владний, боярин не визнає громадських порядків і самовільно захоплює спільний ліс і полонину. Під час полювання на ведмедя, яке влаштовує Тугар, Максим рятує від розлюченого звіра його доньку Мирославу — сміливу й вільну дівчину, що стріляє з лука не гірше за мисливців. Між ними спалахує кохання, але боярин і чути не хоче про шлюб доньки з простим «смердом».",
+        "Тухольське віче судить Тугара Вовка за кривди громаді. Боярин зневажливо відкидає суд, погрожує й покидає Тухлю, а невдовзі переходить на бік монголів: він обіцяє провести загін Бурунди-бегадира через гірські перевали до Угорщини — просто через тухольську землю. Мирослава в розпачі: батько зрадив рідний край. Тим часом тухольці на заклик Захара Беркута скликають сусідні громади й готуються боронити свої гори.",
+        "Перший удар приймає Максим із загоном у вузькій гірській теснині. Тухольці відчайдушно б’ються, скидають на ворогів каміння, та сили нерівні, і Максим потрапляє в полон. Монголи заходять у Тухольську долину, а Бурунда вимагає покори: або громада пропустить орду й схилить голову, або Максим загине. Захар Беркут стоїть перед страшним вибором — і обирає громаду, а не сина. Мирослава, порвавши з батьком, переходить на бік тухольців і допомагає Максимові вирватися з неволі.",
+        "Тоді Захар утілює свій задум. Тухольська долина — кам’яна котловина, з якої річка витікає крізь вузьку щілину. Тухольці загачують цей вихід, і вода швидко піднімається, перетворюючи долину на озеро. Монгольське військо опиняється в пастці й гине у хвилях і під стрілами горян. Гине й зрадник Тугар Вовк. А Захар Беркут, віддавши громаді всі сили, помирає, заповідаючи тухольцям берегти єдність. Максим і Мирослава лишаються разом, а громада — вільною."
+      ],
+      "themes": [
+        "Єдність громади",
+        "Захист рідної землі",
+        "Зрада і розплата",
+        "Кохання понад станові перепони",
+        "Батько і син"
+      ],
+      "terms": [
+        {
+          "term": "Тухля",
+          "definition": "Гірське село в Карпатах (нині Сколівщина на Львівщині), вільна громада якого стає головним героєм повісті."
+        },
+        {
+          "term": "Громада",
+          "definition": "Самоврядна спільнота селян, що спільно володіє землею й ухвалює рішення на вічі; Франко протиставляє її боярській владі."
+        },
+        {
+          "term": "Віче",
+          "definition": "Загальні збори громади, на яких усі її вільні члени разом вирішують найважливіші справи й судять кривдників."
+        },
+        {
+          "term": "Боярин",
+          "definition": "Представник феодальної знаті, якому князь дарує землі; Тугар Вовк хоче підкорити собі вільних тухольців."
+        },
+        {
+          "term": "Монгольська навала",
+          "definition": "Похід монгольських військ на Русь і Європу 1237–1241 років; 1240 року було зруйновано Київ."
+        },
+        {
+          "term": "Бегадир (багатур)",
+          "definition": "Почесний титул монгольського воєначальника-богатиря; так звуть Бурунду."
+        },
+        {
+          "term": "Сторож",
+          "definition": "Прадавній кам’яний оберіг тухольської громади на скелі над долиною — символ її єдності й старої віри."
+        },
+        {
+          "term": "Теснина",
+          "definition": "Вузький гірський прохід між скелями, де невеликий загін може стримувати велике військо."
+        },
+        {
+          "term": "Котловина",
+          "definition": "Низина, з усіх боків оточена горами; таку долину тухольці перетворюють на озеро."
+        },
+        {
+          "term": "Данило Галицький",
+          "definition": "Князь Галицько-Волинської держави XIII століття, який у повісті дарує землі боярину Тугарові Вовку."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Тарас Бульба",
+          "author": "Микола Гоголь",
+          "why": "Героїчна історична повість про захист рідної землі, де батько ставить обов’язок вище за долю сина."
+        },
+        {
+          "title": "Чорна рада",
+          "author": "Пантелеймон Куліш",
+          "why": "Класичний український історичний роман про боротьбу за владу, зраду й народну правду."
+        },
+        {
+          "title": "Айвенго",
+          "author": "Вальтер Скотт",
+          "why": "Середньовічні лицарі, зрадники й кохання, що долає станові перепони."
+        },
+        {
+          "title": "Батий",
+          "author": "Василь Ян",
+          "why": "Роман про монгольську навалу XIII століття, яка обрушується й на героїв Франка."
+        },
+        {
+          "title": "Останній з могікан",
+          "author": "Джеймс Фенімор Купер",
+          "why": "Пригоди в диких горах і лісах, де знання природи допомагає вистояти проти сильнішого ворога."
+        }
+      ],
+      "film": {
+        "title": "Захар Беркут: озеро в горах",
+        "intro": "Ти розгортаєш книжку — і стоїш на карпатському схилі, де пахне живицею й гірським вітром. Унизу лежить тиха Тухольська долина, але зі сходу вже тягнеться дим монгольських вогнищ.",
+        "outro": "Над долиною розливається спокійне озеро, віддзеркалюючи гори й небо. Сторінки закриваються, а ти пам’ятаєш: доки люди разом, їх не здолати.",
+        "scenes": [
+          {
+            "title": "Полювання на ведмедя",
+            "narration": "Ти стоїш у густому буковому лісі, де гримить боярське полювання. Розлючений ведмідь кидається на Мирославу — і Максим, не вагаючись, стає між ними з рогатиною.",
+            "line": {
+              "text": "Ти врятував мені життя, мисливцю з Тухлі!"
+            }
+          },
+          {
+            "title": "Віче",
+            "narration": "Ти стоїш посеред села, де зібралася вся громада. Сивий Захар Беркут говорить спокійно й твердо, а боярин Тугар Вовк, зневажливо всміхаючись, не визнає суду простих людей.",
+            "line": {
+              "text": "Ліс і пасовиська — спільне добро громади, а не боярське!"
+            }
+          },
+          {
+            "title": "Зрада",
+            "narration": "Ти стоїш на гірському перевалі в сутінках, де вітер шарпає бунчуки. Тугар Вовк схиляється перед монгольським воєначальником Бурундою й показує дорогу крізь гори — просто на Тухлю.",
+            "line": {
+              "text": "Я проведу твоє військо крізь гори, бегадире."
+            }
+          },
+          {
+            "title": "Бій у теснині",
+            "narration": "Ти стоїш у вузькій скелястій теснині, куди втискається монгольська кіннота. Максим і тухольці скидають на ворогів каміння й засипають їх стрілами, та орда невпинно пре вперед.",
+            "line": {
+              "text": "Стіймо, браття! Ані кроку назад!"
+            }
+          },
+          {
+            "title": "Батьків вибір",
+            "narration": "Ти стоїш біля монгольського табору, де зв’язаний Максим чекає своєї долі. Бурунда вимагає від Захара покори, і старий, зблідлий, відповідає відмовою — громада для нього дорожча за власного сина.",
+            "line": {
+              "text": "Одна людина — ніщо проти громади. Навіть коли це мій син."
+            }
+          },
+          {
+            "title": "Озеро в горах",
+            "narration": "Ти стоїш високо на скелі й бачиш, як загачена річка затоплює долину, перетворюючи її на озеро. Монгольське військо тоне в пастці, а визволений Максим і Мирослава стоять поруч із Захаром, дивлячись на врятовану землю.",
+            "line": {
+              "text": "Пам’ятайте, діти: доки громада єдина, її ніхто не здолає."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "zakhar": {
+          "name": "Захар Беркут",
+          "traits": [
+            "мудрий",
+            "справедливий",
+            "незламний",
+            "відданий громаді"
+          ],
+          "description": "Сивий тухольський старійшина й знаний лікар, що все життя служить громаді. Він веде вільних горян проти боярина-зрадника й монгольської орди, а коли ворог бере в полон його сина, ставить добро громади вище за власне горе. Саме його задум — затопити долину — рятує Тухлю."
+        },
+        "maksym": {
+          "name": "Максим Беркут",
+          "traits": [
+            "відважний",
+            "чесний",
+            "сильний",
+            "вірний"
+          ],
+          "description": "Наймолодший син Захара, хоробрий мисливець і воїн. Він рятує Мирославу на полюванні й щиро кохає її, попри ворожнечу з її батьком. Максим очолює оборону теснини, потрапляє в монгольський полон, але не схиляє голови перед ворогом."
+        },
+        "myroslava": {
+          "name": "Мирослава",
+          "traits": [
+            "смілива",
+            "горда",
+            "вільна",
+            "вірна"
+          ],
+          "description": "Донька боярина Тугара Вовка, вправна мисливиця, що стріляє з лука не гірше за чоловіків. Покохавши Максима, вона пориває з батьком-зрадником і переходить на бік тухольців. Її рішучість допомагає Максимові вирватися з неволі."
+        },
+        "tuhar-vovk": {
+          "name": "Тугар Вовк",
+          "traits": [
+            "гордий",
+            "владний",
+            "підступний",
+            "жорстокий"
+          ],
+          "description": "Боярин, якому князь Данило подарував землі біля Тухлі. Зневажаючи громадські порядки, він захоплює спільні угіддя, а засуджений вічем, переходить на бік монголів і веде їх на рідну землю. Зрада обертається проти нього самого — він гине."
+        },
+        "burunda": {
+          "name": "Бурунда-бегадир",
+          "traits": [
+            "жорстокий",
+            "владний",
+            "самовпевнений",
+            "хитрий"
+          ],
+          "description": "Монгольський воєначальник, загін якого Тугар Вовк веде крізь Карпати. Він певен, що жменька горян не встоїть перед його військом, і тримає Максима в полоні як заручника. Задум Захара Беркута перетворює долину на пастку для його орди."
+        }
+      }
+    },
+    "en": {
+      "title": "Zakhar Berkut",
+      "originalTitle": "Захар Беркут",
+      "author": "Ivan Franko",
+      "genre": "Historical novel",
+      "tagline": "A Carpathian community against a traitor boyar and the Mongol horde: the strength that comes from unity.",
+      "summary": [
+        "The year is 1241. The Mongol hordes have already sacked Kyiv and are pushing west. But in the Carpathians, in a mountain valley, lives the free community of Tukhlia. Here every decision is made by the assembly, the land, forests and pastures belong to all, and people honour the old customs. The most respected of the Tukhlians is Zakhar Berkut, a wise grey-haired elder and renowned healer who has served the community all his life. His youngest son Maksym is a brave hunter, strong and honest, the pride of the whole valley.",
+        "Prince Danylo of Halych grants the boyar Tuhar Vovk lands near Tukhlia. Proud and domineering, the boyar does not recognise the community’s ways and seizes the common forest and mountain pasture. During a bear hunt organised by Tuhar, Maksym saves the boyar’s daughter Myroslava from the enraged beast — a bold, free-spirited girl who shoots a bow as well as any hunter. Love flares up between them, but the boyar will not hear of his daughter marrying a mere commoner.",
+        "The Tukhlian assembly puts Tuhar Vovk on trial for wronging the community. The boyar scornfully rejects the court, issues threats and leaves Tukhlia — and soon goes over to the Mongols: he promises to lead the troops of Burunda the Bahadur across the mountain passes into Hungary, straight through Tukhlian land. Myroslava is in despair: her father has betrayed his homeland. Meanwhile, at Zakhar Berkut’s call, the Tukhlians summon the neighbouring communities and prepare to defend their mountains.",
+        "Maksym and his band take the first blow in a narrow mountain gorge. The Tukhlians fight desperately, hurling rocks down on the enemy, but the odds are too great and Maksym is captured. The Mongols enter the Tukhlia valley, and Burunda demands submission: either the community lets the horde pass and bows its head, or Maksym dies. Zakhar Berkut faces a terrible choice — and chooses the community over his son. Myroslava, breaking with her father, joins the Tukhlians and helps Maksym escape from captivity.",
+        "Then Zakhar carries out his plan. The Tukhlia valley is a stone basin whose river flows out through a narrow cleft. The Tukhlians dam that outlet, and the water rises fast, turning the valley into a lake. The Mongol army is trapped and perishes in the waves and under the highlanders’ arrows. The traitor Tuhar Vovk dies too. And Zakhar Berkut, having given the community all his strength, dies, urging the Tukhlians to preserve their unity. Maksym and Myroslava stay together, and the community remains free."
+      ],
+      "themes": [
+        "Community and unity",
+        "Defending one’s homeland",
+        "Betrayal and retribution",
+        "Love across class barriers",
+        "Father and son"
+      ],
+      "terms": [
+        {
+          "term": "Tukhlia",
+          "definition": "A mountain village in the Carpathians (today in the Skole area of Lviv region) whose free community is the real hero of the novel."
+        },
+        {
+          "term": "Hromada (community)",
+          "definition": "A self-governing peasant community that owns land in common and makes decisions in assembly; Franko contrasts it with the power of the boyars."
+        },
+        {
+          "term": "Viche (assembly)",
+          "definition": "The general meeting of the community, where all its free members decide the most important matters together and judge wrongdoers."
+        },
+        {
+          "term": "Boyar",
+          "definition": "A member of the feudal nobility granted land by the prince; Tuhar Vovk wants to subjugate the free Tukhlians."
+        },
+        {
+          "term": "Mongol invasion",
+          "definition": "The campaign of the Mongol armies against Rus’ and Europe in 1237–1241; Kyiv was destroyed in 1240."
+        },
+        {
+          "term": "Bahadur",
+          "definition": "An honorary Mongol title for a heroic warrior-commander; Burunda bears it."
+        },
+        {
+          "term": "The Watchman (Storozh)",
+          "definition": "The ancient stone guardian of the Tukhlian community on a cliff above the valley — a symbol of its unity and old faith."
+        },
+        {
+          "term": "Gorge",
+          "definition": "A narrow mountain passage between cliffs, where a small band can hold back a large army."
+        },
+        {
+          "term": "Basin",
+          "definition": "A low-lying valley ringed by mountains on all sides; the Tukhlians turn such a valley into a lake."
+        },
+        {
+          "term": "Danylo of Halych",
+          "definition": "The 13th-century prince of Galicia-Volhynia, who in the novel grants lands to the boyar Tuhar Vovk."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Taras Bulba",
+          "author": "Nikolai Gogol",
+          "why": "A heroic historical tale of defending one’s land, in which a father puts duty above his son’s fate."
+        },
+        {
+          "title": "The Black Council",
+          "author": "Panteleimon Kulish",
+          "why": "A classic Ukrainian historical novel about the struggle for power, betrayal and the people’s truth."
+        },
+        {
+          "title": "Ivanhoe",
+          "author": "Walter Scott",
+          "why": "Medieval knights, traitors and a love that overcomes class barriers."
+        },
+        {
+          "title": "Batu Khan",
+          "author": "Vasily Yan",
+          "why": "A novel about the 13th-century Mongol invasion that also sweeps down on Franko’s heroes."
+        },
+        {
+          "title": "The Last of the Mohicans",
+          "author": "James Fenimore Cooper",
+          "why": "Adventures in wild mountains and forests, where knowing the land helps the few stand against a stronger enemy."
+        }
+      ],
+      "film": {
+        "title": "Zakhar Berkut: a lake in the mountains",
+        "intro": "You open the book and find yourself on a Carpathian slope that smells of resin and mountain wind. Below lies the quiet Tukhlia valley, but from the east the smoke of Mongol campfires is already drifting closer.",
+        "outro": "A calm lake spreads across the valley, mirroring the mountains and the sky. The pages close, and you remember: as long as people stand together, no one can defeat them.",
+        "scenes": [
+          {
+            "title": "The Bear Hunt",
+            "narration": "You stand in a thick beech forest echoing with the boyar’s hunt. An enraged bear charges at Myroslava — and Maksym, without a second thought, steps between them with his hunting spear.",
+            "line": {
+              "text": "You saved my life, hunter from Tukhlia!"
+            }
+          },
+          {
+            "title": "The Assembly",
+            "narration": "You stand in the middle of the village where the whole community has gathered. Grey-haired Zakhar Berkut speaks calmly and firmly, while the boyar Tuhar Vovk, sneering, refuses to accept the judgement of common folk.",
+            "line": {
+              "text": "The forest and pastures belong to the community, not to a boyar!"
+            }
+          },
+          {
+            "title": "Betrayal",
+            "narration": "You stand on a mountain pass at dusk as the wind tugs at the horsetail standards. Tuhar Vovk bows before the Mongol commander Burunda and points out the way through the mountains — straight to Tukhlia.",
+            "line": {
+              "text": "I will lead your army through the mountains, Bahadur."
+            }
+          },
+          {
+            "title": "Battle in the Gorge",
+            "narration": "You stand in a narrow rocky gorge as the Mongol cavalry squeezes in. Maksym and the Tukhlians rain down rocks and arrows on the enemy, but the horde keeps surging forward.",
+            "line": {
+              "text": "Hold fast, brothers! Not one step back!"
+            }
+          },
+          {
+            "title": "A Father’s Choice",
+            "narration": "You stand by the Mongol camp, where Maksym, bound, awaits his fate. Burunda demands Zakhar’s submission, and the old man, pale as ash, refuses — the community means more to him than his own son.",
+            "line": {
+              "text": "One man is nothing against the community. Even if he is my son."
+            }
+          },
+          {
+            "title": "A Lake in the Mountains",
+            "narration": "You stand high on a cliff and watch the dammed river flood the valley, turning it into a lake. The Mongol army drowns in the trap, while the freed Maksym and Myroslava stand beside Zakhar, gazing at the land they have saved.",
+            "line": {
+              "text": "Remember, children: while the community is united, no one can conquer it."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "zakhar": {
+          "name": "Zakhar Berkut",
+          "traits": [
+            "wise",
+            "just",
+            "unbending",
+            "devoted to his people"
+          ],
+          "description": "The grey-haired elder of Tukhlia and a renowned healer who has served the community all his life. He leads the free highlanders against a traitor boyar and the Mongol horde, and when the enemy takes his son prisoner he puts the good of the community above his own grief. It is his plan — to flood the valley — that saves Tukhlia."
+        },
+        "maksym": {
+          "name": "Maksym Berkut",
+          "traits": [
+            "brave",
+            "honest",
+            "strong",
+            "loyal"
+          ],
+          "description": "Zakhar’s youngest son, a valiant hunter and warrior. He saves Myroslava during the hunt and loves her sincerely despite the feud with her father. Maksym leads the defence of the gorge and is captured by the Mongols, but never bows his head before the enemy."
+        },
+        "myroslava": {
+          "name": "Myroslava",
+          "traits": [
+            "bold",
+            "proud",
+            "free-spirited",
+            "faithful"
+          ],
+          "description": "The daughter of the boyar Tuhar Vovk, a skilled huntress who shoots a bow as well as any man. Falling in love with Maksym, she breaks with her traitor father and joins the Tukhlians. Her courage helps Maksym escape from captivity."
+        },
+        "tuhar-vovk": {
+          "name": "Tuhar Vovk",
+          "traits": [
+            "proud",
+            "domineering",
+            "treacherous",
+            "cruel"
+          ],
+          "description": "A boyar granted lands near Tukhlia by Prince Danylo. Scorning the community’s ways, he seizes common land, and when the assembly condemns him he goes over to the Mongols and leads them against his own homeland. His treachery turns against him — he perishes."
+        },
+        "burunda": {
+          "name": "Burunda the Bahadur",
+          "traits": [
+            "cruel",
+            "imperious",
+            "overconfident",
+            "cunning"
+          ],
+          "description": "The Mongol commander whose troops Tuhar Vovk leads through the Carpathians. He is sure that a handful of highlanders cannot withstand his army, and he holds Maksym prisoner as a hostage. Zakhar Berkut’s plan turns the valley into a trap for his horde."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "zakhar",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "tall",
+        "skin": "#e0b08c",
+        "hair": {
+          "style": "long",
+          "color": "#ecebe6"
+        },
+        "facialHair": "long_beard",
+        "eyes": "#4a6a8a",
+        "top": {
+          "kind": "robe",
+          "color": "#efe8d8",
+          "accent": "#8a2a24",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "robe",
+          "color": "#d8ccb4"
+        },
+        "shoes": "#6a4a2c",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "cape",
+        "accessoryColor": "#6a5440",
+        "holding": "staff"
+      },
+      "portraitPrompt": "A tall, venerable Carpathian elder with long snow-white hair and a flowing white beard, calm wise blue eyes and a weathered face, wearing a long undyed linen robe with red embroidered hems and a brown woollen cloak, leaning on a tall wooden staff."
+    },
+    {
+      "id": "maksym",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#e2b08a",
+        "hair": {
+          "style": "long",
+          "color": "#6a4428"
+        },
+        "facialHair": "stubble",
+        "eyes": "#4a3a2a",
+        "top": {
+          "kind": "tunic",
+          "color": "#8a6a44",
+          "accent": "#e8dcc0",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#5a4a36"
+        },
+        "shoes": "#4a3020",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "belt_sword",
+        "accessoryColor": "#3a2a1c",
+        "holding": "spear"
+      },
+      "portraitPrompt": "A strong, broad-shouldered young Carpathian hunter with shoulder-length brown hair, light stubble and a fearless gaze, wearing a belted brown leather-and-wool tunic, a fur-trimmed shoulder wrap and leather leggings, holding a heavy hunting spear."
+    },
+    {
+      "id": "myroslava",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f2cfb2",
+        "hair": {
+          "style": "braids",
+          "color": "#c89a5a"
+        },
+        "facialHair": "none",
+        "eyes": "#3a7a5a",
+        "top": {
+          "kind": "tunic",
+          "color": "#3a6a4a",
+          "accent": "#e0c070",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#4a3a2a"
+        },
+        "shoes": "#5a3a22",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "cape",
+        "accessoryColor": "#8a2a2a",
+        "holding": "bow_weapon"
+      },
+      "portraitPrompt": "A bold young noblewoman dressed for the hunt, with long golden-brown braids and bright green eyes, wearing a forest-green tunic embroidered with gold, leather trousers, tall boots and a short red cape, holding a hunting bow."
+    },
+    {
+      "id": "tuhar-vovk",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#dcaa86",
+        "hair": {
+          "style": "short",
+          "color": "#2a2420"
+        },
+        "facialHair": "beard",
+        "eyes": "#2a2a2a",
+        "top": {
+          "kind": "armor",
+          "color": "#7a7e86",
+          "accent": "#a8282a",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#3a2a24"
+        },
+        "shoes": "#2a1e16",
+        "headwear": "helmet",
+        "headwearColor": "#8a8e96",
+        "accessory": "cape",
+        "accessoryColor": "#7a1e1e",
+        "holding": "sword"
+      },
+      "portraitPrompt": "A proud, grim medieval boyar with a short black beard and cold dark eyes, wearing a pointed steel helmet, chainmail with a red surcoat and a dark crimson cloak, gripping a long sword."
+    },
+    {
+      "id": "burunda",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#c89a6a",
+        "hair": {
+          "style": "braids",
+          "color": "#141210"
+        },
+        "facialHair": "mustache",
+        "eyes": "#1e1610",
+        "top": {
+          "kind": "armor",
+          "color": "#8a5a2a",
+          "accent": "#d8a43a",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#4a3424"
+        },
+        "shoes": "#3a2418",
+        "headwear": "helmet",
+        "headwearColor": "#a87a3a",
+        "accessory": "belt_sword",
+        "accessoryColor": "#3a2a1c",
+        "holding": "sword"
+      },
+      "portraitPrompt": "A powerful, scowling 13th-century Mongol commander with black braided hair, a long drooping moustache and narrow fierce eyes, wearing lamellar leather armour with bronze plates, a fur-trimmed pointed helmet and a curved sabre."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "forest",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "maksym",
+          "myroslava",
+          "tuhar-vovk"
+        ],
+        "props": [
+          "tree",
+          "rock",
+          "bush",
+          "pine"
+        ],
+        "action": "fight",
+        "camera": "close_up",
+        "mood": "tense",
+        "line": {
+          "speaker": "myroslava"
+        }
+      },
+      {
+        "setting": "village",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "zakhar",
+          "tuhar-vovk",
+          "maksym"
+        ],
+        "props": [
+          "house",
+          "fence",
+          "bench",
+          "tree",
+          "statue"
+        ],
+        "action": "talk",
+        "camera": "orbit",
+        "mood": "tense",
+        "line": {
+          "speaker": "zakhar"
+        }
+      },
+      {
+        "setting": "mountains",
+        "time": "dusk",
+        "weather": "wind",
+        "cast": [
+          "tuhar-vovk",
+          "burunda"
+        ],
+        "props": [
+          "tent",
+          "fire",
+          "rock",
+          "pine"
+        ],
+        "action": "talk",
+        "camera": "pan",
+        "mood": "mysterious",
+        "line": {
+          "speaker": "tuhar-vovk"
+        }
+      },
+      {
+        "setting": "mountains",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "maksym",
+          "burunda"
+        ],
+        "props": [
+          "rock",
+          "pine",
+          "bridge"
+        ],
+        "action": "fight",
+        "camera": "fly_over",
+        "mood": "epic",
+        "line": {
+          "speaker": "maksym"
+        }
+      },
+      {
+        "setting": "battlefield",
+        "time": "dusk",
+        "weather": "wind",
+        "cast": [
+          "zakhar",
+          "burunda",
+          "maksym"
+        ],
+        "props": [
+          "tent",
+          "fire",
+          "rock"
+        ],
+        "action": "talk",
+        "camera": "dolly_in",
+        "mood": "tense",
+        "line": {
+          "speaker": "zakhar"
+        }
+      },
+      {
+        "setting": "mountains",
+        "time": "dawn",
+        "weather": "clear",
+        "cast": [
+          "zakhar",
+          "maksym",
+          "myroslava"
+        ],
+        "props": [
+          "rock",
+          "pine",
+          "statue",
+          "boat"
+        ],
+        "action": "celebrate",
+        "camera": "crane",
+        "mood": "epic",
+        "line": {
+          "speaker": "zakhar"
+        }
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: a green Carpathian mountain valley with a small medieval village of log cabins, a grey-bearded elder in a white embroidered robe addressing a crowd of villagers around a stone idol while a boyar in chainmail and a red cloak scowls; slow orbiting camera, soft daylight, tilt-shift miniature look, no text.",
+      "Cute voxel-diorama 3D scene: a narrow rocky mountain gorge where tiny highlanders on the cliffs hurl boulders and shoot arrows down at a column of Mongol horsemen with horsetail banners; dynamic fly-over camera, dusty golden light, epic battle mood, no text.",
+      "Cute voxel-diorama 3D scene: a mountain valley slowly filling with blue water to become a lake as the river outlet is dammed with stones, Mongol tents floating away, while an old white-bearded elder, a young hunter and a girl with a bow watch from a high cliff at dawn; slow crane shot, glowing sunrise, triumphant mood, no text."
+    ]
+  }
+}

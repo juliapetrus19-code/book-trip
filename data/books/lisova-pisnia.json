@@ -1,0 +1,1224 @@
+{
+  "id": "lisova-pisnia",
+  "year": 1911,
+  "cover": {
+    "bg": "#24607a",
+    "bg2": "#0a2232",
+    "fg": "#eef8ea",
+    "accent": "#a8e07a",
+    "motif": "leaf"
+  },
+  "aliases": [
+    "Лісова пісня",
+    "Лесная песня",
+    "The Forest Song",
+    "Forest Song",
+    "Lisova pisnia",
+    "Lisova pisnya",
+    "Lesnaya pesnya",
+    "Лісова пісня Леся Українка",
+    "Леся Українка Лісова пісня",
+    "Лесная песня Леся Украинка",
+    "Мавка",
+    "Мавка і Лукаш",
+    "Мавка и Лукаш",
+    "Лісова пісьня",
+    "Лесовая песня"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Лесная песня",
+      "originalTitle": "Лісова пісня",
+      "author": "Леся Украинка",
+      "genre": "Драма-феерия",
+      "tagline": "Лесная мавка полюбила человека — и её любовь оказалась сильнее измены, забвения и самой смерти.",
+      "summary": [
+        "Древняя Волынь, вековой лес над озером. Ранней весной, пока лес ещё спит, Тот, кто плотины рвёт, кружится с Русалкой в водяных играх, а природа вот-вот проснётся. В лес приходят дядя Лев, мудрый старик, почитающий лесных духов, и его племянник Лукаш — молодой красивый парень. Они собираются поселиться здесь и поставить хату. Лукаш играет на свирели так, что весь лес прислушивается, — и от его мелодии пробуждается Мавка, лесная дева-дух с переменчивыми, то синими, то зелёными глазами.",
+        "Мавка и Лукаш влюбляются друг в друга. Она учит его слышать голоса леса, он рассказывает ей о жизни людей. Лесовик, старый хозяин леса, предостерегает Мавку: человеческая любовь переменчива, и в ней легко потерять себя. Ревнует и огненный Перелесник, который давно ухаживает за Мавкой. Но она не слушает никого: ради Лукаша она готова сменить вольную лесную жизнь на жизнь рядом с людьми. Дядя Лев ставит хату над озером, и Мавка часто приходит туда.",
+        "Проходит лето. Мать Лукаша невзлюбила Мавку: ей нужна работящая невестка, а не лесное «наваждение». Мавка надевает человеческую одежду и пытается работать, но не может сжать рожь, когда Русалка Полевая умоляет её пощадить колосья и цветы. Тогда появляется Килина — бойкая и хваткая сельская молодица. Она ловко жнёт рожь, заигрывает с Лукашем, и мать видит в ней куда лучшую пару для сына. Лукаш, чья любовь к Мавке остывает под тяжестью будней, поддаётся её чарам.",
+        "Вскоре Лукаш обручается с Килиной, предав Мавку. Её сердце разбито, весна в её душе угасла. В отчаянии она откликается на зов Того, кто в скале сидит, — тёмной силы забвения — и уходит с ним в холодную скалу, где нет ни боли, ни памяти. Тем временем осень опускается на лес, и вместе с ней приходит расплата.",
+        "Лесовик карает Лукаша за измену: превращает его в волколака. Узнав об этом, Мавка находит в себе силы вырваться из скалы — любовь оказывается сильнее забвения. Она возвращает Лукашу человеческий облик, а сама вскоре становится вербой над озером. Из ветки той вербы вырезают свирель — и в её звуках слышится голос Мавки, полный боли и любви. Лукаш, женатый на Килине, живёт в нужде и тоске.",
+        "Зимней ночью Лукаш бредёт по заснеженному лесу и встречает Мавку — теперь уже светлого, всепрощающего духа. Она говорит, что не погибла: её душа будет жить в песне, в свирели, в весеннем шуме леса. Прощённый и счастливый, Лукаш засыпает под снегом с улыбкой на устах, а снег тихо заметает его. «Лесная песня» — гимн любви, побеждающей смерть, и искусству, которое делает человека бессмертным."
+      ],
+      "themes": [
+        "Любовь и измена",
+        "Человек и природа",
+        "Мечта и будни",
+        "Бессмертие души и искусства",
+        "Свобода чувств"
+      ],
+      "terms": [
+        {
+          "term": "Мавка",
+          "definition": "В украинской мифологии — лесная дева-дух. У Леси Украинки это воплощение красоты, свободы и поэзии природы."
+        },
+        {
+          "term": "Лесовик",
+          "definition": "Старый хозяин леса, оберегающий его жителей; в драме он опекает Мавку и наказывает Лукаша за измену."
+        },
+        {
+          "term": "Перелесник",
+          "definition": "Огненный дух-соблазнитель, который в облике красивого юноши в красном соблазняет девушек; он добивается любви Мавки."
+        },
+        {
+          "term": "Тот, кто в скале сидит",
+          "definition": "Мрачное существо, олицетворяющее забвение и небытие; к нему уходит Мавка после измены Лукаша."
+        },
+        {
+          "term": "Русалка Полевая",
+          "definition": "Дух хлебного поля в венке из васильков и маков; она умоляет Мавку не жать рожь."
+        },
+        {
+          "term": "Тот, кто плотины рвёт",
+          "definition": "Буйный дух весенних вод, который в прологе кружится с Русалкой и разрывает запруды."
+        },
+        {
+          "term": "Волколак",
+          "definition": "Человек, превращённый в волка; в такого зверя Лесовик обращает Лукаша за измену."
+        },
+        {
+          "term": "Свирель (сопилка)",
+          "definition": "Украинская деревянная дудочка. Игра Лукаша будит Мавку, а свирель из вербы потом поёт её голосом."
+        },
+        {
+          "term": "Верба",
+          "definition": "Дерево у озера, в которое превращается Мавка; символ её вечной жизни в природе и песне."
+        },
+        {
+          "term": "Волынь",
+          "definition": "Историческая область на северо-западе Украины с древними лесами и озёрами, где происходит действие и прошло детство Леси Украинки."
+        },
+        {
+          "term": "Драма-феерия",
+          "definition": "Пьеса, где реальный мир переплетается со сказочным и фантастическим, с духами, превращениями и чудесами."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Тени забытых предков",
+          "author": "Михаил Коцюбинский",
+          "why": "Повесть, написанная в том же 1911 году, о любви, природе и лесных духах Карпат."
+        },
+        {
+          "title": "Русалочка",
+          "author": "Ганс Христиан Андерсен",
+          "why": "Дева из чудесного мира жертвует собой ради любви к человеку, который её не оценил."
+        },
+        {
+          "title": "Ундина",
+          "author": "Фридрих де ла Мотт Фуке",
+          "why": "Водяная дева выходит замуж за рыцаря, и его измена оборачивается трагедией."
+        },
+        {
+          "title": "Снегурочка",
+          "author": "Александр Островский",
+          "why": "Весенняя сказка-драма о деве-духе, которая променяла волшебный мир на человеческую любовь."
+        },
+        {
+          "title": "Олеся",
+          "author": "Александр Куприн",
+          "why": "Любовь полесской лесной «колдуньи» и городского барина, которых разлучает людская жестокость."
+        }
+      ],
+      "film": {
+        "title": "Лесная песня: свирель над озером",
+        "intro": "Ты открываешь книгу — и оказываешься в древнем волынском лесу, где над озером клубится весенний туман. Где-то среди деревьев звучит свирель, и весь лес затаил дыхание.",
+        "outro": "Снег тихо заметает лес, но над озером ещё звучит свирель. Страницы закрываются, а песня Мавки остаётся с тобой.",
+        "scenes": [
+          {
+            "title": "Пробуждение Мавки",
+            "narration": "Ты стоишь у озера ранней весной, когда на вербах только проклюнулись почки. Лукаш играет на свирели, и из старой вербы выходит Мавка — с тёмными косами, отливающими зеленью, и глазами цвета лесной воды.",
+            "line": {
+              "text": "Как сладко ты играешь! Кто ты, что разбудил весь лес?"
+            }
+          },
+          {
+            "title": "Хата над озером",
+            "narration": "Ты стоишь на поляне, где пахнет свежей стружкой: дядя Лев ставит хату у самого озера. Старик рассказывает Лукашу древние предания, а Мавка, прячась за деревьями, слушает и улыбается.",
+            "line": {
+              "text": "Почитай лес, сынок, — тогда и он тебя не обидит."
+            }
+          },
+          {
+            "title": "Предостережение Лесовика",
+            "narration": "Ты стоишь в ночной чаще, где мерцают светлячки. Седой Лесовик тревожно смотрит на Мавку, а за его спиной вспыхивает огненный Перелесник, ревнующий её к человеку.",
+            "line": {
+              "text": "Берегись, дочка: людская любовь переменчива, как весенняя погода."
+            }
+          },
+          {
+            "title": "Рожь и серп",
+            "narration": "Ты стоишь посреди золотой нивы в знойный полдень. Мать Лукаша велит Мавке жать, но Русалка Полевая умоляет пощадить колосья, — и тут бойкая Килина выхватывает серп и ловко берётся за работу.",
+            "line": {
+              "text": "Мне нужна работящая невестка, а не лесное наваждение!"
+            }
+          },
+          {
+            "title": "В скале забвения",
+            "narration": "Ты стоишь у тёмной скалы в густом тумане. Мавка, сломленная изменой, идёт навстречу тому, кто в скале сидит, — туда, где нет ни тоски, ни памяти.",
+            "line": {
+              "text": "Иди ко мне: здесь тихо, здесь ничего не болит."
+            }
+          },
+          {
+            "title": "Волколак",
+            "narration": "Ты стоишь в осеннем лесу, где ветер срывает последние листья. Мавка вырвалась из скалы, чтобы спасти того, кто её предал, — и вот волколак снова становится Лукашем.",
+            "line": {
+              "text": "Будь снова человеком — я тебя прощаю."
+            }
+          },
+          {
+            "title": "Зимняя встреча",
+            "narration": "Ты стоишь в заснеженном лесу под звёздами, где Лукаш встречает светлый дух Мавки. Она говорит ему, что будет жить в каждой песне, — и он засыпает с улыбкой, пока снег тихо укрывает его.",
+            "line": {
+              "text": "Не горюй обо мне: я жива в твоей песне."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "mavka": {
+          "name": "Мавка",
+          "traits": [
+            "вольная",
+            "нежная",
+            "преданная",
+            "поэтичная",
+            "всепрощающая"
+          ],
+          "description": "Лесная дева-дух, которая весной просыпается от звуков свирели Лукаша. Ради любви она готова отказаться от вольной лесной жизни, а преданная — пройти через забвение и даже смерть. Мавка спасает Лукаша от проклятия, становится вербой и продолжает жить в песне, воплощая бессмертную красоту природы и искусства."
+        },
+        "lukash": {
+          "name": "Лукаш",
+          "traits": [
+            "чуткий",
+            "мечтательный",
+            "слабовольный",
+            "нерешительный"
+          ],
+          "description": "Молодой сельский парень, племянник Льва, чудесно играющий на свирели. Он искренне любит Мавку, но под давлением матери и будней предаёт её ради Килины. За это Лесовик превращает его в волколака; спасённый Мавкой, он в конце концов понимает, что потерял, и умирает счастливым, примирившись с ней."
+        },
+        "lev": {
+          "name": "Дядя Лев",
+          "traits": [
+            "мудрый",
+            "добрый",
+            "степенный",
+            "заботливый"
+          ],
+          "description": "Старый дядя Лукаша, знающий древние предания и почитающий лесных духов. Он ставит хату у озера и ласково относится к Мавке, защищая её от матери Лукаша. Лев — воплощение гармонии человека и природы."
+        },
+        "mother": {
+          "name": "Мать Лукаша",
+          "traits": [
+            "практичная",
+            "сварливая",
+            "корыстная",
+            "суровая"
+          ],
+          "description": "Мать Лукаша, для которой главное — хозяйство и достаток. Она презирает Мавку как неработящее «лесное наваждение» и толкает сына к браку с Килиной. Её будничная, приземлённая правда разрушает любовь Лукаша."
+        },
+        "kylyna": {
+          "name": "Килина",
+          "traits": [
+            "хваткая",
+            "хитрая",
+            "работящая",
+            "грубоватая"
+          ],
+          "description": "Бойкая сельская молодица, которая умеет и жать, и вести хозяйство, и знает, как увлечь Лукаша. Она становится его женой, вытеснив Мавку, но семейного счастья эта пара не находит. Килина — воплощение приземлённого мира, враждебного красоте и мечте."
+        },
+        "lisovyk": {
+          "name": "Лесовик",
+          "traits": [
+            "мудрый",
+            "суровый",
+            "справедливый",
+            "грозный"
+          ],
+          "description": "Старый хозяин леса, оберегающий Мавку, как родную внучку. Он предостерегает её от человеческой любви, а когда Лукаш изменяет, наказывает его, превращая в волколака."
+        },
+        "perelesnyk": {
+          "name": "Перелесник",
+          "traits": [
+            "огненный",
+            "пылкий",
+            "ревнивый",
+            "соблазнительный"
+          ],
+          "description": "Огненный дух-соблазнитель в красной одежде, который давно ухаживает за Мавкой и ревнует её к Лукашу. Он олицетворяет жгучую, но разрушительную страсть."
+        },
+        "rock-spirit": {
+          "name": "Тот, кто в скале сидит",
+          "traits": [
+            "мрачный",
+            "холодный",
+            "безжалостный"
+          ],
+          "description": "Тёмная сила забвения и небытия, живущая в скале. Сломленная изменой, Мавка уходит к нему, чтобы ничего не чувствовать, но её любовь оказывается сильнее его власти."
+        },
+        "rusalka-polova": {
+          "name": "Русалка Полевая",
+          "traits": [
+            "нежная",
+            "ранимая",
+            "прекрасная"
+          ],
+          "description": "Дух хлебного поля с волосами цвета спелой ржи, в венке из васильков и маков. Она умоляет Мавку не жать рожь, ведь вместе с колосьями погибнет и её красота."
+        }
+      }
+    },
+    "uk": {
+      "title": "Лісова пісня",
+      "originalTitle": "Лісова пісня",
+      "author": "Леся Українка",
+      "genre": "Драма-феєрія",
+      "tagline": "Лісова мавка покохала людину — і її любов виявилася сильнішою за зраду, забуття й саму смерть.",
+      "summary": [
+        "Давня Волинь, прадавній ліс над озером. Ранньої весни, поки ліс іще спить, Той, що греблі рве, кружляє з Русалкою у водяних іграх, а природа ось-ось прокинеться. До лісу приходять дядько Лев, мудрий старий, що шанує лісових духів, і його небіж Лукаш — молодий вродливий хлопець. Вони збираються оселитися тут і поставити хату. Лукаш грає на сопілці так, що весь ліс прислухається, — і від його мелодії прокидається Мавка, лісова дівчина-дух із мінливими, то синіми, то зеленими очима.",
+        "Мавка й Лукаш закохуються одне в одного. Вона вчить його чути голоси лісу, він розповідає їй про людське життя. Лісовик, старий господар лісу, застерігає Мавку: людське кохання мінливе, і в ньому легко загубити себе. Ревнує й вогняний Перелесник, що давно залицяється до Мавки. Та вона не слухає нікого: заради Лукаша вона готова проміняти вільне лісове життя на життя поруч із людьми. Дядько Лев ставить хату над озером, і Мавка часто приходить туди.",
+        "Минає літо. Лукашева мати незлюбила Мавку: їй потрібна роботяща невістка, а не лісова «мана». Мавка вдягає людську одежу й пробує працювати, але не може зжати жито, коли Русалка Польова благає її пощадити колоски й квіти. Тоді з’являється Килина — жвава й моторна сільська молодиця. Вона спритно жне жито, заграє з Лукашем, і мати бачить у ній куди кращу пару для сина. Лукаш, чиє кохання до Мавки холоне під тягарем буднів, піддається її чарам.",
+        "Невдовзі Лукаш заручається з Килиною, зрадивши Мавку. Її серце розбите, весна в її душі згасла. У розпачі вона відгукується на поклик Того, що в скалі сидить, — темної сили забуття — і йде з ним у холодну скелю, де немає ні болю, ні пам’яті. Тим часом на ліс спадає осінь, а разом із нею приходить розплата.",
+        "Лісовик карає Лукаша за зраду: обертає його на вовкулаку. Дізнавшись про це, Мавка знаходить у собі сили вирватися зі скелі — любов виявляється сильнішою за забуття. Вона повертає Лукашеві людську подобу, а сама невдовзі стає вербою над озером. Із гілки тієї верби вирізають сопілку — і в її звуках бринить Мавчин голос, сповнений болю й любові. Лукаш, одружений із Килиною, живе в нужді й тузі.",
+        "Зимової ночі Лукаш блукає засніженим лісом і зустрічає Мавку — тепер уже світлого, всепрощенного духа. Вона каже, що не загинула: її душа житиме в пісні, у сопілці, у весняному шумі лісу. Прощений і щасливий, Лукаш засинає під снігом з усмішкою на вустах, а сніг тихо замітає його. «Лісова пісня» — гімн коханню, що перемагає смерть, і мистецтву, яке робить людину безсмертною."
+      ],
+      "themes": [
+        "Кохання і зрада",
+        "Людина і природа",
+        "Мрія і буденність",
+        "Безсмертя душі й мистецтва",
+        "Свобода почуттів"
+      ],
+      "terms": [
+        {
+          "term": "Мавка",
+          "definition": "В українській міфології — лісова дівчина-дух. У Лесі Українки це втілення краси, свободи й поезії природи."
+        },
+        {
+          "term": "Лісовик",
+          "definition": "Старий господар лісу, що оберігає його мешканців; у драмі він опікується Мавкою й карає Лукаша за зраду."
+        },
+        {
+          "term": "Перелесник",
+          "definition": "Вогняний дух-спокусник, що в подобі гарного юнака в червоному зваблює дівчат; він домагається Мавчиного кохання."
+        },
+        {
+          "term": "Той, що в скалі сидить",
+          "definition": "Похмура істота, що уособлює забуття й небуття; до нього йде Мавка після Лукашевої зради."
+        },
+        {
+          "term": "Русалка Польова",
+          "definition": "Дух хлібного поля у вінку з волошок і маків; вона благає Мавку не жати жита."
+        },
+        {
+          "term": "Той, що греблі рве",
+          "definition": "Буйний дух весняних вод, що в пролозі кружляє з Русалкою й розриває загати."
+        },
+        {
+          "term": "Вовкулака",
+          "definition": "Людина, обернена на вовка; на такого звіра Лісовик перетворює Лукаша за зраду."
+        },
+        {
+          "term": "Сопілка",
+          "definition": "Українська дерев’яна дудка. Лукашева гра будить Мавку, а сопілка з верби згодом співає її голосом."
+        },
+        {
+          "term": "Верба",
+          "definition": "Дерево над озером, на яке обертається Мавка; символ її вічного життя в природі й пісні."
+        },
+        {
+          "term": "Волинь",
+          "definition": "Історична область на північному заході України з прадавніми лісами й озерами, де відбувається дія і де минуло дитинство Лесі Українки."
+        },
+        {
+          "term": "Драма-феєрія",
+          "definition": "П’єса, у якій реальний світ переплітається з казковим і фантастичним — із духами, перевтіленнями й чудесами."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Тіні забутих предків",
+          "author": "Михайло Коцюбинський",
+          "why": "Повість, написана того ж 1911 року, про кохання, природу й лісових духів Карпат."
+        },
+        {
+          "title": "Русалонька",
+          "author": "Ганс Крістіан Андерсен",
+          "why": "Дівчина з чарівного світу жертвує собою заради кохання до людини, яка її не оцінила."
+        },
+        {
+          "title": "Ундіна",
+          "author": "Фрідріх де ла Мотт Фуке",
+          "why": "Водяна діва виходить заміж за лицаря, і його зрада обертається трагедією."
+        },
+        {
+          "title": "Снігурка",
+          "author": "Олександр Островський",
+          "why": "Весняна казка-драма про дівчину-духа, що проміняла чарівний світ на людське кохання."
+        },
+        {
+          "title": "Олеся",
+          "author": "Олександр Купрін",
+          "why": "Кохання поліської лісової «чаклунки» й міського пана, яких розлучає людська жорстокість."
+        }
+      ],
+      "film": {
+        "title": "Лісова пісня: сопілка над озером",
+        "intro": "Ти розгортаєш книжку — і опиняєшся в прадавньому волинському лісі, де над озером клубочиться весняний туман. Десь поміж деревами грає сопілка, і весь ліс затамував подих.",
+        "outro": "Сніг тихо замітає ліс, та над озером іще бринить сопілка. Сторінки закриваються, а Мавчина пісня лишається з тобою.",
+        "scenes": [
+          {
+            "title": "Пробудження Мавки",
+            "narration": "Ти стоїш біля озера ранньої весни, коли на вербах ледь проклюнулися бруньки. Лукаш грає на сопілці, і зі старої верби виходить Мавка — з темними косами, що відливають зеленню, і очима кольору лісової води.",
+            "line": {
+              "text": "Як солодко ти граєш! Хто ти, що збудив увесь ліс?"
+            }
+          },
+          {
+            "title": "Хата над озером",
+            "narration": "Ти стоїш на галявині, де пахне свіжою стружкою: дядько Лев ставить хату над самим озером. Старий розповідає Лукашеві давні перекази, а Мавка, ховаючись за деревами, слухає й усміхається.",
+            "line": {
+              "text": "Шануй ліс, хлопче, — то й він тебе не скривдить."
+            }
+          },
+          {
+            "title": "Пересторога Лісовика",
+            "narration": "Ти стоїш у нічній гущавині, де мерехтять світлячки. Сивий Лісовик стривожено дивиться на Мавку, а за його спиною спалахує вогняний Перелесник, що ревнує її до людини.",
+            "line": {
+              "text": "Стережися, доню: людська любов мінлива, як весняна погода."
+            }
+          },
+          {
+            "title": "Жито й серп",
+            "narration": "Ти стоїш посеред золотої ниви в спекотний полудень. Лукашева мати велить Мавці жати, та Русалка Польова благає пощадити колоски, — і тут моторна Килина вихоплює серп і спритно береться до роботи.",
+            "line": {
+              "text": "Мені потрібна роботяща невістка, а не лісова мана!"
+            }
+          },
+          {
+            "title": "У скелі забуття",
+            "narration": "Ти стоїш біля темної скелі в густому тумані. Мавка, зламана зрадою, іде назустріч Тому, що в скалі сидить, — туди, де немає ні туги, ні пам’яті.",
+            "line": {
+              "text": "Ходи до мене: тут тихо, тут нічого не болить."
+            }
+          },
+          {
+            "title": "Вовкулака",
+            "narration": "Ти стоїш в осінньому лісі, де вітер зриває останнє листя. Мавка вирвалася зі скелі, щоб урятувати того, хто її зрадив, — і ось вовкулака знову стає Лукашем.",
+            "line": {
+              "text": "Будь знову людиною — я тобі прощаю."
+            }
+          },
+          {
+            "title": "Зимова зустріч",
+            "narration": "Ти стоїш у засніженому лісі під зорями, де Лукаш зустрічає світлого духа Мавки. Вона каже йому, що житиме в кожній пісні, — і він засинає з усмішкою, поки сніг тихо його вкриває.",
+            "line": {
+              "text": "Не журися за мною: я жива в твоїй пісні."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "mavka": {
+          "name": "Мавка",
+          "traits": [
+            "вільна",
+            "ніжна",
+            "віддана",
+            "поетична",
+            "всепрощенна"
+          ],
+          "description": "Лісова дівчина-дух, що навесні прокидається від звуків Лукашевої сопілки. Заради кохання вона готова зректися вільного лісового життя, а зраджена — пройти крізь забуття й навіть смерть. Мавка рятує Лукаша від прокляття, стає вербою й живе далі в пісні, уособлюючи безсмертну красу природи й мистецтва."
+        },
+        "lukash": {
+          "name": "Лукаш",
+          "traits": [
+            "чутливий",
+            "мрійливий",
+            "безвольний",
+            "нерішучий"
+          ],
+          "description": "Молодий сільський хлопець, Левів небіж, що чудово грає на сопілці. Він щиро кохає Мавку, але під тиском матері й буденних клопотів зраджує її з Килиною. За це Лісовик обертає його на вовкулаку; врятований Мавкою, він зрештою розуміє, що втратив, і помирає щасливим, примирений із нею."
+        },
+        "lev": {
+          "name": "Дядько Лев",
+          "traits": [
+            "мудрий",
+            "добрий",
+            "статечний",
+            "дбайливий"
+          ],
+          "description": "Старий Лукашів дядько, що знає давні перекази й шанує лісових духів. Він ставить хату над озером і лагідно ставиться до Мавки, захищаючи її від Лукашевої матері. Лев — утілення гармонії людини й природи."
+        },
+        "mother": {
+          "name": "Лукашева мати",
+          "traits": [
+            "практична",
+            "сварлива",
+            "корислива",
+            "сувора"
+          ],
+          "description": "Лукашева мати, для якої головне — господарство й достаток. Вона зневажає Мавку як нероботящу «лісову ману» й штовхає сина до шлюбу з Килиною. Її буденна, приземлена правда руйнує Лукашеве кохання."
+        },
+        "kylyna": {
+          "name": "Килина",
+          "traits": [
+            "моторна",
+            "хитра",
+            "роботяща",
+            "грубувата"
+          ],
+          "description": "Жвава сільська молодиця, що вміє і жати, і господарювати, і знає, як звабити Лукаша. Вона стає його дружиною, витіснивши Мавку, та родинного щастя ця пара не знаходить. Килина — втілення приземленого світу, ворожого до краси й мрії."
+        },
+        "lisovyk": {
+          "name": "Лісовик",
+          "traits": [
+            "мудрий",
+            "суворий",
+            "справедливий",
+            "грізний"
+          ],
+          "description": "Старий господар лісу, що оберігає Мавку, мов рідну онуку. Він застерігає її від людського кохання, а коли Лукаш зраджує, карає його, обертаючи на вовкулаку."
+        },
+        "perelesnyk": {
+          "name": "Перелесник",
+          "traits": [
+            "вогняний",
+            "палкий",
+            "ревнивий",
+            "звабливий"
+          ],
+          "description": "Вогняний дух-спокусник у червоному вбранні, що давно залицяється до Мавки й ревнує її до Лукаша. Він уособлює палку, але руйнівну пристрасть."
+        },
+        "rock-spirit": {
+          "name": "Той, що в скалі сидить",
+          "traits": [
+            "похмурий",
+            "холодний",
+            "безжальний"
+          ],
+          "description": "Темна сила забуття й небуття, що живе в скелі. Зламана зрадою, Мавка йде до нього, щоб нічого не відчувати, та її любов виявляється сильнішою за його владу."
+        },
+        "rusalka-polova": {
+          "name": "Русалка Польова",
+          "traits": [
+            "ніжна",
+            "вразлива",
+            "прекрасна"
+          ],
+          "description": "Дух хлібного поля з волоссям кольору стиглого жита, у вінку з волошок і маків. Вона благає Мавку не жати жита, бо разом із колоссям загине і її краса."
+        }
+      }
+    },
+    "en": {
+      "title": "The Forest Song",
+      "originalTitle": "Лісова пісня",
+      "author": "Lesya Ukrainka",
+      "genre": "Fairy-tale drama",
+      "tagline": "A forest nymph falls in love with a man — and her love proves stronger than betrayal, oblivion and death itself.",
+      "summary": [
+        "Ancient Volhynia, a primeval forest by a lake. In early spring, while the forest still sleeps, He Who Breaks the Dams whirls with a Rusalka in watery games, and nature is about to awaken. Into the forest come Uncle Lev, a wise old man who reveres the forest spirits, and his nephew Lukash, a handsome young lad. They mean to settle here and build a cottage. Lukash plays his reed pipe so beautifully that the whole forest listens — and his tune awakens Mavka, a forest maiden-spirit with changeable eyes, now blue, now green.",
+        "Mavka and Lukash fall in love. She teaches him to hear the voices of the forest; he tells her about human life. The Forest Elder warns Mavka that human love is fickle and that it is easy to lose oneself in it. The fiery Perelesnyk, who has long been courting Mavka, burns with jealousy. But she listens to no one: for Lukash’s sake she is ready to trade her free forest life for a life among people. Uncle Lev builds a cottage by the lake, and Mavka often comes there.",
+        "Summer passes. Lukash’s mother has taken a dislike to Mavka: she wants a hard-working daughter-in-law, not some forest “phantom”. Mavka puts on human clothes and tries to work, but she cannot reap the rye when the Field Nymph begs her to spare the ears of grain and the flowers. Then Kylyna appears — a brisk, capable young village woman. She reaps the rye deftly, flirts with Lukash, and his mother sees in her a far better match for her son. Lukash, whose love for Mavka is cooling under the weight of everyday life, falls under her spell.",
+        "Soon Lukash is betrothed to Kylyna, betraying Mavka. Her heart is broken and the spring in her soul has died. In despair she answers the call of He Who Sits in the Rock — the dark power of oblivion — and goes with him into the cold rock, where there is neither pain nor memory. Meanwhile autumn descends on the forest, and with it comes the reckoning.",
+        "The Forest Elder punishes Lukash for his betrayal by turning him into a werewolf. Learning of this, Mavka finds the strength to break free of the rock — love proves stronger than oblivion. She restores Lukash to human form, and soon afterwards she herself becomes a willow by the lake. A pipe is cut from a branch of that willow — and in its sound rings Mavka’s voice, full of pain and love. Lukash, married to Kylyna, lives in poverty and sorrow.",
+        "One winter night Lukash wanders through the snowy forest and meets Mavka — now a radiant, all-forgiving spirit. She tells him she has not perished: her soul will live on in song, in the pipe, in the spring murmur of the forest. Forgiven and happy, Lukash falls asleep under the snow with a smile on his lips as the snow quietly covers him. The Forest Song is a hymn to love that conquers death and to art that makes a person immortal."
+      ],
+      "themes": [
+        "Love and betrayal",
+        "Humanity and nature",
+        "Dreams versus everyday life",
+        "The immortality of the soul and of art",
+        "Freedom of feeling"
+      ],
+      "terms": [
+        {
+          "term": "Mavka",
+          "definition": "In Ukrainian mythology, a forest maiden-spirit. In Lesya Ukrainka’s play she embodies the beauty, freedom and poetry of nature."
+        },
+        {
+          "term": "Lisovyk (Forest Elder)",
+          "definition": "The old master of the forest who protects its dwellers; in the play he watches over Mavka and punishes Lukash for his betrayal."
+        },
+        {
+          "term": "Perelesnyk",
+          "definition": "A fiery tempter-spirit who seduces girls in the guise of a handsome youth in red; he seeks Mavka’s love."
+        },
+        {
+          "term": "He Who Sits in the Rock",
+          "definition": "A gloomy being who embodies oblivion and non-existence; Mavka goes to him after Lukash betrays her."
+        },
+        {
+          "term": "Field Nymph (Rusalka Polova)",
+          "definition": "The spirit of the grain field, crowned with cornflowers and poppies; she begs Mavka not to reap the rye."
+        },
+        {
+          "term": "He Who Breaks the Dams",
+          "definition": "The wild spirit of the spring floods, who whirls with a Rusalka in the prologue and bursts the dams."
+        },
+        {
+          "term": "Werewolf (vovkulaka)",
+          "definition": "A person turned into a wolf; the Forest Elder transforms Lukash into one for his betrayal."
+        },
+        {
+          "term": "Sopilka (reed pipe)",
+          "definition": "A Ukrainian wooden pipe. Lukash’s playing awakens Mavka, and later a pipe cut from the willow sings with her voice."
+        },
+        {
+          "term": "Willow",
+          "definition": "The tree by the lake that Mavka becomes; a symbol of her eternal life in nature and song."
+        },
+        {
+          "term": "Volhynia",
+          "definition": "A historical region in north-western Ukraine with ancient forests and lakes, where the play is set and where Lesya Ukrainka spent her childhood."
+        },
+        {
+          "term": "Drama-féerie",
+          "definition": "A play in which the real world intertwines with the fairy-tale and the fantastic — with spirits, transformations and wonders."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Shadows of Forgotten Ancestors",
+          "author": "Mykhailo Kotsiubynsky",
+          "why": "A novella written in the same year, 1911, about love, nature and the forest spirits of the Carpathians."
+        },
+        {
+          "title": "The Little Mermaid",
+          "author": "Hans Christian Andersen",
+          "why": "A maiden from an enchanted world sacrifices herself for love of a human who fails to value her."
+        },
+        {
+          "title": "Undine",
+          "author": "Friedrich de la Motte Fouqué",
+          "why": "A water spirit marries a knight, and his unfaithfulness turns into tragedy."
+        },
+        {
+          "title": "The Snow Maiden",
+          "author": "Alexander Ostrovsky",
+          "why": "A spring fairy-tale drama about a spirit-maiden who trades her magical world for human love."
+        },
+        {
+          "title": "Olesya",
+          "author": "Alexander Kuprin",
+          "why": "The love of a Polissian forest “witch” and a gentleman from the city, torn apart by human cruelty."
+        }
+      ],
+      "film": {
+        "title": "The Forest Song: a pipe above the lake",
+        "intro": "You open the book and find yourself in an ancient Volhynian forest where spring mist curls above a lake. Somewhere among the trees a reed pipe is playing, and the whole forest holds its breath.",
+        "outro": "Snow quietly blankets the forest, yet a pipe still sings above the lake. The pages close, but Mavka’s song stays with you.",
+        "scenes": [
+          {
+            "title": "Mavka Awakens",
+            "narration": "You stand by the lake in early spring, when the willow buds have barely opened. Lukash plays his pipe, and out of an old willow steps Mavka — her dark braids gleaming green, her eyes the colour of forest water.",
+            "line": {
+              "text": "How sweetly you play! Who are you, to wake the whole forest?"
+            }
+          },
+          {
+            "title": "A Cottage by the Lake",
+            "narration": "You stand in a clearing that smells of fresh wood shavings: Uncle Lev is building a cottage right by the lake. The old man tells Lukash ancient legends while Mavka listens from behind the trees, smiling.",
+            "line": {
+              "text": "Respect the forest, lad, and it will never harm you."
+            }
+          },
+          {
+            "title": "The Forest Elder’s Warning",
+            "narration": "You stand in a night thicket full of glimmering fireflies. The grey Forest Elder looks anxiously at Mavka, while behind him flares the fiery Perelesnyk, jealous of her love for a human.",
+            "line": {
+              "text": "Take care, child: human love is as fickle as spring weather."
+            }
+          },
+          {
+            "title": "Rye and Sickle",
+            "narration": "You stand in a golden field in the scorching noon. Lukash’s mother orders Mavka to reap, but the Field Nymph begs her to spare the grain — and brisk Kylyna snatches up the sickle and sets to work.",
+            "line": {
+              "text": "I need a hard-working daughter-in-law, not a forest phantom!"
+            }
+          },
+          {
+            "title": "In the Rock of Oblivion",
+            "narration": "You stand by a dark rock wrapped in thick fog. Mavka, broken by betrayal, walks toward He Who Sits in the Rock — to a place with neither longing nor memory.",
+            "line": {
+              "text": "Come to me: it is quiet here, and nothing hurts."
+            }
+          },
+          {
+            "title": "The Werewolf",
+            "narration": "You stand in an autumn forest where the wind tears off the last leaves. Mavka has broken out of the rock to save the one who betrayed her — and the werewolf becomes Lukash once more.",
+            "line": {
+              "text": "Be human again — I forgive you."
+            }
+          },
+          {
+            "title": "A Winter Meeting",
+            "narration": "You stand in a snowy forest under the stars, where Lukash meets Mavka’s radiant spirit. She tells him she will live in every song — and he falls asleep smiling as the snow gently covers him.",
+            "line": {
+              "text": "Don’t grieve for me: I live on in your song."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "mavka": {
+          "name": "Mavka",
+          "traits": [
+            "free",
+            "tender",
+            "devoted",
+            "poetic",
+            "forgiving"
+          ],
+          "description": "A forest maiden-spirit who awakens in spring to the sound of Lukash’s pipe. For love she is ready to give up her free forest life, and when betrayed she passes through oblivion and even death. Mavka saves Lukash from a curse, becomes a willow and lives on in song, embodying the immortal beauty of nature and art."
+        },
+        "lukash": {
+          "name": "Lukash",
+          "traits": [
+            "sensitive",
+            "dreamy",
+            "weak-willed",
+            "indecisive"
+          ],
+          "description": "A young village lad, Lev’s nephew, who plays the reed pipe wonderfully. He sincerely loves Mavka, but under pressure from his mother and everyday cares he betrays her for Kylyna. For this the Forest Elder turns him into a werewolf; saved by Mavka, he finally understands what he has lost and dies happy, reconciled with her."
+        },
+        "lev": {
+          "name": "Uncle Lev",
+          "traits": [
+            "wise",
+            "kind",
+            "dignified",
+            "caring"
+          ],
+          "description": "Lukash’s old uncle, who knows the ancient legends and honours the forest spirits. He builds a cottage by the lake and treats Mavka kindly, defending her against Lukash’s mother. Lev embodies harmony between people and nature."
+        },
+        "mother": {
+          "name": "Lukash’s Mother",
+          "traits": [
+            "practical",
+            "quarrelsome",
+            "mercenary",
+            "stern"
+          ],
+          "description": "Lukash’s mother, for whom the farm and prosperity are all that matter. She despises Mavka as a useless “forest phantom” and pushes her son to marry Kylyna. Her mundane, down-to-earth truth destroys Lukash’s love."
+        },
+        "kylyna": {
+          "name": "Kylyna",
+          "traits": [
+            "brisk",
+            "sly",
+            "hard-working",
+            "coarse"
+          ],
+          "description": "A lively young village woman who can reap and keep house and knows how to win Lukash. She becomes his wife, ousting Mavka, but the couple never finds happiness. Kylyna embodies the earthbound world that is hostile to beauty and dreams."
+        },
+        "lisovyk": {
+          "name": "The Forest Elder (Lisovyk)",
+          "traits": [
+            "wise",
+            "stern",
+            "just",
+            "formidable"
+          ],
+          "description": "The old master of the forest, who protects Mavka like his own granddaughter. He warns her against human love, and when Lukash betrays her, he punishes him by turning him into a werewolf."
+        },
+        "perelesnyk": {
+          "name": "Perelesnyk",
+          "traits": [
+            "fiery",
+            "ardent",
+            "jealous",
+            "seductive"
+          ],
+          "description": "A fiery tempter-spirit dressed in red, who has long courted Mavka and is jealous of Lukash. He embodies a burning but destructive passion."
+        },
+        "rock-spirit": {
+          "name": "He Who Sits in the Rock",
+          "traits": [
+            "gloomy",
+            "cold",
+            "merciless"
+          ],
+          "description": "The dark power of oblivion and non-being that dwells in the rock. Broken by betrayal, Mavka goes to him so as to feel nothing, yet her love proves stronger than his power."
+        },
+        "rusalka-polova": {
+          "name": "The Field Nymph",
+          "traits": [
+            "gentle",
+            "fragile",
+            "beautiful"
+          ],
+          "description": "The spirit of the grain field, with hair the colour of ripe rye and a wreath of cornflowers and poppies. She begs Mavka not to reap the rye, for her beauty will perish with the grain."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "mavka",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f6e2d4",
+        "hair": {
+          "style": "long",
+          "color": "#1e3a2e"
+        },
+        "facialHair": "none",
+        "eyes": "#3a8a8a",
+        "top": {
+          "kind": "dress",
+          "color": "#a8d89a",
+          "accent": "#e8f4d8",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#8ac87a"
+        },
+        "shoes": "#f6e2d4",
+        "headwear": "flower_wreath",
+        "headwearColor": "#f4f0d8",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "flower"
+      },
+      "portraitPrompt": "A delicate forest maiden-spirit with long loose black hair shimmering with a green sheen and changeable blue-green eyes, wearing a flowing pale-green dress embroidered with leaves and a wreath of white wildflowers, barefoot, holding a small flower."
+    },
+    {
+      "id": "lukash",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f0c8a6",
+        "hair": {
+          "style": "wavy",
+          "color": "#2a1c14"
+        },
+        "facialHair": "none",
+        "eyes": "#4a3424",
+        "top": {
+          "kind": "shirt",
+          "color": "#f6f2e6",
+          "accent": "#b8282a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#e8e0d0"
+        },
+        "shoes": "#c8a878",
+        "headwear": "straw_hat",
+        "headwearColor": "#e0c070",
+        "accessory": "backpack",
+        "accessoryColor": "#8a6a44",
+        "holding": "none"
+      },
+      "portraitPrompt": "A very young, handsome village lad with dark wavy hair, black brows and a dreamy, almost childlike gaze, wearing a straw hat, a white linen shirt with red embroidery and a woven sash, linen trousers and bast shoes, a shoulder bag at his side and a wooden reed pipe in his hands."
+    },
+    {
+      "id": "lev",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "average",
+        "skin": "#dcac86",
+        "hair": {
+          "style": "long",
+          "color": "#d8d4cc"
+        },
+        "facialHair": "long_beard",
+        "eyes": "#5a6a7a",
+        "top": {
+          "kind": "coat",
+          "color": "#8a7a5e",
+          "accent": "#efe6d4",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#e6dccc"
+        },
+        "shoes": "#c0a070",
+        "headwear": "straw_hat",
+        "headwearColor": "#c8a858",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "staff"
+      },
+      "portraitPrompt": "A kindly old Polissian peasant with long white hair and a long white beard, wise twinkling eyes and a gentle smile, wearing a wide straw hat and a grey-brown homespun coat over a white linen shirt, leaning on a wooden staff."
+    },
+    {
+      "id": "mother",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "elder",
+        "build": "average",
+        "skin": "#e0b08c",
+        "hair": {
+          "style": "bun",
+          "color": "#6a5a4a"
+        },
+        "facialHair": "none",
+        "eyes": "#3a2a1c",
+        "top": {
+          "kind": "shirt",
+          "color": "#efe8da",
+          "accent": "#3a3a3a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#3a2e28"
+        },
+        "shoes": "#3a2a1c",
+        "headwear": "headscarf",
+        "headwearColor": "#5a4a3a",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "basket"
+      },
+      "portraitPrompt": "A stern, sharp-eyed peasant mother in her fifties with tight lips and a careworn face, wearing a dark-brown headscarf, a white blouse with black embroidery and a dark homespun skirt, holding a basket of linen."
+    },
+    {
+      "id": "kylyna",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "adult",
+        "build": "average",
+        "skin": "#f0bf98",
+        "hair": {
+          "style": "bun",
+          "color": "#8a4a22"
+        },
+        "facialHair": "none",
+        "eyes": "#3a2a1c",
+        "top": {
+          "kind": "shirt",
+          "color": "#f6eee0",
+          "accent": "#d8402a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#c8402a"
+        },
+        "shoes": "#5a2e1c",
+        "headwear": "headscarf",
+        "headwearColor": "#e8b030",
+        "accessory": "necklace",
+        "accessoryColor": "#d82a2a",
+        "holding": "basket"
+      },
+      "portraitPrompt": "A buxom, rosy-cheeked young village woman with a sly, confident smile, wearing a bright yellow headscarf, a white blouse with vivid red embroidery, a red woven skirt and strings of red beads, carrying a sheaf of rye and a sickle."
+    },
+    {
+      "id": "lisovyk",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "tall",
+        "skin": "#b89a74",
+        "hair": {
+          "style": "messy",
+          "color": "#8a9a7a"
+        },
+        "facialHair": "long_beard",
+        "eyes": "#5a8a3a",
+        "top": {
+          "kind": "coat",
+          "color": "#4a5a3a",
+          "accent": "#8a6a44",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#3a3226"
+        },
+        "shoes": "#3a2a1c",
+        "headwear": "beanie",
+        "headwearColor": "#6a5a3a",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "staff"
+      },
+      "portraitPrompt": "A tall, ancient forest spirit resembling an old man made of bark and moss, with a long grey-green beard, bright green eyes and a fur cap, wearing a mossy green-brown coat, leaning on a gnarled staff."
+    },
+    {
+      "id": "perelesnyk",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f2c8a8",
+        "hair": {
+          "style": "spiky",
+          "color": "#e04a1a"
+        },
+        "facialHair": "none",
+        "eyes": "#e0a020",
+        "top": {
+          "kind": "tunic",
+          "color": "#c8201e",
+          "accent": "#f2a020",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#9a1a18"
+        },
+        "shoes": "#5a1a10",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "cape",
+        "accessoryColor": "#f06a1a",
+        "holding": "none"
+      },
+      "portraitPrompt": "A handsome, fiery youth-spirit with flame-red hair standing up like fire and glowing amber eyes, dressed all in red with a billowing orange cloak, sparks swirling around him."
+    },
+    {
+      "id": "rock-spirit",
+      "role": "minor",
+      "appearance": {
+        "creature": "ghost",
+        "gender": "neutral",
+        "age": "elder",
+        "build": "tall",
+        "skin": "#6a6e74",
+        "hair": {
+          "style": "none",
+          "color": "#3a3c40"
+        },
+        "facialHair": "none",
+        "eyes": "#1a1c20",
+        "top": {
+          "kind": "robe",
+          "color": "#3a3c42",
+          "accent": "#5a5e66",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "robe",
+          "color": "#2e3036"
+        },
+        "shoes": "#1e2024",
+        "headwear": "hood",
+        "headwearColor": "#2a2c30",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A towering, faceless dark figure carved from grey stone and shadow, wrapped in a heavy hooded robe the colour of wet rock, emerging from a misty cliff with only a faint cold glint where eyes should be."
+    },
+    {
+      "id": "rusalka-polova",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f6dcc4",
+        "hair": {
+          "style": "long",
+          "color": "#e0b850"
+        },
+        "facialHair": "none",
+        "eyes": "#3a6ab0",
+        "top": {
+          "kind": "dress",
+          "color": "#6aa84a",
+          "accent": "#e8d070",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#5a983a"
+        },
+        "shoes": "#6aa84a",
+        "headwear": "flower_wreath",
+        "headwearColor": "#3a6ad8",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "flower"
+      },
+      "portraitPrompt": "A slender field spirit with long golden hair the colour of ripe rye and cornflower-blue eyes, wearing a green dress and a wreath of blue cornflowers and red poppies, standing among tall golden ears of grain."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "forest",
+        "time": "dawn",
+        "weather": "fog",
+        "cast": [
+          "mavka",
+          "lukash"
+        ],
+        "props": [
+          "tree",
+          "flower",
+          "rock",
+          "bush"
+        ],
+        "action": "discover",
+        "camera": "dolly_in",
+        "mood": "magical",
+        "line": {
+          "speaker": "mavka"
+        }
+      },
+      {
+        "setting": "forest",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "lev",
+          "lukash",
+          "mavka"
+        ],
+        "props": [
+          "house",
+          "tree",
+          "bench",
+          "fence"
+        ],
+        "action": "talk",
+        "camera": "pan",
+        "mood": "calm",
+        "line": {
+          "speaker": "lev"
+        }
+      },
+      {
+        "setting": "forest",
+        "time": "night",
+        "weather": "stars",
+        "cast": [
+          "lisovyk",
+          "mavka",
+          "perelesnyk"
+        ],
+        "props": [
+          "tree",
+          "mushroom",
+          "fire",
+          "moon"
+        ],
+        "action": "talk",
+        "camera": "orbit",
+        "mood": "mysterious",
+        "line": {
+          "speaker": "lisovyk"
+        }
+      },
+      {
+        "setting": "meadow",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "mother",
+          "kylyna",
+          "mavka",
+          "rusalka-polova"
+        ],
+        "props": [
+          "flower",
+          "fence",
+          "house",
+          "cart"
+        ],
+        "action": "talk",
+        "camera": "crane",
+        "mood": "tense",
+        "line": {
+          "speaker": "mother"
+        }
+      },
+      {
+        "setting": "cave",
+        "time": "night",
+        "weather": "fog",
+        "cast": [
+          "mavka",
+          "rock-spirit"
+        ],
+        "props": [
+          "rock",
+          "crystal",
+          "tree"
+        ],
+        "action": "sad",
+        "camera": "close_up",
+        "mood": "melancholic",
+        "line": {
+          "speaker": "rock-spirit"
+        }
+      },
+      {
+        "setting": "forest",
+        "time": "dusk",
+        "weather": "wind",
+        "cast": [
+          "mavka",
+          "lukash",
+          "lisovyk"
+        ],
+        "props": [
+          "tree",
+          "rock",
+          "bush",
+          "moon"
+        ],
+        "action": "discover",
+        "camera": "orbit",
+        "mood": "magical",
+        "line": {
+          "speaker": "mavka"
+        }
+      },
+      {
+        "setting": "snow",
+        "time": "night",
+        "weather": "snow",
+        "cast": [
+          "lukash",
+          "mavka"
+        ],
+        "props": [
+          "tree",
+          "pine",
+          "house",
+          "star"
+        ],
+        "action": "rest",
+        "camera": "crane",
+        "mood": "romantic",
+        "line": {
+          "speaker": "mavka"
+        }
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: an ancient Volhynian forest by a misty lake in early spring, a young lad in a straw hat and embroidered shirt playing a wooden reed pipe while a pale forest maiden with long dark green-tinted hair and a white flower wreath steps out of an old willow tree; slow dolly-in, soft dawn light and drifting mist, magical mood, tilt-shift miniature look, no text.",
+      "Cute voxel-diorama 3D scene: a golden rye field at noon beside a small thatched cottage, a stern mother in a dark headscarf pointing at a pale green-clad forest maiden while a rosy village woman in a yellow headscarf swings a sickle and a golden-haired field spirit in a cornflower wreath pleads among the grain; slow crane shot, bright summer light, no text.",
+      "Cute voxel-diorama 3D scene: a snowy winter forest at night by a frozen lake with a lone willow tree, a young man sitting in the snow smiling as the glowing pale spirit of a forest maiden appears beside him, snowflakes drifting and stars twinkling; slow crane-up camera, cold blue moonlight with a warm glow around the spirit, bittersweet romantic mood, no text."
+    ]
+  }
+}

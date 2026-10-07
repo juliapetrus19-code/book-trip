@@ -1,0 +1,1097 @@
+{
+  "id": "chorna-rada",
+  "year": 1857,
+  "cover": {
+    "bg": "#2a2422",
+    "bg2": "#0a0807",
+    "fg": "#f2e4c4",
+    "accent": "#d8b04a",
+    "motif": "crown"
+  },
+  "aliases": [
+    "Чорна рада",
+    "Черная рада",
+    "Чёрная рада",
+    "The Black Council",
+    "Black Council",
+    "Chorna rada",
+    "Chorna Rada",
+    "Chernaya rada",
+    "Чорна рада. Хроніка 1663 року",
+    "Чорна рада Куліш",
+    "Куліш Чорна рада",
+    "Черная рада Кулиш",
+    "Чорна рада Пантелеймон Куліш",
+    "Сомко і Брюховецький",
+    "Кирило Тур"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Чёрная рада",
+      "originalTitle": "Чорна рада",
+      "author": "Пантелеймон Кулиш",
+      "genre": "Исторический роман",
+      "tagline": "1663 год: борьба за гетманскую булаву, где честь проигрывает лести, а любовь ищет мира среди Руины.",
+      "summary": [
+        "1663 год — эпоха Руины. После смерти Богдана Хмельницкого Украина расколота надвое, а старшина грызётся за гетманскую булаву. На Левобережье на неё претендуют переяславский полковник Яким Сомко — честный, благородный и гордый, мечтающий объединить край, — и кошевой атаман Запорожской Сечи Иван Брюховецкий, хитрый и льстивый, который заигрывает с голытьбой и ищет поддержки в Москве. К Сомко с правого берега Днепра едет старый полковник Иван Шрам, ставший священником, вместе с сыном Петром.",
+        "По дороге Шрамы останавливаются на хуторе Хмарище у зажиточного и добродушного казака Череваня. Его дочь Леся — невеста Сомко, и Петро с первого взгляда влюбляется в неё, хотя понимает, что эта любовь безнадёжна. Вместе с Череванем, его женой и Лесей Шрамы отправляются в Киев. Там появляется запорожец Кирилл Тур — отчаянный, весёлый и непредсказуемый — со своим товарищем Василем Невольником.",
+        "Кирилл Тур ради запорожской удали решает похитить Лесю и ночью уносит её на коне. Петро бросается в погоню, и между ними завязывается поединок на саблях. После яростной схватки Тур отступается от девушки, а между соперниками рождается уважение, а потом и дружба. Тем временем Шрамы убеждаются, что Брюховецкий натравливает простой люд на старшину, обещая «черни» волю и равенство, а на деле стремится лишь к власти.",
+        "В Нежине собирается «чёрная рада»: к выборам гетмана допускают не только старшину и казаков, но и мещан, крестьян и всякую голытьбу. Брюховецкий, поддержанный запорожцами и московским посланником, льстивыми обещаниями перетягивает толпу на свою сторону. Рада перерастает в бунт: Сомко свергают, Брюховецкого провозглашают гетманом, а толпа бросается грабить старшинское добро. Сомко и нежинского полковника Василия Золотаренко берут под стражу.",
+        "Кирилл Тур пробирается в темницу и предлагает Сомко поменяться одеждой, чтобы тот бежал, но Сомко отказывается: гетманская честь не позволяет ему спасаться обманом. Старый Шрам пытается поднять казаков на защиту Сомко, но его хватают и казнят. Вскоре по воле Брюховецкого гибнет и Сомко. Обещания нового гетмана оказываются ложью: народ, поверивший «Иванцу», получает ещё более тяжкое ярмо. Петро же женится на Лесе, и они тихо живут на хуторе, вдали от кровавой борьбы за власть."
+      ],
+      "themes": [
+        "Борьба за власть",
+        "Честь и предательство",
+        "Единство Украины",
+        "Народ и демагогия",
+        "Любовь и долг"
+      ],
+      "terms": [
+        {
+          "term": "Чёрная рада",
+          "definition": "Всеобщая рада 1663 года в Нежине, где гетмана выбирали не только старшина и казаки, но и «чернь» — мещане, крестьяне и голытьба; на ней гетманом стал Брюховецкий."
+        },
+        {
+          "term": "Руина",
+          "definition": "Эпоха гражданских войн и распада украинского казацкого государства после смерти Богдана Хмельницкого (1657–1687)."
+        },
+        {
+          "term": "Булава",
+          "definition": "Символ гетманской власти, за который и разворачивается борьба в романе."
+        },
+        {
+          "term": "Запорожская Сечь",
+          "definition": "Укреплённый центр казачества за днепровскими порогами; Брюховецкий — её кошевой атаман."
+        },
+        {
+          "term": "Кошевой атаман",
+          "definition": "Выборный глава Запорожской Сечи."
+        },
+        {
+          "term": "Старшина",
+          "definition": "Казацкая верхушка — полковники, сотники, писари; Брюховецкий натравливает на неё простой люд."
+        },
+        {
+          "term": "Чернь (голытьба)",
+          "definition": "Простонародье — бедные казаки, крестьяне и мещане, на которых опирается Брюховецкий."
+        },
+        {
+          "term": "Хутор Хмарище",
+          "definition": "Уютный хутор Череваня — символ мирной, сытой жизни, куда в конце концов возвращаются Петро и Леся."
+        },
+        {
+          "term": "Левобережье и Правобережье",
+          "definition": "Две части Украины по обе стороны Днепра, которые в годы Руины имели разных гетманов."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Тарас Бульба",
+          "author": "Николай Гоголь",
+          "why": "Героический и трагический мир запорожского казачества, где воля, честь и измена решают судьбы."
+        },
+        {
+          "title": "Айвенго",
+          "author": "Вальтер Скотт",
+          "why": "Классический исторический роман, на образец которого ориентировался Кулиш, создавая первый украинский исторический роман."
+        },
+        {
+          "title": "Захар Беркут",
+          "author": "Иван Франко",
+          "why": "Украинская историческая проза о том, как предательство одного угрожает целой общине."
+        },
+        {
+          "title": "Маруся Чурай",
+          "author": "Лина Костенко",
+          "why": "Казацкая Украина XVII века, где личная драма переплетается с судьбой народа."
+        },
+        {
+          "title": "Огнём и мечом",
+          "author": "Генрик Сенкевич",
+          "why": "Эпоха Хмельниччины — непосредственная предыстория событий «Чёрной рады» — глазами польского романиста."
+        }
+      ],
+      "film": {
+        "title": "Чёрная рада: булава и честь",
+        "intro": "Ты открываешь книгу — и слышишь топот копыт по пыльному шляху над Днепром. Год 1663-й: Украина разорвана надвое, и над ней уже сгущаются тучи «чёрной рады».",
+        "outro": "Шум рады стихает, булава переходит в чужие руки, а на тихом хуторе снова цветут вишни. Страницы закрываются, но вопрос остаётся: чего стоит власть без чести?",
+        "scenes": [
+          {
+            "title": "Хутор Хмарище",
+            "narration": "Ты сидишь за щедрым столом на хуторе Хмарище, в тени вишнёвого сада. Добродушный Черевань потчует гостей, старый Шрам говорит о судьбе Украины, а молодой Петро не может отвести глаз от красавицы Леси.",
+            "line": {
+              "text": "Угощайтесь, паны, — у меня хата для добрых людей всегда открыта!"
+            }
+          },
+          {
+            "title": "Запорожец Кирилл Тур",
+            "narration": "Ты стоишь в шумной киевской корчме, где пахнет дымом и мёдом. Весёлый запорожец Кирилл Тур с оселедцем на бритой голове лихо подкручивает ус, а рядом молча присматривается его товарищ Василь Невольник.",
+            "line": {
+              "text": "Запорожец не боится ни чёрта, ни пана, ни собственной смерти!"
+            }
+          },
+          {
+            "title": "Ночное похищение",
+            "narration": "Ты мчишься ночной дорогой под звёздами, где Кирилл Тур уносит Лесю на коне. Петро настигает похитителя, и в лунном свете скрещиваются сабли.",
+            "line": {
+              "text": "Стой, запорожец! Отпусти девушку — или бейся!"
+            }
+          },
+          {
+            "title": "Сомко в Переяславе",
+            "narration": "Ты стоишь в просторной гетманской палате, где сверкают бунчуки и сабли. Яким Сомко, статный и гордый, встречает старого Шрама и говорит о том, ради чего готов отдать жизнь.",
+            "line": {
+              "text": "Я хочу лишь одного — чтобы Украина снова стала единой."
+            }
+          },
+          {
+            "title": "Чёрная рада",
+            "narration": "Ты стоишь в бурлящей толпе на поле под Нежином, где кричат, толкаются и машут шапками. Брюховецкий кланяется голытьбе, сыплет обещаниями — и рада перерастает в бунт, сметающий Сомко.",
+            "line": {
+              "text": "Я же ваш, братцы, — из голытьбы вышел, для голытьбы и жить буду!"
+            }
+          },
+          {
+            "title": "Последняя ночь Сомко",
+            "narration": "Ты стоишь в тесной темнице при свете одинокой свечи. Кирилл Тур уговаривает Сомко надеть его запорожскую одежду и бежать, но гетман лишь качает головой.",
+            "line": {
+              "text": "Не пристало гетману убегать в чужом платье."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "somko": {
+          "name": "Яким Сомко",
+          "traits": [
+            "благородный",
+            "честный",
+            "гордый",
+            "отважный"
+          ],
+          "description": "Переяславский полковник и наказной гетман Левобережья, родственник Богдана Хмельницкого. Он мечтает объединить Украину и чтит закон и старшинскую честь, но не умеет угождать толпе. На чёрной раде Сомко теряет булаву, а затем и жизнь, до конца оставаясь верным своей чести."
+        },
+        "briukhovetskyi": {
+          "name": "Иван Брюховецкий",
+          "traits": [
+            "хитрый",
+            "лицемерный",
+            "честолюбивый",
+            "льстивый"
+          ],
+          "description": "Кошевой атаман Запорожской Сечи, который прикидывается простым и искренним «Иванцом», другом голытьбы. Льстивыми обещаниями и с поддержкой Москвы он добывает булаву на чёрной раде, а затем жестоко расправляется с соперниками. Его власть приносит народу не волю, а новое ярмо."
+        },
+        "shram": {
+          "name": "Иван Шрам",
+          "traits": [
+            "мудрый",
+            "непреклонный",
+            "преданный родине",
+            "суровый"
+          ],
+          "description": "Бывший полковник, ставший священником, но не расставшийся с саблей. Он посвятил жизнь мечте о единой Украине и потому становится на сторону Сомко. После чёрной рады старый Шрам пытается спасти своего гетмана и погибает."
+        },
+        "petro": {
+          "name": "Петро Шраменко",
+          "traits": [
+            "отважный",
+            "благородный",
+            "влюблённый",
+            "верный"
+          ],
+          "description": "Сын Ивана Шрама, молодой отважный казак. Он влюбляется в Лесю, невесту Сомко, и защищает её от Кирилла Тура, но не позволяет себе встать на пути чужого счастья. После гибели Сомко Петро женится на Лесе."
+        },
+        "lesia": {
+          "name": "Леся Черевань",
+          "traits": [
+            "красивая",
+            "кроткая",
+            "скромная",
+            "верная"
+          ],
+          "description": "Дочь Череваня, красивая и кроткая девушка, невеста Якима Сомко. Из-за неё Петро и Кирилл Тур скрещивают сабли. После трагической гибели Сомко она становится женой Петра."
+        },
+        "cherevan": {
+          "name": "Черевань",
+          "traits": [
+            "добродушный",
+            "гостеприимный",
+            "зажиточный",
+            "беспечный"
+          ],
+          "description": "Зажиточный казак, который после войн осел на хуторе Хмарище и больше всего ценит покой, сытный обед и добрую чарку. Он любит гостей и не слишком вникает в политику, но искренне держит сторону Сомко, своего будущего зятя."
+        },
+        "kyrylo-tur": {
+          "name": "Кирилл Тур",
+          "traits": [
+            "отчаянный",
+            "весёлый",
+            "благородный",
+            "непредсказуемый"
+          ],
+          "description": "Запорожец-рыцарь, шутник и забияка, живущий по сечевым обычаям и не боящийся ни смерти, ни начальства. Он пытается похитить Лесю, но, встретив в Петре достойного соперника, становится его другом. Тур готов рискнуть жизнью, чтобы вызволить Сомко из неволи."
+        },
+        "vasyl-nevolnyk": {
+          "name": "Василь Невольник",
+          "traits": [
+            "правдивый",
+            "искренний",
+            "наблюдательный",
+            "скромный"
+          ],
+          "description": "Запорожец, бывший пленник, отчего и получил своё прозвище, — товарищ Кирилла Тура. Здравым народным умом он видит фальшь Брюховецкого и понимает, что «Иванец» обманывает голытьбу."
+        }
+      }
+    },
+    "uk": {
+      "title": "Чорна рада",
+      "originalTitle": "Чорна рада",
+      "author": "Пантелеймон Куліш",
+      "genre": "Історичний роман",
+      "tagline": "1663 рік: боротьба за гетьманську булаву, де честь програє лестощам, а кохання шукає миру серед Руїни.",
+      "summary": [
+        "1663 рік — доба Руїни. Після смерті Богдана Хмельницького Україна розколота навпіл, а старшина гризеться за гетьманську булаву. На Лівобережжі на неї претендують переяславський полковник Яким Сомко — чесний, шляхетний і гордий, що мріє об’єднати край, — та кошовий отаман Запорозької Січі Іван Брюховецький, хитрий і улесливий, який заграє з голотою й шукає підтримки в Москві. До Сомка з правого берега Дніпра їде старий полковник Іван Шрам, що став священиком, разом із сином Петром.",
+        "Дорогою Шрами зупиняються на хуторі Хмарище в заможного й добродушного козака Череваня. Його донька Леся — наречена Сомка, і Петро з першого погляду закохується в неї, хоч і розуміє, що це кохання безнадійне. Разом із Череванем, його дружиною й Лесею Шрами вирушають до Києва. Там з’являється запорожець Кирило Тур — відчайдушний, веселий і непередбачуваний — зі своїм товаришем Василем Невольником.",
+        "Кирило Тур задля запорозької бравади вирішує викрасти Лесю й уночі мчить із нею на коні. Петро кидається навздогін, і між ними зав’язується двобій на шаблях. Після запеклої сутички Тур відступається від дівчини, а між суперниками народжується повага, а згодом і дружба. Тим часом Шрами переконуються, що Брюховецький нацьковує простолюд на старшину, обіцяючи «черні» волю й рівність, а насправді прагне тільки влади.",
+        "У Ніжині збирається «чорна рада»: до виборів гетьмана допускають не лише старшину й козаків, а й міщан, селян і всяку голоту. Брюховецький, підтриманий запорожцями й московським посланцем, улесливими обіцянками перетягує натовп на свій бік. Рада переростає в бунт: Сомка скидають, Брюховецького проголошують гетьманом, а натовп кидається грабувати старшинське майно. Сомка й ніжинського полковника Василя Золотаренка беруть під варту.",
+        "Кирило Тур пробирається до в’язниці й пропонує Сомкові помінятися одягом, щоб той утік, але Сомко відмовляється: гетьманська честь не дозволяє йому рятуватися обманом. Старий Шрам намагається підняти козаків на оборону Сомка, та його хапають і страчують. Невдовзі з волі Брюховецького гине й Сомко. Обіцянки нового гетьмана виявляються брехнею: народ, що повірив «Іванцеві», отримує ще тяжче ярмо. Петро ж одружується з Лесею, і вони тихо живуть на хуторі, далеко від кривавої боротьби за владу."
+      ],
+      "themes": [
+        "Боротьба за владу",
+        "Честь і зрада",
+        "Єдність України",
+        "Народ і демагогія",
+        "Кохання й обов’язок"
+      ],
+      "terms": [
+        {
+          "term": "Чорна рада",
+          "definition": "Загальна рада 1663 року в Ніжині, де гетьмана обирали не лише старшина й козаки, а й «чернь» — міщани, селяни та голота; на ній гетьманом став Брюховецький."
+        },
+        {
+          "term": "Руїна",
+          "definition": "Доба громадянських воєн і розпаду української козацької держави після смерті Богдана Хмельницького (1657–1687)."
+        },
+        {
+          "term": "Булава",
+          "definition": "Символ гетьманської влади, за який і точиться боротьба в романі."
+        },
+        {
+          "term": "Запорозька Січ",
+          "definition": "Укріплений осередок козацтва за дніпровими порогами; Брюховецький — її кошовий отаман."
+        },
+        {
+          "term": "Кошовий отаман",
+          "definition": "Виборний очільник Запорозької Січі."
+        },
+        {
+          "term": "Старшина",
+          "definition": "Козацька верхівка — полковники, сотники, писарі; Брюховецький нацьковує на неї простий люд."
+        },
+        {
+          "term": "Чернь (голота)",
+          "definition": "Простолюд — бідні козаки, селяни й міщани, на яких спирається Брюховецький."
+        },
+        {
+          "term": "Хутір Хмарище",
+          "definition": "Затишний Череванів хутір — символ мирного, ситого життя, куди зрештою повертаються Петро й Леся."
+        },
+        {
+          "term": "Лівобережжя і Правобережжя",
+          "definition": "Дві частини України обабіч Дніпра, що в добу Руїни мали різних гетьманів."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Тарас Бульба",
+          "author": "Микола Гоголь",
+          "why": "Героїчний і трагічний світ запорозького козацтва, де воля, честь і зрада вирішують долі."
+        },
+        {
+          "title": "Айвенго",
+          "author": "Вальтер Скотт",
+          "why": "Класичний історичний роман, на взірець якого орієнтувався Куліш, створюючи перший український історичний роман."
+        },
+        {
+          "title": "Захар Беркут",
+          "author": "Іван Франко",
+          "why": "Українська історична проза про те, як зрада одного загрожує цілій громаді."
+        },
+        {
+          "title": "Маруся Чурай",
+          "author": "Ліна Костенко",
+          "why": "Козацька Україна XVII століття, де особиста драма переплітається з долею народу."
+        },
+        {
+          "title": "Вогнем і мечем",
+          "author": "Генрик Сенкевич",
+          "why": "Доба Хмельниччини — безпосередня передісторія подій «Чорної ради» — очима польського романіста."
+        }
+      ],
+      "film": {
+        "title": "Чорна рада: булава і честь",
+        "intro": "Ти розгортаєш книжку — і чуєш тупіт копит курним шляхом над Дніпром. Рік 1663-й: Україна роздерта навпіл, і над нею вже збираються хмари «чорної ради».",
+        "outro": "Гомін ради вщухає, булава переходить у чужі руки, а на тихому хуторі знову цвітуть вишні. Сторінки закриваються, та питання лишається: чого варта влада без честі?",
+        "scenes": [
+          {
+            "title": "Хутір Хмарище",
+            "narration": "Ти сидиш за щедрим столом на хуторі Хмарище, у затінку вишневого саду. Добродушний Черевань частує гостей, старий Шрам говорить про долю України, а молодий Петро не може відвести очей від вродливої Лесі.",
+            "line": {
+              "text": "Частуйтеся, панове, — у мене хата для добрих людей завжди відчинена!"
+            }
+          },
+          {
+            "title": "Запорожець Кирило Тур",
+            "narration": "Ти стоїш у гамірній київській корчмі, де пахне димом і медом. Веселий запорожець Кирило Тур з оселедцем на голеній голові завзято підкручує вуса, а поруч мовчки придивляється його товариш Василь Невольник.",
+            "line": {
+              "text": "Запорожець не боїться ні чорта, ні пана, ні власної смерті!"
+            }
+          },
+          {
+            "title": "Нічне викрадення",
+            "narration": "Ти мчиш нічною дорогою під зорями, де Кирило Тур везе Лесю на коні. Петро наздоганяє викрадача, і в місячному світлі схрещуються шаблі.",
+            "line": {
+              "text": "Стій, запорожцю! Відпусти дівчину — або бийся!"
+            }
+          },
+          {
+            "title": "Сомко в Переяславі",
+            "narration": "Ти стоїш у просторій гетьманській світлиці, де вилискують бунчуки й шаблі. Яким Сомко, ставний і гордий, зустрічає старого Шрама й говорить про те, заради чого готовий віддати життя.",
+            "line": {
+              "text": "Я хочу лише одного — щоб Україна знову стала єдиною."
+            }
+          },
+          {
+            "title": "Чорна рада",
+            "narration": "Ти стоїш у вируючому натовпі на полі під Ніжином, де кричать, штовхаються й вимахують шапками. Брюховецький кланяється голоті, сипле обіцянками — і рада переростає в бунт, що змітає Сомка.",
+            "line": {
+              "text": "Я ж ваш, братчики, — з голоти вийшов, для голоти й житиму!"
+            }
+          },
+          {
+            "title": "Остання ніч Сомка",
+            "narration": "Ти стоїш у тісній в’язниці при світлі самотньої свічки. Кирило Тур умовляє Сомка вдягти його запорозьку одежу й тікати, але гетьман лише хитає головою.",
+            "line": {
+              "text": "Не личить гетьманові тікати в чужій свиті."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "somko": {
+          "name": "Яким Сомко",
+          "traits": [
+            "шляхетний",
+            "чесний",
+            "гордий",
+            "відважний"
+          ],
+          "description": "Переяславський полковник і наказний гетьман Лівобережжя, родич Богдана Хмельницького. Він мріє об’єднати Україну й шанує закон і старшинську честь, але не вміє запобігати перед натовпом. На чорній раді Сомко втрачає булаву, а згодом і життя, до кінця лишаючись вірним своїй честі."
+        },
+        "briukhovetskyi": {
+          "name": "Іван Брюховецький",
+          "traits": [
+            "хитрий",
+            "лицемірний",
+            "честолюбний",
+            "улесливий"
+          ],
+          "description": "Кошовий отаман Запорозької Січі, що прикидається простим і щирим «Іванцем», другом голоти. Улесливими обіцянками й за підтримки Москви він здобуває булаву на чорній раді, а потім жорстоко розправляється із суперниками. Його влада приносить народові не волю, а нове ярмо."
+        },
+        "shram": {
+          "name": "Іван Шрам",
+          "traits": [
+            "мудрий",
+            "безкомпромісний",
+            "відданий Україні",
+            "суворий"
+          ],
+          "description": "Колишній полковник, що став священиком, але не розлучився з шаблею. Він присвятив життя мрії про єдину Україну й тому стає на бік Сомка. Після чорної ради старий Шрам намагається врятувати свого гетьмана й гине."
+        },
+        "petro": {
+          "name": "Петро Шраменко",
+          "traits": [
+            "відважний",
+            "шляхетний",
+            "закоханий",
+            "вірний"
+          ],
+          "description": "Син Івана Шрама, молодий відважний козак. Він закохується в Лесю, наречену Сомка, і боронить її від Кирила Тура, але не дозволяє собі стати на заваді чужому щастю. Після загибелі Сомка Петро одружується з Лесею."
+        },
+        "lesia": {
+          "name": "Леся Черевань",
+          "traits": [
+            "вродлива",
+            "лагідна",
+            "скромна",
+            "вірна"
+          ],
+          "description": "Череванева донька, вродлива й лагідна дівчина, наречена Якима Сомка. Через неї Петро й Кирило Тур схрещують шаблі. Після трагічної загибелі Сомка вона стає Петровою дружиною."
+        },
+        "cherevan": {
+          "name": "Черевань",
+          "traits": [
+            "добродушний",
+            "гостинний",
+            "заможний",
+            "безтурботний"
+          ],
+          "description": "Заможний козак, що після воєн осів на хуторі Хмарище й понад усе цінує спокій, ситий обід і добру чарку. Він любить гостей і не надто переймається політикою, але щиро тримає бік Сомка, свого майбутнього зятя."
+        },
+        "kyrylo-tur": {
+          "name": "Кирило Тур",
+          "traits": [
+            "відчайдушний",
+            "веселий",
+            "шляхетний",
+            "непередбачуваний"
+          ],
+          "description": "Запорожець-лицар, жартівник і забіяка, що живе за січовими звичаями й не боїться ні смерті, ні начальства. Він намагається викрасти Лесю, але, зустрівши в Петрові гідного суперника, стає його другом. Тур готовий ризикнути життям, щоб визволити Сомка з неволі."
+        },
+        "vasyl-nevolnyk": {
+          "name": "Василь Невольник",
+          "traits": [
+            "правдивий",
+            "щирий",
+            "спостережливий",
+            "скромний"
+          ],
+          "description": "Запорожець, колишній бранець, звідки й пішло його прізвисько, — товариш Кирила Тура. Здоровим народним розумом він бачить фальш Брюховецького й розуміє, що «Іванець» обдурює голоту."
+        }
+      }
+    },
+    "en": {
+      "title": "The Black Council",
+      "originalTitle": "Чорна рада",
+      "author": "Panteleimon Kulish",
+      "genre": "Historical novel",
+      "tagline": "1663: a struggle for the hetman’s mace where honour loses to flattery and love seeks peace amid the Ruin.",
+      "summary": [
+        "The year is 1663, the era known as the Ruin. After the death of Bohdan Khmelnytsky, Ukraine is split in two and the Cossack officers are fighting over the hetman’s mace. On the Left Bank of the Dnipro two men claim it: Yakym Somko, colonel of Pereiaslav — honest, noble and proud, who dreams of reuniting the land — and Ivan Briukhovetsky, chief of the Zaporozhian Sich, cunning and fawning, who courts the poor masses and seeks Moscow’s backing. From the Right Bank old Ivan Shram, a former colonel turned priest, rides to Somko with his son Petro.",
+        "On the way the Shrams stop at Khmaryshche, the farmstead of Cherevan, a wealthy and good-natured Cossack. His daughter Lesia is Somko’s fiancée, and Petro falls for her at first sight, although he knows his love is hopeless. Together with Cherevan, his wife and Lesia, the Shrams set off for Kyiv. There they meet the Zaporozhian Kyrylo Tur — reckless, merry and unpredictable — and his comrade Vasyl Nevolnyk.",
+        "For the sake of Zaporozhian bravado, Kyrylo Tur decides to carry off Lesia and gallops away with her one night. Petro rides in pursuit, and the two fight a sabre duel. After a fierce clash Tur gives the girl up, and respect, then friendship, grows between the rivals. Meanwhile the Shrams see that Briukhovetsky is setting the common folk against the officers, promising the “rabble” freedom and equality while in fact craving only power.",
+        "In Nizhyn the “Black Council” convenes: not only officers and Cossacks but townsfolk, peasants and all manner of paupers are allowed to vote for the hetman. Briukhovetsky, backed by the Zaporozhians and the Muscovite envoy, wins the crowd over with flattering promises. The council turns into a riot: Somko is overthrown, Briukhovetsky is proclaimed hetman, and the mob rushes to plunder the officers’ property. Somko and Vasyl Zolotarenko, colonel of Nizhyn, are taken into custody.",
+        "Kyrylo Tur steals into the prison and offers to swap clothes with Somko so he can escape, but Somko refuses: a hetman’s honour forbids saving himself by deceit. Old Shram tries to rouse the Cossacks to defend Somko, but he is seized and executed. Soon Somko too dies by Briukhovetsky’s will. The new hetman’s promises prove to be lies: the people who trusted “Ivanets” get an even heavier yoke. Petro marries Lesia, and they live quietly on the farmstead, far from the bloody struggle for power."
+      ],
+      "themes": [
+        "The struggle for power",
+        "Honour and betrayal",
+        "The unity of Ukraine",
+        "The people and demagoguery",
+        "Love and duty"
+      ],
+      "terms": [
+        {
+          "term": "Black Council",
+          "definition": "The general council of 1663 in Nizhyn, where the hetman was chosen not only by officers and Cossacks but by the “rabble” — townsfolk, peasants and paupers; it made Briukhovetsky hetman."
+        },
+        {
+          "term": "The Ruin",
+          "definition": "The era of civil wars and the collapse of the Ukrainian Cossack state after Bohdan Khmelnytsky’s death (1657–1687)."
+        },
+        {
+          "term": "Bulava (mace)",
+          "definition": "The symbol of a hetman’s power — the prize everyone in the novel is fighting for."
+        },
+        {
+          "term": "Zaporozhian Sich",
+          "definition": "The fortified Cossack stronghold beyond the Dnipro rapids; Briukhovetsky is its elected chief."
+        },
+        {
+          "term": "Koshovyi otaman",
+          "definition": "The elected leader of the Zaporozhian Sich."
+        },
+        {
+          "term": "Starshyna (officers)",
+          "definition": "The Cossack elite — colonels, captains, scribes; Briukhovetsky turns the common people against them."
+        },
+        {
+          "term": "Chern (the rabble)",
+          "definition": "The common folk — poor Cossacks, peasants and townspeople — on whom Briukhovetsky relies."
+        },
+        {
+          "term": "Khmaryshche",
+          "definition": "Cherevan’s cosy farmstead, a symbol of peaceful, well-fed life, where Petro and Lesia eventually settle."
+        },
+        {
+          "term": "Left Bank and Right Bank",
+          "definition": "The two halves of Ukraine on either side of the Dnipro, which had different hetmans during the Ruin."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Taras Bulba",
+          "author": "Nikolai Gogol",
+          "why": "The heroic and tragic world of the Zaporozhian Cossacks, where freedom, honour and treachery decide fates."
+        },
+        {
+          "title": "Ivanhoe",
+          "author": "Walter Scott",
+          "why": "The classic historical novel that Kulish took as his model when he wrote the first Ukrainian historical novel."
+        },
+        {
+          "title": "Zakhar Berkut",
+          "author": "Ivan Franko",
+          "why": "Ukrainian historical fiction about how one man’s betrayal threatens a whole community."
+        },
+        {
+          "title": "Marusia Churai",
+          "author": "Lina Kostenko",
+          "why": "Seventeenth-century Cossack Ukraine, where a personal drama is woven into the fate of a nation."
+        },
+        {
+          "title": "With Fire and Sword",
+          "author": "Henryk Sienkiewicz",
+          "why": "The Khmelnytsky era — the direct prelude to The Black Council — through the eyes of a Polish novelist."
+        }
+      ],
+      "film": {
+        "title": "The Black Council: the mace and honour",
+        "intro": "You open the book and hear hooves thudding along a dusty road above the Dnipro. The year is 1663: Ukraine is torn in two, and the storm clouds of the Black Council are already gathering.",
+        "outro": "The roar of the council dies away, the mace passes into other hands, and on a quiet farmstead the cherry trees blossom again. The pages close, but the question remains: what is power worth without honour?",
+        "scenes": [
+          {
+            "title": "The Khmaryshche Farmstead",
+            "narration": "You sit at a generous table at Khmaryshche, in the shade of a cherry orchard. Good-natured Cherevan treats his guests, old Shram talks about Ukraine’s fate, and young Petro cannot take his eyes off the lovely Lesia.",
+            "line": {
+              "text": "Eat and drink, gentlemen — my door is always open to good people!"
+            }
+          },
+          {
+            "title": "Kyrylo Tur the Zaporozhian",
+            "narration": "You stand in a noisy Kyiv tavern that smells of smoke and mead. Merry Kyrylo Tur, a scalp lock on his shaven head, twirls his moustache with a flourish, while his comrade Vasyl Nevolnyk watches quietly beside him.",
+            "line": {
+              "text": "A Zaporozhian fears neither devil, nor lord, nor his own death!"
+            }
+          },
+          {
+            "title": "Abduction by Night",
+            "narration": "You race along a night road under the stars as Kyrylo Tur carries Lesia off on horseback. Petro catches up with the abductor, and sabres cross in the moonlight.",
+            "line": {
+              "text": "Halt, Zaporozhian! Let the girl go — or fight!"
+            }
+          },
+          {
+            "title": "Somko in Pereiaslav",
+            "narration": "You stand in a spacious hetman’s hall gleaming with horsetail standards and sabres. Tall, proud Yakym Somko greets old Shram and speaks of the cause for which he is ready to give his life.",
+            "line": {
+              "text": "I want only one thing — for Ukraine to be whole again."
+            }
+          },
+          {
+            "title": "The Black Council",
+            "narration": "You stand in a seething crowd on a field near Nizhyn, where people shout, shove and wave their caps. Briukhovetsky bows to the paupers and showers them with promises — and the council turns into a riot that sweeps Somko away.",
+            "line": {
+              "text": "I’m one of you, brothers — born a pauper, and I’ll live for the paupers!"
+            }
+          },
+          {
+            "title": "Somko’s Last Night",
+            "narration": "You stand in a cramped prison cell lit by a single candle. Kyrylo Tur begs Somko to put on his Zaporozhian clothes and flee, but the hetman only shakes his head.",
+            "line": {
+              "text": "It is not fitting for a hetman to run away in another man’s coat."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "somko": {
+          "name": "Yakym Somko",
+          "traits": [
+            "noble",
+            "honest",
+            "proud",
+            "brave"
+          ],
+          "description": "Colonel of Pereiaslav and acting hetman of the Left Bank, a kinsman of Bohdan Khmelnytsky. He dreams of reuniting Ukraine and honours law and officer’s honour, but he cannot pander to the mob. At the Black Council he loses the mace and later his life, staying true to his honour to the end."
+        },
+        "briukhovetskyi": {
+          "name": "Ivan Briukhovetsky",
+          "traits": [
+            "cunning",
+            "hypocritical",
+            "ambitious",
+            "fawning"
+          ],
+          "description": "Chief of the Zaporozhian Sich, who poses as simple, sincere “Ivanets”, a friend of the poor. With flattering promises and Moscow’s support he wins the mace at the Black Council, then deals brutally with his rivals. His rule brings the people not freedom but a new yoke."
+        },
+        "shram": {
+          "name": "Ivan Shram",
+          "traits": [
+            "wise",
+            "uncompromising",
+            "patriotic",
+            "stern"
+          ],
+          "description": "A former colonel who became a priest but never parted with his sabre. He has devoted his life to the dream of a united Ukraine and so sides with Somko. After the Black Council old Shram tries to save his hetman and perishes."
+        },
+        "petro": {
+          "name": "Petro Shramenko",
+          "traits": [
+            "brave",
+            "honourable",
+            "in love",
+            "loyal"
+          ],
+          "description": "Ivan Shram’s son, a brave young Cossack. He falls in love with Lesia, Somko’s fiancée, and defends her from Kyrylo Tur, yet will not stand in the way of another man’s happiness. After Somko’s death Petro marries Lesia."
+        },
+        "lesia": {
+          "name": "Lesia Cherevan",
+          "traits": [
+            "beautiful",
+            "gentle",
+            "modest",
+            "faithful"
+          ],
+          "description": "Cherevan’s daughter, a lovely and gentle girl engaged to Yakym Somko. Petro and Kyrylo Tur cross sabres over her. After Somko’s tragic death she becomes Petro’s wife."
+        },
+        "cherevan": {
+          "name": "Cherevan",
+          "traits": [
+            "good-natured",
+            "hospitable",
+            "wealthy",
+            "carefree"
+          ],
+          "description": "A prosperous Cossack who settled down at Khmaryshche after the wars and values peace, a hearty dinner and a good drink above all. He loves having guests and does not bother much with politics, but he sincerely supports Somko, his future son-in-law."
+        },
+        "kyrylo-tur": {
+          "name": "Kyrylo Tur",
+          "traits": [
+            "reckless",
+            "merry",
+            "chivalrous",
+            "unpredictable"
+          ],
+          "description": "A Zaporozhian knight, joker and brawler who lives by the customs of the Sich and fears neither death nor authority. He tries to abduct Lesia, but finding a worthy rival in Petro he becomes his friend. Tur is ready to risk his life to free Somko from captivity."
+        },
+        "vasyl-nevolnyk": {
+          "name": "Vasyl Nevolnyk",
+          "traits": [
+            "truthful",
+            "sincere",
+            "observant",
+            "modest"
+          ],
+          "description": "A Zaporozhian and former captive — hence his nickname, which means “the Captive” — and Kyrylo Tur’s comrade. With plain common sense he sees through Briukhovetsky and realises that “Ivanets” is deceiving the poor."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "somko",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "tall",
+        "skin": "#e8b894",
+        "hair": {
+          "style": "short",
+          "color": "#4a2e1a"
+        },
+        "facialHair": "mustache",
+        "eyes": "#3a4a6a",
+        "top": {
+          "kind": "coat",
+          "color": "#a8202a",
+          "accent": "#e0b040",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#2a3a6a"
+        },
+        "shoes": "#c8a040",
+        "headwear": "feather_hat",
+        "headwearColor": "#3a2a24",
+        "accessory": "belt_sword",
+        "accessoryColor": "#d8b04a",
+        "holding": "staff"
+      },
+      "portraitPrompt": "A tall, handsome Cossack colonel of the 17th century with a proud bearing, short chestnut hair and a long moustache, wearing a crimson zhupan coat trimmed with gold, a fur hat with a heron-feather plume, wide blue trousers, yellow boots and a sabre at his gilded belt, holding a hetman’s mace."
+    },
+    {
+      "id": "petro",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#efc4a2",
+        "hair": {
+          "style": "short",
+          "color": "#2a1c14"
+        },
+        "facialHair": "none",
+        "eyes": "#3a2a1c",
+        "top": {
+          "kind": "coat",
+          "color": "#2e5a8a",
+          "accent": "#f0e6d0",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#8a2a24"
+        },
+        "shoes": "#5a3a22",
+        "headwear": "cap",
+        "headwearColor": "#3a2a24",
+        "accessory": "belt_sword",
+        "accessoryColor": "#6a4a2a",
+        "holding": "sword"
+      },
+      "portraitPrompt": "A slim, earnest young Cossack with short dark hair and a first faint moustache, wearing a blue cloth coat over a white shirt, red wide trousers, a black lambskin cap and a sabre on his belt, holding a drawn sabre."
+    },
+    {
+      "id": "lesia",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f6d6bc",
+        "hair": {
+          "style": "braids",
+          "color": "#6a4428"
+        },
+        "facialHair": "none",
+        "eyes": "#3a5a8a",
+        "top": {
+          "kind": "shirt",
+          "color": "#fbf6ea",
+          "accent": "#c8302a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#2a5a3a"
+        },
+        "shoes": "#c8302a",
+        "headwear": "flower_wreath",
+        "headwearColor": "#e84a3a",
+        "accessory": "necklace",
+        "accessoryColor": "#d8323a",
+        "holding": "flower"
+      },
+      "portraitPrompt": "A gentle, beautiful Cossack maiden with long chestnut braids and soft blue eyes, wearing a wreath of red flowers with ribbons, a white embroidered blouse, a green plakhta wrap skirt, red boots and strings of coral beads."
+    },
+    {
+      "id": "shram",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "broad",
+        "skin": "#d8a682",
+        "hair": {
+          "style": "long",
+          "color": "#c8c4bc"
+        },
+        "facialHair": "long_beard",
+        "eyes": "#3a3a3a",
+        "top": {
+          "kind": "robe",
+          "color": "#2a2622",
+          "accent": "#a88a4a",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "robe",
+          "color": "#2a2622"
+        },
+        "shoes": "#1e1a16",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "belt_sword",
+        "accessoryColor": "#5a4a3a",
+        "holding": "sword"
+      },
+      "portraitPrompt": "A stern old Cossack colonel turned priest with long grey hair, a long grey beard and a scarred, battle-hardened face, wearing a dark cassock with a sabre still hanging at his side."
+    },
+    {
+      "id": "briukhovetskyi",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "average",
+        "skin": "#dca882",
+        "hair": {
+          "style": "mohawk",
+          "color": "#3a2a1c"
+        },
+        "facialHair": "mustache",
+        "eyes": "#3a2e22",
+        "top": {
+          "kind": "coat",
+          "color": "#6a5a44",
+          "accent": "#d8c8a0",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#3a3a4a"
+        },
+        "shoes": "#3a2a1c",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "belt_sword",
+        "accessoryColor": "#3a2a1c",
+        "holding": "staff"
+      },
+      "portraitPrompt": "A sly, smiling Zaporozhian leader with a shaven head and a long scalp lock, a drooping moustache and shrewd, darting eyes, deliberately wearing a plain worn grey-brown coat to look like a common man, bowing ingratiatingly while gripping a hetman’s mace."
+    },
+    {
+      "id": "kyrylo-tur",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#d8a27a",
+        "hair": {
+          "style": "mohawk",
+          "color": "#1e1612"
+        },
+        "facialHair": "mustache",
+        "eyes": "#2a3a2a",
+        "top": {
+          "kind": "vest",
+          "color": "#2a6a4a",
+          "accent": "#f0e6d0",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#c8202a"
+        },
+        "shoes": "#c8a040",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "belt_sword",
+        "accessoryColor": "#d8a43a",
+        "holding": "pipe"
+      },
+      "portraitPrompt": "A dashing, laughing Zaporozhian Cossack with a shaven head and a long black scalp lock tucked behind his ear, a sweeping moustache and mischievous eyes, wearing a green jacket over a white shirt, baggy scarlet sharovary trousers, a wide sash with a sabre and yellow boots, holding a long pipe."
+    },
+    {
+      "id": "cherevan",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "broad",
+        "skin": "#e8aa86",
+        "hair": {
+          "style": "short",
+          "color": "#a8a094"
+        },
+        "facialHair": "mustache",
+        "eyes": "#4a3a2a",
+        "top": {
+          "kind": "coat",
+          "color": "#8a6a2a",
+          "accent": "#f0e0b0",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#4a3a6a"
+        },
+        "shoes": "#5a3a22",
+        "headwear": "cap",
+        "headwearColor": "#4a3a2a",
+        "accessory": "belt_sword",
+        "accessoryColor": "#c83a2a",
+        "holding": "cup"
+      },
+      "portraitPrompt": "A jolly, pot-bellied elderly Cossack with rosy cheeks, cropped grey hair and a bushy grey moustache, wearing a mustard-coloured coat with a wide red sash stretched over his belly and a lambskin cap, raising a silver cup in a hearty toast."
+    },
+    {
+      "id": "vasyl-nevolnyk",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "slim",
+        "skin": "#c8946c",
+        "hair": {
+          "style": "mohawk",
+          "color": "#6a6058"
+        },
+        "facialHair": "mustache",
+        "eyes": "#4a4a3a",
+        "top": {
+          "kind": "shirt",
+          "color": "#d8ccb0",
+          "accent": "#6a5a44",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#5a4a3a"
+        },
+        "shoes": "#3a2a1c",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A lean, weather-beaten Zaporozhian with a greying scalp lock, a thin moustache and thoughtful, wary eyes, wearing a coarse faded linen shirt and patched trousers, his wrists still marked by old shackles."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "garden",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "cherevan",
+          "shram",
+          "petro",
+          "lesia"
+        ],
+        "props": [
+          "table",
+          "tree",
+          "house",
+          "bench",
+          "fence"
+        ],
+        "action": "celebrate",
+        "camera": "orbit",
+        "mood": "joyful",
+        "line": {
+          "speaker": "cherevan"
+        }
+      },
+      {
+        "setting": "tavern",
+        "time": "dusk",
+        "weather": "clear",
+        "cast": [
+          "kyrylo-tur",
+          "vasyl-nevolnyk",
+          "petro"
+        ],
+        "props": [
+          "table",
+          "barrel",
+          "candles",
+          "bench"
+        ],
+        "action": "talk",
+        "camera": "pan",
+        "mood": "joyful",
+        "line": {
+          "speaker": "kyrylo-tur"
+        }
+      },
+      {
+        "setting": "meadow",
+        "time": "night",
+        "weather": "stars",
+        "cast": [
+          "kyrylo-tur",
+          "lesia",
+          "petro"
+        ],
+        "props": [
+          "tree",
+          "moon",
+          "rock",
+          "bush"
+        ],
+        "action": "fight",
+        "camera": "fly_over",
+        "mood": "tense",
+        "line": {
+          "speaker": "petro"
+        }
+      },
+      {
+        "setting": "palace",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "somko",
+          "shram"
+        ],
+        "props": [
+          "throne",
+          "table",
+          "window",
+          "candles"
+        ],
+        "action": "talk",
+        "camera": "dolly_in",
+        "mood": "epic",
+        "line": {
+          "speaker": "somko"
+        }
+      },
+      {
+        "setting": "city",
+        "time": "day",
+        "weather": "wind",
+        "cast": [
+          "briukhovetskyi",
+          "somko",
+          "vasyl-nevolnyk",
+          "kyrylo-tur"
+        ],
+        "props": [
+          "tent",
+          "fence",
+          "cart",
+          "barrel"
+        ],
+        "action": "fight",
+        "camera": "crane",
+        "mood": "tense",
+        "line": {
+          "speaker": "briukhovetskyi"
+        }
+      },
+      {
+        "setting": "room",
+        "time": "night",
+        "weather": "clear",
+        "cast": [
+          "somko",
+          "kyrylo-tur"
+        ],
+        "props": [
+          "candles",
+          "door",
+          "window",
+          "bench"
+        ],
+        "action": "sad",
+        "camera": "close_up",
+        "mood": "melancholic",
+        "line": {
+          "speaker": "somko"
+        }
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: a cosy Cossack farmstead in a blooming cherry orchard, a jolly pot-bellied host in a red sash raising a cup at a long wooden table, an old grey-bearded priest with a sabre, a young Cossack and a girl in a flower wreath; slow orbiting camera, warm afternoon light, tilt-shift miniature look, no text.",
+      "Cute voxel-diorama 3D scene: a huge noisy crowd of tiny Cossacks with scalp locks, peasants and townsfolk on a field outside a 17th-century wooden town, waving fur caps and horsetail standards around a sly leader holding up a golden mace, dust swirling; dramatic crane shot, bright windy daylight, chaotic tense mood, no text.",
+      "Cute voxel-diorama 3D scene: a dim wooden prison cell lit by one candle, a dashing Zaporozhian in red trousers holding out his coat to a proud colonel in a crimson zhupan who calmly refuses, moonlight through a barred window; slow close-up, warm candlelight against cold blue shadows, melancholic mood, no text."
+    ]
+  }
+}

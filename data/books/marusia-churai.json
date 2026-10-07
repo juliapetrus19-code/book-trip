@@ -1,0 +1,1106 @@
+{
+  "id": "marusia-churai",
+  "year": 1979,
+  "cover": {
+    "bg": "#6a2a4a",
+    "bg2": "#220a18",
+    "fg": "#fbe8e0",
+    "accent": "#f2c04a",
+    "motif": "bird"
+  },
+  "aliases": [
+    "Маруся Чурай",
+    "Marusia Churai",
+    "Marusia Chural",
+    "Marusya Churay",
+    "Marusia Churay",
+    "Маруся Чурай Костенко",
+    "Костенко Маруся Чурай",
+    "Маруся Чурай Ліна Костенко",
+    "Маруся Чурай Лина Костенко",
+    "Маруся Чурай роман у віршах",
+    "Чурай",
+    "Ой не ходи, Грицю",
+    "Маруся Чураївна"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Маруся Чурай",
+      "originalTitle": "Маруся Чурай",
+      "author": "Лина Костенко",
+      "genre": "Исторический роман в стихах",
+      "tagline": "Легендарная полтавская певица, суд за отравленную любовь и песни, которые пережили века.",
+      "summary": [
+        "Полтава, середина XVII века. Город собирается на необычный суд: перед ним стоит девушка Маруся Чурай, прославленная певица, чьи песни знает вся Украина. Её обвиняют в отравлении казака Григория Бобренко, которого она любила. Мать Гриця требует сурового наказания, свидетели спорят, а сама Маруся молчит и не защищается: она не отрицает вины. Лишь казак Иван Искра, давно и безнадёжно влюблённый в неё, горячо встаёт на её защиту. Суд выносит приговор — смертная казнь.",
+        "Шаг за шагом раскрывается история этой любви. Маруся — дочь славного казака Гордея Чурая, которого казнили в Варшаве за участие в восстании. С детства она была певучей и непокорной, а Гриць стал её первой и единственной любовью. Он обещал жениться на ней, и она годами ждала его из походов. Но Гриць, слабый и нерешительный, не умел выбирать между сердцем и выгодой, а его мать мечтала о богатой невестке.",
+        "В конце концов Гриць, поддавшись уговорам матери, сватается к Гале Вишняк — дочери зажиточной семьи. Измена становится для Маруси страшным ударом. В отчаянии она варит ядовитое зелье, и Гриць, выпив его, умирает. Эта трагедия отзывается в песне «Ой не ходи, Грицю, та й на вечорниці», которую потом запоет вся Украина. Так любовь и смерть навсегда сплетаются в судьбе Маруси.",
+        "Когда Марусю уже ведут на казнь, Иван Искра, загнавший коня в бешеной скачке, привозит гетманский универсал: Богдан Хмельницкий помиловал девушку в память о заслугах её отца и ради её песен, ведь в них — душа народа. Марусю освобождают, но жизнь для неё уже кончена: она несёт тяжесть вины и утраты, а на неё косо смотрит весь город.",
+        "Чтобы обрести хоть какой-то покой, Маруся отправляется на богомолье в Киев. В дороге она встречает странствующего дьяка — мудрого и ироничного философа, который рассказывает ей об Украине, её судьбе и о вечности песни. Вернувшись в Полтаву, где бушуют войны и распри, Маруся тихо угасает. Но её песни живут: их поют казаки в походах и девушки на вечорницах, и именно в них — бессмертие Маруси Чурай."
+      ],
+      "themes": [
+        "Любовь и измена",
+        "Сила искусства",
+        "Народ и его песня",
+        "Вина и прощение",
+        "Человеческое достоинство"
+      ],
+      "terms": [
+        {
+          "term": "Маруся Чурай (легенда)",
+          "definition": "Полулегендарная полтавская певица XVII века, которой народная традиция приписывает песни «Ой не ходи, Грицю», «Засвіт встали козаченьки» и другие."
+        },
+        {
+          "term": "Роман в стихах",
+          "definition": "Большое стихотворное произведение с развёрнутым сюжетом и психологическими характерами, как «Евгений Онегин» или «Маруся Чурай»."
+        },
+        {
+          "term": "Гетманский универсал",
+          "definition": "Официальная грамота гетмана; именно универсал Богдана Хмельницкого спасает Марусю от казни."
+        },
+        {
+          "term": "Полтава",
+          "definition": "Полковой город на Ворскле, где живёт Маруся и проходит суд."
+        },
+        {
+          "term": "Хмельниччина",
+          "definition": "Национально-освободительная война под предводительством Богдана Хмельницкого (1648–1657), на фоне которой разворачиваются события."
+        },
+        {
+          "term": "Богомолье (проща)",
+          "definition": "Паломничество к святым местам; Маруся идёт на богомолье в Киев, к Печерской лавре."
+        },
+        {
+          "term": "Странствующий дьяк",
+          "definition": "Образованный бродячий певчий и учитель; в романе он становится спутником и собеседником Маруси."
+        },
+        {
+          "term": "«Ой не ходи, Грицю»",
+          "definition": "Народная песня о девушке, отравившей неверного возлюбленного; традиция приписывает её Марусе Чурай."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Ой не ходи, Грицю, та й на вечорниці",
+          "author": "Михаил Старицкий",
+          "why": "Знаменитая драма на ту же легенду о девушке, отравившей неверного Гриця."
+        },
+        {
+          "title": "Лесная песня",
+          "author": "Леся Украинка",
+          "why": "Поэтическая драма о преданной любви и измене, где искусство и песня оказываются сильнее смерти."
+        },
+        {
+          "title": "Чёрная рада",
+          "author": "Пантелеймон Кулиш",
+          "why": "Казацкая Украина XVII века с её борьбой за власть, честь и правду."
+        },
+        {
+          "title": "Евгений Онегин",
+          "author": "Александр Пушкин",
+          "why": "Классический роман в стихах о неразделённой любви и выборе, который ломает судьбы."
+        },
+        {
+          "title": "Тени забытых предков",
+          "author": "Михаил Коцюбинский",
+          "why": "Украинская трагедия любви, сотканная из народной песни и старинных поверий."
+        }
+      ],
+      "film": {
+        "title": "Маруся Чурай: песня, что пережила века",
+        "intro": "Ты открываешь книгу — и слышишь, как над Ворсклой льётся девичья песня. Полтава середины XVII века: пыльные улицы, вишнёвые сады и площадь, где вот-вот начнётся суд.",
+        "outro": "Суд давно окончен, а песня всё летит над степью. Страницы закрываются, и ты понимаешь: пока её поют, Маруся жива.",
+        "scenes": [
+          {
+            "title": "Судный день в Полтаве",
+            "narration": "Ты стоишь на площади среди гудящей толпы полтавцев. Посредине — бледная Маруся, она молчит, а мать Гриця кричит, требуя казни; лишь Иван Искра выходит вперёд, чтобы её защитить.",
+            "line": {
+              "text": "Она моего сына погубила — пусть же и ответит!"
+            }
+          },
+          {
+            "title": "Обещание",
+            "narration": "Ты стоишь под звёздным небом у плетня, где пахнет мятой и вишней. Маруся тихо поёт, а Гриць, держа её за руку, клянётся, что вернётся из похода и поведёт её под венец.",
+            "line": {
+              "text": "Дождись меня, Маруся, — вернусь, и будем вместе навсегда."
+            }
+          },
+          {
+            "title": "Сватовство",
+            "narration": "Ты стоишь у богатого двора Вишняков, где сватов встречают хлебом и вышитыми рушниками. Довольная Бобренчиха подталкивает сына к Гале, и Гриць отводит глаза.",
+            "line": {
+              "text": "Галя тебе пара: и хата, и поле, и добро!"
+            }
+          },
+          {
+            "title": "Зелье",
+            "narration": "Ты стоишь в тёмной хате, где на столе мерцает свеча, а в горшке настаиваются травы. Маруся сидит неподвижно, а за дверью уже слышатся шаги Гриця — шаги, ведущие к беде.",
+            "line": null
+          },
+          {
+            "title": "Скачка Искры",
+            "narration": "Ты летишь вместе с Иваном Искрой по рассветной степи, ветер свистит в ушах. Конь в пене, до казни остаются считанные часы — и в руке у Искры гетманская грамота.",
+            "line": {
+              "text": "Неси, конь, неси — только бы успеть!"
+            }
+          },
+          {
+            "title": "Универсал",
+            "narration": "Ты стоишь на площади в сером утреннем свете, где всё готово к казни. Толпа замирает — в последнюю минуту сквозь неё прорывается Искра, высоко поднимая гетманский универсал.",
+            "line": {
+              "text": "Стойте! Гетман помиловал Марусю!"
+            }
+          },
+          {
+            "title": "Богомолье",
+            "narration": "Ты идёшь пыльной дорогой на Киев, где в закатном свете золотятся поля. Маруся шагает рядом со странствующим дьяком, который рассказывает ей о прошлом и будущем Украины.",
+            "line": {
+              "text": "Песня, девушка, — самая долгая дорога: она переживёт и нас, и гетманов."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "marusia": {
+          "name": "Маруся Чурай",
+          "traits": [
+            "талантливая",
+            "гордая",
+            "преданная",
+            "несломленная",
+            "искренняя"
+          ],
+          "description": "Полтавская девушка-певица, дочь казнённого казака Гордея Чурая, чьи песни знает вся Украина. Она преданно любит Гриця, а его измена толкает её к роковому поступку. Приговорённая к смерти и помилованная гетманом, Маруся с достоинством несёт свою вину, а её песни становятся голосом народа."
+        },
+        "hryts": {
+          "name": "Григорий Бобренко (Гриць)",
+          "traits": [
+            "красивый",
+            "нерешительный",
+            "слабовольный",
+            "раздвоенный"
+          ],
+          "description": "Возлюбленный Маруси, красивый казак, обещавший ей жениться. Разрываясь между чувством и выгодой, он слушается матери и сватается к богатой Гале Вишняк. Гриць умирает, выпив зелье, сваренное Марусей."
+        },
+        "iskra": {
+          "name": "Иван Искра",
+          "traits": [
+            "благородный",
+            "верный",
+            "мужественный",
+            "самоотверженный"
+          ],
+          "description": "Казак, который давно и молча любит Марусю. Только он защищает её на суде, а когда приговор уже вынесен, мчится к гетману и в последнюю минуту привозит универсал о помиловании."
+        },
+        "halia": {
+          "name": "Галя Вишняк",
+          "traits": [
+            "зажиточная",
+            "тихая",
+            "покорная"
+          ],
+          "description": "Дочь богатых Вишняков, к которой Гриць посватался вместо Маруси. Она — воплощение выгодного брака, победившего настоящую любовь."
+        },
+        "bobrenchykha": {
+          "name": "Бобренчиха",
+          "traits": [
+            "корыстная",
+            "властная",
+            "мстительная",
+            "гордая"
+          ],
+          "description": "Мать Гриця, превыше всего ценящая достаток и толкающая сына к богатой невесте. После смерти сына она громче всех требует для Маруси казни."
+        },
+        "hordii": {
+          "name": "Гордей Чурай",
+          "traits": [
+            "отважный",
+            "гордый",
+            "преданный родине"
+          ],
+          "description": "Отец Маруси, казак, казнённый в Варшаве за участие в восстании против Речи Посполитой. Память о нём — одна из причин, по которым гетман милует Марусю."
+        },
+        "mother": {
+          "name": "Мать Маруси",
+          "traits": [
+            "любящая",
+            "страдающая",
+            "мудрая"
+          ],
+          "description": "Вдова Гордея Чурая, которая вместе с дочерью переживает позор суда и страх перед казнью. Она с болью смотрит, как рушится счастье её единственной дочери."
+        },
+        "dyak": {
+          "name": "Странствующий дьяк",
+          "traits": [
+            "мудрый",
+            "ироничный",
+            "образованный",
+            "добрый"
+          ],
+          "description": "Бродячий учёный дьяк, с которым Маруся идёт на богомолье в Киев. Его размышления о судьбе Украины, человеческой памяти и бессмертии песни помогают Марусе обрести хоть крупицу покоя."
+        }
+      }
+    },
+    "uk": {
+      "title": "Маруся Чурай",
+      "originalTitle": "Маруся Чурай",
+      "author": "Ліна Костенко",
+      "genre": "Історичний роман у віршах",
+      "tagline": "Легендарна полтавська співачка, суд за отруєне кохання й пісні, що пережили століття.",
+      "summary": [
+        "Полтава, середина XVII століття. Місто збирається на незвичайний суд: перед ним стоїть дівчина Маруся Чурай, уславлена співачка, чиї пісні знає вся Україна. Її звинувачують в отруєнні козака Григорія Бобренка, якого вона кохала. Грицева мати вимагає суворої кари, свідки сперечаються, а сама Маруся мовчить і не захищається: вона не заперечує провини. Лише козак Іван Іскра, що давно й безнадійно її кохає, палко стає на її оборону. Суд виносить вирок — смертна кара.",
+        "Крок за кроком розкривається історія цього кохання. Маруся — донька славного козака Гордія Чурая, якого стратили у Варшаві за участь у повстанні. Змалку вона була співочою й непокірною, а Гриць став її першим і єдиним коханням. Він обіцяв одружитися з нею, і вона роками чекала його з походів. Та Гриць, слабкий і нерішучий, не вмів обирати між серцем і вигодою, а його мати мріяла про багату невістку.",
+        "Зрештою Гриць, піддавшись материним умовлянням, сватається до Галі Вишняк — доньки заможної родини. Зрада стає для Марусі страшним ударом. У розпачі вона варить отруйне зілля, і Гриць, випивши його, помирає. Ця трагедія відлунює в пісні «Ой не ходи, Грицю, та й на вечорниці», яку згодом співатиме вся Україна. Так кохання й смерть назавжди сплітаються в Марусиній долі.",
+        "Коли Марусю вже ведуть на страту, Іван Іскра, що загнав коня в шаленій скачці, привозить гетьманський універсал: Богдан Хмельницький помилував дівчину в пам’ять про заслуги її батька й заради її пісень, бо в них — душа народу. Марусю звільняють, але життя для неї вже скінчилося: вона несе тягар провини й утрати, а на неї скоса дивиться все місто.",
+        "Щоб знайти бодай якийсь спокій, Маруся вирушає на прощу до Києва. Дорогою вона зустрічає мандрівного дяка — мудрого й іронічного філософа, що розповідає їй про Україну, її долю й про вічність пісні. Повернувшись до Полтави, де вирують війни й чвари, Маруся тихо згасає. Та її пісні живуть: їх співають козаки в походах і дівчата на вечорницях, і саме в них — безсмертя Марусі Чурай."
+      ],
+      "themes": [
+        "Кохання і зрада",
+        "Сила мистецтва",
+        "Народ і його пісня",
+        "Провина і прощення",
+        "Людська гідність"
+      ],
+      "terms": [
+        {
+          "term": "Маруся Чурай (легенда)",
+          "definition": "Напівлегендарна полтавська співачка XVII століття, якій народна традиція приписує пісні «Ой не ходи, Грицю», «Засвіт встали козаченьки» та інші."
+        },
+        {
+          "term": "Роман у віршах",
+          "definition": "Великий віршований твір із розгорнутим сюжетом і психологічними характерами, як «Євгеній Онєгін» чи «Маруся Чурай»."
+        },
+        {
+          "term": "Гетьманський універсал",
+          "definition": "Офіційна грамота гетьмана; саме універсал Богдана Хмельницького рятує Марусю від страти."
+        },
+        {
+          "term": "Полтава",
+          "definition": "Полкове місто над Ворсклою, де живе Маруся й відбувається суд."
+        },
+        {
+          "term": "Хмельниччина",
+          "definition": "Національно-визвольна війна під проводом Богдана Хмельницького (1648–1657), на тлі якої розгортаються події."
+        },
+        {
+          "term": "Проща",
+          "definition": "Паломництво до святих місць; Маруся йде на прощу до Києва, до Печерської лаври."
+        },
+        {
+          "term": "Мандрівний дяк",
+          "definition": "Освічений бродячий співак-церковник і вчитель; у романі він стає Марусиним супутником і співрозмовником."
+        },
+        {
+          "term": "«Ой не ходи, Грицю»",
+          "definition": "Народна пісня про дівчину, що отруїла невірного коханого; традиція приписує її Марусі Чурай."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Ой не ходи, Грицю, та й на вечорниці",
+          "author": "Михайло Старицький",
+          "why": "Знаменита драма на ту саму легенду про дівчину, що отруїла невірного Гриця."
+        },
+        {
+          "title": "Лісова пісня",
+          "author": "Леся Українка",
+          "why": "Поетична драма про віддане кохання й зраду, де мистецтво й пісня виявляються сильнішими за смерть."
+        },
+        {
+          "title": "Чорна рада",
+          "author": "Пантелеймон Куліш",
+          "why": "Козацька Україна XVII століття з її боротьбою за владу, честь і правду."
+        },
+        {
+          "title": "Євгеній Онєгін",
+          "author": "Олександр Пушкін",
+          "why": "Класичний роман у віршах про нерозділене кохання й вибір, що ламає долі."
+        },
+        {
+          "title": "Тіні забутих предків",
+          "author": "Михайло Коцюбинський",
+          "why": "Українська трагедія кохання, зіткана з народної пісні й давніх вірувань."
+        }
+      ],
+      "film": {
+        "title": "Маруся Чурай: пісня, що пережила століття",
+        "intro": "Ти розгортаєш книжку — і чуєш, як над Ворсклою ллється дівоча пісня. Полтава середини XVII століття: курні вулиці, вишневі садки й майдан, де от-от почнеться суд.",
+        "outro": "Суд давно скінчився, а пісня все летить над степом. Сторінки закриваються, і ти розумієш: доки її співають, Маруся жива.",
+        "scenes": [
+          {
+            "title": "Судний день у Полтаві",
+            "narration": "Ти стоїш на майдані серед гомінкого натовпу полтавців. Посередині — бліда Маруся, вона мовчить, а Грицева мати кричить, вимагаючи страти; лише Іван Іскра виходить наперед, щоб її захистити.",
+            "line": {
+              "text": "Вона мого сина занапастила — то хай і відповідає!"
+            }
+          },
+          {
+            "title": "Обіцянка",
+            "narration": "Ти стоїш під зоряним небом біля тину, де пахне м’ятою й вишнею. Маруся тихо співає, а Гриць, тримаючи її за руку, присягається, що вернеться з походу й поведе її до шлюбу.",
+            "line": {
+              "text": "Дочекайся мене, Марусю, — вернуся, і будемо разом довіку."
+            }
+          },
+          {
+            "title": "Сватання",
+            "narration": "Ти стоїш біля багатого двору Вишняків, де старостів зустрічають хлібом і вишитими рушниками. Вдоволена Бобренчиха підштовхує сина до Галі, а Гриць ховає очі.",
+            "line": {
+              "text": "Галя тобі до пари: і хата, і поле, і добро!"
+            }
+          },
+          {
+            "title": "Зілля",
+            "narration": "Ти стоїш у темній хаті, де на столі мерехтить свічка, а в горщику настоюються трави. Маруся сидить нерухомо, а за дверима вже чути Грицеві кроки — кроки, що ведуть до біди.",
+            "line": null
+          },
+          {
+            "title": "Скачка Іскри",
+            "narration": "Ти летиш разом з Іваном Іскрою світанковим степом, і вітер свистить у вухах. Кінь у милі, до страти лишаються лічені години — а в Іскриній руці гетьманська грамота.",
+            "line": {
+              "text": "Неси, коню, неси — аби лиш устигнути!"
+            }
+          },
+          {
+            "title": "Універсал",
+            "narration": "Ти стоїш на майдані в сірому ранковому світлі, де все готове до страти. Натовп завмирає — в останню мить крізь нього проривається Іскра, високо здіймаючи гетьманський універсал.",
+            "line": {
+              "text": "Стійте! Гетьман помилував Марусю!"
+            }
+          },
+          {
+            "title": "Проща",
+            "narration": "Ти йдеш курною дорогою на Київ, де в призахідному світлі золотяться поля. Маруся крокує поруч із мандрівним дяком, який розповідає їй про минуле й майбутнє України.",
+            "line": {
+              "text": "Пісня, дівчино, — найдовша дорога: вона переживе і нас, і гетьманів."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "marusia": {
+          "name": "Маруся Чурай",
+          "traits": [
+            "талановита",
+            "горда",
+            "віддана",
+            "незламна",
+            "щира"
+          ],
+          "description": "Полтавська дівчина-співачка, донька страченого козака Гордія Чурая, чиї пісні знає вся Україна. Вона віддано кохає Гриця, а його зрада штовхає її до фатального вчинку. Засуджена на смерть і помилувана гетьманом, Маруся гідно несе свою провину, а її пісні стають голосом народу."
+        },
+        "hryts": {
+          "name": "Григорій Бобренко (Гриць)",
+          "traits": [
+            "вродливий",
+            "нерішучий",
+            "безвольний",
+            "роздвоєний"
+          ],
+          "description": "Марусин коханий, вродливий козак, що обіцяв їй шлюб. Розриваючись між почуттям і вигодою, він слухається матері й сватається до багатої Галі Вишняк. Гриць помирає, випивши зілля, звареного Марусею."
+        },
+        "iskra": {
+          "name": "Іван Іскра",
+          "traits": [
+            "шляхетний",
+            "вірний",
+            "мужній",
+            "самовідданий"
+          ],
+          "description": "Козак, що давно й мовчки кохає Марусю. Лише він захищає її на суді, а коли вирок уже оголошено, мчить до гетьмана й в останню мить привозить універсал про помилування."
+        },
+        "halia": {
+          "name": "Галя Вишняк",
+          "traits": [
+            "заможна",
+            "тиха",
+            "покірна"
+          ],
+          "description": "Донька багатих Вишняків, до якої Гриць посватався замість Марусі. Вона — втілення вигідного шлюбу, що переміг справжнє кохання."
+        },
+        "bobrenchykha": {
+          "name": "Бобренчиха",
+          "traits": [
+            "корислива",
+            "владна",
+            "мстива",
+            "горда"
+          ],
+          "description": "Грицева мати, що понад усе цінує достаток і штовхає сина до багатої нареченої. Після смерті сина вона найгучніше вимагає для Марусі страти."
+        },
+        "hordii": {
+          "name": "Гордій Чурай",
+          "traits": [
+            "відважний",
+            "гордий",
+            "відданий Україні"
+          ],
+          "description": "Марусин батько, козак, якого стратили у Варшаві за участь у повстанні проти Речі Посполитої. Пам’ять про нього — одна з причин, чому гетьман милує Марусю."
+        },
+        "mother": {
+          "name": "Марусина мати",
+          "traits": [
+            "любляча",
+            "стражденна",
+            "мудра"
+          ],
+          "description": "Удова Гордія Чурая, яка разом із донькою переживає ганьбу суду й страх перед стратою. Вона з болем дивиться, як руйнується щастя її єдиної доньки."
+        },
+        "dyak": {
+          "name": "Мандрівний дяк",
+          "traits": [
+            "мудрий",
+            "іронічний",
+            "освічений",
+            "добрий"
+          ],
+          "description": "Бродячий учений дяк, з яким Маруся йде на прощу до Києва. Його роздуми про долю України, людську пам’ять і безсмертя пісні допомагають Марусі знайти бодай крихту спокою."
+        }
+      }
+    },
+    "en": {
+      "title": "Marusia Churai",
+      "originalTitle": "Маруся Чурай",
+      "author": "Lina Kostenko",
+      "genre": "Historical novel in verse",
+      "tagline": "A legendary Poltava singer, a trial over a poisoned love, and songs that have outlived the centuries.",
+      "summary": [
+        "Poltava, the mid-17th century. The town gathers for an extraordinary trial: before it stands a girl, Marusia Churai, a celebrated singer whose songs all Ukraine knows. She is accused of poisoning the Cossack Hryhorii Bobrenko, whom she loved. Hryts’s mother demands harsh punishment, the witnesses argue, while Marusia herself stays silent and does not defend herself: she does not deny her guilt. Only the Cossack Ivan Iskra, long and hopelessly in love with her, passionately takes her side. The court passes its sentence: death.",
+        "Step by step the story of this love unfolds. Marusia is the daughter of Hordii Churai, a renowned Cossack executed in Warsaw for taking part in an uprising. Since childhood she has been full of songs and fiercely independent, and Hryts was her first and only love. He promised to marry her, and she waited years for him to return from campaigns. But Hryts, weak and indecisive, could not choose between his heart and his advantage, and his mother dreamed of a rich daughter-in-law.",
+        "In the end, giving in to his mother’s persuasion, Hryts asks for the hand of Halia Vyshniak, a girl from a wealthy family. The betrayal is a terrible blow for Marusia. In despair she brews a poisonous potion, and Hryts drinks it and dies. The tragedy echoes in the song “Oh, Don’t Go to the Party, Hryts”, which all Ukraine will later sing. So love and death are forever entwined in Marusia’s fate.",
+        "As Marusia is being led to her execution, Ivan Iskra, having ridden his horse to exhaustion, arrives with the hetman’s decree: Bohdan Khmelnytsky has pardoned the girl in memory of her father’s services and for the sake of her songs, for in them lives the soul of the people. Marusia is set free, but for her life is already over: she carries the burden of guilt and loss, and the whole town looks at her askance.",
+        "Seeking at least some peace, Marusia sets out on a pilgrimage to Kyiv. On the road she meets a wandering scholar — a wise and ironic philosopher who talks to her about Ukraine, its destiny and the eternity of song. Returning to Poltava, torn by wars and feuds, Marusia quietly fades away. Yet her songs live on: Cossacks sing them on campaign and girls at evening gatherings, and in them lies the immortality of Marusia Churai."
+      ],
+      "themes": [
+        "Love and betrayal",
+        "The power of art",
+        "A people and its songs",
+        "Guilt and forgiveness",
+        "Human dignity"
+      ],
+      "terms": [
+        {
+          "term": "Marusia Churai (the legend)",
+          "definition": "A semi-legendary 17th-century singer from Poltava to whom folk tradition attributes songs such as “Oh, Don’t Go, Hryts” and “The Cossacks Rose Before Dawn”."
+        },
+        {
+          "term": "Novel in verse",
+          "definition": "A long poetic work with a developed plot and psychological characters, like Eugene Onegin or Marusia Churai."
+        },
+        {
+          "term": "Hetman’s universal",
+          "definition": "An official decree issued by the hetman; it is Bohdan Khmelnytsky’s universal that saves Marusia from execution."
+        },
+        {
+          "term": "Poltava",
+          "definition": "A Cossack regimental town on the Vorskla River, where Marusia lives and the trial takes place."
+        },
+        {
+          "term": "Khmelnytsky Uprising",
+          "definition": "The Ukrainian war of liberation led by Bohdan Khmelnytsky (1648–1657), against whose background the story unfolds."
+        },
+        {
+          "term": "Proshcha (pilgrimage)",
+          "definition": "A journey to holy places; Marusia makes a pilgrimage to Kyiv and its Caves Monastery."
+        },
+        {
+          "term": "Wandering dyak",
+          "definition": "An educated itinerant church singer and teacher; in the novel he becomes Marusia’s companion and conversation partner."
+        },
+        {
+          "term": "“Oh, Don’t Go, Hryts”",
+          "definition": "A folk song about a girl who poisons her unfaithful lover; tradition attributes it to Marusia Churai."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Oh, Don’t Go to the Party, Hryts",
+          "author": "Mykhailo Starytsky",
+          "why": "A famous play based on the same legend of the girl who poisoned unfaithful Hryts."
+        },
+        {
+          "title": "The Forest Song",
+          "author": "Lesya Ukrainka",
+          "why": "A poetic drama of devoted love and betrayal in which art and song prove stronger than death."
+        },
+        {
+          "title": "The Black Council",
+          "author": "Panteleimon Kulish",
+          "why": "Seventeenth-century Cossack Ukraine and its struggles for power, honour and truth."
+        },
+        {
+          "title": "Eugene Onegin",
+          "author": "Alexander Pushkin",
+          "why": "The classic novel in verse about unrequited love and a choice that breaks lives."
+        },
+        {
+          "title": "Shadows of Forgotten Ancestors",
+          "author": "Mykhailo Kotsiubynsky",
+          "why": "A Ukrainian love tragedy woven from folk song and ancient belief."
+        }
+      ],
+      "film": {
+        "title": "Marusia Churai: a song that outlived the centuries",
+        "intro": "You open the book and hear a girl’s song flowing over the Vorskla. Poltava in the mid-17th century: dusty streets, cherry orchards and a square where a trial is about to begin.",
+        "outro": "The trial ended long ago, but the song still soars over the steppe. The pages close, and you understand: as long as people sing it, Marusia is alive.",
+        "scenes": [
+          {
+            "title": "Judgement Day in Poltava",
+            "narration": "You stand in the square amid a murmuring crowd of townsfolk. In the middle stands pale Marusia, silent, while Hryts’s mother screams for her execution; only Ivan Iskra steps forward to defend her.",
+            "line": {
+              "text": "She destroyed my son — let her answer for it!"
+            }
+          },
+          {
+            "title": "The Promise",
+            "narration": "You stand under a starry sky by a wattle fence, where the air smells of mint and cherries. Marusia sings softly, and Hryts, holding her hand, swears he will return from the campaign and marry her.",
+            "line": {
+              "text": "Wait for me, Marusia — I’ll come back and we’ll be together forever."
+            }
+          },
+          {
+            "title": "The Matchmaking",
+            "narration": "You stand by the Vyshniaks’ prosperous homestead, where the matchmakers are welcomed with bread and embroidered towels. A satisfied Bobrenchykha nudges her son toward Halia, and Hryts lowers his eyes.",
+            "line": {
+              "text": "Halia’s the match for you: a house, fields and plenty!"
+            }
+          },
+          {
+            "title": "The Potion",
+            "narration": "You stand in a dark cottage where a candle flickers on the table and herbs steep in a clay pot. Marusia sits motionless, and beyond the door Hryts’s footsteps can already be heard — steps leading to disaster.",
+            "line": null
+          },
+          {
+            "title": "Iskra’s Ride",
+            "narration": "You fly with Ivan Iskra across the steppe at dawn, the wind whistling in your ears. The horse is lathered, only hours remain before the execution — and in Iskra’s hand is the hetman’s decree.",
+            "line": {
+              "text": "Run, my horse, run — if only we’re in time!"
+            }
+          },
+          {
+            "title": "The Decree",
+            "narration": "You stand in the square in the grey morning light, where everything is ready for the execution. The crowd freezes — at the last moment Iskra bursts through, holding the hetman’s universal high.",
+            "line": {
+              "text": "Stop! The hetman has pardoned Marusia!"
+            }
+          },
+          {
+            "title": "The Pilgrimage",
+            "narration": "You walk a dusty road to Kyiv as the fields glow gold in the setting sun. Marusia walks beside a wandering scholar who tells her about Ukraine’s past and future.",
+            "line": {
+              "text": "A song, my girl, is the longest road of all: it will outlive us and the hetmans too."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "marusia": {
+          "name": "Marusia Churai",
+          "traits": [
+            "gifted",
+            "proud",
+            "devoted",
+            "unbroken",
+            "sincere"
+          ],
+          "description": "A singer from Poltava, daughter of the executed Cossack Hordii Churai, whose songs all Ukraine knows. She loves Hryts devotedly, and his betrayal drives her to a fatal act. Sentenced to death and pardoned by the hetman, Marusia bears her guilt with dignity, and her songs become the voice of the people."
+        },
+        "hryts": {
+          "name": "Hryhorii Bobrenko (Hryts)",
+          "traits": [
+            "handsome",
+            "indecisive",
+            "weak-willed",
+            "torn"
+          ],
+          "description": "Marusia’s beloved, a handsome Cossack who promised to marry her. Torn between feeling and advantage, he obeys his mother and courts rich Halia Vyshniak. Hryts dies after drinking the potion Marusia brewed."
+        },
+        "iskra": {
+          "name": "Ivan Iskra",
+          "traits": [
+            "noble",
+            "faithful",
+            "courageous",
+            "selfless"
+          ],
+          "description": "A Cossack who has long and silently loved Marusia. He alone defends her at the trial, and when the sentence has been passed he gallops to the hetman and brings back the pardon at the very last moment."
+        },
+        "halia": {
+          "name": "Halia Vyshniak",
+          "traits": [
+            "well-off",
+            "quiet",
+            "submissive"
+          ],
+          "description": "The daughter of the wealthy Vyshniaks, whom Hryts courts instead of Marusia. She embodies the advantageous match that defeated true love."
+        },
+        "bobrenchykha": {
+          "name": "Bobrenchykha",
+          "traits": [
+            "mercenary",
+            "domineering",
+            "vengeful",
+            "proud"
+          ],
+          "description": "Hryts’s mother, who values prosperity above all and pushes her son toward a rich bride. After his death she is the loudest in demanding Marusia’s execution."
+        },
+        "hordii": {
+          "name": "Hordii Churai",
+          "traits": [
+            "brave",
+            "proud",
+            "devoted to Ukraine"
+          ],
+          "description": "Marusia’s father, a Cossack executed in Warsaw for taking part in an uprising against the Polish-Lithuanian Commonwealth. His memory is one of the reasons the hetman pardons Marusia."
+        },
+        "mother": {
+          "name": "Marusia’s Mother",
+          "traits": [
+            "loving",
+            "long-suffering",
+            "wise"
+          ],
+          "description": "Hordii Churai’s widow, who lives through the shame of the trial and the dread of the execution together with her daughter. She watches in pain as her only daughter’s happiness falls apart."
+        },
+        "dyak": {
+          "name": "The Wandering Scholar",
+          "traits": [
+            "wise",
+            "ironic",
+            "learned",
+            "kind"
+          ],
+          "description": "An itinerant church scholar with whom Marusia makes her pilgrimage to Kyiv. His reflections on Ukraine’s fate, human memory and the immortality of song help Marusia find at least a crumb of peace."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "marusia",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f4d2b6",
+        "hair": {
+          "style": "braids",
+          "color": "#2a1810"
+        },
+        "facialHair": "none",
+        "eyes": "#2a1c14",
+        "top": {
+          "kind": "shirt",
+          "color": "#fbf6ea",
+          "accent": "#a8202a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#6a1a2e"
+        },
+        "shoes": "#a8202a",
+        "headwear": "flower_wreath",
+        "headwearColor": "#e8c040",
+        "accessory": "necklace",
+        "accessoryColor": "#d8323a",
+        "holding": "none"
+      },
+      "portraitPrompt": "A slender, proud young Ukrainian woman of the 17th century with long black braids, dark expressive eyes and a pale, sorrowful face, wearing a wreath of yellow and red flowers, a white linen blouse with deep red embroidery, a dark cherry plakhta skirt and strings of red coral beads."
+    },
+    {
+      "id": "hryts",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#eec4a0",
+        "hair": {
+          "style": "wavy",
+          "color": "#6a4426"
+        },
+        "facialHair": "mustache",
+        "eyes": "#5a7a9a",
+        "top": {
+          "kind": "coat",
+          "color": "#2e5a9a",
+          "accent": "#f0e6d0",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#b8282a"
+        },
+        "shoes": "#c8a040",
+        "headwear": "cap",
+        "headwearColor": "#2a2420",
+        "accessory": "belt_sword",
+        "accessoryColor": "#c8a040",
+        "holding": "none"
+      },
+      "portraitPrompt": "A handsome but irresolute young Cossack with wavy chestnut hair, a light moustache and wavering blue eyes, wearing a blue zhupan coat over a white shirt, wide red trousers, a black lambskin cap and yellow boots."
+    },
+    {
+      "id": "iskra",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "tall",
+        "skin": "#dca882",
+        "hair": {
+          "style": "short",
+          "color": "#1e1612"
+        },
+        "facialHair": "mustache",
+        "eyes": "#2a3a4a",
+        "top": {
+          "kind": "coat",
+          "color": "#2a4a3a",
+          "accent": "#d8b04a",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#3a2a4a"
+        },
+        "shoes": "#2a1e16",
+        "headwear": "feather_hat",
+        "headwearColor": "#2a2420",
+        "accessory": "belt_sword",
+        "accessoryColor": "#d8b04a",
+        "holding": "letter"
+      },
+      "portraitPrompt": "A tall, earnest Cossack with short black hair, a dark moustache and steady grey eyes, wearing a dark-green zhupan with gold trim, a fur hat with a feather and a sabre at his belt, holding up a sealed parchment decree."
+    },
+    {
+      "id": "halia",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "average",
+        "skin": "#f6d8c0",
+        "hair": {
+          "style": "braids",
+          "color": "#c89a5a"
+        },
+        "facialHair": "none",
+        "eyes": "#5a7a9a",
+        "top": {
+          "kind": "shirt",
+          "color": "#fbf8ee",
+          "accent": "#e0a030",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#3a6a9a"
+        },
+        "shoes": "#c8302a",
+        "headwear": "flower_wreath",
+        "headwearColor": "#f0a0c0",
+        "accessory": "necklace",
+        "accessoryColor": "#e8c04a",
+        "holding": "flower"
+      },
+      "portraitPrompt": "A plump, demure rich girl with fair braids and placid blue eyes, wearing a lavish wreath with many silk ribbons, a white blouse embroidered in gold, a blue plakhta, red boots and heavy strings of gold coins and coral beads."
+    },
+    {
+      "id": "bobrenchykha",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "elder",
+        "build": "broad",
+        "skin": "#e4b48e",
+        "hair": {
+          "style": "bun",
+          "color": "#5a4a3a"
+        },
+        "facialHair": "none",
+        "eyes": "#2a2018",
+        "top": {
+          "kind": "coat",
+          "color": "#5a3a24",
+          "accent": "#e0d0b0",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#2a2a3a"
+        },
+        "shoes": "#2a1e16",
+        "headwear": "headscarf",
+        "headwearColor": "#2a2a2a",
+        "accessory": "necklace",
+        "accessoryColor": "#c8a040",
+        "holding": "none"
+      },
+      "portraitPrompt": "A stout, hard-faced middle-aged widow with narrowed, calculating eyes and pursed lips, wearing a black headscarf, a brown cloth coat over a white blouse, a dark skirt and a gold necklace, pointing an accusing finger."
+    },
+    {
+      "id": "hordii",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#d8a27c",
+        "hair": {
+          "style": "mohawk",
+          "color": "#2a1c14"
+        },
+        "facialHair": "mustache",
+        "eyes": "#2a2018",
+        "top": {
+          "kind": "coat",
+          "color": "#8a2a24",
+          "accent": "#e0c070",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#2a3a6a"
+        },
+        "shoes": "#3a2418",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "belt_sword",
+        "accessoryColor": "#c8a040",
+        "holding": "sword"
+      },
+      "portraitPrompt": "A proud, powerful Cossack warrior with a shaven head and a long dark scalp lock, a thick drooping moustache and a fearless stare, wearing a dark-red zhupan, wide blue trousers and a sabre on a brass-studded belt."
+    },
+    {
+      "id": "mother",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "elder",
+        "build": "slim",
+        "skin": "#ecc2a2",
+        "hair": {
+          "style": "bun",
+          "color": "#8a7a6a"
+        },
+        "facialHair": "none",
+        "eyes": "#3a2a1c",
+        "top": {
+          "kind": "shirt",
+          "color": "#f2ece0",
+          "accent": "#2a2a2a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#2a2622"
+        },
+        "shoes": "#2a1e16",
+        "headwear": "headscarf",
+        "headwearColor": "#f4f0e6",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "candle"
+      },
+      "portraitPrompt": "A thin, grieving widow with a gentle lined face and tired dark eyes, wearing a white headcloth, a white blouse with black embroidery and a dark skirt, holding a thin burning candle."
+    },
+    {
+      "id": "dyak",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "slim",
+        "skin": "#e0b08c",
+        "hair": {
+          "style": "long",
+          "color": "#5a4a3a"
+        },
+        "facialHair": "beard",
+        "eyes": "#4a5a4a",
+        "top": {
+          "kind": "robe",
+          "color": "#3a3430",
+          "accent": "#a89a7a",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "robe",
+          "color": "#3a3430"
+        },
+        "shoes": "#4a3a2a",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "backpack",
+        "accessoryColor": "#7a6044",
+        "holding": "book"
+      },
+      "portraitPrompt": "A lean, wry wandering scholar of the 17th century with long brown hair, a short beard and amused, intelligent eyes, wearing a dusty dark cassock-like robe with a travel bag over his shoulder, holding a worn leather-bound book."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "city",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "marusia",
+          "bobrenchykha",
+          "iskra"
+        ],
+        "props": [
+          "fence",
+          "house",
+          "bench",
+          "tower"
+        ],
+        "action": "talk",
+        "camera": "crane",
+        "mood": "tense",
+        "line": {
+          "speaker": "bobrenchykha"
+        }
+      },
+      {
+        "setting": "village",
+        "time": "night",
+        "weather": "stars",
+        "cast": [
+          "marusia",
+          "hryts"
+        ],
+        "props": [
+          "fence",
+          "tree",
+          "moon",
+          "house"
+        ],
+        "action": "talk",
+        "camera": "pan",
+        "mood": "romantic",
+        "line": {
+          "speaker": "hryts"
+        }
+      },
+      {
+        "setting": "village",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "hryts",
+          "halia",
+          "bobrenchykha"
+        ],
+        "props": [
+          "house",
+          "fence",
+          "table",
+          "cake"
+        ],
+        "action": "celebrate",
+        "camera": "orbit",
+        "mood": "melancholic",
+        "line": {
+          "speaker": "bobrenchykha"
+        }
+      },
+      {
+        "setting": "room",
+        "time": "night",
+        "weather": "clear",
+        "cast": [
+          "marusia",
+          "hryts"
+        ],
+        "props": [
+          "candles",
+          "table",
+          "cauldron",
+          "window",
+          "door"
+        ],
+        "action": "sad",
+        "camera": "close_up",
+        "mood": "mysterious",
+        "line": null
+      },
+      {
+        "setting": "meadow",
+        "time": "dawn",
+        "weather": "wind",
+        "cast": [
+          "iskra"
+        ],
+        "props": [
+          "tree",
+          "rock",
+          "bush"
+        ],
+        "action": "travel",
+        "camera": "fly_over",
+        "mood": "epic",
+        "line": {
+          "speaker": "iskra"
+        }
+      },
+      {
+        "setting": "city",
+        "time": "dawn",
+        "weather": "fog",
+        "cast": [
+          "marusia",
+          "iskra",
+          "mother"
+        ],
+        "props": [
+          "house",
+          "fence",
+          "tower",
+          "gate"
+        ],
+        "action": "discover",
+        "camera": "dolly_in",
+        "mood": "epic",
+        "line": {
+          "speaker": "iskra"
+        }
+      },
+      {
+        "setting": "meadow",
+        "time": "dusk",
+        "weather": "clear",
+        "cast": [
+          "marusia",
+          "dyak"
+        ],
+        "props": [
+          "tree",
+          "sign",
+          "rock",
+          "bush"
+        ],
+        "action": "walk",
+        "camera": "pan",
+        "mood": "calm",
+        "line": {
+          "speaker": "dyak"
+        }
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: a 17th-century Ukrainian town square in Poltava with whitewashed houses and a wooden church, a pale girl with long black braids and a flower wreath standing before a crowd of townsfolk while a stout widow in a black headscarf points at her and a tall Cossack steps forward to defend her; slow crane shot, soft daylight, tense mood, tilt-shift miniature look, no text.",
+      "Cute voxel-diorama 3D scene: a lone Cossack in a dark-green coat galloping on a lathered horse across the golden steppe at dawn, holding a sealed parchment high, dust and wind streaming behind; dynamic fly-over camera, pink sunrise light, epic urgent mood, no text.",
+      "Cute voxel-diorama 3D scene: a dusty road through golden fields toward the distant domes of Kyiv at sunset, a girl in an embroidered blouse and a lean wandering scholar with a book and travel bag walking side by side past a roadside cross; slow panning camera, warm evening light, calm wistful mood, no text."
+    ]
+  }
+}

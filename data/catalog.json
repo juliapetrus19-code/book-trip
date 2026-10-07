@@ -43,6 +43,278 @@
     ]
   },
   {
+    "id": "charlie-chocolate-factory",
+    "year": 1964,
+    "cover": {
+      "bg": "#4a2618",
+      "bg2": "#1a0b06",
+      "fg": "#fbe0a8",
+      "accent": "#e45ba0",
+      "motif": "hat"
+    },
+    "title": {
+      "ru": "Чарли и шоколадная фабрика",
+      "uk": "Чарлі і шоколадна фабрика",
+      "en": "Charlie and the Chocolate Factory"
+    },
+    "author": {
+      "ru": "Роальд Даль",
+      "uk": "Роальд Дал",
+      "en": "Roald Dahl"
+    },
+    "genre": {
+      "ru": "Сказочная повесть, юмор",
+      "uk": "Казкова повість, гумор",
+      "en": "Children’s fantasy, comic novel"
+    },
+    "originalTitle": "Charlie and the Chocolate Factory",
+    "aliases": [
+      "Charlie and the Chocolate Factory",
+      "Charlie and Chocolate Factory",
+      "Chocolate Factory",
+      "Willy Wonka",
+      "Чарли и шоколадная фабрика",
+      "Шоколадная фабрика",
+      "Вилли Вонка",
+      "Чарлі і шоколадна фабрика",
+      "Чарлі та шоколадна фабрика",
+      "Шоколадна фабрика",
+      "Віллі Вонка",
+      "Charli i shokoladnaya fabrika",
+      "Charli i shokoladna fabryka",
+      "Roald Dahl",
+      "Роальд Даль",
+      "Роальд Дал"
+    ]
+  },
+  {
+    "id": "chorna-rada",
+    "year": 1857,
+    "cover": {
+      "bg": "#2a2422",
+      "bg2": "#0a0807",
+      "fg": "#f2e4c4",
+      "accent": "#d8b04a",
+      "motif": "crown"
+    },
+    "title": {
+      "ru": "Чёрная рада",
+      "uk": "Чорна рада",
+      "en": "The Black Council"
+    },
+    "author": {
+      "ru": "Пантелеймон Кулиш",
+      "uk": "Пантелеймон Куліш",
+      "en": "Panteleimon Kulish"
+    },
+    "genre": {
+      "ru": "Исторический роман",
+      "uk": "Історичний роман",
+      "en": "Historical novel"
+    },
+    "originalTitle": "Чорна рада",
+    "aliases": [
+      "Чорна рада",
+      "Черная рада",
+      "Чёрная рада",
+      "The Black Council",
+      "Black Council",
+      "Chorna rada",
+      "Chorna Rada",
+      "Chernaya rada",
+      "Чорна рада. Хроніка 1663 року",
+      "Чорна рада Куліш",
+      "Куліш Чорна рада",
+      "Черная рада Кулиш",
+      "Чорна рада Пантелеймон Куліш",
+      "Сомко і Брюховецький",
+      "Кирило Тур"
+    ]
+  },
+  {
+    "id": "don-quixote",
+    "year": 1605,
+    "cover": {
+      "bg": "#8a5a1c",
+      "bg2": "#2e1a08",
+      "fg": "#f8e7b8",
+      "accent": "#e8c044",
+      "motif": "sun"
+    },
+    "title": {
+      "ru": "Дон Кихот",
+      "uk": "Дон Кіхот",
+      "en": "Don Quixote"
+    },
+    "author": {
+      "ru": "Мигель де Сервантес",
+      "uk": "Мігель де Сервантес",
+      "en": "Miguel de Cervantes"
+    },
+    "genre": {
+      "ru": "Сатирический роман, пародия на рыцарский роман",
+      "uk": "Сатиричний роман, пародія на лицарський роман",
+      "en": "Satirical novel, parody of chivalric romance"
+    },
+    "originalTitle": "El ingenioso hidalgo don Quijote de la Mancha",
+    "aliases": [
+      "Don Quixote",
+      "Don Quixote de la Mancha",
+      "Don Quijote",
+      "Don Quijote de la Mancha",
+      "Don Quichotte",
+      "El ingenioso hidalgo don Quijote de la Mancha",
+      "The Ingenious Gentleman Don Quixote of La Mancha",
+      "Дон Кіхот",
+      "Дон Кіхот з Ламанчі",
+      "Премудрий гідальго Дон Кіхот з Ламанчі",
+      "Хитромудрий ідальго Дон Кіхот з Ламанчі",
+      "Дон Кихот",
+      "Дон Кихот Ламанчский",
+      "Хитроумный идальго Дон Кихот Ламанчский",
+      "Don Kikhot",
+      "Don Kihot",
+      "Сервантес",
+      "Cervantes"
+    ]
+  },
+  {
+    "id": "fahrenheit-451",
+    "year": 1953,
+    "cover": {
+      "bg": "#c8431c",
+      "bg2": "#2a0904",
+      "fg": "#fff1cc",
+      "accent": "#ffd23a",
+      "motif": "flame"
+    },
+    "title": {
+      "ru": "451° по Фаренгейту",
+      "uk": "451° за Фаренгейтом",
+      "en": "Fahrenheit 451"
+    },
+    "author": {
+      "ru": "Рэй Брэдбери",
+      "uk": "Рей Бредбері",
+      "en": "Ray Bradbury"
+    },
+    "genre": {
+      "ru": "Антиутопия, научная фантастика",
+      "uk": "Антиутопія, наукова фантастика",
+      "en": "Dystopian science fiction"
+    },
+    "originalTitle": "Fahrenheit 451",
+    "aliases": [
+      "Fahrenheit 451",
+      "Fahrenheit",
+      "451 Fahrenheit",
+      "451° по Фаренгейту",
+      "451 градус по Фаренгейту",
+      "451 по Фаренгейту",
+      "Фаренгейт 451",
+      "451° за Фаренгейтом",
+      "451 градус за Фаренгейтом",
+      "451 за Фаренгейтом",
+      "Фаренгейт",
+      "451 gradus po Farengeytu",
+      "451 hradus za Farenheitom",
+      "Брэдбери 451",
+      "Бредбері 451"
+    ]
+  },
+  {
+    "id": "fellowship-of-the-ring",
+    "year": 1954,
+    "cover": {
+      "bg": "#3a2410",
+      "bg2": "#120a04",
+      "fg": "#f6e2a0",
+      "accent": "#ff7a2a",
+      "motif": "ring"
+    },
+    "title": {
+      "ru": "Братство Кольца",
+      "uk": "Братство Персня",
+      "en": "The Fellowship of the Ring"
+    },
+    "author": {
+      "ru": "Дж. Р. Р. Толкин",
+      "uk": "Дж. Р. Р. Толкін",
+      "en": "J. R. R. Tolkien"
+    },
+    "genre": {
+      "ru": "Эпическое фэнтези",
+      "uk": "Епічне фентезі",
+      "en": "Epic fantasy"
+    },
+    "originalTitle": "The Fellowship of the Ring",
+    "aliases": [
+      "The Fellowship of the Ring",
+      "Fellowship of the Ring",
+      "The Lord of the Rings: The Fellowship of the Ring",
+      "Lord of the Rings",
+      "LOTR",
+      "Братство Кольца",
+      "Властелин колец: Братство Кольца",
+      "Властелин колец",
+      "Хранители",
+      "Властелин колец. Хранители",
+      "Братство Персня",
+      "Володар Перснів: Братство Персня",
+      "Володар Перснів",
+      "Хранителі Персня",
+      "Bratstvo Koltsa",
+      "Bratstvo Persnia",
+      "Vlastelin kolets"
+    ]
+  },
+  {
+    "id": "frankenstein",
+    "year": 1818,
+    "cover": {
+      "bg": "#2c3e4c",
+      "bg2": "#0b1218",
+      "fg": "#e4eef0",
+      "accent": "#9fe870",
+      "motif": "flame"
+    },
+    "title": {
+      "ru": "Франкенштейн",
+      "uk": "Франкенштейн",
+      "en": "Frankenstein"
+    },
+    "author": {
+      "ru": "Мэри Шелли",
+      "uk": "Мері Шеллі",
+      "en": "Mary Shelley"
+    },
+    "genre": {
+      "ru": "Готический роман, ранняя научная фантастика",
+      "uk": "Готичний роман, рання наукова фантастика",
+      "en": "Gothic novel, early science fiction"
+    },
+    "originalTitle": "Frankenstein; or, The Modern Prometheus",
+    "aliases": [
+      "Frankenstein",
+      "Frankenstein; or, The Modern Prometheus",
+      "Frankenstein, or The Modern Prometheus",
+      "The Modern Prometheus",
+      "Франкенштейн",
+      "Франкенштейн, або Сучасний Прометей",
+      "Франкенштейн, или Современный Прометей",
+      "Сучасний Прометей",
+      "Современный Прометей",
+      "Frankenshtein",
+      "Frankenshtejn",
+      "Mary Shelley",
+      "Мері Шеллі",
+      "Мэри Шелли",
+      "Frankenstein's monster",
+      "Монстр Франкенштейна",
+      "Чудовище Франкенштейна"
+    ]
+  },
+  {
     "id": "harry-potter-philosophers-stone",
     "year": 1997,
     "cover": {
@@ -131,6 +403,285 @@
     ]
   },
   {
+    "id": "hunger-games",
+    "year": 2008,
+    "cover": {
+      "bg": "#1f2c2e",
+      "bg2": "#090f10",
+      "fg": "#f4e6cc",
+      "accent": "#ff6a1f",
+      "motif": "flame"
+    },
+    "title": {
+      "ru": "Голодные игры",
+      "uk": "Голодні ігри",
+      "en": "The Hunger Games"
+    },
+    "author": {
+      "ru": "Сьюзен Коллинз",
+      "uk": "Сюзанна Коллінз",
+      "en": "Suzanne Collins"
+    },
+    "genre": {
+      "ru": "Антиутопия, подростковый роман",
+      "uk": "Антиутопія, підлітковий роман",
+      "en": "Dystopian young-adult novel"
+    },
+    "originalTitle": "The Hunger Games",
+    "aliases": [
+      "The Hunger Games",
+      "Hunger Games",
+      "Голодные игры",
+      "Голодные Игры",
+      "Голодні ігри",
+      "Голодні Ігри",
+      "Golodnye igry",
+      "Holodni ihry",
+      "Katniss Everdeen",
+      "Китнисс Эвердин",
+      "Катніс Евердін",
+      "Suzanne Collins",
+      "Сьюзен Коллинз",
+      "Сюзанна Коллінз",
+      "Сойка-пересмешница",
+      "Mockingjay"
+    ]
+  },
+  {
+    "id": "jane-eyre",
+    "year": 1847,
+    "cover": {
+      "bg": "#4a2e4e",
+      "bg2": "#170c1a",
+      "fg": "#f2e6e0",
+      "accent": "#e8865a",
+      "motif": "bird"
+    },
+    "title": {
+      "ru": "Джейн Эйр",
+      "uk": "Джейн Ейр",
+      "en": "Jane Eyre"
+    },
+    "author": {
+      "ru": "Шарлотта Бронте",
+      "uk": "Шарлотта Бронте",
+      "en": "Charlotte Brontë"
+    },
+    "genre": {
+      "ru": "Готический роман, роман воспитания",
+      "uk": "Готичний роман, роман виховання",
+      "en": "Gothic romance, novel of development"
+    },
+    "originalTitle": "Jane Eyre: An Autobiography",
+    "aliases": [
+      "Jane Eyre",
+      "Jane Eyre: An Autobiography",
+      "Jane Eyre, an Autobiography",
+      "Джейн Ейр",
+      "Джейн Эйр",
+      "Джейн Эйр. Автобиография",
+      "Dzheyn Eyr",
+      "Dzhein Eir",
+      "Charlotte Bronte",
+      "Charlotte Brontë",
+      "Шарлотта Бронте",
+      "Currer Bell",
+      "Каррер Белл",
+      "Rochester",
+      "Рочестер",
+      "Thornfield",
+      "Торнфілд",
+      "Торнфилд"
+    ]
+  },
+  {
+    "id": "kaidasheva-simia",
+    "year": 1879,
+    "cover": {
+      "bg": "#8a5a1c",
+      "bg2": "#2e1a08",
+      "fg": "#fff1cf",
+      "accent": "#5fae4a",
+      "motif": "mask"
+    },
+    "title": {
+      "ru": "Кайдашева семья",
+      "uk": "Кайдашева сім’я",
+      "en": "The Kaidash Family"
+    },
+    "author": {
+      "ru": "Иван Нечуй-Левицкий",
+      "uk": "Іван Нечуй-Левицький",
+      "en": "Ivan Nechui-Levytskyi"
+    },
+    "genre": {
+      "ru": "Социально-бытовая повесть",
+      "uk": "Соціально-побутова повість",
+      "en": "Novella of village life"
+    },
+    "originalTitle": "Кайдашева сім’я",
+    "aliases": [
+      "Кайдашева сім’я",
+      "Кайдашева сім'я",
+      "Кайдашева сімя",
+      "Кайдашева семья",
+      "The Kaidash Family",
+      "Kaidash Family",
+      "Kaidasheva simia",
+      "Kaidasheva sim'ia",
+      "Kaidasheva semya",
+      "Кайдаші",
+      "Кайдаши",
+      "Кайдашева сім’я Нечуй-Левицький",
+      "Нечуй-Левицький Кайдашева сім'я",
+      "Кайдашева семья Нечуй-Левицкий",
+      "Кайдашева сим'я",
+      "Кайдашева сімʼя"
+    ]
+  },
+  {
+    "id": "les-miserables",
+    "year": 1862,
+    "cover": {
+      "bg": "#2d2a52",
+      "bg2": "#0e0c20",
+      "fg": "#efe6d6",
+      "accent": "#e2a23a",
+      "motif": "lantern"
+    },
+    "title": {
+      "ru": "Отверженные",
+      "uk": "Знедолені",
+      "en": "Les Misérables"
+    },
+    "author": {
+      "ru": "Виктор Гюго",
+      "uk": "Віктор Гюго",
+      "en": "Victor Hugo"
+    },
+    "genre": {
+      "ru": "Исторический социальный роман",
+      "uk": "Історичний соціальний роман",
+      "en": "Historical and social novel"
+    },
+    "originalTitle": "Les Misérables",
+    "aliases": [
+      "Les Misérables",
+      "Les Miserables",
+      "Les Mis",
+      "The Wretched",
+      "The Miserables",
+      "Знедолені",
+      "Знедоленi",
+      "Нещасні",
+      "Отверженные",
+      "Отверженные Гюго",
+      "Jean Valjean",
+      "Жан Вальжан",
+      "Козетта",
+      "Cosette",
+      "Гаврош",
+      "Gavroche",
+      "Otverzhennye",
+      "Znedoleni",
+      "Hugo",
+      "Гюго"
+    ]
+  },
+  {
+    "id": "lion-witch-wardrobe",
+    "year": 1950,
+    "cover": {
+      "bg": "#4f7686",
+      "bg2": "#15242c",
+      "fg": "#fbf5e6",
+      "accent": "#e9b33c",
+      "motif": "lantern"
+    },
+    "title": {
+      "ru": "Лев, колдунья и платяной шкаф",
+      "uk": "Лев, Біла Відьма та шафа",
+      "en": "The Lion, the Witch and the Wardrobe"
+    },
+    "author": {
+      "ru": "Клайв Стейплз Льюис",
+      "uk": "Клайв Стейплз Льюїс",
+      "en": "C. S. Lewis"
+    },
+    "genre": {
+      "ru": "Сказочное фэнтези, повесть-притча",
+      "uk": "Казкове фентезі, повість-притча",
+      "en": "Children’s fantasy, allegorical tale"
+    },
+    "originalTitle": "The Lion, the Witch and the Wardrobe",
+    "aliases": [
+      "The Lion, the Witch and the Wardrobe",
+      "Lion Witch and Wardrobe",
+      "The Lion the Witch and the Wardrobe",
+      "The Chronicles of Narnia",
+      "Narnia",
+      "Лев, колдунья и платяной шкаф",
+      "Лев, Колдунья и Платяной шкаф",
+      "Лев, колдунья и шкаф",
+      "Хроники Нарнии",
+      "Нарния",
+      "Лев, Біла Відьма та шафа",
+      "Лев, Біла Відьма і шафа",
+      "Лев, відьма і шафа",
+      "Хроніки Нарнії",
+      "Нарнія",
+      "Lev koldunya i platyanoy shkaf",
+      "Lev, Bila Vidma ta shafa",
+      "C. S. Lewis",
+      "Клайв Льюис",
+      "Клайв Льюїс"
+    ]
+  },
+  {
+    "id": "lisova-pisnia",
+    "year": 1911,
+    "cover": {
+      "bg": "#24607a",
+      "bg2": "#0a2232",
+      "fg": "#eef8ea",
+      "accent": "#a8e07a",
+      "motif": "leaf"
+    },
+    "title": {
+      "ru": "Лесная песня",
+      "uk": "Лісова пісня",
+      "en": "The Forest Song"
+    },
+    "author": {
+      "ru": "Леся Украинка",
+      "uk": "Леся Українка",
+      "en": "Lesya Ukrainka"
+    },
+    "genre": {
+      "ru": "Драма-феерия",
+      "uk": "Драма-феєрія",
+      "en": "Fairy-tale drama"
+    },
+    "originalTitle": "Лісова пісня",
+    "aliases": [
+      "Лісова пісня",
+      "Лесная песня",
+      "The Forest Song",
+      "Forest Song",
+      "Lisova pisnia",
+      "Lisova pisnya",
+      "Lesnaya pesnya",
+      "Лісова пісня Леся Українка",
+      "Леся Українка Лісова пісня",
+      "Лесная песня Леся Украинка",
+      "Мавка",
+      "Мавка і Лукаш",
+      "Мавка и Лукаш",
+      "Лісова пісьня",
+      "Лесовая песня"
+    ]
+  },
+  {
     "id": "little-prince",
     "year": 1943,
     "cover": {
@@ -214,6 +765,94 @@
       "Старший Брат",
       "Оруел 1984",
       "Orwel 1984"
+    ]
+  },
+  {
+    "id": "peter-pan",
+    "year": 1911,
+    "cover": {
+      "bg": "#2a2160",
+      "bg2": "#0d0a28",
+      "fg": "#f6eecb",
+      "accent": "#79d86a",
+      "motif": "ship"
+    },
+    "title": {
+      "ru": "Питер Пэн",
+      "uk": "Пітер Пен",
+      "en": "Peter Pan"
+    },
+    "author": {
+      "ru": "Джеймс Мэтью Барри",
+      "uk": "Джеймс Метью Баррі",
+      "en": "J. M. Barrie"
+    },
+    "genre": {
+      "ru": "Сказочная повесть",
+      "uk": "Казкова повість",
+      "en": "Children’s fantasy novel"
+    },
+    "originalTitle": "Peter and Wendy",
+    "aliases": [
+      "Peter Pan",
+      "Peter and Wendy",
+      "Peter Pan and Wendy",
+      "Peter Pan; or, the Boy Who Wouldn't Grow Up",
+      "The Boy Who Wouldn't Grow Up",
+      "Питер Пэн",
+      "Питер Пен",
+      "Питер Пэн и Венди",
+      "Пітер Пен",
+      "Пітер Пен і Венді",
+      "Piter Pen",
+      "Piter Pen i Vendi",
+      "Питер Пэн Барри",
+      "Пітер Пен Баррі"
+    ]
+  },
+  {
+    "id": "pinocchio",
+    "year": 1883,
+    "cover": {
+      "bg": "#b5452c",
+      "bg2": "#45170c",
+      "fg": "#fff0d4",
+      "accent": "#46bccb",
+      "motif": "mask"
+    },
+    "title": {
+      "ru": "Приключения Пиноккио",
+      "uk": "Пригоди Піноккіо",
+      "en": "The Adventures of Pinocchio"
+    },
+    "author": {
+      "ru": "Карло Коллоди",
+      "uk": "Карло Коллоді",
+      "en": "Carlo Collodi"
+    },
+    "genre": {
+      "ru": "Сказочная повесть",
+      "uk": "Казкова повість",
+      "en": "Children’s fantasy novel"
+    },
+    "originalTitle": "Le avventure di Pinocchio. Storia di un burattino",
+    "aliases": [
+      "Le avventure di Pinocchio",
+      "Le avventure di Pinocchio. Storia di un burattino",
+      "The Adventures of Pinocchio",
+      "Pinocchio",
+      "Приключения Пиноккио",
+      "Приключения Пиноккио. История деревянной куклы",
+      "Пиноккио",
+      "Пінокіо",
+      "Пригоди Піноккіо",
+      "Піноккіо",
+      "Пригоди Пінокіо",
+      "Pinokkio",
+      "Priklyucheniya Pinokkio",
+      "Pryhody Pinokkio",
+      "Пиноккио Коллоди",
+      "Піноккіо Коллоді"
     ]
   },
   {
@@ -344,6 +983,50 @@
       "Тіні забутих предків повість",
       "Тини забутых предкив",
       "Тені забитих предків"
+    ]
+  },
+  {
+    "id": "the-alchemist",
+    "year": 1988,
+    "cover": {
+      "bg": "#4a2c55",
+      "bg2": "#170c1c",
+      "fg": "#fbe7bb",
+      "accent": "#f2a93b",
+      "motif": "sun"
+    },
+    "title": {
+      "ru": "Алхимик",
+      "uk": "Алхімік",
+      "en": "The Alchemist"
+    },
+    "author": {
+      "ru": "Пауло Коэльо",
+      "uk": "Пауло Коельйо",
+      "en": "Paulo Coelho"
+    },
+    "genre": {
+      "ru": "Роман-притча",
+      "uk": "Роман-притча",
+      "en": "Allegorical novel, fable"
+    },
+    "originalTitle": "O Alquimista",
+    "aliases": [
+      "The Alchemist",
+      "Alchemist",
+      "O Alquimista",
+      "Алхимик",
+      "Алхімік",
+      "Алхимик Коэльо",
+      "Алхімік Коельйо",
+      "Alkhimik",
+      "Alkhimik Koelyo",
+      "Paulo Coelho",
+      "Пауло Коэльо",
+      "Пауло Коельо",
+      "Пауло Коельйо",
+      "El Alquimista",
+      "Der Alchimist"
     ]
   },
   {
@@ -479,6 +1162,95 @@
     ]
   },
   {
+    "id": "to-kill-a-mockingbird",
+    "year": 1960,
+    "cover": {
+      "bg": "#8a4a22",
+      "bg2": "#2b140a",
+      "fg": "#f7e8c9",
+      "accent": "#8fc3d8",
+      "motif": "bird"
+    },
+    "title": {
+      "ru": "Убить пересмешника",
+      "uk": "Убити пересмішника",
+      "en": "To Kill a Mockingbird"
+    },
+    "author": {
+      "ru": "Харпер Ли",
+      "uk": "Гарпер Лі",
+      "en": "Harper Lee"
+    },
+    "genre": {
+      "ru": "Роман, южная готика, роман воспитания",
+      "uk": "Роман, південна готика, роман виховання",
+      "en": "Novel, Southern Gothic, coming-of-age"
+    },
+    "originalTitle": "To Kill a Mockingbird",
+    "aliases": [
+      "To Kill a Mockingbird",
+      "Kill a Mockingbird",
+      "Mockingbird",
+      "Убить пересмешника",
+      "Убить пересмешника Харпер Ли",
+      "Убити пересмішника",
+      "Вбити пересмішника",
+      "Убити пересмішника Гарпер Лі",
+      "Ubit peresmeshnika",
+      "Ubyty peresmishnyka",
+      "Харпер Ли",
+      "Гарпер Лі",
+      "Harper Lee",
+      "Atticus Finch",
+      "Аттикус Финч",
+      "Аттікус Фінч"
+    ]
+  },
+  {
+    "id": "tom-sawyer",
+    "year": 1876,
+    "cover": {
+      "bg": "#c2702e",
+      "bg2": "#4a2410",
+      "fg": "#fbf1d6",
+      "accent": "#3f8fb5",
+      "motif": "hat"
+    },
+    "title": {
+      "ru": "Приключения Тома Сойера",
+      "uk": "Пригоди Тома Сойєра",
+      "en": "The Adventures of Tom Sawyer"
+    },
+    "author": {
+      "ru": "Марк Твен",
+      "uk": "Марк Твен",
+      "en": "Mark Twain"
+    },
+    "genre": {
+      "ru": "Приключенческая повесть",
+      "uk": "Пригодницька повість",
+      "en": "Adventure novel"
+    },
+    "originalTitle": "The Adventures of Tom Sawyer",
+    "aliases": [
+      "The Adventures of Tom Sawyer",
+      "Tom Sawyer",
+      "Adventures of Tom Sawyer",
+      "Приключения Тома Сойера",
+      "Том Сойер",
+      "Пригоди Тома Сойєра",
+      "Том Сойєр",
+      "Том Соєр",
+      "Пригоди Тома Соєра",
+      "Tom Soyer",
+      "Priklyucheniya Toma Soyera",
+      "Pryhody Toma Soiera",
+      "Том Сойер Марк Твен",
+      "Том Сойєр Марк Твен",
+      "Tom Sawyer Mark Twain"
+    ]
+  },
+  {
     "id": "treasure-island",
     "year": 1883,
     "cover": {
@@ -520,6 +1292,179 @@
       "Long John Silver",
       "Джон Сильвер",
       "Джон Сільвер"
+    ]
+  },
+  {
+    "id": "tyhrolovy",
+    "year": 1944,
+    "cover": {
+      "bg": "#1c3a44",
+      "bg2": "#081418",
+      "fg": "#eef2ee",
+      "accent": "#f28a1e",
+      "motif": "flame"
+    },
+    "title": {
+      "ru": "Тигроловы",
+      "uk": "Тигролови",
+      "en": "The Hunters and the Hunted"
+    },
+    "author": {
+      "ru": "Иван Багряный",
+      "uk": "Іван Багряний",
+      "en": "Ivan Bahrianyi"
+    },
+    "genre": {
+      "ru": "Приключенческий роман",
+      "uk": "Пригодницький роман",
+      "en": "Adventure novel"
+    },
+    "originalTitle": "Тигролови",
+    "aliases": [
+      "Тигролови",
+      "Тигроловы",
+      "Тигролов",
+      "Tyhrolovy",
+      "Tigrolovy",
+      "The Hunters and the Hunted",
+      "Tiger Trappers",
+      "Tiger Hunters",
+      "Звіролови",
+      "Звероловы",
+      "Тигролови Багряний",
+      "Багряний Тигролови",
+      "Тигроловы Багряный",
+      "Тиграловы",
+      "Тигроловы Багряного"
+    ]
+  },
+  {
+    "id": "wizard-of-oz",
+    "year": 1900,
+    "cover": {
+      "bg": "#0f7552",
+      "bg2": "#05301f",
+      "fg": "#fdf0b8",
+      "accent": "#f2c230",
+      "motif": "castle"
+    },
+    "title": {
+      "ru": "Удивительный волшебник из страны Оз",
+      "uk": "Дивовижний чарівник країни Оз",
+      "en": "The Wonderful Wizard of Oz"
+    },
+    "author": {
+      "ru": "Лаймен Фрэнк Баум",
+      "uk": "Лаймен Френк Баум",
+      "en": "L. Frank Baum"
+    },
+    "genre": {
+      "ru": "Сказочная повесть",
+      "uk": "Казкова повість",
+      "en": "Children’s fantasy novel"
+    },
+    "originalTitle": "The Wonderful Wizard of Oz",
+    "aliases": [
+      "The Wonderful Wizard of Oz",
+      "The Wizard of Oz",
+      "Wizard of Oz",
+      "Удивительный волшебник из страны Оз",
+      "Волшебник страны Оз",
+      "Удивительный Волшебник из Страны Оз",
+      "Волшебник из страны Оз",
+      "Дивовижний чарівник країни Оз",
+      "Чарівник країни Оз",
+      "Дивовижний чарівник з країни Оз",
+      "Udivitelnyy volshebnik iz strany Oz",
+      "Volshebnik strany Oz",
+      "Charivnyk krainy Oz",
+      "Баум Волшебник страны Оз",
+      "Баум Чарівник країни Оз"
+    ]
+  },
+  {
+    "id": "zakhar-berkut",
+    "year": 1883,
+    "cover": {
+      "bg": "#3a4a5e",
+      "bg2": "#141a24",
+      "fg": "#f0e8d8",
+      "accent": "#e0a43a",
+      "motif": "wave"
+    },
+    "title": {
+      "ru": "Захар Беркут",
+      "uk": "Захар Беркут",
+      "en": "Zakhar Berkut"
+    },
+    "author": {
+      "ru": "Иван Франко",
+      "uk": "Іван Франко",
+      "en": "Ivan Franko"
+    },
+    "genre": {
+      "ru": "Историческая повесть",
+      "uk": "Історична повість",
+      "en": "Historical novel"
+    },
+    "originalTitle": "Захар Беркут",
+    "aliases": [
+      "Захар Беркут",
+      "Zakhar Berkut",
+      "Zachar Berkut",
+      "Zakhar Berkout",
+      "Захар Беркут Франко",
+      "Франко Захар Беркут",
+      "Захар Беркут Іван Франко",
+      "Захар Беркут Иван Франко",
+      "Захар Беркут повість",
+      "Беркут",
+      "Тухля",
+      "Тухольці",
+      "Захар Беркут. Образ громадського життя Карпатської Русі в XIII віці"
+    ]
+  },
+  {
+    "id": "zemlia-kobylianska",
+    "year": 1902,
+    "cover": {
+      "bg": "#5a4a24",
+      "bg2": "#1e170a",
+      "fg": "#f6e6b8",
+      "accent": "#c0392b",
+      "motif": "sun"
+    },
+    "title": {
+      "ru": "Земля",
+      "uk": "Земля",
+      "en": "Earth"
+    },
+    "author": {
+      "ru": "Ольга Кобылянская",
+      "uk": "Ольга Кобилянська",
+      "en": "Olha Kobylianska"
+    },
+    "genre": {
+      "ru": "Социально-психологическая повесть",
+      "uk": "Соціально-психологічна повість",
+      "en": "Psychological novella of village life"
+    },
+    "originalTitle": "Земля",
+    "aliases": [
+      "Земля",
+      "Земля Кобилянська",
+      "Кобилянська Земля",
+      "Земля Ольга Кобилянська",
+      "Земля Кобылянская",
+      "Кобылянская Земля",
+      "Zemlia",
+      "Zemlya",
+      "Earth",
+      "The Land",
+      "Earth Kobylianska",
+      "Kobylianska Earth",
+      "Земля повість",
+      "Земля Кобилянской"
     ]
   }
 ]

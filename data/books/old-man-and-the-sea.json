@@ -1,0 +1,871 @@
+{
+  "id": "old-man-and-the-sea",
+  "year": 1952,
+  "cover": {
+    "bg": "#1a86a8",
+    "bg2": "#072c3c",
+    "fg": "#fff4dc",
+    "accent": "#f4a23a",
+    "motif": "wave"
+  },
+  "aliases": [
+    "The Old Man and the Sea",
+    "Old Man and the Sea",
+    "Старик и море",
+    "Старик и Море",
+    "Старий і море",
+    "Старий та море",
+    "Starik i more",
+    "Staryi i more",
+    "El viejo y el mar",
+    "Хемингуэй Старик и море",
+    "Гемінгвей Старий і море",
+    "Hemingway Old Man and the Sea"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Старик и море",
+      "originalTitle": "The Old Man and the Sea",
+      "author": "Эрнест Хемингуэй",
+      "genre": "Повесть-притча",
+      "tagline": "Три дня в открытом море: старый рыбак, огромная рыба и спор человека с судьбой.",
+      "summary": [
+        "Старый кубинский рыбак Сантьяго уже восемьдесят четыре дня возвращается с моря без улова. Первые сорок дней с ним ходил мальчик Манолин, но родители решили, что старик теперь окончательно «салао», то есть невезучий, и велели сыну рыбачить на другой лодке. Мальчик всё равно каждый вечер помогает старику нести снасти, приносит ему еду и сардины для наживки. Они говорят о бейсболе и великом Ди Маджо, а ночью старику снятся львы, выходящие на берег Африки, — их он видел юнгой много лет назад.",
+        "На восемьдесят пятый день Сантьяго ещё до рассвета уходит на своём ялике далеко в Гольфстрим, дальше всех рыбаков. В полдень на глубине в сто морских саженей наживку берёт огромная рыба. Она так сильна, что не всплывает, а тянет лодку за собой в открытое море, и старик держит лесу на собственной спине. Наступает ночь, потом ещё один день. Сантьяго говорит вслух с рыбой, с птицами и с самим собой и жалеет, что рядом нет мальчика.",
+        "На леску садится отдохнуть маленькая усталая птичка, и старик разговаривает с ней, как с другом. Рыба внезапно дёргает, и леса до крови режет ему ладонь, а левую руку сводит судорогой. Чтобы не ослабеть, Сантьяго ест сырого тунца и летучую рыбу и вспоминает, как когда-то в Касабланке целые сутки состязался на руках с силачом-негром из Сьенфуэгоса — и победил. Он чувствует к рыбе любовь и уважение, называет её братом, но знает, что должен её убить.",
+        "На третий день рыба начинает ходить кругами всё ближе к лодке. Измученный, почти теряя сознание, старик подтягивает её и вонзает гарпун ей в бок. Это марлин длиной в восемнадцать футов — больше самого ялика, и весит он, по прикидке старика, больше полутора тысяч фунтов. Втащить такую добычу в лодку невозможно, поэтому Сантьяго привязывает рыбу к борту, ставит заплатанный парус и берёт курс к дому.",
+        "Через час кровь марлина приводит первую акулу — огромного мако. Старик убивает её гарпуном, но акула уходит на дно вместе с гарпуном и верёвкой, успев вырвать большой кусок мяса. Затем появляются стаи других акул. Сантьяго бьётся ножом, привязанным к веслу, потом дубинкой и, наконец, сломанным румпелем. Он повторяет себе, что человека можно уничтожить, но нельзя победить, и всё же понимает, что зашёл слишком далеко. К ночи от рыбы остаётся лишь голый скелет.",
+        "Глубокой ночью старик причаливает, взваливает мачту на плечо и, падая от усталости, добирается до хижины, где засыпает лицом вниз. Утром рыбаки дивятся скелету у лодки, а мальчик плачет над израненными руками старика и обещает, что отныне снова будет ходить с ним в море. Голову рыбы старик отдаёт Педрико. Туристы в кафе, глядя на огромный хребет в волнах прибоя, принимают его за акулий. А старик спит, и ему снова снятся львы."
+      ],
+      "themes": [
+        "Достоинство в поражении",
+        "Человек и природа",
+        "Одиночество и стойкость",
+        "Дружба старика и мальчика",
+        "Гордость и её цена"
+      ],
+      "terms": [
+        {
+          "term": "Салао",
+          "definition": "По-испански — тот, кому хуже всего не везёт. Так в деревне называют Сантьяго после многих недель без улова."
+        },
+        {
+          "term": "Ялик",
+          "definition": "Маленькая деревянная лодка старика с мачтой и парусом, залатанным мешками из-под муки, — на вид флаг вечного поражения."
+        },
+        {
+          "term": "Марлин",
+          "definition": "Огромная океанская рыба с копьевидным мечом и лиловыми полосами на боках. Тот, что попался Сантьяго, длиннее его лодки."
+        },
+        {
+          "term": "Гольфстрим",
+          "definition": "Тёплое морское течение у берегов Кубы, где ходят большие рыбы. Сантьяго уходит по нему дальше всех."
+        },
+        {
+          "term": "Мако",
+          "definition": "Быстрая и сильная акула с синей спиной и серебряным брюхом, первой пришедшая на запах крови марлина."
+        },
+        {
+          "term": "Галано",
+          "definition": "Прожорливые акулы-падальщики с широкими плоскими головами, которые стаями нападают на добычу старика."
+        },
+        {
+          "term": "Львы на берегу",
+          "definition": "Сон Сантьяго о молодых львах, которые в сумерках играют на берегу Африки, словно котята, — образ юности, силы и покоя."
+        },
+        {
+          "term": "Ди Маджо",
+          "definition": "Великий бейсболист, сын рыбака, которым восхищается старик. Сантьяго хочет быть достойным его, несмотря на боль и усталость."
+        },
+        {
+          "term": "Ла мар",
+          "definition": "Так, в женском роде, называют море те, кто его любит: как женщину, которая дарит и отнимает по своей воле."
+        },
+        {
+          "term": "Поединок на руках в Касабланке",
+          "definition": "Воспоминание старика о том, как в молодости он сутки боролся на руках с самым сильным человеком в порту — и победил."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Моби Дик, или Белый кит",
+          "author": "Герман Мелвилл",
+          "why": "Великая история о поединке человека с морским исполином и о цене гордости."
+        },
+        {
+          "title": "Жизнь Пи",
+          "author": "Янн Мартел",
+          "why": "Одиночество в открытом океане, борьба за жизнь и разговор человека с самим собой и Богом."
+        },
+        {
+          "title": "Любовь к жизни",
+          "author": "Джек Лондон",
+          "why": "Рассказ о человеке, который на пределе сил не сдаётся природе."
+        },
+        {
+          "title": "Путешествие на «Кон-Тики»",
+          "author": "Тур Хейердал",
+          "why": "Документальная история о плавании через океан на плоту, полная уважения к морю и его обитателям."
+        }
+      ],
+      "film": {
+        "title": "Три дня в Гольфстриме",
+        "intro": "Ты открываешь книгу, и тебе в лицо дует солёный ветер. Ты сидишь в маленькой лодке ещё до рассвета, а впереди, в темноте, дышит море.",
+        "outro": "Ты закрываешь книгу, и шум прибоя стихает. Но где-то на тёплом берегу в сумерках по-прежнему играют молодые львы — те самые, что снятся старику.",
+        "scenes": [
+          {
+            "title": "Восемьдесят четыре дня",
+            "narration": "Ты стоишь у порога бедной хижины из пальмовых листьев, где на стене висит выцветшая картинка. Мальчик помогает старику занести снасти и обещает принести сардины к утру.",
+            "line": {
+              "text": "Раз мне нельзя с тобой в море, давай я хотя бы добуду тебе наживку."
+            }
+          },
+          {
+            "title": "Рыба на крючке",
+            "narration": "Ты сидишь в ялике посреди Гольфстрима, а вокруг ни одного паруса. Леса вдруг натягивается, и что-то огромное в глубине медленно, упрямо тащит лодку в открытое море.",
+            "line": {
+              "text": "Ну же, рыба, ешь. Ешь как следует."
+            }
+          },
+          {
+            "title": "Птичка на леске",
+            "narration": "Ты смотришь, как маленькая усталая птичка садится на туго натянутую лесу и переводит дух. Старик говорит с ней тихо и ласково, хотя его ладонь кровоточит, а спина ноет.",
+            "line": {
+              "text": "Отдохни, птичка, а потом лети и испытай судьбу, как все мы."
+            }
+          },
+          {
+            "title": "Прыжок марлина",
+            "narration": "Ты видишь, как из воды вырывается огромная лиловая рыба и, сверкая на солнце, снова уходит в глубину. Старик едва держится на ногах, но не отпускает лесу.",
+            "line": {
+              "text": "Рыба, я люблю и уважаю тебя. Но до заката я тебя убью."
+            }
+          },
+          {
+            "title": "Акулы",
+            "narration": "Ты слышишь, как плещет вода у борта: к рыбе, привязанной к ялику, идёт синяя акула. Старик поднимает гарпун, а за ней в красных сумерках уже кружат другие плавники.",
+            "line": {
+              "text": "Человека можно уничтожить, но нельзя заставить сдаться."
+            }
+          },
+          {
+            "title": "Сон о львах",
+            "narration": "Ты стоишь в тёмной хижине, где старик спит лицом вниз на старых газетах. Мальчик тихо сидит рядом, а старику снится жёлтый берег, по которому в сумерках бродят львы.",
+            "line": {
+              "text": "Теперь мы будем ходить в море вместе — мне ещё многому надо у тебя научиться."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "santiago": {
+          "name": "Сантьяго",
+          "traits": [
+            "стойкий",
+            "смиренный",
+            "гордый",
+            "одинокий",
+            "мудрый"
+          ],
+          "description": "Старый кубинский рыбак, худой, с глубокими морщинами и глазами цвета моря — весёлыми и непобеждёнными. После восьмидесяти четырёх дней неудач он трое суток бьётся с гигантским марлином и побеждает, но добычу съедают акулы. Он возвращается с пустыми руками, но не сломленным."
+        },
+        "manolin": {
+          "name": "Манолин",
+          "traits": [
+            "преданный",
+            "заботливый",
+            "благодарный"
+          ],
+          "description": "Мальчик, которого старик научил рыбачить. Родители запретили ему выходить в море с «невезучим» Сантьяго, но он по-прежнему заботится о нём. Увидев израненные руки старика, Манолин плачет и решает снова рыбачить только с ним."
+        },
+        "marlin": {
+          "name": "Марлин",
+          "traits": [
+            "могучий",
+            "благородный",
+            "неутомимый"
+          ],
+          "description": "Гигантская рыба длиной в восемнадцать футов, которая двое суток тянет лодку старика в открытое море. Сантьяго называет её братом, восхищается её силой и красотой, но всё же убивает. Акулы оставляют от неё лишь скелет."
+        },
+        "mako": {
+          "name": "Акула мако",
+          "traits": [
+            "свирепая",
+            "быстрая",
+            "бесстрашная"
+          ],
+          "description": "Огромная акула, первой пришедшая на запах крови марлина. Старик убивает её гарпуном, но она уходит на дно, унеся с собой гарпун и большой кусок рыбы."
+        },
+        "warbler": {
+          "name": "Птичка",
+          "traits": [
+            "хрупкая",
+            "усталая",
+            "доверчивая"
+          ],
+          "description": "Маленькая певчая птица, сбившаяся с пути над морем, которая садится отдохнуть на лесу. Старик говорит с ней, как с товарищем, и думает о ястребах, что ждут её у берега."
+        },
+        "lion": {
+          "name": "Лев из сна",
+          "traits": [
+            "юный",
+            "игривый",
+            "безмятежный"
+          ],
+          "description": "Молодые львы, которых Сантьяго видел юнгой на берегу Африки. Они приходят к нему во сне, играя, как котята, и в этих снах старик снова молод и спокоен."
+        },
+        "pedrico": {
+          "name": "Педрико",
+          "traits": [
+            "добрый",
+            "простой",
+            "надёжный"
+          ],
+          "description": "Рыбак из деревни, который присматривает за яликом и снастями старика. В благодарность Сантьяго отдаёт ему голову марлина на наживку для ловушек."
+        }
+      }
+    },
+    "uk": {
+      "title": "Старий і море",
+      "originalTitle": "The Old Man and the Sea",
+      "author": "Ернест Гемінгвей",
+      "genre": "Повість-притча",
+      "tagline": "Три дні у відкритому морі: старий рибалка, велетенська риба й суперечка людини з долею.",
+      "summary": [
+        "Старий кубинський рибалка Сантьяго вже вісімдесят чотири дні вертається з моря без улову. Перші сорок днів із ним ходив хлопчик Манолін, але батьки вирішили, що старий тепер остаточно «салао», тобто невдаха, і звеліли синові рибалити на іншому човні. Хлопчик однаково щовечора допомагає старому нести снасті, приносить йому їжу й сардини на наживку. Вони розмовляють про бейсбол і великого Ді Маджо, а вночі старому сняться леви, що виходять на берег Африки, — їх він бачив юнгою багато років тому.",
+        "На вісімдесят п’ятий день Сантьяго ще до світанку виходить своїм човником далеко в Гольфстрим, далі за всіх рибалок. Опівдні на глибині ста морських сажнів наживку бере величезна риба. Вона така сильна, що не спливає, а тягне човен за собою у відкрите море, і старий тримає волосінь на власній спині. Настає ніч, потім ще один день. Сантьяго розмовляє вголос із рибою, з птахами й із самим собою і шкодує, що поруч немає хлопчика.",
+        "На волосінь сідає перепочити маленька втомлена пташка, і старий розмовляє з нею, як із другом. Риба раптом шарпає, і волосінь до крові ріже йому долоню, а ліву руку зводить судома. Щоб не знесиліти, Сантьяго їсть сирого тунця й летючу рибу й згадує, як колись у Касабланці цілу добу змагався на руках із силачем-негром зі Сьєнфуеґоса — і переміг. Він відчуває до риби любов і повагу, називає її братом, але знає, що мусить її вбити.",
+        "Третього дня риба починає ходити колами дедалі ближче до човна. Знесилений, майже непритомний, старий підтягає її й встромляє гарпун їй у бік. Це марлін завдовжки вісімнадцять футів — більший за сам човник, і важить він, на око старого, понад півтори тисячі фунтів. Затягти таку здобич у човен неможливо, тож Сантьяго прив’язує рибу до борту, ставить залатане вітрило й бере курс додому.",
+        "За годину кров марліна приваблює першу акулу — величезного мако. Старий убиває її гарпуном, але акула йде на дно разом із гарпуном і мотузкою, встигнувши вирвати великий шмат м’яса. Потім з’являються зграї інших акул. Сантьяго б’ється ножем, прив’язаним до весла, потім киякою і нарешті зламаним румпелем. Він повторює собі, що людину можна знищити, але не можна перемогти, і все ж розуміє, що заплив задалеко. До ночі від риби лишається тільки голий кістяк.",
+        "Глибокої ночі старий причалює, звалює щоглу на плече й, падаючи від утоми, добирається до хатини, де засинає долілиць. Уранці рибалки дивуються кістякові біля човна, а хлопчик плаче над пораненими руками старого й обіцяє, що відтепер знову ходитиме з ним у море. Голову риби старий віддає Педріко. Туристи в кав’ярні, дивлячись на величезний хребет у хвилях прибою, мають його за акулячий. А старий спить, і йому знову сняться леви."
+      ],
+      "themes": [
+        "Гідність у поразці",
+        "Людина і природа",
+        "Самотність і стійкість",
+        "Дружба старого й хлопчика",
+        "Гордість і її ціна"
+      ],
+      "terms": [
+        {
+          "term": "Салао",
+          "definition": "Іспанською — той, кому найгірше не щастить. Так у селищі називають Сантьяго після багатьох тижнів без улову."
+        },
+        {
+          "term": "Човник",
+          "definition": "Маленький дерев’яний човен старого зі щоглою й вітрилом, залатаним мішками з-під борошна, — на вигляд прапор вічної поразки."
+        },
+        {
+          "term": "Марлін",
+          "definition": "Величезна океанська риба зі списоподібним мечем і бузковими смугами на боках. Той, що впіймався Сантьяго, довший за його човен."
+        },
+        {
+          "term": "Гольфстрим",
+          "definition": "Тепла морська течія біля берегів Куби, де ходять великі риби. Сантьяго запливає нею далі за всіх."
+        },
+        {
+          "term": "Мако",
+          "definition": "Швидка й сильна акула із синьою спиною та срібним черевом, що першою припливла на запах крові марліна."
+        },
+        {
+          "term": "Ґалано",
+          "definition": "Ненажерливі акули-трупоїди з широкими пласкими головами, що зграями нападають на здобич старого."
+        },
+        {
+          "term": "Леви на березі",
+          "definition": "Сон Сантьяго про молодих левів, що в присмерку граються на березі Африки, наче кошенята, — образ юності, сили й спокою."
+        },
+        {
+          "term": "Ді Маджо",
+          "definition": "Великий бейсболіст, син рибалки, яким захоплюється старий. Сантьяго хоче бути гідним його попри біль і втому."
+        },
+        {
+          "term": "Ла мар",
+          "definition": "Так, у жіночому роді, називають море ті, хто його любить: як жінку, що дарує й забирає з власної волі."
+        },
+        {
+          "term": "Поєдинок на руках у Касабланці",
+          "definition": "Спогад старого про те, як замолоду він добу змагався на руках із найсильнішим чоловіком у порту — і переміг."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Мобі Дік, або Білий кит",
+          "author": "Герман Мелвілл",
+          "why": "Велика історія про двобій людини з морським велетнем і про ціну гордості."
+        },
+        {
+          "title": "Життя Пі",
+          "author": "Янн Мартел",
+          "why": "Самотність у відкритому океані, боротьба за життя й розмова людини із собою та Богом."
+        },
+        {
+          "title": "Любов до життя",
+          "author": "Джек Лондон",
+          "why": "Оповідання про людину, яка на межі сил не здається природі."
+        },
+        {
+          "title": "Подорож на «Кон-Тікі»",
+          "author": "Тур Хеєрдал",
+          "why": "Документальна історія про плавання через океан на плоту, сповнена пошани до моря та його мешканців."
+        }
+      ],
+      "film": {
+        "title": "Три дні в Гольфстримі",
+        "intro": "Ти розгортаєш книжку, і тобі в обличчя віє солоний вітер. Ти сидиш у маленькому човні ще до світанку, а попереду, в темряві, дихає море.",
+        "outro": "Ти закриваєш книжку, і шум прибою затихає. Та десь на теплому березі в присмерку й досі граються молоді леви — ті самі, що сняться старому.",
+        "scenes": [
+          {
+            "title": "Вісімдесят чотири дні",
+            "narration": "Ти стоїш на порозі бідної хатини з пальмового листя, де на стіні висить вицвіла картинка. Хлопчик допомагає старому занести снасті й обіцяє принести сардини до ранку.",
+            "line": {
+              "text": "Як не можна мені з тобою в море, то дай хоч наживку тобі роздобуду."
+            }
+          },
+          {
+            "title": "Риба на гачку",
+            "narration": "Ти сидиш у човнику посеред Гольфстриму, а довкола жодного вітрила. Волосінь раптом натягується, і щось величезне в глибині повільно, вперто тягне човен у відкрите море.",
+            "line": {
+              "text": "Ну ж бо, рибо, їж. Їж як слід."
+            }
+          },
+          {
+            "title": "Пташка на волосіні",
+            "narration": "Ти дивишся, як маленька втомлена пташка сідає на туго натягнуту волосінь і переводить подих. Старий говорить із нею тихо й лагідно, хоча його долоня кровить, а спина ниє.",
+            "line": {
+              "text": "Відпочинь, пташко, а тоді лети й пробуй щастя, як усі ми."
+            }
+          },
+          {
+            "title": "Стрибок марліна",
+            "narration": "Ти бачиш, як із води вихоплюється величезна бузкова риба і, виблискуючи на сонці, знову йде в глибину. Старий ледве тримається на ногах, але не відпускає волосіні.",
+            "line": {
+              "text": "Рибо, я люблю й шаную тебе. Але до заходу сонця я тебе вб’ю."
+            }
+          },
+          {
+            "title": "Акули",
+            "narration": "Ти чуєш, як хлюпоче вода біля борту: до риби, прив’язаної до човника, пливе синя акула. Старий здіймає гарпун, а за нею в червоному присмерку вже кружляють інші плавці.",
+            "line": {
+              "text": "Людину можна знищити, але не можна змусити здатися."
+            }
+          },
+          {
+            "title": "Сон про левів",
+            "narration": "Ти стоїш у темній хатині, де старий спить долілиць на старих газетах. Хлопчик тихо сидить поруч, а старому сниться жовтий берег, яким у присмерку бродять леви.",
+            "line": {
+              "text": "Тепер ми ходитимемо в море разом — мені ще багато чого треба в тебе навчитися."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "santiago": {
+          "name": "Сантьяго",
+          "traits": [
+            "стійкий",
+            "смиренний",
+            "гордий",
+            "самотній",
+            "мудрий"
+          ],
+          "description": "Старий кубинський рибалка, худий, із глибокими зморшками й очима кольору моря — веселими й нескореними. Після вісімдесяти чотирьох днів невдач він три доби б’ється з велетенським марліном і перемагає, але здобич з’їдають акули. Він повертається з порожніми руками, але незламним."
+        },
+        "manolin": {
+          "name": "Манолін",
+          "traits": [
+            "відданий",
+            "дбайливий",
+            "вдячний"
+          ],
+          "description": "Хлопчик, якого старий навчив рибалити. Батьки заборонили йому виходити в море з «невдахою» Сантьяго, але він і далі піклується про нього. Побачивши поранені руки старого, Манолін плаче й вирішує знову рибалити тільки з ним."
+        },
+        "marlin": {
+          "name": "Марлін",
+          "traits": [
+            "могутній",
+            "шляхетний",
+            "невтомний"
+          ],
+          "description": "Велетенська риба завдовжки вісімнадцять футів, що дві доби тягне човен старого у відкрите море. Сантьяго називає її братом, захоплюється її силою й красою, але все ж убиває. Акули лишають від неї тільки кістяк."
+        },
+        "mako": {
+          "name": "Акула мако",
+          "traits": [
+            "люта",
+            "швидка",
+            "безстрашна"
+          ],
+          "description": "Величезна акула, що першою припливла на запах марлінової крові. Старий убиває її гарпуном, але вона йде на дно, забравши із собою гарпун і великий шмат риби."
+        },
+        "warbler": {
+          "name": "Пташка",
+          "traits": [
+            "тендітна",
+            "втомлена",
+            "довірлива"
+          ],
+          "description": "Маленька співоча пташка, що збилася з дороги над морем і сідає перепочити на волосінь. Старий розмовляє з нею, як із товаришем, і думає про яструбів, які чекають на неї біля берега."
+        },
+        "lion": {
+          "name": "Лев зі сну",
+          "traits": [
+            "юний",
+            "грайливий",
+            "безтурботний"
+          ],
+          "description": "Молоді леви, яких Сантьяго бачив юнгою на березі Африки. Вони приходять до нього уві сні, граючись, мов кошенята, і в цих снах старий знову молодий і спокійний."
+        },
+        "pedrico": {
+          "name": "Педріко",
+          "traits": [
+            "добрий",
+            "простий",
+            "надійний"
+          ],
+          "description": "Рибалка з селища, який наглядає за човником і снастями старого. На знак вдячності Сантьяго віддає йому голову марліна на наживку для пасток."
+        }
+      }
+    },
+    "en": {
+      "title": "The Old Man and the Sea",
+      "originalTitle": "The Old Man and the Sea",
+      "author": "Ernest Hemingway",
+      "genre": "Novella, parable",
+      "tagline": "Three days on the open sea: an old fisherman, a giant fish and a man’s quarrel with fate.",
+      "summary": [
+        "Santiago, an old Cuban fisherman, has gone eighty-four days without taking a fish. For the first forty days a boy, Manolin, fished with him, but the boy’s parents decided the old man was now definitely salao — the worst form of unlucky — and sent their son to another boat. Still, every evening the boy helps the old man carry his gear, brings him food and sardines for bait. They talk about baseball and the great DiMaggio, and at night the old man dreams of lions coming down to the beaches of Africa, which he saw as a ship’s boy long ago.",
+        "On the eighty-fifth day Santiago rows his skiff out before dawn, far into the Gulf Stream, beyond all the other fishermen. At noon, a hundred fathoms down, an enormous fish takes the bait. It is so strong that it does not surface but tows the boat out to sea, and the old man holds the line across his own back. Night falls, then another day passes. Santiago talks aloud to the fish, to the birds and to himself, and wishes the boy were with him.",
+        "A small, tired bird lands on the line to rest, and the old man talks to it like a friend. Suddenly the fish lurches, the line cuts his palm to the blood, and his left hand cramps. To keep up his strength Santiago eats raw tuna and a flying fish, and he remembers how in Casablanca he once arm-wrestled the strongest man on the docks, a great negro from Cienfuegos, for a whole day and night — and won. He feels love and respect for the fish, calls it his brother, yet knows he must kill it.",
+        "On the third day the fish begins to circle, closer and closer to the boat. Exhausted and close to fainting, the old man draws it in and drives his harpoon into its side. It is a marlin eighteen feet long, longer than the skiff itself, and by the old man’s reckoning it weighs over fifteen hundred pounds. Such a catch can never be hauled aboard, so Santiago lashes the fish alongside, raises his patched sail and sets course for home.",
+        "An hour later the marlin’s blood brings the first shark, a huge mako. The old man kills it with the harpoon, but the shark sinks taking the harpoon and rope with it, having torn away a great piece of meat. Then come packs of other sharks. Santiago fights with a knife lashed to an oar, then a club, and finally the broken tiller. He tells himself that a man can be destroyed but not defeated, yet he knows he went out too far. By nightfall only a bare skeleton remains.",
+        "Late at night the old man reaches harbour, shoulders the mast and, falling from exhaustion, makes it to his shack, where he sleeps face down. In the morning fishermen marvel at the skeleton beside the skiff, and the boy weeps over the old man’s ruined hands and promises to fish with him again from now on. Santiago gives the fish’s head to Pedrico. Tourists at the café, looking at the huge backbone in the surf, mistake it for a shark’s. And the old man sleeps, dreaming once more about the lions."
+      ],
+      "themes": [
+        "Dignity in defeat",
+        "Man and nature",
+        "Solitude and endurance",
+        "Friendship between old and young",
+        "Pride and its price"
+      ],
+      "terms": [
+        {
+          "term": "Salao",
+          "definition": "Spanish for the very worst kind of unlucky. The village calls Santiago this after weeks without a catch."
+        },
+        {
+          "term": "The skiff",
+          "definition": "The old man’s small wooden boat, whose sail, patched with flour sacks, looks like the flag of permanent defeat."
+        },
+        {
+          "term": "The marlin",
+          "definition": "A huge ocean fish with a spear-like bill and lavender stripes along its sides. The one Santiago hooks is longer than his boat."
+        },
+        {
+          "term": "The Gulf Stream",
+          "definition": "The warm ocean current off Cuba where the great fish run. Santiago follows it farther out than anyone."
+        },
+        {
+          "term": "Dentuso",
+          "definition": "The mako shark: fast and powerful, blue-backed and silver-bellied, the first to arrive on the scent of the marlin’s blood."
+        },
+        {
+          "term": "Galanos",
+          "definition": "Hateful scavenging sharks with broad, shovel-pointed heads that attack the old man’s catch in packs."
+        },
+        {
+          "term": "The lions on the beach",
+          "definition": "Santiago’s dream of young lions playing like cats on an African beach at dusk — an image of youth, strength and peace."
+        },
+        {
+          "term": "DiMaggio",
+          "definition": "The great baseball player and fisherman’s son whom the old man admires. Santiago wants to be worthy of him despite pain and exhaustion."
+        },
+        {
+          "term": "La mar",
+          "definition": "The sea spoken of as feminine by those who love her: like a woman who gives or withholds favours as she pleases."
+        },
+        {
+          "term": "The hand game in Casablanca",
+          "definition": "The old man’s memory of arm-wrestling the strongest man in the port for a day and a night as a young man — and winning."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Moby-Dick",
+          "author": "Herman Melville",
+          "why": "The great tale of a man’s duel with a giant of the sea and the price of pride."
+        },
+        {
+          "title": "Life of Pi",
+          "author": "Yann Martel",
+          "why": "Solitude on the open ocean, a fight to survive and a man’s conversation with himself and God."
+        },
+        {
+          "title": "Love of Life",
+          "author": "Jack London",
+          "why": "A story of a man who, at the very edge of his strength, refuses to surrender to nature."
+        },
+        {
+          "title": "Kon-Tiki",
+          "author": "Thor Heyerdahl",
+          "why": "A true story of crossing an ocean on a raft, full of respect for the sea and its creatures."
+        }
+      ],
+      "film": {
+        "title": "Three Days in the Gulf Stream",
+        "intro": "You open the book and a salty wind blows in your face. You are sitting in a small boat before dawn, and ahead, in the dark, the sea is breathing.",
+        "outro": "You close the book and the sound of the surf fades. But somewhere on a warm shore at dusk the young lions are still playing — the very ones the old man dreams of.",
+        "scenes": [
+          {
+            "title": "Eighty-Four Days",
+            "narration": "You stand at the door of a poor shack made of palm fronds, where a faded picture hangs on the wall. The boy helps the old man carry in his gear and promises to bring sardines by morning.",
+            "line": {
+              "text": "If I can’t go out with you, at least let me get you your bait."
+            }
+          },
+          {
+            "title": "A Fish on the Line",
+            "narration": "You sit in the skiff in the middle of the Gulf Stream, with not a sail in sight. Suddenly the line goes taut, and something enormous in the deep slowly, stubbornly tows the boat out to sea.",
+            "line": {
+              "text": "Come on, fish. Eat it. Eat it all."
+            }
+          },
+          {
+            "title": "A Bird on the Line",
+            "narration": "You watch a small, weary bird settle on the taut line to catch its breath. The old man speaks to it softly and kindly, though his palm is bleeding and his back aches.",
+            "line": {
+              "text": "Rest, little bird, then go and take your chance like the rest of us."
+            }
+          },
+          {
+            "title": "The Marlin Leaps",
+            "narration": "You see a huge lavender-striped fish burst out of the water, flashing in the sun, and plunge back into the deep. The old man can barely stand, yet he does not let go of the line.",
+            "line": {
+              "text": "Fish, I love and respect you. But I will kill you before the sun goes down."
+            }
+          },
+          {
+            "title": "The Sharks",
+            "narration": "You hear water slap against the hull: a blue shark is coming for the fish lashed to the skiff. The old man raises his harpoon, while behind it, in the red dusk, more fins are already circling.",
+            "line": {
+              "text": "They can destroy a man, but they can’t make him give up."
+            }
+          },
+          {
+            "title": "Dreaming of Lions",
+            "narration": "You stand in the dark shack where the old man sleeps face down on old newspapers. The boy sits quietly beside him, while the old man dreams of a yellow beach where lions roam at dusk.",
+            "line": {
+              "text": "From now on we’ll fish together — I still have so much to learn from you."
+            }
+          }
+        ]
+      },
+      "characters": {
+        "santiago": {
+          "name": "Santiago",
+          "traits": [
+            "enduring",
+            "humble",
+            "proud",
+            "solitary",
+            "wise"
+          ],
+          "description": "An old Cuban fisherman, gaunt and deeply wrinkled, with eyes the colour of the sea, cheerful and undefeated. After eighty-four days of bad luck he battles a giant marlin for three days and wins, only to see sharks devour his catch. He comes home empty-handed but unbroken."
+        },
+        "manolin": {
+          "name": "Manolin",
+          "traits": [
+            "devoted",
+            "caring",
+            "grateful"
+          ],
+          "description": "The boy whom the old man taught to fish. His parents forbade him to sail with “unlucky” Santiago, but he goes on looking after him. Seeing the old man’s ruined hands, Manolin weeps and resolves to fish with no one else."
+        },
+        "marlin": {
+          "name": "The Marlin",
+          "traits": [
+            "mighty",
+            "noble",
+            "tireless"
+          ],
+          "description": "A giant fish eighteen feet long that tows the old man’s boat out to sea for two days. Santiago calls it his brother and admires its strength and beauty, yet kills it all the same. The sharks leave nothing of it but the skeleton."
+        },
+        "mako": {
+          "name": "The Mako Shark",
+          "traits": [
+            "fierce",
+            "swift",
+            "fearless"
+          ],
+          "description": "A huge shark, the first to arrive on the scent of the marlin’s blood. The old man kills it with his harpoon, but it sinks, taking the harpoon and a great piece of the fish with it."
+        },
+        "warbler": {
+          "name": "The Warbler",
+          "traits": [
+            "fragile",
+            "weary",
+            "trusting"
+          ],
+          "description": "A small songbird that has lost its way over the sea and lands on the line to rest. The old man talks to it like a companion and thinks of the hawks waiting for it near the shore."
+        },
+        "lion": {
+          "name": "The Dream Lion",
+          "traits": [
+            "young",
+            "playful",
+            "serene"
+          ],
+          "description": "The young lions Santiago saw on an African beach as a ship’s boy. They come to him in his sleep, playing like young cats, and in these dreams the old man is young and at peace again."
+        },
+        "pedrico": {
+          "name": "Pedrico",
+          "traits": [
+            "kind",
+            "simple",
+            "dependable"
+          ],
+          "description": "A village fisherman who looks after the old man’s skiff and gear. In gratitude Santiago gives him the marlin’s head to use as bait in his fish traps."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "santiago",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "slim",
+        "skin": "#b37a52",
+        "hair": { "style": "short", "color": "#e2ded6" },
+        "facialHair": "stubble",
+        "eyes": "#3a86b8",
+        "top": { "kind": "shirt", "color": "#8aaabc", "accent": "#c8b48a", "pattern": "plain" },
+        "bottom": { "kind": "pants", "color": "#c8b890" },
+        "shoes": "#a8724c",
+        "headwear": "straw_hat",
+        "headwearColor": "#d8c08a",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "spear"
+      },
+      "portraitPrompt": "A gaunt old fisherman with deep sun-browned wrinkles, blotched cheeks and scarred, rope-cut hands, short white hair under a frayed straw hat and bright sea-blue, undefeated eyes, wearing a patched faded-blue shirt and rolled cotton trousers, barefoot, gripping a harpoon."
+    },
+    {
+      "id": "manolin",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "child",
+        "build": "slim",
+        "skin": "#b88760",
+        "hair": { "style": "short", "color": "#1a1412" },
+        "facialHair": "none",
+        "eyes": "#2a1e16",
+        "top": { "kind": "tshirt", "color": "#f2efe6", "accent": "#d8d0bc", "pattern": "plain" },
+        "bottom": { "kind": "shorts", "color": "#4a6a8a" },
+        "shoes": "#b88760",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "cup"
+      },
+      "portraitPrompt": "A barefoot Cuban boy of about twelve with short black hair and a warm, earnest face, wearing a white cotton shirt and faded blue shorts, carrying a tin can of hot coffee."
+    },
+    {
+      "id": "marlin",
+      "role": "supporting",
+      "appearance": {
+        "creature": "snake",
+        "gender": "neutral",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#3e4a8c",
+        "hair": { "style": "none", "color": "#2a3270" },
+        "facialHair": "none",
+        "eyes": "#1a1e2e",
+        "top": { "kind": "tunic", "color": "#3e4a8c", "accent": "#b4a6e6", "pattern": "stripes" },
+        "bottom": { "kind": "none", "color": "#c8d4e6" },
+        "shoes": "#3e4a8c",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A colossal blue marlin leaping from the sea, deep purple-blue back with wide lavender stripes, a silver belly, a long spear-like bill and a great scythe tail, water streaming off it in the sunlight."
+    },
+    {
+      "id": "mako",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "snake",
+        "gender": "neutral",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#3a6aa0",
+        "hair": { "style": "none", "color": "#2a5080" },
+        "facialHair": "none",
+        "eyes": "#1a1a1e",
+        "top": { "kind": "tunic", "color": "#3a6aa0", "accent": "#dfe4ea", "pattern": "plain" },
+        "bottom": { "kind": "none", "color": "#dfe4ea" },
+        "shoes": "#3a6aa0",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A big, sleek mako shark with a back as blue as a swordfish’s and a silver belly, a tall dorsal fin cutting the water and rows of inward-slanting teeth in its open jaws."
+    },
+    {
+      "id": "warbler",
+      "role": "minor",
+      "appearance": {
+        "creature": "bird",
+        "gender": "neutral",
+        "age": "child",
+        "build": "small",
+        "skin": "#b8a84a",
+        "hair": { "style": "none", "color": "#8a7a2a" },
+        "facialHair": "none",
+        "eyes": "#1a1612",
+        "top": { "kind": "tunic", "color": "#b8a84a", "accent": "#e8dc8a", "pattern": "plain" },
+        "bottom": { "kind": "none", "color": "#b8a84a" },
+        "shoes": "#5a4a2a",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A tiny, exhausted olive-yellow warbler perched on a taut fishing line above the waves, feathers ruffled by the wind, head tucked low."
+    },
+    {
+      "id": "lion",
+      "role": "minor",
+      "appearance": {
+        "creature": "lion",
+        "gender": "male",
+        "age": "teen",
+        "build": "average",
+        "skin": "#dcae5c",
+        "hair": { "style": "short", "color": "#b07a34" },
+        "facialHair": "none",
+        "eyes": "#7a5a20",
+        "top": { "kind": "vest", "color": "#dcae5c", "accent": "#c8963c", "pattern": "plain" },
+        "bottom": { "kind": "none", "color": "#dcae5c" },
+        "shoes": "#c8963c",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A young golden lion with a short, sparse mane playing like a kitten on a pale African beach at dusk, the evening surf glowing behind him, soft and dreamlike."
+    },
+    {
+      "id": "pedrico",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#a8724c",
+        "hair": { "style": "short", "color": "#2a2018" },
+        "facialHair": "mustache",
+        "eyes": "#2a1e16",
+        "top": { "kind": "shirt", "color": "#d8c8a0", "accent": "#a89870", "pattern": "checks" },
+        "bottom": { "kind": "pants", "color": "#5a5040" },
+        "shoes": "#a8724c",
+        "headwear": "straw_hat",
+        "headwearColor": "#c8a868",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A sturdy, good-natured Cuban fisherman with a dark moustache, wearing a checked work shirt, rolled trousers and a battered straw hat, standing barefoot on a sunlit beach."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "village",
+        "time": "dusk",
+        "weather": "clear",
+        "cast": ["santiago", "manolin"],
+        "props": ["house", "palm", "boat", "table"],
+        "action": "talk",
+        "camera": "orbit",
+        "mood": "melancholic",
+        "line": { "speaker": "manolin" }
+      },
+      {
+        "setting": "sea",
+        "time": "dawn",
+        "weather": "clear",
+        "cast": ["santiago"],
+        "props": ["boat"],
+        "action": "discover",
+        "camera": "fly_over",
+        "mood": "calm",
+        "line": { "speaker": "santiago" }
+      },
+      {
+        "setting": "sea",
+        "time": "day",
+        "weather": "clear",
+        "cast": ["santiago", "warbler"],
+        "props": ["boat"],
+        "action": "rest",
+        "camera": "close_up",
+        "mood": "calm",
+        "line": { "speaker": "santiago" }
+      },
+      {
+        "setting": "sea",
+        "time": "day",
+        "weather": "wind",
+        "cast": ["santiago", "marlin"],
+        "props": ["boat"],
+        "action": "fight",
+        "camera": "crane",
+        "mood": "epic",
+        "line": { "speaker": "santiago" }
+      },
+      {
+        "setting": "sea",
+        "time": "dusk",
+        "weather": "wind",
+        "cast": ["santiago", "mako", "marlin"],
+        "props": ["boat"],
+        "action": "fight",
+        "camera": "pan",
+        "mood": "tense",
+        "line": { "speaker": "santiago" }
+      },
+      {
+        "setting": "village",
+        "time": "night",
+        "weather": "stars",
+        "cast": ["santiago", "manolin", "lion"],
+        "props": ["house", "bed", "palm", "moon"],
+        "action": "rest",
+        "camera": "dolly_in",
+        "mood": "melancholic",
+        "line": { "speaker": "manolin" }
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: a tiny wooden skiff with a patched flour-sack sail alone on a vast glittering blue ocean at dawn, an old fisherman in a straw hat braced against a taut line over his shoulder as an enormous lavender-striped marlin leaps from the water beside him; slow fly-over camera, golden morning light, no text.",
+      "Cute voxel-diorama 3D scene: at red dusk, blocky blue sharks circle a small skiff with a huge marlin lashed alongside, the old fisherman fighting them off with an oar-tied knife as spray flies; dramatic panning camera, choppy waves and fading sun, tense mood, no text.",
+      "Cute voxel-diorama 3D scene: a palm-thatched fisherman’s shack in a moonlit Cuban village, an old man asleep inside while a boy sits watching over him; the scene dissolves into his dream of young golden lions playing on a pale African beach at sunset; slow dolly-in, soft dreamy light, no text."
+    ]
+  }
+}
