@@ -1,0 +1,1390 @@
+{
+  "id": "eneida",
+  "year": 1798,
+  "cover": {
+    "bg": "#9a4a1e",
+    "bg2": "#341406",
+    "fg": "#fbe9c8",
+    "accent": "#2aa0c8",
+    "motif": "ship"
+  },
+  "aliases": [
+    "Енеїда",
+    "Енеіда",
+    "Энеида",
+    "Eneida",
+    "Eneïda",
+    "Eneyida",
+    "Eneyida Kotliarevsky",
+    "Енеїда Котляревський",
+    "Котляревський Енеїда",
+    "Энеида Котляревского",
+    "Энеида Котляревский",
+    "Енеїда Котляревського",
+    "Aeneid Kotliarevsky",
+    "Kotliarevsky Aeneid",
+    "Еней був парубок моторний",
+    "Эней был парубок моторный"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Энеида",
+      "originalTitle": "Енеїда",
+      "author": "Иван Котляревский",
+      "genre": "Бурлескно-травестийная поэма",
+      "tagline": "Троянцы становятся казаками, боги — сельскими панами, а великий эпос — весёлой украинской гулянкой.",
+      "summary": [
+        "Троя сгорела, и хитрые греки оставили от неё один пепел. Эней — бойкий парубок и казак хоть куда — садится с ватагой троянцев в челны и плывёт куда глаза глядят искать новый край. Но за ним неотступно следит сердитая богиня Юнона: она давно точит зуб на троянцев и подкупает Эола, чтобы тот наслал на море бурю. Челны раскидывает волнами, однако Нептун усмиряет стихию, а Венера бежит на Олимп жаловаться отцу Зевсу на судьбу своего сына.",
+        "Троянцы пристают к Карфагену, где правит вдова-царица Дидона. Она щедро принимает гостей, начинаются пиры, танцы и гулянки, и Дидона влюбляется в Энея. Он живёт у неё как у Христа за пазухой, пока Зевс через Меркурия не приказывает ему плыть дальше. Эней тайком бежит ночью, а покинутая Дидона в отчаянии сжигает себя на костре. Затем в Сицилии троянцы справляют пышные поминки по отцу Энея Анхизу — с угощением, кулачными боями и весельем, — а Юнона подбивает троянских женщин поджечь челны, но Зевс тушит пожар дождём.",
+        "В Кумах Эней встречает Сивиллу — старую прорицательницу, которая за плату соглашается провести его в пекло к покойному отцу. Через реку их перевозит Харон, а по дороге они видят жуткие и вместе с тем смешные картины: в смоле и огне мучаются паны, издевавшиеся над крепостными, неправедные судьи, скупцы, лгуны и лентяи. Наконец Эней находит Анхиза, и тот предсказывает сыну, что от него пойдёт славный род и он заложит новое государство в Италии.",
+        "Троянцы приплывают в Лациум, где правит добрый царь Латин. Он радушно принимает Энея и обещает отдать ему в жёны свою дочь Лависю. Но Юнона снова вмешивается: она вызывает из пекла фурию, и та натравливает на троянцев царицу Амату и рутульского царя Турна, прежнего жениха Лависи. Мир рушится, и в Лациуме вспыхивает война, в которой участвуют и люди, и боги.",
+        "Эней ищет союзников и получает помощь от царя Евандра, который посылает с ним своего сына Палланта. Венера выпрашивает у Вулкана для сына чудесное оружие. В ночной вылазке погибают верные друзья Низ и Евриал, пробравшиеся во вражеский лагерь, — и автор славит их любовь к отчизне, которая делает людей героями. В жестокой битве Турн убивает юного Палланта, но в конце концов сходится с Энеем в поединке. Эней побеждает Турна, и поэма завершается его триумфом. Под маской античного сюжета Котляревский показал казацкую Украину, её обычаи, юмор и язык."
+      ],
+      "themes": [
+        "Юмор и пародия",
+        "Казацкая Украина",
+        "Любовь к отчизне",
+        "Сатира на панство",
+        "Странствия и поиск дома"
+      ],
+      "terms": [
+        {
+          "term": "Бурлеск и травестия",
+          "definition": "Приём, при котором высокий героический сюжет пересказан простым шутливым языком; Котляревский «переодел» «Энеиду» Вергилия в украинский народный наряд."
+        },
+        {
+          "term": "«Энеида» Вергилия",
+          "definition": "Древнеримская героическая поэма I века до н. э. о странствиях троянца Энея, которую Котляревский перелицевал на украинский лад."
+        },
+        {
+          "term": "Троянцы-казаки",
+          "definition": "Герои Вергилия у Котляревского получают привычки, одежду и речь запорожцев."
+        },
+        {
+          "term": "Олимп",
+          "definition": "Гора, где живут боги; в поэме они ведут себя как шумные сельские паны."
+        },
+        {
+          "term": "Пекло",
+          "definition": "Подземное царство мёртвых, куда Сивилла ведёт Энея; автор показывает там наказания панов, судей, скупцов и лжецов."
+        },
+        {
+          "term": "Харон",
+          "definition": "Перевозчик душ через реку в подземном царстве."
+        },
+        {
+          "term": "Поминки",
+          "definition": "Трапеза в память об умершем; поминки по Анхизу в Сицилии превращаются в настоящий праздник с играми."
+        },
+        {
+          "term": "Фурия",
+          "definition": "Богиня мести из подземного мира; Юнона вызывает её, чтобы поссорить латинян с троянцами."
+        },
+        {
+          "term": "Лациум",
+          "definition": "Край в Италии, где правит царь Латин и где Эней мечтает поселиться."
+        },
+        {
+          "term": "Новая украинская литература",
+          "definition": "«Энеида» — первое печатное произведение на живом украинском народном языке; с неё начинается новая украинская литература."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Энеида",
+          "author": "Вергилий",
+          "why": "Античный оригинал, который Котляревский весело перелицевал на казацкий лад."
+        },
+        {
+          "title": "Одиссея",
+          "author": "Гомер",
+          "why": "Великий эпос о долгих морских странствиях героя, которого преследует гнев богов."
+        },
+        {
+          "title": "Наталка Полтавка",
+          "author": "Иван Котляревский",
+          "why": "Пьеса того же автора, полная народного юмора, песен и живого украинского языка."
+        },
+        {
+          "title": "Дон Кихот",
+          "author": "Мигель де Сервантес",
+          "why": "Знаменитая пародия на высокий жанр — рыцарский роман, — где смех соседствует с мудростью."
+        },
+        {
+          "title": "Вечера на хуторе близ Диканьки",
+          "author": "Николай Гоголь",
+          "why": "Весёлые украинские истории, где чертовщина и народный быт поданы с искромётным юмором."
+        }
+      ],
+      "film": {
+        "title": "Энеида: казацкое путешествие Энея",
+        "intro": "Ты открываешь книгу — и слышишь, как трещит догорающая Троя, а у берега уже покачиваются казацкие челны. Пахнет дымом, морем и варениками: впереди большое путешествие.",
+        "outro": "Турн повержен, ватага пирует, а боги на Олимпе довольно потирают руки. Страницы закрываются под весёлый смех — и где-то вдалеке ещё звучит казацкая песня.",
+        "scenes": [
+          {
+            "title": "Прощай, Троя",
+            "narration": "Ты стоишь на берегу, где дымятся руины Трои, а волны швыряют челны. Эней, лихо заломив шапку, сзывает свою ватагу в дорогу, не обращая внимания на бурю, которую наслала злая Юнона.",
+            "line": {
+              "text": "Гайда, хлопцы, в челны — поищем себе нового края!"
+            }
+          },
+          {
+            "title": "Совет на Олимпе",
+            "narration": "Ты стоишь в облачных палатах Олимпа, где боги шумят, словно паны на ярмарке. Венера плачет, жалуясь на Юнону, а Зевс, отставив чарку, успокаивает дочь.",
+            "line": {
+              "text": "Не плачь, Венера: твой Эней ещё заложит новое царство!"
+            }
+          },
+          {
+            "title": "Пир у Дидоны",
+            "narration": "Ты сидишь за длинным столом во дворце Дидоны, ломящимся от колбас, пирогов и сивухи. Троянцы пляшут гопака, а царица не сводит влюблённых глаз с Энея.",
+            "line": {
+              "text": "Гуляй, Эней, — моя хата теперь и твоя!"
+            }
+          },
+          {
+            "title": "В пекле",
+            "narration": "Ты спускаешься в дымное подземелье вслед за Энеем и старой Сивиллой. Вокруг кипят котлы со смолой, где мучаются жадные паны, а в глубине ждёт тень старого Анхиза.",
+            "line": {
+              "text": "Сначала заплати, казаче, а потом и в пекло пущу!"
+            }
+          },
+          {
+            "title": "Сватовство в Лациуме",
+            "narration": "Ты стоишь в светлых палатах царя Латина, где троянцев встречают хлебом-солью. Добрый царь обещает Энею руку своей дочери, а Лавися смущённо прячет глаза.",
+            "line": {
+              "text": "Бери, Эней, мою Лависю — будь мне зятем!"
+            }
+          },
+          {
+            "title": "Низ и Евриал",
+            "narration": "Ты крадёшься ночью сквозь вражеский лагерь вслед за двумя верными друзьями. Низ и Евриал идут на смертельный риск ради своих — и их отвага остаётся в веках.",
+            "line": {
+              "text": "Где любовь к отчизне, там никакая сила не устоит."
+            }
+          },
+          {
+            "title": "Поединок с Турном",
+            "narration": "Ты стоишь на краю поля боя, где оба войска замерли, глядя на поединок. Эней и Турн сходятся в последней схватке, от которой зависит судьба Лациума.",
+            "line": {
+              "text": "А ну, троянец, выходи — посмотрим, чья возьмёт!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "aeneas": {
+          "name": "Эней",
+          "traits": [
+            "бойкий",
+            "весёлый",
+            "хитрый",
+            "отважный",
+            "гуляка"
+          ],
+          "description": "Троянский предводитель, изображённый как лихой казак-гуляка: любит выпить, погулять и поухаживать за девушками, но умеет и воевать. Пройдя бури, пиры у Дидоны, пекло и войну, он побеждает Турна и обретает новую родину в Лациуме."
+        },
+        "dido": {
+          "name": "Дидона",
+          "traits": [
+            "гостеприимная",
+            "страстная",
+            "щедрая",
+            "несчастная"
+          ],
+          "description": "Вдова-царица Карфагена, которая принимает троянцев с размахом настоящей украинской хозяйки. Она страстно влюбляется в Энея, а когда он тайком бежит, в отчаянии сжигает себя."
+        },
+        "juno": {
+          "name": "Юнона",
+          "traits": [
+            "мстительная",
+            "сварливая",
+            "коварная",
+            "властная"
+          ],
+          "description": "Жена Зевса, люто ненавидящая троянцев и упорно чинящая Энею препятствия: насылает бурю, подбивает женщин сжечь челны и разжигает войну в Лациуме."
+        },
+        "venus": {
+          "name": "Венера",
+          "traits": [
+            "хитрая",
+            "заботливая",
+            "кокетливая",
+            "настойчивая"
+          ],
+          "description": "Богиня любви и мать Энея, которая всегда заступается за сына перед Зевсом и выпрашивает для него помощь и оружие."
+        },
+        "zeus": {
+          "name": "Зевс",
+          "traits": [
+            "властный",
+            "добродушный",
+            "ленивый",
+            "снисходительный"
+          ],
+          "description": "Верховный бог Олимпа, похожий на сельского пана, который любит выпить и не любит хлопот. Он поддерживает Энея и напоминает, что тому суждено заложить новое государство."
+        },
+        "sibyl": {
+          "name": "Сивилла",
+          "traits": [
+            "мудрая",
+            "корыстная",
+            "жуткая",
+            "опытная"
+          ],
+          "description": "Старая кумская прорицательница, которая за плату ведёт Энея в пекло к отцу. Она показывает ему муки грешников и знает все законы подземного мира."
+        },
+        "anchises": {
+          "name": "Анхиз",
+          "traits": [
+            "мудрый",
+            "любящий",
+            "пророческий"
+          ],
+          "description": "Покойный отец Энея, в честь которого троянцы справляют поминки в Сицилии. В пекле он встречает сына и предсказывает ему славное будущее."
+        },
+        "latin": {
+          "name": "Царь Латин",
+          "traits": [
+            "добрый",
+            "гостеприимный",
+            "нерешительный"
+          ],
+          "description": "Правитель Лациума, который радушно принимает Энея и обещает ему дочь Лависю, но не может удержать мир, когда вспыхивает война."
+        },
+        "lavysia": {
+          "name": "Лавися",
+          "traits": [
+            "красивая",
+            "покорная",
+            "тихая"
+          ],
+          "description": "Дочь царя Латина, из-за которой спорят Эней и Турн. Её рука — награда победителю."
+        },
+        "turnus": {
+          "name": "Турн",
+          "traits": [
+            "гордый",
+            "вспыльчивый",
+            "храбрый",
+            "ревнивый"
+          ],
+          "description": "Царь рутулов, прежний жених Лависи. Подстрекаемый Юноной, он начинает войну с троянцами, убивает Палланта, но гибнет в поединке с Энеем."
+        },
+        "nys": {
+          "name": "Низ",
+          "traits": [
+            "верный",
+            "отважный",
+            "самоотверженный"
+          ],
+          "description": "Троянский воин, который вместе с другом Евриалом отправляется в ночную вылазку во вражеский лагерь. Они погибают, и их подвиг становится в поэме символом любви к отчизне."
+        },
+        "evrial": {
+          "name": "Евриал",
+          "traits": [
+            "юный",
+            "храбрый",
+            "верный"
+          ],
+          "description": "Молодой товарищ Низа, который вместе с ним пробирается во вражеский лагерь и погибает. Их дружба — одна из самых трогательных страниц поэмы."
+        }
+      }
+    },
+    "uk": {
+      "title": "Енеїда",
+      "originalTitle": "Енеїда",
+      "author": "Іван Котляревський",
+      "genre": "Бурлескно-травестійна поема",
+      "tagline": "Троянці стають козаками, боги — сільськими панами, а великий епос — веселою українською гулянкою.",
+      "summary": [
+        "Троя згоріла, і хитрі греки лишили від неї самий попіл. Еней — «парубок моторний і хлопець хоч куди козак» — сідає з ватагою троянців на човни й пливе світ за очі шукати нового краю. Та за ним невідступно стежить сердита богиня Юнона: вона давно точить зуб на троянців і підкуповує Еола, щоб той наслав на море бурю. Човни розкидає хвилями, але Нептун утихомирює стихію, а Венера біжить на Олімп жалітися батькові Зевсові на долю свого сина.",
+        "Троянці пристають до Карфагена, де править удова-цариця Дідона. Вона щедро приймає гостей, починаються бенкети, танці й гулянки, і Дідона закохується в Енея. Він живе в неї, як у Бога за дверима, аж поки Зевс через Меркурія не наказує йому плисти далі. Еней потай тікає вночі, а покинута Дідона в розпачі спалює себе на вогнищі. Потім у Сицилії троянці справляють пишні поминки за Енеєвим батьком Анхізом — із частуванням, кулачними боями й веселощами, — а Юнона підбиває троянських жінок підпалити човни, проте Зевс гасить пожежу дощем.",
+        "У Кумах Еней зустрічає Сивіллу — стару віщунку, що за плату погоджується провести його в пекло до покійного батька. Через річку їх перевозить Харон, а дорогою вони бачать моторошні й водночас смішні картини: у смолі й вогні мучаться пани, що знущалися з кріпаків, неправедні судді, скупі, брехуни й ледарі. Нарешті Еней знаходить Анхіза, і той пророкує синові, що від нього піде славний рід і він закладе нову державу в Італії.",
+        "Троянці припливають до Лаціуму, де править добрий цар Латин. Він радо приймає Енея й обіцяє віддати йому за дружину свою доньку Лависю. Та Юнона знову втручається: вона викликає з пекла фурію, і та нацьковує на троянців царицю Амату й рутульського царя Турна, колишнього Лависиного нареченого. Мир розсипається, і в Лаціумі спалахує війна, у якій беруть участь і люди, і боги.",
+        "Еней шукає союзників і дістає допомогу від царя Евандра, який посилає з ним свого сина Палланта. Венера випрошує у Вулкана для сина чудову зброю. У нічному поході гинуть вірні друзі Низ і Евріал, що пробралися до ворожого табору, — і автор славить їхню любов до вітчизни, яка робить людей героями. У запеклій битві Турн убиває юного Палланта, але зрештою сходиться з Енеєм у двобої. Еней перемагає Турна, і поема завершується його тріумфом. Під маскою античного сюжету Котляревський показав козацьку Україну, її звичаї, гумор і мову."
+      ],
+      "themes": [
+        "Гумор і пародія",
+        "Козацька Україна",
+        "Любов до вітчизни",
+        "Сатира на панство",
+        "Мандри й пошук домівки"
+      ],
+      "terms": [
+        {
+          "term": "Бурлеск і травестія",
+          "definition": "Прийом, коли високий героїчний сюжет переказано простою жартівливою мовою; Котляревський «перевдягнув» Вергілієву «Енеїду» в український народний одяг."
+        },
+        {
+          "term": "«Енеїда» Вергілія",
+          "definition": "Давньоримська героїчна поема I століття до н. е. про мандри троянця Енея, яку Котляревський перелицював на український лад."
+        },
+        {
+          "term": "Троянці-козаки",
+          "definition": "Вергілієві герої в Котляревського мають звички, вбрання й мову запорожців."
+        },
+        {
+          "term": "Олімп",
+          "definition": "Гора, де живуть боги; у поемі вони поводяться, як галасливі сільські пани."
+        },
+        {
+          "term": "Пекло",
+          "definition": "Підземне царство мертвих, куди Сивілла веде Енея; автор показує там кари для панів, суддів, скупих і брехунів."
+        },
+        {
+          "term": "Харон",
+          "definition": "Перевізник душ через річку в підземному царстві."
+        },
+        {
+          "term": "Поминки",
+          "definition": "Трапеза на згадку про померлого; поминки за Анхізом у Сицилії перетворюються на справжнє свято з іграми."
+        },
+        {
+          "term": "Фурія",
+          "definition": "Богиня помсти з підземного світу; Юнона викликає її, щоб посварити латинян із троянцями."
+        },
+        {
+          "term": "Лаціум",
+          "definition": "Край в Італії, де править цар Латин і де Еней мріє оселитися."
+        },
+        {
+          "term": "Нова українська література",
+          "definition": "«Енеїда» — перший друкований твір, написаний живою українською народною мовою; з неї починається нова українська література."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Енеїда",
+          "author": "Вергілій",
+          "why": "Античний оригінал, який Котляревський весело перелицював на козацький лад."
+        },
+        {
+          "title": "Одіссея",
+          "author": "Гомер",
+          "why": "Великий епос про довгі морські мандри героя, якого переслідує гнів богів."
+        },
+        {
+          "title": "Наталка Полтавка",
+          "author": "Іван Котляревський",
+          "why": "П’єса того самого автора, сповнена народного гумору, пісень і живої української мови."
+        },
+        {
+          "title": "Дон Кіхот",
+          "author": "Мігель де Сервантес",
+          "why": "Знаменита пародія на високий жанр — лицарський роман, — де сміх сусідить із мудрістю."
+        },
+        {
+          "title": "Вечори на хуторі біля Диканьки",
+          "author": "Микола Гоголь",
+          "why": "Веселі українські історії, де чортівня й народний побут подані з іскрометним гумором."
+        }
+      ],
+      "film": {
+        "title": "Енеїда: козацька мандрівка Енея",
+        "intro": "Ти розгортаєш книжку — і чуєш, як тріщить, догоряючи, Троя, а біля берега вже гойдаються козацькі човни. Пахне димом, морем і варениками: попереду велика мандрівка.",
+        "outro": "Турна переможено, ватага бенкетує, а боги на Олімпі вдоволено потирають руки. Сторінки закриваються під веселий сміх — і десь удалині ще лунає козацька пісня.",
+        "scenes": [
+          {
+            "title": "Прощавай, Троє",
+            "narration": "Ти стоїш на березі, де куриться попелище Трої, а хвилі шарпають човни. Еней, завзято заламавши шапку, скликає свою ватагу в дорогу, не зважаючи на бурю, яку наслала лиха Юнона.",
+            "line": {
+              "text": "Гайда, хлопці, в човни — пошукаймо собі нового краю!"
+            }
+          },
+          {
+            "title": "Рада на Олімпі",
+            "narration": "Ти стоїш у хмарних палатах Олімпу, де боги галасують, наче пани на ярмарку. Венера плаче, скаржачись на Юнону, а Зевс, відставивши чарку, втішає доньку.",
+            "line": {
+              "text": "Не плач, Венеро: твій Еней іще закладе нове царство!"
+            }
+          },
+          {
+            "title": "Бенкет у Дідони",
+            "narration": "Ти сидиш за довгим столом у палаці Дідони, що вгинається від ковбас, пирогів і сивухи. Троянці танцюють гопака, а цариця не зводить закоханих очей з Енея.",
+            "line": {
+              "text": "Гуляй, Енею, — моя хата тепер і твоя!"
+            }
+          },
+          {
+            "title": "У пеклі",
+            "narration": "Ти спускаєшся в задимлене підземелля слідом за Енеєм і старою Сивіллою. Довкола кипить смола в казанах, де мучаться жадібні пани, а в глибині чекає тінь старого Анхіза.",
+            "line": {
+              "text": "Спершу заплати, козаче, а тоді й у пекло пущу!"
+            }
+          },
+          {
+            "title": "Сватання в Лаціумі",
+            "narration": "Ти стоїш у світлих палатах царя Латина, де троянців зустрічають хлібом-сіллю. Добрий цар обіцяє Енеєві руку своєї доньки, а Лавися соромливо ховає очі.",
+            "line": {
+              "text": "Бери, Енею, мою Лависю — будь мені зятем!"
+            }
+          },
+          {
+            "title": "Низ і Евріал",
+            "narration": "Ти скрадаєшся вночі ворожим табором слідом за двома вірними друзями. Низ і Евріал ідуть на смертельний ризик заради своїх — і їхня звитяга лишається у віках.",
+            "line": {
+              "text": "Де любов до вітчизни, там жодна вража сила не встоїть."
+            }
+          },
+          {
+            "title": "Двобій із Турном",
+            "narration": "Ти стоїш на краю бойовища, де обидва війська завмерли, дивлячись на двобій. Еней і Турн сходяться в останній сутичці, від якої залежить доля Лаціуму.",
+            "line": {
+              "text": "А ну, троянцю, виходь — побачимо, чия візьме!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "aeneas": {
+          "name": "Еней",
+          "traits": [
+            "моторний",
+            "веселий",
+            "хитрий",
+            "відважний",
+            "гульвіса"
+          ],
+          "description": "Троянський ватажок, змальований як моторний козак-гуляка: любить випити, погуляти й позалицятися до дівчат, але вміє й воювати. Пройшовши бурі, бенкети в Дідони, пекло й війну, він перемагає Турна й здобуває нову батьківщину в Лаціумі."
+        },
+        "dido": {
+          "name": "Дідона",
+          "traits": [
+            "гостинна",
+            "пристрасна",
+            "щедра",
+            "нещасна"
+          ],
+          "description": "Удова-цариця Карфагена, що приймає троянців із розмахом справжньої української господині. Вона палко закохується в Енея, а коли той потай тікає, у розпачі спалює себе."
+        },
+        "juno": {
+          "name": "Юнона",
+          "traits": [
+            "мстива",
+            "сварлива",
+            "підступна",
+            "владна"
+          ],
+          "description": "Зевсова дружина, що люто ненавидить троянців і вперто чинить Енеєві перешкоди: насилає бурю, підбурює жінок спалити човни й розпалює війну в Лаціумі."
+        },
+        "venus": {
+          "name": "Венера",
+          "traits": [
+            "хитра",
+            "дбайлива",
+            "кокетлива",
+            "наполеглива"
+          ],
+          "description": "Богиня кохання й Енеєва мати, що завжди заступається за сина перед Зевсом і випрошує для нього допомогу та зброю."
+        },
+        "zeus": {
+          "name": "Зевс",
+          "traits": [
+            "владний",
+            "добродушний",
+            "лінивий",
+            "поблажливий"
+          ],
+          "description": "Верховний бог Олімпу, схожий на сільського пана, що любить випити й не любить клопотів. Він підтримує Енея й нагадує, що тому судилося закласти нову державу."
+        },
+        "sibyl": {
+          "name": "Сивілла",
+          "traits": [
+            "мудра",
+            "корислива",
+            "моторошна",
+            "досвідчена"
+          ],
+          "description": "Стара кумська віщунка, що за плату веде Енея в пекло до батька. Вона показує йому муки грішників і знає всі закони підземного світу."
+        },
+        "anchises": {
+          "name": "Анхіз",
+          "traits": [
+            "мудрий",
+            "люблячий",
+            "пророчий"
+          ],
+          "description": "Покійний Енеїв батько, на честь якого троянці справляють поминки в Сицилії. У пеклі він зустрічає сина й пророкує йому славне майбутнє."
+        },
+        "latin": {
+          "name": "Цар Латин",
+          "traits": [
+            "добрий",
+            "гостинний",
+            "нерішучий"
+          ],
+          "description": "Правитель Лаціуму, що радо приймає Енея й обіцяє йому доньку Лависю, але не може втримати мир, коли спалахує війна."
+        },
+        "lavysia": {
+          "name": "Лавися",
+          "traits": [
+            "вродлива",
+            "покірна",
+            "тиха"
+          ],
+          "description": "Донька царя Латина, через яку змагаються Еней і Турн. Її рука — нагорода переможцеві."
+        },
+        "turnus": {
+          "name": "Турн",
+          "traits": [
+            "гордий",
+            "запальний",
+            "хоробрий",
+            "ревнивий"
+          ],
+          "description": "Цар рутульців, колишній Лависин наречений. Підбурений Юноною, він розпочинає війну з троянцями, убиває Палланта, але гине в двобої з Енеєм."
+        },
+        "nys": {
+          "name": "Низ",
+          "traits": [
+            "вірний",
+            "відважний",
+            "самовідданий"
+          ],
+          "description": "Троянський воїн, що разом із другом Евріалом іде в нічний похід до ворожого табору. Вони гинуть, і їхній подвиг стає в поемі символом любові до вітчизни."
+        },
+        "evrial": {
+          "name": "Евріал",
+          "traits": [
+            "юний",
+            "хоробрий",
+            "вірний"
+          ],
+          "description": "Молодий Низів товариш, що разом із ним пробирається до ворожого табору й гине. Їхня дружба — одна з найзворушливіших сторінок поеми."
+        }
+      }
+    },
+    "en": {
+      "title": "Eneida",
+      "originalTitle": "Енеїда",
+      "author": "Ivan Kotliarevsky",
+      "genre": "Burlesque mock-epic poem",
+      "tagline": "Trojans turn into Cossacks, gods into village squires, and a great epic into a rollicking Ukrainian party.",
+      "summary": [
+        "Troy has burned down, and the crafty Greeks have left nothing but ashes. Aeneas — a lively lad and a Cossack second to none — sets off in boats with a band of Trojans, sailing wherever the wind takes them to find a new land. But the cross goddess Juno watches his every move: she has long had it in for the Trojans, and she bribes Aeolus to send a storm upon the sea. The waves scatter the boats, but Neptune calms the elements, and Venus runs up to Olympus to complain to her father Zeus about her son’s fate.",
+        "The Trojans land at Carthage, ruled by the widowed queen Dido. She welcomes her guests lavishly; feasts, dances and revels begin, and Dido falls in love with Aeneas. He lives with her in clover until Zeus, through Mercury, orders him to sail on. Aeneas slips away by night, and the abandoned Dido burns herself on a pyre in despair. Next, in Sicily, the Trojans hold a grand wake for Aeneas’s father Anchises — with feasting, fist fights and merriment — while Juno incites the Trojan women to set fire to the boats, but Zeus puts out the blaze with rain.",
+        "At Cumae Aeneas meets the Sibyl, an old prophetess who agrees — for a fee — to lead him into hell to see his late father. Charon ferries them across the river, and on the way they see scenes both gruesome and comic: in pitch and fire suffer the squires who abused their serfs, unjust judges, misers, liars and idlers. At last Aeneas finds Anchises, who prophesies that a glorious line will spring from his son and that he will found a new state in Italy.",
+        "The Trojans sail to Latium, ruled by kindly King Latin. He welcomes Aeneas warmly and promises him his daughter Lavysia in marriage. But Juno meddles again: she summons a Fury from hell, who sets Queen Amata and Turnus, king of the Rutulians and Lavysia’s former suitor, against the Trojans. The peace falls apart, and war breaks out in Latium, with both mortals and gods taking part.",
+        "Aeneas seeks allies and gets help from King Evander, who sends his son Pallas with him. Venus begs Vulcan to forge wondrous armour for her son. On a night raid the faithful friends Nysus and Euryalus, who have crept into the enemy camp, are killed — and the poet praises their love of their homeland, which makes heroes of ordinary men. In a fierce battle Turnus kills young Pallas, but at last he faces Aeneas in single combat. Aeneas defeats Turnus, and the poem ends in his triumph. Beneath the mask of an ancient tale, Kotliarevsky portrayed Cossack Ukraine, its customs, humour and language."
+      ],
+      "themes": [
+        "Humour and parody",
+        "Cossack Ukraine",
+        "Love of one’s homeland",
+        "Satire on the gentry",
+        "Wandering and the search for home"
+      ],
+      "terms": [
+        {
+          "term": "Burlesque and travesty",
+          "definition": "Retelling a lofty heroic story in plain, comic language; Kotliarevsky “dressed” Virgil’s Aeneid in Ukrainian folk costume."
+        },
+        {
+          "term": "Virgil’s Aeneid",
+          "definition": "The Roman heroic epic of the 1st century BC about the wanderings of the Trojan Aeneas, which Kotliarevsky refashioned in a Ukrainian style."
+        },
+        {
+          "term": "Trojan Cossacks",
+          "definition": "In Kotliarevsky’s poem, Virgil’s heroes have the habits, clothes and speech of Zaporozhian Cossacks."
+        },
+        {
+          "term": "Olympus",
+          "definition": "The mountain where the gods live; in the poem they behave like rowdy village squires."
+        },
+        {
+          "term": "Hell (Pekło)",
+          "definition": "The underworld, where the Sibyl leads Aeneas; the poet shows the punishments of squires, judges, misers and liars there."
+        },
+        {
+          "term": "Charon",
+          "definition": "The ferryman who carries souls across the river of the underworld."
+        },
+        {
+          "term": "Wake (pomynky)",
+          "definition": "A memorial meal for the dead; the wake for Anchises in Sicily turns into a real festival with games."
+        },
+        {
+          "term": "Fury",
+          "definition": "A goddess of vengeance from the underworld; Juno summons one to set the Latins against the Trojans."
+        },
+        {
+          "term": "Latium",
+          "definition": "The land in Italy ruled by King Latin, where Aeneas hopes to settle."
+        },
+        {
+          "term": "Modern Ukrainian literature",
+          "definition": "Eneida was the first printed work written in the living Ukrainian vernacular; modern Ukrainian literature begins with it."
+        }
+      ],
+      "similar": [
+        {
+          "title": "The Aeneid",
+          "author": "Virgil",
+          "why": "The ancient original that Kotliarevsky cheerfully refashioned in Cossack style."
+        },
+        {
+          "title": "The Odyssey",
+          "author": "Homer",
+          "why": "The great epic of a hero’s long sea wanderings, pursued by the wrath of the gods."
+        },
+        {
+          "title": "Natalka Poltavka",
+          "author": "Ivan Kotliarevsky",
+          "why": "A play by the same author, full of folk humour, songs and lively Ukrainian speech."
+        },
+        {
+          "title": "Don Quixote",
+          "author": "Miguel de Cervantes",
+          "why": "The famous parody of a lofty genre — the chivalric romance — in which laughter sits side by side with wisdom."
+        },
+        {
+          "title": "Evenings on a Farm Near Dikanka",
+          "author": "Nikolai Gogol",
+          "why": "Merry Ukrainian tales where devilry and village life are served up with sparkling humour."
+        }
+      ],
+      "film": {
+        "title": "Eneida: Aeneas’s Cossack voyage",
+        "intro": "You open the book and hear Troy crackling as it burns down, while Cossack boats already rock by the shore. The air smells of smoke, the sea and dumplings: a great voyage lies ahead.",
+        "outro": "Turnus is beaten, the band is feasting, and the gods on Olympus rub their hands with satisfaction. The pages close to merry laughter — and somewhere far away a Cossack song still rings out.",
+        "scenes": [
+          {
+            "title": "Farewell, Troy",
+            "narration": "You stand on the shore where Troy’s ashes still smoulder and the waves toss the boats about. Aeneas, his cap cocked jauntily, calls his band to the road, paying no heed to the storm the spiteful Juno has sent.",
+            "line": {
+              "text": "Come on, lads, into the boats — let’s go find ourselves a new land!"
+            }
+          },
+          {
+            "title": "Council on Olympus",
+            "narration": "You stand in the cloudy halls of Olympus, where the gods are as noisy as squires at a fair. Venus weeps, complaining about Juno, and Zeus puts down his cup to comfort his daughter.",
+            "line": {
+              "text": "Don’t cry, Venus: your Aeneas will yet found a new kingdom!"
+            }
+          },
+          {
+            "title": "Dido’s Feast",
+            "narration": "You sit at a long table in Dido’s palace, groaning under sausages, pies and home-brewed vodka. The Trojans dance the hopak, and the queen cannot take her loving eyes off Aeneas.",
+            "line": {
+              "text": "Make merry, Aeneas — my home is your home now!"
+            }
+          },
+          {
+            "title": "In Hell",
+            "narration": "You descend into a smoky underworld behind Aeneas and the old Sibyl. All around, cauldrons of pitch bubble with greedy squires inside, and deep below the shade of old Anchises is waiting.",
+            "line": {
+              "text": "Pay up first, Cossack — then I’ll let you into hell!"
+            }
+          },
+          {
+            "title": "Matchmaking in Latium",
+            "narration": "You stand in the bright halls of King Latin, where the Trojans are greeted with bread and salt. The kindly king promises Aeneas his daughter’s hand, and Lavysia shyly lowers her eyes.",
+            "line": {
+              "text": "Take my Lavysia, Aeneas — be my son-in-law!"
+            }
+          },
+          {
+            "title": "Nysus and Euryalus",
+            "narration": "You creep through the enemy camp at night behind two faithful friends. Nysus and Euryalus risk their lives for their comrades — and their valour echoes down the ages.",
+            "line": {
+              "text": "Where there is love for the homeland, no enemy force can stand."
+            }
+          },
+          {
+            "title": "The Duel with Turnus",
+            "narration": "You stand at the edge of the battlefield, where both armies have frozen to watch the duel. Aeneas and Turnus clash in the final fight, on which the fate of Latium depends.",
+            "line": {
+              "text": "Come on out, Trojan — let’s see who wins!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "aeneas": {
+          "name": "Aeneas",
+          "traits": [
+            "lively",
+            "jolly",
+            "crafty",
+            "brave",
+            "reveller"
+          ],
+          "description": "The Trojan leader, portrayed as a dashing Cossack reveller who loves a drink, a party and flirting with girls, but knows how to fight too. After storms, Dido’s feasts, hell and war, he defeats Turnus and wins a new homeland in Latium."
+        },
+        "dido": {
+          "name": "Dido",
+          "traits": [
+            "hospitable",
+            "passionate",
+            "generous",
+            "unhappy"
+          ],
+          "description": "The widowed queen of Carthage, who entertains the Trojans with the open-handedness of a true Ukrainian hostess. She falls passionately in love with Aeneas, and when he slips away she burns herself in despair."
+        },
+        "juno": {
+          "name": "Juno",
+          "traits": [
+            "vengeful",
+            "quarrelsome",
+            "scheming",
+            "imperious"
+          ],
+          "description": "Zeus’s wife, who fiercely hates the Trojans and keeps putting obstacles in Aeneas’s way: she sends a storm, incites the women to burn the boats and stirs up war in Latium."
+        },
+        "venus": {
+          "name": "Venus",
+          "traits": [
+            "artful",
+            "caring",
+            "flirtatious",
+            "persistent"
+          ],
+          "description": "The goddess of love and Aeneas’s mother, who always pleads for her son before Zeus and begs help and weapons for him."
+        },
+        "zeus": {
+          "name": "Zeus",
+          "traits": [
+            "imperious",
+            "good-natured",
+            "lazy",
+            "indulgent"
+          ],
+          "description": "The supreme god of Olympus, much like a village squire who enjoys a drink and dislikes trouble. He supports Aeneas and reminds everyone that he is destined to found a new state."
+        },
+        "sibyl": {
+          "name": "The Sibyl",
+          "traits": [
+            "wise",
+            "grasping",
+            "eerie",
+            "experienced"
+          ],
+          "description": "The old prophetess of Cumae, who for a fee leads Aeneas into hell to see his father. She shows him the torments of sinners and knows all the laws of the underworld."
+        },
+        "anchises": {
+          "name": "Anchises",
+          "traits": [
+            "wise",
+            "loving",
+            "prophetic"
+          ],
+          "description": "Aeneas’s late father, in whose honour the Trojans hold a wake in Sicily. In hell he meets his son and foretells his glorious future."
+        },
+        "latin": {
+          "name": "King Latin",
+          "traits": [
+            "kind",
+            "hospitable",
+            "indecisive"
+          ],
+          "description": "The ruler of Latium, who warmly welcomes Aeneas and promises him his daughter Lavysia, but cannot keep the peace when war breaks out."
+        },
+        "lavysia": {
+          "name": "Lavysia",
+          "traits": [
+            "beautiful",
+            "meek",
+            "quiet"
+          ],
+          "description": "King Latin’s daughter (Virgil’s Lavinia), over whom Aeneas and Turnus contend. Her hand is the victor’s prize."
+        },
+        "turnus": {
+          "name": "Turnus",
+          "traits": [
+            "proud",
+            "hot-headed",
+            "brave",
+            "jealous"
+          ],
+          "description": "King of the Rutulians and Lavysia’s former suitor. Egged on by Juno, he starts the war against the Trojans and kills Pallas, but dies in single combat with Aeneas."
+        },
+        "nys": {
+          "name": "Nysus",
+          "traits": [
+            "loyal",
+            "brave",
+            "selfless"
+          ],
+          "description": "A Trojan warrior who goes on a night raid into the enemy camp with his friend Euryalus. Both are killed, and their exploit becomes the poem’s symbol of love for the homeland."
+        },
+        "evrial": {
+          "name": "Euryalus",
+          "traits": [
+            "young",
+            "valiant",
+            "faithful"
+          ],
+          "description": "Nysus’s young comrade, who creeps into the enemy camp with him and dies. Their friendship is one of the most moving pages of the poem."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "aeneas",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#e4b088",
+        "hair": {
+          "style": "mohawk",
+          "color": "#2a1c14"
+        },
+        "facialHair": "mustache",
+        "eyes": "#3a2a1c",
+        "top": {
+          "kind": "coat",
+          "color": "#2e5aa8",
+          "accent": "#e8c050",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#c8202a"
+        },
+        "shoes": "#d8a840",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "belt_sword",
+        "accessoryColor": "#e8c050",
+        "holding": "pipe"
+      },
+      "portraitPrompt": "A jolly, broad-shouldered Cossack hero with a shaven head and a long black scalp lock, a magnificent drooping moustache and a cheeky grin, wearing a blue zhupan with gold trim, enormous scarlet sharovary trousers, yellow boots and a sabre on a gold sash, puffing on a long pipe."
+    },
+    {
+      "id": "dido",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "adult",
+        "build": "average",
+        "skin": "#e8b892",
+        "hair": {
+          "style": "long",
+          "color": "#2a1610"
+        },
+        "facialHair": "none",
+        "eyes": "#2a1c14",
+        "top": {
+          "kind": "gown",
+          "color": "#7a1e5a",
+          "accent": "#e8c050",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#5a1444"
+        },
+        "shoes": "#e8c050",
+        "headwear": "crown",
+        "headwearColor": "#e8c050",
+        "accessory": "necklace",
+        "accessoryColor": "#e8c050",
+        "holding": "cup"
+      },
+      "portraitPrompt": "A buxom, warm-hearted queen with long dark hair and lovesick dark eyes, wearing a golden crown, a purple embroidered gown and heavy gold necklaces, raising a goblet at a lavish feast."
+    },
+    {
+      "id": "juno",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#f0c8a8",
+        "hair": {
+          "style": "bun",
+          "color": "#3a2a1c"
+        },
+        "facialHair": "none",
+        "eyes": "#3a2a2a",
+        "top": {
+          "kind": "robe",
+          "color": "#c8c8d8",
+          "accent": "#5a3a8a",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "robe",
+          "color": "#b0b0c4"
+        },
+        "shoes": "#5a3a8a",
+        "headwear": "tiara",
+        "headwearColor": "#d8b04a",
+        "accessory": "cape",
+        "accessoryColor": "#5a3a8a",
+        "holding": "staff"
+      },
+      "portraitPrompt": "A stout, scowling queen of the gods with dark hair in a tight bun, a sour expression and hands on her hips, wearing a golden tiara, a pale silver-white robe and a royal purple cloak, gripping a sceptre."
+    },
+    {
+      "id": "venus",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "adult",
+        "build": "slim",
+        "skin": "#f8dcc8",
+        "hair": {
+          "style": "wavy",
+          "color": "#e8c060"
+        },
+        "facialHair": "none",
+        "eyes": "#4a8ac8",
+        "top": {
+          "kind": "dress",
+          "color": "#f2a8c0",
+          "accent": "#fbe8f0",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#e890b0"
+        },
+        "shoes": "#f2a8c0",
+        "headwear": "flower_wreath",
+        "headwearColor": "#f06a8a",
+        "accessory": "necklace",
+        "accessoryColor": "#f4f0f0",
+        "holding": "rose"
+      },
+      "portraitPrompt": "A charming, coquettish goddess with wavy golden hair crowned with pink roses, bright blue eyes and dimpled cheeks, wearing a flowing pink dress and a pearl necklace, holding a red rose."
+    },
+    {
+      "id": "zeus",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "broad",
+        "skin": "#eab896",
+        "hair": {
+          "style": "long",
+          "color": "#e6e4de"
+        },
+        "facialHair": "long_beard",
+        "eyes": "#4a6a9a",
+        "top": {
+          "kind": "robe",
+          "color": "#f2ece0",
+          "accent": "#d8b04a",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "robe",
+          "color": "#e6dccc"
+        },
+        "shoes": "#c8a040",
+        "headwear": "crown",
+        "headwearColor": "#e8c050",
+        "accessory": "cape",
+        "accessoryColor": "#2e4a8a",
+        "holding": "cup"
+      },
+      "portraitPrompt": "A portly, good-humoured king of the gods with flowing white hair and a long white beard, rosy cheeks and twinkling eyes, wearing a golden crown, a white robe and a deep-blue cloak, lounging on a cloud with a cup of strong drink."
+    },
+    {
+      "id": "sibyl",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "elder",
+        "build": "slim",
+        "skin": "#d8b49a",
+        "hair": {
+          "style": "messy",
+          "color": "#bcb8b0"
+        },
+        "facialHair": "none",
+        "eyes": "#6a8a5a",
+        "top": {
+          "kind": "robe",
+          "color": "#4a3a4a",
+          "accent": "#8a7a5a",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "robe",
+          "color": "#3a2e3a"
+        },
+        "shoes": "#2a2020",
+        "headwear": "headscarf",
+        "headwearColor": "#2a2a2a",
+        "accessory": "necklace",
+        "accessoryColor": "#8a6a3a",
+        "holding": "staff"
+      },
+      "portraitPrompt": "A wizened, toothy old prophetess with wild grey hair escaping a black headscarf, sharp green eyes and a hooked nose, wearing a ragged dark robe and a necklace of charms, leaning on a crooked staff with an outstretched palm asking for payment."
+    },
+    {
+      "id": "anchises",
+      "role": "minor",
+      "appearance": {
+        "creature": "ghost",
+        "gender": "male",
+        "age": "elder",
+        "build": "average",
+        "skin": "#cfd8e0",
+        "hair": {
+          "style": "mohawk",
+          "color": "#e8ecf0"
+        },
+        "facialHair": "mustache",
+        "eyes": "#5a6a8a",
+        "top": {
+          "kind": "coat",
+          "color": "#b8c4d4",
+          "accent": "#e8ecf0",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#a8b4c4"
+        },
+        "shoes": "#8a96a8",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "staff"
+      },
+      "portraitPrompt": "The pale, translucent ghost of a wise old Cossack with a white scalp lock and a long white moustache, wearing a faded blue-grey coat, leaning on a staff and smiling gently in a misty underworld."
+    },
+    {
+      "id": "latin",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "average",
+        "skin": "#e6b892",
+        "hair": {
+          "style": "short",
+          "color": "#c8c4bc"
+        },
+        "facialHair": "beard",
+        "eyes": "#4a3a2a",
+        "top": {
+          "kind": "robe",
+          "color": "#a8402a",
+          "accent": "#e8c050",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "robe",
+          "color": "#8a3022"
+        },
+        "shoes": "#c8a040",
+        "headwear": "crown",
+        "headwearColor": "#e8c050",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "cup"
+      },
+      "portraitPrompt": "A kindly, slightly bewildered old king with short grey hair and a neat grey beard, wearing a small golden crown and a red robe with gold embroidery, holding out a cup of welcome."
+    },
+    {
+      "id": "lavysia",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f6d8c4",
+        "hair": {
+          "style": "braids",
+          "color": "#8a5a2a"
+        },
+        "facialHair": "none",
+        "eyes": "#4a6a3a",
+        "top": {
+          "kind": "dress",
+          "color": "#f6f0e2",
+          "accent": "#d8402a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#e8b040"
+        },
+        "shoes": "#d8402a",
+        "headwear": "flower_wreath",
+        "headwearColor": "#f2c040",
+        "accessory": "necklace",
+        "accessoryColor": "#d8323a",
+        "holding": "flower"
+      },
+      "portraitPrompt": "A shy, pretty princess with long chestnut braids and downcast green eyes, wearing a wreath of yellow flowers with ribbons, a white embroidered dress and coral beads, holding a small bouquet."
+    },
+    {
+      "id": "turnus",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#d8a07a",
+        "hair": {
+          "style": "curly",
+          "color": "#1e1612"
+        },
+        "facialHair": "beard",
+        "eyes": "#2a1c14",
+        "top": {
+          "kind": "armor",
+          "color": "#b08a3a",
+          "accent": "#7a1e1e",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#5a2a1e"
+        },
+        "shoes": "#3a2418",
+        "headwear": "helmet",
+        "headwearColor": "#c8a040",
+        "accessory": "cape",
+        "accessoryColor": "#9a1e1e",
+        "holding": "sword"
+      },
+      "portraitPrompt": "A proud, hot-headed warrior king with black curly hair and a short beard, wearing a crested bronze helmet, bronze armour and a blood-red cloak, brandishing a sword with a fierce glare."
+    },
+    {
+      "id": "nys",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "tall",
+        "skin": "#dca882",
+        "hair": {
+          "style": "mohawk",
+          "color": "#4a3020"
+        },
+        "facialHair": "mustache",
+        "eyes": "#3a2a1c",
+        "top": {
+          "kind": "coat",
+          "color": "#3a5a3a",
+          "accent": "#d8c8a0",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#2a3a6a"
+        },
+        "shoes": "#3a2418",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "belt_sword",
+        "accessoryColor": "#8a6a3a",
+        "holding": "spear"
+      },
+      "portraitPrompt": "A tall, steadfast Cossack warrior with a brown scalp lock and a long moustache, wearing a dark-green coat and blue trousers with a sabre at his belt, gripping a spear, peering watchfully into the night."
+    },
+    {
+      "id": "evrial",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f0c8a6",
+        "hair": {
+          "style": "short",
+          "color": "#c89a5a"
+        },
+        "facialHair": "none",
+        "eyes": "#4a7a9a",
+        "top": {
+          "kind": "coat",
+          "color": "#8a2a2a",
+          "accent": "#e8dcc0",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#2a3a5a"
+        },
+        "shoes": "#3a2418",
+        "headwear": "cap",
+        "headwearColor": "#3a2a24",
+        "accessory": "belt_sword",
+        "accessoryColor": "#8a6a3a",
+        "holding": "sword"
+      },
+      "portraitPrompt": "A beardless, eager young Cossack with short fair hair and bright blue eyes, wearing a red coat, blue trousers and a lambskin cap, gripping a sabre."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "sea",
+        "time": "dawn",
+        "weather": "wind",
+        "cast": [
+          "aeneas",
+          "juno"
+        ],
+        "props": [
+          "boat",
+          "ship",
+          "fire",
+          "rock"
+        ],
+        "action": "travel",
+        "camera": "fly_over",
+        "mood": "joyful",
+        "line": {
+          "speaker": "aeneas"
+        }
+      },
+      {
+        "setting": "palace",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "zeus",
+          "venus",
+          "juno"
+        ],
+        "props": [
+          "throne",
+          "table",
+          "statue",
+          "star"
+        ],
+        "action": "talk",
+        "camera": "orbit",
+        "mood": "joyful",
+        "line": {
+          "speaker": "zeus"
+        }
+      },
+      {
+        "setting": "palace",
+        "time": "night",
+        "weather": "clear",
+        "cast": [
+          "aeneas",
+          "dido"
+        ],
+        "props": [
+          "table",
+          "candles",
+          "barrel",
+          "cake"
+        ],
+        "action": "dance",
+        "camera": "pan",
+        "mood": "joyful",
+        "line": {
+          "speaker": "dido"
+        }
+      },
+      {
+        "setting": "cave",
+        "time": "night",
+        "weather": "fog",
+        "cast": [
+          "aeneas",
+          "sibyl",
+          "anchises"
+        ],
+        "props": [
+          "cauldron",
+          "fire",
+          "rock",
+          "boat"
+        ],
+        "action": "discover",
+        "camera": "dolly_in",
+        "mood": "mysterious",
+        "line": {
+          "speaker": "sibyl"
+        }
+      },
+      {
+        "setting": "palace",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "aeneas",
+          "latin",
+          "lavysia"
+        ],
+        "props": [
+          "throne",
+          "table",
+          "window",
+          "cake"
+        ],
+        "action": "talk",
+        "camera": "crane",
+        "mood": "romantic",
+        "line": {
+          "speaker": "latin"
+        }
+      },
+      {
+        "setting": "battlefield",
+        "time": "night",
+        "weather": "stars",
+        "cast": [
+          "nys",
+          "evrial"
+        ],
+        "props": [
+          "tent",
+          "fire",
+          "fence"
+        ],
+        "action": "chase",
+        "camera": "close_up",
+        "mood": "melancholic",
+        "line": {
+          "speaker": "nys"
+        }
+      },
+      {
+        "setting": "battlefield",
+        "time": "day",
+        "weather": "wind",
+        "cast": [
+          "aeneas",
+          "turnus"
+        ],
+        "props": [
+          "tent",
+          "fence",
+          "rock"
+        ],
+        "action": "fight",
+        "camera": "orbit",
+        "mood": "epic",
+        "line": {
+          "speaker": "turnus"
+        }
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: a fleet of small wooden Cossack boats setting off from a smoking ruined city by a stormy sea at dawn, a jolly Cossack hero with a scalp lock, huge red trousers and a long pipe waving his cap at the bow while waves splash; dynamic fly-over camera, warm sunrise and dramatic clouds, humorous adventurous mood, tilt-shift miniature look, no text.",
+      "Cute voxel-diorama 3D scene: a lavish night feast in a golden palace hall, long tables loaded with sausages, pies and barrels, tiny Cossacks dancing the hopak while a crowned queen in purple gazes lovingly at the mustachioed hero; slow panning camera, warm candlelight, festive comic mood, no text.",
+      "Cute voxel-diorama 3D scene: a smoky comic underworld cave with bubbling cauldrons of pitch, a ferryman’s boat on a dark river, an old hunched prophetess in a black headscarf leading a Cossack hero toward the pale glowing ghost of his white-moustached father; slow dolly-in, eerie green and orange light, mysterious yet playful mood, no text."
+    ]
+  }
+}
