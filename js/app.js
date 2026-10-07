@@ -359,7 +359,7 @@ function applyView(view) {
   home.hidden = view !== "home";
   book.hidden = view !== "book";
   const footer = $("#site-footer");
-  if (footer) footer.hidden = view !== "book";
+  if (footer) footer.hidden = false; // legal links (terms / privacy / refund) on every page
   if (view === "home") state.ring?.resume?.();
   else state.ring?.pause?.();
 }
@@ -1155,10 +1155,10 @@ async function openDemoNotice(query = "", matches = []) {
     el("p", { class: "chip bt-mode" }, el("i", { class: "bt-dot", "aria-hidden": "true" }), t("mode.demo")),
     el("h2", { class: "bt-h", id: labelId, text: t("search.demoTitle") }),
     el("p", { class: "bt-lead", text: q ? t("search.demoQuery", { q }) : t("search.demoText") }),
+    q ? waitlistForm(q) : null,
     items.length
       ? bookGrid(items, (it) => { handle?.close(); navigate(bookPath(it.id)); }, { compact: true })
       : el("p", { class: "bt-empty", text: t("library.empty") }),
-    q ? waitlistForm(q) : null,
     el("div", { class: "bt-actions" },
       el("a", { class: "btn-ghost", href: "#/library", onclick: (e) => { e.preventDefault(); handle?.close(); navigate("#/library"); } },
         el("span", { html: ICON.library }), el("span", { text: t("search.allBooks") }))));

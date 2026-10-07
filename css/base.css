@@ -76,6 +76,10 @@ input { font: inherit; color: inherit; }
 .skip-link:focus { top: 12px; }
 :focus-visible { outline: 2px solid rgba(120, 225, 255, .85); outline-offset: 3px; border-radius: 8px; }
 
+/* server-rendered SEO copy of /book/<id> (api/book.js): the app removes it on boot; never flash it */
+.js .ssr-book { display: none; }
+.ssr-book { position: relative; z-index: 1; width: min(860px, calc(100% - 32px)); margin: 0 auto; padding: calc(var(--nav-h) + 40px) 0 40px; }
+
 .starfield { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 main { position: relative; z-index: 1; }
 
