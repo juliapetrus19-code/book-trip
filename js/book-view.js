@@ -29,7 +29,9 @@ const lazy = (loader, name) => {
 const loadCovers = lazy(() => import("./covers.js"), "covers.js");
 const loadVoxel = lazy(() => import("./voxel.js"), "voxel.js");
 const loadFilm = lazy(() => import("./film.js"), "film.js");
-const loadApp = lazy(() => import("./app.js"), "app.js");
+const loadAppModule = lazy(() => import("./app.js"), "app.js");
+// js/app.js only boots (and installs its Esc / focus-trap key handling) inside the full app shell.
+const loadApp = () => (document.getElementById("view-home") && document.getElementById("view-book") ? loadAppModule() : Promise.resolve(null));
 const loadApi = lazy(() => import("./api.js"), "api.js");
 
 // ---------------------------------------------------------------------------------------------
@@ -37,6 +39,7 @@ const loadApi = lazy(() => import("./api.js"), "api.js");
 
 const LANGS = ["ru", "uk", "en"];
 const LOCALES = { ru: "ru-RU", uk: "uk-UA", en: "en-US" };
+const TERMS_PREVIEW = 6; // phones show this many terms before "show all" (keep in sync with book.css)
 const SECTIONS = [
   { name: "summary", part: "overview" },
   { name: "terms", part: "overview" },
@@ -89,6 +92,7 @@ const ICON = {
   upRight: svg('<path d="M7 17 17 7"/><path d="M8.5 7H17v8.5"/>'),
   left: svg('<path d="M15 5l-7 7 7 7"/>'),
   right: svg('<path d="M9 5l7 7-7 7"/>'),
+  down: svg('<path d="M6 9.5l6 6 6-6"/>'),
   search: svg('<circle cx="11" cy="11" r="6.6"/><path d="M20 20l-4.2-4.2"/>'),
   sparkle: svg('<path d="M12 3.5l1.9 5.1 5.1 1.9-5.1 1.9L12 17.5l-1.9-5.1L5 10.5l5.1-1.9z"/><path d="M19 15.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/>'),
   video: svg('<rect x="2.5" y="6" width="13.2" height="12" rx="2.6"/><path d="M15.7 10.4 21.5 7v10l-5.8-3.4z"/>'),
@@ -387,7 +391,8 @@ export function renderBook(root, bookIn, opts = {}) {
     if (str(b.genre)) meta.append(el("span", { class: "chip chip-cyan bk-genre", text: str(b.genre) }));
     meta.append(el("span", { class: "bk-source" }, icon("sparkle"), el("span", { text: b.source === "live" ? T("hero.live") : T("hero.demo") })));
 
-    const textKids = [meta, el("h1", { class: "bk-title", text: title })];
+    const len = [...title].length;
+    const textKids = [meta, el("h1", { class: `bk-title${len > 56 ? " is-xlong" : len > 30 ? " is-long" : ""}`, text: title })];
     if (author) textKids.push(el("p", { class: "bk-author", text: author }));
     const origBits = [showOriginal ? original : "", year].filter(Boolean);
     if (origBits.length) {
@@ -398,7 +403,7 @@ export function renderBook(root, bookIn, opts = {}) {
       textKids.push(orig);
     }
     if (str(b.tagline)) textKids.push(el("p", { class: "bk-tagline", text: str(b.tagline) }));
-    themesList = el("ul", { class: "bk-themes", "aria-label": T("nav.summary") });
+    themesList = el("ul", { class: "bk-themes", "aria-label": T("hero.themes") });
     textKids.push(themesList);
     fillThemes();
 
@@ -619,8 +624,13 @@ export function renderBook(root, bookIn, opts = {}) {
   }
 
   function positionInk(scrollIntoView = false) {
+    tabsScroller.classList.toggle("is-scrollable", tabsScroller.scrollWidth > tabsScroller.clientWidth + 2);
     const btn = tabButtons.find((b) => b.dataset.target === active && !b.hidden);
-    if (!btn) { ink.style.opacity = "0"; return; }
+    if (!btn) {
+      ink.style.opacity = "0";
+      if (scrollIntoView && tabsScroller.scrollLeft > 0) tabsScroller.scrollTo({ left: 0, behavior: reduced ? "auto" : "smooth" });
+      return;
+    }
     ink.style.opacity = "1";
     ink.style.width = `${btn.offsetWidth}px`;
     ink.style.transform = `translateX(${btn.offsetLeft}px)`;
@@ -665,12 +675,13 @@ export function renderBook(root, bookIn, opts = {}) {
     setHead(s, T("summary.title"));
     const st = partStatus(book, "overview");
     s.node.setAttribute("aria-busy", st === "loading" ? "true" : "false");
+    s.node.hidden = false;
     if (st === "loading") {
       const widths = [96, 100, 92, 98, 64, 0, 100, 94, 97, 88, 72];
       s.body.replaceChildren(el("div", { class: "bk-summary glass is-loading" },
         el("div", { class: "bk-summary-col" },
           waitNote(T("summary.loading")),
-          el("div", { class: "bk-skel-lines" }, widths.map((w) => (w ? el("span", { class: "skeleton", style: `width:${w}%` }) : el("i"))))));
+          el("div", { class: "bk-skel-lines" }, widths.map((w) => (w ? el("span", { class: "skeleton", style: `width:${w}%` }) : el("i")))))));
       return;
     }
     if (st === "error" || !summaryParas().length) {
@@ -741,6 +752,10 @@ export function renderBook(root, bookIn, opts = {}) {
       const input = el("input", { id: fid, class: "bk-filter-input", type: "search", placeholder: T("terms.filterPh"), autocomplete: "off", spellcheck: "false", enterkeyhint: "search" });
       const apply = () => {
         const q = normalizeQuery(input.value);
+        if (q) {
+          list.classList.remove("is-collapsed");
+          s.body.querySelector(".bk-terms-more")?.remove();
+        }
         let shown = 0;
         for (const it of items) {
           const hit = !q || it.key.includes(q);
@@ -757,7 +772,18 @@ export function renderBook(root, bookIn, opts = {}) {
         icon("search"), el("span", { class: "sr-only", text: T("terms.filter") }), input));
     }
     s.tools.prepend(count);
-    s.body.replaceChildren(list, none);
+    const kids = [list, none];
+    if (terms.length > TERMS_PREVIEW) {
+      list.classList.add("is-collapsed");
+      const more = el("button", { type: "button", class: "btn-ghost bk-terms-more", "aria-expanded": "false" },
+        el("span", { text: TN("terms.showAll", terms.length) }), icon("down"));
+      more.addEventListener("click", () => {
+        list.classList.remove("is-collapsed");
+        more.remove();
+      });
+      kids.push(more);
+    }
+    s.body.replaceChildren(...kids);
   }
   const termsSig = () => json([partStatus(book, "overview"), book.terms, partError(book, "overview")]);
 
@@ -1182,10 +1208,10 @@ export function renderBook(root, bookIn, opts = {}) {
     if (!chars.length) return;
     const freq = new Map();
     for (const sc of filmScenes()) for (const id of arr(sc.cast)) freq.set(id, (freq.get(id) || 0) + 1);
-    let picked = chars.filter((c) => freq.has(c.id)).sort((a, b) => freq.get(b.id) - freq.get(a.id)).slice(0, 4);
+    let picked = chars.filter((c) => freq.has(c.id)).sort((a, b) => freq.get(b.id) - freq.get(a.id)).slice(0, 3);
     if (!picked.length) picked = chars.slice(0, 3);
     // the lead in the middle, the others around
-    const order = picked.length >= 3 ? [picked[1], picked[0], picked[2], picked[3]].filter(Boolean) : picked;
+    const order = picked.length >= 3 ? [picked[1], picked[0], picked[2]] : picked;
     const io = new IntersectionObserver(async (entries) => {
       if (!entries.some((e) => e.isIntersecting)) return;
       io.disconnect();
@@ -1639,6 +1665,27 @@ export function renderBook(root, bookIn, opts = {}) {
   for (const s of SECTIONS) safely(s.name, RENDER[s.name]);
   renderFooter();
   syncSections();
+
+  // Sections fade up once when they first scroll into view (never with reduced motion).
+  if (!reduced && typeof IntersectionObserver === "function") {
+    const reveal = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        e.target.classList.add("is-in");
+        reveal.unobserve(e.target);
+      }
+    }, { rootMargin: "0px 0px -12% 0px" });
+    for (const s of SECTIONS) {
+      const node = secs[s.name].node;
+      const r = node.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.88) { node.classList.add("is-in"); continue; }
+      node.classList.add("bk-reveal");
+      reveal.observe(node);
+    }
+    cleanups.push(() => reveal.disconnect());
+  } else {
+    for (const s of SECTIONS) secs[s.name].node.classList.add("is-in");
+  }
 
   function update(next) {
     if (disposed || !isObj(next)) return;

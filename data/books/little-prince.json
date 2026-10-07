@@ -30,7 +30,7 @@
         "Понемногу лётчик узнаёт, что Маленький принц прилетел с крошечной планеты, астероида B-612, которая чуть больше дома. Там у него три вулкана по колено — два действующих и один потухший, — а каждое утро он выпалывает ростки баобабов, иначе деревья разорвут планету корнями. Когда ему грустно, он просто переставляет стул и смотрит на закат — однажды он видел его сорок три раза за день. Как-то на планете расцвела Роза: прекрасная, гордая и капризная. Принц полюбил её, но её колкие слова ранили его, и он улетел с перелётными птицами. Лишь при прощании Роза призналась, что любит его.",
         "По пути принц посещает соседние астероиды, и на каждом живёт один-единственный взрослый. Король повелевает всем на свете, но отдаёт лишь разумные приказы. Честолюбец ждёт только восхищения, Пьяница пьёт, чтобы забыть, что ему совестно пить, а Деловой человек без устали пересчитывает звёзды, уверенный, что они принадлежат ему. Фонарщик каждую минуту зажигает и гасит фонарь, потому что его планета вертится всё быстрее, — он единственный, кто думает не только о себе. Географ, ни разу не покидавший кабинета, объясняет, что цветы «эфемерны», и принц впервые жалеет, что оставил Розу одну. По совету Географа он отправляется на Землю.",
         "На Земле, посреди африканской пустыни, первой его встречает Змея: она говорит загадками и обещает однажды помочь ему вернуться домой. В розовом саду принц видит пять тысяч роз, точь-в-точь похожих на его цветок, и плачет: он думал, что владеет единственной в мире Розой. Тогда появляется Лис и просит, чтобы принц его приручил. «Приручить» значит создать узы — стать друг для друга единственными на свете. Прощаясь, Лис открывает свой секрет: по-настоящему зорко лишь сердце, а самого главного глазами не увидишь. Роза дорога принцу потому, что он отдал ей столько дней, и он навсегда в ответе за тех, кого приручил.",
-        "На восьмой день после аварии у лётчика кончается последний глоток воды. Принц предлагает искать колодец, и они всю ночь идут по пустыне под звёздами. Малыш говорит, что пустыня хороша тем, что где-то в ней прячется родник, — и лётчик понимает: дом, звёзды и пустыню делает прекрасными то, чего не видно глазами. На рассвете они находят колодец, похожий на деревенский, — с воротом, ведром и верёвкой. Вода в нём кажется подарком. Принц признаётся, что завтра исполнится год с тех пор, как он упал на Землю, — совсем рядом с этим местом.",
+        "На восьмой день после аварии лётчик допивает последний глоток воды. Принц предлагает искать колодец, и они всю ночь идут по пустыне под звёздами. Малыш говорит, что пустыня хороша тем, что где-то в ней прячется родник, — и лётчик понимает: дом, звёзды и пустыню делает прекрасными то, чего не видно глазами. На рассвете они находят колодец, похожий на деревенский, — с воротом, ведром и верёвкой. Вода в нём кажется подарком. Принц признаётся, что завтра исполнится год с тех пор, как он упал на Землю, — совсем рядом с этим местом.",
         "Следующим вечером, наконец починив мотор, лётчик застаёт принца на старой каменной стене: тот о чём-то договаривается с жёлтой змеёй. Ночью малыш утешает друга: его тело слишком тяжело, чтобы взять его с собой, а когда лётчик посмотрит на небо, все звёзды будут смеяться, ведь на одной из них смеётся принц. Змея жалит его в лодыжку, и он тихо падает на песок, как падает дерево. Утром тела не находят. Прошло шесть лет, а лётчик всё смотрит на звёзды и гадает, не съел ли барашек Розу, — ведь он забыл пририсовать к наморднику ремешок."
       ],
       "themes": ["Дружба и привязанность", "Любовь и ответственность", "Детский взгляд на мир взрослых", "Одиночество", "Главное невидимо для глаз"],
@@ -45,7 +45,7 @@
         { "term": "Вулканы", "definition": "Три вулкана высотой по колено: два действующих и один потухший. Принц прочищает их, как печные трубы, и греет на них завтрак." },
         { "term": "Сорок три заката", "definition": "На крошечной планете достаточно передвинуть стул, чтобы снова увидеть закат. Однажды, когда ему было очень грустно, принц смотрел на закат сорок три раза за день." },
         { "term": "Колодец в пустыне", "definition": "Похожий на деревенский колодец с воротом и ведром, который принц и лётчик находят на рассвете. Его вода сладка, как подарок, потому что за ней пришлось долго идти." },
-        { "term": "Сахара", "definition": "Пустыня, где лётчик терпит аварию и встречает принца. Для него это самое пустынное и печальное — и самое прекрасное место на свете." }
+        { "term": "Сахара", "definition": "Пустыня, где лётчик терпит аварию и встречает принца. Тот уголок песков, где малыш появился и откуда исчез, для лётчика — самое прекрасное и самое печальное место на свете." }
       ],
       "similar": [
         { "title": "Планета людей", "author": "Антуан де Сент-Экзюпери", "why": "Автобиографическая проза того же автора о лётчиках и пустыне, где рождались образы «Маленького принца»." },
@@ -67,11 +67,11 @@
           {
             "title": "Прощание с Розой",
             "narration": "Ты стоишь на планете, которую можно обойти за минуту. Принц прочистил вулканы и прощается с Розой, а она, гордая и колючая, впервые не прячет нежности.",
-            "line": { "text": "Я люблю тебя — прости, что ты этого не знал. Будь счастлив." }
+            "line": { "text": "Я люблю тебя — и по моей вине ты этого не знал. Будь счастлив." }
           },
           {
             "title": "Планеты взрослых",
-            "narration": "Ты перелетаешь вслед за принцем с астероида на астероид. Король повелевает звёздами, Деловой человек пересчитывает их в свою тетрадь, а Фонарщик каждую минуту зажигает и гасит фонарь.",
+            "narration": "Ты перелетаешь вслед за принцем с астероида на астероид. Король повелевает звёздами, Деловой человек пересчитывает их и записывает итог на бумажку, а Фонарщик каждую минуту зажигает и гасит фонарь.",
             "line": { "text": "Уговор есть уговор: зажечь, погасить — и снова зажечь!" }
           },
           {
@@ -86,7 +86,7 @@
           },
           {
             "title": "Звёзды, которые умеют смеяться",
-            "narration": "Ты стоишь у старой каменной стены в лунном свете. Принц обнимает друга на прощание, жёлтая змейка скользит к его ногам, и он падает в песок тихо, как падает дерево.",
+            "narration": "Ты стоишь среди песков под звёздным небом — как раз под звездой принца. Малыш держит друга за руку, у его ноги вспыхивает жёлтая молния, и он падает в песок тихо, как падает дерево.",
             "line": { "text": "Посмотри ночью на небо — и все звёзды будут смеяться для тебя." }
           }
         ]
@@ -156,16 +156,16 @@
       "genre": "Філософська казка",
       "tagline": "Казка для дорослих про те, що по-справжньому бачить лише серце.",
       "summary": [
-        "Коли оповідачеві було шість років, він намалював удава, що проковтнув слона, але дорослі побачили на малюнку капелюх і порадили йому краще вчити географію та арифметику. Він покинув малювати, став льотчиком і так і не зустрів дорослого, який би справді його зрозумів. Аж ось його літак зазнає аварії в Сахарі, за тисячу миль від людей, а води ледве вистачить на тиждень. На світанку його будить тоненький голосок: «Намалюй мені баранця!» Перед ним стоїть дивовижний золотоволосий хлопчик. Жоден баранець малому не до вподоби, тож льотчик малює скриньку з дірочками — і хлопчик у захваті: баранець спить усередині.",
-        "Потроху льотчик дізнається, що Маленький принц прилетів із крихітної планети, астероїда B-612, завбільшки як будинок. Там у нього три вулкани по коліно — два активні й один згаслий, — а щоранку він виполює паростки баобабів, бо інакше дерева розірвуть планету корінням. Коли йому сумно, він просто пересуває стільця й дивиться на захід сонця — якось він бачив його сорок три рази за день. Одного дня на планеті розквітла Троянда: прекрасна, горда й вередлива. Принц покохав її, але її колючі слова ранили його, і він вирушив у мандри з перелітними птахами. Лише на прощання Троянда зізналася, що кохає його.",
-        "Дорогою принц відвідує сусідні астероїди, і на кожному живе лише один дорослий. Король владарює над усім на світі, але віддає тільки розумні накази. Честолюбець чекає самого захоплення, П’яниця п’є, щоб забути, як йому соромно пити, а Ділок невтомно лічить зорі, певний, що вони належать йому. Ліхтарник щохвилини запалює й гасить ліхтар, бо його планета обертається дедалі швидше, — він єдиний думає не лише про себе. Географ, який ніколи не виходив зі свого кабінету, пояснює, що квіти «ефемерні», і принц уперше шкодує, що покинув Троянду саму. За порадою Географа він вирушає на Землю.",
-        "На Землі, посеред африканської пустелі, першою його зустрічає Змія: вона говорить загадками й обіцяє колись допомогти йому повернутися додому. У трояндовому саду принц бачить п’ять тисяч троянд, достеменно схожих на його квітку, і плаче: він думав, що має єдину в усьому світі Троянду. Тоді з’являється Лис і просить, щоб принц його приручив. «Приручити» означає створити узи — стати одне для одного єдиними на світі. Прощаючись, Лис відкриває свою таємницю: пильне лише серце, а найголовнішого очима не побачиш. Троянда дорога принцові, бо він віддав їй стільки часу, і він навіки відповідає за тих, кого приручив.",
+        "Коли оповідачеві було шість років, він намалював удава, що проковтнув слона, але дорослі побачили на малюнку капелюх і порадили йому краще вчити географію та арифметику. Він облишив малювання, став льотчиком і так і не зустрів дорослого, який би справді його зрозумів. Аж ось його літак зазнає аварії в Сахарі, за тисячу миль від людей, а води ледве вистачить на тиждень. На світанку його будить тоненький голосок: «Намалюй мені баранця!» Перед ним стоїть дивовижний золотоволосий хлопчик. Жоден баранець малому не до вподоби, тож льотчик малює скриньку з дірочками — і хлопчик у захваті: баранець спить усередині.",
+        "Потроху льотчик дізнається, що Маленький принц прилетів із крихітної планети, астероїда B-612, ледь більшої за будинок. Там у нього три вулкани по коліно — два активні й один згаслий, — а щоранку він виполює паростки баобабів, бо інакше дерева розірвуть планету корінням. Коли йому сумно, він просто пересуває стільця й дивиться на захід сонця — якось він бачив його сорок три рази за день. Одного дня на планеті розквітла Троянда: прекрасна, горда й вередлива. Принц покохав її, але її колючі слова ранили його, і він вирушив у мандри з перелітними птахами. Лише на прощання Троянда зізналася, що кохає його.",
+        "Дорогою принц відвідує сусідні астероїди, і на кожному живе лише один дорослий. Король владарює над усім на світі, але віддає тільки розумні накази. Честолюбець прагне лише захоплення, П’яниця п’є, щоб забути, як йому соромно пити, а Ділок невтомно лічить зорі, певний, що вони належать йому. Ліхтарник щохвилини запалює й гасить ліхтар, бо його планета обертається дедалі швидше, — він єдиний думає не лише про себе. Географ, який ніколи не виходив зі свого кабінету, пояснює, що квіти «ефемерні», і принц уперше шкодує, що покинув Троянду саму. За порадою Географа він вирушає на Землю.",
+        "На Землі, посеред африканської пустелі, першою його зустрічає Змія: вона говорить загадками й обіцяє колись допомогти йому повернутися додому. У трояндовому саду принц бачить п’ять тисяч троянд, достеменно схожих на його квітку, і плаче: він думав, що має єдину в усьому світі Троянду. Тоді з’являється Лис і просить, щоб принц його приручив. «Приручити» означає створити узи — стати одне для одного єдиними на світі. Прощаючись, Лис відкриває свою таємницю: по-справжньому бачить лише серце, а найголовнішого очима не побачиш. Троянда дорога принцові, бо він віддав їй стільки часу, і він навіки відповідає за тих, кого приручив.",
         "На восьмий день після аварії в льотчика закінчується остання крапля води. Принц пропонує шукати криницю, і вони всю ніч ідуть пустелею під зорями. Малий каже, що пустеля гарна тим, що десь у ній ховається джерело, — і льотчик розуміє: дім, зорі й пустелю робить прекрасними те, чого не видно очима. На світанку вони знаходять криницю, схожу на сільську, — з коловоротом, відром і мотузкою. Вода в ній смакує, як подарунок. Принц зізнається, що завтра мине рік відтоді, як він упав на Землю, — зовсім поруч із цим місцем.",
         "Наступного вечора, полагодивши нарешті мотор, льотчик застає принца на старому кам’яному мурі: той про щось домовляється з жовтою змією. Уночі малий утішає друга: його тіло надто важке, щоб забрати його з собою, а коли льотчик дивитиметься на небо, всі зорі сміятимуться, бо на одній із них сміятиметься принц. Змія жалить його в щиколотку, і він тихо падає на пісок, як падає дерево. Уранці тіла не знаходять. Минуло шість років, а льотчик і досі дивиться на зорі й думає, чи не з’їв баранець Троянду, — адже він забув домалювати до намордника ремінець."
       ],
       "themes": ["Дружба й прив’язаність", "Любов і відповідальність", "Дитячий погляд на світ дорослих", "Самотність", "Найголовніше невидиме оку"],
       "terms": [
-        { "term": "Астероїд B-612", "definition": "Рідна планета Маленького принца, завбільшки як будинок. 1909 року її помітив у телескоп турецький астроном, але йому повірили, лише коли він убрався в європейський костюм." },
+        { "term": "Астероїд B-612", "definition": "Рідна планета Маленького принца, ледь більша за будинок. 1909 року її помітив у телескоп турецький астроном, але йому повірили, лише коли він убрався в європейський костюм." },
         { "term": "Троянда", "definition": "Єдина квітка на планеті принца: прекрасна, горда й вередлива, з чотирма колючками. Принц кохає її, але розуміє це надто пізно." },
         { "term": "Баобаби", "definition": "Велетенські дерева, паростки яких треба виполювати щодня. Варто проґавити бодай один — і коріння розірве маленьку планету." },
         { "term": "Приручити", "definition": "Головне слово Лиса: створити узи, стати одне для одного єдиними на світі. За того, кого приручив, відповідаєш навіки." },
@@ -175,7 +175,7 @@
         { "term": "Вулкани", "definition": "Три вулкани заввишки по коліно: два активні й один згаслий. Принц прочищає їх, як комини, і гріє на них сніданок." },
         { "term": "Сорок три заходи сонця", "definition": "На крихітній планеті досить пересунути стільця, щоб знову побачити захід сонця. Одного дуже сумного дня принц дивився на нього сорок три рази." },
         { "term": "Криниця в пустелі", "definition": "Схожа на сільську криниця з коловоротом і відром, яку принц і льотчик знаходять на світанку. Її вода солодка, як подарунок, бо до неї довго йшли." },
-        { "term": "Сахара", "definition": "Пустеля, де льотчик зазнає аварії й зустрічає принца. Для нього це найсамотніше й найсумніше — і найпрекрасніше місце на світі." }
+        { "term": "Сахара", "definition": "Пустеля, де льотчик зазнає аварії й зустрічає принца. Той куточок пісків, де малий з’явився і звідки зник, для льотчика — найпрекрасніше й найсумніше місце на світі." }
       ],
       "similar": [
         { "title": "Планета людей", "author": "Антуан де Сент-Екзюпері", "why": "Автобіографічна проза того самого автора про льотчиків і пустелю, де народжувалися образи «Маленького принца»." },
@@ -197,12 +197,12 @@
           {
             "title": "Прощання з Трояндою",
             "narration": "Ти стоїш на планеті, яку можна обійти за хвилину. Принц прочистив вулкани й прощається з Трояндою, а вона, горда й колюча, уперше не ховає ніжності.",
-            "line": { "text": "Я кохаю тебе — пробач, що ти цього не знав. Будь щасливий." }
+            "line": { "text": "Я кохаю тебе — і з моєї провини ти цього не знав. Будь щасливий." }
           },
           {
             "title": "Планети дорослих",
-            "narration": "Ти перелітаєш услід за принцом з астероїда на астероїд. Король повеліває зорями, Ділок підраховує їх у своєму зошиті, а Ліхтарник щохвилини запалює й гасить ліхтар.",
-            "line": { "text": "Така домовленість: запалити, погасити — і знову запалити!" }
+            "narration": "Ти перелітаєш услід за принцом з астероїда на астероїд. Король повеліває зорями, Ділок лічить їх і записує підсумок на папірець, а Ліхтарник щохвилини запалює й гасить ліхтар.",
+            "line": { "text": "Така умова: запалити, погасити — і знову запалити!" }
           },
           {
             "title": "Лис і п’ять тисяч троянд",
@@ -216,7 +216,7 @@
           },
           {
             "title": "Зорі, які вміють сміятися",
-            "narration": "Ти стоїш біля старого кам’яного муру в місячному сяйві. Принц обіймає друга на прощання, жовта змійка ковзає до його ніг, і він падає на пісок тихо, як падає дерево.",
+            "narration": "Ти стоїш серед пісків під зоряним небом — якраз під зорею принца. Малий тримає друга за руку, біля його ноги спалахує жовта блискавка, і він падає на пісок тихо, як падає дерево.",
             "line": { "text": "Подивися вночі на небо — і всі зорі сміятимуться для тебе." }
           }
         ]
@@ -240,7 +240,7 @@
         "fox": {
           "name": "Лис",
           "traits": ["мудрий", "терплячий", "вірний"],
-          "description": "Рудий Лис, якому набридло полювати на курей і ховатися від мисливців. Він просить принца приручити його й пояснює, що узи створюються часом і турботою. На прощання Лис дарує другові свою таємницю: пильне лише серце."
+          "description": "Рудий Лис, якому набридло полювати на курей і ховатися від мисливців. Він просить принца приручити його й пояснює, що узи створюються часом і турботою. На прощання Лис дарує другові свою таємницю: найзіркіше — серце."
         },
         "snake": {
           "name": "Змія",
@@ -250,7 +250,7 @@
         "lamplighter": {
           "name": "Ліхтарник",
           "traits": ["відданий обов’язку", "втомлений", "працьовитий"],
-          "description": "Мешканець найменшої планети, який запалює й гасить ліхтар згідно з домовленістю. Планета обертається дедалі швидше, і тепер він не має ні хвилини перепочинку. Єдиний дорослий, що не здався принцові смішним, бо дбає не лише про себе."
+          "description": "Мешканець найменшої планети, який запалює й гасить ліхтар згідно з умовою. Планета обертається дедалі швидше, і тепер він не має ні хвилини перепочинку. Єдиний дорослий, що не здався принцові смішним, бо дбає не лише про себе."
         },
         "king": {
           "name": "Король",
@@ -274,7 +274,7 @@
         },
         "tippler": {
           "name": "П’яниця",
-          "traits": ["похмурий", "присоромлений", "загублений"],
+          "traits": ["похмурий", "присоромлений", "пропащий"],
           "description": "Найкоротше знайомство принца: чоловік, що мовчки сидить перед рядами порожніх і повних пляшок. Він п’є, щоб забути, що йому соромно пити. Принц іде від нього в глибокому подиві й смутку."
         }
       }
@@ -288,7 +288,7 @@
       "summary": [
         "At six, the narrator drew a boa constrictor digesting an elephant, but every grown-up saw only a hat and told him to stick to geography and arithmetic. He gave up art, became a pilot and never met an adult who truly understood him. Then his plane breaks down in the Sahara, a thousand miles from anyone, with barely a week’s water. At sunrise a small voice wakes him: “Please — draw me a sheep!” Before him stands an extraordinary little boy with golden hair. Every sheep he draws is rejected, so he sketches a box with air holes — and the boy is delighted: the sheep is asleep inside.",
         "Bit by bit the pilot learns that the little prince comes from a planet scarcely bigger than a house, Asteroid B-612. There he sweeps out three knee-high volcanoes, two active and one extinct, and every morning pulls up baobab sprouts before their roots can split his world apart. When he is sad he simply moves his chair to watch another sunset — once he saw forty-four in a single day. Then a Rose bloomed there: lovely, proud and capricious. He loved her, but her prickly words wounded him, and he left with a flock of migrating birds. Only at their parting did she confess that she loved him.",
-        "On his way he visits neighbouring asteroids, each home to a single grown-up. A King rules over everything yet issues only reasonable orders. A Conceited Man wants nothing but admiration; a Tippler drinks to forget that he is ashamed of drinking; a Businessman counts stars all day, convinced that he owns them. A Lamplighter lights and puts out his lamp every minute because his planet now spins so fast — the only one who cares about something beyond himself. A Geographer who has never left his desk explains that flowers are “ephemeral”, and for the first time the prince regrets leaving his Rose alone. He sets off for Earth.",
+        "On his way he visits neighbouring asteroids, each home to a single grown-up. A King rules over everything yet issues only reasonable orders. A Conceited Man wants nothing but admiration; a Tippler drinks to forget that he is ashamed of drinking; a Businessman counts stars all day, convinced that he owns them. A Lamplighter lights and puts out his lamp every minute because his planet now spins so fast — the only one who cares about something beyond himself. A Geographer who has never left his desk explains that flowers are “ephemeral”, and for the first time the prince regrets leaving his Rose alone. On the Geographer’s advice, he sets off for Earth.",
         "In the African desert he first meets a snake who speaks in riddles and promises to help him home one day. In a garden he finds five thousand roses exactly like his own and weeps: he thought he owned the only rose in the universe. Then a fox appears and asks to be tamed. Taming, the fox explains, means establishing ties — becoming unique to each other in all the world. At parting the fox shares his secret: the heart alone sees clearly; what matters most is invisible to the eye. The time he gave his Rose makes her precious, and he is responsible forever for what he has tamed.",
         "On the eighth day after the crash the pilot drinks his last drop of water. The prince suggests looking for a well, and they walk through the desert all night beneath the stars. The desert is lovely, the boy says, because somewhere it hides a spring — and the pilot understands that what makes houses, stars and deserts beautiful is something unseen. At daybreak they find a well like one in a village, with a pulley, a bucket and a rope. The water tastes like a present. Then the prince lets slip that tomorrow will mark one year since he fell to Earth, right near this spot.",
         "The next evening, his engine repaired, the pilot finds the prince on an old stone wall, talking with the yellow snake. That night the boy comforts his friend: his body is too heavy to take along, and when the pilot looks up, all the stars will laugh, for the prince will be laughing on one of them. The snake bites him at the ankle, and he falls gently into the sand, as a tree falls. At daybreak there is no body. Six years on, the pilot still gazes at the stars and wonders whether the sheep has eaten the Rose: he forgot to draw a strap for its muzzle."
@@ -305,7 +305,7 @@
         { "term": "The volcanoes", "definition": "Three knee-high volcanoes, two active and one extinct. The prince sweeps them out like chimneys and warms his breakfast on them." },
         { "term": "Forty-four sunsets", "definition": "On so tiny a planet you need only move your chair a few steps to see the sun set again. On one very sad day the prince watched forty-four sunsets." },
         { "term": "The well in the desert", "definition": "A village-like well with a pulley, bucket and rope that the prince and the pilot find at daybreak. Its water is sweet as a gift because they walked so far for it." },
-        { "term": "The Sahara", "definition": "The desert where the pilot crash-lands and meets the prince. To him it is the loneliest, saddest and most beautiful place in the world." }
+        { "term": "The Sahara", "definition": "The desert where the pilot crash-lands and meets the prince. The patch of sand where the boy appeared and vanished is, to the pilot, the loveliest and saddest place in the world." }
       ],
       "similar": [
         { "title": "Wind, Sand and Stars", "author": "Antoine de Saint-Exupéry", "why": "The author’s own memoir of flying mail planes over the desert, where many of the little prince’s images were born." },
@@ -327,11 +327,11 @@
           {
             "title": "Farewell to the Rose",
             "narration": "You stand on a planet so tiny you could walk around it in a minute. The prince has swept out his volcanoes and is saying goodbye to the Rose, who for once lets her tenderness show.",
-            "line": { "text": "I love you — forgive me for hiding it. Go, and be happy." }
+            "line": { "text": "Yes, I love you — and it’s my fault you never knew. Try to be happy." }
           },
           {
             "title": "The Planets of the Grown-ups",
-            "narration": "You hop after the prince from asteroid to asteroid. A King commands the stars, a Businessman tallies them in his ledger, and a Lamplighter lights and snuffs his lamp once every minute.",
+            "narration": "You hop after the prince from asteroid to asteroid. A King commands the stars, a Businessman tallies them up on a slip of paper, and a Lamplighter lights and snuffs his lamp once every minute.",
             "line": { "text": "Orders are orders: light it, put it out, light it again!" }
           },
           {
@@ -346,7 +346,7 @@
           },
           {
             "title": "Stars That Can Laugh",
-            "narration": "You stand by an old stone wall in the moonlight. The prince hugs his friend goodbye, a yellow snake glides to his feet, and he falls into the sand as softly as a tree.",
+            "narration": "You stand among the dunes beneath a sky full of stars, right under the prince’s own star. The boy holds his friend’s hand, a yellow flash darts at his ankle, and he falls into the sand as softly as a tree.",
             "line": { "text": "Look up at night — all the stars will be laughing for you." }
           }
         ]
@@ -358,7 +358,7 @@
           "description": "A golden-haired boy from Asteroid B-612 who tends his volcanoes and his beloved Rose. After quarrelling with her he travels from planet to planet, baffled by the strange grown-ups he meets. On Earth the fox teaches him friendship, and he resolves to return to his flower whatever the cost."
         },
         "pilot": {
-          "name": "The Aviator",
+          "name": "The Pilot",
           "traits": ["dreamy", "lonely", "sensitive"],
           "description": "The narrator, who wanted to be a painter as a child but became a pilot instead. Stranded in the Sahara, he meets the prince and over eight days relearns how to see the world through a child’s eyes. He repairs his engine, but what he truly gains is a friend he can never forget."
         },
@@ -380,7 +380,7 @@
         "lamplighter": {
           "name": "The Lamplighter",
           "traits": ["dutiful", "weary", "hard-working"],
-          "description": "The keeper of the smallest planet, who lights and puts out his lamp according to orders. His planet turns faster every year, so now he never gets a moment’s rest. He is the only grown-up the prince does not find absurd, because he cares about something other than himself."
+          "description": "The only inhabitant of the smallest planet, who lights and puts out his lamp according to orders. His planet turns faster every year, so now he never gets a moment’s rest. He is the only grown-up the prince does not find absurd, because he cares about something other than himself."
         },
         "king": {
           "name": "The King",
@@ -568,8 +568,8 @@
   ],
   "film": {
     "scenes": [
-      { "setting": "desert", "time": "day", "weather": "wind", "cast": ["pilot", "prince"], "props": ["rock", "chest"], "action": "talk", "camera": "dolly_in", "mood": "mysterious", "line": { "speaker": "prince" } },
-      { "setting": "space", "time": "dusk", "weather": "clear", "cast": ["prince", "rose"], "props": ["volcano", "chair", "planet"], "action": "sad", "camera": "orbit", "mood": "romantic", "line": { "speaker": "rose" } },
+      { "setting": "desert", "time": "dawn", "weather": "wind", "cast": ["pilot", "prince"], "props": ["rock", "chest"], "action": "talk", "camera": "dolly_in", "mood": "mysterious", "line": { "speaker": "prince" } },
+      { "setting": "space", "time": "day", "weather": "clear", "cast": ["prince", "rose"], "props": ["volcano", "chair", "planet"], "action": "sad", "camera": "orbit", "mood": "romantic", "line": { "speaker": "rose" } },
       { "setting": "space", "time": "night", "weather": "stars", "cast": ["prince", "king", "businessman", "lamplighter"], "props": ["throne", "lamp", "planet", "star"], "action": "travel", "camera": "fly_over", "mood": "joyful", "line": { "speaker": "lamplighter" } },
       { "setting": "garden", "time": "day", "weather": "wind", "cast": ["prince", "fox"], "props": ["rose", "flower", "fence", "tree"], "action": "talk", "camera": "pan", "mood": "calm", "line": { "speaker": "fox" } },
       { "setting": "desert", "time": "dawn", "weather": "clear", "cast": ["pilot", "prince"], "props": ["well", "rock"], "action": "discover", "camera": "crane", "mood": "magical", "line": { "speaker": "prince" } },
@@ -578,7 +578,7 @@
     "videoPrompts": [
       "Cute voxel diorama, 3D render: a tiny golden-haired boy in a long green coat and a fluttering yellow scarf stands on a miniature round asteroid with two smoking knee-high volcanoes and a single red rose under a glass dome, slow orbiting camera, warm sunset glow against a starry sky, soft tilt-shift lighting, no text, no real people.",
       "Cute voxel diorama, 3D render: a red fox and a little golden-haired boy sit side by side at the edge of a golden wheat field next to a garden full of red roses, gentle wind ripples the wheat, slow sideways pan, soft afternoon light, cozy miniature look, no text, no real people.",
-      "Cute voxel diorama, 3D render: a small vintage propeller plane rests among moonlit Sahara dunes beside a stone well, a little boy in a green coat looks up at a sky full of twinkling stars that glow and sparkle like laughter, slow crane shot rising toward the stars, magical deep-blue night palette, no text, no real people."
+      "Cute voxel diorama, 3D render: a small vintage propeller plane rests among moonlit Sahara dunes, a little golden-haired boy in a green coat and a pilot in a leather jacket sit side by side on a dune looking up at a sky full of twinkling stars that glow and sparkle like laughter, slow crane shot rising toward the stars, magical deep-blue night palette, no text, no real people."
     ]
   }
 }

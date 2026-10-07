@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BookTrip — dev: book page</title>
+<meta name="theme-color" content="#04050b">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap">
+<script type="importmap">
+{ "imports": { "three": "../vendor/three.min.js" } }
+</script>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/book.css">
+<script>document.documentElement.classList.add("js");</script>
+<!-- Dev page for the book page (js/book-view.js + css/book.css). Query params:
+     (none)        rich inline sample BookView, demo health
+     ?loading      overview / characters / film still loading (skeletons)
+     ?error        every part failed (inline errors with retry)
+     ?progressive  starts loading, parts arrive one by one via update(); the first film load fails
+     ?demo=<id>    a bundled demo book from data/books (real 3-language data via js/api.js)
+     ?lang=ru|uk|en   UI language (the inline sample's content stays Russian)
+     ?portraits=1 ?video=1   pretend the premium services are connected -->
+<style>
+  .dev-bar { position: fixed; z-index: 500; left: 12px; bottom: 12px; display: flex; gap: 6px; flex-wrap: wrap; max-width: calc(100% - 24px); }
+  .dev-bar a { padding: 6px 10px; border-radius: 10px; font: 600 12px/1 var(--ui); color: var(--ink-2); background: rgba(10, 14, 26, .82); border: 1px solid var(--line); }
+  .dev-bar a:hover { color: #fff; }
+  html.shot .dev-bar { display: none; }
+</style>
+</head>
+<body>
+
+<canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
+
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#/" aria-label="BookTrip">
+    <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="bm-g" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#9ef6ff"/><stop offset=".5" stop-color="#39d6ff"/><stop offset="1" stop-color="#1a7fe0"/>
+        </linearGradient>
+      </defs>
+      <g transform="rotate(-24 24 24)">
+        <ellipse cx="24" cy="24" rx="20" ry="9" fill="none" stroke="url(#bm-g)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="62 28" stroke-dashoffset="16" opacity=".9"/>
+        <circle cx="43" cy="21" r="2.6" fill="#c9f8ff"/>
+      </g>
+      <path d="M13 16.5c3.6-1.4 7.4-1.2 11 .8v15.2c-3.6-2-7.4-2.2-11-.8z" fill="url(#bm-g)"/>
+      <path d="M35 16.5c-3.6-1.4-7.4-1.2-11 .8v15.2c3.6-2 7.4-2.2 11-.8z" fill="#bff6ff" opacity=".85"/>
+    </svg>
+    <span class="brand-word"><b>BOOK</b>TRIP</span>
+  </a>
+  <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+      <button type="button" data-lang="uk" aria-pressed="false">UA</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="view view-book" id="view-book" aria-live="polite"></section>
+</main>
+
+<div id="modal-root"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<nav class="dev-bar" aria-label="Dev modes">
+  <a href="?">sample</a><a href="?loading">loading</a><a href="?error">error</a><a href="?progressive">progressive</a>
+  <a href="?demo=little-prince">demo: little-prince</a><a href="?demo=the-hobbit&amp;lang=en">demo: hobbit (en)</a>
+  <a href="?portraits=1&amp;video=1">premium on</a>
+</nav>
+
+<script type="module">
+import { renderBook } from "../js/book-view.js";
+import { startStars } from "../js/stars.js";
+
+const params = new URLSearchParams(location.search);
+const lang = ["ru", "uk", "en"].includes(params.get("lang")) ? params.get("lang") : "ru";
+document.documentElement.lang = lang;
+if (params.has("shot")) document.documentElement.classList.add("shot");
+for (const b of document.querySelectorAll(".lang-switch button")) {
+  b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
+  b.addEventListener("click", () => { params.set("lang", b.dataset.lang); location.search = params.toString(); });
+}
+try { startStars(document.getElementById("starfield")); } catch (err) { console.warn(err); }
+
+// --- the inline sample: L. Frank Baum, "The Wonderful Wizard of Oz" (1900) -----------------------
+const A = (o) => ({
+  creature: "human", gender: "neutral", age: "adult", build: "average", skin: "#f1c7a3",
+  hair: { style: "short", color: "#3b2a1a" }, facialHair: "none", eyes: "#2f2a26",
+  top: { kind: "shirt", color: "#3a6ea5", accent: "#f2efe8", pattern: "plain" },
+  bottom: { kind: "pants", color: "#2b2b35" }, shoes: "#4a3020",
+  headwear: "none", headwearColor: "#222222", accessory: "none", accessoryColor: "#222222", holding: "none", ...o,
+});
+
+const SAMPLE = {
+  id: "wonderful-wizard-of-oz",
+  lang: "ru",
+  source: "demo",
+  title: "Удивительный волшебник из страны Оз",
+  originalTitle: "The Wonderful Wizard of Oz",
+  author: "Лаймен Фрэнк Баум",
+  year: 1900,
+  genre: "Сказочная повесть",
+  tagline: "Ураган уносит девочку из Канзаса туда, где мечты сбываются, если дойти до конца жёлтой дороги.",
+  cover: { bg: "#0f6a4a", bg2: "#06261c", fg: "#f6e7b0", accent: "#ffd36b", motif: "castle" },
+  summary: [
+    "Дороти живёт с дядей Генри, тётей Эм и пёсиком Тото посреди серой канзасской степи. Однажды налетает ураган, подхватывает их домик и несёт его через облака. Домик падает в волшебную страну Оз — прямо на Злую Волшебницу Востока, и та погибает. Добрая Волшебница Севера дарит Дороти серебряные башмачки погибшей и советует идти в Изумрудный город: только великий Гудвин, Волшебник страны Оз, может вернуть девочку домой.",
+    "По дороге из жёлтого кирпича Дороти снимает с шеста Страшилу, который мечтает о мозгах, расколдовывает заржавевшего Железного Дровосека, мечтающего о сердце, и встречает Трусливого Льва, которому не хватает храбрости. Вместе они переходят пропасти, спасаются от калидахов, переплывают реку и чудом выбираются из макового поля, где сон едва не убивает Дороти и Льва. Им помогают полевые мыши и их Королева.",
+    "Изумрудный город оказывается зелёным потому, что всем жителям выдают зелёные очки. Волшебник является каждому в новом облике и ставит условие: исполнит желания, только если путники уничтожат Злую Волшебницу Запада. Колдунья насылает на них волков, ворон, пчёл, а потом и Летучих обезьян с помощью Золотой шапки. Друзья разбиты, Дороти и Лев попадают в плен.",
+    "Волшебница хитростью отнимает у Дороти один серебряный башмачок. Разозлившись, девочка выливает на неё ведро воды — и колдунья тает. Дороти освобождает Мигунов, собирает друзей и возвращается в Изумрудный город. Там выясняется, что великий Гудвин — обычный старичок-фокусник из Омахи. Но он находит выход: Страшила получает «мозги» из отрубей и булавок, Дровосек — шёлковое сердце, Лев — отвагу из волшебного напитка.",
+    "Волшебник улетает на воздушном шаре, а Дороти не успевает в корзину. Друзья отправляются на юг к Глинде, Доброй Волшебнице, и по пути проходят ещё немало испытаний. Глинда раскрывает секрет: башмачки всегда могли вернуть Дороти домой. Страшила становится правителем Изумрудного города, Дровосек — Мигунов, Лев — царём зверей в лесу. Дороти трижды щёлкает каблуками и оказывается в Канзасе, в объятиях тёти Эм.",
+  ],
+  themes: ["Дружба", "Дом", "Вера в себя", "Взросление", "Обман и правда"],
+  terms: [
+    { term: "Страна Оз", definition: "Волшебная страна, отрезанная от мира пустыней. Делится на четыре края — Жевунов, Мигунов, Болтунов и Кводлингов — с Изумрудным городом в центре." },
+    { term: "Дорога из жёлтого кирпича", definition: "Путь от страны Жевунов к Изумрудному городу. Держаться её — главный совет, который получает Дороти." },
+    { term: "Изумрудный город", definition: "Столица страны Оз, где правит Гудвин. Сияет зеленью, потому что все носят зелёные очки." },
+    { term: "Серебряные башмачки", definition: "Волшебные туфельки Злой Волшебницы Востока. Могут перенести хозяина куда угодно — достаточно трижды щёлкнуть каблуками." },
+    { term: "Золотая шапка", definition: "Волшебная шапка, владелец которой трижды может призвать Летучих обезьян." },
+    { term: "Летучие обезьяны", definition: "Крылатый народ, обязанный служить хозяину Золотой шапки. По приказу колдуньи разбивают друзей Дороти." },
+    { term: "Жевуны", definition: "Маленькие люди в синем, жители восточного края. Первыми встречают Дороти и радуются гибели Злой Волшебницы." },
+    { term: "Мигуны", definition: "Жители западного края, которых держит в рабстве Злая Волшебница Запада. После её гибели выбирают правителем Дровосека." },
+    { term: "Калидахи", definition: "Чудища с телом медведя и головой тигра, преследующие путников в лесу у пропасти." },
+    { term: "Маковое поле", definition: "Поле алых маков, аромат которых погружает в смертельный сон всех, кто дышит." },
+    { term: "Гудвин", definition: "Великий и Ужасный Волшебник страны Оз — на деле фокусник и чревовещатель, занесённый в Оз воздушным шаром." },
+  ],
+  similar: [
+    { title: "Алиса в Стране чудес", author: "Льюис Кэрролл", why: "Ещё одна девочка проваливается в безумный волшебный мир и ищет дорогу обратно." },
+    { title: "Волшебник Изумрудного города", author: "Александр Волков", why: "Знаменитый пересказ той же истории, где Дороти зовут Элли, а Тото умеет говорить." },
+    { title: "Питер Пэн", author: "Джеймс Барри", why: "Полёт в волшебную страну и вечный спор между приключением и домом." },
+    { title: "Лев, колдунья и платяной шкаф", author: "Клайв С. Льюис", why: "Дети попадают в Нарнию, где злая колдунья держит страну в своей власти." },
+    { title: "Хоббит, или Туда и обратно", author: "Джон Р. Р. Толкин", why: "Домосед отправляется в долгий путь с необычными спутниками — и возвращается другим." },
+  ],
+  characters: [
+    { id: "dorothy", role: "protagonist", name: "Дороти Гейл", traits: ["смелая", "добрая", "упорная", "прямодушная"],
+      description: "Девочка из Канзаса, которую ураган уносит в страну Оз. Она не волшебница и не воин, но именно её доброта и упорство собирают вокруг неё друзей. Всё путешествие Дороти мечтает об одном — вернуться домой.",
+      appearance: A({ gender: "female", age: "child", build: "slim", skin: "#f6d3b8", hair: { style: "braids", color: "#6b3f22" }, eyes: "#4a72a8",
+        top: { kind: "dress", color: "#6fa8dc", accent: "#ffffff", pattern: "checks" }, bottom: { kind: "skirt", color: "#6fa8dc" }, shoes: "#c9ccd6",
+        headwear: "bow", headwearColor: "#4f86c6", holding: "basket" }),
+      portraitPrompt: "A little farm girl with two brown braids and a blue bow, in a blue-and-white gingham dress and shining silver shoes, holding a small wicker basket." },
+    { id: "scarecrow", role: "supporting", name: "Страшила", traits: ["доверчивый", "находчивый", "весёлый"],
+      description: "Соломенное чучело с нарисованным лицом, уверенное, что у него нет мозгов. По дороге именно он придумывает, как выбраться из самых безнадёжных передряг. В финале становится правителем Изумрудного города.",
+      appearance: A({ gender: "male", build: "slim", skin: "#efdcae", hair: { style: "messy", color: "#e4c056" }, eyes: "#2a3a5a",
+        top: { kind: "shirt", color: "#4f6fa0", accent: "#e4c056", pattern: "checks" }, bottom: { kind: "pants", color: "#7a5a3a" }, shoes: "#5a3e2a",
+        headwear: "straw_hat", headwearColor: "#d9b15a" }),
+      portraitPrompt: "A friendly scarecrow stuffed with straw, with a painted sack-cloth face, a patched blue shirt, straw poking from his sleeves and a battered straw hat." },
+    { id: "tin-woodman", role: "supporting", name: "Железный Дровосек", traits: ["нежный", "верный", "сентиментальный"],
+      description: "Бывший лесоруб, которого заколдованный топор превратил в жестяного человека. Он считает, что без сердца не умеет любить, и при этом плачет, раздавив жука. Получает шёлковое сердце и становится правителем Мигунов.",
+      appearance: A({ creature: "robot", gender: "male", build: "tall", skin: "#b9c2cc", hair: { style: "none", color: "#b9c2cc" }, eyes: "#24303c",
+        top: { kind: "armor", color: "#aab4bf", accent: "#7d8894", pattern: "plain" }, bottom: { kind: "pants", color: "#9aa5b1" }, shoes: "#7d8894",
+        headwear: "helmet", headwearColor: "#c5ced8" }),
+      portraitPrompt: "A gentle man made entirely of polished tin, with a funnel-shaped hat, riveted joints and kind painted eyes." },
+    { id: "lion", role: "supporting", name: "Трусливый Лев", traits: ["пугливый", "благородный", "смешной"],
+      description: "Царь зверей, который боится всего на свете и прячет страх за грозным рыком. В минуты опасности раз за разом бросается защищать друзей. Получает «храбрость» в чашке и становится царём лесных зверей.",
+      appearance: A({ creature: "lion", gender: "male", build: "broad", skin: "#d9a441", hair: { style: "curly", color: "#a8642a" }, eyes: "#5a3a12",
+        top: { kind: "tunic", color: "#d9a441", accent: "#a8642a", pattern: "plain" }, bottom: { kind: "none", color: "#d9a441" }, shoes: "#c08a32",
+        accessory: "bowtie", accessoryColor: "#c0392b" }),
+      portraitPrompt: "A big shaggy lion with a golden coat and a huge russet mane, looking anxious and sweet, wearing a small red bow." },
+    { id: "toto", role: "supporting", name: "Тото", traits: ["весёлый", "любопытный", "преданный"],
+      description: "Маленький чёрный пёсик Дороти. Всюду бежит за хозяйкой, а в Изумрудном городе отодвигает ширму и раскрывает тайну великого Волшебника.",
+      appearance: A({ creature: "dog", build: "small", skin: "#2b2623", hair: { style: "none", color: "#2b2623" }, eyes: "#140f0c",
+        top: { kind: "tshirt", color: "#2b2623", accent: "#2b2623", pattern: "plain" }, bottom: { kind: "none", color: "#2b2623" }, shoes: "#2b2623" }),
+      portraitPrompt: "A small black terrier with silky fur, bright twinkling eyes and a funny little nose." },
+    { id: "wizard", role: "supporting", name: "Гудвин, Великий и Ужасный", traits: ["хитрый", "обаятельный", "одинокий"],
+      description: "Правитель Изумрудного города, перед которым трепещет вся страна. На деле — бывший цирковой фокусник из Омахи, занесённый в Оз воздушным шаром. Исполняет желания друзей простыми трюками — и они срабатывают.",
+      appearance: A({ gender: "male", age: "elder", build: "small", skin: "#f0c9a8", hair: { style: "short", color: "#d6d2cc" }, facialHair: "mustache", eyes: "#3a2a1a",
+        top: { kind: "suit", color: "#3d2a5a", accent: "#e6c86e", pattern: "plain" }, bottom: { kind: "pants", color: "#2b2b38" }, shoes: "#1e1a24",
+        headwear: "top_hat", headwearColor: "#2b2b38", accessory: "bowtie", accessoryColor: "#2fa86a" }),
+      portraitPrompt: "A little old bald man with a white moustache and a wrinkled, twinkling face, in a plum frock coat with an emerald bow tie and a tall top hat." },
+    { id: "wicked-witch", role: "antagonist", name: "Злая Волшебница Запада", traits: ["жестокая", "жадная", "одинокая"],
+      description: "Одноглазая колдунья, которая правит Мигунами и видит своим глазом всю страну. Боится темноты и воды. Посылает на путников волков, ворон, пчёл и Летучих обезьян, но тает от ведра воды.",
+      appearance: A({ gender: "female", age: "elder", build: "slim", skin: "#cfd9a3", hair: { style: "long", color: "#2a2430" }, eyes: "#3a2a1a",
+        top: { kind: "robe", color: "#2a2433", accent: "#6a4a8a", pattern: "plain" }, bottom: { kind: "robe", color: "#2a2433" }, shoes: "#1e1a24",
+        headwear: "wizard_hat", headwearColor: "#1e1a24", accessory: "eyepatch", accessoryColor: "#111111", holding: "umbrella" }),
+      portraitPrompt: "A scowling old witch with one eye and a black eyepatch, in a dark purple robe and a tall pointed hat, clutching a black umbrella." },
+    { id: "mouse-queen", role: "minor", name: "Королева полевых мышей", traits: ["благодарная", "мудрая", "решительная"],
+      description: "Крошечная правительница, которую Дровосек спасает от дикой кошки. В ответ её подданные вытаскивают спящего Льва из макового поля.",
+      appearance: A({ creature: "mouse", gender: "female", build: "small", skin: "#b8b0a6", hair: { style: "none", color: "#b8b0a6" }, eyes: "#1a1410",
+        top: { kind: "gown", color: "#8a6ad8", accent: "#e6c86e", pattern: "embroidery" }, bottom: { kind: "skirt", color: "#8a6ad8" }, shoes: "#6a52a8",
+        headwear: "crown", headwearColor: "#e6c86e" }),
+      portraitPrompt: "A tiny grey field mouse queen with round pink ears, wearing a lilac gown embroidered with gold and a little golden crown." },
+  ],
+  film: {
+    title: "По дороге из жёлтого кирпича",
+    intro: "Вы открываете книгу — и вихрь страниц подхватывает вас, как домик Дороти, унося прочь из серого Канзаса.",
+    outro: "Каблуки щёлкают трижды, страницы смыкаются — и вы снова дома, где пахнет травой и ветром.",
+    scenes: [
+      { title: "Ураган", setting: "village", time: "dusk", weather: "wind", cast: ["dorothy", "toto"], props: ["house", "fence", "well"], action: "travel", camera: "crane", mood: "tense",
+        narration: "Вы стоите посреди серой степи, и небо темнеет на глазах. Ветер срывает доски с забора, Дороти прижимает к себе Тото — и домик отрывается от земли.",
+        line: { speaker: "dorothy", text: "Держись, Тото, мы взлетаем!" } },
+      { title: "Встреча со Страшилой", setting: "meadow", time: "day", weather: "clear", cast: ["dorothy", "scarecrow", "toto"], props: ["fence", "flower", "tree"], action: "talk", camera: "orbit", mood: "joyful",
+        narration: "Жёлтая дорога вьётся между кукурузными полями. Вы помогаете Дороти снять с шеста соломенное чучело, и оно впервые в жизни делает шаг.",
+        line: { speaker: "scarecrow", text: "Если бы у меня были мозги, я бы знал, как вас отблагодарить!" } },
+      { title: "Лес и Трусливый Лев", setting: "forest", time: "day", weather: "fog", cast: ["dorothy", "tin-woodman", "lion"], props: ["pine", "tree", "rock"], action: "walk", camera: "dolly_in", mood: "magical",
+        narration: "В лесу темно и тихо, лишь поскрипывают суставы Дровосека. Из чащи с рёвом выпрыгивает Лев — и тут же сам пугается крошечной Дороти.",
+        line: { speaker: "lion", text: "Я всего лишь трус, сколько бы ни рычал." } },
+      { title: "Изумрудный город", setting: "city", time: "day", weather: "clear", cast: ["wizard", "dorothy", "scarecrow"], props: ["tower", "fountain", "gate"], action: "discover", camera: "fly_over", mood: "mysterious",
+        narration: "Вы надеваете зелёные очки, и город вспыхивает изумрудами. В тронном зале вас ждёт Великий и Ужасный — каждый раз в новом облике.",
+        line: { speaker: "wizard", text: "Сначала уничтожьте Злую Волшебницу Запада." } },
+      { title: "Ведро воды", setting: "castle", time: "night", weather: "rain", cast: ["wicked-witch", "dorothy"], props: ["throne", "candles", "barrel"], action: "fight", camera: "close_up", mood: "epic",
+        narration: "В замке колдуньи гуляют сквозняки. Она хватает серебряный башмачок, Дороти в гневе выплёскивает ведро — и злодейка тает, шипя, как кусок сахара.",
+        line: { speaker: "wicked-witch", text: "Смотри, что ты наделала, я таю!" } },
+    ],
+    videoPrompts: [
+      "Cinematic wide shot: a small wooden farmhouse lifted by a swirling grey twister above the Kansas prairie at dusk, a girl in a gingham dress at the window holding a little black dog, dramatic clouds, 8 seconds.",
+      "Cinematic tracking shot along a winding yellow brick road through bright cornfields, a girl with braids walks arm in arm with a straw scarecrow, a tin man and a shaggy lion, warm sunny light, 8 seconds.",
+      "Cinematic slow push-in: the glowing emerald towers of a fairy-tale city rising behind green gates, sparkling light, travellers in green spectacles looking up in awe, 8 seconds.",
+    ],
+  },
+};
+
+// --- modes ------------------------------------------------------------------------------------------
+const health = { live: false, portraits: params.get("portraits") === "1", video: params.get("video") === "1", premiumCodeRequired: true, model: "demo" };
+const strip = (b, parts) => {
+  const out = { ...b };
+  if (parts.includes("overview")) for (const k of ["summary", "themes", "terms", "similar"]) delete out[k];
+  if (parts.includes("characters")) delete out.characters;
+  if (parts.includes("film")) delete out.film;
+  return out;
+};
+const ERR = {
+  overview: { code: "upstream", message: "Сервис пересказов не ответил вовремя." },
+  characters: { code: "rate_limited", message: "Слишком много запросов. Подождите минуту." },
+  film: { code: "upstream", message: "Не удалось написать сценарий фильма." },
+};
+
+let book = SAMPLE;
+if (params.has("demo")) {
+  const api = await import("../js/api.js");
+  book = await api.loadDemoBook(params.get("demo"), lang);
+} else if (params.has("loading") || params.has("progressive")) {
+  book = { ...strip(SAMPLE, ["overview", "characters", "film"]), source: "live" };
+} else if (params.has("error")) {
+  book = { ...strip(SAMPLE, ["overview", "characters", "film"]), source: "live", _errors: { ...ERR } };
+}
+
+const root = document.getElementById("view-book");
+const toast = (msg) => {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => t.classList.remove("show"), 2600);
+};
+
+let view = null;
+let filmFailed = false;
+const arrive = (part, ms) => setTimeout(() => {
+  const errors = { ...(book._errors || {}) };
+  delete errors[part];
+  if (part === "film" && params.has("progressive") && !filmFailed) {
+    filmFailed = true;
+    book = { ...book, _errors: { ...errors, film: ERR.film } };
+  } else {
+    const src = part === "overview" ? { summary: SAMPLE.summary, themes: SAMPLE.themes, terms: SAMPLE.terms, similar: SAMPLE.similar }
+      : part === "characters" ? { characters: SAMPLE.characters } : { film: SAMPLE.film };
+    book = { ...book, ...src, _errors: errors };
+  }
+  view.update(book);
+}, ms);
+
+view = renderBook(root, book, {
+  lang,
+  health,
+  onSearch: (q) => { console.log("[dev] onSearch", q); toast(`onSearch: ${q}`); },
+  onBack: () => { console.log("[dev] onBack"); toast("onBack()"); },
+  onRetry: (part) => {
+    console.log("[dev] onRetry", part);
+    const errors = { ...(book._errors || {}) };
+    delete errors[part];
+    book = { ...book, _errors: errors };
+    view.update(book);
+    arrive(part, 1600);
+  },
+});
+window.__book = { view, get book() { return book; }, SAMPLE };
+
+if (params.has("progressive")) {
+  arrive("overview", 1500);
+  arrive("characters", 3000);
+  arrive("film", 4500);
+}
+</script>
+</body>
+</html>
