@@ -337,7 +337,13 @@ await check("book: the mini-film plays (scenes, subtitles, pause, restart, end)"
   assert(sizes.every((b) => b > 40000), `a scene looks blank: ${sizes.join(", ")} bytes`);
   assert(subs.size >= 2, "subtitles did not change between scenes");
   // pause: the progress stops (moving the pointer over the stage wakes the auto-hiding HUD)
-  const hud = async (sel) => { await page.hover("#bk-film .bk-stage"); await page.locator(`.bk-hud ${sel}`).click(); };
+  // the HUD auto-hides after ~2.6 s; a pointer move wakes it, so move onto the button and click at once
+  const hud = async (sel) => {
+    await page.hover("#bk-film .bk-stage");
+    const b = await page.locator(`.bk-hud ${sel}`).boundingBox();
+    await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 2 });
+    await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2);
+  };
   await hud(".is-pp");
   await waitFor(page, () => document.querySelector("#bk-film .bk-stage.is-paused"), null, { what: "paused state" });
   const p1 = await page.evaluate(() => document.querySelector(".btf-dot.is-cur i")?.style.transform || "");
