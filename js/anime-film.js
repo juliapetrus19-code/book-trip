@@ -49,10 +49,11 @@ function injectCSS() {
 .baf-card h3{margin:0;font-family:"Unbounded","Inter",sans-serif;font-weight:800;font-size:clamp(1.3rem,4.2vw,3.2rem);line-height:1.05;text-shadow:0 4px 30px rgba(0,0,0,.7)}
 .baf-card p{margin:.6em 0 0;font-size:clamp(.85rem,1.8vw,1.25rem);opacity:.85;text-shadow:0 2px 12px rgba(0,0,0,.8)}
 .baf-card small{display:block;margin-bottom:.8em;font-size:clamp(.7rem,1.3vw,.95rem);letter-spacing:.2em;text-transform:uppercase;opacity:.75}
-.baf-sub{position:absolute;left:50%;bottom:7%;transform:translateX(-50%);width:min(88%,860px);text-align:center;font-size:clamp(.9rem,1.9vw,1.35rem);line-height:1.4;padding:.55em .9em;border-radius:14px;background:rgba(6,8,16,.62);backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(0,0,0,.35);opacity:0;transition:opacity .35s}
+.baf-sub{position:absolute;left:50%;bottom:7%;transform:translateX(-50%);width:min(88%,860px);text-align:center;font-size:clamp(.74rem,1.9vw,1.35rem);line-height:1.38;padding:.5em .85em;border-radius:14px;background:rgba(6,8,16,.62);backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(0,0,0,.35);opacity:0;transition:opacity .35s}
 .baf-sub.is-on{opacity:1}
 .baf-sub b{color:#9ef6ff;font-weight:700}
 .baf-ctl{position:absolute;left:12px;bottom:12px;padding:.5em .9em;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(8,10,20,.6);color:#fff;font:inherit;cursor:pointer}
+@media (max-width:520px){.baf-sub{bottom:4%;width:94%;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.baf-card small{display:none}}
 @media (prefers-reduced-motion: reduce){.baf-layer>div{transform:none!important}}
 `;
   document.head.append(s);

@@ -944,3 +944,24 @@
 /* v2: "Free books left: N" chip in the hero (paywall on, not subscribed) */
 .bk-free { cursor: pointer; border-color: rgba(255, 207, 122, .35); background: rgba(255, 207, 122, .07); color: #ffe7b8; font-size: 12.5px; transition: background .2s, border-color .2s; }
 .bk-free:hover { background: rgba(255, 207, 122, .14); border-color: rgba(255, 207, 122, .6); }
+
+/* ---- anime look ---- */
+.bk-char-anime {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%;
+  opacity: 0; transition: opacity .8s ease; pointer-events: none; z-index: 1;
+}
+.bk-char-stage.is-anime .bk-char-anime { opacity: 1; }
+.bk-char-stage.is-anime .bk-char-3d { z-index: 2; }
+.bk-look {
+  display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px;
+  background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .12);
+}
+.bk-look-btn {
+  appearance: none; border: 0; cursor: pointer; font: inherit; font-size: .82rem; font-weight: 600;
+  padding: .38em .9em; border-radius: 999px; color: rgba(235, 240, 255, .7); background: transparent;
+}
+.bk-look-btn[aria-pressed="true"] { color: #04121a; background: linear-gradient(180deg, #9ef6ff, #39d6ff); }
+.bk-look-btn:focus-visible { outline: 2px solid #9ef6ff; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .bk-char-anime { transition: none; } }
+.bk-poster.is-anime .bk-poster-art { background: linear-gradient(180deg, rgba(4,5,11,.15), rgba(4,5,11,.75)), var(--bk-poster-img) center / cover no-repeat; }
+.bk-poster.is-anime .bk-cast, .bk-poster.is-anime .bk-poster-stars, .bk-poster.is-anime .bk-poster-horizon { display: none; }

@@ -22,6 +22,16 @@ export function setAnimeProvider(p) {
 }
 export const animeProvider = () => provider;
 
+/** Learn the provider from /api/health once (book pages call this before drawing anything). */
+let readyP = null;
+export function animeReady() {
+  readyP ||= import("./api.js")
+    .then((m) => m.getHealth())
+    .then((h) => setAnimeProvider(h?.anime?.provider))
+    .catch(() => { /* keep the default */ });
+  return readyP;
+}
+
 /** Is the anime look active (server allows it and the visitor did not switch to 3D)? */
 export function animeOn() {
   if (provider === "off") return false;

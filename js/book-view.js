@@ -30,6 +30,8 @@ const lazy = (loader, name) => {
 const loadCovers = lazy(() => import("./covers.js"), "covers.js");
 const loadVoxel = lazy(() => import("./voxel.js"), "voxel.js");
 const loadFilm = lazy(() => import("./film.js"), "film.js");
+const loadAnimeFilm = lazy(() => import("./anime-film.js"), "anime-film.js");
+const loadAnime = lazy(() => import("./anime.js").then(async (m) => { await m.animeReady(); return m; }), "anime.js");
 const loadAppModule = lazy(() => import("./app.js"), "app.js");
 // js/app.js only boots (and installs its Esc / focus-trap key handling) inside the full app shell.
 const loadApp = () => (document.getElementById("view-home") && document.getElementById("view-book") ? loadAppModule() : Promise.resolve(null));
@@ -300,6 +302,27 @@ export function renderBook(root, bookIn, opts = {}) {
     const body = el("div", { class: "bk-sec-body" });
     const node = el("section", { class: `bk-sec bk-sec-${name}`, id: `bk-${name}`, "aria-labelledby": hid }, head, body);
     return { name, node, head, h2, lead, tools, body, num };
+  }
+
+  /** "Anime | 3D" switch in a section's tools + the matching lead text (only when anime is available). */
+  function mountLook(s, base) {
+    loadAnime().then((an) => {
+      if (disposed || !an?.animeAvailable() || !s.node.isConnected) return;
+      const on = an.animeOn();
+      if (!s.lead.hidden) s.lead.textContent = T(on ? `${base}.leadAnime` : `${base}.lead`);
+      s.tools.querySelector(".bk-look")?.remove();
+      const mk = (val, label) => {
+        const b = el("button", { type: "button", class: "bk-look-btn", "aria-pressed": String(on === val) }, label);
+        b.addEventListener("click", () => {
+          if (an.animeOn() === val) return;
+          an.setAnimePreference(val);
+          renderChars();
+          renderFilmSection();
+        });
+        return b;
+      };
+      s.tools.prepend(el("div", { class: "bk-look", role: "group", "aria-label": T("look.label") }, mk(true, T("look.anime")), mk(false, T("look.3d"))));
+    });
   }
 
   function setHead(s, title, lead) {
@@ -858,6 +881,7 @@ export function renderBook(root, bookIn, opts = {}) {
     sigs.characters = charsSig();
     setHead(s, T("chars.title"), T("chars.lead"));
     s.tools.replaceChildren();
+    mountLook(s, "chars");
     const st = partStatus(book, "characters");
     s.node.setAttribute("aria-busy", st === "loading" ? "true" : "false");
     if (st === "loading") {
@@ -933,8 +957,24 @@ export function renderBook(root, bookIn, opts = {}) {
       stage.classList.add("is-ready", "is-fallback");
       stage.append(el("span", { class: "bk-char-initial", "aria-hidden": "true", text: name.slice(0, 1).toUpperCase() }));
     };
-    if (portraitCache.has(akey)) { show(portraitCache.get(akey)); return; }
+    // Anime look: a drawn portrait fades in over the 3D figure once it has really loaded.
+    const drawAnime = async () => {
+      const an = await loadAnime();
+      if (disposed || !an?.animeOn()) return;
+      const urls = an.animePortraitUrl(book, ch);
+      if (!urls) return;
+      try {
+        const url = await an.loadAnimeImage(urls, { timeout: 120000 });
+        if (disposed || !stage.isConnected) return;
+        const img = el("img", { class: "bk-char-anime", alt: T("chars.figure", { name }), decoding: "async", draggable: "false", referrerpolicy: "no-referrer" });
+        img.src = url;
+        stage.append(img);
+        requestAnimationFrame(() => stage.classList.add("is-anime"));
+      } catch { /* keep the 3D figure */ }
+    };
+    if (portraitCache.has(akey)) { show(portraitCache.get(akey)); drawAnime(); return; }
     stage.__bkPortrait = async () => {
+      drawAnime();
       const vx = await loadVoxel();
       if (disposed) return;
       if (!vx?.renderPortrait) { fail(); return; }
@@ -1194,6 +1234,8 @@ export function renderBook(root, bookIn, opts = {}) {
     sigs.film = filmSig();
     disposeFilm();
     setHead(s, T("film.title"), T("film.lead"));
+    s.tools.replaceChildren();
+    mountLook(s, "film");
     const st = partStatus(book, "film");
     s.node.setAttribute("aria-busy", st === "loading" ? "true" : "false");
     if (st === "loading") {
@@ -1229,6 +1271,20 @@ export function renderBook(root, bookIn, opts = {}) {
         el("div", { class: "bk-poster-cta" }, playBtn, el("span", { class: "bk-play-label", "aria-hidden": "true", text: T("film.play") }))),
       el("div", { class: "bk-bar is-bottom", "aria-hidden": "true" }, el("span", { text: metaText })));
     poster.addEventListener("click", (e) => { if (e.target === poster || e.target.closest(".bk-poster-art, .bk-cast")) startFilm(); });
+    // Anime look: the first drawn frame becomes the poster.
+    loadAnime().then(async (an) => {
+      if (disposed || !an?.animeOn() || !scenes.length) return;
+      const en = await an.englishNarrations(book);
+      const urls = an.animeFrameUrl(book, 0, 0, { narrationEn: en[0] || "" });
+      if (!urls) return;
+      try {
+        const url = await an.loadAnimeImage(urls, { timeout: 120000, priority: true });
+        if (disposed || !poster.isConnected) return;
+        const art = poster.querySelector(".bk-poster-art");
+        art?.style.setProperty("--bk-poster-img", `url("${url.replace(/"/g, "%22")}")`);
+        poster.classList.add("is-anime");
+      } catch { /* keep the painted poster */ }
+    });
 
     const host = el("div", { class: "bk-film-host" });
     const msg = el("div", { class: "bk-stage-msg", hidden: true, role: "status" });
@@ -1393,7 +1449,8 @@ export function renderBook(root, bookIn, opts = {}) {
     stage.classList.add("is-starting");
     film.msg.hidden = false;
     film.msg.replaceChildren(waitNote(T("film.preparing")));
-    const mod = await loadFilm();
+    const an = await loadAnime();
+    const mod = an?.animeOn() ? (await loadAnimeFilm()) || (await loadFilm()) : await loadFilm();
     if (disposed || film.stage !== stage) return;
     film.starting = false;
     if (!mod || typeof mod.createFilm !== "function") {
