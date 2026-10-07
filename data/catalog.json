@@ -43,6 +43,50 @@
     ]
   },
   {
+    "id": "animal-farm",
+    "year": 1945,
+    "cover": {
+      "bg": "#6b7a22",
+      "bg2": "#20260a",
+      "fg": "#fdf6e0",
+      "accent": "#d8342a",
+      "motif": "crown"
+    },
+    "title": {
+      "ru": "Скотный двор",
+      "uk": "Колгосп тварин",
+      "en": "Animal Farm"
+    },
+    "author": {
+      "ru": "Джордж Оруэлл",
+      "uk": "Джордж Орвелл",
+      "en": "George Orwell"
+    },
+    "genre": {
+      "ru": "Повесть-сказка, политическая сатира",
+      "uk": "Повість-казка, політична сатира",
+      "en": "Political satire, fable"
+    },
+    "originalTitle": "Animal Farm: A Fairy Story",
+    "aliases": [
+      "Animal Farm",
+      "Animal Farm: A Fairy Story",
+      "Скотный двор",
+      "Скотный Двор",
+      "Звероферма",
+      "Ферма животных",
+      "Скотский хутор",
+      "Колгосп тварин",
+      "Ферма тварин",
+      "Скотоферма",
+      "Skotnyy dvor",
+      "Kolhosp tvaryn",
+      "Оруэлл Скотный двор",
+      "Орвелл Колгосп тварин",
+      "Orwell Animal Farm"
+    ]
+  },
+  {
     "id": "charlie-chocolate-factory",
     "year": 1964,
     "cover": {
@@ -132,6 +176,52 @@
     ]
   },
   {
+    "id": "count-of-monte-cristo",
+    "year": 1844,
+    "cover": {
+      "bg": "#2a2416",
+      "bg2": "#0c0a06",
+      "fg": "#f4dc94",
+      "accent": "#4aa0c8",
+      "motif": "anchor"
+    },
+    "title": {
+      "ru": "Граф Монте-Кристо",
+      "uk": "Граф Монте-Крісто",
+      "en": "The Count of Monte Cristo"
+    },
+    "author": {
+      "ru": "Александр Дюма",
+      "uk": "Олександр Дюма",
+      "en": "Alexandre Dumas"
+    },
+    "genre": {
+      "ru": "Приключенческий роман, роман о мести",
+      "uk": "Пригодницький роман, роман про помсту",
+      "en": "Adventure novel, revenge novel"
+    },
+    "originalTitle": "Le Comte de Monte-Cristo",
+    "aliases": [
+      "The Count of Monte Cristo",
+      "Count of Monte Cristo",
+      "Le Comte de Monte-Cristo",
+      "Monte Cristo",
+      "Monte-Cristo",
+      "Граф Монте-Крісто",
+      "Граф Монте Крісто",
+      "Монте-Крісто",
+      "Граф Монте-Кристо",
+      "Граф Монте Кристо",
+      "Монте-Кристо",
+      "Graf Monte-Kristo",
+      "Hraf Monte-Kristo",
+      "Edmond Dantès",
+      "Edmond Dantes",
+      "Едмон Дантес",
+      "Эдмон Дантес"
+    ]
+  },
+  {
     "id": "don-quixote",
     "year": 1605,
     "cover": {
@@ -176,6 +266,92 @@
       "Don Kihot",
       "Сервантес",
       "Cervantes"
+    ]
+  },
+  {
+    "id": "dracula",
+    "year": 1897,
+    "cover": {
+      "bg": "#2a1030",
+      "bg2": "#0a040e",
+      "fg": "#efe2e2",
+      "accent": "#d4202e",
+      "motif": "castle"
+    },
+    "title": {
+      "ru": "Дракула",
+      "uk": "Дракула",
+      "en": "Dracula"
+    },
+    "author": {
+      "ru": "Брэм Стокер",
+      "uk": "Брем Стокер",
+      "en": "Bram Stoker"
+    },
+    "genre": {
+      "ru": "Готический роман ужасов, эпистолярный роман",
+      "uk": "Готичний роман жахів, епістолярний роман",
+      "en": "Gothic horror novel, epistolary novel"
+    },
+    "originalTitle": "Dracula",
+    "aliases": [
+      "Dracula",
+      "Count Dracula",
+      "Bram Stoker's Dracula",
+      "Дракула",
+      "Граф Дракула",
+      "Drakula",
+      "Bram Stoker",
+      "Брем Стокер",
+      "Брэм Стокер",
+      "Van Helsing",
+      "Ван Хельсінг",
+      "Ван Хельсинг"
+    ]
+  },
+  {
+    "id": "eneida",
+    "year": 1798,
+    "cover": {
+      "bg": "#9a4a1e",
+      "bg2": "#341406",
+      "fg": "#fbe9c8",
+      "accent": "#2aa0c8",
+      "motif": "ship"
+    },
+    "title": {
+      "ru": "Энеида",
+      "uk": "Енеїда",
+      "en": "Eneida"
+    },
+    "author": {
+      "ru": "Иван Котляревский",
+      "uk": "Іван Котляревський",
+      "en": "Ivan Kotliarevsky"
+    },
+    "genre": {
+      "ru": "Бурлескно-травестийная поэма",
+      "uk": "Бурлескно-травестійна поема",
+      "en": "Burlesque mock-epic poem"
+    },
+    "originalTitle": "Енеїда",
+    "aliases": [
+      "Енеїда",
+      "Енеіда",
+      "Энеида",
+      "Eneida",
+      "Eneïda",
+      "Eneyida",
+      "Eneyida Kotliarevsky",
+      "Енеїда Котляревський",
+      "Котляревський Енеїда",
+      "Энеида Котляревского",
+      "Энеида Котляревский",
+      "Енеїда Котляревського",
+      "Aeneid Kotliarevsky",
+      "Kotliarevsky Aeneid",
+      "Еней був парубок моторний",
+      "Эней был парубок моторный"
     ]
   },
   {
@@ -315,6 +491,56 @@
     ]
   },
   {
+    "id": "gullivers-travels",
+    "year": 1726,
+    "cover": {
+      "bg": "#8a3a2a",
+      "bg2": "#2a100a",
+      "fg": "#f6e8cc",
+      "accent": "#6ac0d8",
+      "motif": "ship"
+    },
+    "title": {
+      "ru": "Путешествия Гулливера",
+      "uk": "Мандри Гуллівера",
+      "en": "Gulliver’s Travels"
+    },
+    "author": {
+      "ru": "Джонатан Свифт",
+      "uk": "Джонатан Свіфт",
+      "en": "Jonathan Swift"
+    },
+    "genre": {
+      "ru": "Сатирический роман, фантастическое путешествие",
+      "uk": "Сатиричний роман, фантастична подорож",
+      "en": "Satirical novel, fantastic voyage"
+    },
+    "originalTitle": "Travels into Several Remote Nations of the World",
+    "aliases": [
+      "Gulliver's Travels",
+      "Gulliver’s Travels",
+      "Gullivers Travels",
+      "Gulliver",
+      "Travels into Several Remote Nations of the World",
+      "Lilliput",
+      "Ліліпутія",
+      "Лилипутия",
+      "Мандри Гуллівера",
+      "Подорожі Гуллівера",
+      "Гуллівер у країні ліліпутів",
+      "Гуллівер",
+      "Путешествия Гулливера",
+      "Путешествие Гулливера",
+      "Гулливер в стране лилипутов",
+      "Гулливер",
+      "Mandry Hullivera",
+      "Puteshestviya Gullivera",
+      "Swift",
+      "Свіфт",
+      "Свифт"
+    ]
+  },
+  {
     "id": "harry-potter-philosophers-stone",
     "year": 1997,
     "cover": {
@@ -406,8 +632,8 @@
     "id": "hunger-games",
     "year": 2008,
     "cover": {
-      "bg": "#1f2c2e",
-      "bg2": "#090f10",
+      "bg": "#2e1814",
+      "bg2": "#0a0605",
       "fg": "#f4e6cc",
       "accent": "#ff6a1f",
       "motif": "flame"
@@ -492,6 +718,53 @@
       "Thornfield",
       "Торнфілд",
       "Торнфилд"
+    ]
+  },
+  {
+    "id": "jungle-book",
+    "year": 1894,
+    "cover": {
+      "bg": "#2d4a1a",
+      "bg2": "#0e1a08",
+      "fg": "#f6e8c0",
+      "accent": "#ff9a2e",
+      "motif": "leaf"
+    },
+    "title": {
+      "ru": "Книга джунглей",
+      "uk": "Книга джунглів",
+      "en": "The Jungle Book"
+    },
+    "author": {
+      "ru": "Редьярд Киплинг",
+      "uk": "Редьярд Кіплінг",
+      "en": "Rudyard Kipling"
+    },
+    "genre": {
+      "ru": "Сборник рассказов и стихов, сказочная повесть",
+      "uk": "Збірка оповідань і віршів, казкова повість",
+      "en": "Collection of stories and poems, fable"
+    },
+    "originalTitle": "The Jungle Book",
+    "aliases": [
+      "The Jungle Book",
+      "Jungle Book",
+      "The Jungle Books",
+      "Mowgli",
+      "Книга джунглей",
+      "Маугли",
+      "Маугли Киплинг",
+      "Книга джунглів",
+      "Мауглі",
+      "Мауглі Кіплінг",
+      "Kniga dzhungley",
+      "Knyha dzhunhliv",
+      "Maugli",
+      "Rudyard Kipling",
+      "Редьярд Киплинг",
+      "Редьярд Кіплінг",
+      "Шер-Хан",
+      "Shere Khan"
     ]
   },
   {
@@ -725,6 +998,48 @@
     ]
   },
   {
+    "id": "marusia-churai",
+    "year": 1979,
+    "cover": {
+      "bg": "#6a2a4a",
+      "bg2": "#220a18",
+      "fg": "#fbe8e0",
+      "accent": "#f2c04a",
+      "motif": "bird"
+    },
+    "title": {
+      "ru": "Маруся Чурай",
+      "uk": "Маруся Чурай",
+      "en": "Marusia Churai"
+    },
+    "author": {
+      "ru": "Лина Костенко",
+      "uk": "Ліна Костенко",
+      "en": "Lina Kostenko"
+    },
+    "genre": {
+      "ru": "Исторический роман в стихах",
+      "uk": "Історичний роман у віршах",
+      "en": "Historical novel in verse"
+    },
+    "originalTitle": "Маруся Чурай",
+    "aliases": [
+      "Маруся Чурай",
+      "Marusia Churai",
+      "Marusia Chural",
+      "Marusya Churay",
+      "Marusia Churay",
+      "Маруся Чурай Костенко",
+      "Костенко Маруся Чурай",
+      "Маруся Чурай Ліна Костенко",
+      "Маруся Чурай Лина Костенко",
+      "Маруся Чурай роман у віршах",
+      "Чурай",
+      "Ой не ходи, Грицю",
+      "Маруся Чураївна"
+    ]
+  },
+  {
     "id": "nineteen-eighty-four",
     "year": 1949,
     "cover": {
@@ -765,6 +1080,47 @@
       "Старший Брат",
       "Оруел 1984",
       "Orwel 1984"
+    ]
+  },
+  {
+    "id": "old-man-and-the-sea",
+    "year": 1952,
+    "cover": {
+      "bg": "#1a86a8",
+      "bg2": "#072c3c",
+      "fg": "#fff4dc",
+      "accent": "#f4a23a",
+      "motif": "wave"
+    },
+    "title": {
+      "ru": "Старик и море",
+      "uk": "Старий і море",
+      "en": "The Old Man and the Sea"
+    },
+    "author": {
+      "ru": "Эрнест Хемингуэй",
+      "uk": "Ернест Гемінгвей",
+      "en": "Ernest Hemingway"
+    },
+    "genre": {
+      "ru": "Повесть-притча",
+      "uk": "Повість-притча",
+      "en": "Novella, parable"
+    },
+    "originalTitle": "The Old Man and the Sea",
+    "aliases": [
+      "The Old Man and the Sea",
+      "Old Man and the Sea",
+      "Старик и море",
+      "Старик и Море",
+      "Старий і море",
+      "Старий та море",
+      "Starik i more",
+      "Staryi i more",
+      "El viejo y el mar",
+      "Хемингуэй Старик и море",
+      "Гемінгвей Старий і море",
+      "Hemingway Old Man and the Sea"
     ]
   },
   {
@@ -896,6 +1252,53 @@
       "Mr Darcy",
       "Гордость и предубеждение Остин",
       "Jane Austen Pride and Prejudice"
+    ]
+  },
+  {
+    "id": "robinson-crusoe",
+    "year": 1719,
+    "cover": {
+      "bg": "#4a6a1e",
+      "bg2": "#18240a",
+      "fg": "#fbf0c8",
+      "accent": "#f08a3a",
+      "motif": "wave"
+    },
+    "title": {
+      "ru": "Робинзон Крузо",
+      "uk": "Робінзон Крузо",
+      "en": "Robinson Crusoe"
+    },
+    "author": {
+      "ru": "Даниэль Дефо",
+      "uk": "Даніель Дефо",
+      "en": "Daniel Defoe"
+    },
+    "genre": {
+      "ru": "Приключенческий роман, робинзонада",
+      "uk": "Пригодницький роман, робінзонада",
+      "en": "Adventure novel, castaway story"
+    },
+    "originalTitle": "The Life and Strange Surprizing Adventures of Robinson Crusoe, of York, Mariner",
+    "aliases": [
+      "Robinson Crusoe",
+      "The Life and Strange Surprizing Adventures of Robinson Crusoe",
+      "The Life and Adventures of Robinson Crusoe",
+      "Робінзон Крузо",
+      "Життя і дивовижні пригоди Робінзона Крузо",
+      "Пригоди Робінзона Крузо",
+      "Робинзон Крузо",
+      "Жизнь и удивительные приключения Робинзона Крузо",
+      "Приключения Робинзона Крузо",
+      "Robinzon Kruzo",
+      "Робінзон",
+      "Робинзон",
+      "Friday",
+      "П’ятниця",
+      "Пятница",
+      "Defoe",
+      "Дефо",
+      "The Life and Strange Surprizing Adventures of Robinson Crusoe, of York, Mariner"
     ]
   },
   {

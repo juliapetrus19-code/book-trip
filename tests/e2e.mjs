@@ -837,8 +837,8 @@ for (const [w, h] of [[320, 640], [390, 844], [1440, 900], [2560, 1300]]) {
     for (const name of names) {
       await page.locator(`.bk-tabs .bk-tab[data-target="${name}"]`).click();
       // wait until the smooth scroll and its settle pass are over
-      await page.waitForFunction(() => new Promise((r) => { let y = scrollY, n = 0; const t = setInterval(() => { if (Math.abs(scrollY - y) < 1) n++; else n = 0; y = scrollY; if (n >= 6) { clearInterval(t); r(true); } }, 100); }), null, { timeout: 15000 });
-      await page.waitForTimeout(1300);
+      await page.waitForTimeout(1200); // smooth scroll + the settle pass (software rendering can delay the start)
+      await page.evaluate(() => new Promise((r) => { let y = scrollY, n = 0; const t = setInterval(() => { if (Math.abs(scrollY - y) < 1) n++; else n = 0; y = scrollY; if (n >= 12) { clearInterval(t); r(true); } }, 100); setTimeout(() => { clearInterval(t); r(false); }, 15000); }));
       const m = await page.evaluate((name) => {
         const sec = document.getElementById(`bk-${name}`);
         const head = sec.querySelector(".bk-eyebrow") || sec.querySelector("h2");
