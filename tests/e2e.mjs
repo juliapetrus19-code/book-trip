@@ -60,10 +60,12 @@ const browser = await (async () => { await ensureServer().then((c) => { if (c) p
  * New page with fonts routed, console errors collected and the UI language preset (lang: null keeps
  * the browser default, `locale` sets navigator.language). Service workers are blocked unless `sw`.
  */
-async function open(path = "", { width = 1440, height = 900, dpr = 1, mobile = false, lang = "ru", routes = null, reducedMotion = "no-preference", base = BASE, locale = "en-US", sw = false } = {}) {
+async function open(path = "", { width = 1440, height = 900, dpr = 1, mobile = false, lang = "ru", routes = null, reducedMotion = "no-preference", base = BASE, locale = "en-US", sw = false, look = "3d" } = {}) {
   const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: dpr, isMobile: mobile, hasTouch: mobile, reducedMotion, locale, serviceWorkers: sw ? "allow" : "block" });
   await routeFonts(context);
   if (routes) await routes(context);
+  // The 3D look is the deterministic baseline; the anime look has its own check (images are mocked there).
+  await context.addInitScript((v) => { try { localStorage.setItem("bt-look", v); } catch { /* ignore */ } }, look);
   if (lang) await context.addInitScript((l) => { try { if (!sessionStorage.getItem("e2e-init")) { localStorage.setItem("bt-lang", l); sessionStorage.setItem("e2e-init", "1"); } } catch { /* ignore */ } }, lang);
   const page = await context.newPage();
   page.errors = [];
@@ -588,6 +590,35 @@ function liveRoutes({ fail = {}, calls = [] } = {}) {
     });
   };
 }
+
+await check("anime look: drawn portraits fade in, anime film plays, Anime/3D switch", async () => {
+  const png = await readFile(new URL("../og.png", import.meta.url));
+  let hits = 0;
+  const page = await open("book/the-hobbit", { lang: "uk", look: "anime", routes: async (ctx) => {
+    await ctx.route("https://image.pollinations.ai/**", (route) => { hits++; route.fulfill({ status: 200, contentType: "image/png", body: png }); });
+  } });
+  await bookShown(page, BOOKS["the-hobbit"].i18n.uk.title);
+  await page.evaluate(() => document.getElementById("bk-characters").scrollIntoView());
+  await waitFor(page, () => document.querySelector(".bk-char-stage.is-anime img.bk-char-anime"), null, { timeout: 30000, what: "anime portrait" });
+  const btns = await page.locator("#bk-characters .bk-look-btn").allTextContents();
+  if (btns.join("|") !== "Аніме|3D") throw new Error(`look switch: ${btns}`);
+  await page.evaluate(() => document.getElementById("bk-film").scrollIntoView());
+  await waitFor(page, () => document.querySelector("#bk-film .bk-poster.is-anime"), null, { timeout: 30000, what: "anime poster" });
+  await page.locator("#bk-film .bk-play").click();
+  await waitFor(page, () => document.querySelector("#bk-film .baf-root"), null, { timeout: 20000, what: "anime film" });
+  await waitFor(page, () => { const s = document.querySelector(".baf-sub.is-on"); return s && s.textContent.trim().length > 5; }, null, { timeout: 20000, what: "anime subtitles" });
+  await page.locator("#bk-film .bk-scene").nth(2).click();
+  await waitFor(page, () => document.querySelectorAll("#bk-film .bk-scene")[2]?.classList.contains("is-current"), null, { what: "scene 3 current" });
+  await waitFor(page, () => [...document.querySelectorAll(".baf-layer")].some((l) => Number(l.style.opacity) > 0.5), null, { timeout: 20000, what: "visible anime frame" });
+  await shot(page, "anime-film");
+  if (hits < 3) throw new Error(`only ${hits} image requests`);
+  // switch to 3D: the anime film is disposed and the voxel film is offered again
+  await page.locator("#bk-film .bk-look-btn").nth(1).click();
+  await waitFor(page, () => !document.querySelector(".baf-root") && document.querySelector("#bk-film .bk-play"), null, { what: "3D film after switch" });
+  if (await page.evaluate(() => localStorage.getItem("bt-look")) !== "3d") throw new Error("look preference not stored");
+  if (page.errors.length) throw new Error(page.errors.join("\n"));
+  await close(page);
+});
 
 await check("live (mocked): search → resolve → overview, characters, film stream in", async () => {
   const calls = [];
