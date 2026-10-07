@@ -19,6 +19,12 @@
       "uk": "Льюїс Керрол",
       "en": "Lewis Carroll"
     },
+    "genre": {
+      "ru": "Литературная сказка",
+      "uk": "Літературна казка",
+      "en": "Literary fairy tale"
+    },
+    "originalTitle": "Alice's Adventures in Wonderland",
     "aliases": [
       "Alice in Wonderland",
       "Alice's Adventures in Wonderland",
@@ -56,6 +62,12 @@
       "uk": "Дж. К. Ролінґ",
       "en": "J. K. Rowling"
     },
+    "genre": {
+      "ru": "Фэнтези",
+      "uk": "Фентезі",
+      "en": "Fantasy"
+    },
+    "originalTitle": "Harry Potter and the Philosopher's Stone",
     "aliases": [
       "Harry Potter and the Sorcerer's Stone",
       "Harry Potter and the Philosopher's Stone",
@@ -94,6 +106,12 @@
       "uk": "Артур Конан Дойл",
       "en": "Arthur Conan Doyle"
     },
+    "genre": {
+      "ru": "Детективная повесть",
+      "uk": "Детективна повість",
+      "en": "Detective novel"
+    },
+    "originalTitle": "The Hound of the Baskervilles",
     "aliases": [
       "The Hound of the Baskervilles",
       "Hound of the Baskervilles",
@@ -132,6 +150,12 @@
       "uk": "Антуан де Сент-Екзюпері",
       "en": "Antoine de Saint-Exupéry"
     },
+    "genre": {
+      "ru": "Философская сказка",
+      "uk": "Філософська казка",
+      "en": "Philosophical fable"
+    },
+    "originalTitle": "Le Petit Prince",
     "aliases": [
       "Le Petit Prince",
       "Petit Prince",
@@ -169,6 +193,12 @@
       "uk": "Джордж Орвелл",
       "en": "George Orwell"
     },
+    "genre": {
+      "ru": "Роман-антиутопия",
+      "uk": "Роман-антиутопія",
+      "en": "Dystopian novel"
+    },
+    "originalTitle": "Nineteen Eighty-Four",
     "aliases": [
       "1984",
       "Nineteen Eighty-Four",
@@ -206,6 +236,12 @@
       "uk": "Джейн Остін",
       "en": "Jane Austen"
     },
+    "genre": {
+      "ru": "Роман нравов, любовный роман",
+      "uk": "Роман звичаїв, любовний роман",
+      "en": "Novel of manners, romance"
+    },
+    "originalTitle": "Pride and Prejudice",
     "aliases": [
       "Pride and Prejudice",
       "Pride & Prejudice",
@@ -243,6 +279,12 @@
       "uk": "Вільям Шекспір",
       "en": "William Shakespeare"
     },
+    "genre": {
+      "ru": "Трагедия",
+      "uk": "Трагедія",
+      "en": "Tragedy"
+    },
+    "originalTitle": "Romeo and Juliet",
     "aliases": [
       "Romeo and Juliet",
       "Romeo & Juliet",
@@ -281,6 +323,12 @@
       "uk": "Михайло Коцюбинський",
       "en": "Mykhailo Kotsiubynsky"
     },
+    "genre": {
+      "ru": "Неоромантическая повесть",
+      "uk": "Неоромантична повість",
+      "en": "Neo-romantic novella"
+    },
+    "originalTitle": "Тіні забутих предків",
     "aliases": [
       "Тіні забутих предків",
       "Тени забытых предков",
@@ -318,6 +366,12 @@
       "uk": "Френсіс Скотт Фіцджеральд",
       "en": "F. Scott Fitzgerald"
     },
+    "genre": {
+      "ru": "Роман эпохи джаза",
+      "uk": "Роман доби джазу",
+      "en": "Jazz Age novel"
+    },
+    "originalTitle": "The Great Gatsby",
     "aliases": [
       "The Great Gatsby",
       "Great Gatsby",
@@ -355,6 +409,12 @@
       "uk": "Дж. Р. Р. Толкін",
       "en": "J. R. R. Tolkien"
     },
+    "genre": {
+      "ru": "Фэнтези, сказочная повесть",
+      "uk": "Фентезі, казкова повість",
+      "en": "Fantasy, fairy-tale adventure"
+    },
+    "originalTitle": "The Hobbit, or There and Back Again",
     "aliases": [
       "The Hobbit",
       "Hobbit",
@@ -394,6 +454,12 @@
       "uk": "Олександр Дюма",
       "en": "Alexandre Dumas"
     },
+    "genre": {
+      "ru": "Исторический приключенческий роман",
+      "uk": "Історичний пригодницький роман",
+      "en": "Historical adventure novel"
+    },
+    "originalTitle": "Les Trois Mousquetaires",
     "aliases": [
       "The Three Musketeers",
       "Three Musketeers",
@@ -432,6 +498,12 @@
       "uk": "Роберт Луїс Стівенсон",
       "en": "Robert Louis Stevenson"
     },
+    "genre": {
+      "ru": "Приключенческий роман",
+      "uk": "Пригодницький роман",
+      "en": "Adventure novel"
+    },
+    "originalTitle": "Treasure Island",
     "aliases": [
       "Treasure Island",
       "Остров сокровищ",

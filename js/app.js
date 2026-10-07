@@ -6,12 +6,15 @@
 //   toast(message, { error, duration })
 //   errorText(err) → localised message for an ApiError-like { code }
 //
-// Routes: "#/" home · "#/book/<id>" · "#/q/<query>" search · "#/how" "#/library" "#/premium" (modals
-// over the current view). All app styles that are not in base/home/book.css are injected below.
+// Routes: "/" home · "/book/<id>" (real path, history.pushState) · "/#/q/<query>" search ·
+// "#/how" "#/library" "#/premium" (modals over the current path, e.g. "/book/<id>#/how").
+// Legacy "#/book/<id>" links are rewritten to "/book/<id>". All app styles that are not in
+// base/home/book.css are injected below. Account, paywall and checkout live in js/account.js.
 
-import { t, tn, getLang, setLang, applyI18n, formatYear } from "./i18n.js";
+import { t, tn, getLang, setLang, applyI18n, formatYear, setVariant } from "./i18n.js";
 import * as api from "./api.js";
-import { el, prefersReducedMotion, normalizeQuery, safeColor } from "./util.js";
+import * as account from "./account.js";
+import { el, prefersReducedMotion, normalizeQuery, safeColor, store } from "./util.js";
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -32,6 +35,13 @@ const state = {
   ring: null,
   histIdx: 0,          // index of the current history entry inside the app (0 = first page)
   pendingFocus: false,
+  lastHref: "",        // location.href the router last handled (popstate + hashchange both fire)
+  routeWaiters: [],    // resolvers waiting for the next route() (see nextRoute)
+  transient: new Set(),// modals that close on any route change (demo notice, paywall, login…)
+  allowed: new Set(),  // book ids /api/access allowed in this visit
+  freeLeft: null,      // last known number of free books left (paywall on, not subscribed)
+  subscribed: false,
+  blocked: null,       // id of the book the paywall stopped
 };
 
 // Lazily loaded sibling modules (each may still be missing while the team works in parallel).
@@ -69,6 +79,7 @@ const ICON = {
   infinity: svg('<path d="M7.6 8.6c-2.3 0-4.1 1.5-4.1 3.4s1.8 3.4 4.1 3.4c3.6 0 5.2-6.8 8.8-6.8 2.3 0 4.1 1.5 4.1 3.4s-1.8 3.4-4.1 3.4c-3.6 0-5.2-6.8-8.8-6.8z"/>'),
   crown: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.6 17.6 2.8 8.4l5.1 3.9L12 5.2l4.1 7.1 5.1-3.9-.8 9.2z"/></svg>',
   library: svg('<path d="M4 4.5v15M8 4.5v15M12.5 5l3.6 14.2M17 5.2l3.4 13.6"/><path d="M3 19.5h18"/>'),
+  search: svg('<circle cx="11" cy="11" r="6.6"/><path d="M20 20l-4.2-4.2"/>'),
 };
 
 // ---------------------------------------------------------------------------------------------
@@ -204,6 +215,40 @@ function parseHash(hash = location.hash) {
   return { name: "home" };
 }
 
+const BOOK_PATH = /^\/book\/([^/]+)\/?$/;
+const bookPath = (id) => `/book/${enc(id)}`;
+
+/**
+ * The current route from path + hash: { name: "home"|"book"|"search"|"modal", id?, query?, modal?,
+ * base? (the view under a modal), legacy? (a "#/book/<id>" link) } or null (e.g. "#main").
+ */
+function parseRoute() {
+  const h = parseHash();
+  if (h?.name === "book") return { ...h, legacy: true };
+  const m = BOOK_PATH.exec(location.pathname);
+  if (m) {
+    let id = m[1];
+    try { id = decodeURIComponent(id); } catch { /* keep raw */ }
+    const book = { name: "book", id: id.trim().toLowerCase() };
+    if (h?.name === "modal") return { ...h, base: book };
+    if (h?.name === "search") return h;
+    return book;
+  }
+  if (h?.name === "modal") return { ...h, base: { name: "home" } };
+  return h;
+}
+
+/** Where an in-app link points: modals overlay the current path, search lives on "/", books on "/book/<id>". */
+function hrefFor(to) {
+  const s = String(to || "/");
+  if (!s.startsWith("#")) return s.startsWith("/#") ? hrefFor(s.slice(1)) : s;
+  const r = parseHash(s);
+  if (r?.name === "modal") return location.pathname + location.search + s;
+  if (r?.name === "book") return bookPath(r.id);
+  if (!r || r.name === "home") return "/";
+  return "/" + s;
+}
+
 /** Give every history entry an index so we know whether "back" stays inside the app. */
 function stampHistory() {
   const st = history.state;
@@ -214,38 +259,88 @@ function stampHistory() {
   }
 }
 
-export function navigate(hash, { replace = false } = {}) {
-  if (replace) {
-    history.replaceState({ btIdx: state.histIdx }, "", hash);
-    route();
-  } else if (location.hash === hash) {
-    route();
-  } else {
-    location.hash = hash;
+/** Go to "#/…" (hash route / modal) or "/book/<id>" / "/" without reloading the page. */
+export function navigate(to, { replace = false } = {}) {
+  const url = new URL(hrefFor(to), location.href).href;
+  if (url === location.href && !replace) { route(); return; }
+  if (replace) history.replaceState({ btIdx: state.histIdx }, "", url);
+  else {
+    state.histIdx += 1;
+    history.pushState({ btIdx: state.histIdx }, "", url);
   }
+  route();
 }
 
 /** Back inside the app, or to `fallback` when this is the first page of the visit. */
-function goBack(fallback = "#/") {
+function goBack(fallback = "/") {
   if (state.histIdx > 0) history.back();
   else navigate(fallback, { replace: true });
 }
 
+/** The URL of the view under a route modal (current path without the hash). */
+const baseHref = () => location.pathname + location.search;
+
+/** Resolves after the next route() (or after `timeout` ms, e.g. when history.back() leaves the app). */
+function nextRoute(timeout = 700) {
+  return new Promise((resolve) => {
+    state.routeWaiters.push(resolve);
+    setTimeout(resolve, timeout);
+  });
+}
+
+function onHistoryChange() {
+  if (location.href === state.lastHref) return; // popstate and hashchange for the same step
+  stampHistory();
+  route();
+}
+
 function route() {
-  const r = parseHash();
-  if (!r) return;
-  if (r.name === "modal") {
-    if (!state.view) showHome({ animate: false });
-    openRouteModal(r.modal);
-    return;
+  state.lastHref = location.href;
+  const r = parseRoute();
+  if (r) {
+    closeTransient();
+    if (r.legacy) {
+      history.replaceState({ ...(history.state && typeof history.state === "object" ? history.state : {}), btIdx: state.histIdx }, "", bookPath(r.id));
+      route();
+      return;
+    }
+    if (r.name === "modal") {
+      const base = r.base;
+      if (base.name === "book" && ID_RE.test(base.id)) {
+        if (!(state.view === "book" && state.book?.id === base.id)) openBook(base.id);
+      } else if (state.view !== "home") showHome({ animate: Boolean(state.view) });
+      openRouteModal(r.modal);
+    } else {
+      closeRouteModal();
+      if (r.name !== "search" || r.query !== state.search?.query) abortSearch();
+      if (r.name === "home") showHome();
+      else if (r.name === "book") {
+        if (ID_RE.test(r.id)) openBook(r.id);
+        else navigate("/", { replace: true });
+      } else if (r.name === "search") runSearch(r.query);
+    }
+    window.dispatchEvent(new CustomEvent("bt:route"));
   }
-  closeRouteModal();
-  if (r.name !== "search" || r.query !== state.search?.query) abortSearch();
-  if (r.name === "home") showHome();
-  else if (r.name === "book") {
-    if (ID_RE.test(r.id)) openBook(r.id);
-    else navigate("#/", { replace: true });
-  } else if (r.name === "search") runSearch(r.query);
+  const waiters = state.routeWaiters.splice(0);
+  for (const w of waiters) w();
+}
+
+/** A modal that closes on any route change (back/forward, opening a book…). */
+function transientModal(content, opts = {}) {
+  const handle = openModal(content, {
+    ...opts,
+    onClose: (reason) => {
+      state.transient.delete(handle);
+      opts.onClose?.(reason);
+    },
+  });
+  state.transient.add(handle);
+  return handle;
+}
+
+function closeTransient() {
+  for (const h of [...state.transient]) h.close("route");
+  state.transient.clear();
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -291,6 +386,7 @@ function disposeBookView() {
 
 async function showHome({ animate = true } = {}) {
   document.title = t("meta.title");
+  state.blocked = null;
   const seq = ++state.seq; // also cancels a book that is still being opened
   if (state.view === "home") {
     applyView("home");
@@ -337,8 +433,43 @@ function liveBookFromMeta(meta, lang) {
   };
 }
 
+/** "<title> — <author> | BookTrip" */
+const bookTitle = (b) => `${[b.title, b.author].filter(Boolean).join(" — ")} | BookTrip`;
+
+/** Does opening `id` need a /api/access check (paywall on, not yet allowed in this visit)? */
+const needsGate = (id, health) => Boolean(health.billing?.enabled) && !state.allowed.has(id);
+
+/** Apply a /api/access answer; false = the paywall stopped this book. */
+function applyAccess(id, acc) {
+  if (!acc.allowed) return false;
+  if (!acc.unknown) state.allowed.add(id);
+  if (acc.freeLeft != null) state.freeLeft = acc.freeLeft;
+  state.subscribed = acc.subscribed;
+  return true;
+}
+
+/** The paywall stopped `id`: leave its URL (back, or home on a direct link), then show the paywall. */
+async function blockBook(id) {
+  state.blocked = id;
+  if (state.view && state.histIdx > 0) {
+    const settled = nextRoute(900);
+    history.back();
+    await settled;
+  } else {
+    navigate("/", { replace: true });
+  }
+  state.blocked = id;
+  account.openPaywall({ id, reason: "limit" });
+}
+
+/** "Free books left: N" chip on the book page (paywall on, visitor not subscribed). */
+function freeBadge(health) {
+  if (!health.billing?.enabled || state.subscribed || state.freeLeft == null) return null;
+  return { text: tn("pay.freeLeft", state.freeLeft), onClick: () => navigate("#/premium") };
+}
+
 /**
- * Show #/book/<id>: demo books load instantly; live books render their header at once and the
+ * Show /book/<id>: demo books load instantly; live books render their header at once and the
  * parts stream in. `instant` swaps without animation and keeps the scroll (language change).
  */
 async function openBook(id, { force = false, instant = false } = {}) {
@@ -354,11 +485,14 @@ async function openBook(id, { force = false, instant = false } = {}) {
 
   let book = null;
   let stored = null;
+  let gate = null;
   if (catalog.some((e) => e.id === id) || api.DEMO_IDS.includes(id)) {
+    if (needsGate(id, health)) gate = api.access(id); // in parallel with the book file
     try { book = await api.loadDemoBook(id, lang); } catch { book = null; }
     if (seq !== state.seq) return;
   }
   if (!book) {
+    gate = null;
     stored = api.getMeta(id);
     if (health.live && stored) {
       book = liveBookFromMeta(api.metaForLang(stored, lang), lang);
@@ -368,10 +502,16 @@ async function openBook(id, { force = false, instant = false } = {}) {
       return;
     } else {
       toast(t("errors.bookMissing"), { error: true });
-      navigate("#/", { replace: true });
+      navigate("/", { replace: true });
       openDemoNotice(id.replace(/-/g, " "));
       return;
     }
+  }
+  if (!gate && needsGate(id, health)) gate = api.access(id);
+  if (gate) {
+    const acc = await gate;
+    if (seq !== state.seq) return;
+    if (!applyAccess(id, acc)) { blockBook(id); return; }
   }
 
   // view switch (render while visible so WebGL canvases get a real size)
@@ -397,8 +537,11 @@ async function openBook(id, { force = false, instant = false } = {}) {
     lang,
     health,
     onSearch: (query) => { if (String(query || "").trim()) navigate(`#/q/${enc(String(query).trim())}`); },
-    onBack: () => goBack("#/"),
+    onBack: () => goBack("/"),
     onRetry: (part) => state.session?.retry(part),
+    onPaywall: () => account.openPaywall({ id, reason: "limit" }),
+    badge: freeBadge(health),
+    shareUrl: `${location.origin}${bookPath(id)}`,
   };
   state.book = book;
   try {
@@ -408,10 +551,11 @@ async function openBook(id, { force = false, instant = false } = {}) {
     root.replaceChildren();
     state.bookView = fallbackBook(root, book, opts);
   }
-  document.title = `${book.title} — BookTrip`;
+  document.title = bookTitle(book);
   if (keepY) window.scrollTo(0, keepY);
   if (animate) playEnter(root);
   if (!instant && state.booted) root.focus({ preventScroll: true });
+  if (!instant) api.sendEvent("book_open", id);
 
   if (book.source === "live") {
     api.touchMeta(id);
@@ -477,6 +621,14 @@ function startLive(book, stored) {
     } catch (err) {
       const e = api.toApiError(err);
       if (!alive() || e.code === "aborted") return false;
+      if (e.code === "paywall") {
+        commit(flags(part, false, { code: "paywall", message: t("errors.paywall") }));
+        if (!s.paywalled) {
+          s.paywalled = true;
+          account.openPaywall({ id: book.id, reason: "limit" });
+        }
+        return false;
+      }
       if (e.code === "not_configured") api.markNotConfigured();
       commit(flags(part, false, { code: e.code, message: errorText(e) }));
       toast(`${t("toast.partFailed", { part: t(`part.${part}`) })}. ${errorText(e)}`, { error: true });
@@ -506,7 +658,7 @@ function startLive(book, stored) {
       const saved = api.saveMeta({ ...res, id: book.id, cover: stored.cover || res.cover }, book.lang);
       const m = api.metaForLang(saved, book.lang);
       commit({ title: m.title, author: m.author, genre: m.genre, tagline: m.tagline });
-      document.title = `${m.title} — BookTrip`;
+      document.title = bookTitle(m);
     }).catch(() => {});
   }
 }
@@ -555,11 +707,16 @@ function abortSearch() {
   closeLoading();
 }
 
-/** Leave the "#/q/…" history entry (back to where the visitor came from). */
+/** Leave the "#/q/…" history entry (back to where the visitor came from); resolves once the URL settled. */
 function leaveSearchRoute() {
-  if (parseHash()?.name !== "search") return;
-  if (state.histIdx > 0) history.back();
-  else navigate("#/", { replace: true });
+  if (parseRoute()?.name !== "search") return Promise.resolve();
+  if (state.histIdx > 0) {
+    const settled = nextRoute();
+    history.back();
+    return settled;
+  }
+  navigate("/", { replace: true });
+  return Promise.resolve();
 }
 
 const quoted = (q) => (getLang() === "en" ? `“${q}”` : `«${q}»`);
@@ -574,6 +731,7 @@ async function runSearch(rawQuery) {
     leaveSearchRoute();
     return;
   }
+  api.sendEvent("search");
   const lang = getLang();
   const search = { ctrl: new AbortController(), query: rawQuery };
   state.search = search;
@@ -585,12 +743,12 @@ async function runSearch(rawQuery) {
   const best = matches[0];
   if (best && best.score >= (health.live ? 0.9 : 0.6)) {
     state.search = null;
-    navigate(`#/book/${best.id}`, { replace: true });
+    navigate(bookPath(best.id), { replace: true });
     return;
   }
   if (!health.live) {
     state.search = null;
-    leaveSearchRoute();
+    await leaveSearchRoute();
     openDemoNotice(query, matches);
     return;
   }
@@ -607,24 +765,26 @@ async function runSearch(rawQuery) {
       if (!current()) return;
       state.search = null;
       closeLoading(); // fades out while the book page rises
-      navigate(`#/book/${demoId || res.id}`, { replace: true });
+      navigate(bookPath(demoId || res.id), { replace: true });
     } else {
       state.search = null;
       closeLoading();
-      leaveSearchRoute();
+      await leaveSearchRoute();
       showNotFound(query, res.suggestions || [], matches);
     }
   } catch (err) {
     if (!current()) return;
     state.search = null;
     closeLoading();
-    leaveSearchRoute();
     const e = api.toApiError(err);
     if (e.code === "aborted") toast(t("loading.cancelled"));
-    else if (e.code === "not_configured") {
+    else if (e.code !== "not_configured") toast(errorText(e), { error: true, duration: 5200 });
+    await leaveSearchRoute();
+    if (e.code === "not_configured") {
       api.markNotConfigured();
+      syncVariant();
       openDemoNotice(query, matches);
-    } else toast(errorText(e), { error: true, duration: 5200 });
+    }
   }
 }
 
@@ -647,10 +807,10 @@ function showNotFound(query, suggestions, matches) {
       class: "bt-row",
       onclick: () => {
         handle?.close();
-        navigate(it.kind === "book" ? `#/book/${it.id}` : `#/q/${enc(it.query)}`);
+        navigate(it.kind === "book" ? bookPath(it.id) : `#/q/${enc(it.query)}`);
       },
     }, thumb(it.cover || coverFor(null, it.title), it.title), el("span", { class: "bt-row-text" }, el("b", { text: it.title }), el("small", { text: it.author }))))));
-  handle = openModal(el("div", {},
+  handle = transientModal(el("div", {},
     el("h2", { class: "bt-h", id, text: t("search.didYouMean") }),
     el("p", { class: "bt-lead", text: t("search.dymText", { q: query }) }),
     list), { labelledBy: id, className: "bt-narrow" });
@@ -747,19 +907,43 @@ function thumb(cover, title, cls = "sg-cover") {
   return span;
 }
 
-function bigCover(cover, title, author) {
+function bigCover(cover, title, author, lazy = null) {
   const box = el("span", { class: "bt-card-cover", "aria-hidden": "true" });
   const c = coverFor(cover, title);
-  if (covers?.coverSVG) box.innerHTML = covers.coverSVG(c, { title, author, w: 260, h: 390, decorative: true });
-  else box.style.background = `linear-gradient(160deg, ${safeColor(c.bg)}, ${safeColor(c.bg2)})`;
+  box.style.background = `linear-gradient(160deg, ${safeColor(c.bg)}, ${safeColor(c.bg2)})`;
+  const paint = () => {
+    if (!covers?.coverSVG) return;
+    box.innerHTML = covers.coverSVG(c, { title, author, w: 260, h: 390, decorative: true });
+    box.style.background = "";
+  };
+  if (lazy) lazy.add(box, paint);
+  else paint();
   return box;
 }
 
+/** Paint covers only when they come near the screen (big libraries). → { add(node, paint), dispose() } */
+function lazyPainter() {
+  const jobs = new WeakMap();
+  if (typeof IntersectionObserver !== "function") return { add: (_n, paint) => paint(), dispose() {} };
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      io.unobserve(e.target);
+      try { jobs.get(e.target)?.(); } catch (err) { console.warn("[app] cover failed", err); }
+      jobs.delete(e.target);
+    }
+  }, { rootMargin: "300px 0px" });
+  return {
+    add(node, paint) { jobs.set(node, paint); io.observe(node); },
+    dispose() { io.disconnect(); },
+  };
+}
+
 /** Grid of book cards; onPick(item) on click. Items: { id, title, author, year, cover }. */
-function bookGrid(items, onPick, { compact = false } = {}) {
+function bookGrid(items, onPick, { compact = false, lazy = null } = {}) {
   return el("ul", { class: `bt-grid${compact ? " is-compact" : ""}` }, items.map((it, i) => el("li", { style: `--i:${i}` },
     el("button", { type: "button", class: "bt-card", onclick: () => onPick(it) },
-      bigCover(it.cover, it.title, it.author),
+      bigCover(it.cover, it.title, it.author, lazy),
       el("span", { class: "bt-card-title", text: it.title }),
       el("span", { class: "bt-card-meta" },
         it.author || "",
@@ -773,13 +957,14 @@ function openRouteModal(name) {
   if (state.routeModal?.name === name) return;
   closeRouteModal();
   const build = { how: buildHow, library: buildLibrary, premium: buildPremium }[name];
-  const { node, labelId, className } = build();
+  const { node, labelId, className, dispose } = build();
   const handle = openModal(node, {
     labelledBy: labelId,
     className,
     onClose: (reason) => {
+      try { dispose?.(); } catch { /* ignore */ }
       if (state.routeModal?.handle === handle) state.routeModal = null;
-      if (reason === "user" && parseHash()?.name === "modal") goBack("#/");
+      if (reason === "user" && parseRoute()?.name === "modal") goBack(baseHref());
     },
   });
   state.routeModal = { name, handle };
@@ -795,17 +980,9 @@ function closeRouteModal() {
 function leaveModalThen(next) {
   const m = state.routeModal;
   if (!m) { next(); return; }
-  let done = false;
-  const go = () => {
-    if (done) return;
-    done = true;
-    window.removeEventListener("hashchange", go);
-    setTimeout(next, 0);
-  };
-  window.addEventListener("hashchange", go);
+  const settled = parseRoute()?.name === "modal" ? nextRoute(500) : Promise.resolve();
   m.handle.close("user");
-  if (parseHash()?.name !== "modal") go(); // replaced synchronously (first page of the visit)
-  else setTimeout(go, 500);
+  settled.then(() => setTimeout(next, 0));
 }
 
 function header(kicker, title, lead, labelId) {
@@ -838,72 +1015,130 @@ function buildLibrary() {
   const labelId = "bt-lib-title";
   const [kicker, ...rest] = header(t("library.loading"), t("library.title"), t("library.lead"), labelId);
   const count = kicker;
-  const body = el("div", { class: "bt-lib-body" }, bookGrid([], () => {}));
-  body.firstChild.append(...Array.from({ length: 6 }, () => el("li", {}, el("div", { class: "skeleton bt-card-skel" }))));
+  const grid = el("div", { class: "bt-lib-grid" }, bookGrid([], () => {}));
+  grid.firstChild.append(...Array.from({ length: 6 }, () => el("li", {}, el("div", { class: "skeleton bt-card-skel" }))));
+  const recentBox = el("div", { class: "bt-lib-recent" });
+  const body = el("div", { class: "bt-lib-body" }, grid, recentBox);
+  const inputId = "bt-lib-q";
+  const input = el("input", {
+    id: inputId, type: "search", class: "bt-input bt-lib-input", placeholder: t("lib.filterPh"),
+    autocomplete: "off", spellcheck: "false", enterkeyhint: "search",
+  });
+  const chips = el("div", { class: "bt-chips", role: "group", "aria-label": t("lib.cats") });
+  const tools = el("div", { class: "bt-lib-tools", hidden: true },
+    el("div", { class: "bt-lib-search" },
+      el("label", { class: "sr-only", for: inputId, text: t("lib.filter") }),
+      el("span", { class: "bt-lib-ico", html: ICON.search }),
+      input),
+    chips);
   const note = el("p", { class: "bt-note" });
-  const node = el("div", { class: "bt-lib" }, count, rest, body, note);
+  const node = el("div", { class: "bt-lib" }, count, rest, tools, body, note);
+  const lazy = lazyPainter();
 
-  const open = (item) => navigate(`#/book/${item.id}`, { replace: true });
+  const open = (item) => navigate(bookPath(item.id), { replace: true });
   Promise.all([api.loadCatalog(), api.getHealth()]).then(([catalog, health]) => {
     if (!node.isConnected && state.routeModal?.name !== "library") return;
     const lang = getLang();
-    const items = catalog.map((e) => api.localizeEntry(e, lang));
-    count.textContent = tn("library.count", items.length);
-    const parts = [];
-    if (items.length) parts.push(bookGrid(items, open));
-    else parts.push(el("p", { class: "bt-empty" }, el("span", { html: ICON.library }), el("span", { text: t("library.empty") })));
+    const entries = catalog.map((e) => ({ ...api.localizeEntry(e, lang), cats: api.categoriesOf(e), entry: e }));
+    const byId = new Map(entries.map((e) => [e.id, e]));
+    const cats = api.CATEGORIES.filter((c) => entries.some((e) => e.cats.includes(c)));
+    let cat = "all";
+    const render = () => {
+      let list = cat === "all" ? entries : entries.filter((e) => e.cats.includes(cat));
+      const q = input.value.trim();
+      if (q) list = api.rankCatalog(list.map((e) => e.entry), q, { lang, limit: 500, min: 0.45 }).map((r) => byId.get(r.id)).filter(Boolean);
+      count.textContent = tn("library.count", list.length);
+      grid.replaceChildren(list.length
+        ? bookGrid(list, open, { lazy })
+        : el("p", { class: "bt-empty" }, el("span", { html: ICON.library }), el("span", { text: entries.length ? t("lib.none") : t("library.empty") })));
+    };
+    if (entries.length > 6) {
+      tools.hidden = false;
+      if (cats.length > 1) {
+        const buttons = ["all", ...cats].map((c) => el("button", {
+          type: "button", class: "chip bt-chip", "aria-pressed": String(c === cat), dataset: { cat: c }, text: t(`cat.${c}`),
+          onclick: () => {
+            cat = c;
+            for (const b of buttons) b.setAttribute("aria-pressed", String(b.dataset.cat === cat));
+            render();
+          },
+        }));
+        chips.replaceChildren(...buttons);
+      } else chips.hidden = true;
+      let timer = 0;
+      input.addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(render, 120); });
+      input.addEventListener("keydown", (e) => { if (e.key === "Escape" && input.value) { e.stopPropagation(); input.value = ""; render(); } }, true);
+    }
+    render();
     // Live books this visitor opened before
     const ids = new Set(catalog.map((e) => e.id));
     const recent = health.live ? api.listMeta().filter((m) => !ids.has(m.id)).slice(0, 12).map((m) => {
       const loc = api.metaForLang(m, lang);
       return { id: m.id, title: loc.title, author: loc.author, year: loc.year, cover: coverFor(m.cover, loc.title) };
     }) : [];
-    if (recent.length) parts.push(el("h3", { class: "bt-sub", text: t("library.recent") }), bookGrid(recent, open, { compact: true }));
-    body.replaceChildren(...parts);
+    if (recent.length) recentBox.replaceChildren(el("h3", { class: "bt-sub", text: t("library.recent") }), bookGrid(recent, open, { compact: true, lazy }));
     note.replaceChildren(el("span", { html: ICON.sparkle }), el("span", { text: health.live ? t("library.liveNote") : t("library.demoNote") }));
   });
-  return { node, labelId, className: "bt-wide" };
+  return { node, labelId, className: "bt-wide", dispose: () => lazy.dispose() };
 }
 
 function buildPremium() {
   const labelId = "bt-prem-title";
   const pill = () => el("span", { class: "bt-pill", text: "…" });
   const pills = { portraits: pill(), video: pill() };
-  const feature = (key, icon, extra, hero = false) => el("li", { class: `bt-feat${hero ? " is-hero" : ""}` },
-    el("div", { class: "bt-feat-top" }, el("span", { class: "bt-ico", html: icon }), extra),
-    el("h3", { text: t(`premium.${key}.title`) }),
-    el("p", { text: t(`premium.${key}.text`) }));
+  const texts = {};
+  const feature = (key, icon, extra, hero = false) => {
+    const h3 = el("h3", { text: t(`premium.${key}.title`) });
+    const p = el("p", { text: t(`premium.${key}.text`) });
+    texts[key] = { h3, p };
+    return el("li", { class: `bt-feat${hero ? " is-hero" : ""}` },
+      el("div", { class: "bt-feat-top" }, el("span", { class: "bt-ico", html: icon }), extra), h3, p);
+  };
   const freePill = el("span", { class: "bt-pill is-on", text: t("premium.on") });
+  const lead = el("p", { class: "bt-lead", text: t("premium.lead") });
+  const pricingList = el("ul", {}, t("premium.pricing.items").map((line) => el("li", {}, el("span", { html: ICON.check }), el("span", { text: line }))));
+  const plans = el("div", { class: "bt-prem-plans", "aria-busy": "true" }, el("div", { class: "skeleton", style: "height:120px;border-radius:18px" }));
   const node = el("div", { class: "bt-prem" },
     el("div", { class: "bt-prem-hero" },
       el("p", { class: "badge bt-prem-badge" }, el("i", { html: ICON.crown }), el("b", { text: t("premium.kicker") })),
       el("h2", { class: "bt-h bt-prem-h", id: labelId, text: t("premium.title") }),
-      el("p", { class: "bt-lead", text: t("premium.lead") })),
+      lead),
+    plans,
     el("ul", { class: "bt-feats" },
       feature("portraits", ICON.portrait, pills.portraits, true),
       feature("video", ICON.video, pills.video, true),
       feature("free", ICON.infinity, freePill)),
     el("section", { class: "bt-pricing", "aria-labelledby": "bt-price-h" },
       el("h3", { id: "bt-price-h", text: t("premium.pricing.title") }),
-      el("ul", {}, t("premium.pricing.items").map((line) => el("li", {}, el("span", { html: ICON.check }), el("span", { text: line }))))),
+      pricingList),
     el("p", { class: "bt-note" }, el("span", { html: ICON.sparkle }), el("span", { text: t("premium.note") })),
     el("div", { class: "bt-actions" },
-      el("a", { class: "btn-glow", href: "#/library", onclick: (e) => { e.preventDefault(); navigate("#/library", { replace: true }); } }, el("span", { text: t("premium.cta") })),
-      el("span", { class: "bt-status" })));
+      el("a", { class: "btn-ghost", href: "#/library", onclick: (e) => { e.preventDefault(); navigate("#/library", { replace: true }); } },
+        el("span", { html: ICON.library }), el("span", { text: t("premium.cta") }))));
 
   api.getHealth().then((h) => {
-    const set = (node, on) => {
-      node.textContent = on ? t("premium.on") : t("premium.off");
-      node.title = t("premium.status");
-      node.classList.toggle("is-on", on);
+    const set = (n, on) => {
+      n.textContent = on ? t("premium.on") : t("premium.off");
+      n.title = t("premium.status");
+      n.classList.toggle("is-on", on);
     };
     set(pills.portraits, h.portraits);
     set(pills.video, h.video);
+    if (h.billing.enabled) {
+      lead.textContent = t("premium.leadPaid");
+      texts.free.h3.textContent = t("premium.free.titlePaid");
+      texts.free.p.textContent = tn("premium.free.textPaid", h.freeBooks);
+      const label = (period) => h.billing.prices.find((p) => p.period === period)?.label || "—";
+      const lines = t("premium.pricing.paid", { free: h.freeBooks, month: label("month"), year: label("year") });
+      pricingList.replaceChildren(...lines.map((line) => el("li", {}, el("span", { html: ICON.check }), el("span", { text: line }))));
+    }
+    plans.removeAttribute("aria-busy");
+    plans.replaceChildren(account.plansBlock(h, { from: "premium" }));
   });
   return { node, labelId, className: "bt-mid" };
 }
 
-/** "AI is not connected yet" — offer the demo books (matches first). */
+/** "AI is not connected yet" — offer the demo books (matches first) and the waitlist. */
 async function openDemoNotice(query = "", matches = []) {
   const catalog = await api.loadCatalog();
   const lang = getLang();
@@ -914,18 +1149,67 @@ async function openDemoNotice(query = "", matches = []) {
   ].slice(0, 6);
   const labelId = "bt-demo-title";
   let handle = null;
+  const q = String(query || "").trim().slice(0, 200);
   const node = el("div", { class: "bt-demo" },
     el("p", { class: "chip bt-mode" }, el("i", { class: "bt-dot", "aria-hidden": "true" }), t("mode.demo")),
     el("h2", { class: "bt-h", id: labelId, text: t("search.demoTitle") }),
-    el("p", { class: "bt-lead", text: query ? t("search.demoQuery", { q: query }) : t("search.demoText") }),
+    el("p", { class: "bt-lead", text: q ? t("search.demoQuery", { q }) : t("search.demoText") }),
     items.length
-      ? bookGrid(items, (it) => { handle?.close(); navigate(`#/book/${it.id}`); }, { compact: true })
+      ? bookGrid(items, (it) => { handle?.close(); navigate(bookPath(it.id)); }, { compact: true })
       : el("p", { class: "bt-empty", text: t("library.empty") }),
+    q ? waitlistForm(q) : null,
     el("div", { class: "bt-actions" },
       el("a", { class: "btn-ghost", href: "#/library", onclick: (e) => { e.preventDefault(); handle?.close(); navigate("#/library"); } },
         el("span", { html: ICON.library }), el("span", { text: t("search.allBooks") }))));
-  handle = openModal(node, { labelledBy: labelId, className: "bt-mid" });
+  handle = transientModal(node, { labelledBy: labelId, className: "bt-mid" });
   return handle;
+}
+
+let formN = 0;
+
+/** "Leave your Telegram or e-mail — we'll tell you when this book is ready" → POST /api/waitlist. */
+function waitlistForm(q) {
+  const id = `bt-wl-${++formN}`;
+  const input = el("input", {
+    id, type: "text", name: "contact", class: "bt-input", autocomplete: "email", inputmode: "email", maxlength: "120",
+    autocapitalize: "off", spellcheck: "false", placeholder: t("wl.ph"), "aria-describedby": `${id}-err`,
+  });
+  const err = el("p", { class: "bt-field-err", id: `${id}-err`, "aria-live": "polite" });
+  const btn = el("button", { type: "submit", class: "btn-glow btn-sm" }, el("span", { text: t("wl.send") }));
+  const form = el("form", { class: "bt-wl", novalidate: true },
+    el("h3", { class: "bt-wl-h", text: t("wl.title") }),
+    el("p", { class: "bt-wl-text", text: t("wl.text", { q }) }),
+    el("label", { class: "sr-only", for: id, text: t("wl.label") }),
+    el("div", { class: "bt-wl-row" }, input, btn),
+    err);
+  const setErr = (msg) => {
+    err.textContent = msg;
+    form.classList.toggle("is-invalid", Boolean(msg));
+    if (msg) input.setAttribute("aria-invalid", "true"); else input.removeAttribute("aria-invalid");
+  };
+  input.addEventListener("input", () => { if (form.classList.contains("is-invalid") && api.validContact(input.value)) setErr(""); });
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const contact = input.value.trim();
+    if (!api.validContact(contact)) { setErr(t("wl.bad")); input.focus(); return; }
+    setErr("");
+    btn.disabled = true;
+    form.setAttribute("aria-busy", "true");
+    try {
+      await api.joinWaitlist(q, contact, getLang());
+      api.sendEvent("waitlist_join");
+      const done = el("div", { class: "bt-wl is-done", role: "status", tabindex: "-1" },
+        el("span", { class: "bt-wl-ok", html: ICON.check }), el("p", { text: t("wl.ok") }));
+      form.replaceWith(done);
+      done.focus({ preventScroll: true });
+    } catch (error) {
+      const e2 = api.toApiError(error);
+      toast(e2.code === "rate_limited" || e2.code === "network" ? errorText(e2) : t("wl.error"), { error: true });
+      btn.disabled = false;
+      form.removeAttribute("aria-busy");
+    }
+  });
+  return form;
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -964,7 +1248,7 @@ function initSearchBox() {
     } else input.removeAttribute("aria-activedescendant");
   };
 
-  const openBookItem = (id) => { close(); input.value = ""; input.blur(); navigate(`#/book/${id}`); };
+  const openBookItem = (id) => { close(); input.value = ""; input.blur(); navigate(bookPath(id)); };
   const searchQuery = (q) => { close(); input.blur(); navigate(`#/q/${enc(q)}`); };
 
   /** Render items: { kind: "book"|"query"|"ai"|"empty", … }. */
@@ -1168,19 +1452,26 @@ function buildFooter() {
     });
   }
   const links = [["#/how", "nav.how"], ["#/library", "nav.library"], ["#/premium", "nav.premium"]];
+  const legal = [["/terms", "legal.terms"], ["/privacy", "legal.privacy"], ["/refund", "legal.refund"]];
   const footer = el("footer", { class: "bt-footer", id: "site-footer", hidden: true },
     el("div", { class: "bt-footer-in" },
       el("div", { class: "bt-footer-brand" },
-        el("a", { class: "brand", href: "#/", "aria-label": "BookTrip" }, mark, el("span", { class: "brand-word", html: "<b>BOOK</b>TRIP" })),
+        el("a", { class: "brand", href: "/", "aria-label": "BookTrip" }, mark, el("span", { class: "brand-word", html: "<b>BOOK</b>TRIP" })),
         el("p", { class: "bt-footer-tag", "data-i18n": "brand.tagline", text: t("brand.tagline") })),
       el("nav", { class: "bt-footer-nav", "data-i18n-aria": "footer.label", "aria-label": t("footer.label") },
         links.map(([href, key]) => el("a", { href, "data-i18n": key, text: t(key) }))),
       el("p", { class: "bt-footer-note", "data-i18n": "footer.note", text: t("footer.note") }),
+      el("nav", { class: "bt-footer-legal", id: "bt-footer-legal", "aria-label": "Legal" },
+        legal.map(([href, key]) => el("a", { href, "data-i18n": key, text: t(key) }))),
       el("p", { class: "bt-footer-small" },
         el("span", { class: "bt-footer-copy", text: t("footer.rights", { year: new Date().getFullYear() }) }),
         el("span", { "aria-hidden": "true", text: " · " }),
         el("span", { "data-i18n": "footer.made", text: t("footer.made") }))));
   $("#main").after(footer);
+  api.getHealth().then((h) => {
+    if (!h.telegram || $("#bt-footer-tg")) return;
+    $("#bt-footer-legal")?.append(el("a", { id: "bt-footer-tg", href: `https://t.me/${h.telegram}`, target: "_blank", rel: "noopener", "data-i18n": "footer.telegram", text: t("footer.telegram") }));
+  });
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -1200,13 +1491,13 @@ function initNavMenu() {
     set(!isOpen());
     if (isOpen() && e.detail === 0) links.querySelector("a")?.focus(); // opened from the keyboard
   });
-  links.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
+  links.addEventListener("click", (e) => { if (e.target.closest("a, button")) set(false); });
   document.addEventListener("pointerdown", (e) => { if (isOpen() && !nav.contains(e.target)) set(false); });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && isOpen()) { e.stopPropagation(); set(false); btn.focus(); }
   }, true);
   nav.addEventListener("focusout", (e) => { if (isOpen() && e.relatedTarget && !nav.contains(e.relatedTarget)) set(false); });
-  window.addEventListener("hashchange", () => set(false));
+  window.addEventListener("bt:route", () => set(false));
   try { matchMedia("(min-width: 861px)").addEventListener("change", () => set(false)); } catch { /* old Safari */ }
 }
 
@@ -1218,10 +1509,22 @@ function syncLangButtons() {
   for (const b of document.querySelectorAll("[data-lang]")) b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
 }
 
+const RING_MAX = 18;
+let ringIds = null; // random subset of the catalog shown on the ring (fixed for the visit)
+
 async function ringItems() {
   const catalog = await api.loadCatalog();
   const lang = getLang();
-  return catalog.map((e) => api.localizeEntry(e, lang));
+  if (!ringIds) {
+    const ids = catalog.map((e) => e.id);
+    for (let i = ids.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [ids[i], ids[j]] = [ids[j], ids[i]];
+    }
+    ringIds = ids.slice(0, RING_MAX);
+  }
+  const byId = new Map(catalog.map((e) => [e.id, e]));
+  return ringIds.filter((id) => byId.has(id)).map((id) => api.localizeEntry(byId.get(id), lang));
 }
 
 function onLangChange() {
@@ -1231,8 +1534,18 @@ function onLangChange() {
   if (copy) copy.textContent = t("footer.rights", { year: new Date().getFullYear() });
   searchBox?.refresh();
   if (state.ring) ringItems().then((items) => state.ring?.setItems(items));
+  account.refreshLabels();
   if (state.view === "book" && state.book) openBook(state.book.id, { force: true, instant: true });
   else document.title = t("meta.title");
+}
+
+/** Honest copy while only the curated library works ("great books"), the full promise once AI is live. */
+async function syncVariant() {
+  const h = await api.getHealth();
+  if (!setVariant(h.live ? "" : "curated")) return;
+  applyI18n();
+  searchBox?.refresh();
+  if (state.view !== "book") document.title = t("meta.title");
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -1249,7 +1562,7 @@ async function initHome() {
   if (!ringMod || !host) return;
   try {
     state.ring = ringMod.createRing(host, items, {
-      onOpen: (item) => item && ID_RE.test(item.id || "") && navigate(`#/book/${item.id}`),
+      onOpen: (item) => item && ID_RE.test(item.id || "") && navigate(bookPath(item.id)),
       reducedMotion: reduced(),
     });
     if (state.view !== "home") state.ring.pause?.();
@@ -1258,14 +1571,72 @@ async function initHome() {
   }
 }
 
+/** In-app links ("#/…", "/", "/#/…", "/book/<id>") switch views without a page load. */
+function interceptLinks(e) {
+  if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const a = e.target.closest?.("a[href]");
+  if (!a || (a.target && a.target !== "_self") || a.hasAttribute("download")) return;
+  const href = a.getAttribute("href") || "";
+  if (!/^(#\/|\/#\/|\/$|\/book\/[a-z0-9-]+\/?$)/i.test(href)) return;
+  e.preventDefault();
+  navigate(href);
+}
+
+const isLocalHost = () => /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+
+/** Vercel Web Analytics (served by Vercel only — skipped on local hosts where it would 404). */
+function loadInsights() {
+  if (isLocalHost() || location.protocol !== "https:" || document.querySelector('script[src="/_vercel/insights/script.js"]')) return;
+  const s = document.createElement("script");
+  s.defer = true;
+  s.src = "/_vercel/insights/script.js";
+  document.head.append(s);
+}
+
+/** Offline support: service worker on https (or localhost), registered after load. */
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator) || !(location.protocol === "https:" || isLocalHost())) return;
+  const go = () => navigator.serviceWorker.register("/sw.js", { scope: "/" }).catch((err) => console.warn("[app] service worker:", err && err.message));
+  if (document.readyState === "complete") setTimeout(go, 0);
+  else window.addEventListener("load", go, { once: true });
+}
+
+/** "Install app" item in the nav menu while the browser offers installation. */
+function initInstall() {
+  const links = $("#nav-links");
+  if (!links) return;
+  let deferred = null;
+  const btn = el("button", { type: "button", class: "nav-links-btn nav-install", hidden: true, "data-i18n": "pwa.install", text: t("pwa.install") });
+  links.append(btn);
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferred = e;
+    btn.hidden = false;
+  });
+  btn.addEventListener("click", async () => {
+    const ev = deferred;
+    deferred = null;
+    btn.hidden = true;
+    if (!ev) return;
+    try {
+      ev.prompt();
+      const choice = await ev.userChoice;
+      if (choice?.outcome === "accepted") api.sendEvent("install");
+    } catch { /* ignore */ }
+  });
+  window.addEventListener("appinstalled", () => { btn.hidden = true; });
+}
+
 async function boot() {
   if (window.__btApp) return;
   window.__btApp = true;
   injectStyles();
+  document.getElementById("ssr-book")?.remove(); // server-rendered SEO copy of /book/<id>
 
   // first paint: right view before anything async
-  const first = parseHash();
-  if (first?.name === "book") showBookPlaceholder();
+  const loginParam = account.takeLoginParam(); // strips ?login=ok|expired before the router reads the URL
+  const first = parseRoute();
+  if (first?.name === "book" || first?.base?.name === "book") showBookPlaceholder();
 
   applyI18n();
   syncLangButtons();
@@ -1283,11 +1654,13 @@ async function boot() {
   // events
   for (const b of document.querySelectorAll("[data-lang]")) b.addEventListener("click", () => setLang(b.dataset.lang));
   window.addEventListener("bt:lang", onLangChange);
-  window.addEventListener("hashchange", () => { stampHistory(); route(); });
+  window.addEventListener("popstate", onHistoryChange);
+  window.addEventListener("hashchange", onHistoryChange);
   document.addEventListener("click", (e) => {
     const cta = e.target.closest?.('[data-action="focus-search"]');
     if (cta) { e.preventDefault(); focusSearch(); }
   });
+  document.addEventListener("click", interceptLinks);
   $(".skip-link")?.addEventListener("click", (e) => {
     e.preventDefault();
     const target = state.view === "book" ? bookEl() : $("#main");
@@ -1313,15 +1686,38 @@ async function boot() {
   window.addEventListener("online", () => toast(t("toast.online")));
   bookEl().setAttribute("tabindex", "-1");
 
+  account.init({
+    openModal: transientModal,
+    toast,
+    errorText,
+    navigate,
+    onAccountChange: ({ subscribed } = {}) => {
+      state.allowed.clear();
+      state.freeLeft = null;
+      if (subscribed) {
+        state.subscribed = true;
+        const blocked = state.blocked;
+        if (blocked && ID_RE.test(blocked)) navigate(bookPath(blocked));
+        else if (state.view === "book" && state.book) openBook(state.book.id, { force: true, instant: true });
+      }
+    },
+    icons: ICON,
+  });
+  initInstall();
+
   loadCovers().then((m) => { covers = m; });
   api.getHealth();
+  syncVariant();
   await Promise.race([loadCovers(), wait(1500)]);
 
   if (first) route();
-  else showHome({ animate: false }); // e.g. "#main": not a route
+  else { state.lastHref = location.href; showHome({ animate: false }); } // e.g. "#main": not a route
   state.booted = true;
+  account.afterBoot(loginParam);
   initHome();
   startPlaceholderRotation();
+  loadInsights();
+  registerServiceWorker();
 }
 
 // ---------------------------------------------------------------------------------------------

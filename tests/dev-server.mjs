@@ -1,5 +1,7 @@
 // Local dev server: serves static files and runs /api/*.js exactly like Vercel's web-standard handlers.
 // Usage: node tests/dev-server.mjs [port]   (env vars such as ANTHROPIC_API_KEY are passed through)
+// Mirrors vercel.json: nested functions (api/auth/start.js → /api/auth/start), the rewrites
+// (/book/<id>, /sitemap.xml, /robots.txt) and cleanUrls (/terms → terms.html).
 import http from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
@@ -12,15 +14,41 @@ const TYPES = {
   ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".mjs": "text/javascript; charset=utf-8",
   ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8", ".svg": "image/svg+xml",
   ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".ico": "image/x-icon", ".txt": "text/plain; charset=utf-8",
-  ".mp4": "video/mp4", ".woff2": "font/woff2",
+  ".mp4": "video/mp4", ".woff2": "font/woff2", ".webmanifest": "application/manifest+json; charset=utf-8", ".xml": "application/xml; charset=utf-8",
 };
 
+/** vercel.json "rewrites": public path → api URL (or null). */
+function rewrite(url) {
+  const book = /^\/book\/([^/]+)\/?$/.exec(url.pathname);
+  const target = new URL(url.href);
+  if (book) {
+    target.pathname = "/api/book";
+    target.searchParams.set("id", decodeURIComponent(book[1]));
+  } else if (url.pathname === "/sitemap.xml") {
+    target.pathname = "/api/sitemap";
+  } else if (url.pathname === "/robots.txt") {
+    target.pathname = "/api/sitemap";
+    target.searchParams.set("format", "robots");
+  } else {
+    return null;
+  }
+  return target;
+}
+
+/** api/<segments>.js, each segment [a-z0-9-] (no "..", no leading "_" helpers), at most 3 deep. */
+function apiModule(pathname) {
+  const name = pathname.replace(/^\/api\//, "").replace(/\/+$/, "");
+  const segments = name.split("/");
+  if (segments.length > 3 || !segments.every((s) => /^[a-z0-9][a-z0-9-]*$/.test(s))) return null;
+  return join(ROOT, "api", ...segments) + ".js";
+}
+
 async function handleApi(req, res, url) {
-  const name = url.pathname.replace(/^\/api\//, "").replace(/\/+$/, "");
-  if (!/^[a-z0-9-]+$/.test(name)) { res.writeHead(404).end(); return; }
+  const file = apiModule(url.pathname);
+  if (!file) { res.writeHead(404).end(); return; }
   let mod;
   try {
-    mod = await import(pathToFileURL(join(ROOT, "api", name + ".js")).href + "?t=" + Date.now());
+    mod = await import(pathToFileURL(file).href + "?t=" + Date.now());
   } catch (err) {
     if (err.code === "ERR_MODULE_NOT_FOUND") { res.writeHead(404, { "content-type": "application/json" }).end('{"error":"not_found"}'); return; }
     throw err;
@@ -48,7 +76,9 @@ async function handleApi(req, res, url) {
 async function handleStatic(req, res, url) {
   let path = decodeURIComponent(url.pathname);
   if (path.endsWith("/")) path += "index.html";
-  const file = normalize(join(ROOT, path));
+  let file = normalize(join(ROOT, path));
+  // cleanUrls: /terms → terms.html
+  if (/^\/[a-z0-9-]+$/.test(path)) await stat(file + ".html").then((st) => { if (st.isFile()) file += ".html"; }, () => {});
   if (!file.startsWith(ROOT)) { res.writeHead(403).end(); return; }
   try {
     const st = await stat(file);
@@ -64,7 +94,9 @@ async function handleStatic(req, res, url) {
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
   try {
-    if (url.pathname.startsWith("/api/")) await handleApi(req, res, url);
+    const target = rewrite(url);
+    if (target) await handleApi(req, res, target);
+    else if (url.pathname.startsWith("/api/")) await handleApi(req, res, url);
     else await handleStatic(req, res, url);
   } catch (err) {
     console.error(err);

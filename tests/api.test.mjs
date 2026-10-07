@@ -10,6 +10,7 @@ import * as E from "../api/_lib/enums.js";
 import { setClientForTests } from "../api/_lib/claude.js";
 import { setFetchForTests, PORTRAIT_STYLE } from "../api/_lib/gemini.js";
 import { setDemoDirForTests } from "../api/_lib/demo.js";
+import { createMemoryStore, setStoreForTests } from "../api/_lib/store.js";
 import { resetRateLimits, hit, BUCKETS } from "../api/_lib/ratelimit.js";
 import { CACHE_PUBLIC, castParam } from "../api/_lib/http.js";
 import { portraitToken, seal, sign, unseal, verify, videoToken } from "../api/_lib/sign.js";
@@ -26,7 +27,12 @@ import { GET as videoGet, POST as videoPost } from "../api/video.js";
 // ---------------------------------------------------------------------------------------------
 // Helpers
 
-const ENV_KEYS = ["ANTHROPIC_API_KEY", "ANTHROPIC_MODEL", "BOOK_EFFORT", "GEMINI_API_KEY", "GEMINI_IMAGE_MODEL", "GEMINI_VIDEO_MODEL", "PREMIUM_CODE", "SIGNING_SECRET"];
+const ENV_KEYS = [
+  "ANTHROPIC_API_KEY", "ANTHROPIC_MODEL", "BOOK_EFFORT", "GEMINI_API_KEY", "GEMINI_IMAGE_MODEL", "GEMINI_VIDEO_MODEL", "PREMIUM_CODE", "SIGNING_SECRET",
+  // v2: no Redis, mail or billing from the developer's shell may leak into these tests
+  "KV_REST_API_URL", "KV_REST_API_TOKEN", "UPSTASH_REDIS_REST_URL", "UPSTASH_REDIS_REST_TOKEN", "RESEND_API_KEY", "AUTH_DEV_LINKS",
+  "PADDLE_API_KEY", "PADDLE_WEBHOOK_SECRET", "PADDLE_CLIENT_TOKEN", "PADDLE_PRICE_MONTH", "PADDLE_PRICE_YEAR", "PADDLE_ENV", "FREE_BOOKS", "PUBLIC_TELEGRAM",
+];
 const savedEnv = Object.fromEntries(ENV_KEYS.map((k) => [k, process.env[k]]));
 const XSS = '<img src=x onerror="alert(1)"><script>alert(2)</script>';
 const RLO = String.fromCharCode(0x202e);
@@ -99,6 +105,7 @@ const APPEARANCE = {
 
 beforeEach(() => {
   resetRateLimits();
+  setStoreForTests(createMemoryStore()); // the shared AI cache must not leak between tests
   setClientForTests(null);
   setFetchForTests(null);
   setDemoDirForTests(null);
@@ -106,6 +113,7 @@ beforeEach(() => {
 });
 
 after(() => {
+  setStoreForTests(null);
   setClientForTests(null);
   setFetchForTests(null);
   setDemoDirForTests(null);
@@ -118,7 +126,10 @@ describe("health", () => {
     const res = await health(req("/api/health"));
     assert.equal(res.status, 200);
     const body = await res.json();
-    assert.deepEqual(body, { live: false, portraits: false, video: false, premiumCodeRequired: true, model: "claude-opus-5-5" });
+    assert.deepEqual(body, {
+      live: false, portraits: false, video: false, premiumCodeRequired: true, model: "claude-opus-5-5",
+      account: false, billing: { enabled: false, env: "sandbox", clientToken: null, prices: [] }, freeBooks: 2, telegram: null, store: "memory",
+    });
   });
 
   test("with keys reports features but never the keys", async () => {

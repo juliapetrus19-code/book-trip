@@ -1,5 +1,8 @@
 // GET /api/portrait?book=&char=&lang=&prompt=&token=  → AI portrait (image bytes) for a live character.
 // GET /api/portrait?demo=<bookId>&char=<charId>       → the same for a bundled demo book (prompt from data file).
+// Live-book portraits are paywalled per book (402) when billing is on and then cached only by the
+// visitor's browser (private); demo portraits are a fixed public set and stay CDN-cacheable.
+import { gateBook } from "./_lib/access.js";
 import { demoPortraitPrompt } from "./_lib/demo.js";
 import { PORTRAIT_STYLE, generateImage, isConfigured } from "./_lib/gemini.js";
 import { CACHE_IMMUTABLE, HttpError, cleanText, idParam, route, searchParams } from "./_lib/http.js";
@@ -8,12 +11,15 @@ import { verify } from "./_lib/sign.js";
 
 // Demo prompts can change when the data files are edited, so their images are cached for less time.
 const CACHE_DEMO = "public, max-age=86400, s-maxage=2592000, stale-while-revalidate=86400";
+// Paywalled images: never shared by the CDN, but the browser may keep them (regenerating costs money).
+const CACHE_PRIVATE_IMAGE = "private, max-age=31536000, immutable";
 const MAX_PROMPT = 600;
 
 export const GET = route(async (request) => {
   const params = searchParams(request);
   if (!isConfigured()) throw new HttpError("not_configured", "Portraits are not configured (GEMINI_API_KEY is missing)");
   let prompt, cache, bucket;
+  let extraHeaders = {};
 
   if (params.has("demo")) {
     const bookId = idParam(params, "demo");
@@ -31,7 +37,9 @@ export const GET = route(async (request) => {
     if (!verify("portrait", [bookId, charId, prompt], params.get("token"))) {
       throw new HttpError("forbidden", "Invalid portrait token");
     }
-    cache = CACHE_IMMUTABLE;
+    const gate = await gateBook(request, bookId);
+    cache = gate.gated ? CACHE_PRIVATE_IMAGE : CACHE_IMMUTABLE;
+    extraHeaders = gate.headers;
     bucket = "portrait";
   }
 
@@ -46,6 +54,7 @@ export const GET = route(async (request) => {
       "cache-control": cache,
       "x-content-type-options": "nosniff",
       "content-security-policy": "default-src 'none'",
+      ...extraHeaders,
     },
   });
 });

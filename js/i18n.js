@@ -450,19 +450,351 @@ export const STRINGS = {
   },
 };
 
+// ---------------------------------------------------------------------------------------------
+// v2: honest copy (curated library), account, paywall, waitlist, library filters, legal, PWA.
+// "key~curated" variants are used instead of "key" while the AI back-end is not live (setVariant).
+
+const V2 = {
+  ru: {
+    "brand.tagline~curated": "Путешествие внутрь великих книг",
+    "meta.title~curated": "BookTrip — путешествие внутрь великих книг",
+    "home.h1b~curated": "великих книг",
+    "home.sub~curated": "Пересказ, герои в 3D и мини-фильм — для классики из нашей библиотеки. Скоро книг станет ещё больше.",
+    "how.lead~curated": "BookTrip превращает классику в маленькое путешествие: прочитать за пять минут, понять глубже, запомнить надолго.",
+    "search.askAiHint~curated": "Пересказ за минуту",
+    "library.liveNote~curated": "Не нашли нужную? Оставьте заявку в поиске — сообщим, когда она появится.",
+
+    "acc.open": "Аккаунт",
+    "acc.signIn": "Войти",
+    "acc.menu": "Меню аккаунта",
+    "acc.title": "Вход в BookTrip",
+    "acc.lead": "Пришлём на почту ссылку для входа — без паролей.",
+    "acc.leadPay": "Сначала войдите — так подписка будет привязана к вашей почте.",
+    "acc.email": "E-mail",
+    "acc.emailPh": "you@example.com",
+    "acc.send": "Получить ссылку",
+    "acc.sending": "Отправляем…",
+    "acc.badEmail": "Проверьте адрес почты — например, name@gmail.com",
+    "acc.sentTitle": "Проверьте почту",
+    "acc.sentText": "Мы отправили ссылку для входа на {email}. Она действует 30 минут — откройте её на этом устройстве.",
+    "acc.devLink": "Тестовая ссылка для входа (только для разработки)",
+    "acc.again": "Другой адрес",
+    "acc.back": "Назад к тарифам",
+    "acc.notConfigured": "Вход пока не настроен. Напишите нам — поможем.",
+    "acc.planMonth": "Подписка: помесячно",
+    "acc.planYear": "Подписка: на год",
+    "acc.planActive": "Подписка активна",
+    "acc.until": "до {date}",
+    "acc.free": "Бесплатный план",
+    "acc.manage": "Управлять подпиской",
+    "acc.subscribe": "Оформить подписку",
+    "acc.logout": "Выйти",
+    "acc.loggedOut": "Вы вышли из аккаунта.",
+    "acc.loginOk": "Вы вошли как {email}.",
+    "acc.loginOkShort": "Вы вошли в аккаунт.",
+    "acc.loginExpired": "Ссылка для входа устарела или уже использована — запросите новую.",
+    "acc.portalError": "Не удалось открыть управление подпиской. Попробуйте ещё раз.",
+
+    "pay.kicker": "BookTrip Премиум",
+    "pay.title": "Бесплатные книги закончились",
+    "pay.titleSub": "Подписка BookTrip",
+    "pay.lead": { one: "Вы уже открыли {n} бесплатную книгу. С подпиской — без ограничений:", few: "Вы уже открыли {n} бесплатные книги. С подпиской — без ограничений:", many: "Вы уже открыли {n} бесплатных книг. С подпиской — без ограничений:", other: "Вы уже открыли {n} бесплатные книги. С подпиской — без ограничений:" },
+    "pay.leadSub": "Вся библиотека BookTrip без ограничений:",
+    "pay.bullets": ["Все книги библиотеки — пересказ, термины, герои в 3D и мини-фильм", "Новые книги, как только они появляются", "Отмена в любой момент в один клик"],
+    "pay.choose": "Выберите тариф",
+    "pay.month": "Месяц",
+    "pay.year": "Год",
+    "pay.perMonth": "в месяц",
+    "pay.perYear": "в год",
+    "pay.best": "Выгоднее всего",
+    "pay.subscribe": "Оформить подписку",
+    "pay.telegram": "Написать нам в Telegram",
+    "pay.merchant": "Платёж принимает Paddle — наш реселлер (Merchant of Record).",
+    "pay.opening": "Открываем оплату…",
+    "pay.activating": "Оплата получена, активируем подписку…",
+    "pay.done": "Подписка активна — приятных путешествий!",
+    "pay.slow": "Активация занимает больше времени, чем обычно. Обновите страницу через минуту.",
+    "pay.error": "Не удалось открыть оплату. Попробуйте ещё раз.",
+    "pay.soon": "Подписка появится совсем скоро. Хотите узнать первыми — напишите нам.",
+    "pay.soonTitle": "Скоро",
+    "pay.freeLeft": { one: "Осталась {n} бесплатная книга", few: "Осталось {n} бесплатные книги", many: "Осталось {n} бесплатных книг", other: "Осталось {n} бесплатной книги" },
+    "pay.subscribed": "Подписка активна",
+
+    "premium.leadPaid": "Первые книги — бесплатно и без регистрации. Подписка открывает всю библиотеку без ограничений, а ИИ-студия пишет портреты героев и снимает клипы по сценам книги.",
+    "premium.free.titlePaid": "Попробуйте бесплатно",
+    "premium.free.textPaid": { one: "Первая {n} книга — целиком: пересказ, термины, герои в 3D и мини-фильм. Без регистрации.", few: "Первые {n} книги — целиком: пересказ, термины, герои в 3D и мини-фильм. Без регистрации.", many: "Первые {n} книг — целиком: пересказ, термины, герои в 3D и мини-фильм. Без регистрации.", other: "Первые {n} книги — целиком: пересказ, термины, герои в 3D и мини-фильм. Без регистрации." },
+    "premium.pricing.paid": [
+      "Бесплатных книг: {free} — без регистрации.",
+      "Подписка — {month} в месяц или {year} в год: все книги без ограничений.",
+      "ИИ-видео открывается кодом премиум-доступа: каждый клип рендерит настоящая видеомодель.",
+      "Оплату принимает Paddle. Отменить подписку можно в любой момент, вернуть деньги — в течение 14 дней.",
+    ],
+
+    "wl.title": "Хотите именно эту книгу?",
+    "wl.text": "Оставьте Telegram или e-mail — сообщим, как только «{q}» появится в BookTrip.",
+    "wl.textNoQ": "Оставьте Telegram или e-mail — сообщим, когда появятся новые книги.",
+    "wl.label": "Telegram или e-mail",
+    "wl.ph": "@username или name@mail.com",
+    "wl.send": "Сообщите мне",
+    "wl.bad": "Введите ник в Telegram (5–32 латинские буквы, цифры или _) или e-mail",
+    "wl.ok": "Готово! Напишем, как только книга появится.",
+    "wl.error": "Не удалось сохранить заявку. Попробуйте ещё раз.",
+
+    "lib.filter": "Найти в библиотеке",
+    "lib.filterPh": "Название или автор",
+    "lib.cats": "Жанры",
+    "lib.none": "Ничего не нашлось. Попробуйте другое название или жанр.",
+    "cat.all": "Все",
+    "cat.ukrainian": "Украинская классика",
+    "cat.fantasy": "Фэнтези и сказки",
+    "cat.scifi": "Фантастика",
+    "cat.detective": "Детективы",
+    "cat.adventure": "Приключения",
+    "cat.romance": "О любви",
+    "cat.drama": "Драма и поэзия",
+    "cat.children": "Детские",
+    "cat.classic": "Классика",
+
+    "legal.terms": "Условия",
+    "legal.privacy": "Конфиденциальность",
+    "legal.refund": "Возврат средств",
+    "footer.telegram": "Telegram",
+    "pwa.install": "Установить приложение",
+    "errors.paywall": "Бесплатные книги закончились — оформите подписку, чтобы читать дальше.",
+    "errors.login_required": "Сначала войдите в аккаунт.",
+  },
+
+  uk: {
+    "brand.tagline~curated": "Подорож усередину великих книг",
+    "meta.title~curated": "BookTrip — подорож усередину великих книг",
+    "home.h1b~curated": "великих книг",
+    "home.sub~curated": "Переказ, герої в 3D і мініфільм — для класики з нашої бібліотеки. Незабаром книг стане ще більше.",
+    "how.lead~curated": "BookTrip перетворює класику на маленьку подорож: прочитати за п'ять хвилин, зрозуміти глибше, запам'ятати надовго.",
+    "search.askAiHint~curated": "Переказ за хвилину",
+    "library.liveNote~curated": "Не знайшли потрібної? Залиште заявку в пошуку — повідомимо, коли вона з'явиться.",
+
+    "acc.open": "Акаунт",
+    "acc.signIn": "Увійти",
+    "acc.menu": "Меню акаунта",
+    "acc.title": "Вхід у BookTrip",
+    "acc.lead": "Надішлемо на пошту посилання для входу — без паролів.",
+    "acc.leadPay": "Спершу увійдіть — так підписка буде прив'язана до вашої пошти.",
+    "acc.email": "E-mail",
+    "acc.emailPh": "you@example.com",
+    "acc.send": "Отримати посилання",
+    "acc.sending": "Надсилаємо…",
+    "acc.badEmail": "Перевірте адресу пошти — наприклад, name@gmail.com",
+    "acc.sentTitle": "Перевірте пошту",
+    "acc.sentText": "Ми надіслали посилання для входу на {email}. Воно діє 30 хвилин — відкрийте його на цьому пристрої.",
+    "acc.devLink": "Тестове посилання для входу (лише для розробки)",
+    "acc.again": "Інша адреса",
+    "acc.back": "Назад до тарифів",
+    "acc.notConfigured": "Вхід поки не налаштовано. Напишіть нам — допоможемо.",
+    "acc.planMonth": "Підписка: щомісяця",
+    "acc.planYear": "Підписка: на рік",
+    "acc.planActive": "Підписка активна",
+    "acc.until": "до {date}",
+    "acc.free": "Безкоштовний план",
+    "acc.manage": "Керувати підпискою",
+    "acc.subscribe": "Оформити підписку",
+    "acc.logout": "Вийти",
+    "acc.loggedOut": "Ви вийшли з акаунта.",
+    "acc.loginOk": "Ви увійшли як {email}.",
+    "acc.loginOkShort": "Ви увійшли в акаунт.",
+    "acc.loginExpired": "Посилання для входу застаріло або вже використане — запросіть нове.",
+    "acc.portalError": "Не вдалося відкрити керування підпискою. Спробуйте ще раз.",
+
+    "pay.kicker": "BookTrip Преміум",
+    "pay.title": "Безкоштовні книги закінчилися",
+    "pay.titleSub": "Підписка BookTrip",
+    "pay.lead": { one: "Ви вже відкрили {n} безкоштовну книгу. З підпискою — без обмежень:", few: "Ви вже відкрили {n} безкоштовні книги. З підпискою — без обмежень:", many: "Ви вже відкрили {n} безкоштовних книг. З підпискою — без обмежень:", other: "Ви вже відкрили {n} безкоштовні книги. З підпискою — без обмежень:" },
+    "pay.leadSub": "Уся бібліотека BookTrip без обмежень:",
+    "pay.bullets": ["Усі книги бібліотеки — переказ, терміни, герої в 3D і мініфільм", "Нові книги, щойно вони з'являються", "Скасування будь-коли в один клік"],
+    "pay.choose": "Оберіть тариф",
+    "pay.month": "Місяць",
+    "pay.year": "Рік",
+    "pay.perMonth": "на місяць",
+    "pay.perYear": "на рік",
+    "pay.best": "Найвигідніше",
+    "pay.subscribe": "Оформити підписку",
+    "pay.telegram": "Написати нам у Telegram",
+    "pay.merchant": "Платіж приймає Paddle — наш реселер (Merchant of Record).",
+    "pay.opening": "Відкриваємо оплату…",
+    "pay.activating": "Оплату отримано, активуємо підписку…",
+    "pay.done": "Підписка активна — приємних подорожей!",
+    "pay.slow": "Активація триває довше, ніж зазвичай. Оновіть сторінку за хвилину.",
+    "pay.error": "Не вдалося відкрити оплату. Спробуйте ще раз.",
+    "pay.soon": "Підписка з'явиться зовсім скоро. Хочете дізнатися першими — напишіть нам.",
+    "pay.soonTitle": "Незабаром",
+    "pay.freeLeft": { one: "Залишилась {n} безкоштовна книга", few: "Залишилось {n} безкоштовні книги", many: "Залишилось {n} безкоштовних книг", other: "Залишилось {n} безкоштовної книги" },
+    "pay.subscribed": "Підписка активна",
+
+    "premium.leadPaid": "Перші книги — безкоштовно й без реєстрації. Підписка відкриває всю бібліотеку без обмежень, а ШІ-студія малює портрети героїв і знімає кліпи за сценами книги.",
+    "premium.free.titlePaid": "Спробуйте безкоштовно",
+    "premium.free.textPaid": { one: "Перша {n} книга — повністю: переказ, терміни, герої в 3D і мініфільм. Без реєстрації.", few: "Перші {n} книги — повністю: переказ, терміни, герої в 3D і мініфільм. Без реєстрації.", many: "Перші {n} книг — повністю: переказ, терміни, герої в 3D і мініфільм. Без реєстрації.", other: "Перші {n} книги — повністю: переказ, терміни, герої в 3D і мініфільм. Без реєстрації." },
+    "premium.pricing.paid": [
+      "Безкоштовних книг: {free} — без реєстрації.",
+      "Підписка — {month} на місяць або {year} на рік: усі книги без обмежень.",
+      "ШІ-відео відкривається кодом преміум-доступу: кожен кліп рендерить справжня відеомодель.",
+      "Оплату приймає Paddle. Скасувати підписку можна будь-коли, повернути кошти — протягом 14 днів.",
+    ],
+
+    "wl.title": "Хочете саме цю книгу?",
+    "wl.text": "Залиште Telegram або e-mail — повідомимо, щойно «{q}» з'явиться в BookTrip.",
+    "wl.textNoQ": "Залиште Telegram або e-mail — повідомимо, коли з'являться нові книги.",
+    "wl.label": "Telegram або e-mail",
+    "wl.ph": "@username або name@mail.com",
+    "wl.send": "Повідомте мене",
+    "wl.bad": "Введіть нік у Telegram (5–32 латинські літери, цифри або _) або e-mail",
+    "wl.ok": "Готово! Напишемо, щойно книга з'явиться.",
+    "wl.error": "Не вдалося зберегти заявку. Спробуйте ще раз.",
+
+    "lib.filter": "Знайти в бібліотеці",
+    "lib.filterPh": "Назва або автор",
+    "lib.cats": "Жанри",
+    "lib.none": "Нічого не знайшлося. Спробуйте іншу назву або жанр.",
+    "cat.all": "Усі",
+    "cat.ukrainian": "Українська класика",
+    "cat.fantasy": "Фентезі й казки",
+    "cat.scifi": "Фантастика",
+    "cat.detective": "Детективи",
+    "cat.adventure": "Пригоди",
+    "cat.romance": "Про кохання",
+    "cat.drama": "Драма й поезія",
+    "cat.children": "Дитячі",
+    "cat.classic": "Класика",
+
+    "legal.terms": "Умови",
+    "legal.privacy": "Конфіденційність",
+    "legal.refund": "Повернення коштів",
+    "footer.telegram": "Telegram",
+    "pwa.install": "Встановити застосунок",
+    "errors.paywall": "Безкоштовні книги закінчилися — оформіть підписку, щоб читати далі.",
+    "errors.login_required": "Спершу увійдіть в акаунт.",
+  },
+
+  en: {
+    "brand.tagline~curated": "Step inside great books",
+    "meta.title~curated": "BookTrip — step inside great books",
+    "home.h1b~curated": "great books",
+    "home.sub~curated": "A retelling, 3D characters and a mini-film for the classics in our library. More books are on the way.",
+    "how.lead~curated": "BookTrip turns a classic into a small journey: read it in five minutes, understand it more deeply, remember it for longer.",
+    "search.askAiHint~curated": "A retelling in a minute",
+    "library.liveNote~curated": "Didn't find yours? Leave a request in search — we'll tell you when it arrives.",
+
+    "acc.open": "Account",
+    "acc.signIn": "Sign in",
+    "acc.menu": "Account menu",
+    "acc.title": "Sign in to BookTrip",
+    "acc.lead": "We'll e-mail you a sign-in link — no passwords.",
+    "acc.leadPay": "Sign in first so the subscription is tied to your e-mail.",
+    "acc.email": "E-mail",
+    "acc.emailPh": "you@example.com",
+    "acc.send": "Get the link",
+    "acc.sending": "Sending…",
+    "acc.badEmail": "Check the e-mail address — e.g. name@gmail.com",
+    "acc.sentTitle": "Check your inbox",
+    "acc.sentText": "We sent a sign-in link to {email}. It works for 30 minutes — open it on this device.",
+    "acc.devLink": "Test sign-in link (development only)",
+    "acc.again": "Use another address",
+    "acc.back": "Back to plans",
+    "acc.notConfigured": "Sign-in isn't set up yet. Message us and we'll help.",
+    "acc.planMonth": "Subscription: monthly",
+    "acc.planYear": "Subscription: yearly",
+    "acc.planActive": "Subscription active",
+    "acc.until": "until {date}",
+    "acc.free": "Free plan",
+    "acc.manage": "Manage subscription",
+    "acc.subscribe": "Subscribe",
+    "acc.logout": "Log out",
+    "acc.loggedOut": "You're logged out.",
+    "acc.loginOk": "Signed in as {email}.",
+    "acc.loginOkShort": "You're signed in.",
+    "acc.loginExpired": "The sign-in link has expired or was already used — request a new one.",
+    "acc.portalError": "Couldn't open subscription management. Please try again.",
+
+    "pay.kicker": "BookTrip Premium",
+    "pay.title": "You've used your free books",
+    "pay.titleSub": "BookTrip subscription",
+    "pay.lead": { one: "You've opened {n} free book. Subscribe for unlimited trips:", other: "You've opened {n} free books. Subscribe for unlimited trips:" },
+    "pay.leadSub": "The whole BookTrip library, unlimited:",
+    "pay.bullets": ["Every book in the library — retelling, terms, 3D characters and the mini-film", "New books as soon as they arrive", "Cancel anytime in one click"],
+    "pay.choose": "Choose a plan",
+    "pay.month": "Monthly",
+    "pay.year": "Yearly",
+    "pay.perMonth": "per month",
+    "pay.perYear": "per year",
+    "pay.best": "Best value",
+    "pay.subscribe": "Subscribe",
+    "pay.telegram": "Message us on Telegram",
+    "pay.merchant": "Payments are handled by Paddle, our Merchant of Record.",
+    "pay.opening": "Opening checkout…",
+    "pay.activating": "Payment received, activating…",
+    "pay.done": "Your subscription is active — enjoy the trips!",
+    "pay.slow": "Activation is taking longer than usual. Refresh the page in a minute.",
+    "pay.error": "Couldn't open checkout. Please try again.",
+    "pay.soon": "Subscriptions are coming very soon. Want to be first? Message us.",
+    "pay.soonTitle": "Coming soon",
+    "pay.freeLeft": { one: "{n} free book left", other: "{n} free books left" },
+    "pay.subscribed": "Subscription active",
+
+    "premium.leadPaid": "Your first books are free, no sign-up. A subscription opens the whole library without limits, and the AI studio paints the characters and shoots clips of the book's scenes.",
+    "premium.free.titlePaid": "Try it free",
+    "premium.free.textPaid": { one: "Your first book in full: retelling, terms, 3D characters and the mini-film. No sign-up.", other: "Your first {n} books in full: retelling, terms, 3D characters and the mini-film. No sign-up." },
+    "premium.pricing.paid": [
+      "Free books: {free} — no sign-up.",
+      "Subscription — {month} a month or {year} a year: every book, no limits.",
+      "AI video is unlocked with a premium access code: a real video model renders every clip.",
+      "Payments are handled by Paddle. Cancel anytime; refunds within 14 days.",
+    ],
+
+    "wl.title": "Want this exact book?",
+    "wl.text": "Leave your Telegram or e-mail — we'll tell you when “{q}” is ready on BookTrip.",
+    "wl.textNoQ": "Leave your Telegram or e-mail — we'll tell you when new books arrive.",
+    "wl.label": "Telegram or e-mail",
+    "wl.ph": "@username or name@mail.com",
+    "wl.send": "Notify me",
+    "wl.bad": "Enter a Telegram username (5–32 Latin letters, digits or _) or an e-mail",
+    "wl.ok": "Done! We'll write as soon as the book is ready.",
+    "wl.error": "Couldn't save your request. Please try again.",
+
+    "lib.filter": "Search the library",
+    "lib.filterPh": "Title or author",
+    "lib.cats": "Genres",
+    "lib.none": "Nothing found. Try another title or genre.",
+    "cat.all": "All",
+    "cat.ukrainian": "Ukrainian classics",
+    "cat.fantasy": "Fantasy & fairy tales",
+    "cat.scifi": "Sci-fi & dystopia",
+    "cat.detective": "Mystery",
+    "cat.adventure": "Adventure",
+    "cat.romance": "Love stories",
+    "cat.drama": "Drama & poetry",
+    "cat.children": "Children's",
+    "cat.classic": "Classics",
+
+    "legal.terms": "Terms",
+    "legal.privacy": "Privacy",
+    "legal.refund": "Refunds",
+    "footer.telegram": "Telegram",
+    "pwa.install": "Install app",
+    "errors.paywall": "You've used your free books — subscribe to keep reading.",
+    "errors.login_required": "Please sign in first.",
+  },
+};
+for (const l of LANGS) Object.assign(STRINGS[l], V2[l]);
+
 let current = null;
 
 function detectLang() {
   const saved = store.get(LANG_KEY);
-  if (LANGS.includes(saved)) return saved;
+  if (LANGS.includes(saved)) return saved; // an explicit choice always wins
   const list = (typeof navigator !== "undefined" && (navigator.languages?.length ? navigator.languages : [navigator.language])) || [];
   for (const raw of list) {
     const code = String(raw || "").toLowerCase().split(/[-_]/)[0];
-    if (code === "uk") return "uk";
-    if (code === "ru" || code === "be" || code === "kk") return "ru";
-    if (code === "en") return "en";
+    if (code === "uk" || code === "ru" || code === "en") return code;
   }
-  return "en";
+  return "uk"; // Ukrainian by default
 }
 
 export function getLang() {
@@ -487,8 +819,23 @@ function syncDocumentLang() {
   if (desc) desc.setAttribute("content", t("meta.description"));
 }
 
+// Copy variant: "curated" (default, honest while only the library is available) or "" (AI is live).
+let variant = "curated";
+
+/** Switch the copy variant; returns true when it changed (callers re-apply the strings). */
+export function setVariant(v) {
+  const next = v === "curated" ? "curated" : "";
+  if (next === variant) return false;
+  variant = next;
+  return true;
+}
+
 function lookup(key, lang) {
   const table = STRINGS[lang] || STRINGS.en;
+  if (variant) {
+    const vk = `${key}~${variant}`;
+    if (vk in table) return table[vk];
+  }
   if (key in table) return table[key];
   if (key in STRINGS.en) return STRINGS.en[key];
   return undefined;

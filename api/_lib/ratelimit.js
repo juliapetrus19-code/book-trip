@@ -13,6 +13,12 @@ export const BUCKETS = {
   premium_fail: { limit: 10, windowMs: 60 * MIN }, // wrong premium codes (brute-force guard)
   poll: { limit: 300, windowMs: 10 * MIN },     // polling video operations
   file: { limit: 120, windowMs: 10 * MIN },     // streaming finished videos (incl. range requests)
+  login: { limit: 8, windowMs: 15 * MIN },      // magic-link e-mails per IP (plus 5/hour per address in the store)
+  waitlist: { limit: 6, windowMs: 10 * MIN },   // waitlist sign-ups
+  event: { limit: 120, windowMs: 10 * MIN },    // funnel events (over-limit events are dropped silently)
+  access: { limit: 120, windowMs: 10 * MIN },   // /api/access + /api/me
+  billing: { limit: 20, windowMs: 10 * MIN },   // checkout / customer portal
+  admin_fail: { limit: 10, windowMs: 60 * MIN }, // wrong admin tokens (brute-force guard)
 };
 
 const MAX_KEYS = 20000;

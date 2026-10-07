@@ -9,8 +9,14 @@ export const CACHE_SHORT = "public, max-age=600, s-maxage=86400, stale-while-rev
 export const CACHE_IMMUTABLE = "public, max-age=31536000, s-maxage=31536000, immutable";
 export const NO_STORE = "no-store";
 
+/** Per-user answers (paywalled AI parts, account data): never shared by the CDN. */
+export const PRIVATE = "private, no-store";
+
 const STATUS = {
   bad_request: 400,
+  login_required: 401,
+  unauthorized: 401,
+  paywall: 402,
   forbidden: 403,
   not_found: 404,
   method_not_allowed: 405,
@@ -22,13 +28,14 @@ const STATUS = {
   not_configured: 503,
 };
 
-/** An error that maps 1:1 onto an API error response `{ error, message }`. */
+/** An error that maps 1:1 onto an API error response `{ error, message, ...extra }`. */
 export class HttpError extends Error {
-  constructor(code, message, { status, headers } = {}) {
+  constructor(code, message, { status, headers, extra } = {}) {
     super(message || code);
     this.code = code;
     this.status = status || STATUS[code] || 500;
     this.headers = headers || {};
+    this.extra = extra || null;
   }
 }
 
@@ -40,12 +47,12 @@ export function json(data, { status = 200, cache = NO_STORE, headers = {} } = {}
 }
 
 /** Error responses are never cached. */
-export function errorResponse(code, message, { status, headers = {} } = {}) {
-  return json({ error: code, message: message || code }, { status: status || STATUS[code] || 500, cache: NO_STORE, headers });
+export function errorResponse(code, message, { status, headers = {}, extra = null } = {}) {
+  return json({ error: code, message: message || code, ...(extra || {}) }, { status: status || STATUS[code] || 500, cache: NO_STORE, headers });
 }
 
 export function toErrorResponse(err) {
-  if (err instanceof HttpError) return errorResponse(err.code, err.message, { status: err.status, headers: err.headers });
+  if (err instanceof HttpError) return errorResponse(err.code, err.message, { status: err.status, headers: err.headers, extra: err.extra });
   console.error("[api] unexpected error:", err && err.stack ? err.stack : err);
   return errorResponse("server", "Internal server error");
 }
@@ -69,6 +76,38 @@ export function clientIp(request) {
     if (first) return first.slice(0, 64);
   }
   return (request.headers.get("x-real-ip") || "anon").slice(0, 64);
+}
+
+/** Parse a small JSON object body; throws bad_request / payload_too_large. */
+export async function readJson(request, max = 4096) {
+  const raw = await request.text();
+  if (raw.length > max) throw new HttpError("payload_too_large", "Request body is too large");
+  let body;
+  try {
+    body = raw ? JSON.parse(raw) : {};
+  } catch {
+    throw new HttpError("bad_request", "Body must be a JSON object");
+  }
+  if (!body || typeof body !== "object" || Array.isArray(body)) throw new HttpError("bad_request", "Body must be a JSON object");
+  return body;
+}
+
+/** Public origin for links (e-mails, canonical URLs): SITE_URL when valid, else the request's origin. */
+export function siteOrigin(request) {
+  const env = (process.env.SITE_URL || "").trim();
+  if (env) {
+    try {
+      const u = new URL(env);
+      if (u.protocol === "https:" || u.protocol === "http:") return u.origin;
+    } catch { /* fall through */ }
+  }
+  return new URL(request.url).origin;
+}
+
+/** PUBLIC_TELEGRAM as a bare username (no @), or null when unset / not a valid username. */
+export function telegramHandle() {
+  const raw = String(process.env.PUBLIC_TELEGRAM || "").trim().replace(/^@/, "").replace(/^https?:\/\/t\.me\//i, "");
+  return /^[A-Za-z0-9_]{5,32}$/.test(raw) ? raw : null;
 }
 
 // ---------------------------------------------------------------------------------------------

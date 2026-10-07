@@ -1,0 +1,954 @@
+{
+  "id": "tom-sawyer",
+  "year": 1876,
+  "cover": {
+    "bg": "#c2702e",
+    "bg2": "#4a2410",
+    "fg": "#fbf1d6",
+    "accent": "#3f8fb5",
+    "motif": "hat"
+  },
+  "aliases": [
+    "The Adventures of Tom Sawyer",
+    "Tom Sawyer",
+    "Adventures of Tom Sawyer",
+    "Приключения Тома Сойера",
+    "Том Сойер",
+    "Пригоди Тома Сойєра",
+    "Том Сойєр",
+    "Том Соєр",
+    "Пригоди Тома Соєра",
+    "Tom Soyer",
+    "Priklyucheniya Toma Soyera",
+    "Pryhody Toma Soiera",
+    "Том Сойер Марк Твен",
+    "Том Сойєр Марк Твен",
+    "Tom Sawyer Mark Twain"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Приключения Тома Сойера",
+      "originalTitle": "The Adventures of Tom Sawyer",
+      "author": "Марк Твен",
+      "genre": "Приключенческая повесть",
+      "tagline": "Городок на Миссисипи, клад индейца Джо и лето, когда мальчишеские игры стали всерьёз.",
+      "summary": [
+        "Том Сойер — сирота, которого растит добрая, но строгая тётя Полли в сонном городке Сент-Питерсберг на берегу Миссисипи. Он прогуливает школу, дерётся, таскает варенье и придумывает себе приключения из книжек о пиратах и разбойниках. В наказание за очередную проделку тётя велит ему в субботу белить длинный забор. Том делает вид, что это не работа, а редкое удовольствие, и вскоре мальчишки сами платят ему яблоками, шариками и дохлой крысой на верёвочке за право подержать кисть.",
+        "В город приезжает судья Тэтчер с дочерью Бекки, и Том с первого взгляда влюбляется в светловолосую девочку. В школе он нарочно садится рядом с ней и уговаривает её «обручиться», но проговаривается о прежней подружке Эми Лоуренс — и Бекки в слезах прогоняет его. Тем временем Том дружит с Гекльберри Финном, сыном городского пьяницы, которого матери ставят в пример как худшего мальчишку: Гек не ходит в школу, спит где придётся и свободен как ветер.",
+        "Однажды в полночь Том и Гек приходят на кладбище с дохлой кошкой — сводить бородавки. Там они становятся свидетелями того, как индеец Джо убивает ножом молодого доктора Робинсона, а потом вкладывает нож в руку пьяного Мэффа Поттера и убеждает очнувшегося бедолагу, что убийца — он. Мальчики в ужасе клянутся молчать и подписывают клятву кровью. Поттера арестовывают, и Тома днём и ночью мучает совесть: он тайком носит узнику в тюрьму табак и спички.",
+        "Обиженный на весь свет, Том вместе с Геком и Джо Гарпером убегает на остров Джексона, чтобы стать пиратами. Мальчишки жарят рыбу, купаются и курят трубки, пока не узнают, что весь город считает их утонувшими. Тайком побывав дома, Том придумывает дерзкий план, и в воскресенье троица появляется на собственных похоронах — прямо посреди проповеди. Вскоре Том берёт на себя вину Бекки за порванную учительскую книгу и получает розги, и девочка прощает его. А на суде над Поттером Том нарушает клятву и рассказывает правду. Индеец Джо выпрыгивает в окно и исчезает.",
+        "Летом Том и Гек ищут клад и забираются в заброшенный дом с дурной славой. Там они видят индейца Джо, переодетого глухонемым испанцем: он находит закопанный ящик с золотом и уносит его в тайник «номер два под крестом». Гек выслеживает злодея ночью и узнаёт, что тот хочет расправиться со вдовой Дуглас. Мальчик поднимает на ноги старого валлийца с сыновьями, и вдова спасена, хотя Джо снова ускользает. В это время на пикнике Том и Бекки теряются в огромной пещере Мак-Дугала.",
+        "Три дня дети бродят по тёмным коридорам, догорает последняя свеча, кончается еда. Разматывая бечёвку от воздушного змея, Том натыкается на индейца Джо, который прячется в пещере, а потом всё-таки находит выход к реке. Судья Тэтчер велит обить вход в пещеру железом, и лишь через две недели Том узнаёт об этом: за дверью находят индейца Джо, умершего от голода. Том догадывается, где тайник, и вместе с Геком находит в пещере больше двенадцати тысяч долларов золотом. Вдова Дуглас берёт Гека к себе, и тот, хоть и мучается от чистых рубашек, соглашается терпеть ради Томовой шайки разбойников."
+      ],
+      "themes": [
+        "Детство и свобода",
+        "Игра и реальность",
+        "Совесть и честность",
+        "Взросление",
+        "Провинциальная Америка"
+      ],
+      "terms": [
+        {
+          "term": "Сент-Питерсберг",
+          "definition": "Вымышленный городок на берегу Миссисипи в штате Миссури, прообразом которого стал Ганнибал — город детства Марка Твена."
+        },
+        {
+          "term": "Забор",
+          "definition": "Тридцать ярдов дощатого забора, который Тому велено побелить. Притворившись, что это величайшее удовольствие, он заставляет других мальчишек работать за него да ещё и платить."
+        },
+        {
+          "term": "Библейские билетики",
+          "definition": "Синие, красные и жёлтые билетики, которые в воскресной школе выдают за выученные стихи. Том выменивает их на сокровища от покраски забора и получает Библию, не зная ни строчки."
+        },
+        {
+          "term": "Дохлая кошка",
+          "definition": "По суеверию Гека, верное средство от бородавок: в полночь нужно бросить кошку вслед чертям, пришедшим за грешником на кладбище. Ради этого обряда мальчики и оказываются на месте убийства."
+        },
+        {
+          "term": "Клятва кровью",
+          "definition": "Клятва молчать об увиденном на кладбище, которую Том нацарапал на дощечке и мальчики подписали собственной кровью."
+        },
+        {
+          "term": "Остров Джексона",
+          "definition": "Лесистый остров на Миссисипи, где Том, Гек и Джо Гарпер несколько дней живут как пираты, пока город оплакивает их."
+        },
+        {
+          "term": "Дом с привидениями",
+          "definition": "Заброшенный дом, где мальчики ищут клад и становятся свидетелями того, как индеец Джо откапывает ящик с золотом."
+        },
+        {
+          "term": "«Номер два под крестом»",
+          "definition": "Загадочное указание на тайник индейца Джо. Том разгадывает его в пещере: крест нарисован копотью свечи на скале."
+        },
+        {
+          "term": "Пещера Мак-Дугала",
+          "definition": "Огромный лабиринт подземных ходов за городом, в котором заблудились Том и Бекки и где прятался индеец Джо."
+        },
+        {
+          "term": "Шайка разбойников",
+          "definition": "Новая затея Тома в финале: настоящие разбойники, по его словам, должны быть людьми благородными, поэтому Гек ради неё соглашается жить у вдовы."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Приключения Гекльберри Финна",
+          "author": "Марк Твен",
+          "why": "Продолжение истории: Гек сбегает от «цивилизации» и плывёт по Миссисипи на плоту с беглым рабом Джимом."
+        },
+        {
+          "title": "Остров сокровищ",
+          "author": "Роберт Льюис Стивенсон",
+          "why": "Мальчишка, карта, пещера с золотом и опасный злодей — классика поисков клада."
+        },
+        {
+          "title": "Вино из одуванчиков",
+          "author": "Рэй Брэдбери",
+          "why": "Одно лето из жизни мальчика в маленьком американском городке, полное открытий и первых страхов."
+        },
+        {
+          "title": "Убить пересмешника",
+          "author": "Харпер Ли",
+          "why": "Дети из сонного южного городка сталкиваются со взрослой несправедливостью и громким судом."
+        },
+        {
+          "title": "Робинзон Крузо",
+          "author": "Даниэль Дефо",
+          "why": "Книга о жизни на необитаемом острове — та самая мечта, которую Том разыгрывает на острове Джексона."
+        }
+      ],
+      "film": {
+        "title": "Лето на Миссисипи",
+        "intro": "Ты открываешь книгу, и в лицо тебе дует тёплый речной ветер. Пахнет свежей известью и пылью: ты стоишь босиком на улице маленького городка на берегу Миссисипи.",
+        "outro": "Последняя страница закрывается, и шум реки стихает. Но тебе кажется, что где-то за окном кто-то свистнул условным свистом — и зовёт тебя искать клад.",
+        "scenes": [
+          {
+            "title": "Белый забор",
+            "narration": "Ты стоишь у длинного дощатого забора с ведром извести. Том водит кистью так увлечённо, словно занят самым важным делом на свете, и вскоре мальчишки выстраиваются в очередь, протягивая ему яблоки и шарики.",
+            "line": {
+              "text": "Разве мальчишке каждый день выпадает белить забор?"
+            }
+          },
+          {
+            "title": "Полночь на кладбище",
+            "narration": "Ты прячешься с мальчишками за старыми вязами на кладбище, и Гек сжимает за хвост дохлую кошку. В свете фонаря трое мужчин раскапывают могилу, вспыхивает ссора — и индеец Джо заносит нож.",
+            "line": {
+              "text": "Том, мы будем молчать. Поклянёмся — иначе он нас убьёт."
+            }
+          },
+          {
+            "title": "Пиратский остров",
+            "narration": "Ты сидишь у костра на острове Джексона, над Миссисипи горят звёзды, на углях шипит рыба. Трое пиратов раскуривают трубки и обсуждают, как славно жить без школы и умывания.",
+            "line": {
+              "text": "Отныне я — Чёрный Мститель Испанских Морей!"
+            }
+          },
+          {
+            "title": "На собственных похоронах",
+            "narration": "Ты сидишь на скамье в церкви, где весь город в слезах оплакивает трёх утонувших мальчиков. Вдруг скрипит дверь, и по проходу шагают сами «покойники» — грязные, оборванные и очень довольные собой.",
+            "line": {
+              "text": "Том, негодник, живой! Иди сюда, дай я тебя обниму!"
+            }
+          },
+          {
+            "title": "Заблудившиеся в пещере",
+            "narration": "Ты идёшь за Томом и Бекки по бесконечным тёмным коридорам, а свеча в руке становится всё короче. Вдалеке показывается огонёк, и из-за скалы выглядывает человек, которого здесь никто не ждал.",
+            "line": {
+              "text": "Том, не оставляй меня одну в темноте!"
+            }
+          },
+          {
+            "title": "Клад под крестом",
+            "narration": "Ты протискиваешься с Томом и Геком в узкую расщелину, где на скале виднеется крест, нарисованный копотью. Под камнем стоит тяжёлый ящик, и при свече в нём вспыхивает настоящее золото.",
+            "line": {
+              "text": "Гек, мы богаты! Я же говорил — номер два под крестом!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "tom": {
+          "name": "Том Сойер",
+          "traits": [
+            "озорной",
+            "находчивый",
+            "мечтательный",
+            "храбрый",
+            "великодушный"
+          ],
+          "description": "Мальчик-сирота, живущий у тёти Полли, главный выдумщик и проказник городка. Он верит в пиратов, разбойников и клады, но, когда игра оборачивается настоящей опасностью, поступает по совести: спасает Мэффа Поттера правдивыми показаниями и выводит Бекки из пещеры."
+        },
+        "huck": {
+          "name": "Гекльберри Финн",
+          "traits": [
+            "вольный",
+            "суеверный",
+            "преданный",
+            "смекалистый"
+          ],
+          "description": "Сын городского пьяницы, бездомный мальчишка, которому завидуют все дети, а матери запрещают с ним водиться. Он спит в бочках, курит трубку и верит в приметы. Гек спасает вдову Дуглас от мести индейца Джо, а получив половину клада, с трудом привыкает к чистой одежде и правилам."
+        },
+        "becky": {
+          "name": "Бекки Тэтчер",
+          "traits": [
+            "милая",
+            "гордая",
+            "обидчивая",
+            "доверчивая"
+          ],
+          "description": "Светловолосая голубоглазая дочь судьи Тэтчера, новенькая в городе и в школе. Она то сердится на Тома, то прощает его, а после того как он принимает на себя её наказание, по-настоящему им восхищается. В пещере Бекки слабеет от страха и голода, и Том не бросает её ни на минуту."
+        },
+        "aunt-polly": {
+          "name": "Тётя Полли",
+          "traits": [
+            "заботливая",
+            "строгая",
+            "наивная",
+            "добрая"
+          ],
+          "description": "Пожилая тётя, которая растит Тома, его брата Сида и кузину Мэри. Она грозит розгами, но каждый раз жалеет «сиротку покойной сестры». Решив, что Том утонул, она горько корит себя за прежнюю строгость, а его возвращение встречает слезами радости."
+        },
+        "injun-joe": {
+          "name": "Индеец Джо",
+          "traits": [
+            "мстительный",
+            "жестокий",
+            "хитрый",
+            "опасный"
+          ],
+          "description": "Метис-бродяга, главный злодей повести. Он убивает доктора Робинсона и сваливает вину на Мэффа Поттера, а после разоблачения на суде скрывается и прячет награбленное золото. Джо задумывает жестокую месть вдове Дуглас и в конце концов умирает от голода в замурованной пещере."
+        },
+        "joe-harper": {
+          "name": "Джо Гарпер",
+          "traits": [
+            "весёлый",
+            "верный",
+            "тоскующий по дому"
+          ],
+          "description": "Закадычный друг Тома, вместе с которым он играет в Робин Гуда. Обиженный матерью, Джо бежит на остров Джексона как «Гроза Морей», но первым начинает скучать по дому."
+        },
+        "muff-potter": {
+          "name": "Мэфф Поттер",
+          "traits": [
+            "безобидный",
+            "пьющий",
+            "доверчивый",
+            "благодарный"
+          ],
+          "description": "Добродушный пьяница, который когда-то чинил мальчишкам воздушных змеев. Индеец Джо внушает ему, что это он в пьяном беспамятстве убил доктора. В тюрьме Поттер благодарит Тома за доброту, не подозревая, что тот знает правду, — и на суде Том его спасает."
+        },
+        "sid": {
+          "name": "Сид",
+          "traits": [
+            "послушный",
+            "ябедный",
+            "тихий"
+          ],
+          "description": "Сводный брат Тома, примерный мальчик, который никогда не попадает в истории — зато охотно доносит тёте о проделках брата. Именно Сид выдаёт, что Том зашил ворот рубашки нитками другого цвета."
+        }
+      }
+    },
+    "uk": {
+      "title": "Пригоди Тома Сойєра",
+      "originalTitle": "The Adventures of Tom Sawyer",
+      "author": "Марк Твен",
+      "genre": "Пригодницька повість",
+      "tagline": "Містечко над Міссісіпі, скарб Індіанця Джо і літо, коли хлоп’ячі ігри стали справжніми.",
+      "summary": [
+        "Том Сойєр — сирота, якого виховує добра, але сувора тітка Поллі в сонному містечку Сент-Пітерсберг на березі Міссісіпі. Він прогулює школу, б’ється, цупить варення й вигадує собі пригоди з книжок про піратів і розбійників. За чергову витівку тітка звеліла йому в суботу білити довгий паркан. Том удає, що це не праця, а рідкісна втіха, і невдовзі хлопці самі платять йому яблуками, кульками й дохлим пацюком на мотузці за право хоч трохи потримати щітку.",
+        "До міста приїздить суддя Тетчер із донькою Бекі, і Том із першого погляду закохується в білявку. У школі він навмисне сідає поруч і вмовляє її «заручитися», але прохоплюється про колишню подружку Емі Лоуренс — і Бекі, заплакавши, жене його геть. Тим часом Том товаришує з Гекльберрі Фінном, сином міського п’янички, якого матері вважають найгіршим хлопчиськом у місті: Гек не ходить до школи, ночує де доведеться й вільний, як вітер.",
+        "Якось опівночі Том і Гек приходять на цвинтар із дохлим котом, щоб звести бородавки. Там вони бачать, як Індіанець Джо вбиває ножем молодого лікаря Робінсона, а потім вкладає ножа в руку п’яного Меффа Поттера і переконує бідолаху, щойно той оговтався, що вбивця — він. Нажахані хлопці присягаються мовчати й підписують присягу кров’ю. Поттера заарештовують, а Тома вдень і вночі гризе сумління: він потай носить в’язневі тютюн і сірники.",
+        "Ображений на весь світ, Том разом із Геком і Джо Гарпером тікає на острів Джексона, щоб стати піратами. Хлопці смажать рибу, купаються й курять люльки, аж поки не дізнаються, що все місто вважає їх утопленими. Таємно навідавшись додому, Том вигадує зухвалий план, і в неділю трійця з’являється на власному похороні — просто посеред проповіді. Невдовзі Том бере на себе провину Бекі за подерту вчителеву книжку й дістає різок, і дівчинка йому прощає. А на суді над Поттером Том порушує присягу й розповідає правду. Індіанець Джо вистрибує у вікно й зникає.",
+        "Улітку Том і Гек шукають скарб і забираються в покинутий будинок, про який ходить лиха слава. Там вони бачать Індіанця Джо, перевдягненого глухонімим іспанцем: він знаходить закопану скриньку із золотом і переносить її до схованки «номер два під хрестом». Гек уночі вистежує лиходія і дізнається, що той хоче поквитатися з удовою Дуглас. Хлопець здіймає на ноги старого валлійця з синами, і вдову врятовано, хоча Джо знову вислизає. Тим часом на пікніку Том і Бекі губляться у величезній печері Мак-Дуґала.",
+        "Три дні діти блукають темними переходами, догоряє остання свічка, закінчується їжа. Розмотуючи мотузку від повітряного змія, Том натрапляє на Індіанця Джо, що ховається в печері, а згодом таки знаходить вихід до річки. Суддя Тетчер наказує оббити вхід до печери залізом, і лише через два тижні Том про це дізнається: за дверима знаходять Індіанця Джо, який помер з голоду. Том здогадується, де схованка, і разом із Геком знаходить у печері понад дванадцять тисяч доларів золотом. Удова Дуглас бере Гека до себе, і той, хоч і мучиться в чистих сорочках, погоджується терпіти заради Томової ватаги розбійників."
+      ],
+      "themes": [
+        "Дитинство і свобода",
+        "Гра і реальність",
+        "Сумління й чесність",
+        "Дорослішання",
+        "Провінційна Америка"
+      ],
+      "terms": [
+        {
+          "term": "Сент-Пітерсберг",
+          "definition": "Вигадане містечко на березі Міссісіпі в штаті Міссурі; його прообразом став Ганнібал, де минуло дитинство Марка Твена."
+        },
+        {
+          "term": "Паркан",
+          "definition": "Тридцять ярдів дощаного паркану, який Томові звелено побілити. Удавши, що це найбільша втіха, він змушує інших хлопців працювати замість нього, та ще й платити за це."
+        },
+        {
+          "term": "Біблійні квитки",
+          "definition": "Сині, червоні й жовті квиточки, які в недільній школі дають за вивчені вірші. Том вимінює їх на скарби, зароблені на паркані, і дістає Біблію, не знаючи жодного рядка."
+        },
+        {
+          "term": "Дохлий кіт",
+          "definition": "За Гековим забобоном — певний засіб від бородавок: опівночі треба кинути кота навздогін чортам, що прийшли на цвинтар по грішника. Через цей обряд хлопці й опиняються на місці вбивства."
+        },
+        {
+          "term": "Присяга кров’ю",
+          "definition": "Обітниця мовчати про побачене на цвинтарі, яку Том надряпав на дощечці, а хлопці підписали власною кров’ю."
+        },
+        {
+          "term": "Острів Джексона",
+          "definition": "Лісистий острів на Міссісіпі, де Том, Гек і Джо Гарпер кілька днів живуть як пірати, поки місто їх оплакує."
+        },
+        {
+          "term": "Будинок із привидами",
+          "definition": "Покинутий будинок, де хлопці шукають скарб і стають свідками того, як Індіанець Джо відкопує скриньку із золотом."
+        },
+        {
+          "term": "«Номер два під хрестом»",
+          "definition": "Загадкова вказівка на схованку Індіанця Джо. Том розгадує її в печері: хрест намальовано кіптявою від свічки на скелі."
+        },
+        {
+          "term": "Печера Мак-Дуґала",
+          "definition": "Величезний лабіринт підземних ходів за містом, де заблукали Том і Бекі та де переховувався Індіанець Джо."
+        },
+        {
+          "term": "Ватага розбійників",
+          "definition": "Нова Томова вигадка у фіналі: справжні розбійники, каже він, мають бути людьми шляхетними, тож Гек заради неї погоджується жити в удови."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Пригоди Гекльберрі Фінна",
+          "author": "Марк Твен",
+          "why": "Продовження історії: Гек тікає від «цивілізації» і пливе Міссісіпі на плоту з утікачем-рабом Джимом."
+        },
+        {
+          "title": "Острів скарбів",
+          "author": "Роберт Луїс Стівенсон",
+          "why": "Хлопчак, мапа, печера із золотом і небезпечний лиходій — класика пошуків скарбу."
+        },
+        {
+          "title": "Кульбабове вино",
+          "author": "Рей Бредбері",
+          "why": "Одне літо з життя хлопчика в маленькому американському містечку, повне відкриттів і перших страхів."
+        },
+        {
+          "title": "Убити пересмішника",
+          "author": "Гарпер Лі",
+          "why": "Діти із сонного південного містечка стикаються з дорослою несправедливістю та гучним судом."
+        },
+        {
+          "title": "Робінзон Крузо",
+          "author": "Даніель Дефо",
+          "why": "Книжка про життя на безлюдному острові — та сама мрія, яку Том розігрує на острові Джексона."
+        }
+      ],
+      "film": {
+        "title": "Літо над Міссісіпі",
+        "intro": "Ти розгортаєш книжку, і в обличчя тобі віє теплий річковий вітер. Пахне свіжим вапном і пилом: ти стоїш босоніж на вулиці маленького містечка над Міссісіпі.",
+        "outro": "Остання сторінка закривається, і шум річки затихає. Та тобі здається, що десь за вікном хтось свиснув умовним свистом — і кличе тебе шукати скарб.",
+        "scenes": [
+          {
+            "title": "Білий паркан",
+            "narration": "Ти стоїш біля довгого дощаного паркану з відром вапна. Том водить щіткою так захоплено, ніби робить найважливішу справу на світі, і невдовзі хлопці шикуються в чергу, простягаючи йому яблука й кульки.",
+            "line": {
+              "text": "Хіба хлопцеві щодня випадає білити паркан?"
+            }
+          },
+          {
+            "title": "Північ на цвинтарі",
+            "narration": "Ти ховаєшся з хлопцями за старими в’язами на цвинтарі, і Гек стискає за хвіст дохлого кота. У світлі ліхтаря троє чоловіків розкопують могилу, спалахує сварка — і Індіанець Джо заносить ножа.",
+            "line": {
+              "text": "Томе, ми мовчатимемо. Присягнімося — бо він нас уб’є."
+            }
+          },
+          {
+            "title": "Піратський острів",
+            "narration": "Ти сидиш біля багаття на острові Джексона, над Міссісіпі горять зорі, на жаринах шкварчить риба. Троє піратів розкурюють люльки й міркують, як славно жити без школи й умивання.",
+            "line": {
+              "text": "Віднині я — Чорний Месник Іспанських морів!"
+            }
+          },
+          {
+            "title": "На власному похороні",
+            "narration": "Ти сидиш на лаві в церкві, де все місто в сльозах оплакує трьох утоплених хлопчиків. Раптом рипають двері, і проходом крокують самі «небіжчики» — брудні, обдерті й страшенно задоволені собою.",
+            "line": {
+              "text": "Томе, шибенику, живий! Ходи-но сюди, дай я тебе обійму!"
+            }
+          },
+          {
+            "title": "Заблукані в печері",
+            "narration": "Ти йдеш за Томом і Бекі нескінченними темними переходами, а свічка в руці стає дедалі коротшою. Удалині блимає вогник, і з-за скелі визирає людина, якої тут ніхто не чекав.",
+            "line": {
+              "text": "Томе, не лишай мене саму в темряві!"
+            }
+          },
+          {
+            "title": "Скарб під хрестом",
+            "narration": "Ти протискаєшся з Томом і Геком у вузьку щілину, де на скелі видніє хрест, намальований кіптявою. Під каменем стоїть важка скринька, і в світлі свічки в ній спалахує справжнє золото.",
+            "line": {
+              "text": "Геку, ми багаті! Я ж казав — номер два під хрестом!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "tom": {
+          "name": "Том Сойєр",
+          "traits": [
+            "пустотливий",
+            "винахідливий",
+            "мрійливий",
+            "сміливий",
+            "великодушний"
+          ],
+          "description": "Хлопчик-сирота, що живе в тітки Поллі, найбільший вигадник і шибеник містечка. Він вірить у піратів, розбійників і скарби, але коли гра обертається справжньою небезпекою, чинить по совісті: рятує Меффа Поттера правдивими свідченнями й виводить Бекі з печери."
+        },
+        "huck": {
+          "name": "Гекльберрі Фінн",
+          "traits": [
+            "вільний",
+            "забобонний",
+            "відданий",
+            "кмітливий"
+          ],
+          "description": "Син міського п’янички, безпритульний хлопчак, якому заздрять усі діти, а матері забороняють із ним водитися. Він ночує в бочках, курить люльку й вірить у прикмети. Гек рятує вдову Дуглас від помсти Індіанця Джо, а отримавши половину скарбу, ледве звикає до чистого одягу й правил."
+        },
+        "becky": {
+          "name": "Бекі Тетчер",
+          "traits": [
+            "мила",
+            "горда",
+            "вразлива",
+            "довірлива"
+          ],
+          "description": "Білява блакитноока донька судді Тетчера, новенька в місті й у школі. Вона то сердиться на Тома, то прощає його, а відколи він приймає на себе її покарання, щиро ним захоплюється. У печері Бекі знесилюється від страху й голоду, і Том не покидає її ні на мить."
+        },
+        "aunt-polly": {
+          "name": "Тітка Поллі",
+          "traits": [
+            "дбайлива",
+            "сувора",
+            "наївна",
+            "добра"
+          ],
+          "description": "Літня тітка, яка виховує Тома, його брата Сіда й кузину Мері. Вона погрожує різками, та щоразу жаліє «сирітку покійної сестри». Вважаючи Тома втопленим, вона гірко дорікає собі за колишню суворість, а його повернення зустрічає сльозами радості."
+        },
+        "injun-joe": {
+          "name": "Індіанець Джо",
+          "traits": [
+            "мстивий",
+            "жорстокий",
+            "хитрий",
+            "небезпечний"
+          ],
+          "description": "Метис-волоцюга, головний лиходій повісті. Він убиває лікаря Робінсона й перекладає провину на Меффа Поттера, а викритий на суді, переховується й ховає награбоване золото. Джо замишляє жорстоку помсту вдові Дуглас і зрештою помирає з голоду в замурованій печері."
+        },
+        "joe-harper": {
+          "name": "Джо Гарпер",
+          "traits": [
+            "веселий",
+            "вірний",
+            "сумує за домом"
+          ],
+          "description": "Найкращий Томів товариш, з яким вони граються в Робін Гуда. Скривджений матір’ю, Джо тікає на острів Джексона як «Гроза Морів», але першим починає сумувати за домом."
+        },
+        "muff-potter": {
+          "name": "Мефф Поттер",
+          "traits": [
+            "сумирний",
+            "питущий",
+            "довірливий",
+            "вдячний"
+          ],
+          "description": "Добродушний п’яничка, який колись лагодив хлопцям повітряних зміїв. Індіанець Джо переконує його, що це він у п’яному безпам’ятстві вбив лікаря. У в’язниці Поттер дякує Томові за доброту, не здогадуючись, що той знає правду, — і на суді Том його рятує."
+        },
+        "sid": {
+          "name": "Сід",
+          "traits": [
+            "слухняний",
+            "ябедливий",
+            "тихий"
+          ],
+          "description": "Зведений брат Тома, зразковий хлопчик, який ніколи не потрапляє в халепи — зате охоче доносить тітці про братові витівки. Саме Сід виказує, що Том зашив комір сорочки нитками іншого кольору."
+        }
+      }
+    },
+    "en": {
+      "title": "The Adventures of Tom Sawyer",
+      "originalTitle": "The Adventures of Tom Sawyer",
+      "author": "Mark Twain",
+      "genre": "Adventure novel",
+      "tagline": "A river town, Injun Joe’s gold and the summer when boyhood games turned real.",
+      "summary": [
+        "Tom Sawyer is an orphan raised by his kind but strict Aunt Polly in the sleepy town of St. Petersburg on the banks of the Mississippi. He skips school, gets into fights, steals jam and dreams up adventures from books about pirates and robbers. As punishment for one of his pranks, his aunt sets him to whitewash a long board fence on a Saturday. Tom pretends the chore is a rare privilege, and soon the other boys are paying him in apples, marbles and a dead rat on a string for the chance to hold the brush.",
+        "Judge Thatcher moves to town with his daughter Becky, and Tom falls for the fair-haired girl at first sight. At school he manages to sit beside her and talks her into getting “engaged”, but lets slip that he was once engaged to Amy Lawrence, and Becky sends him away in tears. Meanwhile Tom is friends with Huckleberry Finn, son of the town drunkard, whom every mother holds up as the worst boy in town: Huck never goes to school, sleeps wherever he likes and is as free as the wind.",
+        "One midnight Tom and Huck go to the graveyard with a dead cat to cure warts. There they watch Injun Joe stab young Dr. Robinson to death, then put the knife into the hand of drunken Muff Potter and convince the dazed man, once he comes to, that he did the killing himself. Terrified, the boys swear to keep silent and sign their oath in blood. Potter is arrested, and Tom’s conscience torments him day and night: he secretly brings the prisoner tobacco and matches.",
+        "Feeling wronged by the whole world, Tom runs away with Huck and Joe Harper to Jackson’s Island to become pirates. The boys fry fish, swim and smoke pipes until they learn that the whole town believes they have drowned. After a secret night visit home, Tom hatches a daring plan, and on Sunday the trio walk into their own funeral in the middle of the sermon. Soon Tom takes the blame for Becky tearing the schoolmaster’s book and is whipped in her place, and she forgives him. At Potter’s trial Tom breaks his oath and tells the truth, and Injun Joe leaps through a window and vanishes.",
+        "In summer Tom and Huck go treasure-hunting and creep into a haunted house. There they see Injun Joe, disguised as a deaf-and-dumb Spaniard, dig up a box of gold and carry it off to a hiding place he calls “Number Two, under the cross.” Huck shadows the villain at night and learns that he means to take revenge on the Widow Douglas. The boy rouses an old Welshman and his sons, and the widow is saved, though Joe escapes once more. Meanwhile, at a picnic, Tom and Becky get lost in the vast McDougal’s Cave.",
+        "For three days the children wander dark passages as their last candle burns down and the food runs out. Exploring with a kite string, Tom stumbles on Injun Joe hiding in the cave, and later finally finds a way out to the river. Judge Thatcher has the cave mouth sealed with an iron door, and only two weeks later does Tom hear of it: behind the door Injun Joe is found dead of starvation. Tom guesses where the hiding place is, and with Huck he finds more than twelve thousand dollars in gold. The Widow Douglas takes Huck in, and though clean shirts torment him, he agrees to put up with it for the sake of Tom’s robber gang."
+      ],
+      "themes": [
+        "Childhood and freedom",
+        "Play versus reality",
+        "Conscience and honesty",
+        "Growing up",
+        "Small-town America"
+      ],
+      "terms": [
+        {
+          "term": "St. Petersburg",
+          "definition": "A fictional Mississippi river town in Missouri, modelled on Hannibal, where Mark Twain spent his boyhood."
+        },
+        {
+          "term": "The fence",
+          "definition": "Thirty yards of board fence Tom is told to whitewash. By pretending it is the greatest fun, he gets other boys to do the work for him and pay for the privilege."
+        },
+        {
+          "term": "Sunday-school tickets",
+          "definition": "Blue, red and yellow tickets awarded for memorised Bible verses. Tom trades his fence-painting loot for enough of them to win a Bible without knowing a single verse."
+        },
+        {
+          "term": "The dead cat",
+          "definition": "Huck’s sure-fire cure for warts: at midnight you throw the cat after the devils who come to a graveyard for a wicked man. The ritual is what brings the boys to the scene of the murder."
+        },
+        {
+          "term": "The blood oath",
+          "definition": "A vow of silence about the graveyard murder, which Tom scratched on a shingle and both boys signed in their own blood."
+        },
+        {
+          "term": "Jackson’s Island",
+          "definition": "A wooded island in the Mississippi where Tom, Huck and Joe Harper live as pirates for several days while the town mourns them."
+        },
+        {
+          "term": "The haunted house",
+          "definition": "An abandoned house where the boys go looking for treasure and witness Injun Joe digging up a box of gold."
+        },
+        {
+          "term": "“Number Two, under the cross”",
+          "definition": "The cryptic clue to Injun Joe’s hiding place. Tom solves it in the cave, where a cross has been drawn in candle smoke on the rock."
+        },
+        {
+          "term": "McDougal’s Cave",
+          "definition": "A vast labyrinth of tunnels outside town, where Tom and Becky get lost and where Injun Joe hides."
+        },
+        {
+          "term": "Tom’s robber gang",
+          "definition": "Tom’s new scheme at the end: real robbers, he insists, must be respectable people, so Huck agrees to stay with the widow to join it."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Adventures of Huckleberry Finn",
+          "author": "Mark Twain",
+          "why": "The sequel, in which Huck flees “sivilization” and rafts down the Mississippi with Jim, a runaway slave."
+        },
+        {
+          "title": "Treasure Island",
+          "author": "Robert Louis Stevenson",
+          "why": "A boy, a map, a cave of gold and a dangerous villain — the classic treasure hunt."
+        },
+        {
+          "title": "Dandelion Wine",
+          "author": "Ray Bradbury",
+          "why": "One summer in a boy’s life in a small American town, full of discoveries and first fears."
+        },
+        {
+          "title": "To Kill a Mockingbird",
+          "author": "Harper Lee",
+          "why": "Children in a sleepy Southern town come face to face with adult injustice and a sensational trial."
+        },
+        {
+          "title": "Robinson Crusoe",
+          "author": "Daniel Defoe",
+          "why": "The desert-island adventure that Tom and his friends play out for real on Jackson’s Island."
+        }
+      ],
+      "film": {
+        "title": "A Summer on the Mississippi",
+        "intro": "You open the book and a warm river breeze blows in your face. It smells of fresh whitewash and dust: you are standing barefoot in the street of a little town on the Mississippi.",
+        "outro": "The last page closes and the sound of the river fades. Yet you could swear someone just whistled a secret signal outside your window, calling you to go hunting for treasure.",
+        "scenes": [
+          {
+            "title": "The Whitewashed Fence",
+            "narration": "You stand by a long board fence beside a bucket of whitewash. Tom sweeps his brush with such devotion that it looks like the most important job in the world, and soon the boys are queuing up, holding out apples and marbles.",
+            "line": {
+              "text": "Does a boy get a chance to whitewash a fence every day?"
+            }
+          },
+          {
+            "title": "Midnight in the Graveyard",
+            "narration": "You crouch with the boys behind the old elms of the graveyard while Huck clutches a dead cat by the tail. By lantern light three men dig open a grave, a quarrel flares up — and Injun Joe raises his knife.",
+            "line": {
+              "text": "Tom, we’ve got to keep mum. Let’s swear — or he’ll kill us."
+            }
+          },
+          {
+            "title": "Pirate Island",
+            "narration": "You sit by a campfire on Jackson’s Island; the stars burn over the Mississippi and fish sizzle on the coals. Three pirates light their pipes and agree how splendid life is without school or washing.",
+            "line": {
+              "text": "From now on I’m the Black Avenger of the Spanish Main!"
+            }
+          },
+          {
+            "title": "At Their Own Funeral",
+            "narration": "You sit on a pew in the church as the whole town weeps for three drowned boys. Suddenly the door creaks, and down the aisle march the “dead” themselves — ragged, filthy and extremely pleased with themselves.",
+            "line": {
+              "text": "Tom, you rascal, you’re alive! Come here and let me hug you!"
+            }
+          },
+          {
+            "title": "Lost in the Cave",
+            "narration": "You follow Tom and Becky through endless dark passages while the candle in your hand grows shorter and shorter. A light flickers far ahead, and from behind a rock peers a man nobody expected to find here.",
+            "line": {
+              "text": "Tom, don’t leave me alone in the dark!"
+            }
+          },
+          {
+            "title": "Treasure Under the Cross",
+            "narration": "You squeeze with Tom and Huck into a narrow crevice where a cross drawn in candle smoke marks the rock. Under a stone sits a heavy box, and in the candlelight real gold flashes inside it.",
+            "line": {
+              "text": "Huck, we’re rich! Didn’t I say — Number Two, under the cross!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "tom": {
+          "name": "Tom Sawyer",
+          "traits": [
+            "mischievous",
+            "resourceful",
+            "imaginative",
+            "brave",
+            "big-hearted"
+          ],
+          "description": "An orphan boy living with Aunt Polly and the town’s chief schemer and troublemaker. He believes in pirates, robbers and buried treasure, but when the game turns truly dangerous he follows his conscience: he saves Muff Potter by testifying and leads Becky out of the cave."
+        },
+        "huck": {
+          "name": "Huckleberry Finn",
+          "traits": [
+            "free-spirited",
+            "superstitious",
+            "loyal",
+            "shrewd"
+          ],
+          "description": "The town drunkard’s son, a homeless boy envied by every child and shunned by every mother. He sleeps in hogsheads, smokes a pipe and believes in omens. Huck saves the Widow Douglas from Injun Joe’s revenge, and once rich from his half of the treasure he struggles with clean clothes and rules."
+        },
+        "becky": {
+          "name": "Becky Thatcher",
+          "traits": [
+            "sweet",
+            "proud",
+            "touchy",
+            "trusting"
+          ],
+          "description": "Judge Thatcher’s blue-eyed, fair-haired daughter, new to the town and the school. She is cross with Tom one day and forgives him the next, and after he takes her punishment she truly admires him. In the cave Becky weakens from fear and hunger, and Tom never leaves her side."
+        },
+        "aunt-polly": {
+          "name": "Aunt Polly",
+          "traits": [
+            "caring",
+            "strict",
+            "naive",
+            "kind"
+          ],
+          "description": "The elderly aunt who raises Tom, his half-brother Sid and their cousin Mary. She threatens the switch but always softens for her “dead sister’s boy.” Believing Tom drowned, she bitterly reproaches herself for her strictness, and greets his return with tears of joy."
+        },
+        "injun-joe": {
+          "name": "Injun Joe",
+          "traits": [
+            "vengeful",
+            "cruel",
+            "cunning",
+            "dangerous"
+          ],
+          "description": "A half-breed drifter and the novel’s villain. He murders Dr. Robinson and frames Muff Potter, then, exposed at the trial, goes into hiding with stolen gold. Joe plots a savage revenge on the Widow Douglas and finally dies of starvation in the sealed cave."
+        },
+        "joe-harper": {
+          "name": "Joe Harper",
+          "traits": [
+            "cheerful",
+            "loyal",
+            "homesick"
+          ],
+          "description": "Tom’s bosom friend, with whom he plays Robin Hood. Hurt by his mother, Joe runs off to Jackson’s Island as the “Terror of the Seas,” but he is the first to grow homesick."
+        },
+        "muff-potter": {
+          "name": "Muff Potter",
+          "traits": [
+            "harmless",
+            "drunken",
+            "gullible",
+            "grateful"
+          ],
+          "description": "A good-natured drunk who once mended the boys’ kites. Injun Joe persuades him that he killed the doctor in a drunken stupor. In jail Potter thanks Tom for his kindness, never guessing the boy knows the truth — and at the trial Tom saves him."
+        },
+        "sid": {
+          "name": "Sid",
+          "traits": [
+            "obedient",
+            "sneaky",
+            "quiet"
+          ],
+          "description": "Tom’s half-brother, a model boy who never gets into trouble but gladly tells on Tom to their aunt. It is Sid who points out that Tom sewed his collar with thread of a different colour."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "tom",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "child",
+        "build": "slim",
+        "skin": "#f1c4a0",
+        "hair": { "style": "messy", "color": "#8a4a22" },
+        "facialHair": "none",
+        "eyes": "#4a6a8a",
+        "top": { "kind": "shirt", "color": "#efe6cf", "accent": "#a8452e", "pattern": "plain" },
+        "bottom": { "kind": "pants", "color": "#4d6a8c" },
+        "shoes": "#e9b996",
+        "headwear": "straw_hat",
+        "headwearColor": "#e0c070",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A freckled, sunburnt boy of about twelve with tousled reddish-brown hair under a frayed straw hat, wearing a loose cream shirt and rolled-up blue trousers with one suspender, barefoot, with a sly, cheeky grin."
+    },
+    {
+      "id": "huck",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "child",
+        "build": "slim",
+        "skin": "#e2b088",
+        "hair": { "style": "messy", "color": "#c8a464" },
+        "facialHair": "none",
+        "eyes": "#5a5040",
+        "top": { "kind": "coat", "color": "#6e5a3a", "accent": "#4a3c28", "pattern": "checks" },
+        "bottom": { "kind": "pants", "color": "#5b4a33" },
+        "shoes": "#d9a47c",
+        "headwear": "straw_hat",
+        "headwearColor": "#9a8650",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "pipe"
+      },
+      "portraitPrompt": "A barefoot, sun-browned boy with shaggy straw-coloured hair under a ruined, wide-brimmed straw hat with a bite taken out of the brim, wearing a huge patched man’s coat that hangs to his knees and frayed trousers held by one suspender, a corncob pipe in his hand."
+    },
+    {
+      "id": "becky",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "child",
+        "build": "slim",
+        "skin": "#f6d6bf",
+        "hair": { "style": "braids", "color": "#ecc865" },
+        "facialHair": "none",
+        "eyes": "#4a86c8",
+        "top": { "kind": "dress", "color": "#f6f3ee", "accent": "#7aa6dc", "pattern": "embroidery" },
+        "bottom": { "kind": "skirt", "color": "#f6f3ee" },
+        "shoes": "#5a3a2a",
+        "headwear": "bow",
+        "headwearColor": "#6c9ad8",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "candle"
+      },
+      "portraitPrompt": "A pretty blue-eyed girl of about eleven with yellow hair in two long plaits tied with pale-blue ribbons, wearing a white embroidered summer frock with lace pantalettes peeping beneath, holding a small candle."
+    },
+    {
+      "id": "aunt-polly",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "elder",
+        "build": "average",
+        "skin": "#f0cdb4",
+        "hair": { "style": "bun", "color": "#bdb6ad" },
+        "facialHair": "none",
+        "eyes": "#5a4a3a",
+        "top": { "kind": "dress", "color": "#5a4466", "accent": "#efe8d8", "pattern": "dots" },
+        "bottom": { "kind": "skirt", "color": "#5a4466" },
+        "shoes": "#2e2622",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "glasses",
+        "accessoryColor": "#8a7040",
+        "holding": "none"
+      },
+      "portraitPrompt": "A kindly elderly woman with grey hair pulled into a bun, peering over a pair of spectacles pushed down her nose, wearing a dark plum dotted house dress with a white apron."
+    },
+    {
+      "id": "injun-joe",
+      "role": "antagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "broad",
+        "skin": "#a8714c",
+        "hair": { "style": "long", "color": "#181412" },
+        "facialHair": "stubble",
+        "eyes": "#1e1a16",
+        "top": { "kind": "shirt", "color": "#7a3424", "accent": "#3a2a20", "pattern": "plain" },
+        "bottom": { "kind": "pants", "color": "#3a3028" },
+        "shoes": "#2a1e16",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "candle"
+      },
+      "portraitPrompt": "A powerfully built, scowling man with long straight black hair, a stubbled jaw and narrow dark eyes, wearing a sweat-stained rust-red shirt and dark trousers, holding a guttering candle in a gloomy cave."
+    },
+    {
+      "id": "joe-harper",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "child",
+        "build": "average",
+        "skin": "#f3caa8",
+        "hair": { "style": "short", "color": "#4a3020" },
+        "facialHair": "none",
+        "eyes": "#3e5a3a",
+        "top": { "kind": "shirt", "color": "#c9d8e8", "accent": "#3a4a6a", "pattern": "stripes" },
+        "bottom": { "kind": "shorts", "color": "#6a5a44" },
+        "shoes": "#ecbf9c",
+        "headwear": "bandana",
+        "headwearColor": "#c0392b",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "none"
+      },
+      "portraitPrompt": "A round-faced, cheerful boy with short dark-brown hair under a red pirate bandana, wearing a striped pale-blue shirt and patched knee breeches, barefoot."
+    },
+    {
+      "id": "muff-potter",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "average",
+        "skin": "#e0a888",
+        "hair": { "style": "messy", "color": "#8a8278" },
+        "facialHair": "stubble",
+        "eyes": "#6a5a4a",
+        "top": { "kind": "jacket", "color": "#5a5444", "accent": "#7a6a50", "pattern": "checks" },
+        "bottom": { "kind": "pants", "color": "#443c32" },
+        "shoes": "#2e2620",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "cup"
+      },
+      "portraitPrompt": "A shabby, red-nosed old drifter with greying unkempt hair and grizzled stubble, wearing a threadbare checked jacket and baggy trousers, holding a battered tin cup, with a sheepish, good-natured look."
+    },
+    {
+      "id": "sid",
+      "role": "minor",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "child",
+        "build": "small",
+        "skin": "#f5d2b8",
+        "hair": { "style": "short", "color": "#5a3a22" },
+        "facialHair": "none",
+        "eyes": "#4a4a3a",
+        "top": { "kind": "jacket", "color": "#2f3e5c", "accent": "#f2f0ea", "pattern": "plain" },
+        "bottom": { "kind": "pants", "color": "#2f3e5c" },
+        "shoes": "#1e1a16",
+        "headwear": "none",
+        "headwearColor": "#000000",
+        "accessory": "bowtie",
+        "accessoryColor": "#8a2a2a",
+        "holding": "book"
+      },
+      "portraitPrompt": "A small, prim boy with neatly combed brown hair, wearing a buttoned navy Sunday jacket, a white collar and a little dark-red bow tie, clutching a schoolbook with a smug, tattletale expression."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "street",
+        "time": "day",
+        "weather": "clear",
+        "cast": ["tom", "sid"],
+        "props": ["fence", "house", "tree", "barrel"],
+        "action": "talk",
+        "camera": "pan",
+        "mood": "joyful",
+        "line": { "speaker": "tom" }
+      },
+      {
+        "setting": "village",
+        "time": "night",
+        "weather": "fog",
+        "cast": ["tom", "huck", "injun-joe", "muff-potter"],
+        "props": ["grave", "tree", "lamp", "fence"],
+        "action": "discover",
+        "camera": "dolly_in",
+        "mood": "tense",
+        "line": { "speaker": "huck" }
+      },
+      {
+        "setting": "island",
+        "time": "night",
+        "weather": "stars",
+        "cast": ["tom", "huck", "joe-harper"],
+        "props": ["fire", "boat", "tree", "tent"],
+        "action": "celebrate",
+        "camera": "crane",
+        "mood": "joyful",
+        "line": { "speaker": "tom" }
+      },
+      {
+        "setting": "church",
+        "time": "day",
+        "weather": "clear",
+        "cast": ["tom", "huck", "joe-harper", "aunt-polly"],
+        "props": ["candles", "door", "bench"],
+        "action": "celebrate",
+        "camera": "dolly_in",
+        "mood": "joyful",
+        "line": { "speaker": "aunt-polly" }
+      },
+      {
+        "setting": "cave",
+        "time": "night",
+        "weather": "clear",
+        "cast": ["tom", "becky", "injun-joe"],
+        "props": ["candles", "rock", "crystal"],
+        "action": "walk",
+        "camera": "close_up",
+        "mood": "mysterious",
+        "line": { "speaker": "becky" }
+      },
+      {
+        "setting": "cave",
+        "time": "night",
+        "weather": "clear",
+        "cast": ["tom", "huck"],
+        "props": ["chest", "candles", "rock"],
+        "action": "celebrate",
+        "camera": "orbit",
+        "mood": "epic",
+        "line": { "speaker": "tom" }
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: a sunny small-town street on the Mississippi, a barefoot freckled boy in a straw hat lazily whitewashing a long wooden fence while a line of other boys waits holding out apples and marbles; a paddle steamer drifts on the river behind; slow panning camera, tilt-shift miniature look, warm afternoon light, no text.",
+      "Cute voxel-diorama 3D scene: three small boys in pirate bandanas around a crackling campfire on a wooded river island at night, a raft pulled up on the sand, the starry sky reflected in the wide dark river; gentle crane shot rising above the treetops, drifting sparks, cosy cinematic lighting, no text.",
+      "Cute voxel-diorama 3D scene: a boy and a girl holding a single candle creep through a vast limestone cave of glittering stalactites, then discover a cross drawn in soot on the rock and a small chest of gold coins glowing beneath it; slow dolly-in, flickering warm candlelight, mysterious mood, no text."
+    ]
+  }
+}

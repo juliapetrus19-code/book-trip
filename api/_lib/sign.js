@@ -14,6 +14,11 @@ function masterSecret() {
   return null;
 }
 
+/** True when tokens / sealed cookies can be made (a signing secret or an API key to derive one from). */
+export function canSign() {
+  return Boolean(masterSecret());
+}
+
 function key(label) {
   const secret = masterSecret();
   if (!secret) throw new HttpError("not_configured", "Signing is not configured (set SIGNING_SECRET)");

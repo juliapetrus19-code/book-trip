@@ -1,0 +1,983 @@
+{
+  "id": "kaidasheva-simia",
+  "year": 1879,
+  "cover": {
+    "bg": "#8a5a1c",
+    "bg2": "#2e1a08",
+    "fg": "#fff1cf",
+    "accent": "#5fae4a",
+    "motif": "mask"
+  },
+  "aliases": [
+    "Кайдашева сім’я",
+    "Кайдашева сім'я",
+    "Кайдашева сімя",
+    "Кайдашева семья",
+    "The Kaidash Family",
+    "Kaidash Family",
+    "Kaidasheva simia",
+    "Kaidasheva sim'ia",
+    "Kaidasheva semya",
+    "Кайдаші",
+    "Кайдаши",
+    "Кайдашева сім’я Нечуй-Левицький",
+    "Нечуй-Левицький Кайдашева сім'я",
+    "Кайдашева семья Нечуй-Левицкий",
+    "Кайдашева сим'я",
+    "Кайдашева сімʼя"
+  ],
+  "i18n": {
+    "ru": {
+      "title": "Кайдашева семья",
+      "originalTitle": "Кайдашева сім’я",
+      "author": "Иван Нечуй-Левицкий",
+      "genre": "Социально-бытовая повесть",
+      "tagline": "Смешная и горькая хроника одной украинской семьи, где из-за груши на меже начинается настоящая война.",
+      "summary": [
+        "Недалеко от Богуслава, над рекой Рось, в длинном извилистом овраге раскинулось село Семигоры. Здесь живёт семья Кайдашей: старый Омелько, бывший крепостной, много лет отрабатывавший барщину, его жена Маруся и двое сыновей. Старший, Карпо, угрюмый, молчаливый и упрямый; младший, Лаврин, весёлый шутник с поэтической душой. Кайдашиха в молодости служила у господ и переняла оттуда барские замашки: любит, чтобы ей целовали руку, и говорит сладким голосом, хотя на деле властна и сварлива. Старый Кайдаш, мастер на все руки, всё чаще заглядывает в шинок.",
+        "Карпо влюбляется в Мотрю Довбышевну — красивую, работящую и острую на язык девушку — и засылает к ней сватов. Поначалу Кайдашиха не нахвалится невесткой, но вскоре сваливает на неё всю чёрную работу, будит затемно и попрекает каждым куском. Мотря не из тех, кто молча терпит: на каждое слово свекрови у неё находится два своих. Ссоры вспыхивают из-за печи, горшков, борща и хлеба. Карпо встаёт на сторону жены, и семейный мир трещит по всем швам.",
+        "Ссоры становятся всё злее. В одной из драк Мотря выбивает свекрови глаз, и Кайдашиха остаётся кривой. Карпо грубо перечит отцу и даже поднимает на него руку, а старик идёт искать правды в волости. Мотря требует, чтобы муж отделился, и Карпо ставит новую хату на том же отцовском дворе. Теперь две хаты стоят рядом, а между ними — плетень, через который летят проклятия, брань и сплетни на всё село.",
+        "Тем временем Лаврин влюбляется в Мелашку из соседнего села Биевцы — тихую, нежную и кроткую девушку — и вскоре приводит её в дом. Теперь вся власть Кайдашихи обрушивается на младшую невестку: свекровь гоняет её с утра до ночи, насмехается и не даёт передохнуть. Мелашка долго терпит и тайком плачет, а потом не выдерживает и убегает к родителям. Лаврин, который искренне любит жену, приходит за ней и уговаривает вернуться. Со временем и кроткая Мелашка учится давать свекрови отпор.",
+        "Старый Кайдаш, измученный вечными раздорами, всё чаще ищет утешения в шинке. Водка доводит его до белой горячки: ему мерещатся черти, которые скачут вокруг и зовут за собой. Однажды хмельной Кайдаш тонет. После его смерти братья делят отцовское хозяйство — и раздел только раздувает вражду. Каждый клочок земли, каждая курица и каждое яйцо, снесённое не в том дворе, становятся поводом для ругани, а соседи сбегаются посмотреть на новое представление у Кайдашей.",
+        "Главной причиной раздора становится старая груша, растущая на меже между дворами. Её плоды падают через плетень, и каждая семья считает их своими. Из-за груш ругаются невестки, свекровь и братья, дело доходит до драк и до ненависти, о которой судачит всё село. Но однажды весной груша засыхает — и ссоры наконец затихают. Повесть заканчивается этим хрупким миром, и читатель понимает: настоящая причина войны была не в груше, а в самих людях, в их жадности, гордыне и неумении уступать."
+      ],
+      "themes": [
+        "Семейные раздоры",
+        "Свекровь и невестки",
+        "Собственность и жадность",
+        "Село после крепостного права",
+        "Юмор и сатира"
+      ],
+      "terms": [
+        {
+          "term": "Семигоры",
+          "definition": "Село над Росью неподалёку от Богуслава, где живут Кайдаши; повесть открывается описанием его живописного оврага."
+        },
+        {
+          "term": "Барщина",
+          "definition": "Обязательный труд крепостных на помещика. Старый Кайдаш отрабатывал её много лет, а повесть показывает село уже после отмены крепостного права."
+        },
+        {
+          "term": "Свекровь",
+          "definition": "Мать мужа. Кайдашиха — свекровь для Мотри и Мелашки, и её властность становится главной причиной семейных войн."
+        },
+        {
+          "term": "Невестка",
+          "definition": "Жена сына, которая переходит жить в дом его родителей и должна слушаться свекрови."
+        },
+        {
+          "term": "Отдел (раздел имущества)",
+          "definition": "Когда женатый сын начинает жить своим хозяйством и получает долю отцовского добра. Из-за раздела земли и двора братья Кайдашенко становятся врагами."
+        },
+        {
+          "term": "Груша на меже",
+          "definition": "Дерево на границе дворов братьев, из-за плодов которого вспыхивает самая яростная ссора; когда груша засыхает, вражда утихает."
+        },
+        {
+          "term": "Шинок",
+          "definition": "Сельский кабак, где продавали водку. Там старый Кайдаш ищет утешения и постепенно спивается."
+        },
+        {
+          "term": "Волость",
+          "definition": "Низшая административная единица с волостным правлением и судом, куда крестьяне шли жаловаться друг на друга."
+        },
+        {
+          "term": "Сваты",
+          "definition": "Уважаемые люди, которых парень посылает к девушке свататься; если девушка согласна, она подаёт им вышитые рушники."
+        },
+        {
+          "term": "Биевцы",
+          "definition": "Соседнее село, откуда родом Мелашка и куда она убегает от свекрови."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Разве ревут волы, когда ясли полны?",
+          "author": "Панас Мирный",
+          "why": "Ещё одна классическая картина украинского села второй половины XIX века, где семейные и социальные конфликты ломают судьбы."
+        },
+        {
+          "title": "Земля",
+          "author": "Ольга Кобылянская",
+          "why": "Повесть о крестьянской семье, в которой жажда земли доводит брата до братоубийства."
+        },
+        {
+          "title": "Конотопская ведьма",
+          "author": "Григорий Квитка-Основьяненко",
+          "why": "Искромётная сатирическая повесть об украинском селе, где смешное и горькое идут рядом."
+        },
+        {
+          "title": "Господа Головлёвы",
+          "author": "Михаил Салтыков-Щедрин",
+          "why": "Хроника распада семьи, в которой жадность и взаимная ненависть губят людей."
+        },
+        {
+          "title": "Король Лир",
+          "author": "Уильям Шекспир",
+          "why": "Трагедия о разделе отцовского имущества между детьми, которая оборачивается неблагодарностью и враждой."
+        }
+      ],
+      "film": {
+        "title": "Кайдашева семья: война за грушу",
+        "intro": "Ты открываешь книгу — и слышишь, как над Росью перекликаются петухи, а в длинном овраге под Богуславом просыпаются Семигоры. Пахнет свежим хлебом, вишнями и ссорой, которая вот-вот вспыхнет.",
+        "outro": "Груша на меже засыхает, и шум во дворе Кайдашей наконец стихает. Страницы закрываются, а ты ещё слышишь, как где-то за плетнём кто-то ворчит на соседа.",
+        "scenes": [
+          {
+            "title": "Вечер под навесом",
+            "narration": "Ты сидишь на бревне под навесом, где старый Кайдаш строгает дерево, а солнце садится за овраг. Карпо угрюмо молчит, Лаврин шутит, и вдруг старший брат объявляет, что хочет засылать сватов к Мотре Довбышевне.",
+            "line": {
+              "text": "Отец, хочу жениться — на Мотре Довбышевне."
+            }
+          },
+          {
+            "title": "Свекровины порядки",
+            "narration": "Ты стоишь в хате, где ещё пахнет свадебными караваями. Кайдашиха сладко улыбается новой невестке — и тут же даёт ей столько работы, что и до полуночи не управиться. Мотря сжимает губы: молча терпеть она не станет.",
+            "line": {
+              "text": "У нас невестки встают затемно, пока солнце не взошло!"
+            }
+          },
+          {
+            "title": "Драка у печи",
+            "narration": "Ты стоишь посреди хаты, где перебранка у печи превращается в настоящую драку. Свекровь и невестка вцепились друг другу в волосы, Карпо бросается разнимать их — но поздно: эта драка будет стоить Кайдашихе глаза.",
+            "line": {
+              "text": "Не буду я вам батрачкой, мама!"
+            }
+          },
+          {
+            "title": "Лаврин едет в Биевцы",
+            "narration": "Ты стоишь у чужого плетня в Биевцах, куда от свекрови убежала Мелашка. Лаврин, который не представляет жизни без своей кроткой жены, приходит за ней и просит вернуться домой.",
+            "line": {
+              "text": "Возвращайся, Мелашка, — без тебя мне и белый свет не мил."
+            }
+          },
+          {
+            "title": "Черти в темноте",
+            "narration": "Ты стоишь у воды тёмной ночью, а из шинка, пошатываясь, выходит старый Кайдаш. Ему мерещатся черти, которые прыгают во мраке и зовут его за собой, — и тихая вода уже ждёт свою жертву.",
+            "line": {
+              "text": "Чур вас, нечистые! Чего вы скачете передо мной?"
+            }
+          },
+          {
+            "title": "Груша на меже",
+            "narration": "Ты стоишь под старой грушей, которая раскинула ветви над плетнём между двумя дворами. Спелые груши падают через плетень, каждая семья считает их своими — и через минуту на шум сбегается вся улица.",
+            "line": {
+              "text": "Груша наша — значит, и груши наши, не трогай!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "kaidashykha": {
+          "name": "Маруся Кайдашиха",
+          "traits": [
+            "властная",
+            "сварливая",
+            "лицемерная",
+            "тщеславная"
+          ],
+          "description": "Жена Омелька Кайдаша, которая в молодости служила у господ и до сих пор гордится барскими манерами: любит, чтобы ей целовали руку, и говорит медовым голосом. На деле она властная и сварливая свекровь, которая хочет держать невесток за батрачек. Её бесконечные войны с Мотрей и Мелашкой, в которых она теряет даже глаз, раскалывают семью."
+        },
+        "motria": {
+          "name": "Мотря",
+          "traits": [
+            "острая на язык",
+            "работящая",
+            "гордая",
+            "вспыльчивая"
+          ],
+          "description": "Жена Карпа, красивая и работящая девушка из семьи Довбышей. Она не терпит гнёта свекрови и на каждое слово отвечает двумя, а в одной из драк выбивает Кайдашихе глаз. Именно она подбивает Карпа отделиться и поставить собственную хату."
+        },
+        "karpo": {
+          "name": "Карпо Кайдашенко",
+          "traits": [
+            "угрюмый",
+            "упрямый",
+            "грубый",
+            "хозяйственный"
+          ],
+          "description": "Старший сын Кайдашей — молчаливый, суровый и упрямый парень. Он женится на Мотре и всегда встаёт на её сторону, всё грубее обходится с родителями и даже поднимает руку на отца. После раздела он яростно воюет с братом и матерью за каждый клочок отцовской земли."
+        },
+        "lavrin": {
+          "name": "Лаврин Кайдашенко",
+          "traits": [
+            "весёлый",
+            "остроумный",
+            "мечтательный",
+            "добрый"
+          ],
+          "description": "Младший сын Кайдашей — шутник и мечтатель с поэтической душой, умеющий любоваться природой. Он искренне любит жену Мелашку и приходит за ней, когда она убегает от свекрови. Но со временем и его затягивают ссоры за отцовское добро."
+        },
+        "melashka": {
+          "name": "Мелашка",
+          "traits": [
+            "кроткая",
+            "нежная",
+            "терпеливая",
+            "ранимая"
+          ],
+          "description": "Жена Лаврина из соседнего села Биевцы — тихая и ласковая девушка. Свекровь превращает её жизнь в мучение, и Мелашка, не выдержав, убегает к родителям. Вернувшись, она понемногу учится постоять за себя."
+        },
+        "kaidash": {
+          "name": "Омелько Кайдаш",
+          "traits": [
+            "работящий",
+            "мягкий",
+            "безвольный",
+            "одинокий"
+          ],
+          "description": "Глава семьи, бывший крепостной, много лет отрабатывавший барщину и теперь мастерящий у себя во дворе. Не в силах утихомирить жену и сыновей, он ищет утешения в шинке и постепенно спивается. Однажды хмельной Кайдаш тонет, а после его смерти ссоры за наследство вспыхивают с новой силой."
+        }
+      }
+    },
+    "uk": {
+      "title": "Кайдашева сім’я",
+      "originalTitle": "Кайдашева сім’я",
+      "author": "Іван Нечуй-Левицький",
+      "genre": "Соціально-побутова повість",
+      "tagline": "Смішна й гірка хроніка однієї української родини, де через грушу на межі починається справжня війна.",
+      "summary": [
+        "Недалеко від Богуслава, над Россю, у довгому покрученому яру розкинулося село Семигори. Тут живе родина Кайдашів: старий Омелько, колишній кріпак, що багато років відробляв панщину, його дружина Маруся та двоє синів. Старший, Карпо, — понурий, мовчазний і впертий; молодший, Лаврін, — веселий жартівник із поетичною душею. Кайдашиха замолоду служила в панів і перейняла звідти панські звички: любить, щоб їй цілували руку, і говорить солодким голосом, хоч насправді владна й сварлива. Старий Кайдаш, майстер на всі руки, дедалі частіше заглядає до шинку.",
+        "Карпо закохується в Мотрю Довбишівну — гарну, роботящу й гостру на язик дівчину — і засилає до неї старостів. Спершу Кайдашиха не нахвалиться невісткою, але скоро звалює на неї всю чорну роботу, будить іще вдосвіта й дорікає кожним шматком. Мотря не з тих, хто мовчки терпить: на кожне свекрушине слово в неї знайдеться два своїх. Сварки спалахують через піч, горщики, борщ і хліб. Карпо стає на бік жінки, і родинний мир тріщить по всіх швах.",
+        "Сварки дедалі лютіші. В одній із бійок Мотря вибиває свекрусі око, і Кайдашиха лишається кривою. Карпо зухвало перечить батькові й навіть підіймає на нього руку, а старий іде шукати правди у волості. Мотря вимагає, щоб чоловік відділився, і Карпо ставить нову хату на тому самому батьківському дворі. Тепер дві хати стоять поруч, а між ними — тин, через який летять прокльони, лайка й плітки на все село.",
+        "Тим часом Лаврін закохується в Мелашку із сусіднього села Бієвців — тиху, ніжну й лагідну дівчину — і невдовзі приводить її в дім. Тепер уся Кайдашишина влада звалюється на молодшу невістку: свекруха ганяє її з ранку до ночі, кепкує з неї й не дає перепочити. Мелашка довго терпить і нишком плаче, а тоді не витримує й тікає до батьків. Лаврін, який щиро кохає дружину, приходить по неї й умовляє вернутися. З часом і лагідна Мелашка вчиться давати свекрусі відсіч.",
+        "Старий Кайдаш, змучений вічними чварами, усе частіше шукає розради в шинку. Горілка доводить його до білої гарячки: йому ввижаються чорти, що скачуть довкола й кличуть за собою. Одного разу сп’янілий Кайдаш тоне. Після його смерті брати ділять батьківщину — і поділ тільки роздмухує ворожнечу. Кожен клапоть землі, кожна курка й кожне яйце, знесене не в тому дворі, стають приводом для лайки, а сусіди збігаються подивитися на нову Кайдашеву виставу.",
+        "Найголовнішою причиною чвар стає стара груша, що росте на межі між дворами. Її плоди падають через тин, і кожна родина вважає їх своїми. Через груші сваряться невістки, свекруха й брати, доходить до бійок і такої ненависті, що про неї гуде все село. Та якось навесні груша всихає — і сварки нарешті вщухають. Повість завершується цим крихким миром, і читач розуміє: справжня причина війни була не в груші, а в самих людях — у їхній жадібності, гордині й невмінні поступитися."
+      ],
+      "themes": [
+        "Родинні чвари",
+        "Свекруха й невістки",
+        "Власність і жадібність",
+        "Село після кріпацтва",
+        "Гумор і сатира"
+      ],
+      "terms": [
+        {
+          "term": "Семигори",
+          "definition": "Село над Россю неподалік Богуслава, де живуть Кайдаші; повість починається з опису його мальовничого яру."
+        },
+        {
+          "term": "Панщина",
+          "definition": "Обов’язкова праця кріпаків на пана. Старий Кайдаш відробляв її багато років, а повість показує село вже після скасування кріпацтва."
+        },
+        {
+          "term": "Свекруха",
+          "definition": "Чоловікова мати. Кайдашиха — свекруха для Мотрі й Мелашки, і її владність стає головною причиною родинних воєн."
+        },
+        {
+          "term": "Невістка",
+          "definition": "Синова дружина, яка переходить жити в дім його батьків і мусить слухатися свекрухи."
+        },
+        {
+          "term": "Відділ (поділ майна)",
+          "definition": "Коли одружений син починає жити своїм господарством і отримує частку батьківщини. Через поділ землі й двору брати Кайдашенки стають ворогами."
+        },
+        {
+          "term": "Груша на межі",
+          "definition": "Дерево на межі між дворами братів, через плоди якого спалахує найзапекліша сварка; коли груша всихає, ворожнеча вщухає."
+        },
+        {
+          "term": "Шинок",
+          "definition": "Сільська корчма, де продавали горілку. Там старий Кайдаш шукає розради й поволі спивається."
+        },
+        {
+          "term": "Волость",
+          "definition": "Найнижча адміністративна одиниця з волосним правлінням і судом, куди селяни йшли скаржитися одне на одного."
+        },
+        {
+          "term": "Старости",
+          "definition": "Поважні люди, яких парубок посилає до дівчини свататися; якщо дівчина згодна, вона подає їм вишиті рушники."
+        },
+        {
+          "term": "Бієвці",
+          "definition": "Сусіднє село, звідки родом Мелашка й куди вона тікає від свекрухи."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Хіба ревуть воли, як ясла повні?",
+          "author": "Панас Мирний",
+          "why": "Ще одна класична картина українського села другої половини XIX століття, де родинні й соціальні конфлікти ламають долі."
+        },
+        {
+          "title": "Земля",
+          "author": "Ольга Кобилянська",
+          "why": "Повість про селянську родину, у якій жадоба землі доводить брата до братовбивства."
+        },
+        {
+          "title": "Конотопська відьма",
+          "author": "Григорій Квітка-Основ’яненко",
+          "why": "Іскрометна сатирична повість про українське село, де смішне й гірке йдуть поруч."
+        },
+        {
+          "title": "Пани Головльови",
+          "author": "Михайло Салтиков-Щедрін",
+          "why": "Хроніка розпаду родини, у якій жадібність і взаємна ненависть нищать людей."
+        },
+        {
+          "title": "Король Лір",
+          "author": "Вільям Шекспір",
+          "why": "Трагедія про поділ батьківського майна між дітьми, що обертається невдячністю й ворожнечею."
+        }
+      ],
+      "film": {
+        "title": "Кайдашева сім’я: війна за грушу",
+        "intro": "Ти розгортаєш книжку — і чуєш, як над Россю перегукуються півні, а в довгому яру під Богуславом прокидаються Семигори. Пахне свіжим хлібом, вишнями й сваркою, що от-от спалахне.",
+        "outro": "Груша на межі всихає, і галас у Кайдашевому дворі нарешті вщухає. Сторінки закриваються, а ти ще чуєш, як десь за тином хтось бурчить на сусіда.",
+        "scenes": [
+          {
+            "title": "Вечір під повіткою",
+            "narration": "Ти сидиш на колоді під повіткою, де старий Кайдаш стругає дерево, а сонце сідає за яр. Карпо понуро мовчить, Лаврін жартує, аж раптом старший брат каже, що хоче засилати старостів до Мотрі Довбишівни.",
+            "line": {
+              "text": "Тату, хочу женитися — на Мотрі Довбишівні."
+            }
+          },
+          {
+            "title": "Свекрушині порядки",
+            "narration": "Ти стоїш у хаті, де ще пахне весільними короваями. Кайдашиха солодко всміхається новій невістці — і тут-таки дає їй стільки роботи, що й до півночі не впоратися. Мотря стискає губи: мовчки терпіти вона не буде.",
+            "line": {
+              "text": "У нас невістки встають удосвіта, поки сонце не зійшло!"
+            }
+          },
+          {
+            "title": "Бійка біля печі",
+            "narration": "Ти стоїш посеред хати, де сварка біля печі перетворюється на справжню бійку. Свекруха й невістка вчепилися одна одній у коси, Карпо кидається їх розбороняти — та пізно: ця бійка коштуватиме Кайдашисі ока.",
+            "line": {
+              "text": "Не буду я вам наймичкою, мамо!"
+            }
+          },
+          {
+            "title": "Лаврін їде до Бієвців",
+            "narration": "Ти стоїш біля чужого тину в Бієвцях, куди від свекрухи втекла Мелашка. Лаврін, що не уявляє життя без своєї лагідної дружини, приходить по неї й просить вернутися додому.",
+            "line": {
+              "text": "Вертайся, Мелашко, — без тебе мені й світ не милий."
+            }
+          },
+          {
+            "title": "Чорти в темряві",
+            "narration": "Ти стоїш над водою темної ночі, а з шинку, похитуючись, виходить старий Кайдаш. Йому ввижаються чорти, що стрибають у пітьмі й кличуть його за собою, — і тиха вода вже чекає на свою жертву.",
+            "line": {
+              "text": "Цур вам, нечисті! Чого ви скачете переді мною?"
+            }
+          },
+          {
+            "title": "Груша на межі",
+            "narration": "Ти стоїш під старою грушею, що розкинула гілля над тином між двома дворами. Стиглі груші падають через тин, кожна родина вважає їх своїми — і за хвилину на галас збігається вся вулиця.",
+            "line": {
+              "text": "Груша наша — то й груші наші, не чіпай!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "kaidashykha": {
+          "name": "Маруся Кайдашиха",
+          "traits": [
+            "владна",
+            "сварлива",
+            "лицемірна",
+            "пихата"
+          ],
+          "description": "Дружина Омелька Кайдаша, яка замолоду служила в панів і досі пишається панськими манерами: любить, щоб їй цілували руку, і говорить медовим голосом. Насправді вона владна й сварлива свекруха, що хоче тримати невісток за наймичок. Її нескінченні війни з Мотрею й Мелашкою, у яких вона втрачає навіть око, розколюють родину."
+        },
+        "motria": {
+          "name": "Мотря",
+          "traits": [
+            "гостра на язик",
+            "роботяща",
+            "горда",
+            "запальна"
+          ],
+          "description": "Карпова дружина, гарна й роботяща дівчина з родини Довбишів. Вона не терпить свекрушиного гніту й на кожне слово відповідає двома, а в одній із бійок вибиває Кайдашисі око. Саме вона підбиває Карпа відділитися й поставити власну хату."
+        },
+        "karpo": {
+          "name": "Карпо Кайдашенко",
+          "traits": [
+            "понурий",
+            "упертий",
+            "грубий",
+            "хазяйновитий"
+          ],
+          "description": "Старший син Кайдашів — мовчазний, суворий і впертий парубок. Він одружується з Мотрею й завжди стає на її бік, дедалі грубіше поводиться з батьками й навіть підіймає руку на батька. Після поділу він запекло воює з братом і матір’ю за кожен клапоть батьківської землі."
+        },
+        "lavrin": {
+          "name": "Лаврін Кайдашенко",
+          "traits": [
+            "веселий",
+            "дотепний",
+            "мрійливий",
+            "добрий"
+          ],
+          "description": "Молодший син Кайдашів — жартівник і мрійник із поетичною душею, що вміє милуватися природою. Він щиро кохає дружину Мелашку й приходить по неї, коли вона тікає від свекрухи. Та з часом і його затягують сварки за батьківське добро."
+        },
+        "melashka": {
+          "name": "Мелашка",
+          "traits": [
+            "лагідна",
+            "ніжна",
+            "терпляча",
+            "вразлива"
+          ],
+          "description": "Лаврінова дружина із сусіднього села Бієвців — тиха й ласкава дівчина. Свекруха перетворює її життя на муку, і Мелашка, не витримавши, тікає до батьків. Повернувшись, вона поволі вчиться обстоювати себе."
+        },
+        "kaidash": {
+          "name": "Омелько Кайдаш",
+          "traits": [
+            "працьовитий",
+            "м’який",
+            "безвольний",
+            "самотній"
+          ],
+          "description": "Голова родини, колишній кріпак, що багато років відробляв панщину, а тепер майструє у своєму дворі. Не маючи сили втихомирити жінку й синів, він шукає розради в шинку й поволі спивається. Одного разу сп’янілий Кайдаш тоне, а після його смерті сварки за спадщину спалахують із новою силою."
+        }
+      }
+    },
+    "en": {
+      "title": "The Kaidash Family",
+      "originalTitle": "Кайдашева сім’я",
+      "author": "Ivan Nechui-Levytskyi",
+      "genre": "Novella of village life",
+      "tagline": "A funny and bitter chronicle of a Ukrainian family in which a pear tree on the boundary starts a real war.",
+      "summary": [
+        "Not far from Bohuslav, by the river Ros, the village of Semyhory sprawls along a long, winding ravine. Here lives the Kaidash family: old Omelko, a former serf who spent many years doing forced labour for the landlord, his wife Marusia and their two sons. The elder, Karpo, is sullen, silent and stubborn; the younger, Lavrin, is a cheerful joker with a poet’s soul. In her youth Kaidashykha served in a manor house and picked up gentry airs there: she likes people to kiss her hand and speaks in a honeyed voice, though she is in fact domineering and quarrelsome. Old Kaidash, a jack of all trades, drops in at the tavern more and more often.",
+        "Karpo falls for Motria, the Dovbysh girl — pretty, hard-working and sharp-tongued — and sends matchmakers to her family. At first Kaidashykha cannot praise her daughter-in-law enough, but soon she piles all the drudgery onto her, wakes her before dawn and begrudges her every crust. Motria is not one to suffer in silence: for every word from her mother-in-law she has two of her own. Rows flare up over the stove, the pots, the borshch and the bread. Karpo takes his wife’s side, and the family peace begins to come apart at the seams.",
+        "The quarrels grow ever fiercer. In one fight Motria knocks out her mother-in-law’s eye, and Kaidashykha is left one-eyed. Karpo defies his father and even raises a hand against him, and the old man goes to the district office to seek justice. Motria demands that her husband set up on his own, so Karpo builds a new cottage in the very same family yard. Now two cottages stand side by side with a wattle fence between them, over which curses, insults and gossip fly for the whole village to hear.",
+        "Meanwhile Lavrin falls in love with Melashka from the neighbouring village of Bievtsi — a quiet, tender, gentle girl — and soon brings her home. Now all of Kaidashykha’s tyranny falls on the younger daughter-in-law: she drives her from morning till night, mocks her and never lets her rest. Melashka endures for a long time, weeping in secret, then can bear it no more and runs away to her parents. Lavrin, who truly loves his wife, comes for her and persuades her to return. In time even gentle Melashka learns to stand up to her mother-in-law.",
+        "Old Kaidash, worn out by the endless strife, seeks comfort in the tavern ever more often. Vodka drives him to delirium: he sees devils leaping around him and beckoning him to follow. One day, drunk, Kaidash drowns. After his death the brothers divide the family property — and the division only fans the feud. Every scrap of land, every hen and every egg laid in the wrong yard becomes a reason to quarrel, while the neighbours come running to watch the latest Kaidash show.",
+        "The chief cause of strife becomes an old pear tree growing on the boundary between the two yards. Its fruit falls over the fence, and each family claims it as its own. Daughters-in-law, mother and brothers all fight over the pears, coming to blows and to a hatred the whole village talks about. Then one spring the pear tree withers — and the quarrels finally die down. The story ends with this fragile peace, and the reader understands that the real cause of the war was never the pear tree but the people themselves: their greed, their pride and their inability to give way."
+      ],
+      "themes": [
+        "Family strife",
+        "Mother-in-law and daughters-in-law",
+        "Property and greed",
+        "The village after serfdom",
+        "Humour and satire"
+      ],
+      "terms": [
+        {
+          "term": "Semyhory",
+          "definition": "A village on the Ros near Bohuslav where the Kaidashes live; the story opens with a description of its picturesque ravine."
+        },
+        {
+          "term": "Panshchyna (corvée)",
+          "definition": "Forced labour that serfs owed their landlord. Old Kaidash did it for many years, and the story shows the village after serfdom was abolished."
+        },
+        {
+          "term": "Mother-in-law (svekrukha)",
+          "definition": "A husband’s mother. Kaidashykha is mother-in-law to Motria and Melashka, and her domineering nature is the main cause of the family wars."
+        },
+        {
+          "term": "Daughter-in-law (nevistka)",
+          "definition": "A son’s wife, who moves into his parents’ home and is expected to obey her mother-in-law."
+        },
+        {
+          "term": "Setting up separately",
+          "definition": "When a married son starts his own household and receives his share of the family property. Dividing the land and the yard turns the Kaidash brothers into enemies."
+        },
+        {
+          "term": "The pear tree on the boundary",
+          "definition": "A tree on the line between the brothers’ yards whose fruit sparks the fiercest quarrel of all; when it withers, the feud subsides."
+        },
+        {
+          "term": "Shynok (tavern)",
+          "definition": "A village tavern selling vodka, where old Kaidash looks for comfort and slowly drinks himself to ruin."
+        },
+        {
+          "term": "Volost",
+          "definition": "The lowest administrative district, with its own office and peasant court, where villagers went to complain about one another."
+        },
+        {
+          "term": "Starosty (matchmakers)",
+          "definition": "Respected men a young man sends to propose to a girl; if she agrees, she presents them with embroidered towels."
+        },
+        {
+          "term": "Bievtsi",
+          "definition": "The neighbouring village Melashka comes from and where she flees from her mother-in-law."
+        }
+      ],
+      "similar": [
+        {
+          "title": "Do the Oxen Low When the Manger Is Full?",
+          "author": "Panas Myrnyi",
+          "why": "Another classic portrait of the Ukrainian village in the late 19th century, where family and social conflicts break people’s lives."
+        },
+        {
+          "title": "Earth",
+          "author": "Olha Kobylianska",
+          "why": "A story of a peasant family in which the hunger for land drives one brother to kill another."
+        },
+        {
+          "title": "The Witch of Konotop",
+          "author": "Hryhorii Kvitka-Osnovianenko",
+          "why": "A sparkling satirical tale of a Ukrainian village where the comic and the bitter go hand in hand."
+        },
+        {
+          "title": "The Golovlyov Family",
+          "author": "Mikhail Saltykov-Shchedrin",
+          "why": "A chronicle of a family’s collapse in which greed and mutual hatred destroy its members."
+        },
+        {
+          "title": "King Lear",
+          "author": "William Shakespeare",
+          "why": "A tragedy about dividing a father’s property among his children that turns into ingratitude and enmity."
+        }
+      ],
+      "film": {
+        "title": "The Kaidash Family: the war over a pear tree",
+        "intro": "You open the book and hear roosters calling to each other over the river Ros as Semyhory wakes up in its long ravine near Bohuslav. The air smells of fresh bread, cherries and a quarrel about to break out.",
+        "outro": "The pear tree on the boundary withers, and the uproar in the Kaidash yard finally dies down. The pages close, yet you can still hear someone behind a fence grumbling at the neighbours.",
+        "scenes": [
+          {
+            "title": "Evening under the Shed",
+            "narration": "You sit on a log under the shed, where old Kaidash is whittling wood as the sun sets over the ravine. Karpo sulks in silence, Lavrin cracks jokes — and suddenly the elder brother announces he wants to send matchmakers to Motria Dovbysh.",
+            "line": {
+              "text": "Father, I want to marry — Motria, the Dovbysh girl."
+            }
+          },
+          {
+            "title": "Mother-in-law’s Rules",
+            "narration": "You stand in the cottage, which still smells of wedding loaves. Kaidashykha smiles sweetly at her new daughter-in-law — and at once hands her so much work she could not finish it by midnight. Motria presses her lips together: she will not suffer in silence.",
+            "line": {
+              "text": "In this house daughters-in-law are up before the sun!"
+            }
+          },
+          {
+            "title": "The Fight by the Stove",
+            "narration": "You stand in the middle of the cottage as a row by the stove turns into a real fight. Mother-in-law and daughter-in-law have each other by the hair, Karpo rushes to pull them apart — too late: this fight will cost Kaidashykha an eye.",
+            "line": {
+              "text": "I won’t be your hired drudge, Mother!"
+            }
+          },
+          {
+            "title": "Lavrin Goes to Bievtsi",
+            "narration": "You stand by a stranger’s fence in Bievtsi, where Melashka has fled from her mother-in-law. Lavrin, who cannot imagine life without his gentle wife, has come for her and begs her to come home.",
+            "line": {
+              "text": "Come back, Melashka — without you the whole world is grey to me."
+            }
+          },
+          {
+            "title": "Devils in the Dark",
+            "narration": "You stand by the water on a dark night as old Kaidash staggers out of the tavern. He sees devils leaping in the darkness and beckoning him to follow — and the quiet water is already waiting for its victim.",
+            "line": {
+              "text": "Away with you, unclean ones! Why are you hopping in front of me?"
+            }
+          },
+          {
+            "title": "The Pear Tree on the Boundary",
+            "narration": "You stand under an old pear tree that spreads its branches over the fence between two yards. Ripe pears drop across the fence, each family claims them — and within a minute the whole street comes running to see the row.",
+            "line": {
+              "text": "The tree is ours — so the pears are ours too, hands off!"
+            }
+          }
+        ]
+      },
+      "characters": {
+        "kaidashykha": {
+          "name": "Marusia Kaidashykha",
+          "traits": [
+            "domineering",
+            "quarrelsome",
+            "hypocritical",
+            "vain"
+          ],
+          "description": "Omelko Kaidash’s wife, who served in a manor house in her youth and still prides herself on her gentry manners: she likes her hand kissed and speaks in a honeyed voice. In truth she is a domineering, quarrelsome mother-in-law who wants to keep her sons’ wives as servants. Her endless wars with Motria and Melashka, in which she even loses an eye, split the family apart."
+        },
+        "motria": {
+          "name": "Motria",
+          "traits": [
+            "sharp-tongued",
+            "hard-working",
+            "proud",
+            "hot-tempered"
+          ],
+          "description": "Karpo’s wife, a pretty, hard-working girl from the Dovbysh family. She will not bow to her mother-in-law and answers every word with two, and in one fight she knocks out Kaidashykha’s eye. It is she who pushes Karpo to set up on his own and build a cottage of their own."
+        },
+        "karpo": {
+          "name": "Karpo Kaidashenko",
+          "traits": [
+            "sullen",
+            "stubborn",
+            "rough",
+            "thrifty"
+          ],
+          "description": "The elder Kaidash son — a silent, stern and stubborn young man. He marries Motria and always takes her side, treats his parents ever more harshly and even raises his hand against his father. After the division he fights his brother and mother tooth and nail over every scrap of the family land."
+        },
+        "lavrin": {
+          "name": "Lavrin Kaidashenko",
+          "traits": [
+            "cheerful",
+            "witty",
+            "dreamy",
+            "kind"
+          ],
+          "description": "The younger Kaidash son — a joker and dreamer with a poet’s soul who knows how to admire nature. He sincerely loves his wife Melashka and comes to fetch her when she runs away from her mother-in-law. Yet in time he too is drawn into the quarrels over the family property."
+        },
+        "melashka": {
+          "name": "Melashka",
+          "traits": [
+            "gentle",
+            "tender",
+            "patient",
+            "vulnerable"
+          ],
+          "description": "Lavrin’s wife from the neighbouring village of Bievtsi — a quiet, affectionate girl. Her mother-in-law turns her life into torment, and Melashka, unable to bear it, runs away to her parents. After she returns, she slowly learns to stand up for herself."
+        },
+        "kaidash": {
+          "name": "Omelko Kaidash",
+          "traits": [
+            "hard-working",
+            "soft",
+            "weak-willed",
+            "lonely"
+          ],
+          "description": "The head of the family, a former serf who did forced labour for many years and now potters about with his crafts in the yard. Unable to calm his wife and sons, he seeks comfort in the tavern and slowly drinks himself to ruin. One day, drunk, he drowns, and after his death the quarrels over the inheritance flare up with new force."
+        }
+      }
+    }
+  },
+  "characters": [
+    {
+      "id": "kaidashykha",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "elder",
+        "build": "average",
+        "skin": "#e8b996",
+        "hair": {
+          "style": "bun",
+          "color": "#6a5a4a"
+        },
+        "facialHair": "none",
+        "eyes": "#4a3424",
+        "top": {
+          "kind": "shirt",
+          "color": "#f4ede0",
+          "accent": "#b8282a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#3a2e5a"
+        },
+        "shoes": "#3a2418",
+        "headwear": "headscarf",
+        "headwearColor": "#2a2a2a",
+        "accessory": "necklace",
+        "accessoryColor": "#c8372d",
+        "holding": "none"
+      },
+      "portraitPrompt": "A sly, stout elderly Ukrainian village woman with a sugary smile and narrowed eyes, wearing a dark headscarf tied at the nape, a white linen blouse with red cross-stitch embroidery, a dark woven wrap skirt and strings of red coral beads, hands folded as if waiting for her hand to be kissed."
+    },
+    {
+      "id": "motria",
+      "role": "protagonist",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "adult",
+        "build": "average",
+        "skin": "#f0c4a0",
+        "hair": {
+          "style": "bun",
+          "color": "#2a1a10"
+        },
+        "facialHair": "none",
+        "eyes": "#2a1c14",
+        "top": {
+          "kind": "shirt",
+          "color": "#f6f0e2",
+          "accent": "#d0302a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#b8282a"
+        },
+        "shoes": "#5a2e1c",
+        "headwear": "headscarf",
+        "headwearColor": "#d8402a",
+        "accessory": "necklace",
+        "accessoryColor": "#e8c04a",
+        "holding": "basket"
+      },
+      "portraitPrompt": "A pretty, strong young Ukrainian peasant wife with black brows, flashing dark eyes and a defiant set to her mouth, wearing a bright red headscarf, a white embroidered blouse, a red woven skirt and amber beads, carrying a wicker basket on her hip."
+    },
+    {
+      "id": "karpo",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "adult",
+        "build": "tall",
+        "skin": "#dca880",
+        "hair": {
+          "style": "short",
+          "color": "#1e1612"
+        },
+        "facialHair": "mustache",
+        "eyes": "#2a1e16",
+        "top": {
+          "kind": "shirt",
+          "color": "#f2ece0",
+          "accent": "#2a2a2a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#5a4a3a"
+        },
+        "shoes": "#2a1c14",
+        "headwear": "straw_hat",
+        "headwearColor": "#d8b860",
+        "accessory": "belt_sword",
+        "accessoryColor": "#b8282a",
+        "holding": "none"
+      },
+      "portraitPrompt": "A tall, lean, sullen young Ukrainian peasant with short black hair, a dark moustache and a heavy frown, wearing a wide straw hat, a white linen shirt with black embroidery belted with a red sash, and grey-brown trousers tucked into black boots."
+    },
+    {
+      "id": "lavrin",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#efc3a0",
+        "hair": {
+          "style": "wavy",
+          "color": "#a8784a"
+        },
+        "facialHair": "none",
+        "eyes": "#3a6a9a",
+        "top": {
+          "kind": "shirt",
+          "color": "#f6f2e6",
+          "accent": "#2e6ab0",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#3a4a6a"
+        },
+        "shoes": "#4a3020",
+        "headwear": "straw_hat",
+        "headwearColor": "#e0c070",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "flower"
+      },
+      "portraitPrompt": "A cheerful, handsome young Ukrainian villager with tousled light-brown hair, laughing blue eyes and a mischievous grin, wearing a straw hat, a white linen shirt with blue embroidery and dark blue trousers, holding a sprig of wildflowers."
+    },
+    {
+      "id": "melashka",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "female",
+        "age": "teen",
+        "build": "slim",
+        "skin": "#f4d0b0",
+        "hair": {
+          "style": "braids",
+          "color": "#8a5a32"
+        },
+        "facialHair": "none",
+        "eyes": "#6a4a2a",
+        "top": {
+          "kind": "shirt",
+          "color": "#fbf6ea",
+          "accent": "#e07a9a",
+          "pattern": "embroidery"
+        },
+        "bottom": {
+          "kind": "skirt",
+          "color": "#5a8a4a"
+        },
+        "shoes": "#6a4426",
+        "headwear": "flower_wreath",
+        "headwearColor": "#f0a0b8",
+        "accessory": "necklace",
+        "accessoryColor": "#d83a3a",
+        "holding": "flower"
+      },
+      "portraitPrompt": "A gentle, shy young Ukrainian bride with long light-brown braids and soft, tearful brown eyes, wearing a wreath of pink and white field flowers, a white blouse with delicate pink embroidery, a green woven skirt and red beads."
+    },
+    {
+      "id": "kaidash",
+      "role": "supporting",
+      "appearance": {
+        "creature": "human",
+        "gender": "male",
+        "age": "elder",
+        "build": "average",
+        "skin": "#d8a07a",
+        "hair": {
+          "style": "short",
+          "color": "#9a948a"
+        },
+        "facialHair": "mustache",
+        "eyes": "#4a3a2a",
+        "top": {
+          "kind": "coat",
+          "color": "#7a6248",
+          "accent": "#e8dcc0",
+          "pattern": "plain"
+        },
+        "bottom": {
+          "kind": "pants",
+          "color": "#d8d0c0"
+        },
+        "shoes": "#3a2a1c",
+        "headwear": "straw_hat",
+        "headwearColor": "#c8a858",
+        "accessory": "none",
+        "accessoryColor": "#000000",
+        "holding": "cup"
+      },
+      "portraitPrompt": "A weary old Ukrainian peasant with a red nose, grey cropped hair and a long grey moustache, wearing a battered straw hat, a brown homespun peasant coat over a white shirt and loose linen trousers, holding a small clay cup."
+    }
+  ],
+  "film": {
+    "scenes": [
+      {
+        "setting": "village",
+        "time": "dusk",
+        "weather": "clear",
+        "cast": [
+          "kaidash",
+          "karpo",
+          "lavrin"
+        ],
+        "props": [
+          "house",
+          "fence",
+          "cart",
+          "tree",
+          "well"
+        ],
+        "action": "talk",
+        "camera": "crane",
+        "mood": "calm",
+        "line": {
+          "speaker": "karpo"
+        }
+      },
+      {
+        "setting": "room",
+        "time": "dawn",
+        "weather": "clear",
+        "cast": [
+          "kaidashykha",
+          "motria",
+          "karpo"
+        ],
+        "props": [
+          "table",
+          "bench",
+          "window",
+          "cake"
+        ],
+        "action": "talk",
+        "camera": "dolly_in",
+        "mood": "tense",
+        "line": {
+          "speaker": "kaidashykha"
+        }
+      },
+      {
+        "setting": "room",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "kaidashykha",
+          "motria",
+          "karpo"
+        ],
+        "props": [
+          "table",
+          "fire",
+          "barrel",
+          "window"
+        ],
+        "action": "fight",
+        "camera": "close_up",
+        "mood": "tense",
+        "line": {
+          "speaker": "motria"
+        }
+      },
+      {
+        "setting": "village",
+        "time": "day",
+        "weather": "wind",
+        "cast": [
+          "lavrin",
+          "melashka"
+        ],
+        "props": [
+          "fence",
+          "house",
+          "flower",
+          "well"
+        ],
+        "action": "talk",
+        "camera": "pan",
+        "mood": "romantic",
+        "line": {
+          "speaker": "lavrin"
+        }
+      },
+      {
+        "setting": "village",
+        "time": "night",
+        "weather": "fog",
+        "cast": [
+          "kaidash"
+        ],
+        "props": [
+          "bridge",
+          "tree",
+          "house",
+          "lamp"
+        ],
+        "action": "sad",
+        "camera": "dolly_in",
+        "mood": "mysterious",
+        "line": {
+          "speaker": "kaidash"
+        }
+      },
+      {
+        "setting": "garden",
+        "time": "day",
+        "weather": "clear",
+        "cast": [
+          "kaidashykha",
+          "motria",
+          "karpo",
+          "lavrin"
+        ],
+        "props": [
+          "tree",
+          "fence",
+          "house",
+          "bush"
+        ],
+        "action": "fight",
+        "camera": "orbit",
+        "mood": "joyful",
+        "line": {
+          "speaker": "kaidashykha"
+        }
+      }
+    ],
+    "videoPrompts": [
+      "Cute voxel-diorama 3D scene: a sunny Ukrainian village in a long green ravine by a river, whitewashed clay cottages with thatched roofs, wattle fences, sunflowers and a wooden cart; an old man in a straw hat whittles wood under a shed while two young men in embroidered shirts chat beside him; slow crane shot, warm evening light, tilt-shift miniature look, no text.",
+      "Cute voxel-diorama 3D scene: inside a whitewashed village cottage with a big clay stove, an older woman in a dark headscarf and a young wife in a red headscarf argue furiously, clay pots wobbling on the shelf while a tall young husband tries to pull them apart; comic close-up, warm interior light, no text.",
+      "Cute voxel-diorama 3D scene: two neighbouring thatched cottages separated by a wattle fence with an old pear tree on the boundary, ripe yellow pears dropping into both yards as a whole family shouts across the fence and chickens scatter; slow orbiting camera, golden afternoon light, humorous mood, no text."
+    ]
+  }
+}

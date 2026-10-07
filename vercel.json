@@ -24,9 +24,90 @@
     "api/video.js": {
       "maxDuration": 300,
       "includeFiles": "data/books/**"
+    },
+    "api/book.js": {
+      "maxDuration": 10,
+      "includeFiles": "{index.html,og.png,data/books/**}"
+    },
+    "api/sitemap.js": {
+      "maxDuration": 10,
+      "includeFiles": "data/catalog.json"
+    },
+    "api/me.js": {
+      "maxDuration": 10
+    },
+    "api/access.js": {
+      "maxDuration": 10
+    },
+    "api/auth/start.js": {
+      "maxDuration": 15
+    },
+    "api/auth/verify.js": {
+      "maxDuration": 10
+    },
+    "api/auth/logout.js": {
+      "maxDuration": 10
+    },
+    "api/billing/checkout.js": {
+      "maxDuration": 10
+    },
+    "api/billing/portal.js": {
+      "maxDuration": 15
+    },
+    "api/billing/webhook.js": {
+      "maxDuration": 10
+    },
+    "api/waitlist.js": {
+      "maxDuration": 10
+    },
+    "api/event.js": {
+      "maxDuration": 10
+    },
+    "api/admin.js": {
+      "maxDuration": 15
     }
   },
+  "rewrites": [
+    {
+      "source": "/book/:id",
+      "destination": "/api/book?id=:id"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/api/sitemap?format=robots"
+    }
+  ],
   "headers": [
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        },
+        {
+          "key": "Service-Worker-Allowed",
+          "value": "/"
+        }
+      ]
+    },
+    {
+      "source": "/manifest.webmanifest",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
     {
       "source": "/vendor/(.*)",
       "headers": [

@@ -21,7 +21,7 @@ export class ApiError extends Error {
   }
 }
 
-const STATUS_CODES = { 400: "bad_request", 403: "forbidden", 404: "not_found", 422: "refused", 429: "rate_limited", 502: "upstream", 503: "not_configured", 504: "timeout" };
+const STATUS_CODES = { 400: "bad_request", 401: "login_required", 402: "paywall", 403: "forbidden", 404: "not_found", 422: "refused", 429: "rate_limited", 502: "upstream", 503: "not_configured", 504: "timeout" };
 
 /** Normalise anything thrown into an ApiError (handy for UI code). */
 export function toApiError(err) {
@@ -102,11 +102,34 @@ const arr = (v) => (Array.isArray(v) ? v : []);
 // ---------------------------------------------------------------------------------------------
 // Health
 
-const OFFLINE_HEALTH = Object.freeze({ live: false, portraits: false, video: false, premiumCodeRequired: true, model: "", demoOnly: true, failed: false });
+const NO_BILLING = Object.freeze({ enabled: false, env: "sandbox", clientToken: "", prices: [] });
+const OFFLINE_HEALTH = Object.freeze({
+  live: false, portraits: false, video: false, premiumCodeRequired: true, model: "", demoOnly: true, failed: false,
+  account: false, billing: NO_BILLING, freeBooks: 2, telegram: null, store: "memory",
+});
 let healthPromise = null;
 
+/** billing block of /api/health → { enabled, env, clientToken, prices: [{ id, period, label }] } (month first). */
+function cleanBilling(b) {
+  if (!b || typeof b !== "object" || b.enabled !== true) return NO_BILLING;
+  const prices = arr(b.prices)
+    .filter((p) => p && isStr(p.id) && (p.period === "month" || p.period === "year"))
+    .map((p) => ({ id: p.id, period: p.period, label: isStr(p.label) ? p.label.trim().slice(0, 24) : "" }))
+    .sort((a, b2) => (a.period === b2.period ? 0 : a.period === "month" ? -1 : 1));
+  return {
+    enabled: prices.length > 0,
+    env: b.env === "production" ? "production" : "sandbox",
+    clientToken: isStr(b.clientToken) ? b.clientToken : "",
+    prices,
+  };
+}
+
+/** Telegram username for "write us" links, or null. */
+const cleanTelegram = (v) => (typeof v === "string" && /^[A-Za-z0-9_]{5,32}$/.test(v.replace(/^@/, "")) ? v.replace(/^@/, "") : null);
+
 /**
- * { live, portraits, video, premiumCodeRequired, model, demoOnly, failed }. Never rejects; memoized.
+ * { live, portraits, video, premiumCodeRequired, model, demoOnly, failed,
+ *   account, billing: { enabled, env, clientToken, prices }, freeBooks, telegram, store }. Never rejects; memoized.
  * `failed` = the check itself did not get through (network / timeout), so a later retry may help.
  */
 export function getHealth({ refresh = false } = {}) {
@@ -122,6 +145,11 @@ export function getHealth({ refresh = false } = {}) {
           model: typeof h.model === "string" ? h.model : "",
           demoOnly: !live,
           failed: false,
+          account: h.account === true,
+          billing: cleanBilling(h.billing),
+          freeBooks: Number.isInteger(h.freeBooks) && h.freeBooks >= 0 ? h.freeBooks : 2,
+          telegram: cleanTelegram(h.telegram),
+          store: h.store === "redis" ? "redis" : "memory",
         };
       })
       .catch((err) => ({ ...OFFLINE_HEALTH, failed: err?.code === "network" || err?.code === "timeout" }));
@@ -131,7 +159,8 @@ export function getHealth({ refresh = false } = {}) {
 
 /** Downgrade the cached health (e.g. after a live call answered not_configured). */
 export function markNotConfigured() {
-  healthPromise = Promise.resolve({ ...OFFLINE_HEALTH });
+  const prev = healthPromise || Promise.resolve(OFFLINE_HEALTH);
+  healthPromise = prev.then((h) => ({ ...h, live: false, portraits: false, video: false, demoOnly: true }), () => ({ ...OFFLINE_HEALTH }));
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -150,7 +179,7 @@ let catalogPromise = null;
 function fetchRawBook(id) {
   if (!/^[a-z0-9-]{1,100}$/.test(String(id))) return Promise.reject(new ApiError("not_found", "Unknown book"));
   if (!rawBooks.has(id)) {
-    const p = fetchJson(`data/books/${id}.json`, { timeout: 15000 }).then((b) => {
+    const p = fetchJson(`/data/books/${id}.json`, { timeout: 15000 }).then((b) => {
       if (!b || typeof b !== "object" || !b.i18n) throw new ApiError("bad_response", "Broken demo book");
       return b;
     });
@@ -168,7 +197,8 @@ function catalogEntry(b) {
     if (isStr(b.i18n?.[l]?.title)) aliases.add(b.i18n[l].title);
     if (isStr(b.i18n?.[l]?.originalTitle)) aliases.add(b.i18n[l].originalTitle);
   }
-  return { id: b.id, year: b.year ?? null, cover: b.cover, title: pick("title"), author: pick("author"), aliases: [...aliases] };
+  const originalTitle = b.i18n?.en?.originalTitle || b.i18n?.uk?.originalTitle || b.i18n?.ru?.originalTitle || "";
+  return { id: b.id, year: b.year ?? null, cover: b.cover, title: pick("title"), author: pick("author"), genre: pick("genre"), originalTitle, aliases: [...aliases] };
 }
 
 function cleanCatalog(list) {
@@ -179,7 +209,7 @@ function cleanCatalog(list) {
 /** Array of { id, year, cover, title:{ru,uk,en}, author:{ru,uk,en}, aliases }. Never rejects; memoized. */
 export function loadCatalog() {
   if (!catalogPromise) {
-    catalogPromise = fetchJson("data/catalog.json", { timeout: 10000 })
+    catalogPromise = fetchJson("/data/catalog.json", { timeout: 10000 })
       .then((list) => {
         if (!Array.isArray(list)) throw new ApiError("bad_response", "catalog is not an array");
         return cleanCatalog(list);
@@ -196,7 +226,29 @@ export function loadCatalog() {
 export function localizeEntry(entry, lang) {
   const l = pickLang(lang);
   const loc = (v) => (v && typeof v === "object" ? v[l] || v.en || v.ru || Object.values(v)[0] || "" : String(v ?? ""));
-  return { id: entry.id, title: loc(entry.title), author: loc(entry.author), year: entry.year ?? null, cover: entry.cover };
+  return { id: entry.id, title: loc(entry.title), author: loc(entry.author), year: entry.year ?? null, cover: entry.cover, genre: loc(entry.genre) };
+}
+
+// Library categories, derived from the English genre text (+ the original title for Ukrainian classics).
+const CATEGORY_RULES = [
+  ["fantasy", /fantas|fairy|fable|myth|magic|legend|tale\b/],
+  ["scifi", /science|sci-?fi|dystop|utopi|space|cyber|futur/],
+  ["detective", /detect|myster|crime|thriller|noir|spy|sleuth/],
+  ["adventure", /adventur|pirate|sea story|travel|quest|survival|western/],
+  ["romance", /roman(ce|tic)|\blove|manners/],
+  ["drama", /trag|drama|\bplay\b|comed|poem|poetry|verse|ballad/],
+  ["children", /child|kids|juvenile|young|picture book/],
+];
+export const CATEGORIES = ["ukrainian", ...CATEGORY_RULES.map(([k]) => k), "classic"];
+
+/** Category keys of one catalog entry (at least one: "classic" when nothing else matches). */
+export function categoriesOf(entry) {
+  const g = String((entry && entry.genre && (entry.genre.en || Object.values(entry.genre)[0])) || "").toLowerCase();
+  const out = [];
+  if (/[іїєґ]/i.test(String(entry?.originalTitle || ""))) out.push("ukrainian");
+  for (const [key, re] of CATEGORY_RULES) if (re.test(g)) out.push(key);
+  if (!out.length || (out.length === 1 && out[0] === "ukrainian")) out.push("classic");
+  return out;
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -673,4 +725,110 @@ export async function waitForVideo(job, { signal, interval = 10000, onPoll } = {
       signal?.addEventListener("abort", () => { clearTimeout(timer); reject(new ApiError("aborted", "Request aborted")); }, { once: true });
     });
   }
+}
+
+// ---------------------------------------------------------------------------------------------
+// v2: account (magic link), access quota, billing (Paddle), waitlist, funnel events
+
+const NO_ME = Object.freeze({ user: null, opened: [], freeLeft: 0, paywall: false, failed: true });
+let mePromise = null;
+
+function cleanMe(m) {
+  const u = m && m.user && typeof m.user === "object" && isStr(m.user.email) ? m.user : null;
+  return {
+    user: u ? {
+      email: u.email.trim().slice(0, 254),
+      subscribed: u.subscribed === true,
+      plan: u.plan === "month" || u.plan === "year" ? u.plan : null,
+      endsAt: isStr(u.endsAt) || Number.isFinite(u.endsAt) ? u.endsAt : null,
+    } : null,
+    opened: arr(m && m.opened).filter((id) => typeof id === "string"),
+    freeLeft: Number.isFinite(m && m.freeLeft) ? Math.max(0, m.freeLeft) : 0,
+    paywall: m && m.paywall === true,
+    failed: false,
+  };
+}
+
+/** GET /api/me → { user: null | { email, subscribed, plan, endsAt }, opened, freeLeft, paywall, failed }. Never rejects. */
+export function getMe({ refresh = false } = {}) {
+  if (!mePromise || refresh) {
+    mePromise = fetchJson("/api/me", { timeout: 8000 }).then(cleanMe).catch(() => ({ ...NO_ME }));
+  }
+  return mePromise;
+}
+
+/**
+ * POST /api/access { id } → { allowed: true, freeLeft, subscribed } | { allowed: false, freeLeft: 0, loggedIn }.
+ * Anything but an explicit 402 lets the visitor in (the demo gate is soft; AI parts are gated server-side).
+ */
+export async function access(id) {
+  try {
+    const r = await fetchJson("/api/access", { method: "POST", body: { id }, timeout: 8000 });
+    return { allowed: r.allowed !== false, freeLeft: Number.isFinite(r.freeLeft) ? Math.max(0, r.freeLeft) : null, subscribed: r.subscribed === true };
+  } catch (err) {
+    const e = toApiError(err);
+    if (e.status === 402 || e.code === "paywall") return { allowed: false, freeLeft: 0, subscribed: false, loggedIn: null };
+    return { allowed: true, freeLeft: null, subscribed: false, unknown: true };
+  }
+}
+
+/** POST /api/auth/start → { ok, devLink? }. `next` must be a same-origin path. */
+export function authStart(email, lang, next = "/") {
+  const path = typeof next === "string" && /^\/(?:[^/\\]|$)/.test(next) ? next : "/";
+  return fetchJson("/api/auth/start", { method: "POST", body: { email: String(email || "").trim(), lang: pickLang(lang), next: path }, timeout: 15000 })
+    .then((r) => ({ ok: r.ok === true, devLink: isStr(r.devLink) ? r.devLink : null }));
+}
+
+export function logout() {
+  return fetchJson("/api/auth/logout", { method: "POST", body: {}, timeout: 8000 }).finally(() => { mePromise = null; });
+}
+
+/** POST /api/billing/checkout { period } → { priceId, customData: { uid }, email, env, clientToken }. */
+export function billingCheckout(period) {
+  return fetchJson("/api/billing/checkout", { method: "POST", body: { period: period === "year" ? "year" : "month" }, timeout: 15000 })
+    .then((r) => {
+      if (!isStr(r.priceId) || !isStr(r.clientToken)) throw new ApiError("bad_response", "Incomplete checkout");
+      return {
+        priceId: r.priceId,
+        customData: r.customData && typeof r.customData === "object" ? r.customData : {},
+        email: isStr(r.email) ? r.email : "",
+        env: r.env === "production" ? "production" : "sandbox",
+        clientToken: r.clientToken,
+      };
+    });
+}
+
+/** POST /api/billing/portal → { url } (Paddle customer portal). */
+export function billingPortal() {
+  return fetchJson("/api/billing/portal", { method: "POST", body: {}, timeout: 15000 }).then((r) => {
+    if (!isStr(r.url) || !/^https:\/\//.test(r.url)) throw new ApiError("bad_response", "No portal URL");
+    return { url: r.url };
+  });
+}
+
+/** POST /api/waitlist { q, contact, lang } → { ok }. */
+export function joinWaitlist(q, contact, lang) {
+  return fetchJson("/api/waitlist", { method: "POST", body: { q: String(q || "").trim().slice(0, 200), contact: String(contact || "").trim(), lang: pickLang(lang) }, timeout: 10000 })
+    .then((r) => ({ ok: r.ok !== false }));
+}
+
+/** Waitlist contact rules (same as the server): @handle / handle (5–32 [A-Za-z0-9_]) or an e-mail, ≤ 120 chars. */
+export function validContact(value) {
+  const v = String(value || "").trim();
+  if (!v || v.length > 120) return false;
+  return /^@?[A-Za-z0-9_]{5,32}$/.test(v) || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+}
+
+export const EVENTS = ["search", "book_open", "paywall_shown", "checkout_start", "signup_start", "signup_done", "waitlist_join", "install"];
+
+/** Funnel event, fire-and-forget (sendBeacon when possible). Never throws. */
+export function sendEvent(name, id) {
+  if (!EVENTS.includes(name)) return;
+  const body = JSON.stringify(id && /^[a-z0-9-]{1,100}$/.test(String(id)) ? { name, id: String(id) } : { name });
+  try {
+    if (navigator.sendBeacon && navigator.sendBeacon("/api/event", new Blob([body], { type: "application/json" }))) return;
+  } catch { /* fall back to fetch */ }
+  try {
+    fetch("/api/event", { method: "POST", body, headers: { "content-type": "application/json" }, keepalive: true, credentials: "same-origin" }).catch(() => {});
+  } catch { /* ignore */ }
 }

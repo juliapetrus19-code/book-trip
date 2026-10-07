@@ -14,7 +14,9 @@ for (const f of files) {
     aliases.add(b.i18n[lang].title);
     if (b.i18n[lang].originalTitle) aliases.add(b.i18n[lang].originalTitle);
   }
-  catalog.push({ id: b.id, year: b.year, cover: b.cover, title: pick("title"), author: pick("author"), aliases: [...aliases] });
+  // genre + originalTitle feed the Library's category chips (js/api.js categoriesOf)
+  const originalTitle = b.i18n.en.originalTitle || b.i18n.uk.originalTitle || b.i18n.ru.originalTitle || "";
+  catalog.push({ id: b.id, year: b.year, cover: b.cover, title: pick("title"), author: pick("author"), genre: pick("genre"), originalTitle, aliases: [...aliases] });
 }
 await writeFile(`${ROOT}data/catalog.json`, JSON.stringify(catalog, null, 2) + "\n");
 console.log(`catalog: ${catalog.length} books`);
