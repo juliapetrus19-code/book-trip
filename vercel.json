@@ -2,17 +2,65 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "functions": {
-    "api/*.js": { "maxDuration": 300 },
-    "api/portrait.js": { "maxDuration": 120, "includeFiles": "data/books/**" },
-    "api/video.js": { "maxDuration": 300, "includeFiles": "data/books/**" }
+    "api/health.js": {
+      "maxDuration": 10
+    },
+    "api/resolve.js": {
+      "maxDuration": 300
+    },
+    "api/overview.js": {
+      "maxDuration": 300
+    },
+    "api/characters.js": {
+      "maxDuration": 300
+    },
+    "api/film.js": {
+      "maxDuration": 300
+    },
+    "api/portrait.js": {
+      "maxDuration": 120,
+      "includeFiles": "data/books/**"
+    },
+    "api/video.js": {
+      "maxDuration": 300,
+      "includeFiles": "data/books/**"
+    }
   },
   "headers": [
-    { "source": "/vendor/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
-    { "source": "/data/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400" }] },
-    { "source": "/(.*)", "headers": [
-      { "key": "X-Content-Type-Options", "value": "nosniff" },
-      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-      { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
-    ] }
+    {
+      "source": "/vendor/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/data/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    }
   ]
 }
