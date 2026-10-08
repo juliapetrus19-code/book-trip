@@ -1,10 +1,10 @@
 // GET /api/admin (header x-admin-token: <ADMIN_TOKEN>) → waitlist top/recent, daily events (30 days),
 // user and subscriber counts. 404 when ADMIN_TOKEN is unset, 403 for a wrong token.
-import { isSubscribed } from "./_lib/billing.js";
-import { HttpError, NO_STORE, clientIp, json, route } from "./_lib/http.js";
-import { hit, isLimited, tooManyError } from "./_lib/ratelimit.js";
-import { safeEqual } from "./_lib/sign.js";
-import { getStore } from "./_lib/store.js";
+import { isSubscribed } from "../_lib/billing.js";
+import { HttpError, NO_STORE, clientIp, json, route } from "../_lib/http.js";
+import { hit, isLimited, tooManyError } from "../_lib/ratelimit.js";
+import { safeEqual } from "../_lib/sign.js";
+import { getStore } from "../_lib/store.js";
 
 const DAYS = 30;
 

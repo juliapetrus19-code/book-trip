@@ -5,11 +5,11 @@
 //   GET  /api/video?file=<signed> → streams video/mp4
 // opIds and file references are sealed (encrypted + authenticated + expiring): clients never see
 // Google operation names, file URIs or the API key.
-import { OP_NAME_RE, VIDEO_SAFETY, VIDEO_STYLE, downloadFile, getOperation, isConfigured, isGoogleApiUrl, startVideo } from "./_lib/gemini.js";
-import { HttpError, NO_STORE, clientIp, cleanText, json, route, searchParams, ID_RE } from "./_lib/http.js";
-import { enforce, hit, isLimited, tooManyError } from "./_lib/ratelimit.js";
-import { safeEqual, seal, unseal, verify } from "./_lib/sign.js";
-import { loadDemoBook } from "./_lib/demo.js";
+import { OP_NAME_RE, VIDEO_SAFETY, VIDEO_STYLE, downloadFile, getOperation, isConfigured, isGoogleApiUrl, startVideo } from "../_lib/gemini.js";
+import { HttpError, NO_STORE, clientIp, cleanText, json, route, searchParams, ID_RE } from "../_lib/http.js";
+import { enforce, hit, isLimited, tooManyError } from "../_lib/ratelimit.js";
+import { safeEqual, seal, unseal, verify } from "../_lib/sign.js";
+import { loadDemoBook } from "../_lib/demo.js";
 
 const OP_TTL = 6 * 3600;    // a job can be polled for 6 hours
 const FILE_TTL = 47 * 3600; // Google keeps generated files for 48 hours

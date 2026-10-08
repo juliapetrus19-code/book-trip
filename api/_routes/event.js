@@ -1,8 +1,8 @@
 // POST /api/event { name, id? } → 204. Anonymous funnel counters: HINCRBY ev:<yyyy-mm-dd> name 1.
 // Only whitelisted names; over-limit and store failures are dropped silently (never break the page).
-import { HttpError, ID_RE, clientIp, readJson, route } from "./_lib/http.js";
-import { hit } from "./_lib/ratelimit.js";
-import { soft } from "./_lib/store.js";
+import { HttpError, ID_RE, clientIp, readJson, route } from "../_lib/http.js";
+import { hit } from "../_lib/ratelimit.js";
+import { soft } from "../_lib/store.js";
 
 export const EVENTS = new Set(["search", "book_open", "paywall_shown", "checkout_start", "signup_start", "signup_done", "waitlist_join", "install"]);
 const KEEP_DAYS = 400;

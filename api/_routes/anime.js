@@ -4,12 +4,12 @@
 // Prompts are built here from the bundled data files (js/anime-prompts.js), never taken from the client.
 // Not configured (no CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN) → 503; the client then draws the picture
 // with Pollinations in the browser instead.
-import { ANIME_SIZE, portraitPromptFor, scenePromptFor, seedFor } from "../js/anime-prompts.js";
-import { loadDemoBook } from "./_lib/demo.js";
-import { httpFetch } from "./_lib/fetch.js";
-import { HttpError, idParam, route, searchParams } from "./_lib/http.js";
-import { enforce } from "./_lib/ratelimit.js";
-import { soft } from "./_lib/store.js";
+import { ANIME_SIZE, portraitPromptFor, scenePromptFor, seedFor } from "../../js/anime-prompts.js";
+import { loadDemoBook } from "../_lib/demo.js";
+import { httpFetch } from "../_lib/fetch.js";
+import { HttpError, idParam, route, searchParams } from "../_lib/http.js";
+import { enforce } from "../_lib/ratelimit.js";
+import { soft } from "../_lib/store.js";
 
 const MODEL = "@cf/black-forest-labs/flux-1-schnell";
 // Pictures only change when the data file changes: a month at the CDN, a week in the browser.

@@ -1,9 +1,9 @@
 // POST /api/access { id } → 200 { allowed: true, freeLeft, subscribed }
 //                         | 402 { error: "paywall", message, freeLeft: 0, loggedIn }.
 // Counts the book for the visitor (re-opening a counted book is always free).
-import { checkAccess, cookieHeaders, identify, paywallError } from "./_lib/access.js";
-import { HttpError, ID_RE, NO_STORE, json, readJson, route } from "./_lib/http.js";
-import { enforce } from "./_lib/ratelimit.js";
+import { checkAccess, cookieHeaders, identify, paywallError } from "../_lib/access.js";
+import { HttpError, ID_RE, NO_STORE, json, readJson, route } from "../_lib/http.js";
+import { enforce } from "../_lib/ratelimit.js";
 
 export const POST = route(async (request) => {
   enforce(request, "access");

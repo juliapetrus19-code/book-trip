@@ -2,13 +2,13 @@
 // (with AUTH_DEV_LINKS=1 — dev/tests only — the link is returned as `devLink` instead of mailed).
 // Rate-limited per IP (memory) and per address (store: 5 per hour).
 import { createHash } from "node:crypto";
-import { LANGS } from "../_lib/enums.js";
-import { HttpError, NO_STORE, json, readJson, route, siteOrigin } from "../_lib/http.js";
-import { devLinksEnabled, mailConfigured, sendLoginMail } from "../_lib/mail.js";
-import { enforce, tooManyError } from "../_lib/ratelimit.js";
-import { normalizeEmail, safeNext } from "../_lib/session.js";
-import { canSign, seal } from "../_lib/sign.js";
-import { getStore } from "../_lib/store.js";
+import { LANGS } from "../../_lib/enums.js";
+import { HttpError, NO_STORE, json, readJson, route, siteOrigin } from "../../_lib/http.js";
+import { devLinksEnabled, mailConfigured, sendLoginMail } from "../../_lib/mail.js";
+import { enforce, tooManyError } from "../../_lib/ratelimit.js";
+import { normalizeEmail, safeNext } from "../../_lib/session.js";
+import { canSign, seal } from "../../_lib/sign.js";
+import { getStore } from "../../_lib/store.js";
 
 const LOGIN_TTL = 30 * 60;
 const PER_EMAIL_LIMIT = 5;

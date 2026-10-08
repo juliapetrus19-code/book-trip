@@ -1,9 +1,9 @@
 // POST /api/billing/checkout { period: "month"|"year" } → { priceId, customData: { uid }, email, env, clientToken }.
 // The browser then opens Paddle.js checkout with these; the webhook links the subscription to uid.
-import { billingConfig } from "../_lib/billing.js";
-import { HttpError, NO_STORE, json, readJson, route } from "../_lib/http.js";
-import { enforce } from "../_lib/ratelimit.js";
-import { readSession } from "../_lib/session.js";
+import { billingConfig } from "../../_lib/billing.js";
+import { HttpError, NO_STORE, json, readJson, route } from "../../_lib/http.js";
+import { enforce } from "../../_lib/ratelimit.js";
+import { readSession } from "../../_lib/session.js";
 
 export const POST = route(async (request) => {
   const billing = billingConfig();

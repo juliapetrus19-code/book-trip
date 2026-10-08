@@ -2,87 +2,27 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "functions": {
-    "api/health.js": {
-      "maxDuration": 10
-    },
-    "api/resolve.js": {
-      "maxDuration": 300
-    },
-    "api/overview.js": {
-      "maxDuration": 300
-    },
-    "api/characters.js": {
-      "maxDuration": 300
-    },
-    "api/film.js": {
-      "maxDuration": 300
-    },
-    "api/portrait.js": {
-      "maxDuration": 120,
-      "includeFiles": "data/books/**"
-    },
-    "api/video.js": {
+    "api/main.js": {
       "maxDuration": 300,
-      "includeFiles": "data/books/**"
-    },
-    "api/anime.js": {
-      "maxDuration": 60,
-      "includeFiles": "data/books/**"
-    },
-    "api/book.js": {
-      "maxDuration": 10,
-      "includeFiles": "{index.html,og.png,data/books/**}"
-    },
-    "api/sitemap.js": {
-      "maxDuration": 10,
-      "includeFiles": "data/catalog.json"
-    },
-    "api/me.js": {
-      "maxDuration": 10
-    },
-    "api/access.js": {
-      "maxDuration": 10
-    },
-    "api/auth/start.js": {
-      "maxDuration": 15
-    },
-    "api/auth/verify.js": {
-      "maxDuration": 10
-    },
-    "api/auth/logout.js": {
-      "maxDuration": 10
-    },
-    "api/billing/checkout.js": {
-      "maxDuration": 10
-    },
-    "api/billing/portal.js": {
-      "maxDuration": 15
-    },
-    "api/billing/webhook.js": {
-      "maxDuration": 10
-    },
-    "api/waitlist.js": {
-      "maxDuration": 10
-    },
-    "api/event.js": {
-      "maxDuration": 10
-    },
-    "api/admin.js": {
-      "maxDuration": 15
+      "includeFiles": "{index.html,og.png,data/**}"
     }
   },
   "rewrites": [
     {
       "source": "/book/:id",
-      "destination": "/api/book?id=:id"
+      "destination": "/api/main?route=book&id=:id"
     },
     {
       "source": "/sitemap.xml",
-      "destination": "/api/sitemap"
+      "destination": "/api/main?route=sitemap"
     },
     {
       "source": "/robots.txt",
-      "destination": "/api/sitemap?format=robots"
+      "destination": "/api/main?route=sitemap&format=robots"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/main?route=$1"
     }
   ],
   "headers": [

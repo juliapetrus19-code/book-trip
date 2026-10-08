@@ -7,7 +7,7 @@ import { ANIME_AVOID, ANIME_STYLE, portraitPromptFor, scenePromptFor, seedFor } 
 import { setFetchForTests } from "../api/_lib/fetch.js";
 import { createMemoryStore, setStoreForTests } from "../api/_lib/store.js";
 import { resetRateLimits } from "../api/_lib/ratelimit.js";
-import { GET as anime, demoAnimeJob } from "../api/anime.js";
+import { GET as anime, demoAnimeJob } from "../api/_routes/anime.js";
 
 const hobbit = JSON.parse(await readFile(new URL("../data/books/the-hobbit.json", import.meta.url), "utf8"));
 const req = (qs) => new Request(`http://localhost/api/anime?${qs}`, { headers: { "x-forwarded-for": "1.2.3.4" } });

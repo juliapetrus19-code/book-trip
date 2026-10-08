@@ -3,11 +3,11 @@
 // JSON-LD Book, and a server-rendered <section id="ssr-book"> (the client removes it on boot).
 // Book data: data/books/<id>.json (demo), else the cached resolve + overview in the store.
 // Unknown ids get the plain index.html (200, noindex) — the client handles them.
-import { canonicalBook, readCache } from "./_lib/cache.js";
-import { loadDemoBook } from "./_lib/demo.js";
-import { LANGS } from "./_lib/enums.js";
-import { projectFileExists, readProjectFile } from "./_lib/files.js";
-import { HttpError, ID_RE, cleanText, route, searchParams, siteOrigin } from "./_lib/http.js";
+import { canonicalBook, readCache } from "../_lib/cache.js";
+import { loadDemoBook } from "../_lib/demo.js";
+import { LANGS } from "../_lib/enums.js";
+import { projectFileExists, readProjectFile } from "../_lib/files.js";
+import { HttpError, ID_RE, cleanText, route, searchParams, siteOrigin } from "../_lib/http.js";
 
 const CACHE_BOOK = "public, max-age=300, s-maxage=86400";
 const CACHE_UNKNOWN = "public, max-age=0, s-maxage=60";

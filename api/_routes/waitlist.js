@@ -1,11 +1,11 @@
 // POST /api/waitlist { q, contact, lang } → { ok: true }. "Tell me when this book is available":
 // stored in the `waitlist` list (newest 5000) and counted per query in the `waitlist:count` ZSET.
-import { normalizeQuery } from "./_lib/cache.js";
-import { LANGS } from "./_lib/enums.js";
-import { HttpError, NO_STORE, cleanText, json, readJson, route } from "./_lib/http.js";
-import { enforce } from "./_lib/ratelimit.js";
-import { normalizeEmail } from "./_lib/session.js";
-import { getStore } from "./_lib/store.js";
+import { normalizeQuery } from "../_lib/cache.js";
+import { LANGS } from "../_lib/enums.js";
+import { HttpError, NO_STORE, cleanText, json, readJson, route } from "../_lib/http.js";
+import { enforce } from "../_lib/ratelimit.js";
+import { normalizeEmail } from "../_lib/session.js";
+import { getStore } from "../_lib/store.js";
 
 const MAX_ITEMS = 5000;
 

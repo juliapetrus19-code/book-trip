@@ -1,13 +1,13 @@
 // GET /api/characters?id=&title=&author=&lang= → { characters: [Character + portraitToken] }.
 // Paywalled per book (402) when billing is on; cached in the store by id + lang (tokens are added
 // on every answer, so rotating SIGNING_SECRET never leaves stale tokens in the cache).
-import { callJson, effortFor } from "./_lib/claude.js";
-import { bookParams, route, searchParams } from "./_lib/http.js";
-import { servePart } from "./_lib/book-input.js";
-import { CHARACTERS_SYSTEM, userMessage } from "./_lib/prompts.js";
-import { sanitizeCharacters } from "./_lib/sanitize.js";
-import { CHARACTERS_SCHEMA } from "./_lib/schemas.js";
-import { portraitToken } from "./_lib/sign.js";
+import { callJson, effortFor } from "../_lib/claude.js";
+import { bookParams, route, searchParams } from "../_lib/http.js";
+import { servePart } from "../_lib/book-input.js";
+import { CHARACTERS_SYSTEM, userMessage } from "../_lib/prompts.js";
+import { sanitizeCharacters } from "../_lib/sanitize.js";
+import { CHARACTERS_SCHEMA } from "../_lib/schemas.js";
+import { portraitToken } from "../_lib/sign.js";
 
 export const GET = route(async (request) => {
   const book = bookParams(searchParams(request));

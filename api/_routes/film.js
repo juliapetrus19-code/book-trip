@@ -1,14 +1,14 @@
 // GET /api/film?id=&title=&author=&lang=&cast=id:Name,… → Film + videoToken.
 // Paywalled per book (402) when billing is on; cached by id + lang + a hash of the cast (the film's
 // scenes reference the cast ids, so a different cast is a different film).
-import { hashKey } from "./_lib/cache.js";
-import { callJson, effortFor } from "./_lib/claude.js";
-import { bookParams, castParam, route, searchParams } from "./_lib/http.js";
-import { servePart } from "./_lib/book-input.js";
-import { FILM_SYSTEM, userMessage } from "./_lib/prompts.js";
-import { sanitizeFilm } from "./_lib/sanitize.js";
-import { FILM_SCHEMA } from "./_lib/schemas.js";
-import { videoToken } from "./_lib/sign.js";
+import { hashKey } from "../_lib/cache.js";
+import { callJson, effortFor } from "../_lib/claude.js";
+import { bookParams, castParam, route, searchParams } from "../_lib/http.js";
+import { servePart } from "../_lib/book-input.js";
+import { FILM_SYSTEM, userMessage } from "../_lib/prompts.js";
+import { sanitizeFilm } from "../_lib/sanitize.js";
+import { FILM_SCHEMA } from "../_lib/schemas.js";
+import { videoToken } from "../_lib/sign.js";
 
 export const GET = route(async (request) => {
   const params = searchParams(request);

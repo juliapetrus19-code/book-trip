@@ -23,24 +23,24 @@ import { isSubscribed, paddleSignature, parseSignatureHeader, verifyPaddleSignat
 import { loginMail } from "../api/_lib/mail.js";
 import { normalizeQuery } from "../api/_lib/cache.js";
 
-import { GET as health } from "../api/health.js";
-import { GET as me } from "../api/me.js";
-import { POST as access } from "../api/access.js";
-import { POST as authStart } from "../api/auth/start.js";
-import { GET as authVerify } from "../api/auth/verify.js";
-import { POST as authLogout } from "../api/auth/logout.js";
-import { POST as checkout } from "../api/billing/checkout.js";
-import { POST as portal } from "../api/billing/portal.js";
-import { POST as webhook, subscriptionRecord } from "../api/billing/webhook.js";
-import { POST as waitlist, normalizeContact } from "../api/waitlist.js";
-import { POST as event } from "../api/event.js";
-import { GET as admin } from "../api/admin.js";
-import { GET as bookPage, pickLang, scriptJson } from "../api/book.js";
-import { GET as sitemap } from "../api/sitemap.js";
-import { GET as resolve } from "../api/resolve.js";
-import { GET as overview } from "../api/overview.js";
-import { GET as characters } from "../api/characters.js";
-import { GET as portrait } from "../api/portrait.js";
+import { GET as health } from "../api/_routes/health.js";
+import { GET as me } from "../api/_routes/me.js";
+import { POST as access } from "../api/_routes/access.js";
+import { POST as authStart } from "../api/_routes/auth/start.js";
+import { GET as authVerify } from "../api/_routes/auth/verify.js";
+import { POST as authLogout } from "../api/_routes/auth/logout.js";
+import { POST as checkout } from "../api/_routes/billing/checkout.js";
+import { POST as portal } from "../api/_routes/billing/portal.js";
+import { POST as webhook, subscriptionRecord } from "../api/_routes/billing/webhook.js";
+import { POST as waitlist, normalizeContact } from "../api/_routes/waitlist.js";
+import { POST as event } from "../api/_routes/event.js";
+import { GET as admin } from "../api/_routes/admin.js";
+import { GET as bookPage, pickLang, scriptJson } from "../api/_routes/book.js";
+import { GET as sitemap } from "../api/_routes/sitemap.js";
+import { GET as resolve } from "../api/_routes/resolve.js";
+import { GET as overview } from "../api/_routes/overview.js";
+import { GET as characters } from "../api/_routes/characters.js";
+import { GET as portrait } from "../api/_routes/portrait.js";
 import { portraitToken } from "../api/_lib/sign.js";
 
 // ---------------------------------------------------------------------------------------------

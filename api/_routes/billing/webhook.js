@@ -2,9 +2,9 @@
 // Paddle-Signature: ts=<unix>;h1=<hex> = HMAC-SHA256(PADDLE_WEBHOOK_SECRET, `${ts}:${rawBody}`), ±300 s.
 // subscription.* events write sub:<uid> (uid from data.custom_data.uid, set by /api/billing/checkout).
 // Any validly signed event gets 200 (ignored ones too), so Paddle does not retry it.
-import { billingConfig, verifyPaddleSignature } from "../_lib/billing.js";
-import { HttpError, NO_STORE, json, route } from "../_lib/http.js";
-import { getStore } from "../_lib/store.js";
+import { billingConfig, verifyPaddleSignature } from "../../_lib/billing.js";
+import { HttpError, NO_STORE, json, route } from "../../_lib/http.js";
+import { getStore } from "../../_lib/store.js";
 
 export const HANDLED = new Set([
   "subscription.created", "subscription.updated", "subscription.activated", "subscription.canceled",

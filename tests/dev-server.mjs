@@ -17,35 +17,30 @@ const TYPES = {
   ".mp4": "video/mp4", ".woff2": "font/woff2", ".webmanifest": "application/manifest+json; charset=utf-8", ".xml": "application/xml; charset=utf-8",
 };
 
-/** vercel.json "rewrites": public path → api URL (or null). */
+/** vercel.json "rewrites": public path → /api/main?route=… (or null). */
 function rewrite(url) {
   const book = /^\/book\/([^/]+)\/?$/.exec(url.pathname);
   const target = new URL(url.href);
+  target.pathname = "/api/main";
   if (book) {
-    target.pathname = "/api/book";
+    target.searchParams.set("route", "book");
     target.searchParams.set("id", decodeURIComponent(book[1]));
   } else if (url.pathname === "/sitemap.xml") {
-    target.pathname = "/api/sitemap";
+    target.searchParams.set("route", "sitemap");
   } else if (url.pathname === "/robots.txt") {
-    target.pathname = "/api/sitemap";
+    target.searchParams.set("route", "sitemap");
     target.searchParams.set("format", "robots");
+  } else if (url.pathname.startsWith("/api/") && url.pathname !== "/api/main") {
+    target.searchParams.set("route", url.pathname.replace(/^\/api\//, "").replace(/\/+$/, ""));
   } else {
     return null;
   }
   return target;
 }
 
-/** api/<segments>.js, each segment [a-z0-9-] (no "..", no leading "_" helpers), at most 3 deep. */
-function apiModule(pathname) {
-  const name = pathname.replace(/^\/api\//, "").replace(/\/+$/, "");
-  const segments = name.split("/");
-  if (segments.length > 3 || !segments.every((s) => /^[a-z0-9][a-z0-9-]*$/.test(s))) return null;
-  return join(ROOT, "api", ...segments) + ".js";
-}
-
 async function handleApi(req, res, url) {
-  const file = apiModule(url.pathname);
-  if (!file) { res.writeHead(404).end(); return; }
+  // Like Vercel: one function (api/main.js) routes every /api/* request.
+  const file = join(ROOT, "api", "main.js");
   let mod;
   try {
     mod = await import(pathToFileURL(file).href + "?t=" + Date.now());

@@ -1,9 +1,9 @@
 // POST /api/billing/portal → { url } of a Paddle customer-portal session (manage / cancel the plan).
-import { billingConfig, paddleApiBase, readSub } from "../_lib/billing.js";
-import { httpFetch } from "../_lib/fetch.js";
-import { HttpError, NO_STORE, json, route } from "../_lib/http.js";
-import { enforce } from "../_lib/ratelimit.js";
-import { readSession } from "../_lib/session.js";
+import { billingConfig, paddleApiBase, readSub } from "../../_lib/billing.js";
+import { httpFetch } from "../../_lib/fetch.js";
+import { HttpError, NO_STORE, json, route } from "../../_lib/http.js";
+import { enforce } from "../../_lib/ratelimit.js";
+import { readSession } from "../../_lib/session.js";
 
 const CUSTOMER_RE = /^[A-Za-z0-9_-]{1,80}$/;
 

@@ -2,10 +2,10 @@
 // overview, each book with hreflang alternates (?lang=uk|ru|en).
 // GET /robots.txt (rewrite → /api/sitemap?format=robots): robots rules with the absolute sitemap URL
 // (robots.txt needs a full URL, which a static file cannot know before the domain is chosen).
-import { liveBooks } from "./_lib/cache.js";
-import { LANGS } from "./_lib/enums.js";
-import { readProjectFile } from "./_lib/files.js";
-import { ID_RE, route, searchParams, siteOrigin } from "./_lib/http.js";
+import { liveBooks } from "../_lib/cache.js";
+import { LANGS } from "../_lib/enums.js";
+import { readProjectFile } from "../_lib/files.js";
+import { ID_RE, route, searchParams, siteOrigin } from "../_lib/http.js";
 
 const CACHE = "public, max-age=3600, s-maxage=3600";
 const MAX_URLS = 45_000; // the sitemap protocol allows 50 000

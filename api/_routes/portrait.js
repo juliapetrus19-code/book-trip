@@ -2,12 +2,12 @@
 // GET /api/portrait?demo=<bookId>&char=<charId>       → the same for a bundled demo book (prompt from data file).
 // Live-book portraits are paywalled per book (402) when billing is on and then cached only by the
 // visitor's browser (private); demo portraits are a fixed public set and stay CDN-cacheable.
-import { gateBook } from "./_lib/access.js";
-import { demoPortraitPrompt } from "./_lib/demo.js";
-import { PORTRAIT_STYLE, generateImage, isConfigured } from "./_lib/gemini.js";
-import { CACHE_IMMUTABLE, HttpError, cleanText, idParam, route, searchParams } from "./_lib/http.js";
-import { enforce } from "./_lib/ratelimit.js";
-import { verify } from "./_lib/sign.js";
+import { gateBook } from "../_lib/access.js";
+import { demoPortraitPrompt } from "../_lib/demo.js";
+import { PORTRAIT_STYLE, generateImage, isConfigured } from "../_lib/gemini.js";
+import { CACHE_IMMUTABLE, HttpError, cleanText, idParam, route, searchParams } from "../_lib/http.js";
+import { enforce } from "../_lib/ratelimit.js";
+import { verify } from "../_lib/sign.js";
 
 // Demo prompts can change when the data files are edited, so their images are cached for less time.
 const CACHE_DEMO = "public, max-age=86400, s-maxage=2592000, stale-while-revalidate=86400";

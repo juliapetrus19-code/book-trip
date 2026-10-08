@@ -1,10 +1,10 @@
 // GET /api/auth/verify?t=<sealed> → sets bt_session, merges the anonymous quota into the user's,
 // then 302 to `next` with ?login=ok (bad or expired token → 302 /?login=expired).
-import { mergeAnonInto } from "../_lib/access.js";
-import { route, searchParams } from "../_lib/http.js";
-import { normalizeEmail, readAnon, safeNext, sessionCookie, uidFor, withLoginParam } from "../_lib/session.js";
-import { canSign, unseal } from "../_lib/sign.js";
-import { getStore } from "../_lib/store.js";
+import { mergeAnonInto } from "../../_lib/access.js";
+import { route, searchParams } from "../../_lib/http.js";
+import { normalizeEmail, readAnon, safeNext, sessionCookie, uidFor, withLoginParam } from "../../_lib/session.js";
+import { canSign, unseal } from "../../_lib/sign.js";
+import { getStore } from "../../_lib/store.js";
 
 function redirect(location, headers = {}) {
   return new Response(null, { status: 302, headers: { location, "cache-control": "no-store", ...headers } });

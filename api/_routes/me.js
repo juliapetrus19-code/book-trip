@@ -1,8 +1,8 @@
 // GET /api/me → { user: null | { email, subscribed, plan, endsAt }, opened: [ids], freeLeft, paywall }.
 // Per-visitor (no-store); gives a new visitor its bt_anon cookie.
-import { accountState, cookieHeaders, freeBooks, identify, paywallEnabled } from "./_lib/access.js";
-import { NO_STORE, json, route } from "./_lib/http.js";
-import { enforce } from "./_lib/ratelimit.js";
+import { accountState, cookieHeaders, freeBooks, identify, paywallEnabled } from "../_lib/access.js";
+import { NO_STORE, json, route } from "../_lib/http.js";
+import { enforce } from "../_lib/ratelimit.js";
 
 export const GET = route(async (request) => {
   enforce(request, "access");

@@ -16,13 +16,13 @@ import { CACHE_PUBLIC, castParam } from "../api/_lib/http.js";
 import { portraitToken, seal, sign, unseal, verify, videoToken } from "../api/_lib/sign.js";
 import * as SCHEMAS from "../api/_lib/schemas.js";
 import { sanitizeAppearance, sanitizeCharacters, sanitizeCover, sanitizeFilm, sanitizeOverview, sanitizeResolve, contrast } from "../api/_lib/sanitize.js";
-import { GET as health } from "../api/health.js";
-import { GET as resolve } from "../api/resolve.js";
-import { GET as overview } from "../api/overview.js";
-import { GET as characters } from "../api/characters.js";
-import { GET as film } from "../api/film.js";
-import { GET as portrait } from "../api/portrait.js";
-import { GET as videoGet, POST as videoPost } from "../api/video.js";
+import { GET as health } from "../api/_routes/health.js";
+import { GET as resolve } from "../api/_routes/resolve.js";
+import { GET as overview } from "../api/_routes/overview.js";
+import { GET as characters } from "../api/_routes/characters.js";
+import { GET as film } from "../api/_routes/film.js";
+import { GET as portrait } from "../api/_routes/portrait.js";
+import { GET as videoGet, POST as videoPost } from "../api/_routes/video.js";
 
 // ---------------------------------------------------------------------------------------------
 // Helpers
