@@ -440,3 +440,38 @@
 @media (prefers-reduced-motion: reduce) {
   .ring-view { transform: none; }
 }
+
+/* ---- shelves under the ring: book of the day + curriculum / genre rows ---- */
+.home-shelves { position: relative; z-index: 2; width: min(1200px, calc(100% - 32px)); margin: 8px auto 72px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 44px; }
+.home-shelves > * { min-width: 0; }
+.home-daily {
+  display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 36px; align-items: center;
+  padding: 28px 36px; border-radius: 26px;
+}
+.home-daily-cover { display: block; width: 100%; border-radius: 12px; transition: transform .35s var(--expo); }
+.home-daily-cover:hover { transform: translateY(-4px) rotate(-1.5deg); }
+.home-daily-cover .bt-card-cover { display: block; width: 100%; aspect-ratio: 2 / 3; border-radius: 12px; overflow: hidden; box-shadow: 0 22px 44px -18px rgba(0, 0, 0, .8); }
+.home-daily-cover .bt-card-cover svg { display: block; width: 100%; height: 100%; }
+.home-kicker { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #9ef6ff; }
+.home-kicker svg { width: 16px; height: 16px; }
+.home-daily-title { margin: 0; font: 800 clamp(28px, 4vw, 44px)/1.05 var(--display); letter-spacing: -.01em; }
+.home-daily-author { margin: 10px 0 0; font-weight: 600; color: var(--ink-2); }
+.home-daily-genre { display: inline-block; margin: 12px 0 0; padding: 4px 12px; border-radius: 999px; border: 1px solid rgba(158, 246, 255, .3); font-size: 13px; color: var(--ink-2); }
+.home-daily-lead { margin: 16px 0 0; max-width: 560px; color: var(--ink-2); line-height: 1.6; }
+.home-daily-actions { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+.home-shelf-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+.home-shelf-title { margin: 0; font: 700 clamp(19px, 2.2vw, 24px)/1.2 var(--display); }
+.home-shelf-count { font-size: 13.5px; color: var(--ink-3); white-space: nowrap; }
+/* one horizontal, swipeable row per shelf */
+.home-shelf-row { margin: 0 -16px; padding: 0 16px; scroll-padding-inline: 16px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+.home-shelf-row .bt-grid { display: flex; gap: 16px; margin-top: 16px; padding-bottom: 10px; }
+.home-shelf-row .bt-grid > li { flex: 0 0 132px; scroll-snap-align: start; }
+.home-shelves-more { display: flex; justify-content: center; }
+@media (max-width: 640px) {
+  .home-shelves { gap: 34px; margin-bottom: 48px; }
+  .home-daily { grid-template-columns: 112px minmax(0, 1fr); gap: 18px; padding: 18px; border-radius: 20px; align-items: start; }
+  .home-daily-lead { display: none; }
+  .home-daily-actions { margin-top: 14px; }
+  .home-shelf-row .bt-grid > li { flex-basis: 108px; }
+}
+@media (prefers-reduced-motion: reduce) { .home-daily-cover { transition: none; } }

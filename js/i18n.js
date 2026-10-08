@@ -25,7 +25,7 @@ export const STRINGS = {
     "mode.demo": "Демо-режим",
     "mode.live": "ИИ подключён",
 
-    "home.badge": "AI-пересказ · персонажи в 3D · мини-фильм",
+    "home.badge": "AI-пересказ · герои-аниме · мини-фильм · тест",
     "home.h1a": "Войди внутрь",
     "home.h1b": "любой книги",
     "home.sub": "Пересказ, важные термины, персонажи и мини-фильм — за минуту.",
@@ -172,7 +172,7 @@ export const STRINGS = {
     "mode.demo": "Деморежим",
     "mode.live": "ШІ під'єднано",
 
-    "home.badge": "AI-переказ · персонажі в 3D · мініфільм",
+    "home.badge": "AI-переказ · аніме-герої · мініфільм · тест",
     "home.h1a": "Увійди всередину",
     "home.h1b": "будь-якої книги",
     "home.sub": "Переказ, ключові терміни, персонажі та мініфільм — за хвилину.",
@@ -319,7 +319,7 @@ export const STRINGS = {
     "mode.demo": "Demo mode",
     "mode.live": "AI connected",
 
-    "home.badge": "AI retelling · 3D characters · mini-film",
+    "home.badge": "AI retelling · anime characters · mini-film · quiz",
     "home.h1a": "Step inside",
     "home.h1b": "any book",
     "home.sub": "A retelling, key terms, the characters and a mini-film — in a minute.",
@@ -554,6 +554,10 @@ const V2 = {
     "cat.drama": "Драма и поэзия",
     "cat.children": "Детские",
     "cat.classic": "Классика",
+    "home.daily": "Книга дня",
+    "home.dailyLead": "Каждый день — новая история: пересказ, герои, словарь и мини-фильм. А в конце — тест «Проверь себя».",
+    "home.shelfSchool": "Школьная программа: украинская литература",
+    "home.allBooks": "Вся библиотека · {n}",
 
     "legal.terms": "Условия",
     "legal.privacy": "Конфиденциальность",
@@ -663,6 +667,10 @@ const V2 = {
     "cat.drama": "Драма й поезія",
     "cat.children": "Дитячі",
     "cat.classic": "Класика",
+    "home.daily": "Книга дня",
+    "home.dailyLead": "Щодня — нова історія: переказ, герої, словник і мініфільм. А наприкінці — тест «Перевір себе».",
+    "home.shelfSchool": "Шкільна програма: українська література",
+    "home.allBooks": "Уся бібліотека · {n}",
 
     "legal.terms": "Умови",
     "legal.privacy": "Конфіденційність",
@@ -772,6 +780,10 @@ const V2 = {
     "cat.drama": "Drama & poetry",
     "cat.children": "Children's",
     "cat.classic": "Classics",
+    "home.daily": "Book of the day",
+    "home.dailyLead": "A new story every day: the retelling, the characters, key terms and a mini-film — and a quick quiz at the end.",
+    "home.shelfSchool": "School curriculum: Ukrainian literature",
+    "home.allBooks": "The whole library · {n}",
 
     "legal.terms": "Terms",
     "legal.privacy": "Privacy",

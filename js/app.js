@@ -1535,6 +1535,7 @@ function onLangChange() {
   if (copy) copy.textContent = t("footer.rights", { year: new Date().getFullYear() });
   searchBox?.refresh();
   if (state.ring) ringItems().then((items) => state.ring?.setItems(items));
+  renderShelves().catch((err) => console.error("[app] shelves failed", err));
   account.refreshLabels();
   if (state.view === "book" && state.book) openBook(state.book.id, { force: true, instant: true });
   else document.title = t("meta.title");
@@ -1556,7 +1557,64 @@ function isTypingTarget(node) {
   return node instanceof HTMLElement && (node.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(node.tagName));
 }
 
+// ---------------------------------------------------------------------------------------------
+// Home shelves under the ring: book of the day, the Ukrainian school curriculum, genre rows
+
+const SHELF_ORDER = ["ukrainian", "fantasy", "adventure", "romance", "scifi", "detective", "drama", "children", "classic"];
+
+/** Same book for everybody on a given day (UTC), different every day. */
+function dailyPick(list, date = new Date()) {
+  if (!list.length) return null;
+  const day = Math.floor(date.getTime() / 86400000);
+  return list[(day * 7919) % list.length];
+}
+
+async function renderShelves() {
+  const host = $("#home-shelves");
+  if (!host) return;
+  const [catalog, coversMod] = await Promise.all([api.loadCatalog(), loadCovers()]);
+  if (coversMod) covers = coversMod;
+  if (!catalog.length) { host.hidden = true; return; }
+  const lang = getLang();
+  const entries = catalog.map((e) => ({ ...api.localizeEntry(e, lang), cats: api.categoriesOf(e) }));
+  const open = (item) => navigate(bookPath(item.id));
+  const lazy = lazyPainter();
+
+  const daily = dailyPick(entries);
+  const dailyNode = el("article", { class: "home-daily glass" },
+    el("button", { type: "button", class: "home-daily-cover", "aria-label": daily.title, onclick: () => open(daily) },
+      bigCover(daily.cover, daily.title, daily.author)),
+    el("div", { class: "home-daily-copy" },
+      el("p", { class: "home-kicker" }, el("span", { html: ICON.sparkle }), el("span", { text: t("home.daily") })),
+      el("h2", { class: "home-daily-title", text: daily.title }),
+      el("p", { class: "home-daily-author", text: [daily.author, Number.isFinite(daily.year) ? formatYear(daily.year) : ""].filter(Boolean).join(" · ") }),
+      daily.genre ? el("p", { class: "home-daily-genre", text: daily.genre }) : null,
+      el("p", { class: "home-daily-lead", text: t("home.dailyLead") }),
+      el("div", { class: "home-daily-actions" },
+        el("a", { class: "btn-glow", href: bookPath(daily.id) }, el("span", { text: t("home.go") })))));
+
+  const rows = [];
+  for (const cat of SHELF_ORDER) {
+    const list = entries.filter((e) => e.cats.includes(cat) && e.id !== daily.id);
+    if (list.length < 3 || rows.length >= 5) continue;
+    const titleId = `home-shelf-${cat}`;
+    rows.push(el("section", { class: "home-shelf", "aria-labelledby": titleId },
+      el("div", { class: "home-shelf-head" },
+        el("h2", { class: "home-shelf-title", id: titleId, text: t(cat === "ukrainian" ? "home.shelfSchool" : `cat.${cat}`) }),
+        el("span", { class: "home-shelf-count", text: tn("library.count", list.length) })),
+      el("div", { class: "home-shelf-row" }, bookGrid(list, open, { compact: true, lazy }))));
+  }
+
+  host.hidden = false;
+  host.replaceChildren(
+    dailyNode,
+    ...rows,
+    el("div", { class: "home-shelves-more" },
+      el("a", { class: "btn-ghost", href: "#/library" }, el("span", { html: ICON.library }), el("span", { text: t("home.allBooks", { n: entries.length }) }))));
+}
+
 async function initHome() {
+  renderShelves().catch((err) => console.error("[app] shelves failed", err));
   loadStars().then((m) => { try { m?.startStars($("#starfield")); } catch (err) { console.error(err); } });
   const [ringMod, items] = await Promise.all([loadRing(), ringItems()]);
   const host = $("#ring");

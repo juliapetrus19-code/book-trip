@@ -4,7 +4,7 @@ import { HttpError, ID_RE, clientIp, readJson, route } from "../_lib/http.js";
 import { hit } from "../_lib/ratelimit.js";
 import { soft } from "../_lib/store.js";
 
-export const EVENTS = new Set(["search", "book_open", "paywall_shown", "checkout_start", "signup_start", "signup_done", "waitlist_join", "install"]);
+export const EVENTS = new Set(["search", "book_open", "paywall_shown", "checkout_start", "signup_start", "signup_done", "waitlist_join", "install", "quiz_done"]);
 const KEEP_DAYS = 400;
 
 export const dayKey = (now = new Date()) => `ev:${now.toISOString().slice(0, 10)}`;

@@ -245,7 +245,8 @@ export const CATEGORIES = ["ukrainian", ...CATEGORY_RULES.map(([k]) => k), "clas
 export function categoriesOf(entry) {
   const g = String((entry && entry.genre && (entry.genre.en || Object.values(entry.genre)[0])) || "").toLowerCase();
   const out = [];
-  if (/[іїєґ]/i.test(String(entry?.originalTitle || ""))) out.push("ukrainian");
+  // Every Cyrillic original title in the library is Ukrainian literature (no Russian originals are bundled).
+  if (/[а-яіїєґ]/i.test(String(entry?.originalTitle || ""))) out.push("ukrainian");
   for (const [key, re] of CATEGORY_RULES) if (re.test(g)) out.push(key);
   if (!out.length || (out.length === 1 && out[0] === "ukrainian")) out.push("classic");
   return out;
@@ -819,7 +820,7 @@ export function validContact(value) {
   return /^@?[A-Za-z0-9_]{5,32}$/.test(v) || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
 }
 
-export const EVENTS = ["search", "book_open", "paywall_shown", "checkout_start", "signup_start", "signup_done", "waitlist_join", "install"];
+export const EVENTS = ["search", "book_open", "paywall_shown", "checkout_start", "signup_start", "signup_done", "waitlist_join", "install", "quiz_done"];
 
 /** Funnel event, fire-and-forget (sendBeacon when possible). Never throws. */
 export function sendEvent(name, id) {

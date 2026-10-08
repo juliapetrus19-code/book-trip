@@ -49,6 +49,7 @@ const SECTIONS = [
   { name: "characters", part: "characters" },
   { name: "similar", part: "overview" },
   { name: "film", part: "film" },
+  { name: "quiz", part: "characters" },
 ];
 
 const str = (v) => (typeof v === "string" ? v.trim() : typeof v === "number" && Number.isFinite(v) ? String(v) : "");
@@ -1191,13 +1192,21 @@ export function renderBook(root, bookIn, opts = {}) {
       return el("li", {}, btn);
     }));
     s.body.replaceChildren(list);
-    loadCovers().then((covers) => {
+    Promise.all([loadCovers(), loadApi().then((m) => (m?.loadCatalog ? m.loadCatalog().then((c) => ({ m, c })) : null)).catch(() => null)]).then(([covers, lib]) => {
       if (disposed) return;
       for (const slot of coverSlots) {
         if (!slot.node.isConnected) continue;
         try {
-          const cover = covers?.coverFromString ? covers.coverFromString(slot.title) : null;
+          // A book from our own library keeps its real cover and gets an "In BookTrip" badge.
+          const hit = lib ? lib.m.rankCatalog(lib.c, slot.title, { lang: book.lang, limit: 1, min: 0.9 })[0] : null;
+          const own = hit && hit.id !== book.id ? hit : null;
+          const cover = own?.cover || (covers?.coverFromString ? covers.coverFromString(slot.title) : null);
           if (covers?.miniCoverSVG && cover) slot.node.innerHTML = covers.miniCoverSVG(cover, { title: slot.title, w: 64, h: 96 });
+          if (own) {
+            const btn = slot.node.closest(".bk-sim");
+            btn?.classList.add("is-own");
+            btn?.querySelector(".bk-sim-title")?.after(el("span", { class: "bk-sim-own", text: T("similar.inLibrary") }));
+          }
         } catch (err) { console.warn("[book] mini cover failed", err); }
       }
     });
@@ -1306,10 +1315,11 @@ export function renderBook(root, bookIn, opts = {}) {
     })) : null;
     film.sceneList = sceneList;
 
-    videoPanel = el("div", { class: "bk-video glass" });
+    // The premium AI-video offer only appears once it can really be used (no dead-end button).
+    videoPanel = health.video ? el("div", { class: "bk-video glass" }) : null;
     const teaserBelow = teaser ? el("p", { class: "bk-teaser-below", text: teaser }) : null;
-    s.body.replaceChildren(stage, teaserBelow || "", sceneList || "", videoPanel);
-    renderVideoPanel();
+    s.body.replaceChildren(stage, teaserBelow || "", sceneList || "", videoPanel || "");
+    if (videoPanel) renderVideoPanel();
     fillCast(cast, stage);
   }
   const filmSig = () => json([partStatus(book, "film"), book.film, partError(book, "film"), arr(book.characters).map((c) => [c?.id, c?.name, c?.appearance])]);
@@ -1751,28 +1761,180 @@ export function renderBook(root, bookIn, opts = {}) {
   }
 
   // =============================================================================================
+  // QUIZ — "Test yourself": questions built from the book's own characters and glossary
+  // =============================================================================================
+
+  const QUIZ_LEN = 6;
+  const quiz = { list: [], i: 0, score: 0, picked: -1 };
+
+  const shuffle = (list) => {
+    const a = list.slice();
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  };
+  const escRe = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const clip = (t, n) => (t.length <= n ? t : `${t.slice(0, n).replace(/\s+\S*$/, "")}…`);
+
+  /** Hide a character's name (and its inflected forms) inside their own description. */
+  function maskName(text, name) {
+    let out = text;
+    for (const w of name.split(/[\s'’ʼ-]+/).filter((x) => x.length >= 3)) {
+      const stem = w.slice(0, Math.max(3, w.length - 2));
+      out = out.replace(new RegExp(`(?<!\\p{L})${escRe(stem)}\\p{L}*`, "giu"), "…");
+    }
+    return out;
+  }
+
+  /** Up to QUIZ_LEN questions: "who is this?" from character descriptions, "what does X mean?" from terms. */
+  function buildQuiz() {
+    const chars = currentChars().map((c) => ({ name: charName(c), text: str(c.description) })).filter((c) => c.name && c.text.length > 40);
+    const terms = arr(book.terms).filter((t) => isObj(t) && str(t.term) && str(t.definition)).map((t) => ({ term: str(t.term), def: str(t.definition) }));
+    const who = chars.length >= 4 ? shuffle(chars).slice(0, 3).map((c) => {
+      const others = shuffle(chars.filter((o) => o.name !== c.name)).slice(0, 3).map((o) => o.name);
+      const options = shuffle([c.name, ...others]);
+      return { kind: "who", prompt: T("quiz.qWho"), quote: clip(maskName(c.text, c.name), 260), options, answer: options.indexOf(c.name) };
+    }) : [];
+    const what = terms.length >= 4 ? shuffle(terms).slice(0, QUIZ_LEN - who.length).map((t) => {
+      const others = shuffle(terms.filter((o) => o.term !== t.term)).slice(0, 3).map((o) => clip(o.def, 120));
+      const right = clip(t.def, 120);
+      const options = shuffle([right, ...others]);
+      return { kind: "what", prompt: T("quiz.qTerm", { term: t.term }), quote: "", options, answer: options.indexOf(right) };
+    }) : [];
+    const list = [];
+    while (who.length || what.length) { if (who.length) list.push(who.shift()); if (what.length) list.push(what.shift()); }
+    return list.slice(0, QUIZ_LEN);
+  }
+
+  function renderQuiz() {
+    const s = secs.quiz;
+    sigs.quiz = quizSig();
+    setHead(s, T("quiz.title"), T("quiz.lead"));
+    s.tools.replaceChildren();
+    quiz.list = buildQuiz();
+    quiz.i = 0; quiz.score = 0; quiz.picked = -1;
+    s.node.hidden = quiz.list.length < 4;
+    if (s.node.hidden) { s.body.replaceChildren(); return; }
+    drawQuiz();
+  }
+  const quizSig = () => json([partStatus(book, "characters"), partStatus(book, "overview"), arr(book.characters).length, arr(book.terms).length]);
+
+  function drawQuiz(focus = false) {
+    const s = secs.quiz;
+    const total = quiz.list.length;
+    if (quiz.i >= total) { drawQuizResult(); return; }
+    const q = quiz.list[quiz.i];
+    const answered = quiz.picked >= 0;
+    const options = el("ol", { class: "bk-quiz-options" }, q.options.map((text, k) => {
+      const state = !answered ? "" : k === q.answer ? " is-right" : k === quiz.picked ? " is-wrong" : " is-dim";
+      const b = el("button", { type: "button", class: `bk-quiz-opt${state}`, disabled: answered ? "" : null },
+        el("span", { class: "bk-quiz-letter", "aria-hidden": "true", text: "ABCD"[k] }),
+        el("span", { class: "bk-quiz-text", text }));
+      if (!answered) b.addEventListener("click", () => {
+        quiz.picked = k;
+        if (k === q.answer) quiz.score++;
+        drawQuiz(true);
+      });
+      return el("li", {}, b);
+    }));
+    const next = el("button", { type: "button", class: "btn-glow bk-quiz-next" },
+      el("span", { text: quiz.i + 1 < total ? T("quiz.next") : T("quiz.finish") }));
+    next.addEventListener("click", () => { quiz.i++; quiz.picked = -1; drawQuiz(true); });
+    const verdict = answered
+      ? el("p", { class: `bk-quiz-verdict ${quiz.picked === q.answer ? "is-right" : "is-wrong"}`, role: "status" },
+        icon(quiz.picked === q.answer ? "check" : "info"), el("span", { text: quiz.picked === q.answer ? T("quiz.right") : T("quiz.wrong") }))
+      : null;
+    const card = el("div", { class: "bk-quiz glass" },
+      el("div", { class: "bk-quiz-top" },
+        el("span", { class: "bk-quiz-step", text: T("quiz.progress", { n: quiz.i + 1, total }) }),
+        el("span", { class: "bk-quiz-score", text: T("quiz.scoreSoFar", { score: quiz.score }) })),
+      el("div", { class: "bk-quiz-bar", "aria-hidden": "true" }, el("span", { style: `width:${Math.round(((quiz.i + (answered ? 1 : 0)) / total) * 100)}%` })),
+      el("h3", { class: "bk-quiz-q", tabindex: "-1", text: q.prompt }),
+      q.quote ? el("blockquote", { class: "bk-quiz-quote", text: q.quote }) : null,
+      options,
+      answered ? el("div", { class: "bk-quiz-foot" }, verdict, next) : null);
+    s.body.replaceChildren(card);
+    if (focus) (answered ? next : card.querySelector(".bk-quiz-q"))?.focus({ preventScroll: true });
+  }
+
+  function drawQuizResult() {
+    const s = secs.quiz;
+    const total = quiz.list.length;
+    const ratio = quiz.score / total;
+    const tier = ratio >= 0.83 ? "great" : ratio >= 0.5 ? "good" : "low";
+    const again = el("button", { type: "button", class: "btn-glow" }, icon("restart"), el("span", { text: T("quiz.again") }));
+    again.addEventListener("click", () => { renderQuiz(); secs.quiz.body.querySelector(".bk-quiz-q")?.focus({ preventScroll: true }); });
+    const shareBtn = el("button", { type: "button", class: "btn-ghost" }, icon("share"), el("span", { text: T("quiz.share") }));
+    shareBtn.addEventListener("click", () => shareQuiz(quiz.score, total));
+    const reread = el("button", { type: "button", class: "btn-ghost" }, icon("book"), el("span", { text: T("quiz.reread") }));
+    reread.addEventListener("click", () => document.getElementById("bk-summary")?.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth" }));
+    const card = el("div", { class: `bk-quiz glass is-result is-${tier}` },
+      el("p", { class: "bk-quiz-big", tabindex: "-1" }, el("b", { text: String(quiz.score) }), el("span", { text: ` / ${total}` })),
+      el("h3", { class: "bk-quiz-q", text: T(`quiz.${tier}`) }),
+      el("div", { class: "bk-quiz-actions" }, again, shareBtn, tier === "great" ? null : reread));
+    s.body.replaceChildren(card);
+    card.querySelector(".bk-quiz-big")?.focus({ preventScroll: true });
+    loadApi().then((m) => m?.sendEvent?.("quiz_done", str(book.id)));
+  }
+
+  async function shareQuiz(score, total) {
+    const title = str(book.title) || "BookTrip";
+    const url = str(opts.shareUrl) || `${location.origin}/book/${enc(str(book.id))}`;
+    const text = T("quiz.shareText", { title, score, total });
+    const data = { title: `${title} — BookTrip`, text, url };
+    if (navigator.share && (!navigator.canShare || navigator.canShare(data))) {
+      try { await navigator.share(data); return; } catch (err) { if (err?.name === "AbortError") return; }
+    }
+    try { await navigator.clipboard.writeText(`${text} ${url}`); notify(T("quiz.copied")); } catch { notify(url); }
+  }
+
+  // =============================================================================================
   // FOOTER
   // =============================================================================================
 
   function renderFooter() {
-    const more = el("button", { type: "button", class: "btn-glow bk-more" }, icon("search"), el("span", { text: T("footer.more") }));
+    const more = el("button", { type: "button", class: "btn-ghost bk-more" }, icon("search"), el("span", { text: T("footer.more") }));
     more.addEventListener("click", () => { stopReading(); opts.onBack?.(); });
+    const next = el("ul", { class: "bk-next", "aria-label": T("footer.nextLabel") });
     footer.replaceChildren(el("div", { class: "bk-wrap" },
       el("div", { class: "bk-foot-card glass" },
         el("span", { class: "bk-foot-ico", html: ICON.book }),
         el("div", { class: "bk-foot-copy" },
           el("h2", { class: "bk-foot-title", text: T("footer.title") }),
-          el("p", { class: "bk-foot-lead", text: T("footer.lead") })),
-        typeof opts.onBack === "function" ? more : null),
+          el("p", { class: "bk-foot-lead", text: T("footer.leadNext") })),
+        typeof opts.onBack === "function" ? more : null,
+        next),
       el("p", { class: "bk-foot-note" }, icon("info"), el("span", { text: T("footer.disclaimer") }))));
+    fillNextBooks(next);
+  }
+
+  /** Three other library books, preferring the same shelf (Ukrainian classics, fantasy…). */
+  async function fillNextBooks(list) {
+    const [mod, coversMod] = await Promise.all([loadApi(), loadCovers()]);
+    if (disposed || !mod?.loadCatalog || !list.isConnected) return;
+    const catalog = await mod.loadCatalog().catch(() => []);
+    const self = catalog.find((e) => e.id === book.id);
+    const mine = new Set(self && mod.categoriesOf ? mod.categoriesOf(self) : []);
+    const others = catalog.filter((e) => e.id !== book.id).map((e) => ({ e, r: Math.random() + (mod.categoriesOf?.(e) || []).filter((c) => mine.has(c) && c !== "classic").length }));
+    others.sort((a, b) => b.r - a.r);
+    const picks = others.slice(0, 3).map(({ e }) => mod.localizeEntry(e, book.lang || "uk"));
+    if (!picks.length) { list.hidden = true; return; }
+    list.replaceChildren(...picks.map((it) => {
+      const cover = el("span", { class: "bk-next-cover", "aria-hidden": "true" });
+      try { if (coversMod?.miniCoverSVG && it.cover) cover.innerHTML = coversMod.miniCoverSVG(it.cover, { title: it.title, w: 64, h: 96 }); } catch { /* plain tile */ }
+      return el("li", {}, el("a", { class: "bk-next-card", href: `/book/${enc(it.id)}` },
+        cover,
+        el("span", { class: "bk-next-text" },
+          el("span", { class: "bk-next-title", text: it.title }),
+          el("span", { class: "bk-next-author", text: it.author || "" }))));
+    }));
   }
 
   // =============================================================================================
   // render / update / dispose
   // =============================================================================================
 
-  const RENDER = { summary: renderSummary, terms: renderTerms, characters: renderChars, similar: renderSimilar, film: renderFilmSection };
-  const SIG = { summary: summarySig, terms: termsSig, characters: charsSig, similar: similarSig, film: filmSig };
+  const RENDER = { summary: renderSummary, terms: renderTerms, characters: renderChars, similar: renderSimilar, film: renderFilmSection, quiz: renderQuiz };
+  const SIG = { summary: summarySig, terms: termsSig, characters: charsSig, similar: similarSig, film: filmSig, quiz: quizSig };
 
   function safely(name, fn) {
     try { fn(); } catch (err) {

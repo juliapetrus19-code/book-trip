@@ -620,6 +620,37 @@ await check("anime look: drawn portraits fade in, anime film plays, Anime/3D swi
   await close(page);
 });
 
+await check("home shelves: book of the day, school curriculum and genre rows open books", async () => {
+  const page = await open("", { lang: "uk" });
+  await waitFor(page, () => document.querySelector("#home-shelves:not([hidden]) .home-daily .home-daily-title"), null, { what: "book of the day" });
+  const shelves = await page.locator(".home-shelf-title").allTextContents();
+  if (!shelves.length || !/Шкільна програма/.test(shelves[0])) throw new Error(`shelves: ${shelves}`);
+  const school = await page.locator(".home-shelf").first().locator(".bt-card").count();
+  if (school < 8) throw new Error(`school shelf has ${school} books`);
+  await page.locator(".home-shelf").first().locator(".bt-card").first().click();
+  await waitFor(page, () => location.pathname.startsWith("/book/") && document.querySelector(".bk-hero"), null, { what: "book from shelf" });
+  if (page.errors.length) throw new Error(page.errors.join("\n"));
+  await close(page);
+});
+
+await check("quiz: six questions from characters and terms, score and retry", async () => {
+  const page = await open("book/the-hobbit", { lang: "uk" });
+  await bookShown(page, BOOKS["the-hobbit"].i18n.uk.title);
+  await page.locator('.bk-tab[data-target="quiz"]').click();
+  await waitFor(page, () => document.querySelector("#bk-quiz .bk-quiz-opt"), null, { what: "quiz options" });
+  for (let n = 0; n < 6; n++) {
+    await page.locator("#bk-quiz .bk-quiz-opt:not([disabled])").first().click();
+    await waitFor(page, () => document.querySelector("#bk-quiz .bk-quiz-opt.is-right"), null, { what: `answer ${n + 1} marked` });
+    await page.locator("#bk-quiz .bk-quiz-next").click();
+  }
+  const big = await page.locator("#bk-quiz .bk-quiz-big").textContent();
+  if (!/^\d \/ 6$/.test(big.trim())) throw new Error(`score: ${big}`);
+  await page.locator("#bk-quiz .is-result .btn-glow").click();
+  await waitFor(page, () => document.querySelector("#bk-quiz .bk-quiz-opt:not([disabled])"), null, { what: "quiz restarted" });
+  if (page.errors.length) throw new Error(page.errors.join("\n"));
+  await close(page);
+});
+
 await check("live (mocked): search → resolve → overview, characters, film stream in", async () => {
   const calls = [];
   const page = await open("", { lang: "ru", routes: liveRoutes({ calls }) });
